@@ -1,7 +1,0 @@
-\contentsline {section}{\numberline {1}你好中国}{1}%
-\contentsline {subsection}{\numberline {1.1}Hello Beijing}{1}%
-\contentsline {subsection}{\numberline {1.2}Hello Beijing}{1}%
-\contentsline {subsubsection}{\numberline {1.2.1}Hello Beijing}{1}%
-\contentsline {paragraph}{Tian'anmen Square}{1}%
-\contentsline {subparagraph}{Chairman Mao}{1}%
-\contentsline {section}{\numberline {2}你好中国}{1}%
