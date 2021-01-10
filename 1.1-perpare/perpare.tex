@@ -1,11 +1,14 @@
-\documentclass[UTF8]{ctexart}
+\documentclass[UTF8, 12pt]{ctexart}
+\usepackage{color}
 \usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
 \geometry{papersize={21cm,29.7cm}}
 \geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
 \usepackage{indentfirst}
 \setlength{\parindent}{2.45em}
 \usepackage{setspace}
-\onehalfspacing
+\renewcommand{\baselinestretch}{1.5}
 \author{Didnelpsun}
 \title{考研数学准备}
 \begin{document}
@@ -18,8 +21,20 @@
 \setcounter{page}{1}
 \section{函数的概念与特性}
 \subsection{函数}
+\begin{itemize}
+    \item 函数即$y=f(x),x\in D$，x为自变量，y为因变量，D为定义域
+    \item 一个x对应一个y，一个y可能对应多个x。
+\end{itemize}
 \subsection{反函数}
+$y=f(x)$，定义域为$D$，值域为$R$，若对于每一个$y\in R$，必然存在$x\in D$使$y=f(x)$成立，则可以定义一个新函数$x=\psi (y)$，这个函数就是$y=f(x)$的\textbf{反函数}，一般记作$x=f^{-1}(y)$，其定义域为$R$，值域为$D$，对于反函数，原来的函数称为\textbf{直接函数}。
+\begin{enumerate}
+    \item \textcolor{red}{严格单调}函数必然有反函数，即函数导数恒正或恒负必然有反函数。
+    \item $x=f^{-1}(y)$与$y=f(x)$在同一坐标系中完全重合
+    \item $y=f^{-1}(x)$与$y=f(x)$关于$y=x$对称。
+    \item $f[f^{-1}(x)]$或$f[\psi (x)]$变为x，称为湮灭。
+\end{enumerate}
 \subsection{复合函数}
+设$y=f(u)$的定义域为$D_1$，函数$u=g(x)$在$D$上有定义且$g(D)\in D$，则由$y=f[g(x)],x\in D$确定的函数称为由函数$u=g(x)$和函数$y=f(u)$构成的复合函数，定义域为D，u为中间变量。
 \subsection{有界性}
 \subsection{单调性}
 \subsection{奇偶性}
@@ -27,24 +42,18 @@
 \section{函数的图像}
 \subsection{直角坐标系图像}
 \subsubsection{常见图像}
-1. 基本初等函数与初等函数
-
-2.分段函数
+\paragraph{基本初等函数与初等函数}
+\paragraph{分段函数}
 \subsubsection{图像变换}
-1.平移变换
-
-2.堆成变换
-
-3.伸缩变换
+\paragraph{平移变换}
+\paragraph{对称变换}
+\paragraph{伸缩变换}
 \subsection{极坐标系图像}
 \subsubsection{描点法}
-1.心形线（外摆线）
-
-2.玫瑰线
-
-3.阿基米德螺线
-
-4.伯努利双扭线
+\paragraph{心形线（外摆线）}
+\paragraph{玫瑰线}
+\paragraph{阿基米德螺线}
+\paragraph{伯努利双扭线}
 \subsubsection{直角坐标系下画极坐标图像}
 \subsection{参数法}
 \subsubsection{摆线（平摆线）}
