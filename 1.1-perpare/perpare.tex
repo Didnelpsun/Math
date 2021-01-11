@@ -1,5 +1,11 @@
 \documentclass[UTF8, 12pt]{ctexart}
 \usepackage{color}
+% 颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -26,19 +32,100 @@
     \item 一个x对应一个y，一个y可能对应多个x。
 \end{itemize}
 \subsection{反函数}
-$y=f(x)$，定义域为$D$，值域为$R$，若对于每一个$y\in R$，必然存在$x\in D$使$y=f(x)$成立，则可以定义一个新函数$x=\psi (y)$，这个函数就是$y=f(x)$的\textbf{反函数}，一般记作$x=f^{-1}(y)$，其定义域为$R$，值域为$D$，对于反函数，原来的函数称为\textbf{直接函数}。
+$y=f(x)$，定义域为$D$，值域为$R$，若对于每一个$y\in R$，必然存在$x\in D$使$y=f(x)$成立，则可以定义一个新函数$x=\psi(y)$，这个函数就是$y=f(x)$的\textbf{反函数}，一般记作$x=f^{-1}(y)$，其定义域为$R$，值域为$D$，对于反函数，原来的函数称为\textbf{直接函数}。
 \begin{enumerate}
     \item \textcolor{red}{严格单调}函数必然有反函数，即函数导数恒正或恒负必然有反函数。
     \item $x=f^{-1}(y)$与$y=f(x)$在同一坐标系中完全重合
     \item $y=f^{-1}(x)$与$y=f(x)$关于$y=x$对称。
-    \item $f[f^{-1}(x)]$或$f[\psi (x)]$变为x，称为湮灭。
+    \item $f[f^{-1}(x)]$或$f[\psi(x)]$变为x，称为湮灭。
 \end{enumerate}
 \subsection{复合函数}
 设$y=f(u)$的定义域为$D_1$，函数$u=g(x)$在$D$上有定义且$g(D)\in D$，则由$y=f[g(x)],x\in D$确定的函数称为由函数$u=g(x)$和函数$y=f(u)$构成的复合函数，定义域为D，u为中间变量。
 
-\textbf{例题：}设$f(x)=x^2$，$f[\psi (x)]=-x^2+2x+3$，且$\psi (x)\geq 0$，求$\psi (x)$以及定义域与值域。
+\textbf{例题1：}设$f(x)=x^2$，$f[\psi(x)]=-x^2+2x+3$，且$\psi(x)\geqslant 0$，求$\psi(x)$以及定义域与值域。
 
+广义化：$\because f(x)=x^2$，$\therefore f[\psi(x)]=\psi^2(x)=-x^2+2x+3$
 
+又$\because\psi(x)\geqslant 0$， $\therefore\sqrt{\psi^2(x)}=\sqrt{-x^2+2x+3}=\psi(x)\geqslant 0$
+
+$\therefore x\in[-1,3]$
+
+$\therefore\frac{d\psi(x)}{dx}=(-x^2+2x+3)'=-2x+2=0$
+
+$\therefore x=1$，驻点为1
+
+又$\because(-x^2+2x+3)''=-2<0$
+
+$\therefore$驻点为1时为最大值点，最大值为$\psi(1)=2$
+
+又$\because\psi(-1)=\psi(3)=0$，$\therefore$最小值为0
+
+$\therefore\psi(x)\in[0,2]$
+
+\textcolor{orange}{注意}：$\sqrt{-x^2+2x+3}$为什么最值与$-x^2+2x+3$一致？
+
+\textbf{例题2：}求函数$y=f(x)=\ln(x+\sqrt{x^2+1})$的反函数$f^{-1}(x)$的表达式及其定义域
+
+首先研究$f(x)$本身，因为$\ln(x)$的定义域必然要求大于0，而任意实数x都有下面不等式成立：
+
+$x+\sqrt{x^2+1}>x+\vert x\vert \geqslant 0$，所以$x\in R$。
+
+而研究其奇偶性：
+
+$f(-x)=\ln(-x+\sqrt{x^2+1})=\ln(\frac{1}{\sqrt{x^2+1}+x})=-\ln(x+\sqrt{x^2+1})=-f(x)$
+
+所以该函数为奇函数。
+
+对其求单调性，即通过链式法则求导：
+
+$\frac{dy}{dx}=\frac{1}{x+\sqrt{x^2+1}}\cdot (1+\frac{2x}{2\sqrt{x^2+1}})=\frac{1}{\sqrt{x^2+1}}>0$
+
+所以该函数严格单调增。
+
+然后求$y$的反函数。
+
+$$
+\begin{aligned}
+    \because y&=\ln(x+\sqrt{x^2+1}) \\
+    e^y&=e^{\ln(x+\sqrt{x^2+1})} \\
+    &=x+\sqrt{x^2+1}
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+    \because -y&=-\ln(x+\sqrt{x^2+1}) \\
+    &=\ln(\frac{1}{x+\sqrt{x^2+1}}) \\
+    &=\ln(\sqrt{x^2+1}-x) \\
+    e^{-y}&=\sqrt{x^2+1}-x
+\end{aligned}
+$$
+
+$$
+\begin{aligned}
+    \therefore e^y-e^{-y}&=2x \\
+    x&=\frac{e^y-e^{-y}}{2}
+\end{aligned}
+$$
+
+解出了用x表示y的函数表达$x=f^{-1}(y)$，即反函数，则$f^{-1}(x)=\frac{e^x-e^{-x}}{2}$
+
+这种曲线为一种常见曲线：
+
+\begin{itemize}
+    \item $\frac{e^x-e^{-x}}{2}$：双曲正弦。
+    \item $\frac{e^x+e^{-x}}{2}$：双曲余弦。（为一种悬链线）
+    \item $\ln(x+\sqrt{x^2+1})$：反双曲正弦。
+    \item $\ln(x+\sqrt{x^2-1})$：反双曲余弦。
+\end{itemize}
+
+\textbf{例题3：}设$
+f(x)=\left\{
+\begin{array}{rcl}
+\ln\sqrt{x} &  & {x\geqslant 1}\\
+2x-1 & & {x< 1}
+\end{array} \right. 
+$，求$f[f(x)]$
 
 \subsection{有界性}
 \subsection{单调性}
