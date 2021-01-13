@@ -6,8 +6,8 @@
 % 因为所以
 \usepackage{amsmath}
 % 数学公式
-\setcounter{tocdepth}{4}
-\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
 % 设置四级目录
 \usepackage{geometry}
 \geometry{papersize={21cm,29.7cm}}
@@ -147,11 +147,11 @@ $，求$f[f(x)]$
     \right.
 $
 
-然后画图：\\
+然后画图：\bigskip
 
 \begin{tikzpicture}[domain=-1:9.5]
     \draw[-latex](-1.5,0) -- (9.5,0) node[below]{$x-axis$};
-    \draw[-latex](0,-1.5) -- (0, 1.5) node[above]{$y-aixs$};
+    \draw[-latex](0,-1.5) -- (0, 1.5) node[above]{$y-axis$};
     \draw[very thin, gray, densely dashed](-1.5,1.5)grid(9.5,-1.5);
     \draw [black, thick](-0.25,-1.5) -- (1,1);
     \draw[black, thick,domain=1:9.5] plot (\x, {ln(sqrt(\x))});
@@ -209,7 +209,7 @@ $
 
 \subsection{周期性}
 
-$f(x+T)=f(x)$，其中T为周期。 \\
+$f(x+T)=f(x)$，其中T为周期。 \bigskip
 
 \textcolor{red}{重要结论：}
 
@@ -226,28 +226,128 @@ $f(x+T)=f(x)$，其中T为周期。 \\
 \section{函数的图像}
 \subsection{直角坐标系图像}
 \subsubsection{常见图像}
-\paragraph{基本初等函数与初等函数}
+\paragraph{基本初等函数与初等函数} \leavevmode \bigskip
 
 基本初等函数包括：常数函数、幂函数、指数函数、对数函数、三角函数、反三角函数。
 
-1. 常数函数：$y=A$，A为常数，图像平行于x轴：
+\subparagraph{常数函数} \leavevmode \bigskip
+
+$y=A$，A为常数，图像平行于x轴：
 
 \begin{tikzpicture}[domain=-1:5]
     \draw[-latex](-1,0) -- (5,0) node[below]{$x-axis$};
-    \draw[-latex](0,-0.5) -- (0, 1.5) node[above]{$y-aixs$};
+    \draw[-latex](0,-0.5) -- (0, 1.5) node[above]{$y-axis$};
     \draw[black, thick](-1,1) -- (5,1) node[below]{$y=A$};
 \end{tikzpicture}
 
-2. 幂函数：$y=x^{\mu}$，$\mu$为实数，当$x>0$，$y=x^{\mu}$都有定义：
+\subparagraph{幂函数} \leavevmode \bigskip
+
+$y=x^{\mu}$，$\mu$为实数，当$x>0$，$y=x^{\mu}$都有定义：
 
 \begin{tikzpicture}[scale=0.9]
     \draw[-latex](-2,0) -- (2,0) node[below]{$x-axis$};
-    \draw[-latex](0,-2) -- (0,4) node[above]{$y-aixs$};
-    \draw[black, thick,domain=0.3:2] plot (\x,1/\x) node[below]{$\mu =-1$};
-    \draw[black, thick,domain=-2:-0.5] plot (\x,1/\x) node[above]{$\mu =-1$};
-    \draw[black, thick,domain=0.01:2] plot (\x, {sqrt(\x)}) node[below]{$\mu =\frac{1}{2}$};
-    \draw[black, thick,domain=-2:2] plot (\x,\x) node[above]{$\mu =1$};
-    \draw[black, thick,domain=-2:2] plot (\x, {\x*\x}) node[above]{$\mu =2$};
+    \draw[-latex](0,-2) -- (0,4) node[above]{$y-axis$};
+    \draw[black, thick, domain=0.3:2] plot (\x,1/\x) node[below]{$\mu =-1$};
+    \draw[black, thick, domain=-2:-0.5] plot (\x,1/\x) node[above]{$\mu =-1$};
+    \draw[black, thick, domain=0.01:2] plot (\x, {sqrt(\x)}) node[below]{$\mu =\frac{1}{2}$};
+    \draw[black, thick, domain=-2:2] plot (\x,\x) node[above]{$\mu =1$};
+    \draw[black, thick, domain=-2:2] plot (\x, {\x*\x}) node[above]{$\mu =2$};
+\end{tikzpicture}
+
+所以对于幂函数，可以根据不同幂下相同单调性来研究最值：
+
+\begin{enumerate}
+    \item $\sqrt{u}，\sqrt[3]{u}$可以使用$u$来研究。
+    \item $\vert u\vert$可以使用$u^2$来研究。
+    \item $\frac{1}{u},u>0$可以使用$u$来研究，但是最值相反。
+    \item $u_1u_2...u_n$可以使用$\sum_{i=1}^{n}\ln u_i$来研究。
+\end{enumerate}
+
+\subparagraph{指数函数} \leavevmode \bigskip
+
+$y=a^x(a>0,a\neq 1)$：
+
+\begin{tikzpicture}[scale=0.9]
+    \draw[-latex](-2,0) -- (2,0) node[below]{$x-axis$};
+    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y-axis$};
+    \draw[black, thick, domain=-2:2] plot (\x,{pow(1/2,\x)}) node at (-1.5,2){$0<a<1$};
+    \draw[black, thick, domain=-2:2] plot (\x,{pow(2,\x)}) node at (1.5,2){$a>1$};
+\end{tikzpicture}
+
+指数函数具有如下性质：
+
+\begin{enumerate}
+    \item 特殊函数值：$a^0=1$。
+    \item 定义域：$(-\infty, +\infty)$，值域：$(0,+\infty)$。
+    \item 单调性：$a>1$，$y=a^x$单调增，$0<a<1$，$y=a^x$单调减。
+    \item 常用指数函数：$y=e^x$。
+    \item 极限：$\lim_{x\to -\infty}e^x=0$，$\lim_{x\to +\infty}e^x=+\infty$。
+\end{enumerate}
+
+\subparagraph{对数函数} \leavevmode \bigskip
+
+$y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
+
+\begin{tikzpicture}[scale=0.9]
+    \draw[-latex](-0.5,0) -- (4,0) node[below]{$x-axis$};
+    \draw[-latex](0,-2) -- (0,2) node[above]{$y-axis$};
+    \draw[black, thick, domain=0.2:4] plot (\x,{ln(1/\x)}) node at (e,1.5){$0<a<1$};
+    \draw[black, thick, domain=0.2:4] plot (\x,{ln(\x)}) node at (e,-1.5){$a>1$};
+\end{tikzpicture}
+
+对数函数具有如下性质：
+
+\begin{enumerate}
+    \item 特殊函数值：$\log_a1=0$，$log_aa=1,\ln 1=0,\ln e=1$。
+    \item 定义域：$(0, +\infty)$，值域：$(-\infty,+\infty)$。
+    \item 单调性：$a>1$，$y=\log_ax$单调增，$0<a<1$，$y=\log_ax$单调减。
+    \item 常用对数函数：$y=\ln x$，$e=2.71828...$。
+    \item 极限：$\lim_{x\to 0^+}\log_a x=-\infty$，$\lim_{x\to +\infty}\log_ax=+\infty$。
+    \item 常用公式：$x=e^{\ln x}$，$u^v=e^{\ln u^v}=e^{v\ln u}(x>0,u>0)$
+\end{enumerate}
+
+\subparagraph{三角函数} \leavevmode \bigskip
+
+正弦函数：
+
+\begin{tikzpicture}[scale=0.9]
+    \draw[-latex](-5,0) -- (5,0) node[below]{$x-axis$};
+    \draw[-latex](0,-1.5) -- (0,2) node[above]{$y-axis$};
+    \draw[black, thick, domain=-5:5] plot (\x,{sin(\x r)}) node at (0,1.5){$\sin(x)$};
+    \draw [black, densely dashed](-5,1) -- (5,1) node[below]{$x=1$};
+    \draw [black, densely dashed](-5,-1) -- (5,-1) node[below]{$x=-1$};
+    \draw [black, densely dashed](-pi/2*3,1) -- (-pi/2*3,0) node[below]{$-\frac{3\pi}{2}$};
+    \draw [black, densely dashed](-pi,0) -- (-pi,0) node[below]{$-\pi$};
+    \draw [black, densely dashed](-pi/2,-1) -- (-pi/2,0) node[above]{$-\frac{\pi}{2}$};
+    \draw [black, densely dashed](0,0) -- (0,0) node[above]{$0$};
+    \draw [black, densely dashed](pi/2,1) -- (pi/2,0) node[below]{$\frac{\pi}{2}$};
+    \draw [black, densely dashed](pi,0) -- (pi,0) node[below]{$\pi$};
+\end{tikzpicture}
+
+余弦函数：
+
+\begin{tikzpicture}[scale=0.9]
+    \draw[-latex](-5,0) -- (5,0) node[below]{$x-axis$};
+    \draw[-latex](0,-1.5) -- (0,2) node[above]{$y-axis$};
+    \draw[black, thick, domain=-5:5] plot (\x,{cos(\x r)}) node at (0,1.5){$\sin(x)$};
+    \draw [black, densely dashed](-5,1) -- (5,1) node[below]{$x=1$};
+    \draw [black, densely dashed](-5,-1) -- (5,-1) node[below]{$x=-1$};
+    \draw [black, densely dashed](-pi/2*3,0) -- (-pi/2*3,0) node[below]{$-\frac{3\pi}{2}$};
+    \draw [black, densely dashed](-pi,-1) -- (-pi,0) node[above]{$-\pi$};
+    \draw [black, densely dashed](-pi/2,0) -- (-pi/2,0) node[below]{$-\frac{\pi}{2}$};
+    \draw [black, densely dashed](0,1) -- (0,0) node[below]{$0$};
+    \draw [black, densely dashed](pi/2,0) -- (pi/2,0) node[below]{$\frac{\pi}{2}$};
+    \draw [black, densely dashed](pi,-1) -- (pi,0) node[above]{$\pi$};
+\end{tikzpicture}
+
+\subparagraph{反三角函数} \leavevmode \bigskip
+
+反正弦函数：
+
+\begin{tikzpicture}
+    \draw[-latex](-1.5,0) -- (1.5,0) node[below]{$x-axis$};
+    \draw[-latex](0,-2) -- (0,2) node[above]{$y-axis$};
+    \draw[black, thick, domain=-5:5] plot (\x,{arcsin(\x r)}) node at (1,pi/2){$\sin(x)$};
 \end{tikzpicture}
 
 \paragraph{分段函数}
