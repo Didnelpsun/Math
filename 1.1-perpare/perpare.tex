@@ -347,7 +347,8 @@ $y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
 \begin{tikzpicture}
     \draw[-latex](-1.5,0) -- (1.5,0) node[below]{$x-axis$};
     \draw[-latex](0,-2) -- (0,2) node[above]{$y-axis$};
-    \draw[black, thick, domain=-5:5] plot (\x,{arcsin(\x r)}) node at (1,pi/2){$\sin(x)$};
+    % \draw[black, thick, domain=-1:1] plot (\x,{arcsin(\x r)}) node at (1,pi/2){$\arcsin(x)$};
+    \draw[domain=-1:1,smooth,variable=\y] plot ({rad(asin(\y))},\y) node[right] {$x = \arcsin y$};
 \end{tikzpicture}
 
 \paragraph{分段函数}
