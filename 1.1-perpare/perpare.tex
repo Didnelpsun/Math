@@ -6,15 +6,25 @@
 % 因为所以
 \usepackage{amsmath}
 % 数学公式
-\usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
+% 设置四级目录
+\usepackage{geometry}
 \geometry{papersize={21cm,29.7cm}}
 \geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 设置页边距
 \usepackage{indentfirst}
 \setlength{\parindent}{2.45em}
+% 设置首行缩进
 \usepackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
+% 设置行距
+\usepackage{tikz}
+% 绘图
+\usetikzlibrary{positioning}
+% 为了实现相对位置的设定
+\usepackage{xcolor}
+% 为了实现不同的颜色
 \author{Didnelpsun}
 \title{考研数学准备}
 \begin{document}
@@ -35,7 +45,7 @@
 $y=f(x)$，定义域为$D$，值域为$R$，若对于每一个$y\in R$，必然存在$x\in D$使$y=f(x)$成立，则可以定义一个新函数$x=\psi(y)$，这个函数就是$y=f(x)$的\textbf{反函数}，一般记作$x=f^{-1}(y)$，其定义域为$R$，值域为$D$，对于反函数，原来的函数称为\textbf{直接函数}。
 \begin{enumerate}
     \item \textcolor{red}{严格单调}函数必然有反函数，即函数导数恒正或恒负必然有反函数。
-    \item $x=f^{-1}(y)$与$y=f(x)$在同一坐标系中完全重合
+    \item $x=f^{-1}(y)$与$y=f(x)$在同一坐标系中完全重合。
     \item $y=f^{-1}(x)$与$y=f(x)$关于$y=x$对称。
     \item $f[f^{-1}(x)]$或$f[\psi(x)]$变为x，称为湮灭。
 \end{enumerate}
@@ -50,7 +60,7 @@ $y=f(x)$，定义域为$D$，值域为$R$，若对于每一个$y\in R$，必然�
 
 $\therefore x\in[-1,3]$
 
-$\therefore\frac{d\psi(x)}{dx}=(-x^2+2x+3)'=-2x+2=0$
+$\therefore\frac{\rm{d}\psi(x)}{\rm{d}x}=(-x^2+2x+3)'=-2x+2=0$
 
 $\therefore x=1$，驻点为1
 
@@ -78,34 +88,34 @@ $f(-x)=\ln(-x+\sqrt{x^2+1})=\ln(\frac{1}{\sqrt{x^2+1}+x})=-\ln(x+\sqrt{x^2+1})=-
 
 对其求单调性，即通过链式法则求导：
 
-$\frac{dy}{dx}=\frac{1}{x+\sqrt{x^2+1}}\cdot (1+\frac{2x}{2\sqrt{x^2+1}})=\frac{1}{\sqrt{x^2+1}}>0$
+$\frac{\rm{d}y}{\rm{d}x}=\frac{1}{x+\sqrt{x^2+1}}\cdot (1+\frac{2x}{2\sqrt{x^2+1}})=\frac{1}{\sqrt{x^2+1}}>0$
 
 所以该函数严格单调增。
 
-然后求$y$的反函数。
+然后求$y$的反函数：
 
 $$
-\begin{aligned}
-    \because y&=\ln(x+\sqrt{x^2+1}) \\
-    e^y&=e^{\ln(x+\sqrt{x^2+1})} \\
-    &=x+\sqrt{x^2+1}
-\end{aligned}
-$$
-
-$$
-\begin{aligned}
-    \because -y&=-\ln(x+\sqrt{x^2+1}) \\
-    &=\ln(\frac{1}{x+\sqrt{x^2+1}}) \\
-    &=\ln(\sqrt{x^2+1}-x) \\
-    e^{-y}&=\sqrt{x^2+1}-x
-\end{aligned}
+    \begin{aligned}
+        \because y & =\ln(x+\sqrt{x^2+1})     \\
+        e^y        & =e^{\ln(x+\sqrt{x^2+1})} \\
+                   & =x+\sqrt{x^2+1}
+    \end{aligned}
 $$
 
 $$
-\begin{aligned}
-    \therefore e^y-e^{-y}&=2x \\
-    x&=\frac{e^y-e^{-y}}{2}
-\end{aligned}
+    \begin{aligned}
+        \because -y & =-\ln(x+\sqrt{x^2+1})          \\
+                    & =\ln(\frac{1}{x+\sqrt{x^2+1}}) \\
+                    & =\ln(\sqrt{x^2+1}-x)           \\
+        e^{-y}      & =\sqrt{x^2+1}-x
+    \end{aligned}
+$$
+
+$$
+    \begin{aligned}
+        \therefore e^y-e^{-y} & =2x                   \\
+        x                     & =\frac{e^y-e^{-y}}{2}
+    \end{aligned}
 $$
 
 解出了用x表示y的函数表达$x=f^{-1}(y)$，即反函数，则$f^{-1}(x)=\frac{e^x-e^{-x}}{2}$
@@ -120,21 +130,126 @@ $$
 \end{itemize}
 
 \textbf{例题3：}设$
-f(x)=\left\{
-\begin{array}{rcl}
-\ln\sqrt{x} &  & {x\geqslant 1}\\
-2x-1 & & {x< 1}
-\end{array} \right. 
+    f(x)=\left\{
+    \begin{array}{rcl}
+        \ln\sqrt{x}, &  & x\geqslant 1 \\
+        2x-1,        &  & x< 1
+    \end{array}
+    \right.
 $，求$f[f(x)]$
 
+首先广义化：$
+    f[f(x)]=\left\{
+    \begin{array}{rcl}
+        \ln\sqrt{f(x)}, &  & f(x)\geqslant 1 \\
+        2f(x)-1,        &  & x<1
+    \end{array}
+    \right.
+$
+
+然后画图：\\
+
+\begin{tikzpicture}[domain=-1:9.5]
+    \draw[-latex](-1.5,0) -- (9.5,0) node[below]{$x-axis$};
+    \draw[-latex](0,-1.5) -- (0, 1.5) node[above]{$y-aixs$};
+    \draw[very thin, gray, densely dashed](-1.5,1.5)grid(9.5,-1.5);
+    \draw [black, thick](-0.25,-1.5) -- (1,1);
+    \draw[black, thick,domain=1:9.5] plot (\x, {ln(sqrt(\x))});
+    \draw [red, densely dashed](-1.5,1) -- (9.5,1) node[below]{$x=1$};
+    \filldraw [black] (1,1) circle (2pt) node[above]{$(1,1)$};
+    \filldraw [black] (e^2,1) circle (2pt) node[above]{$(e^2,1)$};
+    \draw[densely dashed](1,1) -- (1, 0) node[below]{$1$};
+    \draw[densely dashed](e^2,1) -- (e^2,0) node[below]{$e^2$};
+\end{tikzpicture}
+
+所以将定义域分为三段：$[-\infty ,1],[1,e^2],[e^2, +\infty]$，然后根据不同定义域对应的不同函数再代回$f[f(x)]$：
+
+$$
+    f[f(x)]=\left\{
+    \begin{array}{rcl}
+        \ln\sqrt{\ln\sqrt{x}}, &  & x\geqslant e^2   \\
+        \ln x-2,               &  & 1\geqslant x<e^2 \\
+        4x-3,                  &  & x<1
+    \end{array}
+    \right.
+$$
+
 \subsection{有界性}
+
+函数指明定义域区间才能讨论函数是否有界。
+
+证明有界性：函数$f(x)$的定义域$D$，数集$I\in D$，如果存在某正数$M$，对于任一$x\in I$，有$\vert f(x)\vert\leqslant M$，则$f(x)$在$I$上有界，否则无界。
+
 \subsection{单调性}
+
+$\begin{matrix}
+        \frac{\rm{d}y}{\rm{d}x}>0 & \Rightarrow & (x_1-x_2)[f(x_1)-f(x_2)]>0 & \Rightarrow & f(x)\nearrow  \\
+        \frac{\rm{d}y}{\rm{d}x}<0 & \Rightarrow & (x_1-x_2)[f(x_1)-f(x_2)]<0 & \Rightarrow &f(x)\searrow
+    \end{matrix}
+$
+
 \subsection{奇偶性}
+
+\begin{enumerate}
+    \item 奇函数：关于原点对称，$f(-x)=-f(x)$。
+    \item 偶函数：关于y轴对称，$f(-x)=f(x)$。
+    \item 对于定义在$[-l,l]$上的任意函数$f(x)$，$F_1(x)=f(x)-f(-x)$必为奇函数，$F_2(x)=f(x)+f(-x)$必为偶函数。可以参考上面所说的双曲正弦与双曲余弦函数。
+    \item 若奇函数在0处有定义，那么$f(0)=0$。
+    \item 若偶函数在0处存在导数，那么$f'(0)=0$，即x=0，曲线必然水平，即导数为0。
+    \item 若函数$y=f(x)$的函数关于直线$x=T$对称的充分必要条件是$f(x)=f(2T-x)/f(x+T)=f(x-T)$。（令$T-x=t$进行换元计算得到）
+\end{enumerate}
+
+\textcolor{orange}{注意}：0和1处的函数定义应该注意。
+
+如当a为0时：$f(b)-f(a)=f'(\xi )(b-a)=f(b)=bf'(\xi)$
+
+如$f(x)>xf(1)$变形为$\frac{f(x)}{x}>f(1)$，辅助函数$F(x)=\frac{f(x)}{x}$
+
+所以加减法警惕0，乘除法警惕1。
+
 \subsection{周期性}
+
+$f(x+T)=f(x)$，其中T为周期。 \\
+
+\textcolor{red}{重要结论：}
+
+\begin{enumerate}
+    \item 若$f(x)$为可导的偶函数，则$f'(x)$为奇函数。（1.4.1.1）
+    \item 若$f(x)$为可导的奇函数，则$f'(x)$为偶函数。（1.4.1.2）
+    \item 若$f(x)$为周期函数，则$f'(x)$也为周期函数且周期不变。（1.4.2）
+    \item 连续的奇函数的一切原函数都是偶函数。（1.8.6）
+    \item 连续的偶函数的原函数中仅有一个原函数是奇函数。（1.8.6）
+    \item 若连续函数$f(x)$以T为周期且$\int_{0}^{T}f(x)\rm{d}x=0$，则$f(x)$的一切原函数也以T为周期。（1.8.8）
+    \item 若$f(x)$在有限区间$(a,b)$中可导且$f'(x)$有界，则$f(x)$在$(a,b)$有界。（某一函数在固定区间内变化率是有界的，则变化范围是有界的）
+\end{enumerate}
+
 \section{函数的图像}
 \subsection{直角坐标系图像}
 \subsubsection{常见图像}
 \paragraph{基本初等函数与初等函数}
+
+基本初等函数包括：常数函数、幂函数、指数函数、对数函数、三角函数、反三角函数。
+
+1. 常数函数：$y=A$，A为常数，图像平行于x轴：
+
+\begin{tikzpicture}[domain=-1:5]
+    \draw[-latex](-1,0) -- (5,0) node[below]{$x-axis$};
+    \draw[-latex](0,-0.5) -- (0, 1.5) node[above]{$y-aixs$};
+    \draw[black, thick](-1,1) -- (5,1) node[below]{$y=A$};
+\end{tikzpicture}
+
+2. 幂函数：$y=x^{\mu}$，$\mu$为实数，当$x>0$，$y=x^{\mu}$都有定义：
+
+\begin{tikzpicture}[scale=0.9]
+    \draw[-latex](-2,0) -- (2,0) node[below]{$x-axis$};
+    \draw[-latex](0,-2) -- (0,4) node[above]{$y-aixs$};
+    \draw[black, thick,domain=0.3:2] plot (\x,1/\x) node[below]{$\mu =-1$};
+    \draw[black, thick,domain=-2:-0.5] plot (\x,1/\x) node[above]{$\mu =-1$};
+    \draw[black, thick,domain=0.01:2] plot (\x, {sqrt(\x)}) node[below]{$\mu =\frac{1}{2}$};
+    \draw[black, thick,domain=-2:2] plot (\x,\x) node[above]{$\mu =1$};
+    \draw[black, thick,domain=-2:2] plot (\x, {\x*\x}) node[above]{$\mu =2$};
+\end{tikzpicture}
+
 \paragraph{分段函数}
 \subsubsection{图像变换}
 \paragraph{平移变换}
