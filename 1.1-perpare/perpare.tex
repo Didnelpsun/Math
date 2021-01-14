@@ -150,8 +150,8 @@ $
 然后画图：\bigskip
 
 \begin{tikzpicture}[domain=-1:9.5]
-    \draw[-latex](-1.5,0) -- (9.5,0) node[below]{$x-axis$};
-    \draw[-latex](0,-1.5) -- (0, 1.5) node[above]{$y-axis$};
+    \draw[-latex](-1.5,0) -- (9.5,0) node[below]{$x$};
+    \draw[-latex](0,-1.5) -- (0, 1.5) node[above]{$y$};
     \draw[very thin, gray, densely dashed](-1.5,1.5)grid(9.5,-1.5);
     \draw [black, thick](-0.25,-1.5) -- (1,1);
     \draw[black, thick,domain=1:9.5] plot (\x, {ln(sqrt(\x))});
@@ -235,9 +235,9 @@ $f(x+T)=f(x)$，其中T为周期。 \bigskip
 $y=A$，A为常数，图像平行于x轴：
 
 \begin{tikzpicture}[domain=-1:5]
-    \draw[-latex](-1,0) -- (5,0) node[below]{$x-axis$};
-    \draw[-latex](0,-0.5) -- (0, 1.5) node[above]{$y-axis$};
-    \draw[black, thick](-1,1) -- (5,1) node[below]{$y=A$};
+    \draw[-latex](-1,0) -- (5,0) node[below]{$x$};
+    \draw[-latex](0,-0.5) -- (0, 1.5) node[above]{$y$};
+    \draw[black, thick](-1,1) -- (5,1) node[right]{$y=A$};
 \end{tikzpicture}
 
 \subparagraph{幂函数} \leavevmode \bigskip
@@ -245,13 +245,13 @@ $y=A$，A为常数，图像平行于x轴：
 $y=x^{\mu}$，$\mu$为实数，当$x>0$，$y=x^{\mu}$都有定义：
 
 \begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x-axis$};
-    \draw[-latex](0,-2) -- (0,4) node[above]{$y-axis$};
-    \draw[black, thick, domain=0.3:2] plot (\x,1/\x) node[below]{$\mu =-1$};
-    \draw[black, thick, domain=-2:-0.5] plot (\x,1/\x) node[above]{$\mu =-1$};
-    \draw[black, thick, domain=0.01:2] plot (\x, {sqrt(\x)}) node[below]{$\mu =\frac{1}{2}$};
-    \draw[black, thick, domain=-2:2] plot (\x,\x) node[above]{$\mu =1$};
-    \draw[black, thick, domain=-2:2] plot (\x, {\x*\x}) node[above]{$\mu =2$};
+    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+    \draw[-latex](0,-2) -- (0,4) node[above]{$y$};
+    \draw[black, thick, domain=0.3:2] plot (\x,1/\x) node[right]{$\mu =-1$};
+    \draw[black, thick, domain=-2:-0.5] plot (\x,1/\x) node[right]{$\mu =-1$};
+    \draw[black, thick, domain=0.01:2] plot (\x, {sqrt(\x)}) node[right]{$\mu =\frac{1}{2}$};
+    \draw[black, thick, domain=-2:2] plot (\x,\x) node[right]{$\mu =1$};
+    \draw[black, thick, domain=-2:2] plot (\x, {\x*\x}) node[right]{$\mu =2$};
 \end{tikzpicture}
 
 所以对于幂函数，可以根据不同幂下相同单调性来研究最值：
@@ -268,10 +268,10 @@ $y=x^{\mu}$，$\mu$为实数，当$x>0$，$y=x^{\mu}$都有定义：
 $y=a^x(a>0,a\neq 1)$：
 
 \begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x-axis$};
-    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y-axis$};
-    \draw[black, thick, domain=-2:2] plot (\x,{pow(1/2,\x)}) node at (-1.5,2){$0<a<1$};
-    \draw[black, thick, domain=-2:2] plot (\x,{pow(2,\x)}) node at (1.5,2){$a>1$};
+    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
+    \draw[black, thick, domain=-2:2] plot (\x,{pow(1/2,\x)}) node[right]{$0<a<1$};
+    \draw[black, thick, domain=-2:2] plot (\x,{pow(2,\x)}) node[right]{$a>1$};
 \end{tikzpicture}
 
 指数函数具有如下性质：
@@ -289,10 +289,10 @@ $y=a^x(a>0,a\neq 1)$：
 $y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
 
 \begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-0.5,0) -- (4,0) node[below]{$x-axis$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y-axis$};
-    \draw[black, thick, domain=0.2:4] plot (\x,{ln(1/\x)}) node at (e,1.5){$0<a<1$};
-    \draw[black, thick, domain=0.2:4] plot (\x,{ln(\x)}) node at (e,-1.5){$a>1$};
+    \draw[-latex](-0.5,0) -- (4,0) node[below]{$x$};
+    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+    \draw[black, thick, domain=0.2:4] plot (\x,{ln(1/\x)}) node[right]{$0<a<1$};
+    \draw[black, thick, domain=0.2:4] plot (\x,{ln(\x)}) node[right]{$a>1$};
 \end{tikzpicture}
 
 对数函数具有如下性质：
@@ -311,44 +311,205 @@ $y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
 正弦函数：
 
 \begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-5,0) -- (5,0) node[below]{$x-axis$};
-    \draw[-latex](0,-1.5) -- (0,2) node[above]{$y-axis$};
+    \draw[-latex](-5,0) -- (5,0) node[below]{$x$};
+    \draw[-latex](0,-1.5) -- (0,2) node[above]{$y$};
     \draw[black, thick, domain=-5:5] plot (\x,{sin(\x r)}) node at (0,1.5){$\sin(x)$};
-    \draw [black, densely dashed](-5,1) -- (5,1) node[below]{$x=1$};
-    \draw [black, densely dashed](-5,-1) -- (5,-1) node[below]{$x=-1$};
+    \draw [black, densely dashed](-5,1) -- (5,1) node[right]{$x=1$};
+    \draw [black, densely dashed](-5,-1) -- (5,-1) node[right]{$x=-1$};
     \draw [black, densely dashed](-pi/2*3,1) -- (-pi/2*3,0) node[below]{$-\frac{3\pi}{2}$};
-    \draw [black, densely dashed](-pi,0) -- (-pi,0) node[below]{$-\pi$};
+    \draw [black](-pi,0) -- (-pi,0) node[below]{$-\pi$};
     \draw [black, densely dashed](-pi/2,-1) -- (-pi/2,0) node[above]{$-\frac{\pi}{2}$};
-    \draw [black, densely dashed](0,0) -- (0,0) node[above]{$0$};
+    \draw [black](0,0) -- (0,0) node[above]{$0$};
     \draw [black, densely dashed](pi/2,1) -- (pi/2,0) node[below]{$\frac{\pi}{2}$};
-    \draw [black, densely dashed](pi,0) -- (pi,0) node[below]{$\pi$};
+    \draw [black](pi,0) -- (pi,0) node[below]{$\pi$};
 \end{tikzpicture}
 
 余弦函数：
 
 \begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-5,0) -- (5,0) node[below]{$x-axis$};
-    \draw[-latex](0,-1.5) -- (0,2) node[above]{$y-axis$};
-    \draw[black, thick, domain=-5:5] plot (\x,{cos(\x r)}) node at (0,1.5){$\sin(x)$};
-    \draw [black, densely dashed](-5,1) -- (5,1) node[below]{$x=1$};
-    \draw [black, densely dashed](-5,-1) -- (5,-1) node[below]{$x=-1$};
-    \draw [black, densely dashed](-pi/2*3,0) -- (-pi/2*3,0) node[below]{$-\frac{3\pi}{2}$};
+    \draw[-latex](-5,0) -- (5,0) node[below]{$x$};
+    \draw[-latex](0,-1.5) -- (0,2) node[above]{$y$};
+    \draw[black, thick, domain=-5:5] plot (\x,{cos(\x r)}) node at (0,1.5){$\cos(x)$};
+    \draw [black, densely dashed](-5,1) -- (5,1) node[right]{$x=1$};
+    \draw [black, densely dashed](-5,-1) -- (5,-1) node[right]{$x=-1$};
+    \draw [black](-pi/2*3,0) -- (-pi/2*3,0) node[below]{$-\frac{3\pi}{2}$};
     \draw [black, densely dashed](-pi,-1) -- (-pi,0) node[above]{$-\pi$};
-    \draw [black, densely dashed](-pi/2,0) -- (-pi/2,0) node[below]{$-\frac{\pi}{2}$};
+    \draw [black](-pi/2,0) -- (-pi/2,0) node[below]{$-\frac{\pi}{2}$};
     \draw [black, densely dashed](0,1) -- (0,0) node[below]{$0$};
-    \draw [black, densely dashed](pi/2,0) -- (pi/2,0) node[below]{$\frac{\pi}{2}$};
+    \draw [black](pi/2,0) -- (pi/2,0) node[below]{$\frac{\pi}{2}$};
     \draw [black, densely dashed](pi,-1) -- (pi,0) node[above]{$\pi$};
 \end{tikzpicture}
+
+弦函数有如下特征：
+
+\begin{enumerate}
+    \item 特殊函数值：$\sin 0=0$，$\sin\frac{\pi}{6}=\frac{1}{2}$，$\sin\frac{\pi}{4}=\frac{\sqrt{2}}{2}$，$\sin\frac{\pi}{3}=\frac{\sqrt{3}}{2}$，$\sin\frac{\pi}{2}=1$，$\sin\pi=0$，$\sin\frac{3\pi}{2}=-1$，$\sin 2\pi=0$，$\cos 0=1$，$\cos\frac{\pi}{6}=\frac{\sqrt{3}}{2}$，$\cos\frac{\pi}{4}=\frac{\sqrt{2}}{2}$，$\cos\frac{\pi}{3}=\frac{1}{2}$，$\cos\frac{\pi}{2}=0$，$\cos\pi=-1$，$\cos\frac{3\pi}{2}=0$，$\cos 2\pi=1$。
+    \item 定义域：$(-\infty, +\infty)$，值域：$[-1,+1]$。
+    \item 奇偶性：$y=\sin x$为奇函数，$y=\cos x$为偶函数。
+    \item 周期性：最小正周期为$2\pi$。
+    \item 有界性：$\vert\sin x\vert\leqslant 1$，$\vert\cos x\vert\leqslant 1$。
+\end{enumerate}
+
+正切函数：
+
+\begin{tikzpicture}[scale=0.7]
+    \draw[-latex](-6,0) -- (6,0) node[below]{$x$};
+    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+    \draw[black, thick, domain=-pi/2+0.5:pi/2-0.5] plot (\x,{tan(\x r)}) node[above]{$\tan(x)$};
+    \draw [black](0,0) -- (0,0) node[below]{$0$};
+    \draw[black, densely dashed](pi/2,2) -- (pi/2,-2);
+    \draw[black](pi/2,0) -- (pi/2,0) node at (pi/2+0.5,-0.5){$\frac{\pi}{2}$};
+    \draw[black, densely dashed](-pi/2,2) -- (-pi/2,-2);
+    \draw[black](-pi/2,0) -- (-pi/2,0) node at (-pi/2-0.5,-0.5){$-\frac{\pi}{2}$};
+    \draw[black, thick, domain=-pi/2*3+0.5:-pi/2-0.5] plot (\x,{tan(\x r)}) node[above]{$\tan(x)$};
+    \draw[black, densely dashed](pi/2*3,2) -- (pi/2*3,-2);
+    \draw[black](pi/2*3,0) -- (pi/2*3,0) node at (pi/2*3+0.5,-0.5){$\frac{3\pi}{2}$};
+    \draw[black, thick, domain=pi/2+0.5:pi/2*3-0.5] plot (\x,{tan(\x r)}) node[above]{$\tan(x)$};
+    \draw[black, densely dashed](-pi/2*3,2) -- (-pi/2*3,-2);
+    \draw[black](-pi/2*3,0) -- (-pi/2*3,0) node at (-pi/2*3-0.5,-0.5){$-\frac{3\pi}{2}$};
+\end{tikzpicture}
+
+余切函数：
+
+\begin{tikzpicture}[scale=0.7] 
+    \draw[-latex](-4,0) -- (4,0) node[below]{$x$};
+    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+    \draw[black, thick, domain=0.5:pi-0.5] plot (\x,{cot(\x r)}) node at(pi-1,2){$\cot(x)$};
+    \draw [black](0,0) -- (0,0) node[below]{$0$};
+    \draw[black](pi/2,0) -- (pi/2,0) node[below]{$\frac{\pi}{2}$};
+    \draw[black, densely dashed](pi,2) -- (pi,-2);
+    \draw[black](pi,0) -- (pi,0) node at (pi+0.5,-0.5){$\pi$};
+    \draw[black, thick, domain=-0.5:-pi+0.5] plot (\x,{cot(\x r)}) node at(-1,2){$\cot(x)$};
+    \draw[black](-pi/2,0) -- (-pi/2,0) node[below]{$-\frac{\pi}{2}$};
+    \draw[black, densely dashed](-pi,2) -- (-pi,-2);
+    \draw[black](-pi,0) -- (-pi,0) node at (-pi-0.5,-0.5){$-\pi$};
+\end{tikzpicture}
+
+切函数有如下特征：
+
+\begin{enumerate}
+    \item 特殊函数值：$\tan 0=0$，$\tan\frac{\pi}{6}=\frac{\sqrt{3}}{3}$，$\tan\frac{\pi}{4}=1$，$\tan\frac{\pi}{3}=\sqrt{3}$，$\lim_{x\to\frac{\pi}{2}}\tan x=\infty$，$\tan\pi=0$，$\lim_{x\to\frac{3\pi}{2}}\tan x=\infty$，$\tan 2\pi=0$，$\lim_{x\to 0}\cot x=\infty$，$\cot\frac{\pi}{6}=\sqrt{3}$，$\cot\frac{\pi}{4}=1$，$\cot\frac{\pi}{3}=\frac{\sqrt{3}}{3}$，$\cot\frac{\pi}{2}=0$，$\lim_{x\to\pi}\cot x=\infty$，$\cot\frac{3\pi}{2}=0$，$\lim_{x\to 2\pi}\cot x=\infty$。
+    \item 定义域：$\tan x:x\neq k\pi+\frac{\pi}{2}(k\in Z)$，$\cot x:x\neq k\pi(k\in Z)$，值域：$(-\infty,+\infty)$。
+    \item 奇偶性：定义域内均为奇函数。
+    \item 周期性：最小正周期为$\pi$。
+\end{enumerate}
+
+$$
+\sec x=\frac{1}{\cos x},\csc x=\frac{1}{\sin x}
+$$
+
+正割函数：
+
+\begin{tikzpicture}[scale=0.6]
+    \draw[-latex](-6,0) -- (6,0) node[below]{$x$};
+    \draw[-latex](0,-3) -- (0,3) node[above]{$y$};
+    \draw[black, thick, domain=-pi/2+0.4:pi/2-0.4] plot (\x,{sec(\x r)}) node[above]{$\sec(x)$};
+    \draw[black, thick, domain=-pi/2*3+0.4:-pi/2-0.4] plot (\x,{sec(\x r)}) node[below]{$\sec(x)$};
+    \draw[black, thick, domain=pi/2+0.4:pi/2*3-0.4] plot (\x,{sec(\x r)}) node[below]{$\sec(x)$};
+    \draw[black, thick, domain=-pi*2:-pi/2*3-0.4] plot (\x,{sec(\x r)}) node[above]{$\sec(x)$};
+    \draw[black, thick, domain=pi/2*3+0.4:pi*2] plot (\x,{sec(\x r)}) node at (pi*2,3){$\sec(x)$};
+    \draw[black, densely dashed](-6,1) -- (6,1);
+    \draw[black, densely dashed](-6,-1) -- (6,-1);
+    \draw[black, densely dashed](-pi/2*3,3) -- (-pi/2*3,-3);
+    \draw[black, densely dashed](-pi/2,3) -- (-pi/2,-3);
+    \draw[black, densely dashed](pi/2,3) -- (pi/2,-3);
+    \draw[black, densely dashed](pi/2*3,3) -- (pi/2*3,-3);
+    \draw[black](0,0) -- (0,0) node[below]{$0$};
+    \draw[black](0,1) -- (0,1) node at(0.5,0.5){$1$};
+    \draw[black](0,-1) -- (0,-1) node at(0.5,-1.5){$-1$};
+    \draw[black](-pi/2*3,0) -- (-pi/2*3,0) node at(-pi/2*3-0.5,-0.5){$-\frac{3\pi}{2}$};
+    \draw[black](-pi/2,0) -- (-pi/2,0) node at(-pi/2-0.5,-0.5){$-\frac{\pi}{2}$};
+    \draw[black](pi/2,0) -- (pi/2,0) node at(pi/2+0.5,-0.5){$\frac{\pi}{2}$};
+    \draw[black](pi/2*3,0) -- (pi/2*3,0) node at(pi/2*3+0.5,-0.5){$\frac{3\pi}{2}$};
+\end{tikzpicture}
+
+余割函数：
+
+\begin{tikzpicture}[scale=0.6]
+    \draw[-latex](-7,0) -- (7,0) node[below]{$x$};
+    \draw[-latex](0,-3) -- (0,3) node[above]{$y$};
+    \draw[black, thick, domain=0.4:pi-0.4] plot (\x,{1/sin(\x r)}) node[above]{$\csc(x)$};
+    \draw[black, thick, domain=pi+0.4:pi*2-0.4] plot (\x,{1/sin(\x r)}) node[below]{$\csc(x)$};
+    \draw[black, thick, domain=-pi+0.4:-0.4] plot (\x,{1/sin(\x r)}) node[below]{$\csc(x)$};
+    \draw[black, thick, domain=-pi*2+0.4:-pi-0.4] plot (\x,{1/sin(\x r)}) node[above]{$\csc(x)$};
+    \draw[black, densely dashed](-7,1) -- (7,1);
+    \draw[black, densely dashed](-7,-1) -- (7,-1);
+    \draw[black, densely dashed](-pi,3) -- (-pi,-3);
+    \draw[black, densely dashed](-pi*2,3) -- (-pi*2,-3);
+    \draw[black, densely dashed](pi,3) -- (pi,-3);
+    \draw[black, densely dashed](pi*2,3) -- (pi*2,-3);
+    \draw[black](0,0) -- (0,0) node[below]{$0$};
+    \draw[black](0,1) -- (0,1) node at(0.5,0.5){$1$};
+    \draw[black](0,-1) -- (0,-1) node at(0.5,-1.5){$-1$};
+    \draw[black](-pi,0) -- (-pi,0) node at(-pi-0.5,-0.5){$\pi$};
+    \draw[black](-pi*2,0) -- (-pi*2,0) node at(-pi*2+0.5,-0.5){$2\pi$};
+    \draw[black](pi,0) -- (pi,0) node at(pi+0.5,-0.5){$\pi$};
+    \draw[black](pi*2,0) -- (pi*2,0) node at(pi*2-0.5,-0.5){$2\pi$};
+\end{tikzpicture}
+
+割函数有如下特征：
+
+\begin{enumerate}
+    \item 定义域：$\sec x:x\neq k\pi+\frac{\pi}{2}(k\in Z)$，$\csc x:x\neq k\pi(k\in Z)$，值域：$(-\infty,-1]\cup [1,+\infty)$。
+    \item 奇偶性：$y=\sec x$为偶函数，$y=\csc x$为奇函数。
+    \item 周期性：最小正周期为$2\pi$。
+\end{enumerate}
 
 \subparagraph{反三角函数} \leavevmode \bigskip
 
 反正弦函数：
 
 \begin{tikzpicture}
-    \draw[-latex](-1.5,0) -- (1.5,0) node[below]{$x-axis$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y-axis$};
-    % \draw[black, thick, domain=-1:1] plot (\x,{arcsin(\x r)}) node at (1,pi/2){$\arcsin(x)$};
-    \draw[domain=-1:1,smooth,variable=\y] plot ({rad(asin(\y))},\y) node[right] {$x = \arcsin y$};
+    \draw[-latex](-1.5,0) -- (1.5,0) node[below]{$x$};
+    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+    \draw[black, thick, domain=-1:1] plot (\x,{rad(asin(\x))}) node[right]{$\arcsin(x)$};
+    \draw [black, densely dashed](1,pi/2) -- (0,pi/2) node[left]{$\frac{\pi}{2}$};
+    \draw [black](0,0) -- (0,0) node[below]{$0$};
+    \draw [black, densely dashed](1,pi/2) -- (1,0) node[below]{$1$};
+    \draw [black, densely dashed](-1,-pi/2) -- (0,-pi/2) node[right]{$-\frac{\pi}{2}$};
+    \draw [black, densely dashed](-1,-pi/2) -- (-1,0) node[above]{$-1$};
+\end{tikzpicture}
+
+反余弦函数：
+
+\begin{tikzpicture}
+    \draw[-latex](-1.5,0) -- (1.5,0) node[below]{$x$};
+    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
+    \draw[black, thick, domain=-1:1] plot (\x,{rad(acos(\x)}) node at (-2, pi){$\arccos(x)$};
+    \draw [black, densely dashed](0,pi/2) -- (0,pi/2) node[left]{$\frac{\pi}{2}$};
+    \draw [black, densely dashed](1,0) -- (1,0) node[below]{$1$};
+    \draw [black, densely dashed](-1,pi) -- (0,pi) node[right]{$\pi$};
+    \draw [black, densely dashed](-1,pi) -- (-1,0) node[above]{$-1$};
+\end{tikzpicture}
+
+反弦函数有如下特征：
+
+\begin{enumerate}
+    \item 特殊函数值：$\arcsin 0=0$，$\arcsin\frac{1}{2}=\frac{\pi}{6}$，$\arcsin\frac{\sqrt{2}}{2}=\frac{\pi}{4}$，$\arcsin\frac{\sqrt{3}}{2}=\frac{\pi}{3}$，$\arcsin 1=\frac{\pi}{2}$，$\arccos 1=0$，$\arccos\frac{\sqrt{3}}{2}=\frac{\pi}{6}$，$\arccos\frac{\sqrt{2}}{2}=\frac{\pi}{4}$，$\arccos\frac{1}{2}=\frac{\pi}{3}$，$\arccos 0=\frac{\pi}{2}$。
+    \item 定义域：$(-1, +1)$，值域：$\arcsin x:[-\frac{\pi}{2},+\frac{\pi}{2}]$，$\arccos x:[0,\pi]$。
+    \item 单调性：$y=\arcsin x$单调增，$y=\arccos x$单调减
+    \item 奇偶性：$y=\arcsin x$为奇函数。
+    \item 有界性：$\vert\arcsin x\vert\leqslant\frac{\pi}{2}$，$0\leqslant\arccos x\leqslant\pi$。
+    \item 性质：$\arcsin x+\arccos x=\frac{\pi}{2}(-1\leqslant x\leqslant 1)$
+\end{enumerate}
+
+对反弦函数性质进行证明：
+
+令$f(x)=\arcsin x+\arccos x$，对其求导得：$f'(x)=\frac{1}{\sqrt{1-x^2}}-\frac{1}{1-x^2}=0$，所以$f(x)$是个常数函数。
+
+又$f(0)=\frac{\pi}{2}$，所以该函数等于$\frac{\pi}{2}$。
+
+反正切函数：
+
+\begin{tikzpicture}[scale=0.9]
+    \draw[-latex](-3,0) -- (3,0) node[below]{$x$};
+    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+    \draw[black, thick, domain=-3:3] plot (\x,{rad(atan(\x))}) node[right]{$\arcsin(x)$};
+    \draw [black, densely dashed](-3,pi/2) -- (3,pi/2) node[right]{$\frac{\pi}{2}$};
+    % \draw [black](0,0) -- (0,0) node[below]{$0$};
+    % \draw [black, densely dashed](1,pi/2) -- (1,0) node[below]{$1$};
+    % \draw [black, densely dashed](-1,-pi/2) -- (0,-pi/2) node[right]{$-\frac{\pi}{2}$};
+    % \draw [black, densely dashed](-1,-pi/2) -- (-1,0) node[above]{$-1$};
 \end{tikzpicture}
 
 \paragraph{分段函数}
