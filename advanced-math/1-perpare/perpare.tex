@@ -8,7 +8,7 @@
 % 数学公式
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
-% 设置四级目录
+% 设置五级目录
 \usepackage{geometry}
 \geometry{papersize={21cm,29.7cm}}
 \geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
@@ -21,12 +21,12 @@
 % 设置行距
 \usepackage{tikz}
 % 绘图
-\usetikzlibrary{positioning}
-% 为了实现相对位置的设定
 \usepackage{xcolor}
 % 为了实现不同的颜色
 \usepackage{array}
 % 设置表格行距
+\usepackage{pifont}
+% 圆圈序号
 \author{Didnelpsun}
 \title{考研数学准备}
 \begin{document}
@@ -1195,8 +1195,10 @@ $a^\alpha\cdot a^\beta=a^{\alpha+\beta},\dfrac{a^\alpha}{a^\beta}=a^{\alpha-\bet
     \item $\vert a\pm b\vert\leqslant\vert a\vert+\vert b\vert$。
     \item 推广公式一到离散区间：$\vert a_1\pm a_2\pm a_3\pm\cdots\pm a_n\vert\leqslant\vert a_1\vert+\vert a_2\vert+\cdots+\vert a_n\vert$。
     \item 推广公式一到连续区间且$f(x)$在$[a,b](a<b)$上可积：$\vert\int_a^bf(x)\rm{d}x\vert\leqslant\int_a^b\vert f(x)\vert\rm{d}x$。因为符号不一定相同的面积代数和一定小于同为正的面积代数和。
-    \item $\vert\vert a\vert-\vert b\vert\vert\leqslant\vert a-b\vert$。
+    \item $\vert\vert a\vert-\vert b\vert\vert\leqslant\vert a-b\vert$。后式子为两点之差，前式子可以看作$a$、$b$两点与0之间的距离的差，若异号则两者必然抵消一部分，若同号则就等于后式。
 \end{enumerate}
+
+
 
 \subsubsection{根号不等式}
 
@@ -1213,9 +1215,9 @@ $a,b,c>0$：
 
 可以使用极限，若极限存在则函数有界，这里使用有界性定义与不等式来完成。
 
-\textcircled{1}当$x=0$时，$f(0)=\dfrac{0}{1}$，有界。
+\ding{172}当$x=0$时，$f(0)=\dfrac{0}{1}$，有界。
 
-\textcircled{2}当$x\neq 0$时，原式分式上下都有$x$，所以简化公式：$f(x)=\dfrac{\dfrac{x}{x}}{\dfrac{1+x^2}{x}}=\dfrac{1}{\dfrac{1}{x}+x}$。
+\ding{173}当$x\neq 0$时，原式分式上下都有$x$，所以简化公式：$f(x)=\dfrac{\dfrac{x}{x}}{\dfrac{1+x^2}{x}}=\dfrac{1}{\dfrac{1}{x}+x}$。
 
 $\because$需要证明有界性，以及根号不等式下需要参数大于0，所以需要证明$\vert f(x)\vert=\dfrac{1}{\dfrac{1}{\vert x\vert}+\vert x\vert}\leqslant M$
 
