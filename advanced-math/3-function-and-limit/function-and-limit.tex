@@ -1,0 +1,142 @@
+\documentclass[UTF8]{ctexart}
+\usepackage{color}
+% 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\definecolor{violet}{RGB}{192,0,255} 
+\definecolor{aqua}{RGB}{0,255,255} 
+\usepackage{geometry}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{amssymb}
+% 因为所以与其他数学拓展
+\usepackage{amsmath}
+% 数学公式
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{pifont}
+% 圆圈序号
+\author{Didnelpsun}
+\title{函数与极限}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{邻域}
+\subsection{一维}
+
+邻域\textcolor{violet}{\textbf{定义：}}以点$x_0$为中心的任何开区间为点$x_0$的邻域，记为$U(x_0)$。
+
+$\delta$邻域\textcolor{violet}{\textbf{定义：}}设$\delta$为一正数，则称开区间$(x_0-\delta,x_0+\delta)$为点$x_0$的$\delta$邻域，记作$U(x_0,\delta)$。$x_0$称为邻域的中心，$\delta$为邻域的半径。
+
+去心$\delta$邻域就是去除$x_0$的$\delta$邻域，记为$\mathring{U}(x_0,\delta)$，左$\delta$邻域就是左侧的去心$\delta$邻域，记为$U^+(x_0,\delta)$，右$\delta$邻域就是右侧的去心$\delta$邻域，记为$U^-(x_0,\delta)$。
+
+\subsection{二维}
+
+邻域\textcolor{violet}{\textbf{定义：}}设点$P_0(x_0,y_0)$为$xOy$平面上的一点，$\delta$为某一个正数，与点$P_0(x_0,y_0)$的距离小于$\delta$的点$P(x,y)$的全体，称为点$P_0$的$\delta$邻域，记为$U(P_0,\delta)$。
+
+同理可以得到去心$\delta$邻域的定义。
+
+$\delta$邻域的几何意义：以$P_0(x_0,y_0)$为中心，以$\delta>0$为半径的圆内部所有的点。
+
+函数的邻域就是一个区间，所以比如函数在某点的某邻域内有定义，就是说明函数在这个点的附近有定义，这个附近的距离没有必要说明。
+
+\section{定义}
+
+设函数$f(x)$在点$x_0$的某一个去心邻域有定义，若存在常数$A$，对于任意给定的$\epsilon>0$，总存在正数$\delta$，使得当$0<\vert x-x_0\vert<\delta$式，对应的函数值$f(x)$都满足不等式$\vert f(x)-A\vert <\epsilon$，则$A$就是函数$f(x)$当$x\to x_0$时的极限，记作$\lim_{x\to x_0}f(x)=A$或$f(x)\rightarrow A(x\rightarrow x_0)$。
+
+写成$\epsilon-\delta$语言：$\lim_{x\to x_0}f(x)=A\Leftrightarrow\forall\epsilon>0,\exists\delta>0,\text{当}0<\vert x-x_0\vert<\delta$时，有$\vert f(x)-A\vert\epsilon$。
+
+而对于趋向无穷时，写成$\epsilon-X$语言：$\lim_{x\to\infty}f(x)=A\Leftrightarrow\forall\epsilon>0,\exists X>0,\text{当}\vert x\vert>X$时，有$\vert f(x)-A\vert<\epsilon$。
+
+\textcolor{orange}{注意：}这里的趋向分为六种：$x\to x_0$、$x\to x_0^+$、$x\to x_0^-$、$x\to\infty$、$x\to\infty^+$、$x\to\infty^-$。
+
+\subsection{单侧极限}
+
+当$x\to x_0^-$存在的极限称为左极限，当$x\to x_0^+$存在的极限称为右极限。
+
+\subsection{函数极限存在条件}
+
+函数存在的充要条件是：
+
+\begin{enumerate}
+    \item $\lim_{x\to x_0}f(x)\Leftrightarrow\lim_{x\to x_0^-}f(x)=\lim_{x\to x_0^+}f(x)=A$。
+    \item 函数脱帽法：$\lim_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim_{x\to x_0}\alpha(x)=0$，后面的$\alpha(x)$就是函数与极限值的误差。
+\end{enumerate}
+
+\section{性质}
+
+任何$x$的趋向三个性质都是成立的。
+
+\subsection{唯一性}
+
+若极限存在，则极限唯一。
+
+\subsection{局部有界性}
+
+若极限存在且为$A$，则存在正常数$M$和$\delta$，使得当$0<\vert x-x_0\vert<\delta$时，有$\vert f(x)\vert\leqslant M$。
+
+\subsection{局部保号性}
+
+若极限存在，则存在常数$\delta>0$，使得当$0<\vert x-x_0\vert<\delta$时，$f(x)$与$A$同号。
+
+简单来说，函数值在$x\to x_0$时函数值与极限值同号。
+
+证明局部保号性：
+
+首先根据极限存在定义：$\forall\epsilon>0,\exists\delta>0,0<\vert x-x_0\vert<\delta$时，恒有$\vert f(x)-A\vert<\epsilon$。
+
+$\Rightarrow -\epsilon<f(x)-A<\epsilon$
+
+$\Rightarrow A-\epsilon<f(x)<A+\epsilon$
+
+任意取$\epsilon=\dfrac{A}{2}>0\Rightarrow f(x)>A-\dfrac{A}{2}=\dfrac{A}{2}>0$
+
+证明完毕。
+
+关于$\epsilon$的取值问题，为什么不能取到令结果为负的值，因为请注意这个取值得到的区间并不是$f(x)$的范围，而是对$f(x)$所在区间的陈述，其是无尽逼近$A$的，所以取多大的区间都无所谓。
+
+推论：若函数值在$x\to x_0$时都非负或非正，极限值为$A$，那么$A$与此时函数值同号。不能去除等号。
+
+关于三个性质要注意自变量取值的双向性，所以需要留意下面几个函数：
+
+\begin{enumerate}
+    \item $\lim_{x\to\infty}e^x$不存在，因为$\lim_{x\to +\infty}e^x=+\infty$，$\lim_{x\to -\infty}e^x=0$。
+    \item $\lim_{x\to 0}\dfrac{\sin x}{\vert x\vert}$不存在，因为$\lim_{x\to 0^+}\dfrac{\sin x}{\vert x\vert}=1$，$\lim_{x\to 0^-}\dfrac{\sin x}{\vert x\vert}=-1$。
+    \item $\lim_{x\to\infty}\arctan x$不存在，因为$\lim_{x\to +\infty}\arctan x=\dfrac{\pi}{2}$，$\lim_{x\to -\infty}\arctan x=-\dfrac{\pi}{2}$。
+    \item $\lim_{x\to 0}[x]$不存在，因为$\lim_{x\to 0^+}[x]=0$，$\lim_{x\to 0^-}[x]=-1$
+\end{enumerate}
+
+\section{运算法则}
+\section{夹逼准则}
+\section{洛必达法则}
+\section{泰勒公式}
+
+非常重要。
+
+\subsection{定义}
+\subsection{泰勒展开}
+\section{归结原则}
+\section{无穷小比阶}
+\section{连续}
+\subsection{连续点的定义}
+\section{间断}
+\subsection{间断点定义}
+\subsection{间断点分类}
+\subsubsection{可去间断点}
+\subsubsection{跳跃间断点}
+\subsubsection{无穷间断点}
+\subsubsection{振荡间断点}
+\end{document}
