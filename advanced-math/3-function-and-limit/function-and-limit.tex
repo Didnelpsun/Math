@@ -84,9 +84,87 @@ $\delta$邻域的几何意义：以$P_0(x_0,y_0)$为中心，以$\delta>0$为半
 
 若极限存在，则极限唯一。
 
+\textbf{例题1：}设$a$为常数，$\lim_{x\to 0}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right)$存在，求出极限值。
+
+因为求$x\to 0$，所以需要分两种情况讨论：
+
+$
+\begin{aligned}
+    & \lim_{x\to 0^+}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right) \\
+    & = \lim_{x\to 0^+}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}\right)+\lim_{x\to 0^+}\left(a\cdot\arctan\dfrac{1}{x}\right) \\
+    & = \lim_{x\to 0^+}\left(\dfrac{0\cdot\left(e^{\frac{2}{x}}\right)^2+e^{\frac{1}{x}}-\pi}{1\cdot\left(e^{\frac{2}{x}}\right)^2+1}\right)+a\cdot\dfrac{\pi}{2} \\
+    & = a\cdot\dfrac{\pi}{2} \\
+    & \lim_{x\to 0^-}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right) \\
+    & = -\pi+a\cdot\left(-\dfrac{\pi}{2}\right) \\
+    & = -\pi-\dfrac{\pi}{2}\cdot a
+\end{aligned}
+$
+
+因为极限值具有唯一性，所以$-\pi-\dfrac{\pi}{2}a=\dfrac{\pi}{2}a$，所以$a=-1$，极限值为$-\dfrac{\pi}{2}$。
+
 \subsection{局部有界性}
 
 若极限存在且为$A$，则存在正常数$M$和$\delta$，使得当$0<\vert x-x_0\vert<\delta$时，有$\vert f(x)\vert\leqslant M$。
+
+\begin{enumerate}
+    \item 极限存在是函数局部有界性的充分不必要条件。
+    \item $f(x)$在$[a,b]$上连续，则$f(x)$在$[a,b]$上有界。
+    \item 有限个有界函数与有界函数的和、差、积仍是有界函数。
+    \item 若$f'(x)$在有限区间$(a,b)$内有界，则$f(x)$在该区间内有界。
+\end{enumerate}
+
+对于结论二，可以利用极限存在必然连续的概念，对$f(x)$在区间两端求极限从而证明有界。这里两端的极限不要求是一样的，因为两端不一样的极限表明该趋向点的极限值不存在，但是仍然有界。
+
+证明结论四：
+
+利用中值定理：$f(b)-f(a)=f'(\xi)(b-a)$。
+
+令$x\in(a,b),x_0\in(a,b)$。其中这两个值不知道大小，只知道范围。
+
+代入中值定理：$f(x)-f(x_0)=f'(\xi)(x-x_0)$
+
+$
+\begin{aligned}
+    \vert f(x)\vert & =\vert f(x_0)+f'(\xi)(x-x_0)\vert \\
+    & \leqslant\vert f(x_0)\vert+\vert f'(\xi)\vert\vert x-x_0\vert\text{ （重要绝对值不等式）} \\
+    & \leqslant\vert f(x_0)\vert+K\cdot(b-a) \\
+    & \leqslant M
+\end{aligned}
+$
+
+\textbf{例题2：}函数$f(x)=\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$在哪个区间内有界（）。
+
+$A.(-1,0)$\qquad$B.(0,1)$\qquad$C.(1,2)$\qquad$D.(2,3)$
+
+解：看选项，0，1，2出现次数较多，所以从$B$选项开始检查是否有界：
+
+$\lim_{x\to 0^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=(-1)\cdot\dfrac{-\sin 2}{(-1)\cdot 4}=-\dfrac{\sin 2}{4}$
+
+所以趋于$0^-$的一段有界。
+
+同理$\lim_{x\to 0^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=\dfrac{\sin 2}{4}$。
+
+所以趋于$0^+$的一段有界。
+
+$\lim_{x\to 1^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中$(x-1)$为0且在分母位置，所以极限为$\infty$，无界。
+
+所以$(0,1)$无界，$B$排除。
+
+同理$\lim_{x\to 1^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$也无穷大而无界。
+
+所以$(1,2)$无界，$C$排除。
+
+$\lim_{x\to 2^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中不管前面的项，而看到后面的$\dfrac{\sin(x-2)}{(x-2)^2}$。
+
+因为$\lim_{x\to 0}\dfrac{\sin x}{x}=1$，所以对于$\lim_{x\to 2}\dfrac{\sin(x-2)}{(x-2)}=1$，所以下面还有一个$x-2$，所以还是为$\infty$。
+
+所以$(2,3)$无界，$D$排除。
+
+验证-1处是否有界：
+
+$\lim_{x\to -1}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=-\dfrac{\sin 3}{18}$。
+
+所以该处有界，所以选$A$。
 
 \subsection{局部保号性}
 
@@ -110,6 +188,8 @@ $\Rightarrow A-\epsilon<f(x)<A+\epsilon$
 
 推论：若函数值在$x\to x_0$时都非负或非正，极限值为$A$，那么$A$与此时函数值同号。不能去除等号。
 
+\bigskip
+
 关于三个性质要注意自变量取值的双向性，所以需要留意下面几个函数：
 
 \begin{enumerate}
@@ -120,8 +200,51 @@ $\Rightarrow A-\epsilon<f(x)<A+\epsilon$
 \end{enumerate}
 
 \section{运算法则}
+
+若$\lim f(x)=A$，$\lim g(x)=B$，则
+
+\begin{enumerate}
+    \item $\lim[k\cdot f(x)\pm l\cdot g(x)]=k\lim f(x)\pm l\cdot g(x)=kA\pm lB$，其中$kl$为常数。
+    \item $\lim[f(x)\cdot g(x)]=\lim f(x)\cdot\lim g(x)=A\cdot B$
+    \item $\lim[f(x)]^n=[\lim f(x)]^n$，其中$n$为正整数。
+    \item $\lim\dfrac{f(x)}{g(x)}=\dfrac{\lim f(x)}{\lim g(x)}=\dfrac{A}{B}(B\neq 0)$。
+\end{enumerate}
+
 \section{夹逼准则}
+
+\begin{enumerate}
+    \item $g(x)\leqslant f(x)\leqslant h(x)$。
+    \item $\lim g(x)=A$且$\lim h(x)=A$。
+    \item 则$\lim f(x)=A$。
+\end{enumerate}
+
+\textcolor{orange}{注意：}两函数差值极限为0不代表两函数极限相同，也不能保证中间的$f(x)$的极限存在。
+
 \section{洛必达法则}
+
+\textcolor{aqua}{\textbf{定理：}}
+
+\begin{enumerate}
+    \item 当$x\to a\text{或}\infty$时，函数$f(x)$，$g(x)$都趋向0或无穷大。
+    \item $f'(x)$和$F'(x)$在点$a$的某去心邻域内，或$\vert x\vert$大于充分大的正数时，存在，且$g'(x)\neq 0$。
+    \item $\lim_{x\to a}\dfrac{f'(x)}{g'(x)}$或$\lim_{x\to\infty}\dfrac{f'(x)}{g'(x)}$存在或无穷大。
+    \item $\lim_{x\to a}\dfrac{f(x)}{g(x)}=\lim_{x\to a}\dfrac{f'(x)}{g'(x)}$或$\lim_{x\to\infty}\dfrac{f(x)}{g(x)}=\lim_{x\to\infty}\dfrac{f'(x)}{g'(x)}$。
+\end{enumerate}
+
+\textcolor{orange}{注意：}
+
+\begin{enumerate}
+    \item 如果函数比值不为$\dfrac{0}{0}$或$\dfrac{\infty}{\infty}$型，则不能使用洛必达法则。
+    \item 若求导后极限仍为$\dfrac{0}{0}$或$\dfrac{\infty}{\infty}$型，则可以继续使用洛必达法则。
+    \item 若$\lim_{x\to a}\dfrac{f'(x)}{g'(x)}$不存在且不为$\infty$，不能反推$\lim_{x\to a}\dfrac{f(x)}{g(x)}$不存在也不为$\infty$，这时候洛必达法则是失效的。
+\end{enumerate}
+
+对于第三个注意点：$\lim_{x\to 0}\dfrac{x^2\cdot\sin\dfrac{1}{x}}{x}=\lim_{x\to 0}x\cdot\sin\dfrac{1}{x}=0$。
+
+而使用洛必达法则：
+
+$\lim_{x\to 0}\dfrac{x^2\cdot\sin\dfrac{1}{x}}{x}=\lim_{x\to 0}\left(2x\cdot\sin\dfrac{1}{x}-\cos\dfrac{1}{x}\right)=\lim_{x\to 0}\left(-\cos\dfrac{1}{x}\right)=\text{不存在}$。
+
 \section{泰勒公式}
 
 非常重要。
