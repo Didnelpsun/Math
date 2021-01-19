@@ -420,17 +420,46 @@ $
 
 \section{无穷小比阶}
 
-\subsection{定义}
+\subsection{无穷定义}
 
 当$x\to x_0(\infty)$时，函数$f(x)$极限为0，就称$f(x)$为当$x\to x_0(\infty)$时的无穷小，记为：$\lim_{x\to x_0(\infty)}f(x)=0$。
 
 以0为极限的数列称为$n\to\infty$时的无穷小。
 
+无穷大\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$\vert f(x)\vert$无限增大，就称$f(x)$为当$x\to x_0(\infty)$时的无穷大，记为：$\lim_{x\to x_0(\infty)}f(x)=\infty$。
+
+\subsection{无穷小比阶定义}
+
+设在自变量同一变化过程中，$\lim\alpha(x)=0$，$\lim\beta(x)=0$，且$\beta(x)\neq 0$，则：
+
+\begin{enumerate}
+    \item 若$\lim\dfrac{\alpha(x)}{\beta(x)}=0$，则$\alpha(x)$是比$\beta(x)$高阶的无穷小，记为$\alpha(x)=o(\beta(x))$。
+    \item 若$\lim\dfrac{\alpha(x)}{\beta(x)}=\infty$，则$\alpha(x)$是比$\beta(x)$低阶的无穷小。
+    \item 若$\lim\dfrac{\alpha(x)}{\beta(x)}=c\neq 0$，则$\alpha(x)$与$\beta(x)$是同阶无穷小。
+    \item 若$\lim\dfrac{\alpha(x)}{\beta(x)}=1$，则$\alpha(x)$与$\beta(x)$是等价无穷小，记为$\alpha(x)\sim\beta(x)$。
+    \item 若$\lim\dfrac{\alpha(x)}{[\beta(x)]^k}=c\neq 0$，则$\alpha(x)$是$\beta(x)$的$k$阶无穷小。
+\end{enumerate}
+
+并不是任意无穷小都可以比阶。如$\lim_{x\to 0}\dfrac{x\sin\dfrac{1}{x}}{x^2}$就因为得到函数振荡而无法得到极限。
+
+\section{极限未定式计算}
+
+对于自变量的变化趋势分为六种，分别是对于$x_0$与$\infty$的各三种。
+
+\subsection{化简}
+
+方式：
+
+\begin{enumerate}
+    \item 提出极限不为0的因式。
+    \item 等价无穷小替换。
+\end{enumerate}
+
 \section{连续}
-\subsection{连续点的定义}
+\subsection{定义}
 \section{间断}
-\subsection{间断点定义}
-\subsection{间断点分类}
+\subsection{定义}
+\subsection{分类}
 \subsubsection{可去间断点}
 \subsubsection{跳跃间断点}
 \subsubsection{无穷间断点}
