@@ -1,5 +1,5 @@
 \documentclass[UTF8]{ctexart}
-\usepackage{color}
+\usepackage{xcolor}
 % 使用颜色
 \definecolor{orange}{RGB}{255,127,0} 
 \definecolor{violet}{RGB}{192,0,255} 
@@ -24,8 +24,10 @@
 % 1.5倍行距
 \usepackage{pifont}
 % 圆圈序号
-\usepackage[colorlinks,linkcolor=violet,urlcolor=blue]{hyperref}
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
+\usepackage{tikz}
+% 绘图
 \author{Didnelpsun}
 \title{函数与极限}
 \begin{document}
@@ -276,7 +278,7 @@ $\lim_{x\to 0}\dfrac{x^2\cdot\sin\dfrac{1}{x}}{x}=\lim_{x\to 0}\left(2x\cdot\sin
 
 其中$o(x^\alpha)$为佩亚诺余项，其非常小。
 
-同样可以对泰勒展开式进行变形：$x-\sin x\sim\dfrac{x^3}{6}$。
+同样可以对泰勒展开式进行变形：$x-\sin x\sim\dfrac{x^3}{6}$，$x+\sin x\sim 2x$。
 
 如：
 
@@ -387,7 +389,7 @@ $
 
 设$f(x)$在$\mathring{U}(x_0,\delta)$内有定义，则$\lim_{x\to x_0}f(x)=A$存在$\Leftrightarrow$对任何$\mathring{U}(x_0,\delta)$内以$x_0$为极限的数列$\{x_n\}(x_n\neq x_0)$，极限$\lim_{n\to\infty}f(x_n)=A$存在。
 
-海涅定理用来李连杰数列极限与函数极限。在极限存在下他们可以相互转换。
+海涅定理用来连接数列极限与函数极限。在极限存在下他们可以相互转换。
 
 \textbf{例题4：}求$\lim_{n\to\infty}\left(n\tan\dfrac{1}{n}\right)^{n^2}$（$n\in N^+$）。
 
@@ -442,26 +444,378 @@ $
 
 并不是任意无穷小都可以比阶。如$\lim_{x\to 0}\dfrac{x\sin\dfrac{1}{x}}{x^2}$就因为得到函数振荡而无法得到极限。
 
-\section{极限未定式计算}
+\subsection{常用等价无穷小}
 
-对于自变量的变化趋势分为六种，分别是对于$x_0$与$\infty$的各三种。
+$x\to 0$：
 
-\subsection{化简}
+\begin{enumerate}
+    \item $\sin x\sim x$。
+    \item $\tan x\sim x$。
+    \item $\arcsin x\sim x$。
+    \item $\arctan x\sim x$。
+    \item $\ln(1+x)\sim x$。
+    \item $e^x-1\sim x$。
+    \item $a^x-1\sim x\ln a$。
+    \item $1-\cos x\sim\dfrac{1}{2}x^2$。
+    \item $(1+x)^a-1\sim ax$。
+\end{enumerate}
+
+还有$e^{\sin x}-e^x\sim\sin x-x\sim-\dfrac{1}{6}x^3$。
+
+\section{极限计算}
+
+\subsection{未定式}
+
+未定式即需要自己定义的式子，可能存在极限也可能不存在，对于自变量的变化趋势分为六种，分别是对于$x_0$与$\infty$的各三种。
+
+\subsubsection{化简}
 
 方式：
 
 \begin{enumerate}
     \item 提出极限不为0的因式。
     \item 等价无穷小替换。
+    \item 恒等变形（提公因式、拆项、合并、分子分母同除变量最高次幂、换元法）。
 \end{enumerate}
+
+\subsubsection{判断类型}
+
+七种：$\dfrac{0}{0},\dfrac{\infty}{\infty},0\cdot\infty,\infty-\infty,\infty^0,0^0,1^\infty$。
+
+\ding{172}其中$\dfrac{0}{0}$为洛必达法则的基本型。$\dfrac{\infty}{\infty}$可以类比$\dfrac{0}{0}$的处理方式。$0\cdot\infty$可以转为$\dfrac{0}{\dfrac{1}{\infty}}=\dfrac{0}{0}=\dfrac{\infty}{\dfrac{1}{0}}=\dfrac{\infty}{\infty}$。设置分母有原则，简单因式才下放。（简单：幂函数，e为底的指数函数）
+
+\ding{173}$\infty-\infty$可以提取公因式或通分，即和差化积。
+
+\ding{174}$\infty^0,0^0,1^\infty$，就是幂指函数。
+
+$
+u^v=e^{v\ln u}=\left\{
+\begin{array}{lcl}
+    \infty^0 & \rightarrow & e^{0\cdot+\infty} \\
+    0^0 & \rightarrow & e^{0\cdot-\infty} \\
+    1^\infty & \rightarrow & e^{\infty\cdot 0} \\
+\end{array} \right.
+$
+
+$\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
+
+\paragraph{比值类型} \leavevmode \bigskip
+
+$\dfrac{0}{0}$型\textbf{例题5：}求极限$\lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}$
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}} \\
+    & = \lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}\cdot 2x^{-3}}{100x^99} \\
+    & = \lim_{x\to 0}\dfrac{1}{50}\lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{102}}
+\end{aligned}
+$
+
+\bigskip
+
+使用洛必达法则下更复杂，因为分子的幂次为负数，导致求导后幂次绝对值越来越大，不容易计算。
+
+使用倒代换再洛必达降低幂次，令$\dfrac{1}{x^2}=t$。
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}} \\
+    & = \lim_{t\to+\infty}\dfrac{e^{-t}}{t^{-50}} \\
+    & = \lim_{t\to+\infty}\dfrac{t^{50}}{e^t} \\
+    & = \lim_{t\to+\infty}\dfrac{50t^{49}}{e^t} \\
+    & = \cdots \\
+    & = \lim_{t\to+\infty}\dfrac{50!}{e^t} \\
+    & = 0
+\end{aligned}
+$
+
+$\infty\cdot 0$型\textbf{例题6：}求极限$\lim_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
+
+首先定性分析：$\lim_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
+
+在$x\to-\infty$趋向时，$x$就趋向无穷大，而$\sqrt{x^2+100}$为一次，所以$\sqrt{x^2+100}+x$趋向0。
+
+又$\sqrt{x^2+100}$在$x\to-\infty$时本质为根号差，所以有理化：
+
+$
+\begin{aligned}
+    & \lim_{x\to-\infty}x(\sqrt{x^2+100}+x) \\
+    & \lim_{x\to-\infty}x\dfrac{x^2+100-x^2}{\sqrt{x^100}-x} \\
+    & = \lim_{x\to-\infty}\dfrac{100x}{\sqrt{x^2+100}-x} \\
+    & \Rightarrow^{\text{令}x=-t} \lim_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+100}+t} \\
+    & = \lim_{t\to+\infty}\dfrac{-100}{\sqrt{1+\dfrac{100}{t^2}}+1} \\
+    & = -50
+\end{aligned}
+$
+
+$\infty\cdot 0$型\textbf{例题7：}求极限$\lim_{x\to 1^-}\ln x\ln(1-x)$。
+
+当$x\to 1^-$时，$\ln x$趋向0，$\ln(1-x)$趋向$-\infty$。
+
+又$x\to 0$，$\ln(1+x)\sim x$，所以$x\to 1$，$\ln x\sim x-1$：
+
+$
+\begin{aligned}
+    & \lim_{x\to 1^-}\ln x\ln(1-x) \\
+    & = \lim_{x\to 1^-}(x-1)\ln(1-x) \\
+    & \Rightarrow^{令t=1-x} =-\lim_{t\to 0^+}t\ln t \\
+    & = -\lim_{t\to 0^+}\dfrac{\ln t}{\dfrac{1}{t}} \\
+    & = -\lim_{t\to 0^+}\dfrac{\dfrac{1}{t}}{-\dfrac{1}{t^2}} \\
+    & = \lim_{t\to 0^+}t \\
+    & = 0
+\end{aligned}
+$
+
+
+$\dfrac{0}{0}$型\textbf{例题8：}求极限$\lim_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
+
+分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开：
+
+$x\to 0$，$\sin x=x-\dfrac{1}{6}x^3+o(x^3)$，$\tan x=x+\dfrac{1}{3}x^3+o(x^3)$，$\arcsin x=x+\dfrac{1}{6}x^3+o(x^3)$，$\arctan x=x-\dfrac{1}{3}x^3+o(x^3)$。
+
+$\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac{1}{2}x^3+o(x^3)$
+
+$\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
+
+$0\cdot\infty$型\textbf{例题9：}求极限$\lim_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
+
+取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
+
+当$x>0$时，$x\to 0^+$，两边都乘以10，$10-x<x\cdot\left[\dfrac{10}{x}\right]\leqslant x\cdots\dfrac{10}{x}=10$，而左边在$x\to 0^+$时极限也为10，所以夹逼准则，中间$x\cdot\left[\dfrac{10}{x}\right]$极限也为10。
+
+当$x>0$时，$x\to 0^-$，同样也是夹逼准则得到极限为10。
+
+$\therefore \lim_{x\to 0}x\left[\dfrac{10}{x}\right]$。
+
+\paragraph{差类型} \leavevmode \bigskip
+
+\begin{itemize}
+    \item 如果函数中有分母，则通分，将加减法变形为乘除法，以便其他计算如洛必达法则。
+    \item 若函数中没有分母，则可以通过提取公因式或倒数代换，出现分母，再利用通分等方式将加减法变成乘除法。
+\end{itemize}
+
+$\infty-\infty$型\textbf{例题10：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right) \\
+    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)\\
+    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4} \\
+    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4x^3} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{2}\sin 4x}{4x^3} \\
+    & = \lim_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2} \\
+    & = \dfrac{1}{6}\lim_{x\to 0}\dfrac{1-\cos 4x}{x^2} (1-\cos x\sim \dfrac{1}{2}x^2)\\
+    & = \dfrac{4}{3}
+\end{aligned}
+$
+
+$\infty-\infty$型\textbf{例题11：}求极限$\lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$。
+
+该式子无法进行因式分解，所以尝试使用倒数代换：
+
+$
+\begin{aligned}
+    & \lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x] \\
+    & \Rightarrow^{\text{令}x=\frac{1}{t}}\lim_{t\to 0^+}\left(\dfrac{e^t-1}{x^2}-\dfrac{1}{t}\right) \\
+    & \lim_{t\to 0^+}\dfrac{e^t-1-t}{t^2} \\
+    & \Rightarrow^{\text{泰勒展开}e^x}\lim_{t\to 0^+}\dfrac{\dfrac{1}{2}x^2}{x^2} \\
+    & =\dfrac{1}{2}
+\end{aligned}
+$
+
+\paragraph{幂指类型} \leavevmode \bigskip
+
+$\infty^0$型\textbf{例题12：}求极限$\lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$。
+
+$
+\begin{aligned}
+    & \lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}} \\
+    & =e^{\lim_{x\to+\infty}\frac{(x+\sqrt{1+x^2})}{x}} \left(\ln(x+\sqrt{1+x^2})'=\dfrac{1}{\sqrt{1+x^2}}\right) \\
+    & =e^{\lim_{x\to+\infty}\dfrac{1}{\sqrt{1+x^2}}} \\
+    & =e^0 \\
+    & =1
+\end{aligned}
+$
+
+$1^\infty$型\textbf{例题13：}求极限$\lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}} \\
+    & =e^{\lim_{x\to 0}\dfrac{e}{x}\ln\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)} \\
+    & =e^{\lim_{x\to 0}\dfrac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}-1\right)} \\
+    & =e^{\lim_{x\to 0}\dfrac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}-n}{n}\right)} \\
+    & =e^{\frac{e}{n}\lim_{x\to 0}\left(\frac{e^x-1}{x}+\frac{e^{2x}-1}{x}+\cdots+\frac{e^{nx}-1}{x}\right)} \\
+    & =e^{\frac{e}{n}[1+2+\cdots+n]} \\
+    & =e^{\frac{e}{n}\cdot\frac{n(1+n)}{2}} \\
+    & =e^{\frac{e(1+n)}{2}}
+\end{aligned}
+$
+
+\subsection{极限转换}
+
+一般解法为两种，一种是脱帽法：$\lim_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim_{x\to x_0}\alpha(x)=0$。第二种就是根据之间的关系转换。
+
+\textbf{例题14：}如果$\lim_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
+
+解法一：
+
+由$\lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$脱帽：$\dfrac{x\sin x+f(x)}{x^4}=A+\alpha$。
+
+得到：$f(x)=Ax^4+\alpha\cdot x^4-(x-\sin x)$。
+
+反代入：$\lim_{x\to 0}\dfrac{f(x)}{x^3}=\lim_{x\to 0}\dfrac{Ax^4+\alpha\cdot x^4-x+\sin x}{x^3}=0+0-\dfrac{1}{6}=-\dfrac{1}{6}$。
+
+$\therefore \lim_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
+
+解法二：
+
+由$\lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$，而目标是$x^3$，所以需要变形：
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A \\
+    & \lim_{x\to 0}\dfrac{x\sin x+f(x)\cdot x}{x^4}=A\cdot\lim_{x\to 0}x=0 \\
+    & \lim_{x\to 0}\dfrac{x-\sin x}{x^3}+\lim_{x\to 0}\dfrac{f(x)}{x^3}=0 \\
+    & \text{泰勒展开：}x-\sin x=\dfrac{1}{6}x^3 \\
+    & \lim_{x\to 0}\dfrac{f(x)}{x^3}=-\dfrac{1}{6} \\
+    & \lim_{x\to 0}\dfrac{x^3}{f(x)}=-6
+\end{aligned}
+$
+
+\subsection{求参数}
+
+因为求参数类型的题目中式子是未知的，所以求导后也是未知的，所以一般不要使用洛必达法则，而使用泰勒展开。
+
+一般极限式子右侧等于一个常数，或是表明高阶或低阶。具体的关系参考无穷小比阶。
+
+\textbf{例题15：}设$\lim_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2$，求常数a，b。
+
+根据泰勒展开式：$x\to 0,\ln(1+x)=x-\dfrac{x^2}{x}+o(x^2)$。
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2 \\
+    & =\lim_{x\to 0}\dfrac{(1-a)x-\left(\dfrac{1}{2}+b\right)x^2+o(x^2)}{x^2}=2\neq 0 \\
+    & 1-a=0;-\left(\dfrac{1}{2}+b\right)=2 \\
+    & \therefore a=1;b=-\dfrac{5}{2}
+\end{aligned}
+$
+
+\textcolor{orange}{注意：}根据泰勒公式，$x-\ln(1+x)\sim\dfrac{1}{2}x^2\sim 1-\cos x$。
+
+函数的连续与间断是逐点的概念。
 
 \section{连续}
 \subsection{定义}
+
+若函数$f(x)$在点$x_0$的某一邻域内有定义，且有$\lim_{x\to x_0}f(x)=f(x_0)$，则称函数$f(x)$在点$x_0$处连续。
+
+极限值等于函数值，则该点连续。
+
 \section{间断}
+
+讨论间断只看两类点：分段函数分段点，无定义点。
+
 \subsection{定义}
+
+若函数$f(x)$在点$x_0$的某一去心邻域内有定义，且有$\lim_{x\to x_0}f(x)\neq f(x_0)$，则称函数$f(x)$在点$x_0$处间断。
+
+极限值不等于函数值，则该点间断。
+
 \subsection{分类}
-\subsubsection{可去间断点}
+\subsubsection{可去间断点（可补间断点）}
+
+若$\lim_{x\to x_0}f(x)=A\neq f(x_0)$（甚至可以没有定义）。
+
+\begin{tikzpicture}
+    \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
+    \draw[-latex](0,-0.5) -- (0,3) node[above]{$y$};
+    \filldraw[black] (0,0) node[below]{$O$};
+    \draw[black, thick, domain=-0.5:2] plot (\x,{pow(e,\x-1)});
+    \filldraw[white, draw=black, line width=1pt] (1,1) circle (2pt);
+    \draw[black, densely dashed](1,2) -- (0,2) node[left]{$B$};
+    \draw[black, densely dashed](1,1) -- (0,1) node[left]{$A$};
+    \draw[black, densely dashed](1,2) -- (1,0) node[below]{$x_0$};
+    \filldraw[black] (1,2) circle (2pt) node[above]{$f(x_0)=B$};
+    \filldraw[black] (1,1) node[right]{$\lim_{x\to x_0}=A$};
+\end{tikzpicture}
+
 \subsubsection{跳跃间断点}
+
+若$\lim_{x\to x_0^-}f(x)$与$\lim_{x\to x_0^+}$都存在，但是$\lim_{x\to x_0^-}f(x)\neq\lim_{x\to x_0^+}$。
+
+\begin{tikzpicture}
+    \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
+    \draw[-latex](0,-0.5) -- (0,3) node[above]{$y$};
+    \filldraw[black] (0,0) node[below]{$O$};
+    \draw[black, thick, domain=-0.5:1] plot (\x,{pow(e,\x-1)});
+    \draw[black, thick, domain=1:1.5] plot (\x,{pow(e,\x-1)+1});
+    \filldraw[white, draw=black, line width=1pt] (1,1) circle (2pt);
+    \draw[black, densely dashed](1,2) -- (0,2) node[left]{$B$};
+    \draw[black, densely dashed](1,1) -- (0,1) node[left]{$A$};
+    \draw[black, densely dashed](1,2) -- (1,0) node[below]{$x_0$};
+    \filldraw[black] (1,2) circle (2pt) node[above]{$f(x_0)=B$};
+    \filldraw[black] (1,1) node[right]{$\lim_{x\to x_0}=A$};
+\end{tikzpicture}
+
+可去间断点与跳跃间断点都称为第一类间断点。
+
 \subsubsection{无穷间断点}
+
+若$\lim_{x\to x_0}f(x)=\infty$，或至少一个方向为无穷大（定义分歧）。如$y=\dfrac{1}{x}$在$x=0$处为无穷间断点。
+
+\begin{tikzpicture}
+    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+    \filldraw[black] (0,0) node[below]{$O$};
+    \draw[black, thick, domain=0.5:2] plot (\x,{pow(\x,-1)});
+    \draw[black, thick, domain=-2:-0.5] plot (\x,{pow(\x,-1)});
+\end{tikzpicture}
+
 \subsubsection{振荡间断点}
+
+若$\lim_{x\to x_0}f(x)$为振荡不存在。如$\lim_{x\to 0}\sin\dfrac{1}{x}$的$x=0$就是振荡间断点。
+
+\begin{tikzpicture}
+    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+    \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
+    \filldraw[black] (0,0) node[below]{$O$};
+    \draw[black, thick, domain=0.01:2] plot (\x,{sin(pow(\x,-1) r)});
+    \draw[black, thick, domain=-2:-0.01] plot (\x,{sin(pow(\x,-1) r)});
+\end{tikzpicture}
+
+无穷间断点与振荡间断点都是第二类间断点。
+
+\textcolor{orange}{注意：}两侧邻域都有定义才能讨论间断点问题。
+
+\textbf{例题16：}若$f(x)=\left\{
+    \begin{array}{lcl}
+        2x+a, & & x\leqslant 0 \\
+        e^x(\sin x+\cos x), & & x>0
+    \end{array} \right.
+$在$(-\infty,+\infty)$内连续，求$a$。
+
+因为连续，所以$f(0)=\lim_{x\to 0^+}f(x)=\lim_{x\to 0^-}f(x)$。
+
+$\therefore a=1$。
+
+\textbf{例题17：}若函数$f(x)=\dfrac{\ln\vert x\vert}{\vert x-1\vert}\sin x$，则x的间断点类型是？
+
+由式子的分式部分可知有两个无定义的间断点：$x=0$，$x=1$。
+
+$\lim_{x\to 1}f(x)=\lim_{x\to 1}\dfrac{x-1}{\vert x-1\vert}\sin x=\left\{
+    \begin{array}{lcl}
+        x\to 1^+ & \rightarrow & \sin 1 \\
+        x\to 1^- & \rightarrow & -\sin 1
+    \end{array} \right.
+$
+
+所以$x=1$跳跃间断点。
+
+$\lim_{x\to 0}f(x)=\lim_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim_{x\to 0}x\ln\vert x\vert=0$
+
+而$x=0$未定义，所以其为可去间断点。
+
 \end{document}
