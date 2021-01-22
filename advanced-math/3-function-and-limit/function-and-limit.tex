@@ -3,7 +3,6 @@
 % 使用颜色
 \definecolor{orange}{RGB}{255,127,0} 
 \definecolor{violet}{RGB}{192,0,255} 
-\definecolor{aqua}{RGB}{0,255,255} 
 \usepackage{geometry}
 \setcounter{tocdepth}{5}
 \setcounter{secnumdepth}{5}
@@ -28,6 +27,8 @@
 % 超链接
 \usepackage{tikz}
 % 绘图
+\usepackage{mathtools}
+% 有字的长箭头
 \author{Didnelpsun}
 \title{函数与极限}
 \begin{document}
@@ -542,7 +543,7 @@ $
     & \lim_{x\to-\infty}x(\sqrt{x^2+100}+x) \\
     & \lim_{x\to-\infty}x\dfrac{x^2+100-x^2}{\sqrt{x^100}-x} \\
     & = \lim_{x\to-\infty}\dfrac{100x}{\sqrt{x^2+100}-x} \\
-    & \Rightarrow^{\text{令}x=-t} \lim_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+100}+t} \\
+    & \xRightarrow{\text{令}x=-t}\lim_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+100}+t} \\
     & = \lim_{t\to+\infty}\dfrac{-100}{\sqrt{1+\dfrac{100}{t^2}}+1} \\
     & = -50
 \end{aligned}
@@ -558,7 +559,7 @@ $
 \begin{aligned}
     & \lim_{x\to 1^-}\ln x\ln(1-x) \\
     & = \lim_{x\to 1^-}(x-1)\ln(1-x) \\
-    & \Rightarrow^{令t=1-x} =-\lim_{t\to 0^+}t\ln t \\
+    & \xRightarrow{令t=1-x} =-\lim_{t\to 0^+}t\ln t \\
     & = -\lim_{t\to 0^+}\dfrac{\ln t}{\dfrac{1}{t}} \\
     & = -\lim_{t\to 0^+}\dfrac{\dfrac{1}{t}}{-\dfrac{1}{t^2}} \\
     & = \lim_{t\to 0^+}t \\
@@ -617,9 +618,9 @@ $\infty-\infty$型\textbf{例题11：}求极限$\lim_{x\to+\infty}[x^2(e^{\frac{
 $
 \begin{aligned}
     & \lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x] \\
-    & \Rightarrow^{\text{令}x=\frac{1}{t}}\lim_{t\to 0^+}\left(\dfrac{e^t-1}{x^2}-\dfrac{1}{t}\right) \\
+    & \xRightarrow{\text{令}x=\frac{1}{t}}\lim_{t\to 0^+}\left(\dfrac{e^t-1}{x^2}-\dfrac{1}{t}\right) \\
     & \lim_{t\to 0^+}\dfrac{e^t-1-t}{t^2} \\
-    & \Rightarrow^{\text{泰勒展开}e^x}\lim_{t\to 0^+}\dfrac{\dfrac{1}{2}x^2}{x^2} \\
+    & \xRightarrow{\text{泰勒展开}e^x}\lim_{t\to 0^+}\dfrac{\dfrac{1}{2}x^2}{x^2} \\
     & =\dfrac{1}{2}
 \end{aligned}
 $
