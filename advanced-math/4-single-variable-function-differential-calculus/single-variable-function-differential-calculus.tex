@@ -23,11 +23,18 @@
 \usepackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 % 1.5倍行距
+\usepackage{pifont}
+% 圆圈序号
 \usepackage{tikz}
 % 绘图
+\usepackage{array}
+% 设置表格行距
 \author{Didnelpsun}
 \title{一元函数微分学}
+\date{}
 \begin{document}
+\renewcommand{\arraystretch}{1.5}
+% 表格高1.5倍
 \maketitle
 \thispagestyle{empty}
 \tableofcontents
@@ -265,14 +272,259 @@ $\therefore\dfrac{\rm{d}\arcsin x}{\rm{d}x}=\dfrac{1}{\dfrac{\rm{d}\sin y}{\rm{d
 
 $\therefore\dfrac{\rm{d}\arctan x}{\rm{d}x}=\dfrac{1}{\dfrac{\rm{d}\tan y}{\rm{d}y}}=\dfrac{1}{\sec^2y}=\dfrac{1}{1+\tan^2y}=\dfrac{1}{1+x^2}$。
 
+二阶反函数导数\textcolor{aqua}{\textbf{定理：}}：
+
+$
+\begin{aligned}
+    f''(x) &=y''_{xx} \\
+    & =\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x} \\
+    & =\dfrac{\rm{d}^2y}{\rm{d}x^2} \\
+    & =\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\rm{d}x} \\
+    & =\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\rm{d}y}\cdot\dfrac{\rm{d}y}{\rm{d}x} \\
+    & =-\dfrac{x_{yy}''}{(x_y')^2}\cdot\dfrac{1}{x_y'} \\
+    & =-\dfrac{x_{yy}''}{(x_y')^3}
+\end{aligned}
+$
+
+其中$\rm{d}x\cdot\rm{d}x=(\rm{d}x)^2=\rm{d}x^2$称为微分的幂，而$\rm{d}(x^2)$叫幂的微分。
+
+\textbf{例题10：}设$y=f(x)$的反函数是$x=\varphi(y)$，且$f(x)=\int_1^{2x}e^{t^2}\rm{d}t+1$，求$\varphi''(1)$。
+
+$\because y=f(x)$，$\therefore x=\varphi(y)$，$x_{yy}''=\varphi''(y)=-\dfrac{y_{xx}''}{(y_x')^3}=-\dfrac{f''(x)}{[f'(x)]^3}$。
+
+其中根据变限积分求导公式：$f'(x)=2e^{4x^2}$，$f''(x)=2e^{4x^2}\cdot 8x=16xe^{4x^2}$
+
+又$y=1\Rightarrow x=\dfrac{1}{2}\Rightarrow\varphi''(1)=-\dfrac{f''\left(\dfrac{1}{2}\right)}{\left[f'\left(\dfrac{1}{2}\right)\right]^3}=-\dfrac{1}{e^2}$。
+
 \subsection{参数方程函数导数}
+
+设函数$y=y(x)$由参数方程$\left\{
+    \begin{array}{l}
+        x=\varphi(t) \\
+        y=\psi(t)
+    \end{array}
+\}\right.$确定，其中$t$为参数，且$\varphi(t)\psi(t)$对于$t$都可导，$\varphi(t)\neq 0$，则：
+
+\bigskip
+
+一阶导数：$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{\rm{d}y/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{\psi'(t)}{\varphi'(t)}=u(t)$。
+
+二阶导数：$\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{\rm{d}u/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{u'_t}{x'_t}$
+
+\textbf{例题11：}设$y=y(x)$由方程$\left\{
+\begin{array}{l}
+    x=\sin t \\
+    y=t\sin t+\cos t
+\end{array}
+\right.
+$（$t$为参数）确定，求$\dfrac{\rm{d}^2y}{\rm{d}x^2}\vert_{t=\frac{\pi}{4}}$。
+
+求参数方程的二阶导数首先就要求出其一阶导数：
+
+$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{y_t'}{x_t'}=\dfrac{t\cos t}{\cos t}=t$。
+
+$\therefore\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{t_t'}{(\sin t)_t'}=\dfrac{1}{\cos t}$
+
+$\therefore \sqrt{2}$。
+
 \subsection{隐函数求导法}
+
+设函数$y=y(x)$由方程$F(x,y)=0$确定的可导函数，则\ding{172}方程两边对自变量$x$求导，（$y=y(x)$就是将$y$看作中间变量）得到一个关于$y'$的方程。\ding{173}解该方程就可以得出$y'$。
+
+\textbf{例题12：}设$y=y(x)$是由方程$\sin(xy)=\ln\dfrac{x+e}{y}+1$确定的隐函数，求$y'(0)$。
+
+两边求导：
+
+$
+\begin{aligned}
+    \sin(xy) &=\ln(x+e)-\ln(y)+1 \\
+    \cos(xy)(y+xy') &=\dfrac{1}{x+e}-\dfrac{y'}{y} \\
+    \because\text{将0代入} & x=0, y=e^2 \\
+    e^2&=\dfrac{1}{e}-\dfrac{y'(0)}{e^2} \\
+    y'(0) & =e-e^4
+\end{aligned}
+$
+
 \subsection{对数求导法}
+
+对于多项相乘、相除、开方、乘方的式子，一般先取对数再求导，设$y=f(x)(f(x)>0)$，则\ding{172}等式两边取对数：$\ln y=\ln f(x)$。\ding{173}两边对自变量$x$求导，得$\dfrac{1}{y}y'=[\ln f(x)]'\Rightarrow y'=y[\ln f(x)]'$。
+
+\textbf{例题13：}求$y=\sqrt[3]{\dfrac{(x+1)(2x-1)^2}{(4-3x)^5}}$的导数。
+
+取对数：$\ln\vert y\vert=\dfrac{1}{3}[\ln\vert x+1\vert+2\ln\vert 2x-1\vert-5\ln\vert 4-3x\vert]$。
+
+$\because \ln\vert y\vert'=\ln y'$。
+
+两边对x求导：
+
+$\dfrac{y'}{y}=\dfrac{1}{3}\left(\dfrac{1}{x+1}+\dfrac{4}{2x-1}-\dfrac{5}{4-3x}\cdot(-3)\right)$
+
+$\therefore y'=\dfrac{1}{3}\left(\dfrac{1}{x+1}+\dfrac{4}{2x-1}-\dfrac{5}{4-3x}\cdot(-3)\right)y$
+
 \subsection{幂指函数求导法}
+
+非常重要。
+
+对于$u(x)^{v(x)}(u(x)>0,u(x)\neq 1)$除了对数求导法外还可以使用指数函数$u(x)^{v(x)}=e^{v(x)\ln u(x)}$，然后求导得到$[u(x)^{v(x)}]'=[e^{v(x)\ln u(x)}]'=u(x)^{v(x)}\left[v'(x)\ln u(x)+v(x)\cdot\dfrac{u'(x)}{u(x)}\right]$。
+
+\textbf{例题14：}求$y=x^x(x>0)$的导数。
+
+$\because x^x=e^{x\ln x}$，$\therefore (x^x)'=(e^{x\ln x})'=x^x\cdot(\ln x+1)$。
+
+\textbf{例题15：}求解$y=x^{\frac{1}{x}}(x>0)$的整数最大值。
+
+$\because y=x^{\frac{1}{x}}=e^{\frac{1}{x}\ln x}$。
+
+$\therefore y'=\left(x^{\frac{1}{x}}\right)=\left(e^{\frac{1}{x}\ln x}\right)'=x^{\frac{1}{x}}\cdot\dfrac{1-\ln x}{x^2}$。
+
+令导数结果为0，因为$x^{\frac{1}{x}}$与$x^2$在$x>0$时都不为0，所以只有一个驻点$x=e$。
+
+$0<x<e$时$1-\ln x$大于0，所以导数大于0，函数在该区间增。相反$x>e$时函数在区间减。
+
+研究驻点左侧情况，求对应的极限：$e^{\lim_{x\to 0^+}\frac{\ln x}{x}}=e^{-\infty}\to 0$。
+
+研究驻点右侧情况，求对应的极限：$e^{\lim_{x\to+\infty}\frac{\ln x}{x}}=e^0\to 1$。
+
+\begin{tikzpicture}[scale=0.5]
+    \draw[-latex](-0.5,0) -- (10,0) node[below]{$x$};
+    \draw[-latex](0,-0.5) -- (0,3) node[above]{$y$};
+    \draw[black, thick, domain=0.1:10] plot (\x,{pow(\x,pow(\x,-1))});
+    \filldraw[black] (8,2.5) node{$y=x^{\frac{1}{x}}$};
+    \filldraw[white, draw=black, line width=1pt] (0,0) circle (4pt);
+    \filldraw[black] (0,0) node[below]{$O$};
+    \filldraw[black] (e,1.5) circle (4pt);
+    \filldraw[black] (e,1.5) node[above]{$(e,\sqrt[e]{e})$};
+    \draw[black, densely dashed](e,1.5) -- (e,0) node[below]{$e$};
+    \draw[black, densely dashed](10,1.5) -- (0,1.5) node[left]{$\sqrt[e]{e})$};
+\end{tikzpicture}
+
+所以必然在$\sqrt{2}$与$\sqrt[3]{3}$两点取得整数最大值，而全部六次方后$\sqrt{2}^6=8<\sqrt[3]{3}=9$，所以$\sqrt[3]{3}$为最大整数解。
+
 \subsection{高阶导数}
+
+即导数阶数在2以及以上的导数计算。
+
 \subsubsection{归纳法}
+
+即依次求导得出规律。
+
+$(a^x)^n=a^x(\ln a)^{(n)}$，如$y=2^x$，则$y'=2^x\ln 2$，$y''=2^x(\ln 2)^2\cdots$得到$y^{(n)}=2^x(\ln 2)^n,n\in N$。
+
+\textbf{例题16：}求$\sin x$的$n$阶导数。
+
+$\because \sin x'=\cos x$而不断求导会发现正负号会++--++--地变化而难以归纳为公式，所以需要另想办法。
+
+使用诱导公式：
+
+$
+\begin{aligned}
+    y'& =\cos x=\sin(x+\dfrac{\pi}{2}) \\
+    y''& =\cos(x+\dfrac{\pi}{2})=\sin(x+\dfrac{\pi}{2}+\dfrac{\pi}{2}) \\
+    \cdots & \\
+    y^{(n)}& =\sin(x+\dfrac{\pi}{2}\cdot n)
+\end{aligned}
+$
+
 \subsubsection{莱布尼茨公式}
+
+设$u=u(x)$，$v=v(x)$均$n$阶可导，则$(uv)^{(n)}=\sum_{k=0}^nC_n^ku^{(n-k)}v^{(k)}$。
+
+展开：$(uv)^{(n)}=C_n^0u^{(n)}v^{(0)}+C_n^1u^{(n-1)}v'+\cdots+C_n^nu^{(0)}v^{(n)}$。
+
+莱布尼兹公式里的系数与考研数学准备章节的因式分解公式的二次项公式的系数一致，可以使用杨辉三角形来记忆：
+
+\begin{tikzpicture}[scale=0.9]
+    \node[black] at (0,0) {$C_0^0$};
+    \node[black] at (-1,-1) {$C_1^0$};
+    \node[black] at (0,-1) {$C_1^1$};
+    \node[black] at (-2,-2) {$C_2^0$};
+    \node[black] at (-1,-2) {$C_2^1$};
+    \node[black] at (-0,-2) {$C_2^2$};
+    \node[black] at (-3,-3) {$C_3^0$};
+    \node[black] at (-2,-3) {$C_3^1$};
+    \node[black] at (-1,-3) {$C_3^2$};
+    \node[black] at (-0,-3) {$C_3^3$};
+    \node[black] at (-4,-4) {$C_4^0$};
+    \node[black] at (-3,-4) {$C_4^1$};
+    \node[black] at (-2,-4) {$C_4^2$};
+    \node[black] at (-1,-4) {$C_4^3$};
+    \node[black] at (-0,-4) {$C_4^4$};
+\end{tikzpicture}
+\hspace{2.5em}
+\begin{tikzpicture}[scale=0.9]
+    \node[black] (0) at (0,0) {1};
+    \node[black] (1) at (-1,-1) {1};
+    \node[black] (2) at (1,-1) {1};
+    \node[black] (3) at (-2,-2) {1};
+    \node[black] (4) at (0,-2) {2};
+    \node[black] (5) at (2,-2) {1};
+    \node[black] (6) at (-3,-3) {1};
+    \node[black] (7) at (-1,-3) {3};
+    \node[black] (8) at (1,-3) {3};
+    \node[black] (9) at (3,-3) {1};
+    \node[black] (10) at (-4,-4) {1};
+    \node[black] (11) at (-2,-4) {4};
+    \node[black] (12) at (0,-4) {6};
+    \node[black] (13) at (2,-4) {4};
+    \node[black] (14) at (4,-4) {1};
+    \draw[-,thick] (0) to (1);
+    \draw[-,thick] (0) to (2);
+    \draw[-,thick] (1) to (3);
+    \draw[-,thick] (1) to (4);
+    \draw[-,thick] (2) to (4);
+    \draw[-,thick] (2) to (5);
+    \draw[-,thick] (3) to (6);
+    \draw[-,thick] (3) to (7);
+    \draw[-,thick] (4) to (7);
+    \draw[-,thick] (4) to (8);
+    \draw[-,thick] (5) to (8);
+    \draw[-,thick] (5) to (9);
+    \draw[-,thick] (6) to (10);
+    \draw[-,thick] (6) to (11);
+    \draw[-,thick] (7) to (11);
+    \draw[-,thick] (7) to (12);
+    \draw[-,thick] (8) to (12);
+    \draw[-,thick] (8) to (13);
+    \draw[-,thick] (9) to (13);
+    \draw[-,thick] (9) to (14);
+\end{tikzpicture}
+
+\textbf{例题17：}已知函数$y=e^x\cos x$，求$y^{(4)}$。
+
+根据莱布尼兹公式：
+
+$
+\begin{aligned}
+    & (e^x\cos x)^{(4)} \\
+    & =C_4^0e^x\cos x+C_4^1e^x(-\sin x)+C_4^2e^x(-\cos x)+C_4^3e^x(\sin x)+C_4^4e^x(\cos x) \\
+    & =e^x\cos x+4e^x(-\sin x)+6e^x(-\cos x)+4e^x\sin x+e^x\cos x \\
+    & =-4e^x\cos x
+\end{aligned}
+$
+
 \subsubsection{泰勒公式}
+
+先写出$y=f(x)$的泰勒公式或麦克劳林公式，再通过比较系数来获得$f^{(n)}(x_0)$：
+
+\begin{enumerate}
+    \item 任何一个无穷阶可导的函数（在收敛的情况下）都可以写为 \\
+    $y=f(x)=\sum_{n=0}^\infty\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ 或 $y=f(x)=\sum_{n=0}^\infty\dfrac{f^{(n)}(0)}{n!}x^n$。
+    \item 给出的任意一个具体的无穷阶可导函数$y=f(x)$都可以通过已知的公式展开为幂级数。
+    \item 而函数的展开式具有唯一性，比较步骤一步骤二的公式的系数就可以获取倒$f^{(n)}(x_0)$或$f^{(n)}(0)$。
+\end{enumerate}
+
+\textbf{例题18：}设$y=x^3\sin x$，求$y^{(6)}(0)$。
+
+\ding{172}$y=\sum_{n=0}^\infty\dfrac{y^{(n)}(0)}{n!}x^n$。
+
+$\because$需要结果的导数阶数为6，所以最后得到的次数为6就可以了。
+
+\ding{173}$\therefore y=x^3\left(x-\dfrac{1}{6}x^3+\cdots\right)=x^4-\dfrac{1}{6}x^6+\cdots$（不要写$o(x^n)$，因为这里$x$并不是趋向0的）。
+
+\ding{174}步骤一的抽象函数当$n=6$时为$\dfrac{y^{(6)}(0)}{6!}x^6$，它应该与步骤二得到的$x^4-\dfrac{1}{6}x^6+\cdots$的6阶项的系数相等。
+
+$\therefore \dfrac{y^{(6)}(0)}{6!}=-\dfrac{1}{6}\Rightarrow y^{(6)}(0)=-5!=-120$。
+
 \subsection{变限积分求导公式}
 
 必然会考。
@@ -280,4 +532,17 @@ $\therefore\dfrac{\rm{d}\arctan x}{\rm{d}x}=\dfrac{1}{\dfrac{\rm{d}\tan y}{\rm{d
 已知更改区间限制的积分$s(x)=\int_{\varphi_1(x)}^{\varphi_2(x)}g(t)\rm{d}x$，$s'(x)=g[\varphi_2(x)]\cdot\varphi_2'(x)-g[\varphi_1(x)]\cdot\varphi_1'(x)$。
 
 \subsection{基本求导公式}
+
+\begin{center}
+    \begin{tabular}{|c|c|}
+        \hline
+        原函数 & 导函数 \\ \hline
+        $C$ & $0$ \\ \hline
+        $n^x$ & $n^x\ln n$ \\ \hline
+        $\log_ax$ & $\dfrac{1}{x\ln a}$ \\ \hline
+        $\ln x(\ln\vert x\vert)$ & $\dfrac{1}{x}$ \\
+        \hline
+    \end{tabular}
+\end{center}
+
 \end{document}
