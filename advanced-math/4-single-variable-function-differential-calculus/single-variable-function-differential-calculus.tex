@@ -533,14 +533,57 @@ $\therefore \dfrac{y^{(6)}(0)}{6!}=-\dfrac{1}{6}\Rightarrow y^{(6)}(0)=-5!=-120$
 
 \subsection{基本求导公式}
 
+\subsubsection{对幂指函数}
+
 \begin{center}
-    \begin{tabular}{|c|c|}
+    \begin{tabular}{|c|c|c|c|}
         \hline
-        原函数 & 导函数 \\ \hline
-        $C$ & $0$ \\ \hline
-        $n^x$ & $n^x\ln n$ \\ \hline
-        $\log_ax$ & $\dfrac{1}{x\ln a}$ \\ \hline
-        $\ln x(\ln\vert x\vert)$ & $\dfrac{1}{x}$ \\
+        原函数 & 导函数 & 原函数 & 导函数\\ \hline
+        $C$ & $0$ & $n^x$ & $n^x\ln n$ \\ \hline
+        $\log_ax$ & $\dfrac{1}{x\ln a}$ & $\ln x=\ln\vert x\vert$ & $\dfrac{1}{x}$ \\ \hline
+        $x^n$ & $nx^{n-1}$ & $\sqrt[n]{x}$ & $\dfrac{x^{-\frac{n-1}{n}}}{n}$ \\ \hline
+        $\dfrac{1}{x^n}$ & $-\dfrac{n}{x^{n+1}}$ & & \\ 
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsubsection{三角与反三角函数}
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        原函数 & 导函数 & 原函数 & 导函数\\ \hline
+        $\sin x$ & $\cos x$ & $\cos x$ & $-\sin x$ \\ \hline
+        $\tan x$ & $\dfrac{1}{\cos^2x}=\sec^2x$ & $\cot x$ & $\dfrac{1}{\sin^2x}=\csc^2x$ \\ \hline
+        $\sec x$ & $\sec x\tan x$ & $\csc x$ & $-\csc x\cot x$ \\ \hline
+        $\arcsin x$ & $\dfrac{1}{1-x^2}$ & $\arccos x$ & $-\dfrac{1}{1-x^2}$ \\ \hline
+        $\arctan x$ & $\dfrac{1}{1+x^2}$ & $\rm{arccot}\,\textit{x}$ & $-\dfrac{1}{1+x^2}$ \\ \hline
+        $\rm{arcsec}\,\textit{x}$ & $\dfrac{1}{x\sqrt{x^2-1}}$ & $\rm{arccsc}\,\textit{x}$ & $-\dfrac{1}{x\sqrt{x^2-1}}$ \\ \hline
+        \hline
+    \end{tabular}
+\end{center}
+
+\subsubsection{双曲与反双曲函数}
+
+\begin{itemize}
+    \item 双曲正弦：$\rm{sinh}\,\textit{x}=\rm{sh}\,\textit{x}=\dfrac{e^x-e^{-x}}{2}$。
+    \item 双曲余弦：$\rm{cosh}\,\textit{x}=\rm{ch}\,\textit{x}=\dfrac{e^x+e^{-x}}{2}$。
+    \item 双曲正切：$\rm{tanh}\,\textit{x}=\rm{th}\,\textit{x}=\dfrac{\rm{sinh}\,\textit{x}}{\rm{cosh}\,\textit{x}}=\dfrac{e^x-e^{-x}}{e^x+e^{-x}}$。
+    \item 双曲余切：$\rm{coth}\,\textit{x}=\dfrac{\rm{cosh}\,\textit{x}}{\rm{sinh}\,\textit{x}}=\dfrac{e^x+e^{-x}}{e^x-e^{-x}}$。
+    \item 双曲正割：$\rm{sech}\,\textit{x}=\dfrac{1}{\rm{cosh}\,\textit{x}}=\dfrac{2}{e^x+e^{-x}}$。
+    \item 双曲余割：$\rm{csch}\,\textit{x}=\dfrac{1}{\rm{sinh}\,\textit{x}}=\dfrac{2}{e^x-e^{-x}}$。
+    \item 反双曲正弦：$\rm{arcsinh}\,\textit{x}=\ln\left(x+\sqrt{x^2+1}\right)$。
+    \item 反双曲余弦：$\rm{arccosh}\,\textit{x}=\ln\left(x+\sqrt{x^2-1}\right)$。
+    \item 反双曲正切：$\rm{arctanh}\,\textit{x}=\dfrac{1}{2}\ln\left(\dfrac{1+x}{1-x}\right)$。
+\end{itemize}
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        原函数 & 导函数 & 原函数 & 导函数\\ \hline
+        $\rm{sinh}\,\textit{x}$ & $\rm{cosh}\,\textit{x}$ & $\rm{cosh}\,\textit{x}$ & $\rm{sinh}\,\textit{x}$ \\ \hline
+        $\rm{tanh}\,\textit{x}$ & $\dfrac{1}{\rm{cosh}\,\textit{x}^2}$ & $\rm{arcsinh}\,\textit{x}$ & $\dfrac{1}{\sqrt{x^2+1}}$ \\ \hline
+        $\rm{arccosh}\,\textit{x}$ & $\dfrac{1}{\sqrt{x^2-1}}$ & $\rm{arctan}\,\textit{x}$ & $\dfrac{1}{1-x^2}$ \\
         \hline
     \end{tabular}
 \end{center}

@@ -531,7 +531,7 @@ $$
 \begin{tikzpicture}[scale=0.9]
     \draw[-latex](-3,0) -- (3,0) node[below]{$x$};
     \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
-    \draw[black, thick, domain=-3:3] plot (\x,{pi/2-rad(atan(\x))}) node[right]{$\rm{arccot}(x)$};
+    \draw[black, thick, domain=-3:3] plot (\x,{pi/2-rad(atan(\x))}) node[right]{$\rm{arccot}(\textit{x})$};
     \filldraw[black] (0,0) node[below]{$O$};
     \draw[black, densely dashed](-3,pi) -- (3,pi);
     \filldraw[black] (-0.5,pi/2-0.5) node{$\dfrac{\pi}{2}$};
@@ -541,11 +541,11 @@ $$
 
 \begin{enumerate}
     \item 特殊函数值：$\arctan 0=0$，$\arctan\dfrac{\pi}{6}=\dfrac{\sqrt{3}}{3}=$，$\arctan 1=\dfrac{\pi}{4}$，$\arctan\sqrt{3}=\dfrac{\pi}{3}$，$\rm{arccot}0=\dfrac{\pi}{2}$，$\rm{arccot}\sqrt{3}=\dfrac{\pi}{6}$，$\rm{arccot}1=\dfrac{\pi}{4}$，$\rm{arccot}\dfrac{\sqrt{3}}{3}=\dfrac{\pi}{3}$。
-    \item 定义域：$(-\infty, +\infty)$，值域：$\arctan x:[-\dfrac{\pi}{2},+\dfrac{\pi}{2}]$，$\rm{arccot}x:[0,\pi]$。
+    \item 定义域：$(-\infty, +\infty)$，值域：$\arctan x:[-\dfrac{\pi}{2},+\dfrac{\pi}{2}]$，$\rm{arccot}\,\textit{x}:[0,\pi]$。
     \item 单调性：$y=\arctan x$单调增，$y=\rm{arccot}x$单调减。
     \item 奇偶性：$y=\arctan x$为奇函数。
-    \item 有界性：$\vert\arctan x\vert\leqslant\dfrac{\pi}{2}$，$0\leqslant\rm{arccot}x\leqslant\pi$。
-    \item 性质：$\arctan x+\rm{arccot}x=\dfrac{\pi}{2}(-\infty<x<+\infty)$
+    \item 有界性：$\vert\arctan x\vert\leqslant\dfrac{\pi}{2}$，$0\leqslant\rm{arccot}\,\textit{x}\leqslant\pi$。
+    \item 性质：$\arctan x+\rm{arccot}\,\textit{x}=\dfrac{\pi}{2}(-\infty<x<+\infty)$
 \end{enumerate}
 
 \subparagraph{初等函数} \leavevmode \bigskip
