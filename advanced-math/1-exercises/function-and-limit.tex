@@ -1,0 +1,54 @@
+\documentclass[UTF8]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\author{Didnelpsun}
+\title{函数与极限练习题}
+\date{}
+\begin{document}
+\maketitle
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{等价无穷小替换}
+
+求$I=\lim_{x\to 0}\dfrac{(e^{x^2}-1)(\sqrt{1+x}-\sqrt{1-x})}{[\ln(1-x)+\ln(1+x)]\sin\dfrac{x}{x+1}}$。
+
+当看到复杂的式子，且当$x\to 0$时，使用等价无穷小进行替换。
+
+在明显的部分由等价无穷小的式子得到：$e^{x^2}-1\sim x^2$，$\sin\dfrac{x}{x+1}=\dfrac{x}{x+1}$。
+
+并注意在积或商的时候不能把对应的部分替换为0，如分母部分的$[\ln(1-x)+\ln(1+x)]$就无法使用$\ln(1+x)\sim x$替换为$-x+x$，这样底就是0了，无法求得最后的极限。
+
+这时可以尝试变形，如对数函数相加等于对数函数内部式子相乘：$\ln(1-x)+\ln(1+x)=\ln(1-x^2)\sim-x^2$。
+
+对于无法直接得出变换式子的，可以对对应参数进行凑，以达到目标的可替换的等价无穷小。
+
+对分子部分的$\sqrt{1+x}-\sqrt{1-x}$无法使用$(1+x)^a-1\sim ax$替换为$(1+x)^{\frac{1}{2}}-1-[(1-x)^{\frac{1}{2}}-1]\sim\dfrac{1}{2}x+\dfrac{1}{2}x=x$。
+
+将所有替换的无穷小代入原式：$=\lim_{x\to 0}\dfrac{x^2\cdot x}{-x^2\cdot\dfrac{x}{1+x}}=\lim_{x\to 0}-(1+x)=-1$。
+
+
+
+\end{document}
