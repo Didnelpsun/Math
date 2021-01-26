@@ -31,11 +31,14 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{等价无穷小替换}
 
-求$I=\lim_{x\to 0}\dfrac{(e^{x^2}-1)(\sqrt{1+x}-\sqrt{1-x})}{[\ln(1-x)+\ln(1+x)]\sin\dfrac{x}{x+1}}$。
+\section{求极限值}
+
+\subsection{等价无穷小替换}
 
 当看到复杂的式子，且当$x\to 0$时，使用等价无穷小进行替换。
+
+求$\lim_{x\to 0}\dfrac{(e^{x^2}-1)(\sqrt{1+x}-\sqrt{1-x})}{[\ln(1-x)+\ln(1+x)]\sin\dfrac{x}{x+1}}$。
 
 在明显的部分由等价无穷小的式子得到：$e^{x^2}-1\sim x^2$，$\sin\dfrac{x}{x+1}=\dfrac{x}{x+1}$。
 
@@ -49,6 +52,10 @@
 
 将所有替换的无穷小代入原式：$=\lim_{x\to 0}\dfrac{x^2\cdot x}{-x^2\cdot\dfrac{x}{1+x}}=\lim_{x\to 0}-(1+x)=-1$。
 
+\subsection{幂指类型}
 
+当出现$f(x)^{g(x)}$的类似幂函数与指数函数类型的式子，需要使用$u^v=e^{v\ln u}$。
+
+求$\lim_{x\to\infty}$
 
 \end{document}
