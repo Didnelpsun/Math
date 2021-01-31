@@ -1,0 +1,445 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\definecolor{violet}{RGB}{192,0,255} 
+\definecolor{aqua}{RGB}{0,255,255} 
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{amssymb}
+% 因为所以与其他数学拓展
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{pifont}
+% 圆圈序号
+\usepackage{mathtools}
+% 有字的长箭头
+\author{Didnelpsun}
+\title{微分中值定理与导数的应用}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+
+\section{洛必达法则}
+
+\textcolor{aqua}{\textbf{定理：}}
+
+\begin{enumerate}
+    \item 当$x\to a\text{或}\infty$时，函数$f(x)$，$g(x)$都趋向0或无穷大。
+    \item $f'(x)$和$F'(x)$在点$a$的某去心邻域内，或$\vert x\vert$大于充分大的正数时，存在，且$g'(x)\neq 0$。
+    \item $\lim_{x\to a}\dfrac{f'(x)}{g'(x)}$或$\lim_{x\to\infty}\dfrac{f'(x)}{g'(x)}$存在或无穷大。
+    \item $\lim_{x\to a}\dfrac{f(x)}{g(x)}=\lim_{x\to a}\dfrac{f'(x)}{g'(x)}$或$\lim_{x\to\infty}\dfrac{f(x)}{g(x)}=\lim_{x\to\infty}\dfrac{f'(x)}{g'(x)}$。
+\end{enumerate}
+
+\textcolor{orange}{注意：}
+
+\begin{enumerate}
+    \item 如果函数比值不为$\dfrac{0}{0}$或$\dfrac{\infty}{\infty}$型，则不能使用洛必达法则。
+    \item 若求导后极限仍为$\dfrac{0}{0}$或$\dfrac{\infty}{\infty}$型，则可以继续使用洛必达法则。
+    \item 若$\lim_{x\to a}\dfrac{f'(x)}{g'(x)}$不存在且不为$\infty$，不能反推$\lim_{x\to a}\dfrac{f(x)}{g(x)}$不存在也不为$\infty$，这时候洛必达法则是失效的。
+\end{enumerate}
+
+对于第三个注意点：$\lim_{x\to 0}\dfrac{x^2\cdot\sin\dfrac{1}{x}}{x}=\lim_{x\to 0}x\cdot\sin\dfrac{1}{x}=0$。
+
+而使用洛必达法则：
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{x^2\cdot\sin\dfrac{1}{x}}{x} \\
+    & =\lim_{x\to 0}\left(2x\cdot\sin\dfrac{1}{x}-\cos\dfrac{1}{x}\right) \\
+    & =\lim_{x\to 0}\left(-\cos\dfrac{1}{x}\right)=\text{不存在}
+\end{aligned}
+$
+
+\section{泰勒公式}
+
+非常重要。
+
+\subsection{定义}
+
+是一个用函数在某点的信息描述其附近取值的公式。如果函数满足一定的条件，泰勒公式可以用函数在某一点的各阶导数值做系数构建一个多项式来近似表达这个函数。即形式：$f(x)=\sum ax^n$。
+
+简单来说，泰勒公式就是一个近似表达函数的公式。其极限趋向为趋向0。
+
+对于泰勒公式以及后面的中值定理等相关延申见\href{https://www.zhihu.com/question/25627482}{知乎回答}。
+
+\subsection{泰勒展开}
+
+当$x\to 0$时：
+
+\begin{enumerate}
+    \item $\sin x=x-\dfrac{x^3}{3!}+o(x^3)$。
+    \item $\cos x=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}+o(x^4)$。
+    \item $\arcsin x=x+\dfrac{x^3}{3!}+o(x^3)$。
+    \item $\tan x=x+\dfrac{x^3}{3}+o(x^3)$。
+    \item $\arctan x=x-\dfrac{x^3}{3}+o(x^3)$。
+    \item $\ln(1+x)=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}+o(x^3)$。
+    \item $e^x=1+x+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+o(x^3)$。
+    \item $(1+x)^\alpha=1+\alpha\cdot x+\dfrac{\alpha\cdot(\alpha-1)}{2!}x^2+o(x^2)$。
+\end{enumerate}
+
+其中$o(x^\alpha)$为佩亚诺余项，其非常小。
+
+同样可以对泰勒展开式进行变形：$x-\sin x\sim\dfrac{x^3}{6}$，$x+\sin x\sim 2x$。
+
+如：
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{[\sin x-\sin(\sin x)]\sin x}{x^4} \\
+    & =\dfrac{\dfrac{1}{6}\sin^3x\cdot\sin x}{x^4} \\
+    & =\dfrac{\dfrac{1}{6}\sin^4x}{x^4} \\
+    & =\dfrac{1}{6}
+\end{aligned}
+$
+
+
+
+\subsection{展开幂的选择}
+
+泰勒公式展开时应该展开到多少次幂？
+
+\subsubsection{\texorpdfstring{$\dfrac{A}{B}$}型，上下同阶}
+
+当分母或分子式$x$的$k$次幂那么应该把分母或分子展开到对应的次数幂。
+
+如$\lim_{x\to 0}\dfrac{x-\sin x}{x^3}$展开为三次：
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{x-\sin x}{x^3} \\
+    & =\lim_{x\to 0}\dfrac{x-\left[x-\dfrac{1}{6}x^3+o(x^3)\right]}{x^3} \\
+    & =\lim_{x\to 0}\dfrac{\dfrac{1}{6}x^3+o(x^3)}{x^3} \\
+    & =\dfrac{1}{6}
+\end{aligned}
+$
+
+\subsubsection{\texorpdfstring{$A-B$}型，幂次最低}
+
+将$A$，$B$分别展到他们系数不相等的$x$的最低次幂为止。
+
+如已知当$x\to 0$时，$\cos x-e^{-\frac{x^2}{2}}$与$ax^k$为等价无穷小，求$a$，$b$。
+
+泰勒展开：
+
+$
+\begin{aligned}
+    & \cos x-e^{-\frac{x^2}{2}} \\
+    & = 1-\dfrac{x^2}{2}+\dfrac{1}{24}x^4+o(x^4)-\left(1-\dfrac{x^2}{2}+\dfrac{1}{8}x^4+o(x^4)\right) \\
+    & = -\dfrac{1}{12}x^4+o(x^4) \\
+    & \sim -\dfrac{1}{12}x^4
+\end{aligned}
+$
+
+$\therefore a=-\dfrac{1}{12},b=4$。
+
+\textbf{例题3：}求解$\lim_{x\to 0}\dfrac{\sin^2x-x^2}{e^{x^4}-1}$。
+
+首先由泰勒展开式$e^x=1+x+o(x)$，得到$e^x-1\sim x$。
+
+$\therefore e^{x^4}-1\sim x^4$。
+
+然后泰勒展开：
+
+$
+\begin{aligned}
+    & x-\sin x \\
+    & = 1\cdot x^1+0\cdot x^3 - (1\cdot x^1-\dfrac{1}{6}x^3+o(x^3)) \\
+    & = \dfrac{1}{6}x^3+o(x^3) \\
+    & \sim \dfrac{1}{6}x^3
+\end{aligned}
+$
+
+$
+\begin{aligned}
+    & x+\sin x \\
+    & =x-(-\sin x) \\
+    & =1\cdot x^1-(-1\cdot x^1)+o(x) \\
+    & =2x+o(x) \\
+    & \sim 2x
+\end{aligned}
+$
+
+$\therefore$ \bigskip
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{\sin^2x-x^2}{e^{x^4}-1} \\
+    & =\lim_{x\to 0}\dfrac{(\sin x+x)(\sin x-x)}{x^4} \\
+    & =\lim_{x\to 0}\dfrac{2x\cdot\left(-\dfrac{1}{6}x^3\right)}{x^4} \\
+    & =-\dfrac{1}{3}
+\end{aligned}
+$
+
+
+
+\section{极限计算}
+
+\subsection{未定式}
+
+未定式即需要自己定义的式子，可能存在极限也可能不存在，对于自变量的变化趋势分为六种，分别是对于$x_0$与$\infty$的各三种。
+
+\subsubsection{化简}
+
+方式：
+
+\begin{enumerate}
+    \item 提出极限不为0的因式。
+    \item 等价无穷小替换。
+    \item 恒等变形（提公因式、拆项、合并、分子分母同除变量最高次幂、换元法）。
+\end{enumerate}
+
+\subsubsection{判断类型}
+
+七种：$\dfrac{0}{0},\dfrac{\infty}{\infty},0\cdot\infty,\infty-\infty,\infty^0,0^0,1^\infty$。
+
+\ding{172}其中$\dfrac{0}{0}$为洛必达法则的基本型。$\dfrac{\infty}{\infty}$可以类比$\dfrac{0}{0}$的处理方式。$0\cdot\infty$可以转为$\dfrac{0}{\dfrac{1}{\infty}}=\dfrac{0}{0}=\dfrac{\infty}{\dfrac{1}{0}}=\dfrac{\infty}{\infty}$。设置分母有原则，简单因式才下放。（简单：幂函数，e为底的指数函数）
+
+\ding{173}$\infty-\infty$可以提取公因式或通分，即和差化积。
+
+\ding{174}$\infty^0,0^0,1^\infty$，就是幂指函数。
+
+$
+u^v=e^{v\ln u}=\left\{
+\begin{array}{lcl}
+    \infty^0 & \rightarrow & e^{0\cdot+\infty} \\
+    0^0 & \rightarrow & e^{0\cdot-\infty} \\
+    1^\infty & \rightarrow & e^{\infty\cdot 0} \\
+\end{array} \right.
+$
+
+$\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
+
+\paragraph{比值类型} \leavevmode \bigskip
+
+$\dfrac{0}{0}$型\textbf{例题5：}求极限$\lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}$
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}} \\
+    & = \lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}\cdot 2x^{-3}}{100x^99} \\
+    & = \lim_{x\to 0}\dfrac{1}{50}\lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{102}}
+\end{aligned}
+$
+
+\bigskip
+
+使用洛必达法则下更复杂，因为分子的幂次为负数，导致求导后幂次绝对值越来越大，不容易计算。
+
+使用倒代换再洛必达降低幂次，令$\dfrac{1}{x^2}=t$。
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}} \\
+    & = \lim_{t\to+\infty}\dfrac{e^{-t}}{t^{-50}} \\
+    & = \lim_{t\to+\infty}\dfrac{t^{50}}{e^t} \\
+    & = \lim_{t\to+\infty}\dfrac{50t^{49}}{e^t} \\
+    & = \cdots \\
+    & = \lim_{t\to+\infty}\dfrac{50!}{e^t} \\
+    & = 0
+\end{aligned}
+$
+
+$\infty\cdot 0$型\textbf{例题6：}求极限$\lim_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
+
+首先定性分析：$\lim_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
+
+在$x\to-\infty$趋向时，$x$就趋向无穷大，而$\sqrt{x^2+100}$为一次，所以$\sqrt{x^2+100}+x$趋向0。
+
+又$\sqrt{x^2+100}$在$x\to-\infty$时本质为根号差，所以有理化：
+
+$
+\begin{aligned}
+    & \lim_{x\to-\infty}x(\sqrt{x^2+100}+x) \\
+    & \lim_{x\to-\infty}x\dfrac{x^2+100-x^2}{\sqrt{x^100}-x} \\
+    & = \lim_{x\to-\infty}\dfrac{100x}{\sqrt{x^2+100}-x} \\
+    & \xRightarrow{\text{令}x=-t}\lim_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+100}+t} \\
+    & = \lim_{t\to+\infty}\dfrac{-100}{\sqrt{1+\dfrac{100}{t^2}}+1} \\
+    & = -50
+\end{aligned}
+$
+
+$\infty\cdot 0$型\textbf{例题7：}求极限$\lim_{x\to 1^-}\ln x\ln(1-x)$。
+
+当$x\to 1^-$时，$\ln x$趋向0，$\ln(1-x)$趋向$-\infty$。
+
+又$x\to 0$，$\ln(1+x)\sim x$，所以$x\to 1$，$\ln x\sim x-1$：
+
+$
+\begin{aligned}
+    & \lim_{x\to 1^-}\ln x\ln(1-x) \\
+    & = \lim_{x\to 1^-}(x-1)\ln(1-x) \\
+    & \xRightarrow{令t=1-x} =-\lim_{t\to 0^+}t\ln t \\
+    & = -\lim_{t\to 0^+}\dfrac{\ln t}{\dfrac{1}{t}} \\
+    & = -\lim_{t\to 0^+}\dfrac{\dfrac{1}{t}}{-\dfrac{1}{t^2}} \\
+    & = \lim_{t\to 0^+}t \\
+    & = 0
+\end{aligned}
+$
+
+
+$\dfrac{0}{0}$型\textbf{例题8：}求极限$\lim_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
+
+分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开：
+
+$x\to 0$，$\sin x=x-\dfrac{1}{6}x^3+o(x^3)$，$\tan x=x+\dfrac{1}{3}x^3+o(x^3)$，$\arcsin x=x+\dfrac{1}{6}x^3+o(x^3)$，$\arctan x=x-\dfrac{1}{3}x^3+o(x^3)$。
+
+$\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac{1}{2}x^3+o(x^3)$
+
+$\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
+
+$0\cdot\infty$型\textbf{例题9：}求极限$\lim_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
+
+取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
+
+当$x>0$时，$x\to 0^+$，两边都乘以10，$10-x<x\cdot\left[\dfrac{10}{x}\right]\leqslant x\cdots\dfrac{10}{x}=10$，而左边在$x\to 0^+$时极限也为10，所以夹逼准则，中间$x\cdot\left[\dfrac{10}{x}\right]$极限也为10。
+
+当$x>0$时，$x\to 0^-$，同样也是夹逼准则得到极限为10。
+
+$\therefore \lim_{x\to 0}x\left[\dfrac{10}{x}\right]$。
+
+\paragraph{差类型} \leavevmode \bigskip
+
+\begin{itemize}
+    \item 如果函数中有分母，则通分，将加减法变形为乘除法，以便其他计算如洛必达法则。
+    \item 若函数中没有分母，则可以通过提取公因式或倒数代换，出现分母，再利用通分等方式将加减法变成乘除法。
+\end{itemize}
+
+$\infty-\infty$型\textbf{例题10：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right) \\
+    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)\\
+    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4} \\
+    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4x^3} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{2}\sin 4x}{4x^3} \\
+    & = \lim_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2} \\
+    & = \dfrac{1}{6}\lim_{x\to 0}\dfrac{1-\cos 4x}{x^2} (1-\cos x\sim \dfrac{1}{2}x^2)\\
+    & = \dfrac{4}{3}
+\end{aligned}
+$
+
+$\infty-\infty$型\textbf{例题11：}求极限$\lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$。
+
+该式子无法进行因式分解，所以尝试使用倒数代换：
+
+$
+\begin{aligned}
+    & \lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x] \\
+    & \xRightarrow{\text{令}x=\frac{1}{t}}\lim_{t\to 0^+}\left(\dfrac{e^t-1}{x^2}-\dfrac{1}{t}\right) \\
+    & \lim_{t\to 0^+}\dfrac{e^t-1-t}{t^2} \\
+    & \xRightarrow{\text{泰勒展开}e^x}\lim_{t\to 0^+}\dfrac{\dfrac{1}{2}x^2}{x^2} \\
+    & =\dfrac{1}{2}
+\end{aligned}
+$
+
+\paragraph{幂指类型} \leavevmode \bigskip
+
+$\infty^0$型\textbf{例题12：}求极限$\lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$。
+
+$
+\begin{aligned}
+    & \lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}} \\
+    & =e^{\lim_{x\to+\infty}\frac{(x+\sqrt{1+x^2})}{x}} \left(\ln(x+\sqrt{1+x^2})'=\dfrac{1}{\sqrt{1+x^2}}\right) \\
+    & =e^{\lim_{x\to+\infty}\dfrac{1}{\sqrt{1+x^2}}} \\
+    & =e^0 \\
+    & =1
+\end{aligned}
+$
+
+$1^\infty$型\textbf{例题13：}求极限$\lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}} \\
+    & =e^{\lim_{x\to 0}\dfrac{e}{x}\ln\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)} \\
+    & =e^{\lim_{x\to 0}\dfrac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}-1\right)} \\
+    & =e^{\lim_{x\to 0}\dfrac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}-n}{n}\right)} \\
+    & =e^{\frac{e}{n}\lim_{x\to 0}\left(\frac{e^x-1}{x}+\frac{e^{2x}-1}{x}+\cdots+\frac{e^{nx}-1}{x}\right)} \\
+    & =e^{\frac{e}{n}[1+2+\cdots+n]} \\
+    & =e^{\frac{e}{n}\cdot\frac{n(1+n)}{2}} \\
+    & =e^{\frac{e(1+n)}{2}}
+\end{aligned}
+$
+
+\subsection{极限转换}
+
+一般解法为两种。
+
+一种是脱帽法：$\lim_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim_{x\to x_0}\alpha(x)=0$。
+
+第二种就是根据之间的关系转换。
+
+\textbf{例题14：}如果$\lim_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
+
+解法一：
+
+由$\lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$脱帽：$\dfrac{x\sin x+f(x)}{x^4}=A+\alpha$。
+
+得到：$f(x)=Ax^4+\alpha\cdot x^4-(x-\sin x)$。
+
+反代入：$\lim_{x\to 0}\dfrac{f(x)}{x^3}=\lim_{x\to 0}\dfrac{Ax^4+\alpha\cdot x^4-x+\sin x}{x^3}=0+0-\dfrac{1}{6}=-\dfrac{1}{6}$。
+
+$\therefore \lim_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
+
+解法二：
+
+由$\lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$，而目标是$x^3$，所以需要变形：
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A \\
+    & \lim_{x\to 0}\dfrac{x\sin x+f(x)\cdot x}{x^4}=A\cdot\lim_{x\to 0}x=0 \\
+    & \lim_{x\to 0}\dfrac{x-\sin x}{x^3}+\lim_{x\to 0}\dfrac{f(x)}{x^3}=0 \\
+    & \text{泰勒展开：}x-\sin x=\dfrac{1}{6}x^3 \\
+    & \lim_{x\to 0}\dfrac{f(x)}{x^3}=-\dfrac{1}{6} \\
+    & \lim_{x\to 0}\dfrac{x^3}{f(x)}=-6
+\end{aligned}
+$
+
+\subsection{求参数}
+
+因为求参数类型的题目中式子是未知的，所以求导后也是未知的，所以一般不要使用洛必达法则，而使用泰勒展开。
+
+一般极限式子右侧等于一个常数，或是表明高阶或低阶。具体的关系参考无穷小比阶。
+
+\textbf{例题15：}设$\lim_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2$，求常数a，b。
+
+根据泰勒展开式：$x\to 0,\ln(1+x)=x-\dfrac{x^2}{x}+o(x^2)$。
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2 \\
+    & =\lim_{x\to 0}\dfrac{(1-a)x-\left(\dfrac{1}{2}+b\right)x^2+o(x^2)}{x^2}=2\neq 0 \\
+    & 1-a=0;-\left(\dfrac{1}{2}+b\right)=2 \\
+    & \therefore a=1;b=-\dfrac{5}{2}
+\end{aligned}
+$
+
+\textcolor{orange}{注意：}根据泰勒公式，$x-\ln(1+x)\sim\dfrac{1}{2}x^2\sim 1-\cos x$。
+
+\end{document}
