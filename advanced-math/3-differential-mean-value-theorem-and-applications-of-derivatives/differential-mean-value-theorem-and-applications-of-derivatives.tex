@@ -42,6 +42,12 @@
 \pagestyle{plain}
 \setcounter{page}{1}
 
+\section{微分中值定理}
+
+\subsection{罗尔定理}
+
+\textcolor{violet}{\textbf{定义：}}
+
 \section{洛必达法则}
 
 \textcolor{aqua}{\textbf{定理：}}
@@ -115,6 +121,29 @@ $
 \end{aligned}
 $
 
+
+\subsubsection{泰勒公式}
+
+先写出$y=f(x)$的泰勒公式或麦克劳林公式，再通过比较系数来获得$f^{(n)}(x_0)$：
+
+\begin{enumerate}
+    \item 任何一个无穷阶可导的函数（在收敛的情况下）都可以写为 \\
+    $y=f(x)=\sum_{n=0}^\infty\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ 或 $y=f(x)=\sum_{n=0}^\infty\dfrac{f^{(n)}(0)}{n!}x^n$。
+    \item 给出的任意一个具体的无穷阶可导函数$y=f(x)$都可以通过已知的公式展开为幂级数。
+    \item 而函数的展开式具有唯一性，比较步骤一步骤二的公式的系数就可以获取倒$f^{(n)}(x_0)$或$f^{(n)}(0)$。
+\end{enumerate}
+
+\textbf{例题18：}设$y=x^3\sin x$，求$y^{(6)}(0)$。
+
+\ding{172}$y=\sum_{n=0}^\infty\dfrac{y^{(n)}(0)}{n!}x^n$。
+
+$\because$需要结果的导数阶数为6，所以最后得到的次数为6就可以了。
+
+\ding{173}$\therefore y=x^3\left(x-\dfrac{1}{6}x^3+\cdots\right)=x^4-\dfrac{1}{6}x^6+\cdots$（不要写$o(x^n)$，因为这里$x$并不是趋向0的）。
+
+\ding{174}步骤一的抽象函数当$n=6$时为$\dfrac{y^{(6)}(0)}{6!}x^6$，它应该与步骤二得到的$x^4-\dfrac{1}{6}x^6+\cdots$的6阶项的系数相等。
+
+$\therefore \dfrac{y^{(6)}(0)}{6!}=-\dfrac{1}{6}\Rightarrow y^{(6)}(0)=-5!=-120$。
 
 
 \subsection{展开幂的选择}

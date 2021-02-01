@@ -30,7 +30,7 @@
 \usepackage{array}
 % 设置表格行距
 \author{Didnelpsun}
-\title{一元函数微分学}
+\title{导数与微分}
 \date{}
 \begin{document}
 \renewcommand{\arraystretch}{1.5}
@@ -42,14 +42,16 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{概念}
+\section{导数概念}
 \subsection{引例}
 
 设$f(x)$下$x$在$x_0$的邻域内，$\alpha$为切线所成夹角。
 
-$\tan\alpha=f'(x_0)=\lim_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=k$
+$\tan\alpha=f'(x_0)=\lim_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=k$。
 
-\subsection{导数}
+导数的本质是增量比的极限。
+
+\subsection{定义}
 
 设$y=f(x)$定义在区间$I$上，让自变量在$x=x_0$处加一个增量$\Delta x$，其中$x_0\in I$，$x_0+\Delta x\in I$，则可得函数的增量$\Delta y=f(x_0+\Delta x)-f(x_0)$。若函数增量$\Delta y$与自变量增量$\Delta x$的比值在$\Delta x\to 0$时的极限存在，则称函数$y=f(x)$在$x_0$处可导，并称这个极限为$y=f(x)$在点$x_0$处的导数，记作$f'(x)$，即$f'(x)=\lim_{\Delta x\to 0}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$。
 
@@ -73,7 +75,7 @@ $f'_+(x)=\lim_{\Delta x\to 0^+}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\to 0}\d
 
 若$f(x)$在$x_0$处导数为无穷，如$y=x^{\frac{1}{3}}$在$0$处利用导数的极限定义计算得到为正无穷，那么该点的导数为无穷导数，在考研中被认为是不存在的。
 
-\textbf{例题1：}证明若$f(x)$为可导的偶函数，则$f'(x)$为奇函数，若$f(x)$为可导的奇函数，则$f'(x)$为偶函数。
+\textbf{例题：}证明若$f(x)$为可导的偶函数，则$f'(x)$为奇函数，若$f(x)$为可导的奇函数，则$f'(x)$为偶函数。
 
 该证明是准备部分的定理。
 
@@ -92,13 +94,15 @@ $
 
 同理得证$f(-x)=-f(x)\Rightarrow f'(-x)=f'(x)$。
 
-\textbf{例题2：}证明$f(x)$为可导的周期为$T$的周期函数，则$f'(x)$也是以$T$为周期的周期函数。
+\textbf{例题：}证明$f(x)$为可导的周期为$T$的周期函数，则$f'(x)$也是以$T$为周期的周期函数。
 
 已知$f(x+T)=f(x)$，求证$f'(x+T)=f'(x)$。
 
-$\therefore f'(x+T)=\lim_{\Delta x\to 0}\dfrac{f(x+T+\Delta x)-f(x+T)}{\Delta x}=\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}=f'(x)$。
+$\therefore f'(x+T)=\lim_{\Delta x\to 0}\dfrac{f(x+T+\Delta x)-f(x+T)}{\Delta x}$
 
-\textbf{例题3：}设$f(x)$是二阶可导的以2为周期的奇函数，且$f(\dfrac{1}{2})>0$，$f'(\dfrac{1}{2})>0$，比较$f(-\dfrac{1}{2})$、$f'(\dfrac{3}{2})$、$f''(0)$的大小。
+$=\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}=f'(x)$。
+
+\textbf{例题：}设$f(x)$是二阶可导的以2为周期的奇函数，且$f(\dfrac{1}{2})>0$，$f'(\dfrac{1}{2})>0$，比较$f(-\dfrac{1}{2})$、$f'(\dfrac{3}{2})$、$f''(0)$的大小。
 
 $\because f(x)$为二阶奇函数，$\therefore f(x)\text{奇函数}\Rightarrow f'(x)\text{偶函数}\Rightarrow f''(x)\text{奇函数}\Rightarrow f''(0)=0$。
 
@@ -108,7 +112,67 @@ $\because f(x)T=2\Rightarrow f'(x)T=2$，$\therefore f'(\dfrac{3}{2})=f'(\dfrac{
 
 $\therefore f'(\dfrac{3}{2})>f''(0)>f(-\dfrac{1}{2})$。
 
-\textbf{例题4：}证明$(uv)'=u'v+uv'$。
+\textbf{例题：}$\left(x^\alpha\right)'=\alpha x^{\alpha-1}(x>0)$。
+
+$
+\begin{aligned}
+    & \lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} \\
+    & =\lim_{\Delta x\to 0}\dfrac{\left(x+\Delta x\right)^\alpha-x^\alpha}{\Delta x} \\
+    & =\lim_{\Delta x\to 0}\dfrac{x^\alpha\left[\left(1+\dfrac{\Delta x}{x}\right)^\alpha-1\right]}{\Delta x} \\
+    & =\lim_{\Delta x\to 0}\dfrac{x^\alpha\cdot\alpha\cdot\dfrac{\Delta x}{x}}{\Delta x} \\
+    & =\alpha x^{\alpha-1}
+\end{aligned}
+$
+
+\subsection{导数的几何意义}
+
+导数$f'(x_0)$在几何上就是曲线$y=f(x)$在点$(x_0,f(x_0))$处切线的斜率。
+
+切线方程：$y-y_0=f'(x_0)(x-x_0)$。
+
+法线方程：$y-y_0=-\dfrac{1}{f'(x_0)}(x-x_0)$。
+
+\subsection{可导与连续的关系}
+
+可导必连续，连续不一定可导。
+
+\textbf{例题：}证明可导必连续。
+
+已知连续定义：$\lim_{\Delta x\to 0}f(x+\Delta x)=f(x)$，即$\lim_{\Delta x\to 0}f(x+\Delta x)-f(x)=0$。
+
+可导定义：$f'(x)=\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} = A$
+
+$
+\begin{aligned}
+    & \lim_{\Delta x\to 0}f(x+\Delta x)-f(x) \\
+    & =\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}\cdot\Delta x \\
+    & =A\cdot 0 \\
+    & =0
+\end{aligned}
+$
+
+\textbf{例题：}若$f(x)$在$x=x_0$处连续，且$\lim_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$，则$f(x_0)=0$且$f'(x_0)=A$。
+
+证明：$\because\text{连续，}\therefore f(x_0)=\lim_{x\to x_0}f(x)=\lim_{x\to x_0}\dfrac{f(x)}{x-x_0}(x-x_0)=A\cdot 0=0$。
+
+又$f'(x_0)=\lim_{x\to x_0\dfrac{f(x)-f(x_0)}{x-x_0}}=\lim_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$。
+
+如$\lim_{x\to 1}\dfrac{f(x)}{x-1}=2$且$f(x)$连续，可以推出$f(1)=0$与$f'(1)=2$。
+
+
+\section{函数求导法则}
+
+\subsection{四则运算}
+
+若函数可导：
+
+\begin{enumerate}
+    \item 和差的导数：$[u(x)\pm v(x)]'=u'(x)\pm v'(x)$。
+    \item 积的导数：$[u(x)v(x)]'=u'(x)v(x)+u(x)v'(x)$，\\ $[u(x)v(x)w(x)]'=u'(x)v(x)w(x)+u(x)v'(x)w(x)+u(x)v(x)+w'(x)$。
+    \item 商的导数：$\left[\dfrac{u(x)}{v(x)}\right]'=\dfrac{u'(x)v(x)-u(x)v'(x)}{[v(x)]^2}$，$v(x)\neq 0$。
+\end{enumerate}
+
+\textbf{例题：}证明$(uv)'=u'v+uv'$。
 
 令$f(x)=u(x)v(x)$。
 
@@ -124,143 +188,13 @@ $
 \end{aligned}
 $
 
-\textbf{例题5：}证明可导必连续。
-
-已知连续定义：$\lim_{\Delta x\to 0}f(x+\Delta x)=f(x)$，即$\lim_{\Delta x\to 0}f(x+\Delta x)-f(x)=0$。
-
-可导定义：$f'(x)=\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} = A$
-
-$
-\begin{aligned}
-    & \lim_{\Delta x\to 0}f(x+\Delta x)-f(x) \\
-    & =\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}\cdot\Delta x \\
-    & =A\cdot 0 \\
-    & =0
-\end{aligned}
-$
-
-\textbf{例题6：}若$f(x)$在$x=x_0$处连续，且$\lim_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$，则$f(x_0)=0$且$f'(x_0)=A$。
-
-证明：$\because\text{连续，}\therefore f(x_0)=\lim_{x\to x_0}f(x)=\lim_{x\to x_0}\dfrac{f(x)}{x-x_0}(x-x_0)=A\cdot 0=0$。
-
-又$f'(x_0)=\lim_{x\to x_0\dfrac{f(x)-f(x_0)}{x-x_0}}=\lim_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$。
-
-如$\lim_{x\to 1}\dfrac{f(x)}{x-1}=2$且$f(x)$连续，可以推出$f(1)=0$与$f'(1)=2$。
-
-高阶导数\textcolor{violet}{\textbf{定义：}}$f^n(x_0)=\lim_{\Delta x\to 0}\dfrac{f^{n-1}(x_0+\Delta x)-f^{n-1}(x_0)}{\Delta x}$，其中$n\geqslant 2$且$n\in N^+$，$f^{n-1}(x)$在$x_0$的某领域内有定义，$x_0+\Delta x$也在该邻域内。
-
-\subsection{微分}
-
-有一个边长为$x$的正方形，变化了$\Delta x$，其面积$\Delta S=(x+\Delta x)^2-x^2=2x\Delta x+(\Delta x)^2$。
-
-当$\Delta x\to 0$时，将这个变化定义为$2x\cdot\Delta x+o(\Delta x)$，前项为线性主部，后面为误差。这个就是$S$的微分。
-
-增量$\Delta y=f(x_0+\Delta)-f(x_0)=A\Delta x+o(\Delta x)$，这个$A\Delta x$定义为$\rm{d}y$，叫做$y$的微分。
-
-$\therefore \rm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\rm{d}x$
-
-由此，可导必可微，可微必可导。
-
-\begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-0.5,0) -- (4.5,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
-    \draw[black, thick, domain=1.5:3] plot (\x,{pow(\x-1,2)/2+1}) node[above]{$y(x)$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, densely dashed](1.5,1.125) -- (1.5,0) node[below]{$x_0$};
-    \draw[black, densely dashed](1.5,1.125) -- (0,1.125) node[left]{$y_0$};
-    \draw[black, densely dashed](3,3) -- (3,0) node[below]{$x_0+\Delta x$};
-    \draw[black, densely dashed](3,3) -- (0,3) node[left]{$y_0+\Delta x$};
-    \draw[black, densely dashed](3,1.875) -- (0,0.375) node[left]{$\rm{d}yx+b$};
-    \draw[<->, black](1.5,1.125) -- (3,1.125);
-    \draw[<->, black](4,1.125) -- (4,3);
-    \draw[<->, black](3.25,1.125) -- (3.25,1.875);
-    \draw[<->, black](3.25,3) -- (3.25,1.875);
-    \draw[black](3,3) -- (4.5,3);
-    \draw[black](3,1.125) -- (4.5,1.125);
-    \draw[black](3,1.875) -- (3.75,1.875);
-    \filldraw[black] (2.25,0.75) node{$\Delta x$};
-    \filldraw[black] (4.3,2) node{$\Delta y$};
-    \filldraw[black] (3.5,1.5) node{\scriptsize{$\rm{d}y$}};
-    \filldraw[black] (3.5,2.5) node{\scriptsize{$o(\Delta x)$}};
-\end{tikzpicture}
-
-所以可微就是用简单线性取代复杂线性，如图用直线取替代曲线。
-
-\section{导数与微分计算}
-\subsection{四则运算}
-
-若函数可导：
-
-\begin{enumerate}
-    \item 和差的导数或微分：$[u(x)\pm v(x)]'=u'(x)\pm v'(x)$，$\rm{d}[u(x)\pm v(x)]=\rm{d}u(x)\pm\rm{d}v(x)$。
-    \item 积的导数或微分：$[u(x)v(x)]'=u'(x)v(x)+u(x)v'(x)$，$\rm{d}[u(x)v(x)]=u(x)\rm{d}v(x)+v(x)\rm{d}u(x)$，$[u(x)v(x)w(x)]'=u'(x)v(x)w(x)+u(x)v'(x)w(x)+u(x)v(x)+w'(x)$。
-    \item 商的导数：$\left[\dfrac{u(x)}{v(x)}\right]'=\dfrac{u'(x)v(x)-u(x)v'(x)}{[v(x)]^2}$，$\rm{d}\left[\dfrac{u(x)}{v(x)}\right]=\dfrac{v(x)\rm{d}u(x)-u(x)\rm{d}v(x)}{[v(x)]^2}$，$v(x)\neq 0$。
-    \item 复合函数的导数：链式求导法则$\dfrac{\rm{d}u}{\rm{d}x}=\dfrac{\rm{d}u}{\rm{d}y}\cdot\dfrac{\rm{d}y}{\rm{d}x}$。
-\end{enumerate}
-
-\subsection{分段函数的导数}
-
-设$f(x)=\left\{
-    \begin{array}{lcl}
-        f_1(x), & & x\geqslant x_0 \\
-        f_2(x), & & x<x_0 \\
-    \end{array}
-\right.$。
-
-在分段点用定义：判断$f'_+(x_0)=\lim_{x\to x_0^+}\dfrac{f_1(x)-f(x_0)}{x-x_0}\overset{?}{=}\lim_{x\to x_0^-}\dfrac{f_2(x)-f(x_0)}{x-x_0}$。
-
-非分段点使用导数公式求导：$x>x_0,f'(x)=f_1'(x),x<0，f'(x)=f_2'(x)$。
-
-\subsection{复合函数的导数与微分形式不变性}
-
-$u=g(x)$在$x$可导，$y=f(u)$在$u=g(x)$处可导，则$\{f[g(x)]\}'=f'[g(x)]g'(x)$，$\rm{d}\{f[g(x)]\}=f'[g(x)]g'(x)\rm{d}x$。
-
-一阶微分形式不变性指：$\rm{d}f(\varsigma)=f'(\varsigma)\rm{d}\varsigma$，无论$\varsigma$是什么。（类似导数的链式求导法则）
-
-\textbf{例题7：}设$f(x)=\Pi_{n=1}^{100}\left(\tan\dfrac{\pi x^a}{4}-n\right)$，则$f'(1)$为？
-
-原式=$\left(\tan\dfrac{\pi x}{4}-1\right)\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)$。
-
-令$\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)=g(x)$。
-
-$\therefore f(x)=\left(\tan\dfrac{\pi x}{4}-1\right)\cdot g(x)$。
-
-$\therefore f'(x)=\sec^2\dfrac{\pi x}{4}\cdot\dfrac{\pi}{4}\cdot g(x)+\left(\tan\dfrac{\pi x}{4}-1\right)\cdot g'(x)$。
-
-$\therefore$根据导数的四则运算，需要导数的乘积为每一项求导乘以其他不求导项的和，而$\tan\dfrac{\pi x}{4}-1$当$x=1$时为0，只要它不求导，其他的项都必然是0，所以原式的后面的结果都是0。
-
-$\therefore$
-
-$
-\begin{aligned}
-    f'(1) & =f'(x)\vert_{x=1} \\
-    & =\dfrac{\pi}{2}\cdot g(1)+0\cdot g'(x) \\
-    & =\dfrac{\pi}{2}\cdot g(1) \\
-    & =\dfrac{\pi}{2}(-1)(-2)\cdots(-99) \\
-    & =-\dfrac{\pi}{2}\cdot 99!
-\end{aligned}
-$
-
-\textbf{例题8：}设$y=e^{\sin(\ln x)}$，求$\rm{d}y$。
-
-$\because y=e^{\sin(\ln x)} \therefore$
-
-$
-\begin{aligned}
-    \rm{d}y &=\rm{d}e^{\sin(\ln x)} \\
-    & =e^{\sin(\ln x)}\cdot\rm{d}(\sin(\ln x)) \\
-    & =e^{\sin(\ln x)}\cdot\cos(\ln x)\cdot\rm{d}\ln x \\
-    & =e^{\sin(\ln x)}\cdot\cos(\ln x)\cdot\dfrac{1}{x}\rm{d}x
-\end{aligned}
-$
-
 \subsection{反函数导数}
 
 \textcolor{aqua}{\textbf{定理：}}$y=f(x)$可导，且$f'(x)\neq 0$，则存在反函数$x=\varphi(y)$，且$\dfrac{\rm{d}x}{\rm{d}y}=\dfrac{1}{\dfrac{\rm{d}y}{\rm{d}x}}$，即$\varphi'(x)=\dfrac{1}{f'(x)}$。
 
 $y=f(x)$可导，且$f'(x)\neq 0$就是指严格单调，而严格单调必有反函数。
 
-\textbf{例题9：}求$y=\arcsin x,x\in(-1,1)$与$y=\arctan x$的导数。
+\textbf{例题：}求$y=\arcsin x,x\in(-1,1)$与$y=\arctan x$的导数。
 
 首先反三角函数就是三角函数的反函数、
 
@@ -288,7 +222,7 @@ $
 
 其中$\rm{d}x\cdot\rm{d}x=(\rm{d}x)^2=\rm{d}x^2$称为微分的幂，而$\rm{d}(x^2)$叫幂的微分。
 
-\textbf{例题10：}设$y=f(x)$的反函数是$x=\varphi(y)$，且$f(x)=\int_1^{2x}e^{t^2}\rm{d}t+1$，求$\varphi''(1)$。
+\textbf{例题：}设$y=f(x)$的反函数是$x=\varphi(y)$，且$f(x)=\int_1^{2x}e^{t^2}\rm{d}t+1$，求$\varphi''(1)$。
 
 $\because y=f(x)$，$\therefore x=\varphi(y)$，$x_{yy}''=\varphi''(y)=-\dfrac{y_{xx}''}{(y_x')^3}=-\dfrac{f''(x)}{[f'(x)]^3}$。
 
@@ -296,60 +230,56 @@ $\because y=f(x)$，$\therefore x=\varphi(y)$，$x_{yy}''=\varphi''(y)=-\dfrac{y
 
 又$y=1\Rightarrow x=\dfrac{1}{2}\Rightarrow\varphi''(1)=-\dfrac{f''\left(\dfrac{1}{2}\right)}{\left[f'\left(\dfrac{1}{2}\right)\right]^3}=-\dfrac{1}{e^2}$。
 
-\subsection{参数方程函数导数}
+\subsection{复合函数的导数}
 
-设函数$y=y(x)$由参数方程$\left\{
-    \begin{array}{l}
-        x=\varphi(t) \\
-        y=\psi(t)
-    \end{array}
-\}\right.$确定，其中$t$为参数，且$\varphi(t)\psi(t)$对于$t$都可导，$\varphi(t)\neq 0$，则：
+$u=g(x)$在$x$可导，$y=f(u)$在$u=g(x)$处可导，则$\{f[g(x)]\}'=f'[g(x)]g'(x)$，$\rm{d}\{f[g(x)]\}=f'[g(x)]g'(x)\rm{d}x$。
 
-\bigskip
+一阶微分形式不变性指：$\rm{d}f(\varsigma)=f'(\varsigma)\rm{d}\varsigma$，无论$\varsigma$是什么。（类似导数的链式求导法则）
 
-一阶导数：$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{\rm{d}y/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{\psi'(t)}{\varphi'(t)}=u(t)$。
+\textbf{例题：}设$f(x)=\Pi_{n=1}^{100}\left(\tan\dfrac{\pi x^a}{4}-n\right)$，则$f'(1)$为？
 
-二阶导数：$\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{\rm{d}u/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{u'_t}{x'_t}$
+原式=$\left(\tan\dfrac{\pi x}{4}-1\right)\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)$。
 
-\textbf{例题11：}设$y=y(x)$由方程$\left\{
-\begin{array}{l}
-    x=\sin t \\
-    y=t\sin t+\cos t
-\end{array}
-\right.
-$（$t$为参数）确定，求$\dfrac{\rm{d}^2y}{\rm{d}x^2}\vert_{t=\frac{\pi}{4}}$。
+令$\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)=g(x)$。
 
-求参数方程的二阶导数首先就要求出其一阶导数：
+$\therefore f(x)=\left(\tan\dfrac{\pi x}{4}-1\right)\cdot g(x)$。
 
-$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{y_t'}{x_t'}=\dfrac{t\cos t}{\cos t}=t$。
+$\therefore f'(x)=\sec^2\dfrac{\pi x}{4}\cdot\dfrac{\pi}{4}\cdot g(x)+\left(\tan\dfrac{\pi x}{4}-1\right)\cdot g'(x)$。
 
-$\therefore\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{t_t'}{(\sin t)_t'}=\dfrac{1}{\cos t}$
+$\therefore$根据导数的四则运算，需要导数的乘积为每一项求导乘以其他不求导项的和，而$\tan\dfrac{\pi x}{4}-1$当$x=1$时为0，只要它不求导，其他的项都必然是0，所以原式的后面的结果都是0。
 
-$\therefore \sqrt{2}$。
-
-\subsection{隐函数求导法}
-
-设函数$y=y(x)$由方程$F(x,y)=0$确定的可导函数，则\ding{172}方程两边对自变量$x$求导，（$y=y(x)$就是将$y$看作中间变量）得到一个关于$y'$的方程。\ding{173}解该方程就可以得出$y'$。
-
-\textbf{例题12：}设$y=y(x)$是由方程$\sin(xy)=\ln\dfrac{x+e}{y}+1$确定的隐函数，求$y'(0)$。
-
-两边求导：
+$\therefore$
 
 $
 \begin{aligned}
-    \sin(xy) &=\ln(x+e)-\ln(y)+1 \\
-    \cos(xy)(y+xy') &=\dfrac{1}{x+e}-\dfrac{y'}{y} \\
-    \because\text{将0代入} & x=0, y=e^2 \\
-    e^2&=\dfrac{1}{e}-\dfrac{y'(0)}{e^2} \\
-    y'(0) & =e-e^4
+    f'(1) & =f'(x)\vert_{x=1} \\
+    & =\dfrac{\pi}{2}\cdot g(1)+0\cdot g'(x) \\
+    & =\dfrac{\pi}{2}\cdot g(1) \\
+    & =\dfrac{\pi}{2}(-1)(-2)\cdots(-99) \\
+    & =-\dfrac{\pi}{2}\cdot 99!
 \end{aligned}
 $
+
+\subsection{分段函数的导数}
+
+设$f(x)=\left\{
+    \begin{array}{lcl}
+        f_1(x), & & x\geqslant x_0 \\
+        f_2(x), & & x<x_0 \\
+    \end{array}
+\right.$。
+
+在分段点用定义：
+
+判断$f'_+(x_0)=\lim_{x\to x_0^+}\dfrac{f_1(x)-f(x_0)}{x-x_0}\overset{?}{=}\lim_{x\to x_0^-}\dfrac{f_2(x)-f(x_0)}{x-x_0}$。
+
+非分段点使用导数公式求导：$x>x_0,f'(x)=f_1'(x),x<0，f'(x)=f_2'(x)$。
 
 \subsection{对数求导法}
 
 对于多项相乘、相除、开方、乘方的式子，一般先取对数再求导，设$y=f(x)(f(x)>0)$，则\ding{172}等式两边取对数：$\ln y=\ln f(x)$。\ding{173}两边对自变量$x$求导，得$\dfrac{1}{y}y'=[\ln f(x)]'\Rightarrow y'=y[\ln f(x)]'$。
 
-\textbf{例题13：}求$y=\sqrt[3]{\dfrac{(x+1)(2x-1)^2}{(4-3x)^5}}$的导数。
+\textbf{例题：}求$y=\sqrt[3]{\dfrac{(x+1)(2x-1)^2}{(4-3x)^5}}$的导数。
 
 取对数：$\ln\vert y\vert=\dfrac{1}{3}[\ln\vert x+1\vert+2\ln\vert 2x-1\vert-5\ln\vert 4-3x\vert]$。
 
@@ -365,13 +295,17 @@ $\therefore y'=\dfrac{1}{3}\left(\dfrac{1}{x+1}+\dfrac{4}{2x-1}-\dfrac{5}{4-3x}\
 
 非常重要。
 
-对于$u(x)^{v(x)}(u(x)>0,u(x)\neq 1)$除了对数求导法外还可以使用指数函数$u(x)^{v(x)}=e^{v(x)\ln u(x)}$，然后求导得到$[u(x)^{v(x)}]'=[e^{v(x)\ln u(x)}]'=u(x)^{v(x)}\left[v'(x)\ln u(x)+v(x)\cdot\dfrac{u'(x)}{u(x)}\right]$。
+对于$u(x)^{v(x)}(u(x)>0,u(x)\neq 1)$，除了对数求导法外还可以使用指数函数$u(x)^{v(x)}=e^{v(x)\ln u(x)}$。
 
-\textbf{例题14：}求$y=x^x(x>0)$的导数。
+然后求导得到$[u(x)^{v(x)}]'$$=[e^{v(x)\ln u(x)}]'$
+
+$=u(x)^{v(x)}\left[v'(x)\ln u(x)+v(x)\cdot\dfrac{u'(x)}{u(x)}\right]$。
+
+\textbf{例题：}求$y=x^x(x>0)$的导数。
 
 $\because x^x=e^{x\ln x}$，$\therefore (x^x)'=(e^{x\ln x})'=x^x\cdot(\ln x+1)$。
 
-\textbf{例题15：}求解$y=x^{\frac{1}{x}}(x>0)$的整数最大值。
+\textbf{例题：}求解$y=x^{\frac{1}{x}}(x>0)$的整数最大值。
 
 $\because y=x^{\frac{1}{x}}=e^{\frac{1}{x}\ln x}$。
 
@@ -400,17 +334,43 @@ $0<x<e$时$1-\ln x$大于0，所以导数大于0，函数在该区间增。相�
 
 所以必然在$\sqrt{2}$与$\sqrt[3]{3}$两点取得整数最大值，而全部六次方后$\sqrt{2}^6=8<\sqrt[3]{3}=9$，所以$\sqrt[3]{3}$为最大整数解。
 
-\subsection{高阶导数}
+\subsection{变限积分求导公式}
 
-即导数阶数在2以及以上的导数计算。
+必然会考。
 
-\subsubsection{归纳法}
+已知更改区间限制的积分$s(x)=\int_{\varphi_1(x)}^{\varphi_2(x)}g(t)\rm{d}x$，$s'(x)=g[\varphi_2(x)]\cdot\varphi_2'(x)-g[\varphi_1(x)]\cdot\varphi_1'(x)$。
+
+\section{高阶导数}
+
+\subsection{定义}
+
+高阶导数\textcolor{violet}{\textbf{定义：}}$f^{(n)}(x_0)=\lim_{\Delta x\to 0}\dfrac{f^{(n-1)}(x_0+\Delta x)-f^{(n-1)}(x_0)}{\Delta x}$，其中$n\geqslant 2$且$n\in N^+$，$f^{(n-1)}(x)$在$x_0$的某领域内有定义，$x_0+\Delta x$也在该邻域内。
+
+若$f^{(n)}(x)$在区间$I$上连续，称$f(x)$在$I$上$n$阶连续可导。
+
+\begin{itemize}
+    \item $(e^x)^{(n)}=e^x$。
+    \item $(\sin x)^{(n)}=\sin(x+n\dfrac{\pi}{2})$。
+    \item $(\cos x)^{(n)}=\cos(x+n\dfrac{\pi}{2})$。
+    \item $(\ln(1+x))^{(n)}=(-1)^{n-1}\dfrac{(n-1)!}{(1+x)^n}$。
+\end{itemize}
+
+\textcolor{aqua}{\textbf{定理：}}
+
+设$u,v$都是$n$阶可导，则：
+
+\begin{itemize}
+    \item $(u\pm v)^{(n)}=u^{(n)}\pm v^{(n)}$。
+    \item 莱布尼兹公式：$(uv)^{(n)}=\sum_{k=0}^nC_n^ku^{(n-k)}v^{(k)}$。
+\end{itemize}
+
+\subsection{归纳法}
 
 即依次求导得出规律。
 
 $(a^x)^n=a^x(\ln a)^{(n)}$，如$y=2^x$，则$y'=2^x\ln 2$，$y''=2^x(\ln 2)^2\cdots$得到$y^{(n)}=2^x(\ln 2)^n,n\in N$。
 
-\textbf{例题16：}求$\sin x$的$n$阶导数。
+\textbf{例题：}求$\sin x$的$n$阶导数。
 
 $\because \sin x'=\cos x$而不断求导会发现正负号会++--++--地变化而难以归纳为公式，所以需要另想办法。
 
@@ -425,7 +385,7 @@ $
 \end{aligned}
 $
 
-\subsubsection{莱布尼茨公式}
+\subsection{莱布尼茨公式}
 
 设$u=u(x)$，$v=v(x)$均$n$阶可导，则$(uv)^{(n)}=\sum_{k=0}^nC_n^ku^{(n-k)}v^{(k)}$。
 
@@ -489,7 +449,7 @@ $
     \draw[-,thick] (9) to (14);
 \end{tikzpicture}
 
-\textbf{例题17：}已知函数$y=e^x\cos x$，求$y^{(4)}$。
+\textbf{例题：}已知函数$y=e^x\cos x$，求$y^{(4)}$。
 
 根据莱布尼兹公式：
 
@@ -502,38 +462,135 @@ $
 \end{aligned}
 $
 
-\subsubsection{泰勒公式}
+\section{隐函数与参数方程的导数以及相关变化率}
 
-先写出$y=f(x)$的泰勒公式或麦克劳林公式，再通过比较系数来获得$f^{(n)}(x_0)$：
+\subsection{隐函数求导法}
+
+设函数$y=y(x)$由方程$F(x,y)=0$确定的可导函数，则\ding{172}方程两边对自变量$x$求导，（$y=y(x)$就是将$y$看作中间变量）得到一个关于$y'$的方程。\ding{173}解该方程就可以得出$y'$。
+
+\textbf{例题：}设$y=y(x)$是由方程$\sin(xy)=\ln\dfrac{x+e}{y}+1$确定的隐函数，求$y'(0)$。
+
+两边求导：
+
+$
+\begin{aligned}
+    \sin(xy) &=\ln(x+e)-\ln(y)+1 \\
+    \cos(xy)(y+xy') &=\dfrac{1}{x+e}-\dfrac{y'}{y} \\
+    \because\text{将0代入} & x=0, y=e^2 \\
+    e^2&=\dfrac{1}{e}-\dfrac{y'(0)}{e^2} \\
+    y'(0) & =e-e^4
+\end{aligned}
+$
+
+\subsection{参数方程函数导数}
+
+设函数$y=y(x)$由参数方程$\left\{
+    \begin{array}{l}
+        x=\varphi(t) \\
+        y=\psi(t)
+    \end{array}
+\}\right.$确定，其中$t$为参数，且$\varphi(t)\psi(t)$对于$t$都可导，$\varphi(t)\neq 0$，则：
+
+\bigskip
+
+一阶导数：$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{\rm{d}y/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{\psi'(t)}{\varphi'(t)}=u(t)$。
+
+二阶导数：$\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{\rm{d}u/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{u'_t}{x'_t}$
+
+\textbf{例题：}设$y=y(x)$由方程$\left\{
+\begin{array}{l}
+    x=\sin t \\
+    y=t\sin t+\cos t
+\end{array}
+\right.
+$（$t$为参数）确定，求$\dfrac{\rm{d}^2y}{\rm{d}x^2}\vert_{t=\frac{\pi}{4}}$。
+
+求参数方程的二阶导数首先就要求出其一阶导数：
+
+$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{y_t'}{x_t'}=\dfrac{t\cos t}{\cos t}=t$。
+
+$\therefore\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{t_t'}{(\sin t)_t'}=\dfrac{1}{\cos t}$
+
+$\therefore \sqrt{2}$。
+
+当所求是极坐标方程时，可以使用$x=\rho(\theta)\cos\theta$和$y=\rho(\theta)\sin\theta$进行转换为参数方程然后进行求导。
+
+\subsection{相关变化率}
+
+列出依赖于$t$的相关变化率关系式，然后等式两端对$t$求导。
+
+\section{函数微分}
+
+\subsection{定义}
+
+有一个边长为$x$的正方形，变化了$\Delta x$，其面积$\Delta S=(x+\Delta x)^2-x^2=2x\Delta x+(\Delta x)^2$。
+
+当$\Delta x\to 0$时，将这个变化定义为$2x\cdot\Delta x+o(\Delta x)$，前项为线性主部，后面为误差。这个就是$S$的微分。
+
+增量$\Delta y=f(x_0+\Delta)-f(x_0)=A\Delta x+o(\Delta x)$，这个$A\Delta x$定义为$\rm{d}y$，叫做$y$的微分。
+
+$\therefore \rm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\rm{d}x$
+
+由此，可导必可微，可微必可导。
+
+\begin{tikzpicture}[scale=0.9]
+    \draw[-latex](-0.5,0) -- (4.5,0) node[below]{$x$};
+    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
+    \draw[black, thick, domain=1.5:3] plot (\x,{pow(\x-1,2)/2+1}) node[above]{$y(x)$};
+    \filldraw[black] (0,0) node[below]{$O$};
+    \draw[black, densely dashed](1.5,1.125) -- (1.5,0) node[below]{$x_0$};
+    \draw[black, densely dashed](1.5,1.125) -- (0,1.125) node[left]{$y_0$};
+    \draw[black, densely dashed](3,3) -- (3,0) node[below]{$x_0+\Delta x$};
+    \draw[black, densely dashed](3,3) -- (0,3) node[left]{$y_0+\Delta x$};
+    \draw[black, densely dashed](3,1.875) -- (0,0.375) node[left]{$\rm{d}yx+b$};
+    \draw[<->, black](1.5,1.125) -- (3,1.125);
+    \draw[<->, black](4,1.125) -- (4,3);
+    \draw[<->, black](3.25,1.125) -- (3.25,1.875);
+    \draw[<->, black](3.25,3) -- (3.25,1.875);
+    \draw[black](3,3) -- (4.5,3);
+    \draw[black](3,1.125) -- (4.5,1.125);
+    \draw[black](3,1.875) -- (3.75,1.875);
+    \filldraw[black] (2.25,0.75) node{$\Delta x$};
+    \filldraw[black] (4.3,2) node{$\Delta y$};
+    \filldraw[black] (3.5,1.5) node{\scriptsize{$\rm{d}y$}};
+    \filldraw[black] (3.5,2.5) node{\scriptsize{$o(\Delta x)$}};
+\end{tikzpicture}
+
+所以可微就是用简单线性取代复杂线性，如图用直线取替代曲线。微分就是瞬时改变量，而导数就是瞬时改变速率。
+
+\subsection{基本运算}
+
+\subsubsection{四则运算}
+
+若函数可导：
 
 \begin{enumerate}
-    \item 任何一个无穷阶可导的函数（在收敛的情况下）都可以写为 \\
-    $y=f(x)=\sum_{n=0}^\infty\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n$ 或 $y=f(x)=\sum_{n=0}^\infty\dfrac{f^{(n)}(0)}{n!}x^n$。
-    \item 给出的任意一个具体的无穷阶可导函数$y=f(x)$都可以通过已知的公式展开为幂级数。
-    \item 而函数的展开式具有唯一性，比较步骤一步骤二的公式的系数就可以获取倒$f^{(n)}(x_0)$或$f^{(n)}(0)$。
+    \item 和差的微分：$\rm{d}[u(x)\pm v(x)]=\rm{d}u(x)\pm\rm{d}v(x)$。
+    \item 积的微分：$\rm{d}[u(x)v(x)]$$=u(x)\rm{d}v(x)+v(x)\rm{d}u(x)$。
+    \item 商的微分：$\rm{d}\left[\dfrac{u(x)}{v(x)}\right]=\dfrac{v(x)\rm{d}u(x)-u(x)\rm{d}v(x)}{[v(x)]^2}$，$v(x)\neq 0$。
+    \item 复合函数的微分：链式求导法则$\dfrac{\rm{d}u}{\rm{d}x}=\dfrac{\rm{d}u}{\rm{d}y}\cdot\dfrac{\rm{d}y}{\rm{d}x}$。
 \end{enumerate}
 
-\textbf{例题18：}设$y=x^3\sin x$，求$y^{(6)}(0)$。
+\subsubsection{微分形式不变性}
 
-\ding{172}$y=\sum_{n=0}^\infty\dfrac{y^{(n)}(0)}{n!}x^n$。
+设$y=f(u)$可微，$u=g(x)$可微，则$y=f(g(x))$可微，且$\rm{d}y=y'_x\rm{d}x=y'_u\rm{d}u$。即对哪个变量求导都是一样的。
 
-$\because$需要结果的导数阶数为6，所以最后得到的次数为6就可以了。
+\textbf{例题：}设$y=e^{\sin(\ln x)}$，求$\rm{d}y$。
 
-\ding{173}$\therefore y=x^3\left(x-\dfrac{1}{6}x^3+\cdots\right)=x^4-\dfrac{1}{6}x^6+\cdots$（不要写$o(x^n)$，因为这里$x$并不是趋向0的）。
+$\because y=e^{\sin(\ln x)} \therefore$
 
-\ding{174}步骤一的抽象函数当$n=6$时为$\dfrac{y^{(6)}(0)}{6!}x^6$，它应该与步骤二得到的$x^4-\dfrac{1}{6}x^6+\cdots$的6阶项的系数相等。
+$
+\begin{aligned}
+    \rm{d}y &=\rm{d}e^{\sin(\ln x)} \\
+    & =e^{\sin(\ln x)}\cdot\rm{d}(\sin(\ln x)) \\
+    & =e^{\sin(\ln x)}\cdot\cos(\ln x)\cdot\rm{d}\ln x \\
+    & =e^{\sin(\ln x)}\cdot\cos(\ln x)\cdot\dfrac{1}{x}\rm{d}x
+\end{aligned}
+$
 
-$\therefore \dfrac{y^{(6)}(0)}{6!}=-\dfrac{1}{6}\Rightarrow y^{(6)}(0)=-5!=-120$。
+\section{基本求导公式}
 
-\subsection{变限积分求导公式}
-
-必然会考。
-
-已知更改区间限制的积分$s(x)=\int_{\varphi_1(x)}^{\varphi_2(x)}g(t)\rm{d}x$，$s'(x)=g[\varphi_2(x)]\cdot\varphi_2'(x)-g[\varphi_1(x)]\cdot\varphi_1'(x)$。
-
-\subsection{基本求导公式}
-
-\subsubsection{对幂指函数}
+\subsection{对幂指函数}
 
 \begin{center}
     \begin{tabular}{|c|c|c|c|}
@@ -547,7 +604,7 @@ $\therefore \dfrac{y^{(6)}(0)}{6!}=-\dfrac{1}{6}\Rightarrow y^{(6)}(0)=-5!=-120$
     \end{tabular}
 \end{center}
 
-\subsubsection{三角与反三角函数}
+\subsection{三角与反三角函数}
 
 \begin{center}
     \begin{tabular}{|c|c|c|c|}
@@ -563,7 +620,7 @@ $\therefore \dfrac{y^{(6)}(0)}{6!}=-\dfrac{1}{6}\Rightarrow y^{(6)}(0)=-5!=-120$
     \end{tabular}
 \end{center}
 
-\subsubsection{双曲与反双曲函数}
+\subsection{双曲与反双曲函数}
 
 \begin{itemize}
     \item 双曲正弦：$\rm{sinh}\,\textit{x}=\rm{sh}\,\textit{x}=\dfrac{e^x-e^{-x}}{2}$。

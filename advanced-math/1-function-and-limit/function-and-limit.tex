@@ -424,6 +424,35 @@ $\therefore\exists N>0$，当$n>N$时，$\vert a_n-A\vert<\dfrac{A}{2}\Rightarro
 
 同理得证极限值小于0的情况。
 
+\subsection{迭代式数列极限}
+
+\textbf{例题：}数列$\{a_n\}$满足$a_0=0,a_1=1,2a_{n+1}=a_n+a_{n-1},n=1,2,\cdots$。计算$\lim_{n\to\infty}a_n$。
+
+首先看题目，给出的递推式设计到二阶递推，即存在三个数列变量，所以我们必须先求出对应的数列表达式。因为这个表达式涉及三个变量，所以尝试对其进行变型：
+
+$
+\begin{aligned}
+    a_{n+1}-a_n & =\dfrac{a_{n-1}-a_n}{2} \\
+    & =\left(-\dfrac{1}{2}\right)(a_n-a_{n-1}) \\
+    & =\left(-\dfrac{1}{2}\right)^2(a_{n-1}-a_{n-2}) \\
+    & =\cdots \\
+    & =\left(-\dfrac{1}{2}\right)^n(a_1-a_0) \\ 
+    & = \left(-\dfrac{1}{2}\right)^n
+\end{aligned}
+$
+
+然后得到了$a_{n+1}-a_n=\left(-\dfrac{1}{2}\right)^n$，而需要求极限，所以使用列项相消法的逆运算：
+
+$
+\begin{aligned}
+    a_n & = (a_n-a_{n-1})+(a_{n-1}-a_{n-2})+\cdots+(a_1-a_0)+a_0 \\
+     & = \left(-\dfrac{1}{2}\right)^{n-1} + \left(-\dfrac{1}{2}\right)^{n-2} + \cdots + \left(-\dfrac{1}{2}\right)^0 \\
+     & = \dfrac{1\cdot\left(1-\left(-\dfrac{1}{2}\right)^n\right)}{1-\left(-\dfrac{1}{2}\right)} \\
+     & = \dfrac{2}{3}\left[1-\left(-\dfrac{1}{2}\right)^n\right] \\
+    \lim_{n\to\infty}a_n & =\dfrac{2}{3}
+\end{aligned}
+$
+
 \subsection{海涅定理（归结原则）}
 
 设$f(x)$在$\mathring{U}(x_0,\delta)$内有定义，则$\lim_{x\to x_0}f(x)=A$存在$\Leftrightarrow$对任何$\mathring{U}(x_0,\delta)$内以$x_0$为极限的数列$\{x_n\}(x_n\neq x_0)$，极限$\lim_{n\to\infty}f(x_n)=A$存在。
@@ -868,6 +897,8 @@ $
 
 \subsection{\texorpdfstring{$\lim_{x\to 0}\dfrac{\sin x}{x}=1$}{}}
 
+证明：
+
 当$x\to 0$时$x\in[0,\dfrac{\pi}{2}]$。
 
 \begin{tikzpicture}[scale=1.5]
@@ -899,19 +930,34 @@ $\therefore\lim_{x\to 0}\dfrac{\sin x}{x}=1$。
 
 从而$\lim_{\Delta\to 0}\dfrac{\sin\Delta}{\Delta}=1(\Delta\neq 0)$。
 
-\subsection{\texorpdfstring{$\lim_{x\to 0}\dfrac{\sin x}{x}=1$}{}}
+\subsection{\texorpdfstring{$\lim_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x=e$}{}}
+
+书上通过数列进行单调有界定理证明极限存在性。
+
+证明：
+
+$
+\begin{aligned}
+    & \lim_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x \\
+    & =\lim_{x\to\infty}e^{\ln(1+\frac{1}{x})^x} \\
+    & =\lim_{x\to\infty}e^{x\ln(1+\frac{1}{x})} \\
+    & =e^{\lim_{x\to\infty}x\ln(1+\frac{1}{x})} \\
+    & =e^{\lim_{x\to\infty}\frac{\ln(1+\frac{1}{x})}{\frac{1}{x}}} \\
+    & =e^{\lim_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\left(-\frac{1}{x^2}\right)}{-\frac{1}{x^2}}} \\
+    & =e^{\lim_{x\to\infty}\frac{1}{1+x}} \\
+    & =e
+\end{aligned}
+$
+
+从而$\lim_{\Delta\to\infty}\left(1+\dfrac{1}{\Delta}\right)^\Delta=e$与$\lim_{\Delta\to 0}\left(1+\Delta\right)^{\frac{1}{\Delta}}=e(\Delta\neq 0)$。
 
 \section{无穷小的比较}
 
-无穷小运算，设$m$，$n$为正整数：
+\subsection{无穷小量}
 
-\begin{enumerate}
-    \item $o(x^m)\pm o(x^n)=o(x^l),l=\min{m,n}$（加减法低阶吸收高阶）。
-    \item $o(x^m)\cdot o(x^n)=o(x^{m+n}),x^m\cdot o(x^n)=o(x^{m+n})$（乘法累加）。
-    \item $o(x^m)=o(k\cdot x^m)=k\cdot o(x^m)$，$k\neq 0$且为常数（非零常数相乘不影响阶数）。
-\end{enumerate}
+\textcolor{violet}{\textbf{定义：}}若$\lim_{x\to x_0}f(x)=0$，则称$f(x)$为当$x\to x_0$时的无穷小量。
 
-\subsection{无穷小比阶定义}
+\subsection{无穷小的比较}
 
 设在自变量同一变化过程中，$\lim\alpha(x)=0$，$\lim\beta(x)=0$，且$\beta(x)\neq 0$，则：
 
@@ -923,9 +969,35 @@ $\therefore\lim_{x\to 0}\dfrac{\sin x}{x}=1$。
     \item 若$\lim\dfrac{\alpha(x)}{[\beta(x)]^k}=c\neq 0$，则$\alpha(x)$是$\beta(x)$的$k$阶无穷小。
 \end{enumerate}
 
-并不是任意无穷小都可以比阶。如$\lim_{x\to 0}\dfrac{x\sin\dfrac{1}{x}}{x^2}$就因为得到函数振荡而无法得到极限。
+\textcolor{aqua}{\textbf{定理：}}$\alpha(x)\sim\beta(x)$的充要条件是$\alpha(x)=\beta(x)+o(\beta(x))$。
+
+\textcolor{orange}{注意：}并不是任意无穷小都可以比阶。如$\lim_{x\to 0}\dfrac{x\sin\dfrac{1}{x}}{x^2}$就因为得到函数振荡而无法得到极限。
+
+\textbf{例题：}证明当$x\to 0$时，$\sqrt[n]{1+x}-1\sim\dfrac{1}{n}x$。
+
+证明$\sqrt[n]{1+x}-1\sim\dfrac{1}{n}x$就是证明$\lim_{x\to 0}\dfrac{\sqrt[n]{1+x}-1}{x}\sim\dfrac{1}{n}$。
+
+令$\sqrt[n]{1+x}-1=t$，则$1+x=(1+t)^n$，则$x=(1+t)^n-1$。
+
+利用二项式展开：$=\lim_{t\to 0}\dfrac{t}{nt+\dfrac{n(n-1)}{2}t^2+\cdots}=\dfrac{1}{n}$。
+
+\subsection{无穷小运算}
+
+设$m$，$n$为正整数：
+
+\begin{enumerate}
+    \item $o(x^m)\pm o(x^n)=o(x^l),l=\min{m,n}$（加减法低阶吸收高阶）。
+    \item $o(x^m)\cdot o(x^n)=o(x^{m+n}),x^m\cdot o(x^n)=o(x^{m+n})$（乘法累加）。
+    \item $o(x^m)=o(k\cdot x^m)=k\cdot o(x^m)$，$k\neq 0$且为常数（非零常数相乘不影响阶数）。
+\end{enumerate}
 
 \subsection{常用等价无穷小}
+
+\textcolor{aqua}{\textbf{定理：}}若$\alpha\sim\alpha_1$，$\beta\sim\beta_1$，则$\lim\dfrac{\alpha}{\beta}=\lim\dfrac{\alpha_1}{\beta}=\lim\dfrac{\alpha}{\beta_1}=\lim\dfrac{\alpha_1}{\beta_1}$。
+
+所以可以使用等价无穷小替换对应式子，这些等价无穷小都是使用泰勒展开得到的。
+
+\textcolor{red}{警告：}一般只有所替换的式子为乘除的整个因子才能替换，加减一般都不能替换，如$x-\sin x\sim\dfrac{1}{6}x^3$。
 
 $x\to 0$：
 
@@ -951,7 +1023,7 @@ $x\to 0$：
 
 \subsection{连续定义}
 
-若函数$f(x)$在点$x_0$的某一邻域内有定义，且有$\lim_{x\to x_0}f(x)=f(x_0)$，则称函数$f(x)$在点$x_0$处连续。
+若函数$f(x)$在点$x_0$的某一邻域内有定义，且有$\lim_{x\to x_0}f(x)=f(x_0)$或$\lim_{\Delta x\to 0}\Delta y=0$，则称函数$f(x)$在点$x_0$处连续。
 
 极限值等于函数值，则该点连续。
 
@@ -1000,7 +1072,7 @@ $x\to 0$：
     \filldraw[black] (1,1) node[right]{$\lim_{x\to x_0}=A$};
 \end{tikzpicture}
 
-可去间断点与跳跃间断点都称为第一类间断点。
+可去间断点与跳跃间断点的左右极限都存在的点都称为第一类间断点。
 
 \subsubsection{无穷间断点}
 
@@ -1026,7 +1098,7 @@ $x\to 0$：
     \draw[black, thick, domain=-2:-0.01] plot (\x,{sin(pow(\x,-1) r)});
 \end{tikzpicture}
 
-无穷间断点与振荡间断点都是第二类间断点。
+无穷间断点与振荡间断点的左右极限都不存在的点都是第二类间断点。
 
 \textcolor{orange}{注意：}两侧邻域都有定义才能讨论间断点问题。
 
@@ -1057,5 +1129,47 @@ $。
 $\lim_{x\to 0}f(x)=\lim_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim_{x\to 0}x\ln\vert x\vert=0$。
 
 而$x=0$未定义，所以其为可去间断点。
+
+\subsection{函数连续性}
+
+\subsubsection{连续函数四则运算的连续性}
+
+若两个函数在某点连续，则这两个函数的和差积商在该点都连续。
+
+\subsubsection{反函数的连续性}
+
+若函数在定义域是严格单调的函数，则其反函数在其原值域上也是连续的。
+
+\subsubsection{复合函数的连续性}
+
+若$y=f(g(x))$由$y=f(u)$与$u=g(x)$复合而成，若$g(x)$在$x_0$处连续，$f(u)$在$u_0$处连续，且$u_0=g(x_0)$，则$f(g(x))$在$x_0$处连续。
+
+\subsubsection{初等函数的连续性}
+
+基本初等函数在定义域上是连续的。
+
+初等函数在定义区间上是连续的。
+
+定义区间是定义域的子集。
+
+\section{闭区间上连续函数的性质}
+
+设$f(x)$在区间$[a,b]$上连续，则：
+
+\begin{enumerate}
+    \item 最大最小值定理：$f(x)$在$[a,b]$上必有最大值和最小值。
+    \item 有界性定理：$f(x)$在$[a,b]$上必有界。
+    \item 零点定理：若$f(a)f(b)<0$，则$\exists\,\xi\in[a,b]$使得$f(\xi)=0$。
+    \item 介值定理：若$f(a)\neq f(b)$，$\mu$为介于$f(a)$与$f(b)$之间的任何值，那么至少存在$\xi\in[a,b]$使得$f(\xi)=\mu$。
+\end{enumerate}
+
+\textbf{例题：}证明方程$x=a\sin x+b(a>0,b>0)$中至少有一个正根，并且不超过$a+b$。
+
+令$f(x)=x-a\sin x-b$，其中$f(0)=-b<0$，$f(a+b)=a+b=a\sin(a+b)-b=a[1-\sin(a+b)]\geqslant 0$。
+
+若$\sin(a+b)=1$，则根为$a$，结论成立。
+
+若$\sin(a+b)<1$，$\because f(a+b)\cdot f(0)<0$根据零点定理$\exists\,\xi\in[0,a+b]$使得$f(\xi)=0$，从而得证。
+
 
 \end{document}
