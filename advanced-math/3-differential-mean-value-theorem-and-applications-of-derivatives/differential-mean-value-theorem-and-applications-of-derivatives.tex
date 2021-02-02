@@ -1,6 +1,6 @@
 \documentclass[UTF8, 12pt]{ctexart}
 % UTF8编码，ctexart现实中文
-\usepackage{color}
+\usepackage{xcolor}
 % 使用颜色
 \definecolor{orange}{RGB}{255,127,0} 
 \definecolor{violet}{RGB}{192,0,255} 
@@ -22,6 +22,8 @@
 % 数学公式
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
+\usepackage{tikz}
+% 绘图
 \usepackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 % 1.5倍行距
@@ -44,9 +46,72 @@
 
 \section{微分中值定理}
 
+三个定理都是建立局部与整体的关系，利用导数控制函数，反之不能使用函数控制导数。
+
+$\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化：任意端点值}}\text{拉格朗日中值定理}\xrightleftharpoons[\text{特例：}F(x)=x]{\text{泛化：参数方程}}\text{柯西中值定理}$
+
 \subsection{罗尔定理}
 
-\textcolor{violet}{\textbf{定义：}}
+极值\textcolor{violet}{\textbf{定义：}}若$\exists\delta>0$，使$\forall x\in U(x_0,\delta)$恒有$f(x)\geqslant f(x_0)$，则$f(x)$在$x_0$处取极小值，恒有$f(x)\leqslant f(x_0)$，则$f(x)$在$x_0$处取极大值。
+
+费马引理\textcolor{violet}{\textbf{定义：}}若$f(x)$在$x_0$处取得极值，且$f(x)$在$x_0$处可导，则$f'(x_0)=0$。
+
+罗尔定理\textcolor{violet}{\textbf{定义：}}
+
+\begin{enumerate}
+    \item $f(x)$在$[a,b]$上连续。
+    \item $f(x)$在$(a,b)$内可导。
+    \item $f(a)=f(b)$。
+\end{enumerate}
+
+则$\exists\,\xi\in(a,b)$，使得$f'(\xi)=0$。
+
+\begin{tikzpicture}[scale=0.7]
+    \draw[-latex](-0.5,0) -- (8,0) node[below]{$x$};
+    \draw[-latex](0,-0.5) -- (0, 4) node[above]{$y$};
+    \filldraw[black] (0,0) node[below]{$O$};
+    \draw[black, thick,domain=-0.5:8] plot (\x, {sin((\x-0.5) r)+2});
+    \filldraw[black] (6,3.5) node {$y=f(x)$};
+    \draw[densely dashed](0.5,2) -- (0.5+2*pi, 2);
+    \draw[densely dashed](0.5,2) -- (0.5, 0) node[below]{$a$};
+    \draw[densely dashed](0.5+2*pi,2) -- (0.5+2*pi, 0) node[below]{$b$};
+    \draw[densely dashed](0.5+pi/2,3) -- (0.5+pi/2, 0) node[below]{$\xi_1$};
+    \draw[densely dashed](0.5+pi/2*3,1) -- (0.5+pi/2*3, 0) node[below]{$\xi_2$};
+    \draw[black](pi/2-0.5,3) -- (1.5+pi/2,3);
+    \draw[black](pi/2*3-0.5,1) -- (1.5+pi/2*3,1);
+\end{tikzpicture}
+
+\subsection{拉格朗日中值定理}
+
+\begin{enumerate}
+    \item $f(x)$在$[a,b]$上连续。
+    \item $f(x)$在$(a,b)$内可导。
+\end{enumerate}
+
+则$\exists\,\xi\in(a,b)$，使得$f(b)-f(a)=f'(\xi)(b-a)$。
+
+其中$f(b)-f(a)=f'[a+\theta(b-a)](b-a)(0<\theta<1)$，$\because f'(\xi)=f'[a+(\xi-a)]=f'[a+\dfrac{\xi-a}{b-a}(b-a)]$。
+
+有限增量公式\textcolor{violet}{\textbf{定义：}}$\Delta y=f(x_0+\Delta x)-f(x_0)=f'[x_0+\theta\Delta x]\Delta x(0<\theta<1)$。
+
+推论：$f(x)$在$I$上连续且可导，则$I$上$f(x)=C\Leftrightarrow f'(x)\equiv 0$
+
+\textbf{例题：}证明$x>0$时，$\dfrac{x}{1+x}<\ln(1+x)<x$。
+
+令$f(x)=\ln x$，又$\ln 1=0$，$\therefore\ln(1+x)=\ln(1+x)-\ln 1$。
+
+根据拉格朗日中值定理$\ln(1+x)-\ln 1=f'(\xi)x=\dfrac{x}{\xi}(1<\xi<1+x)$。
+
+又$\dfrac{x}{1+x}<\dfrac{x}{\xi}<x$，$\therefore$得证。
+
+\subsection{柯西中值定理}
+
+\begin{enumerate}
+    \item $f(x)$与$F(x)$在$[a,b]$上连续。
+    \item $f(x)$与$F(x)$在$(a,b)$内可导，且$\forall x\in(a,b)$，$F'(x)\neq 0$。
+\end{enumerate}
+
+则$\exists\,\xi\in(a,b)$，使得$\dfrac{f(b)-f(a)}{F(b)-F(a)}=\dfrac{f'(\xi)}{F'(\xi)}$。
 
 \section{洛必达法则}
 
@@ -81,28 +146,65 @@ $
 
 \section{泰勒公式}
 
-非常重要。
+非常重要。过去的很多定义如等价无穷小都是基于泰勒公式。
 
 \subsection{定义}
 
 是一个用函数在某点的信息描述其附近取值的公式。如果函数满足一定的条件，泰勒公式可以用函数在某一点的各阶导数值做系数构建一个多项式来近似表达这个函数。即形式：$f(x)=\sum ax^n$。
 
-简单来说，泰勒公式就是一个近似表达函数的公式。其极限趋向为趋向0。
+简单来说，泰勒公式就是一个近似表达函数的公式。其增量趋向0。
 
-对于泰勒公式以及后面的中值定理等相关延申见\href{https://www.zhihu.com/question/25627482}{知乎回答}。
+对于泰勒公式以及之前的中值定理等相关延申见\href{https://www.zhihu.com/question/25627482}{知乎回答}。
+
+\subsection{泰勒定理}
+
+拉格朗日定理是泰勒定理的特例。泰勒定理也称为泰勒中值定理，与之前的三大中值定理组成四大中值定理，前面的三大中值定理建立函数与一阶导数的关系，而泰勒定理建立函数与高阶导数之间的关系。
+
+\subsubsection{皮亚诺余项}
+
+设$f(x)$在$x_0$处$n$阶可微，则$f(x)=\sum_{k=0}^n\dfrac{f^{(k)}(x_0)}{k!}(x-x_0)^k+o((x-x_0)^n)$。这个就是带皮亚诺余项的泰勒公式。
+
+$f(x)=\sum_{k=0}^n\dfrac{f^{(k)}(x_0)}{k!}(x-x_0)^k$就是$f(x)$在$x_0$处的$n$次泰勒多项式，$o((x-x_0)^n)$就是函数的皮亚诺余项。
+
+缺点：
+
+\begin{enumerate}
+    \item 只给出余项的定性描述，不能进行定量分析。
+    \item 适用范围小。
+\end{enumerate}
+
+\subsubsection{拉格朗日余项}
+
+设$f(x)$在$x_0$处$n+1$阶可微，$x_0\in I$则$\forall x\in I$，$\exists\,\xi\in I(\xi\in(x_0,x))$使得$f(x)=\sum_{k=0}^n\dfrac{f^{(k)}(x_0)}{k!}(x-x_0)^k+\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$。这个就是带拉格朗日余项的泰勒公式。
+
+$R_n(x)=\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$就是函数的拉格朗日余项。
+
+根据拉格朗日中值定理推广的方式：$R_n(x)=\dfrac{f^{(n+1)}[x_0+\theta(x-x_0)]}{(n+1)!}(x-x_0)^{n+1}(\theta\in(0,1))$。
+
+若$\vert f^{(n+1)}(x)\vert\leqslant M$，则$\vert R_n(x)\vert=\dfrac{\vert f^{(n+1)}(\xi)\vert}{(n+1)!}\vert x-x_0\vert^{n+1}\leqslant\dfrac{M}{(n+1)!}\vert x-x_0\vert^{n-1}$。
+
+特点：
+
+\begin{enumerate}
+    \item 进行定量研究。
+    \item 可以进行整体的研究。
+    \item 计算量较大。
+\end{enumerate}
 
 \subsection{泰勒展开}
 
-当$x\to 0$时：
+\subsubsection{麦克劳林公式}
+
+当$x_0=0$时$f(x)=f(0)+f'(0)x+\dfrac{f''(0)}{2!}x^2+\cdots+\dfrac{f^{(n)(0)}}{n!}x^n+\text{余项}$为麦克劳林公式：
 
 \begin{enumerate}
-    \item $\sin x=x-\dfrac{x^3}{3!}+o(x^3)$。
-    \item $\cos x=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}+o(x^4)$。
-    \item $\arcsin x=x+\dfrac{x^3}{3!}+o(x^3)$。
+    \item $\sin x=x-\dfrac{x^3}{3!}+o(x^3)=(-1)^{n-1}\dfrac{x^{2n-1}}{(2n-1)!}$。
+    \item $\cos x=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}+o(x^4)=(-1)^n\dfrac{x^{2n}}{(2n)!}$。
+    \item $\arcsin x=x+\dfrac{x^3}{3!}+o(x^3)=\dfrac{x^{2n-1}}{(2n-1)!}$。
     \item $\tan x=x+\dfrac{x^3}{3}+o(x^3)$。
     \item $\arctan x=x-\dfrac{x^3}{3}+o(x^3)$。
-    \item $\ln(1+x)=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}+o(x^3)$。
-    \item $e^x=1+x+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+o(x^3)$。
+    \item $\ln(1+x)=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}+o(x^3)=(-1)^n\dfrac{x^n}{n}$。
+    \item $e^x=1+x+\dfrac{x^2}{2!}+\dfrac{x^3}{3!}+o(x^3)=\dfrac{x^n}{n!}$。
     \item $(1+x)^\alpha=1+\alpha\cdot x+\dfrac{\alpha\cdot(\alpha-1)}{2!}x^2+o(x^2)$。
 \end{enumerate}
 
@@ -121,8 +223,7 @@ $
 \end{aligned}
 $
 
-
-\subsubsection{泰勒公式}
+\subsubsection{泰勒公式计算}
 
 先写出$y=f(x)$的泰勒公式或麦克劳林公式，再通过比较系数来获得$f^{(n)}(x_0)$：
 
@@ -133,7 +234,7 @@ $
     \item 而函数的展开式具有唯一性，比较步骤一步骤二的公式的系数就可以获取倒$f^{(n)}(x_0)$或$f^{(n)}(0)$。
 \end{enumerate}
 
-\textbf{例题18：}设$y=x^3\sin x$，求$y^{(6)}(0)$。
+\textbf{例题：}设$y=x^3\sin x$，求$y^{(6)}(0)$。
 
 \ding{172}$y=\sum_{n=0}^\infty\dfrac{y^{(n)}(0)}{n!}x^n$。
 
@@ -144,7 +245,6 @@ $\because$需要结果的导数阶数为6，所以最后得到的次数为6就�
 \ding{174}步骤一的抽象函数当$n=6$时为$\dfrac{y^{(6)}(0)}{6!}x^6$，它应该与步骤二得到的$x^4-\dfrac{1}{6}x^6+\cdots$的6阶项的系数相等。
 
 $\therefore \dfrac{y^{(6)}(0)}{6!}=-\dfrac{1}{6}\Rightarrow y^{(6)}(0)=-5!=-120$。
-
 
 \subsection{展开幂的选择}
 
@@ -184,7 +284,7 @@ $
 
 $\therefore a=-\dfrac{1}{12},b=4$。
 
-\textbf{例题3：}求解$\lim_{x\to 0}\dfrac{\sin^2x-x^2}{e^{x^4}-1}$。
+\textbf{例题：}求解$\lim_{x\to 0}\dfrac{\sin^2x-x^2}{e^{x^4}-1}$。
 
 首先由泰勒展开式$e^x=1+x+o(x)$，得到$e^x-1\sim x$。
 
@@ -222,9 +322,20 @@ $
 \end{aligned}
 $
 
-
-
 \section{极限计算}
+
+极限计算可以使用的计算方式：
+
+\begin{enumerate}
+    \item 基础四则运算。
+    \item 两个重要极限。
+    \item 导数定义。
+    \item 等价无穷小替换。
+    \item 夹逼定理。
+    \item 拉格朗日中值定理。
+    \item 洛必达法则。
+    \item 泰勒公式。
+\end{enumerate}
 
 \subsection{未定式}
 
@@ -263,7 +374,7 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 \paragraph{比值类型} \leavevmode \bigskip
 
-$\dfrac{0}{0}$型\textbf{例题5：}求极限$\lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}$
+$\dfrac{0}{0}$型\textbf{例题：}求极限$\lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}$
 
 $
 \begin{aligned}
@@ -291,7 +402,7 @@ $
 \end{aligned}
 $
 
-$\infty\cdot 0$型\textbf{例题6：}求极限$\lim_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
+$\infty\cdot 0$型\textbf{例题：}求极限$\lim_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
 
 首先定性分析：$\lim_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
 
@@ -310,7 +421,7 @@ $
 \end{aligned}
 $
 
-$\infty\cdot 0$型\textbf{例题7：}求极限$\lim_{x\to 1^-}\ln x\ln(1-x)$。
+$\infty\cdot 0$型\textbf{例题：}求极限$\lim_{x\to 1^-}\ln x\ln(1-x)$。
 
 当$x\to 1^-$时，$\ln x$趋向0，$\ln(1-x)$趋向$-\infty$。
 
@@ -329,7 +440,7 @@ $
 $
 
 
-$\dfrac{0}{0}$型\textbf{例题8：}求极限$\lim_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
+$\dfrac{0}{0}$型\textbf{例题：}求极限$\lim_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
 
 分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开：
 
@@ -339,7 +450,7 @@ $\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac
 
 $\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
 
-$0\cdot\infty$型\textbf{例题9：}求极限$\lim_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
+$0\cdot\infty$型\textbf{例题：}求极限$\lim_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
 
 取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
 
@@ -356,7 +467,7 @@ $\therefore \lim_{x\to 0}x\left[\dfrac{10}{x}\right]$。
     \item 若函数中没有分母，则可以通过提取公因式或倒数代换，出现分母，再利用通分等方式将加减法变成乘除法。
 \end{itemize}
 
-$\infty-\infty$型\textbf{例题10：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
+$\infty-\infty$型\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
 
 $
 \begin{aligned}
@@ -372,7 +483,7 @@ $
 \end{aligned}
 $
 
-$\infty-\infty$型\textbf{例题11：}求极限$\lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$。
+$\infty-\infty$型\textbf{例题：}求极限$\lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$。
 
 该式子无法进行因式分解，所以尝试使用倒数代换：
 
@@ -388,7 +499,7 @@ $
 
 \paragraph{幂指类型} \leavevmode \bigskip
 
-$\infty^0$型\textbf{例题12：}求极限$\lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$。
+$\infty^0$型\textbf{例题：}求极限$\lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$。
 
 $
 \begin{aligned}
@@ -400,7 +511,7 @@ $
 \end{aligned}
 $
 
-$1^\infty$型\textbf{例题13：}求极限$\lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
+$1^\infty$型\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
 
 $
 \begin{aligned}
@@ -423,7 +534,7 @@ $
 
 第二种就是根据之间的关系转换。
 
-\textbf{例题14：}如果$\lim_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
+\textbf{例题：}如果$\lim_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
 
 解法一：
 
@@ -456,7 +567,7 @@ $
 
 一般极限式子右侧等于一个常数，或是表明高阶或低阶。具体的关系参考无穷小比阶。
 
-\textbf{例题15：}设$\lim_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2$，求常数a，b。
+\textbf{例题：}设$\lim_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2$，求常数a，b。
 
 根据泰勒展开式：$x\to 0,\ln(1+x)=x-\dfrac{x^2}{x}+o(x^2)$。
 
@@ -470,5 +581,173 @@ $
 $
 
 \textcolor{orange}{注意：}根据泰勒公式，$x-\ln(1+x)\sim\dfrac{1}{2}x^2\sim 1-\cos x$。
+
+\subsection{迭代式数列}
+
+最重要的是将迭代式进行变形。
+
+\textbf{例题：}数列$\{a_n\}$满足$a_0=0,a_1=1,2a_{n+1}=a_n+a_{n-1},n=1,2,\cdots$。计算$\lim_{n\to\infty}a_n$。
+
+首先看题目，给出的递推式设计到二阶递推，即存在三个数列变量，所以我们必须先求出对应的数列表达式。因为这个表达式涉及三个变量，所以尝试对其进行变型：
+
+$
+\begin{aligned}
+    a_{n+1}-a_n & =\dfrac{a_{n-1}-a_n}{2} \\
+    & =\left(-\dfrac{1}{2}\right)(a_n-a_{n-1}) \\
+    & =\left(-\dfrac{1}{2}\right)^2(a_{n-1}-a_{n-2}) \\
+    & =\cdots \\
+    & =\left(-\dfrac{1}{2}\right)^n(a_1-a_0) \\ 
+    & = \left(-\dfrac{1}{2}\right)^n
+\end{aligned}
+$
+
+然后得到了$a_{n+1}-a_n=\left(-\dfrac{1}{2}\right)^n$，而需要求极限，所以使用列项相消法的逆运算：
+
+$
+\begin{aligned}
+    a_n & = (a_n-a_{n-1})+(a_{n-1}-a_{n-2})+\cdots+(a_1-a_0)+a_0 \\
+     & = \left(-\dfrac{1}{2}\right)^{n-1} + \left(-\dfrac{1}{2}\right)^{n-2} + \cdots + \left(-\dfrac{1}{2}\right)^0 \\
+     & = \dfrac{1\cdot\left(1-\left(-\dfrac{1}{2}\right)^n\right)}{1-\left(-\dfrac{1}{2}\right)} \\
+     & = \dfrac{2}{3}\left[1-\left(-\dfrac{1}{2}\right)^n\right] \\
+    \lim_{n\to\infty}a_n & =\dfrac{2}{3}
+\end{aligned}
+$
+
+\section{函数单调性与曲线凹凸性}
+
+\subsection{函数单调性}
+
+\textcolor{aqua}{\textbf{定理：}}
+
+\begin{enumerate}
+    \item 函数$f(x)$在区间$[a,b]$上连续，在$(a,b)$内可导。
+    \item 若$(a,b)$内$f'(x)\geqslant 0$，且等号只有有限个点上成立，则$f(x)$在$[a,b]$上单调增加。
+    \item 若$(a,b)$内$f'(x)\leqslant 0$，且等号只有有限个点上成立，则$f(x)$在$[a,b]$上单调减少。
+\end{enumerate}
+
+\textbf{例题：}证明$x>0$时，$x-\dfrac{x^3}{6}<\sin x<x$。
+
+首先令$f(x)=x-\sin x$，而$f(0)=0$。
+
+$f'(x)=1-\cos x\geqslant 0$，则$f(x)$在$R$上递增。
+
+$\therefore$在$(0,+\infty]$上$f(x)>f(0)=0$，即$x>\sin x$。
+
+令$g(x)=\sin x-x-\dfrac{x^3}{6}$，而$g(0)=0$。
+
+$g'(x)=\cos x-1+\dfrac{x^2}{2}\geqslant 0$，则$g(x)$在$R$上递增。
+
+$\therefore$在$(0,+\infty]$上$g(x)>g(0)=0$，即$\sin x>x-\dfrac{x^3}{6}$。
+
+得证。
+
+\subsection{曲线凹凸性与拐点}
+
+\textcolor{violet}{\textbf{定义：}}若函数$f(x)$在区间$I$上连续，且对$I$上任意两点$x_1,x_2$恒有：
+
+\begin{enumerate}
+    \item $f(\dfrac{x_1+x_2}{2})<\dfrac{f(x_1)+f(x_2)}{2}$，则$f(x)$在$I$上凹。
+    \item $f(\dfrac{x_1+x_2}{2})>\dfrac{f(x_1)+f(x_2)}{2}$，则$f(x)$在$I$上凸。
+\end{enumerate}
+
+而当凹凸性发生改变的点就是拐点。
+
+\textcolor{aqua}{\textbf{定理：}}
+
+\begin{enumerate}
+    \item 函数$f(x)$在区间$[a,b]$上连续，在$(a,b)$内二阶可导。
+    \item 若$(a,b)$内$f''(x)>0$，则$f(x)$在$[a,b]$上凹。
+    \item 若$(a,b)$内$f'(x)<0$，则$f(x)$在$[a,b]$上凸。
+\end{enumerate}
+
+拐点的二阶导数等于0，或拐点在二阶导数不存在的点。
+
+\textbf{例题：}证明凹凸性与二阶导数的关系。
+
+不妨先证明凹函数与二阶导数的关系。已知$f''(x)>0$
+
+不妨设$x_1<x_2$，且$\dfrac{x_1+x_2}{2}=x_0$。
+
+$
+\begin{aligned}
+    & f(x_1)+f(x_2)-2(x_0) \\
+    & =[f(x_2)-f(x_0)]-[f(x_1)-f(x_0)] \\
+    & \xRightarrow{\text{拉格朗日中值定理}} \\
+    & =f'(\xi_2)(x_2-x_0)-f'(\xi_1)(x_0-x_1) \\
+    & =\dfrac{x_2-x_1}{2}[f'(\xi_2)-f'(\xi_1)]>0 
+\end{aligned}
+$
+
+$\therefore f''(x)>0\Rightarrow f(\dfrac{x_1+x_2}{2})<\dfrac{f(x_1)+f(x_2)}{2}$。
+
+\section{函数极值与最值}
+
+\subsection{函数极值}
+
+极值\textcolor{violet}{\textbf{定义：}}若$\exists\,\delta>0$，使
+
+$\forall x\in U(x_0,\delta)$恒有$f(x)\geqslant f(x_0)$，则$f(x)$在$x_0$取极小值。
+
+$\forall x\in U(x_0,\delta)$恒有$f(x)\leqslant f(x_0)$，则$f(x)$在$x_0$取极大值。
+
+\textcolor{aqua}{\textbf{定理：}}（极值必要条件）
+
+若$f(x)$在$x_0$处可导，且$x_0$处取得极值，则$f'(x_0)=0$。
+
+\textcolor{aqua}{\textbf{定理：}}（极值第一充分条件）
+
+设$f(x)$在$\mathring{U}(x_0,\delta)$内可导，且$f'(x_0)=0$或在$x_0$连续。
+
+\begin{enumerate}
+    \item 若$x<x_0$时，$f'(x)\geqslant 0$，$x>x_0$时$f'(x)\leqslant 0$，则$x_0$取得极大值。
+    \item 若$x>x_0$时，$f'(x)\geqslant 0$，$x<x_0$时$f'(x)\leqslant 0$，则$x_0$取得极小值。
+    \item 若$f'(x)$在$x_0$处不变号，则无极值点。
+\end{enumerate}
+
+\textcolor{aqua}{\textbf{定理：}}（极值第二充分条件）
+
+若$f'(x_0)=0$而且$f''(x_0)\neq 0$：
+
+\begin{enumerate}
+    \item 当$f''(x_0)<0$，则$f(x)$在$x_0$取极大值。
+    \item 当$f''(x_0)>0$，则$f(x)$在$x_0$取极小值。
+\end{enumerate}
+
+\subsection{函数最值}
+
+\subsubsection{连续函数闭区间最值}
+
+\begin{enumerate}
+    \item 求出$f(x)$在$(a,b)$内的驻点和不可导的点$x_1,x_2\cdots,x_n$。
+    \item 求出函数值$f(x_1),f(x_2)\cdots,f(x_n)$与端点值$f(a),f(b)$。
+    \item 比较求出最值。
+\end{enumerate}
+
+\subsubsection{最值应用题}
+
+\begin{enumerate}
+    \item 建立目标函数并确定定义域。
+    \item 求出驻点并计算值。
+\end{enumerate}
+
+\section{函数图像绘制}
+
+\subsection{基本步骤}
+
+\begin{enumerate}
+    \item 确定函数定义域，并考察其奇偶性与周期性。
+    \item 求出一阶导数与二阶导数，并计算导数为0与不存在的点。
+    \item 根据导数判断增减性与凹凸性，并求出极值与拐点。
+    \item 求出渐近线。
+    \item 确定另外的特殊点。
+\end{enumerate}
+
+\subsection{函数渐近线}
+
+\begin{itemize}
+    \item 若$\lim_{x\to\infty}f(x)=A$，那么$y=A$就是水平渐近线。
+    \item 若$\lim_{x\to x_0}f(x)=\infty$，那么$x=x_0$就是垂直渐近线。
+    \item 若$\lim_{x\to\infty}\dfrac{f(x)}{x}=a,b=\lim_{x\to\infty}(f(x)-ax)$，那么$y=ax+b$就是斜渐近线。
+\end{itemize}
 
 \end{document}
