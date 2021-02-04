@@ -1,4 +1,4 @@
-\documentclass[UTF8]{ctexart}
+\documentclass[UTF8, 12pt]{ctexart}
 % UTF8编码，ctexart现实中文
 \usepackage{color}
 % 使用颜色
@@ -39,33 +39,6 @@
 
 \section{基本计算流程}
 
-\subsection{计算方式}
-
-极限计算可以使用的主要计算方式：
-
-\begin{enumerate}
-    \item 基础四则运算。
-    \item 两个重要极限。
-    \item 导数定义。
-    \item 等价无穷小替换。
-    \item 夹逼定理。
-    \item 拉格朗日中值定理。
-    \item 洛必达法则。
-    \item 泰勒公式。
-\end{enumerate}
-
-\subsection{计算流程}
-
-\subsubsection{化简}
-
-方式：
-
-\begin{enumerate}
-    \item 提出极限不为0的因式。
-    \item 等价无穷小替换。
-    \item 恒等变形（提公因式、拆项、合并、分子分母同除变量最高次幂、换元法）。
-\end{enumerate}
-
 \subsection{判断类型}
 
 七种：$\dfrac{0}{0},\dfrac{\infty}{\infty},0\cdot\infty,\infty-\infty,\infty^0,0^0,1^\infty$。
@@ -95,45 +68,178 @@ $
 
 $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
-\section{未定式求极限值}
+综上，无论什么样的四则形式，都必须最后转换为商的形式。
 
-未定式即需要自己定义的式子，可能存在极限也可能不存在，对于自变量的变化趋势分为六种，分别是对于$x_0$与$\infty$的各三种。
+\subsection{常用化简运算}
 
-\subsection{等价无穷小替换}
+\subsubsection{对数法则}
+
+\textbf{例题：}求$\lim_{x\to 0}\dfrac{(e^{x^2}-1)(\sqrt{1+x}-\sqrt{1-x})}{[\ln(1-x)+\ln(1+x)]\sin\dfrac{x}{x+1}}$。
+
+注意在积或商的时候不能把对应的部分替换为0，如分母部分的$[\ln(1-x)+\ln(1+x)]$就无法使用$\ln(1+x)\sim x$替换为$-x+x$，这样底就是0了，无法求得最后的极限。
+
+这时可以尝试变形，如对数函数相加等于对数函数内部式子相乘：$\ln(1-x)+\ln(1+x)=\ln(1-x^2)\sim-x^2$。
+
+\subsubsection{指数法则}
+
+\subsubsection{幂指函数}
+
+当出现$f(x)^{g(x)}$的类似幂函数与指数函数类型的式子，需要使用$u^v=e^{v\ln u}$。
+
+\textbf{例题：}求极限$\lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$。
+
+$
+\begin{aligned}
+    & \lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}} \\
+    & =e^{\lim_{x\to+\infty}\frac{\ln(x+\sqrt{1+x^2})}{x}} \left(\ln(x+\sqrt{1+x^2})'=\dfrac{1}{\sqrt{1+x^2}}\right) \\
+    & =e^{\lim_{x\to+\infty}\frac{1}{\sqrt{1+x^2}}} \\
+    & =e^0 \\
+    & =1
+\end{aligned}
+$
+
+\subsubsection{有理化}
+
+当遇到带有根号的式子可以使用等价无穷小，但是只针对形似$(1+x)a-1\sim ax$的式子，而针对$x^a\pm x^b$的式子则无法替换，必须使用有理化来将单个式子变为商的形式。
+
+如$\sqrt{a}\pm\sqrt{b}=\dfrac{a+b}{\sqrt{a}\mp\sqrt{b}}$。
+
+\textbf{例题：}求极限$\lim_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
+
+首先定性分析：$\lim_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
+
+在$x\to-\infty$趋向时，$x$就趋向无穷大，而$\sqrt{x^2+100}$为一次，所以$\sqrt{x^2+100}+x$趋向0。
+
+又$\sqrt{x^2+100}$在$x\to-\infty$时本质为根号差，所以有理化：
+
+$
+\begin{aligned}
+    & \lim_{x\to-\infty}x(\sqrt{x^2+100}+x) \\
+    & \lim_{x\to-\infty}x\dfrac{x^2+100-x^2}{\sqrt{x^2+100}-x} \\
+    & = \lim_{x\to-\infty}\dfrac{100x}{\sqrt{x^2+100}-x} \\
+    & \xRightarrow{\text{令}x=-t}\lim_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+100}+t} \\
+    & = \lim_{t\to+\infty}\dfrac{-100}{\sqrt{1+\dfrac{100}{t^2}}+1} \\
+    & = -50
+\end{aligned}
+$
+
+\subsubsection{提取公因子}
+
+当作为商的极限式子上下都具有公因子时可以提取公因子，从而让未知数集中在分子或分母上。
+
+\textcolor{orange}{注意：}提取公因子的时候应该注意开平方等情况下符号的问题。如果极限涉及倒正负两边则必须都讨论。
+
+当趋向为负且式子中含有根号的时候最好提取负因子，从而让趋向变为正。
+
+\subsubsection{提取常数因子}
+
+\subsubsection{换元法}
+
+换元法本身没什么技巧性，主要是更方便计算。
+
+\textbf{例题：}求极限$\lim_{x\to 1^-}\ln x\ln(1-x)$。
+
+当$x\to 1^-$时，$\ln x$趋向0，$\ln(1-x)$趋向$-\infty$。
+
+又$x\to 0$，$\ln(1+x)\sim x$，所以$x\to 1$，$\ln x\sim x-1$：
+
+$
+\begin{aligned}
+    & \lim_{x\to 1^-}\ln x\ln(1-x) \\
+    & = \lim_{x\to 1^-}(x-1)\ln(1-x) \\
+    & \xRightarrow{令t=1-x} =-\lim_{t\to 0^+}t\ln t \\
+    & = -\lim_{t\to 0^+}\dfrac{\ln t}{\dfrac{1}{t}} \\
+    & = -\lim_{t\to 0^+}\dfrac{\dfrac{1}{t}}{-\dfrac{1}{t^2}} \\
+    & = \lim_{t\to 0^+}t \\
+    & = 0
+\end{aligned}
+$
+
+\subsubsection{三角函数关系式}
+
+$\infty-\infty$型\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right) \\
+    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)\\
+    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4} \\
+    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4x^3} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{2}\sin 4x}{4x^3} \\
+    & = \lim_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2} \\
+    & = \dfrac{1}{6}\lim_{x\to 0}\dfrac{1-\cos 4x}{x^2} (1-\cos x\sim \dfrac{1}{2}x^2)\\
+    & = \dfrac{4}{3}
+\end{aligned}
+$
+
+\subsection{基本计算方式}
+
+课本上极限计算可以使用的主要计算方式：
+
+\subsubsection{基础四则运算}
+
+\subsubsection{两个重要极限}
+
+\subsubsection{导数定义}
+
+\subsubsection{等价无穷小替换}
 
 当看到复杂的式子，且不论要求的极限值的趋向，而只要替换的式子是$\Delta\to 0$时的无穷小，就使用等价无穷小进行替换。
 
 \textcolor{orange}{注意：}替换的必然是整个求极限的乘或除的因子，一般加减法与部分的因子不能进行等价无穷小替换。
 
-\bigskip
-
-\textbf{例题：}求$\lim_{x\to 0}\dfrac{(e^{x^2}-1)(\sqrt{1+x}-\sqrt{1-x})}{[\ln(1-x)+\ln(1+x)]\sin\dfrac{x}{x+1}}$。
-
-在明显的部分由等价无穷小的式子得到：$e^{x^2}-1\sim x^2$，$\sin\dfrac{x}{x+1}=\dfrac{x}{x+1}$。
-
-并注意在积或商的时候不能把对应的部分替换为0，如分母部分的$[\ln(1-x)+\ln(1+x)]$就无法使用$\ln(1+x)\sim x$替换为$-x+x$，这样底就是0了，无法求得最后的极限。
-
-这时可以尝试变形，如对数函数相加等于对数函数内部式子相乘：$\ln(1-x)+\ln(1+x)=\ln(1-x^2)\sim-x^2$。
-
 对于无法直接得出变换式子的，可以对对应参数进行凑，以达到目标的可替换的等价无穷小。
 
-对分子部分的$\sqrt{1+x}-\sqrt{1-x}$无法使用$(1+x)^a-1\sim ax$替换为$(1+x)^{\frac{1}{2}}-1-[(1-x)^{\frac{1}{2}}-1]\sim\dfrac{1}{2}x+\dfrac{1}{2}x=x$。
+\subsubsection{夹逼准则}
 
-将所有替换的无穷小代入原式：$=\lim_{x\to 0}\dfrac{x^2\cdot x}{-x^2\cdot\dfrac{x}{1+x}}=\lim_{x\to 0}-(1+x)=-1$。
+夹逼准则可以用来证明不等式也可以用来计算极限。但是最重要的是找到能夹住目标式子的两个式子。
 
-\subsection{指数替换}
+\textbf{例题：}求极限$\lim_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
 
-当出现$f(x)^{g(x)}$的类似幂函数与指数函数类型的式子，需要使用$u^v=e^{v\ln u}$。
+取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
 
-\subsection{洛必达法则}
+当$x>0$时，$x\to 0^+$，两边都乘以10，$10-x<x\cdot\left[\dfrac{10}{x}\right]\leqslant x\cdots\dfrac{10}{x}=10$，而左边在$x\to 0^+$时极限也为10，所以夹逼准则，中间$x\cdot\left[\dfrac{10}{x}\right]$极限也为10。
+
+当$x>0$时，$x\to 0^-$，同样也是夹逼准则得到极限为10。
+
+$\therefore \lim_{x\to 0}x\left[\dfrac{10}{x}\right]=10$。
+
+\subsubsection{拉格朗日中值定理}
+
+\subsubsection{洛必达法则}
 
 洛必达法则的本质是降低商形式的极限式子的幂次。
 
 洛必达在处理一般的极限式子比较好用，但是一旦式子比较复杂最好不要使用洛必达法则，最好是对求导后有规律或幂次较低的式子进行上下求导。
 
-\subsubsection{倒代换}
+对于幂次高的式子必然使用洛必达法则。
 
-对于幂次高的式子必然使用洛必达法则，而如果出现分式，可以尝试使用倒代换，可能会发现高次式子求导规律。
+\subsubsection{泰勒公式}
+
+泰勒公式一般会使用趋向0的麦克劳林公式，且一般只作为极限计算的一个小部分，用来替代一个部分。
+
+且一般只有麦克劳林公式表上的基本初等函数才会使用倒泰勒公式，复合函数最好不要使用。
+
+\textbf{例题：}求极限$\lim_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
+
+分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开：
+
+$x\to 0$，$\sin x=x-\dfrac{1}{6}x^3+o(x^3)$，$\tan x=x+\dfrac{1}{3}x^3+o(x^3)$，$\arcsin x=x+\dfrac{1}{6}x^3+o(x^3)$，$\arctan x=x-\dfrac{1}{3}x^3+o(x^3)$。
+
+$\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac{1}{2}x^3+o(x^3)$
+
+$\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
+
+\section{未定式求极限值}
+
+未定式即需要自己定义的式子，可能存在极限也可能不存在，对于自变量的变化趋势分为六种，分别是对于$x_0$与$\infty$的各三种。
+
+\subsection{倒代换}
+
+\subsubsection{含有分式}
+
+当极限式子中含有分式中一般都需要用其倒数，把分式换成整式方便计算。
 
 \textbf{例题：}求极限$\lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}$
 
@@ -163,137 +269,30 @@ $
 \end{aligned}
 $
 
-\subsection{有理化}
+\textbf{例题：}求极限$\lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$。
 
-当遇到带有根号的式子可以使用等价无穷小，但是只针对形似$(1+x)a-1\sim ax$的式子，而针对$x^a\pm x^b$的式子则无法替换，必须使用有理化来将单个式子变为商的形式。
-
-如$\sqrt{a}\pm\sqrt{b}=\dfrac{a+b}{\sqrt{a}\mp\sqrt{b}}$。
-
-\subsubsection{提取公因子}
-
-当作为商的极限式子上下都具有公因子时可以提取公因子，从而让未知数集中在分子或分母上。
-
-\textcolor{orange}{注意：}提取公因子的时候应该注意开平方等情况下符号的问题。如果极限涉及倒正负两边则必须都讨论。
-
-当趋向为负且式子中含有根号的时候最好提取负因子，从而让趋向变为正。
-
-\textbf{例题：}求极限$\lim_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
-
-首先定性分析：$\lim_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
-
-在$x\to-\infty$趋向时，$x$就趋向无穷大，而$\sqrt{x^2+100}$为一次，所以$\sqrt{x^2+100}+x$趋向0。
-
-又$\sqrt{x^2+100}$在$x\to-\infty$时本质为根号差，所以有理化：
-
-$
-\begin{aligned}
-    & \lim_{x\to-\infty}x(\sqrt{x^2+100}+x) \\
-    & \lim_{x\to-\infty}x\dfrac{x^2+100-x^2}{\sqrt{x^2+100}-x} \\
-    & = \lim_{x\to-\infty}\dfrac{100x}{\sqrt{x^2+100}-x} \\
-    & \xRightarrow{\text{令}x=-t}\lim_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+100}+t} \\
-    & = \lim_{t\to+\infty}\dfrac{-100}{\sqrt{1+\dfrac{100}{t^2}}+1} \\
-    & = -50
-\end{aligned}
-$
-
-$\infty\cdot 0$型\textbf{例题：}求极限$\lim_{x\to 1^-}\ln x\ln(1-x)$。
-
-当$x\to 1^-$时，$\ln x$趋向0，$\ln(1-x)$趋向$-\infty$。
-
-又$x\to 0$，$\ln(1+x)\sim x$，所以$x\to 1$，$\ln x\sim x-1$：
-
-$
-\begin{aligned}
-    & \lim_{x\to 1^-}\ln x\ln(1-x) \\
-    & = \lim_{x\to 1^-}(x-1)\ln(1-x) \\
-    & \xRightarrow{令t=1-x} =-\lim_{t\to 0^+}t\ln t \\
-    & = -\lim_{t\to 0^+}\dfrac{\ln t}{\dfrac{1}{t}} \\
-    & = -\lim_{t\to 0^+}\dfrac{\dfrac{1}{t}}{-\dfrac{1}{t^2}} \\
-    & = \lim_{t\to 0^+}t \\
-    & = 0
-\end{aligned}
-$
-
-
-$\dfrac{0}{0}$型\textbf{例题：}求极限$\lim_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
-
-分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开：
-
-$x\to 0$，$\sin x=x-\dfrac{1}{6}x^3+o(x^3)$，$\tan x=x+\dfrac{1}{3}x^3+o(x^3)$，$\arcsin x=x+\dfrac{1}{6}x^3+o(x^3)$，$\arctan x=x-\dfrac{1}{3}x^3+o(x^3)$。
-
-$\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac{1}{2}x^3+o(x^3)$
-
-$\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
-
-$0\cdot\infty$型\textbf{例题：}求极限$\lim_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
-
-取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
-
-当$x>0$时，$x\to 0^+$，两边都乘以10，$10-x<x\cdot\left[\dfrac{10}{x}\right]\leqslant x\cdots\dfrac{10}{x}=10$，而左边在$x\to 0^+$时极限也为10，所以夹逼准则，中间$x\cdot\left[\dfrac{10}{x}\right]$极限也为10。
-
-当$x>0$时，$x\to 0^-$，同样也是夹逼准则得到极限为10。
-
-$\therefore \lim_{x\to 0}x\left[\dfrac{10}{x}\right]$。
-
-\subsubsection{差类型}
-
-\begin{itemize}
-    \item 如果函数中有分母，则通分，将加减法变形为乘除法，以便其他计算如洛必达法则。
-    \item 若函数中没有分母，则可以通过提取公因式或倒数代换，出现分母，再利用通分等方式将加减法变成乘除法。
-\end{itemize}
-
-$\infty-\infty$型\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
-
-$
-\begin{aligned}
-    & \lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right) \\
-    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)\\
-    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
-    & = \lim_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4} \\
-    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4x^3} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
-    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{2}\sin 4x}{4x^3} \\
-    & = \lim_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2} \\
-    & = \dfrac{1}{6}\lim_{x\to 0}\dfrac{1-\cos 4x}{x^2} (1-\cos x\sim \dfrac{1}{2}x^2)\\
-    & = \dfrac{4}{3}
-\end{aligned}
-$
-
-$\infty-\infty$型\textbf{例题：}求极限$\lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$。
-
-该式子无法进行因式分解，所以尝试使用倒数代换：
+该式子含有分数，所以尝试使用倒数代换：
 
 $
 \begin{aligned}
     & \lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x] \\
-    & \xRightarrow{\text{令}x=\frac{1}{t}}\lim_{t\to 0^+}\left(\dfrac{e^t-1}{x^2}-\dfrac{1}{t}\right) \\
+    & \xRightarrow{\text{令}x=\frac{1}{t}}\lim_{t\to 0^+}\left(\dfrac{e^t-1}{t^2}-\dfrac{1}{t}\right) \\
     & \lim_{t\to 0^+}\dfrac{e^t-1-t}{t^2} \\
-    & \xRightarrow{\text{泰勒展开}e^x}\lim_{t\to 0^+}\dfrac{\dfrac{1}{2}x^2}{x^2} \\
+    & \xRightarrow{\text{泰勒展开}e^t}\lim_{t\to 0^+}\dfrac{\dfrac{1}{2}t^2}{t^2} \\
     & =\dfrac{1}{2}
 \end{aligned}
 $
 
-\subsubsection{幂指类型}
+\subsection{拆项}
 
-$\infty^0$型\textbf{例题：}求极限$\lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$。
-
-$
-\begin{aligned}
-    & \lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}} \\
-    & =e^{\lim_{x\to+\infty}\frac{(x+\sqrt{1+x^2})}{x}} \left(\ln(x+\sqrt{1+x^2})'=\dfrac{1}{\sqrt{1+x^2}}\right) \\
-    & =e^{\lim_{x\to+\infty}\dfrac{1}{\sqrt{1+x^2}}} \\
-    & =e^0 \\
-    & =1
-\end{aligned}
-$
-
-$1^\infty$型\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
+\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
 
 $
 \begin{aligned}
     & \lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}} \\
-    & =e^{\lim_{x\to 0}\dfrac{e}{x}\ln\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)} \\
-    & =e^{\lim_{x\to 0}\dfrac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}-1\right)} \\
-    & =e^{\lim_{x\to 0}\dfrac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}-n}{n}\right)} \\
+    & =e^{\lim_{x\to 0}\frac{e}{x}\ln\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)} \\
+    & =e^{\lim_{x\to 0}\frac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}-1\right)} \\
+    & =e^{\lim_{x\to 0}\frac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}-n}{n}\right)} \\
     & =e^{\frac{e}{n}\lim_{x\to 0}\left(\frac{e^x-1}{x}+\frac{e^{2x}-1}{x}+\cdots+\frac{e^{nx}-1}{x}\right)} \\
     & =e^{\frac{e}{n}[1+2+\cdots+n]} \\
     & =e^{\frac{e}{n}\cdot\frac{n(1+n)}{2}} \\
