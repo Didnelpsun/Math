@@ -25,6 +25,8 @@
 % 圆圈序号
 \usepackage{mathtools}
 % 有字的长箭头
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
 \author{Didnelpsun}
 \title{函数与极限练习题}
 \date{}
@@ -37,9 +39,7 @@
 \pagestyle{plain}
 \setcounter{page}{1}
 
-\section{基本计算流程}
-
-\subsection{判断类型}
+\section{极限类型}
 
 七种：$\dfrac{0}{0},\dfrac{\infty}{\infty},0\cdot\infty,\infty-\infty,\infty^0,0^0,1^\infty$。
 
@@ -70,9 +70,9 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 综上，无论什么样的四则形式，都必须最后转换为商的形式。
 
-\subsection{常用化简运算}
+\section{常用化简运算}
 
-\subsubsection{对数法则}
+\subsection{对数法则}
 
 \textbf{例题：}求$\lim_{x\to 0}\dfrac{(e^{x^2}-1)(\sqrt{1+x}-\sqrt{1-x})}{[\ln(1-x)+\ln(1+x)]\sin\dfrac{x}{x+1}}$。
 
@@ -80,9 +80,31 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 这时可以尝试变形，如对数函数相加等于对数函数内部式子相乘：$\ln(1-x)+\ln(1+x)=\ln(1-x^2)\sim-x^2$。
 
-\subsubsection{指数法则}
+\subsection{指数法则}
 
-\subsubsection{幂指函数}
+\subsection{三角函数关系式}
+
+\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right) \\
+    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)\\
+    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4} \\
+    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4x^3} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{2}\sin 4x}{4x^3} \\
+    & = \lim_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2} \\
+    & = \dfrac{1}{6}\lim_{x\to 0}\dfrac{1-\cos 4x}{x^2} (1-\cos x\sim \dfrac{1}{2}x^2)\\
+    & = \dfrac{4}{3}
+\end{aligned}
+$
+
+\subsection{提取常数因子}
+
+提取常数因子就是提取出能转换为常数的整个极限式子的因子。这个因子必然在自变量的趋向时会变为非0的常数，那么这个式子就可以作为常数提出。
+
+\subsection{幂指函数}
 
 当出现$f(x)^{g(x)}$的类似幂函数与指数函数类型的式子，需要使用$u^v=e^{v\ln u}$。
 
@@ -98,7 +120,7 @@ $
 \end{aligned}
 $
 
-\subsubsection{有理化}
+\subsection{有理化}
 
 当遇到带有根号的式子可以使用等价无穷小，但是只针对形似$(1+x)a-1\sim ax$的式子，而针对$x^a\pm x^b$的式子则无法替换，必须使用有理化来将单个式子变为商的形式。
 
@@ -123,19 +145,18 @@ $
 \end{aligned}
 $
 
-\subsubsection{提取公因子}
+\subsection{提取公因子}
 
-当作为商的极限式子上下都具有公因子时可以提取公因子，从而让未知数集中在分子或分母上。
+当作为商的极限式子上下都具有公因子时可以提取公因子然后相除，从而让未知数集中在分子或分母上。
 
 \textcolor{orange}{注意：}提取公因子的时候应该注意开平方等情况下符号的问题。如果极限涉及倒正负两边则必须都讨论。
 
 当趋向为负且式子中含有根号的时候最好提取负因子，从而让趋向变为正。
 
-\subsubsection{提取常数因子}
 
-\subsubsection{换元法}
+\subsection{换元法}
 
-换元法本身没什么技巧性，主要是更方便计算。
+换元法本身没什么技巧性，主要是更方便计算。最重要的是获取到共有的最大因子进行替换。
 
 \textbf{例题：}求极限$\lim_{x\to 1^-}\ln x\ln(1-x)$。
 
@@ -154,86 +175,6 @@ $
     & = 0
 \end{aligned}
 $
-
-\subsubsection{三角函数关系式}
-
-$\infty-\infty$型\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
-
-$
-\begin{aligned}
-    & \lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right) \\
-    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)\\
-    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
-    & = \lim_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4} \\
-    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4x^3} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
-    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{2}\sin 4x}{4x^3} \\
-    & = \lim_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2} \\
-    & = \dfrac{1}{6}\lim_{x\to 0}\dfrac{1-\cos 4x}{x^2} (1-\cos x\sim \dfrac{1}{2}x^2)\\
-    & = \dfrac{4}{3}
-\end{aligned}
-$
-
-\subsection{基本计算方式}
-
-课本上极限计算可以使用的主要计算方式：
-
-\subsubsection{基础四则运算}
-
-\subsubsection{两个重要极限}
-
-\subsubsection{导数定义}
-
-\subsubsection{等价无穷小替换}
-
-当看到复杂的式子，且不论要求的极限值的趋向，而只要替换的式子是$\Delta\to 0$时的无穷小，就使用等价无穷小进行替换。
-
-\textcolor{orange}{注意：}替换的必然是整个求极限的乘或除的因子，一般加减法与部分的因子不能进行等价无穷小替换。
-
-对于无法直接得出变换式子的，可以对对应参数进行凑，以达到目标的可替换的等价无穷小。
-
-\subsubsection{夹逼准则}
-
-夹逼准则可以用来证明不等式也可以用来计算极限。但是最重要的是找到能夹住目标式子的两个式子。
-
-\textbf{例题：}求极限$\lim_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
-
-取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
-
-当$x>0$时，$x\to 0^+$，两边都乘以10，$10-x<x\cdot\left[\dfrac{10}{x}\right]\leqslant x\cdots\dfrac{10}{x}=10$，而左边在$x\to 0^+$时极限也为10，所以夹逼准则，中间$x\cdot\left[\dfrac{10}{x}\right]$极限也为10。
-
-当$x>0$时，$x\to 0^-$，同样也是夹逼准则得到极限为10。
-
-$\therefore \lim_{x\to 0}x\left[\dfrac{10}{x}\right]=10$。
-
-\subsubsection{拉格朗日中值定理}
-
-\subsubsection{洛必达法则}
-
-洛必达法则的本质是降低商形式的极限式子的幂次。
-
-洛必达在处理一般的极限式子比较好用，但是一旦式子比较复杂最好不要使用洛必达法则，最好是对求导后有规律或幂次较低的式子进行上下求导。
-
-对于幂次高的式子必然使用洛必达法则。
-
-\subsubsection{泰勒公式}
-
-泰勒公式一般会使用趋向0的麦克劳林公式，且一般只作为极限计算的一个小部分，用来替代一个部分。
-
-且一般只有麦克劳林公式表上的基本初等函数才会使用倒泰勒公式，复合函数最好不要使用。
-
-\textbf{例题：}求极限$\lim_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
-
-分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开：
-
-$x\to 0$，$\sin x=x-\dfrac{1}{6}x^3+o(x^3)$，$\tan x=x+\dfrac{1}{3}x^3+o(x^3)$，$\arcsin x=x+\dfrac{1}{6}x^3+o(x^3)$，$\arctan x=x-\dfrac{1}{3}x^3+o(x^3)$。
-
-$\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac{1}{2}x^3+o(x^3)$
-
-$\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
-
-\section{未定式求极限值}
-
-未定式即需要自己定义的式子，可能存在极限也可能不存在，对于自变量的变化趋势分为六种，分别是对于$x_0$与$\infty$的各三种。
 
 \subsection{倒代换}
 
@@ -283,7 +224,11 @@ $
 \end{aligned}
 $
 
+\subsubsection{\texorpdfstring{$\infty-\infty$}\ 型}
+
 \subsection{拆项}
+
+当极限式子中出现不知道项数的$n$时，一般需要使用拆项，把项重新组合。一般的组合是根据等价无穷小。
 
 \textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
 
@@ -299,6 +244,78 @@ $
     & =e^{\frac{e(1+n)}{2}}
 \end{aligned}
 $
+
+\section{基本计算方式}
+
+课本上极限计算可以使用的主要计算方式：
+
+\subsection{基础四则运算}
+
+\subsection{两个重要极限}
+
+\subsection{导数定义}
+
+\subsection{等价无穷小替换}
+
+当看到复杂的式子，且不论要求的极限值的趋向，而只要替换的式子是$\Delta\to 0$时的无穷小，就使用等价无穷小进行替换。
+
+\textcolor{orange}{注意：}替换的必然是整个求极限的乘或除的因子，一般加减法与部分的因子不能进行等价无穷小替换。
+
+对于无法直接得出变换式子的，可以对对应参数进行凑，以达到目标的可替换的等价无穷小。
+
+\subsection{夹逼准则}
+
+夹逼准则可以用来证明不等式也可以用来计算极限。但是最重要的是找到能夹住目标式子的两个式子。
+
+\textbf{例题：}求极限$\lim_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
+
+取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
+
+当$x>0$时，$x\to 0^+$，两边都乘以10，$10-x<x\cdot\left[\dfrac{10}{x}\right]\leqslant x\cdots\dfrac{10}{x}=10$，而左边在$x\to 0^+$时极限也为10，所以夹逼准则，中间$x\cdot\left[\dfrac{10}{x}\right]$极限也为10。
+
+当$x>0$时，$x\to 0^-$，同样也是夹逼准则得到极限为10。
+
+$\therefore \lim_{x\to 0}x\left[\dfrac{10}{x}\right]=10$。
+
+\subsection{拉格朗日中值定理}
+
+对于形如$f(a)-f(b)$的极限式子就可以使用拉格朗日中值定理，这个$f(x)$为任意的函数。
+
+\textbf{例题：}求极限$\lim_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\right)$。
+
+因为式子不算非常复杂，其实也可以通过洛必达法则来完成，但是求导会很复杂。而$\arctan x$可以认定为$f(x)$。
+
+从而$\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}$为$f(\dfrac{2}{n})-f(\dfrac{2}{n+1})=f'(\xi)\left(\dfrac{2}{n}-\dfrac{2}{n+1}\right)$。
+
+其中$\dfrac{2}{n+1}<\xi<\dfrac{2}{n}$，而当$n\to\infty$时，$f'(\xi)=\dfrac{1}{1+\xi^2}\to 1$。
+
+$\therefore\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\sim\dfrac{2}{n}-\dfrac{2}{n+1}=\dfrac{2}{n(n+1)}$。
+
+$\therefore\lim_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\right)=\lim_{n\to\infty}n^2\cdot\dfrac{2}{n(n+1)}=2$。
+
+\subsection{洛必达法则}
+
+洛必达法则的本质是降低商形式的极限式子的幂次。
+
+洛必达在处理一般的极限式子比较好用，但是一旦式子比较复杂最好不要使用洛必达法则，最好是对求导后有规律或幂次较低的式子进行上下求导。
+
+对于幂次高的式子必然使用洛必达法则。
+
+\subsection{泰勒公式}
+
+泰勒公式一般会使用趋向0的麦克劳林公式，且一般只作为极限计算的一个小部分，用来替代一个部分。
+
+且一般只有麦克劳林公式表上的基本初等函数才会使用倒泰勒公式，复合函数最好不要使用。
+
+\textbf{例题：}求极限$\lim_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
+
+分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开：
+
+$x\to 0$，$\sin x=x-\dfrac{1}{6}x^3+o(x^3)$，$\tan x=x+\dfrac{1}{3}x^3+o(x^3)$，$\arcsin x=x+\dfrac{1}{6}x^3+o(x^3)$，$\arctan x=x-\dfrac{1}{3}x^3+o(x^3)$。
+
+$\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac{1}{2}x^3+o(x^3)$
+
+$\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
 
 \section{极限转换}
 
