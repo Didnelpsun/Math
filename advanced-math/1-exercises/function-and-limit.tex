@@ -82,6 +82,28 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 \subsection{指数法则}
 
+求$\lim_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right]$。
+
+首先对于幂指函数需要取指数，所以$\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}=e^{\frac{n}{2}\ln(1+\frac{1}{n})}$。
+
+而后面的多一个$\sqrt{e}$导致整个式子变为一个复杂的式子，而与$e^x$相关的是$e^x-1\sim x$。
+
+所以$e^{\frac{n}{2}\ln(1+\frac{1}{n})}-\sqrt{e}=e^{\frac{1}{2}}\cdot\left(e^{\frac{n}{2}\ln(1+\frac{1}{n})-\frac{1}{2}}-1\right)=e^{\frac{1}{2}}\cdot\left[\dfrac{n}{2}\ln(1+\dfrac{1}{n})-\dfrac{1}{2}\right]$。
+
+综上：
+
+$
+\begin{aligned}
+    & \lim_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right] \\
+    & =\lim_{n\to\infty}n\left(e^{\frac{n}{2}\ln(1+\frac{1}{n})}-\sqrt{e}\right) \\
+    & =\lim_{n\to\infty}n\left[e^{\frac{1}{2}}\cdot\left(e^{\frac{n}{2}\ln(1+\frac{1}{n})-\frac{1}{2}}-1\right)\right] \\
+    & =\dfrac{e^{\frac{1}{2}}}{2}\lim_{n\to\infty}n^2\left[\ln\left(1+\frac{1}{n}\right)-\dfrac{1}{n}\right] \\
+    & =\dfrac{e^{\frac{1}{2}}}{2}\lim_{n\to\infty}\dfrac{\dfrac{1}{n}-\dfrac{1}{2n^2}-\dfrac{1}{n}}{\dfrac{1}{n^2}} \\
+    & =\dfrac{e^{\frac{1}{2}}}{2}\cdot\left(-\dfrac{1}{2}\right) \\
+    & =-\dfrac{\sqrt{e}}{4}
+\end{aligned}
+$
+
 \subsection{三角函数关系式}
 
 \textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
@@ -92,6 +114,11 @@ $
     & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)\\
     & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
     & = \lim_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4} \\
+\end{aligned}
+$
+
+$
+\begin{aligned}
     & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4x^3} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
     & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{2}\sin 4x}{4x^3} \\
     & = \lim_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2} \\
@@ -103,6 +130,14 @@ $
 \subsection{提取常数因子}
 
 提取常数因子就是提取出能转换为常数的整个极限式子的因子。这个因子必然在自变量的趋向时会变为非0的常数，那么这个式子就可以作为常数提出。
+
+\subsection{提取公因子}
+
+当作为商的极限式子上下都具有公因子时可以提取公因子然后相除，从而让未知数集中在分子或分母上。
+
+\textcolor{orange}{注意：}提取公因子的时候应该注意开平方等情况下符号的问题。如果极限涉及倒正负两边则必须都讨论。
+
+当趋向为负且式子中含有根号的时候最好提取负因子，从而让趋向变为正。
 
 \subsection{幂指函数}
 
@@ -144,15 +179,6 @@ $
     & = -50
 \end{aligned}
 $
-
-\subsection{提取公因子}
-
-当作为商的极限式子上下都具有公因子时可以提取公因子然后相除，从而让未知数集中在分子或分母上。
-
-\textcolor{orange}{注意：}提取公因子的时候应该注意开平方等情况下符号的问题。如果极限涉及倒正负两边则必须都讨论。
-
-当趋向为负且式子中含有根号的时候最好提取负因子，从而让趋向变为正。
-
 
 \subsection{换元法}
 
