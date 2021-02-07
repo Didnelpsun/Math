@@ -28,7 +28,7 @@
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
 \author{Didnelpsun}
-\title{函数与极限练习题}
+\title{极限练习题}
 \date{}
 \begin{document}
 \maketitle
@@ -343,27 +343,46 @@ $\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac
 
 $\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
 
-\section{极限转换}
+\section{极限计算形式}
 
-一般解法为两种。
+极限相关计算形式主要分为下面六种：
 
-一种是脱帽法：$\lim_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim_{x\to x_0}\alpha(x)=0$。
+\begin{enumerate}
+    \item 未定式：直接根据式子计算极限值。
+    \item 极限转换：根据已知的极限值计算目标极限值。
+    \item 求参数：已知式子的极限值，计算式子中未知的参数。
+    \item 极限存在性：根据式子以及极限存在性计算极限或参数。
+    \item 函数连续性：根据连续性与附加条件计算极限值或参数。
+    \item 迭代式数列：根据数列迭代式计算极限值。
+    \item 变限积分：根据变限积分计算极限值。
+\end{enumerate}
 
-第二种就是根据之间的关系转换。
+\subsection{极限转换}
+
+\subsubsection{整体换元}
+
+最常用的方式就是将目标值作为一个部分，然后对已知的式子进行替换。
+
+\textbf{例题：}已知$\lim_{x\to 0}\dfrac{\ln(1-x)+xf(x)}{x^2}=0$，求$\lim_{x\to 0}\dfrac{f(x)-1}{x}$。
+
+令目标$\dfrac{f(x)-1}{x}=t$，$\therefore f(x)=tx+1$。
+
+$
+\begin{aligned}
+    & \lim_{x\to 0}\dfrac{\ln(1-x)+xf(x)}{x^2} \\
+    & =\lim_{x\to 0}\dfrac{\ln(1-x)+tx^2+x}{x^2} (\text{泰勒展开}) \\
+    & =\lim_{x\to 0}\dfrac{-x-\dfrac{x^2}{2}+tx^2+x}{x^2} \\
+    & =\lim_{x\to 0}\dfrac{\left(t-\dfrac{1}{2}\right)x^2}{x^2} \\
+    & ==\lim_{x\to 0}\left(t-\dfrac{1}{2}\right) \\
+    & =0
+\end{aligned}
+$
+
+$\therefore\lim_{x\to 0}t=\lim_{x\to 0}\dfrac{f(x)-1}{x}=\dfrac{1}{2}$。
+
+\subsubsection{关系转换}
 
 \textbf{例题：}如果$\lim_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
-
-解法一：
-
-由$\lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$脱帽：$\dfrac{x\sin x+f(x)}{x^4}=A+\alpha$。
-
-得到：$f(x)=Ax^4+\alpha\cdot x^4-(x-\sin x)$。
-
-反代入：$\lim_{x\to 0}\dfrac{f(x)}{x^3}=\lim_{x\to 0}\dfrac{Ax^4+\alpha\cdot x^4-x+\sin x}{x^3}=0+0-\dfrac{1}{6}=-\dfrac{1}{6}$。
-
-$\therefore \lim_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
-
-解法二：
 
 由$\lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$，而目标是$x^3$，所以需要变形：
 
@@ -378,7 +397,21 @@ $
 \end{aligned}
 $
 
-\section{求参数}
+\subsubsection{脱帽法}
+
+$\lim_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim_{x\to x_0}\alpha(x)=0$。
+
+\textbf{例题：}如果$\lim_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
+
+由$\lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$脱帽：$\dfrac{x\sin x+f(x)}{x^4}=A+\alpha$。
+
+得到：$f(x)=Ax^4+\alpha\cdot x^4-(x-\sin x)$。
+
+反代入：$\lim_{x\to 0}\dfrac{f(x)}{x^3}=\lim_{x\to 0}\dfrac{Ax^4+\alpha\cdot x^4-x+\sin x}{x^3}=0+0-\dfrac{1}{6}=-\dfrac{1}{6}$。
+
+$\therefore \lim_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
+
+\subsection{求参数}
 
 因为求参数类型的题目中式子是未知的，所以求导后也是未知的，所以一般不要使用洛必达法则，而使用泰勒展开。
 
@@ -399,7 +432,33 @@ $
 
 \textcolor{orange}{注意：}根据泰勒公式，$x-\ln(1+x)\sim\dfrac{1}{2}x^2\sim 1-\cos x$。
 
+\subsection{极限存在性}
+
+\subsection{函数连续性}
+
+函数的连续性代表：极限值=函数值。
+
+\textbf{例题：}函数在$f(x)$在$x=1$处连续，且$f(1)=1$，求$\lim_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$。
+
+根据题目，所求的$\lim_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$中，唯一未知的且会随着$x\to+\infty$而变换就是$f\left(x^{\frac{1}{x}}\right)$。如果我们可以求出这个值就可以了。
+
+而我们对于$f(x)$的具体的关系是未知的，只知道$f(1)=1$。那么先需要考察$\lim_{x\to+\infty}x^{\frac{1}{x}}$的整数最大值。
+
+$
+\begin{aligned}
+    & \lim_{x\to+\infty}x^{\frac{1}{x}} \\
+    & e^{\lim_{x\to+\infty}\frac{\ln x}{x}} \\
+    & e^{\lim_{x\to+\infty}\frac{1}{x}} \\
+    & =e^0 \\
+    & =1
+\end{aligned}
+$
+
+$\therefore\lim_{x\to+\infty}f(x^{\frac{1}{x}})=f(1)=1$。
+
 \subsection{迭代式数列}
+
+\subsubsection{关系式变形}
 
 最重要的是将迭代式进行变形。
 
@@ -429,5 +488,12 @@ $
     \lim_{n\to\infty}a_n & =\dfrac{2}{3}
 \end{aligned}
 $
+
+\subsubsection{单调有界准则}
+
+\subsection{变限积分极限}
+
+已知更改区间限制的积分$s(x)=\int_{\varphi_1(x)}^{\varphi_2(x)}g(t)\rm{d}x$，$s'(x)=g[\varphi_2(x)]\cdot\varphi_2'(x)-g[\varphi_1(x)]\cdot\varphi_1'(x)$。
+
 
 \end{document}
