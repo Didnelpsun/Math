@@ -55,7 +55,7 @@ $\tan\alpha=f'(x_0)=\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=k$。
 
 \subsection{定义}
 
-设$y=f(x)$定义在区间$I$上，让自变量在$x=x_0$处加一个增量$\Delta x$，其中$x_0\in I$，$x_0+\Delta x\in I$，则可得函数的增量$\Delta y=f(x_0+\Delta x)-f(x_0)$。若函数增量$\Delta y$与自变量增量$\Delta x$的比值在$\Delta x\to 0$时的极限存在，则称函数$y=f(x)$在$x_0$处可导，并称这个极限为$y=f(x)$在点$x_0$处的导数，记作$f'(x)$，即$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$。
+设$y=f(x)$定义在区间$I$上，让自变量在$x=x_0$处加一个增量$\Delta x$，其中$x_0\in I$，$x_0+\Delta x\in I$，则可得函数的增量$\Delta y=f(x_0+\Delta x)-f(x_0)$。若函数增量$\Delta y$与自变量增量$\Delta x$的比值在$\Delta x\to 0$时的极限存在，则称函数$y=f(x)$在$x_0$处可导，并称这个极限为$y=f(x)$在点$x_0$处的导数，记作$f'(x)$，即$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$。\medskip
 
 下面三句话等价：
 
@@ -65,11 +65,11 @@ $\tan\alpha=f'(x_0)=\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=k$。
     \item $f'(x)=A$。（$A$为有限数）
 \end{enumerate}
 
-单侧导数分为左导数和右导数。
+单侧导数分为左导数和右导数。\medskip
 
 $f'_-(x)=\lim\limits_{\Delta x\to 0^-}\dfrac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$
 
-$f'_+(x)=\lim\limits_{\Delta x\to 0^+}\dfrac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$
+$f'_+(x)=\lim\limits_{\Delta x\to 0^+}\dfrac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$\medskip
 
 所以$f(x)$在$x_0$处可导的充要条件是其左导数和右导数存在且相等。
 
@@ -98,13 +98,13 @@ $
 
 \textbf{例题：}证明$f(x)$为可导的周期为$T$的周期函数，则$f'(x)$也是以$T$为周期的周期函数。
 
-已知$f(x+T)=f(x)$，求证$f'(x+T)=f'(x)$。
+已知$f(x+T)=f(x)$，求证$f'(x+T)=f'(x)$。\medskip
 
 $\therefore f'(x+T)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+T+\Delta x)-f(x+T)}{\Delta x}$
 
 $=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}=f'(x)$。
 
-\textbf{例题：}设$f(x)$是二阶可导的以2为周期的奇函数，且$f(\dfrac{1}{2})>0$，$f'(\dfrac{1}{2})>0$，比较$f(-\dfrac{1}{2})$、$f'(\dfrac{3}{2})$、$f''(0)$的大小。
+\textbf{例题：}设$f(x)$是二阶可导的以2为周期的奇函数，且$f(\dfrac{1}{2})>0$，$f'(\dfrac{1}{2})>0$，比较$f(-\dfrac{1}{2})$、$f'(\dfrac{3}{2})$、$f''(0)$的大小。\medskip
 
 $\because f(x)$为二阶奇函数，$\therefore f(x)\text{奇函数}\Rightarrow f'(x)\text{偶函数}\Rightarrow f''(x)\text{奇函数}\Rightarrow f''(0)=0$。
 
@@ -112,19 +112,19 @@ $\therefore f(-\dfrac{1}{2})=-f(\dfrac{1}{2})<0$。
 
 $\because f(x)T=2\Rightarrow f'(x)T=2$，$\therefore f'(\dfrac{3}{2})=f'(\dfrac{3}{2}-2)=f'(-\dfrac{1}{2})=f'(\dfrac{1}{2})>0$。
 
-$\therefore f'(\dfrac{3}{2})>f''(0)>f(-\dfrac{1}{2})$。
+$\therefore f'(\dfrac{3}{2})>f''(0)>f(-\dfrac{1}{2})$。\medskip
 
-\textbf{例题：}$\left(x^\alpha\right)'=\alpha x^{\alpha-1}(x>0)$。
+\textbf{例题：}$\left(x^\alpha\right)'=\alpha x^{\alpha-1}(x>0)$。\medskip
 
-$
-\begin{aligned}
-    & \lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} \\
-    & =\lim\limits_{\Delta x\to 0}\dfrac{\left(x+\Delta x\right)^\alpha-x^\alpha}{\Delta x} \\
-    & =\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\left[\left(1+\dfrac{\Delta x}{x}\right)^\alpha-1\right]}{\Delta x} \\
-    & =\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\cdot\alpha\cdot\dfrac{\Delta x}{x}}{\Delta x} \\
-    & =\alpha x^{\alpha-1}
-\end{aligned}
-$
+$\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}$\medskip
+
+$=\lim\limits_{\Delta x\to 0}\dfrac{\left(x+\Delta x\right)^\alpha-x^\alpha}{\Delta x}$\medskip
+
+$=\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\left[\left(1+\dfrac{\Delta x}{x}\right)^\alpha-1\right]}{\Delta x}$\medskip
+
+$=\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\cdot\alpha\cdot\dfrac{\Delta x}{x}}{\Delta x}$\medskip
+
+$=\alpha x^{\alpha-1}$
 
 \subsection{导数的几何意义}
 
@@ -144,20 +144,19 @@ $
 
 可导定义：$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} = A$
 
-$
-\begin{aligned}
-    & \lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x) \\
-    & =\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}\cdot\Delta x \\
-    & =A\cdot 0 \\
-    & =0
-\end{aligned}
-$
+$\lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x)$
+
+$=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}\cdot\Delta x$
+
+$=A\cdot 0$
+
+$=0$
 
 \textbf{例题：}若$f(x)$在$x=x_0$处连续，且$\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$，则$f(x_0)=0$且$f'(x_0)=A$。
 
 证明：$\because\text{连续，}\therefore f(x_0)=\lim\limits_{x\to x_0}f(x)=\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}(x-x_0)=A\cdot 0=0$。
 
-又$f'(x_0)=\lim\limits_{x\to x_0\dfrac{f(x)-f(x_0)}{x-x_0}}=\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$。
+又$f'(x_0)=\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$。
 
 如$\lim\limits_{x\to 1}\dfrac{f(x)}{x-1}=2$且$f(x)$连续，可以推出$f(1)=0$与$f'(1)=2$。
 
@@ -178,57 +177,63 @@ $
 
 令$f(x)=u(x)v(x)$。
 
-$
-\begin{aligned}
-    & (u\cdot v)' \\
-    & =f'(x) \\
-    & =\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} \\
-    & =\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x)}{\Delta x} \\
-    & =\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x+\Delta x)+u(x)v(x+\Delta x)-u(x)v(x)}{\Delta x} \\
-    & =\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)-u(x)}{\Delta x}v(x+\Delta x) +\lim\limits_{\Delta x\to 0}\dfrac{v(x+\Delta x)-v(x)}{\Delta x}u(x) \\
-    & =u'(x)v(x)+v'(x)u(x)
-\end{aligned}
-$
+$(u\cdot v)'$
+
+$=f'(x)$
+
+$=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}$
+
+$=\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x)}{\Delta x}$
+
+$=\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x+\Delta x)+u(x)v(x+\Delta x)-u(x)v(x)}{\Delta x}$
+
+$=\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)-u(x)}{\Delta x}v(x+\Delta x) +\lim\limits_{\Delta x\to 0}\dfrac{v(x+\Delta x)-v(x)}{\Delta x}u(x)$
+
+$=u'(x)v(x)+v'(x)u(x)$
 
 \subsection{反函数导数}
 
-\textcolor{aqua}{\textbf{定理：}}$y=f(x)$可导，且$f'(x)\neq 0$，则存在反函数$x=\varphi(y)$，且$\dfrac{\rm{d}x}{\rm{d}y}=\dfrac{1}{\dfrac{\rm{d}y}{\rm{d}x}}$，即$\varphi'(x)=\dfrac{1}{f'(x)}$。
+\textcolor{aqua}{\textbf{定理：}}$y=f(x)$可导，且$f'(x)\neq 0$，则存在反函数$x=\varphi(y)$，且$\dfrac{\rm{d}x}{\rm{d}y}=\dfrac{1}{\dfrac{\rm{d}y}{\rm{d}x}}$，即$\varphi'(x)=\dfrac{1}{f'(x)}$。\medskip
 
 $y=f(x)$可导，且$f'(x)\neq 0$就是指严格单调，而严格单调必有反函数。
 
 \textbf{例题：}求$y=\arcsin x,x\in(-1,1)$与$y=\arctan x$的导数。
 
-首先反三角函数就是三角函数的反函数、
+首先反三角函数就是三角函数的反函数。
 
 求$y=\arcsin x$，即$x=\sin y$。
 
-$\therefore\dfrac{\rm{d}\arcsin x}{\rm{d}x}=\dfrac{1}{\dfrac{\rm{d}\sin y}{\rm{d}y}}=\dfrac{1}{\cos y}=\dfrac{1}{\sqrt{1-\sin^2y}}=\dfrac{1}{\sqrt{1-x^2}}$。
+$\therefore\dfrac{\rm{d}\arcsin x}{\rm{d}x}=\dfrac{1}{\dfrac{\rm{d}\sin y}{\rm{d}y}}=\dfrac{1}{\cos y}=\dfrac{1}{\sqrt{1-\sin^2y}}=\dfrac{1}{\sqrt{1-x^2}}$。\medskip
 
-求$y=\arctan x$，就$x=\tan y$。
+求$y=\arctan x$，就$x=\tan y$。\medskip
 
-$\therefore\dfrac{\rm{d}\arctan x}{\rm{d}x}=\dfrac{1}{\dfrac{\rm{d}\tan y}{\rm{d}y}}=\dfrac{1}{\sec^2y}=\dfrac{1}{1+\tan^2y}=\dfrac{1}{1+x^2}$。
+$\therefore\dfrac{\rm{d}\arctan x}{\rm{d}x}=\dfrac{1}{\dfrac{\rm{d}\tan y}{\rm{d}y}}=\dfrac{1}{\sec^2y}=\dfrac{1}{1+\tan^2y}=\dfrac{1}{1+x^2}$。\medskip
 
 二阶反函数导数\textcolor{aqua}{\textbf{定理：}}：
 
-$
-\begin{aligned}
-    f''(x) &=y''_{xx} \\
-    & =\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x} \\
-    & =\dfrac{\rm{d}^2y}{\rm{d}x^2} \\
-    & =\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\rm{d}x} \\
-    & =\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\rm{d}y}\cdot\dfrac{\rm{d}y}{\rm{d}x} \\
-    & =-\dfrac{x_{yy}''}{(x_y')^2}\cdot\dfrac{1}{x_y'} \\
-    & =-\dfrac{x_{yy}''}{(x_y')^3}
-\end{aligned}
-$
+$f''(x)$
+
+$=y''_{xx}$\medskip
+
+$=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}$\medskip
+
+$=\dfrac{\rm{d}^2y}{\rm{d}x^2}$\medskip
+
+$=\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\rm{d}x}$\medskip
+
+$=\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\rm{d}y}\cdot\dfrac{\rm{d}y}{\rm{d}x}$\medskip
+
+$=-\dfrac{x_{yy}''}{(x_y')^2}\cdot\dfrac{1}{x_y'}$\medskip
+
+$=-\dfrac{x_{yy}''}{(x_y')^3}$\medskip
 
 其中$\rm{d}x\cdot\rm{d}x=(\rm{d}x)^2=\rm{d}x^2$称为微分的幂，而$\rm{d}(x^2)$叫幂的微分。
 
 \textbf{例题：}设$y=f(x)$的反函数是$x=\varphi(y)$，且$f(x)=\int_1^{2x}e^{t^2}\rm{d}t+1$，求$\varphi''(1)$。
 
-$\because y=f(x)$，$\therefore x=\varphi(y)$，$x_{yy}''=\varphi''(y)=-\dfrac{y_{xx}''}{(y_x')^3}=-\dfrac{f''(x)}{[f'(x)]^3}$。
+$\because y=f(x)$，$\therefore x=\varphi(y)$，$x_{yy}''=\varphi''(y)=-\dfrac{y_{xx}''}{(y_x')^3}=-\dfrac{f''(x)}{[f'(x)]^3}$。\medskip
 
-其中根据变限积分求导公式：$f'(x)=2e^{4x^2}$，$f''(x)=2e^{4x^2}\cdot 8x=16xe^{4x^2}$
+其中根据变限积分求导公式：$f'(x)=2e^{4x^2}$，$f''(x)=2e^{4x^2}\cdot 8x=16xe^{4x^2}$。\medskip
 
 又$y=1\Rightarrow x=\dfrac{1}{2}\Rightarrow\varphi''(1)=-\dfrac{f''\left(\dfrac{1}{2}\right)}{\left[f'\left(\dfrac{1}{2}\right)\right]^3}=-\dfrac{1}{e^2}$。
 
@@ -242,25 +247,27 @@ $u=g(x)$在$x$可导，$y=f(u)$在$u=g(x)$处可导，则$\{f[g(x)]\}'=f'[g(x)]g
 
 原式=$\left(\tan\dfrac{\pi x}{4}-1\right)\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)$。
 
-令$\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)=g(x)$。
+令$\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)=g(x)$。\medskip
 
-$\therefore f(x)=\left(\tan\dfrac{\pi x}{4}-1\right)\cdot g(x)$。
+$\therefore f(x)=\left(\tan\dfrac{\pi x}{4}-1\right)\cdot g(x)$。\medskip
 
-$\therefore f'(x)=\sec^2\dfrac{\pi x}{4}\cdot\dfrac{\pi}{4}\cdot g(x)+\left(\tan\dfrac{\pi x}{4}-1\right)\cdot g'(x)$。
+$\therefore f'(x)=\sec^2\dfrac{\pi x}{4}\cdot\dfrac{\pi}{4}\cdot g(x)+\left(\tan\dfrac{\pi x}{4}-1\right)\cdot g'(x)$。\medskip
 
 $\therefore$根据导数的四则运算，需要导数的乘积为每一项求导乘以其他不求导项的和，而$\tan\dfrac{\pi x}{4}-1$当$x=1$时为0，只要它不求导，其他的项都必然是0，所以原式的后面的结果都是0。
 
 $\therefore$
 
-$
-\begin{aligned}
-    f'(1) & =f'(x)\vert_{x=1} \\
-    & =\dfrac{\pi}{2}\cdot g(1)+0\cdot g'(x) \\
-    & =\dfrac{\pi}{2}\cdot g(1) \\
-    & =\dfrac{\pi}{2}(-1)(-2)\cdots(-99) \\
-    & =-\dfrac{\pi}{2}\cdot 99!
-\end{aligned}
-$
+$f'(1)$
+
+$=f'(x)\vert_{x=1}$\medskip
+
+$=\dfrac{\pi}{2}\cdot g(1)+0\cdot g'(x)$\medskip
+
+$=\dfrac{\pi}{2}\cdot g(1)$\medskip
+
+$=\dfrac{\pi}{2}(-1)(-2)\cdots(-99)$
+
+$=-\dfrac{\pi}{2}\cdot 99!$
 
 \subsection{分段函数的导数}
 
@@ -269,11 +276,11 @@ $
         f_1(x), & & x\geqslant x_0 \\
         f_2(x), & & x<x_0 \\
     \end{array}
-\right.$。
+\right.$。\medskip
 
 在分段点用定义：
 
-判断$f'_+(x_0)=\lim\limits_{x\to x_0^+}\dfrac{f_1(x)-f(x_0)}{x-x_0}\overset{?}{=}\lim\limits_{x\to x_0^-}\dfrac{f_2(x)-f(x_0)}{x-x_0}$。
+判断$f'_+(x_0)=\lim\limits_{x\to x_0^+}\dfrac{f_1(x)-f(x_0)}{x-x_0}\overset{?}{=}\lim\limits_{x\to x_0^-}\dfrac{f_2(x)-f(x_0)}{x-x_0}$。如果相等就挖去这个点，否则就包含这个点。
 
 非分段点使用导数公式求导：$x>x_0,f'(x)=f_1'(x),x<0，f'(x)=f_2'(x)$。
 
@@ -287,7 +294,7 @@ $
 
 $\because \ln\vert y\vert'=\ln y'$。
 
-两边对x求导：
+两边对x求导：\medskip
 
 $\dfrac{y'}{y}=\dfrac{1}{3}\left(\dfrac{1}{x+1}+\dfrac{4}{2x-1}-\dfrac{5}{4-3x}\cdot(-3)\right)$
 
@@ -372,14 +379,13 @@ $\because \sin x'=\cos x$而不断求导会发现正负号会++--++--地变化�
 
 使用诱导公式：
 
-$
-\begin{aligned}
-    y'& =\cos x=\sin(x+\dfrac{\pi}{2}) \\
-    y''& =\cos(x+\dfrac{\pi}{2})=\sin(x+\dfrac{\pi}{2}+\dfrac{\pi}{2}) \\
-    \cdots & \\
-    y^{(n)}& =\sin(x+\dfrac{\pi}{2}\cdot n)
-\end{aligned}
-$
+$y'=\cos x=\sin(x+\dfrac{\pi}{2})$
+
+$y''=\cos(x+\dfrac{\pi}{2})=\sin(x+\dfrac{\pi}{2}+\dfrac{\pi}{2})$
+
+$\cdots$
+
+$y^{(n)}=\sin(x+\dfrac{\pi}{2}\cdot n)$
 
 \subsection{莱布尼茨公式}
 
@@ -449,14 +455,13 @@ $
 
 根据莱布尼兹公式：
 
-$
-\begin{aligned}
-    & (e^x\cos x)^{(4)} \\
-    & =C_4^0e^x\cos x+C_4^1e^x(-\sin x)+C_4^2e^x(-\cos x)+C_4^3e^x(\sin x)+C_4^4e^x(\cos x) \\
-    & =e^x\cos x+4e^x(-\sin x)+6e^x(-\cos x)+4e^x\sin x+e^x\cos x \\
-    & =-4e^x\cos x
-\end{aligned}
-$
+$(e^x\cos x)^{(4)}$
+
+$=C_4^0e^x\cos x+C_4^1e^x(-\sin x)+C_4^2e^x(-\cos x)+C_4^3e^x(\sin x)+C_4^4e^x(\cos x)$
+
+$=e^x\cos x+4e^x(-\sin x)+6e^x(-\cos x)+4e^x\sin x+e^x\cos x$
+
+$=-4e^x\cos x$
 
 \section{隐函数与参数方程的导数以及相关变化率}
 
@@ -487,7 +492,7 @@ $
     \end{array}
 \}\right.$确定，其中$t$为参数，且$\varphi(t)\psi(t)$对于$t$都可导，$\varphi(t)\neq 0$，则：
 
-\bigskip
+\medskip
 
 一阶导数：$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{\rm{d}y/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{\psi'(t)}{\varphi'(t)}=u(t)$。
 
@@ -503,9 +508,9 @@ $（$t$为参数）确定，求$\dfrac{\rm{d}^2y}{\rm{d}x^2}\vert_{t=\frac{\pi}{
 
 求参数方程的二阶导数首先就要求出其一阶导数：
 
-$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{y_t'}{x_t'}=\dfrac{t\cos t}{\cos t}=t$。
+$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{y_t'}{x_t'}=\dfrac{t\cos t}{\cos t}=t$。\medskip
 
-$\therefore\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{t_t'}{(\sin t)_t'}=\dfrac{1}{\cos t}$
+$\therefore\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{t_t'}{(\sin t)_t'}=\dfrac{1}{\cos t}$\medskip
 
 $\therefore \sqrt{2}$。
 
@@ -532,7 +537,7 @@ $\therefore \rm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\rm{
 \begin{tikzpicture}[scale=0.9]
     \draw[-latex](-0.5,0) -- (4.5,0) node[below]{$x$};
     \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
-    \draw[black, thick, domain=1.5:3] plot (\x,{pow(\x-1,2)/2+1}) node[above]{$y(x)$};
+    \draw[black, thick, domain=-0.5:3] plot (\x,{pow(\x-1,2)/2+1}) node[above]{$y(x)$};
     \filldraw[black] (0,0) node[below]{$O$};
     \draw[black, densely dashed](1.5,1.125) -- (1.5,0) node[below]{$x_0$};
     \draw[black, densely dashed](1.5,1.125) -- (0,1.125) node[left]{$y_0$};

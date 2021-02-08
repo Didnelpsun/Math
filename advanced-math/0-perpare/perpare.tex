@@ -19,6 +19,8 @@
 \usepackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 % 设置行距
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
 \usepackage{tikz}
 % 绘图
 \usepackage{xcolor}
@@ -45,11 +47,11 @@
 \section{函数的图像}
 \subsection{直角坐标系图像}
 \subsubsection{常见图像}
-\paragraph{基本初等函数与初等函数} \leavevmode \bigskip
+\paragraph{基本初等函数与初等函数} \leavevmode \medskip
 
 基本初等函数包括：常数函数、幂函数、指数函数、对数函数、三角函数、反三角函数。
 
-\subparagraph{常数函数} \leavevmode \bigskip
+\subparagraph{常数函数} \leavevmode \medskip
 
 $y=A$，A为常数，图像平行于x轴：
 
@@ -61,7 +63,7 @@ $y=A$，A为常数，图像平行于x轴：
     \filldraw[black] (0,1) circle (2pt) node at(0.75,0.5){$(0,A)$};
 \end{tikzpicture}
 
-\subparagraph{幂函数} \leavevmode \bigskip
+\subparagraph{幂函数} \leavevmode \medskip
 
 $y=x^{\mu}$，$\mu$为实数，当$x>0$，$y=x^{\mu}$都有定义：
 
@@ -86,7 +88,7 @@ $y=x^{\mu}$，$\mu$为实数，当$x>0$，$y=x^{\mu}$都有定义：
     \item $u_1u_2...u_n$可以使用$\sum_{i=1}^{n}\ln u_i$来研究。
 \end{enumerate}
 
-\subparagraph{指数函数} \leavevmode \bigskip
+\subparagraph{指数函数} \leavevmode \medskip
 
 $y=a^x(a>0,a\neq 1)$：
 
@@ -108,7 +110,7 @@ $y=a^x(a>0,a\neq 1)$：
     \item 极限：$\lim\limits_{x\to -\infty}e^x=0$，$\lim\limits_{x\to +\infty}e^x=+\infty$。
 \end{enumerate}
 
-\subparagraph{对数函数} \leavevmode \bigskip
+\subparagraph{对数函数} \leavevmode \medskip
 
 $y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
 
@@ -131,7 +133,7 @@ $y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
     \item 常用公式：$x=e^{\ln x}$，$u^v=e^{\ln u^v}=e^{v\ln u}(x>0,u>0)$
 \end{enumerate}
 
-\subparagraph{三角函数} \leavevmode \bigskip
+\subparagraph{三角函数} \leavevmode \medskip
 
 正弦函数：
 
@@ -280,7 +282,7 @@ $$
     \item 周期性：最小正周期为$2\pi$。
 \end{enumerate}
 
-\subparagraph{反三角函数} \leavevmode \bigskip
+\subparagraph{反三角函数} \leavevmode \medskip
 
 反正弦函数：
 
@@ -360,13 +362,13 @@ $$
     \item 性质：$\arctan x+\rm{arccot}\,\textit{x}=\dfrac{\pi}{2}(-\infty<x<+\infty)$
 \end{enumerate}
 
-\subparagraph{初等函数} \leavevmode \bigskip
+\subparagraph{初等函数} \leavevmode \medskip
 
 由基本初等函数经过有限次四则运算与符合步骤且可以被一个式子所表示。
 
 幂指函数$u(x)^{v(x)}=e^{v(x)\ln u(x)}$也是初等函数。
 
-\paragraph{分段函数} \leavevmode \bigskip
+\paragraph{分段函数} \leavevmode \medskip
 
 x的不同范围对应不同的法则，经典形式如下：
 
@@ -384,7 +386,7 @@ x的不同范围对应不同的法则，经典形式如下：
     \right.
 \end{equation}
 
-\subparagraph{绝对值函数} \leavevmode \bigskip
+\subparagraph{绝对值函数} \leavevmode \medskip
 
 $
     y=\vert x\vert=\left\{
@@ -404,7 +406,7 @@ $
     \filldraw[black] (0,0) node[below]{$O$};
 \end{tikzpicture}
 
-\subparagraph{符号函数} \leavevmode \bigskip
+\subparagraph{符号函数} \leavevmode \medskip
 
 $
     y=\rm{sgn}x=\left\{
@@ -429,7 +431,7 @@ $
     \filldraw[black] (0,-1) node[right]{$-1$};
 \end{tikzpicture}
 
-\subparagraph{取整函数} \leavevmode \bigskip
+\subparagraph{取整函数} \leavevmode \medskip
 
 $x$为实数，不超过$x$的最大整数称为其整数部分$[x]$，其定义域为$R$，值域为$Z$。
 
@@ -466,7 +468,7 @@ $x$为实数，不超过$x$的最大整数称为其整数部分$[x]$，其定义
 
 \subsubsection{图像变换}
 \paragraph{平移变换}
-\subparagraph{左右平移} \leavevmode \bigskip
+\subparagraph{左右平移} \leavevmode \medskip
 
 $f(x)$沿$x$轴左移$x_0$个单位长度得到$f(x+x_0)$，向右移动$x_0$个单位则得到$f(x-x_0)$：
 
@@ -484,7 +486,7 @@ $f(x)$沿$x$轴左移$x_0$个单位长度得到$f(x+x_0)$，向右移动$x_0$个
     \filldraw[black] (-1,0.5) node{$\leftarrow$};
 \end{tikzpicture}
 
-\subparagraph{上下平移} \leavevmode \bigskip
+\subparagraph{上下平移} \leavevmode \medskip
 
 $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个单位则得到$f(x)-y_0$：
 
@@ -503,7 +505,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
 \end{tikzpicture}
 
 \paragraph{对称变换}
-\subparagraph{上下对称} \leavevmode \bigskip
+\subparagraph{上下对称} \leavevmode \medskip
 
 将$f(x)$关于$x$轴对称得到$-f(x)$：
 
@@ -517,7 +519,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \filldraw[black] (0,-1.5) node{$x^2-1$};
 \end{tikzpicture}
 
-\subparagraph{左右对称} \leavevmode \bigskip
+\subparagraph{左右对称} \leavevmode \medskip
 
 将$f(x)$关于$y$轴对称得到$f(-x)$：
 
@@ -531,7 +533,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \filldraw[black] (-1.5,1.5) node{$\ln -x$};
 \end{tikzpicture}
 
-\subparagraph{原点对称} \leavevmode \bigskip
+\subparagraph{原点对称} \leavevmode \medskip
 
 将$f(x)$关于$x$轴$y$轴即关于原点对称得到$-f(-x)$：
 
@@ -545,7 +547,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \filldraw[black] (-1.5,-1.5) node{$-\ln -x$};
 \end{tikzpicture}
 
-\subparagraph{反函数对称} \leavevmode \bigskip
+\subparagraph{反函数对称} \leavevmode \medskip
 
 将$f(x)$关于$y=x$轴对称得到$f^{-1}(x)$：
 
@@ -560,7 +562,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \draw[black, densely dashed] (-2,-2) -- (e-0.5,e-0.5) node[above]{$y=x$};
 \end{tikzpicture}
 
-\subparagraph{函数绝对值} \leavevmode \bigskip
+\subparagraph{函数绝对值} \leavevmode \medskip
 
 保留$f(x)$函数值在$[0,\infty]$的部分，并对$[-\infty,0]$部分进行上下对称：
 
@@ -575,7 +577,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \filldraw[black] (0,1.5) node{$\vert x^2-1\vert$};
 \end{tikzpicture}
 
-\subparagraph{自变量绝对值} \leavevmode \bigskip
+\subparagraph{自变量绝对值} \leavevmode \medskip
 
 先只保留$f(x)$定义域在$[0,\infty]$的部分，然后在$[-\infty,0]$部分使用$[0,\infty]$的部分进行左右对称：
 
@@ -590,7 +592,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
 \end{tikzpicture}
 
 \paragraph{伸缩变换}
-\subparagraph{水平伸缩} \leavevmode \bigskip
+\subparagraph{水平伸缩} \leavevmode \medskip
 
 纵坐标不变，当$k>1$时，$y=f(kx)$是$y=f(x)$缩短k倍得到，当$0<k<1$时，$y=f(kx)$是$y=f(x)$伸长k倍得到：
 
@@ -604,7 +606,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
 \end{tikzpicture}
 
 
-\subparagraph{垂直伸缩} \leavevmode \bigskip
+\subparagraph{垂直伸缩} \leavevmode \medskip
 
 横坐标不变，$y=kf(x)$的对应纵坐标为$y=f(x)$对应纵坐标的$k$倍。
 
@@ -618,7 +620,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
 
 \subsection{极坐标系图像}
 \subsubsection{描点法}
-\paragraph{心形线（外摆线）} \leavevmode \bigskip
+\paragraph{心形线（外摆线）} \leavevmode \medskip
 
 心形线又称为心脏线，表示是一个圆上的固定一点在它绕着与其相切且半径相同的另外一个圆周滚动时所形成的轨迹。
 
@@ -637,7 +639,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \filldraw[black] (0,0) node[below]{$O$};
 \end{tikzpicture}
 
-水平心形线对应参数： \leavevmode \bigskip
+水平心形线对应参数： \leavevmode \medskip
 
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
     \hline
@@ -646,7 +648,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \hline
 \end{tabular}
 
-\paragraph{玫瑰线} \leavevmode \bigskip
+\paragraph{玫瑰线} \leavevmode \medskip
 
 表达式：$r=a\sin(n\theta)$，周期为$\dfrac{2\pi}{n}$。
 
@@ -661,7 +663,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \filldraw[black] (0,0) node[below]{$O$};
 \end{tikzpicture}
 
-三叶玫瑰线对应参数： \leavevmode \bigskip
+三叶玫瑰线对应参数： \leavevmode \medskip
 
 \begin{tabular}{|c|c|c|c|c|c|c|c|c|c|}
     \hline
@@ -670,7 +672,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \hline
 \end{tabular}
 
-\paragraph{阿基米德螺线} \leavevmode \bigskip
+\paragraph{阿基米德螺线} \leavevmode \medskip
 
 表达式：$r=a\theta$，其中$a>0$，$\theta\geqslant 0$由0开始增大时$r$也在不断增大。
 
@@ -681,7 +683,7 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
     \filldraw[black] (0,0) node[below]{$O$};
 \end{tikzpicture}
 
-\paragraph{伯努利双扭线} \leavevmode \bigskip
+\paragraph{伯努利双扭线} \leavevmode \medskip
 
 设定线段$F_1F_2$长度为$2a$，伯努利双扭线上所有点M满足$MF_1\cdot MF_2=a^2$。
 
@@ -791,7 +793,7 @@ $$
 
 则对无穷的极限为$\dfrac{1}{1-r}$。
 
-\subsubsection{常见数列前$n$项和}
+\subsubsection{常见数列前\texorpdfstring{$n$}项和}
 
 \begin{enumerate}
     \item $\sum_{k=1}^nk=1+2+\cdots+n=\dfrac{n(n+1)}{2}$。

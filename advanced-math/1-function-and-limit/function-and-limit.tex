@@ -117,19 +117,15 @@ $f(-x)=\ln(-x+\sqrt{x^2+1})=\ln(\dfrac{1}{\sqrt{x^2+1}+x})=-\ln(x+\sqrt{x^2+1})=
 
 对其求单调性，即通过链式法则求导：
 
-$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{1}{x+\sqrt{x^2+1}}\cdot (1+\dfrac{2x}{2\sqrt{x^2+1}})=\dfrac{1}{\sqrt{x^2+1}}>0$
+$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{1}{x+\sqrt{x^2+1}}\cdot (1+\dfrac{2x}{2\sqrt{x^2+1}})=\dfrac{1}{\sqrt{x^2+1}}>0$。\medskip
 
 所以该函数严格单调增。
 
 然后求$y$的反函数：
 
-$
-    \begin{aligned}
-        \because y & =\ln(x+\sqrt{x^2+1})     \\
-        e^y        & =e^{\ln(x+\sqrt{x^2+1})} \\
-                   & =x+\sqrt{x^2+1}
-    \end{aligned}
-$
+$\because y=\ln(x+\sqrt{x^2+1})$
+
+$e^y=e^{\ln(x+\sqrt{x^2+1})}=x+\sqrt{x^2+1}$
 
 $
     \begin{aligned}
@@ -176,7 +172,7 @@ $，求$f[f(x)]$
     \right.
 $
 
-然后画图：\bigskip
+然后画图：\medskip
 
 \begin{tikzpicture}[domain=-1:9.5]
     \draw[-latex](-1.5,0) -- (9.5,0) node[below]{$x$};
@@ -218,7 +214,7 @@ $$
 
 $y=f(x)\,x\in D$，如果$\forall x_1,x_2\in D$且$x_1<x_2$，有$f(x_1)<f(x_2)$，则函数在$D$上单调递增。反之则单调递减。
 
-\bigskip
+\medskip
 
 $\begin{matrix}
         \dfrac{\rm{d}y}{\rm{d}x}>0 & \Rightarrow & (x_1-x_2)[f(x_1)-f(x_2)]>0 & \Rightarrow & f(x)\nearrow \\
@@ -239,7 +235,7 @@ $
 
 \subsubsection{周期性}
 
-$f(x+T)=f(x)$，其中T为周期。 \bigskip
+$f(x+T)=f(x)$，其中T为周期。 \medskip
 
 \subsubsection{重要结论}
 
@@ -446,16 +442,15 @@ $\therefore \ln\left(1+\dfrac{\tan x}{x}-1\right)\sim\dfrac{\tan x}{x}-1$，$\df
 
 又根据泰勒展开$\tan x-x=x+\dfrac{x^3}{3}+o(x^3)-x-0\cdot x^3=\dfrac{x^3}{3}$。
 
-$\therefore$ \bigskip
+$\therefore$ \medskip
 
-$
-\begin{aligned}
-    & e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}} \\
-    & =e^{\lim\limits_{x\to 0}\frac{1}{x^2}\frac{\tan x-x}{x}} \\
-    & =e^{\lim\limits_{x\to 0}\frac{1}{x^2}\cdot\frac{x^2}{3}} \\
-    & = e^{\frac{1}{3}}
-\end{aligned}
-$
+$e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}$
+
+$=e^{\lim\limits_{x\to 0}\frac{1}{x^2}\frac{\tan x-x}{x}}$
+
+$=e^{\lim\limits_{x\to 0}\frac{1}{x^2}\cdot\frac{x^2}{3}}$
+
+$= e^{\frac{1}{3}}$
 
 根据海涅定理：取$x=\dfrac{1}{n},n\to\infty$，$\lim\limits_{n\to\infty}\left(n\tan\dfrac{1}{n}\right)^{n^2}=e^{\frac{1}{3}}$。
 
@@ -518,31 +513,6 @@ $
 
 若极限存在，则极限唯一。
 
-\textbf{例题：}设$a$为常数，$\lim\limits_{x\to 0}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right)$存在，求出极限值。
-
-因为求$x\to 0$，所以需要分两种情况讨论：
-
-\bigskip
-
-$
-\begin{aligned}
-    & \lim\limits_{x\to 0^+}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right) \\
-    & = \lim\limits_{x\to 0^+}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}\right)+\lim\limits_{x\to 0^+}\left(a\cdot\arctan\dfrac{1}{x}\right) \\
-    & = \lim\limits_{x\to 0^+}\left(\dfrac{0\cdot\left(e^{\frac{2}{x}}\right)^2+e^{\frac{1}{x}}-\pi}{1\cdot\left(e^{\frac{2}{x}}\right)^2+1}\right)+a\cdot\dfrac{\pi}{2} \\
-    & = a\cdot\dfrac{\pi}{2}
-\end{aligned}
-$
-
-$
-\begin{aligned}
-    & \lim\limits_{x\to 0^-}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right) \\
-    & = -\pi+a\cdot\left(-\dfrac{\pi}{2}\right) \\
-    & = -\pi-\dfrac{\pi}{2}\cdot a
-\end{aligned}
-$
-
-因为极限值具有唯一性，所以$-\pi-\dfrac{\pi}{2}a=\dfrac{\pi}{2}a$，所以$a=-1$，极限值为$-\dfrac{\pi}{2}$。
-
 \subsubsection{局部有界性}
 
 若极限存在且为$A$，则存在正常数$M$和$\delta$，使得当$0<\vert x-x_0\vert<\delta$时，有$\vert f(x)\vert\leqslant M$。
@@ -573,37 +543,37 @@ $
 \end{aligned}
 $
 
-\textbf{例题：}函数$f(x)=\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$在哪个区间内有界（）。
+\textbf{例题：}函数$f(x)=\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$在哪个区间内有界()。\medskip
 
-$A.(-1,0)$\qquad$B.(0,1)$\qquad$C.(1,2)$\qquad$D.(2,3)$
+$A.(-1,0)$\qquad$B.(0,1)$\qquad$C.(1,2)$\qquad$D.(2,3)$\medskip
 
-解：看选项，0，1，2出现次数较多，所以从$B$选项开始检查是否有界：
+解：看选项，0，1，2出现次数较多，所以从$B$选项开始检查是否有界：\medskip
 
-$\lim\limits_{x\to 0^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=(-1)\cdot\dfrac{-\sin 2}{(-1)\cdot 4}=-\dfrac{\sin 2}{4}$
+$\lim\limits_{x\to 0^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=(-1)\cdot\dfrac{-\sin 2}{(-1)\cdot 4}=-\dfrac{\sin 2}{4}$\medskip
 
-所以趋于$0^-$的一段有界。
+所以趋于$0^-$的一段有界。\medskip
 
-同理$\lim\limits_{x\to 0^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=\dfrac{\sin 2}{4}$。
+同理$\lim\limits_{x\to 0^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=\dfrac{\sin 2}{4}$。\medskip
 
-所以趋于$0^+$的一段有界。
+所以趋于$0^+$的一段有界。\medskip
 
-$\lim\limits_{x\to 1^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中$(x-1)$为0且在分母位置，所以极限为$\infty$，无界。
+$\lim\limits_{x\to 1^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中$(x-1)$为0且在分母位置，所以极限为$\infty$，该区间无界。\medskip
 
-所以$(0,1)$无界，$B$排除。
+所以$(0,1)$无界，$B$排除。\medskip
 
-同理$\lim\limits_{x\to 1^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$也无穷大而无界。
+同理$\lim\limits_{x\to 1^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$也无穷大而无界。\medskip
 
-所以$(1,2)$无界，$C$排除。
+所以$(1,2)$无界，$C$排除。\medskip
 
-$\lim\limits_{x\to 2^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中不管前面的项，而看到后面的$\dfrac{\sin(x-2)}{(x-2)^2}$。
+$\lim\limits_{x\to 2^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中不管前面的项，而看到后面的$\dfrac{\sin(x-2)}{(x-2)^2}$。\medskip
 
 因为$\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$，所以对于$\lim\limits_{x\to 2}\dfrac{\sin(x-2)}{(x-2)}=1$，所以下面还有一个$x-2$，所以还是为$\infty$。
 
-所以$(2,3)$无界，$D$排除。
+所以$(2,3)$无界，$D$排除。\medskip
 
-验证-1处是否有界：
+验证-1处是否有界：\medskip
 
-$\lim\limits_{x\to -1}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=-\dfrac{\sin 3}{18}$。
+$\lim\limits_{x\to -1}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=-\dfrac{\sin 3}{18}$。\medskip
 
 所以该处有界，所以选$A$。
 
@@ -629,7 +599,7 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
 
 推论：若函数值在$x\to x_0$时都非负或非正，极限值为$A$，那么$A$与此时函数值同号。不能去除等号。
 
-\bigskip
+\medskip
 
 关于三个性质要注意自变量取值的双向性，所以需要留意下面几个函数：
 
@@ -866,9 +836,7 @@ $
 
 \subsection{\texorpdfstring{$\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$}{}}
 
-证明：
-
-当$x\to 0$时$x\in[0,\dfrac{\pi}{2}]$。
+证明：当$x\to 0$时$x\in[0,\dfrac{\pi}{2}]$。
 
 \begin{tikzpicture}[scale=1.5]
     \draw (0,0) circle (1);
@@ -905,18 +873,21 @@ $\therefore\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$。
 
 证明：
 
-$
-\begin{aligned}
-    & \lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x \\
-    & =\lim\limits_{x\to\infty}e^{\ln(1+\frac{1}{x})^x} \\
-    & =\lim\limits_{x\to\infty}e^{x\ln(1+\frac{1}{x})} \\
-    & =e^{\lim\limits_{x\to\infty}x\ln(1+\frac{1}{x})} \\
-    & =e^{\lim\limits_{x\to\infty}\frac{\ln(1+\frac{1}{x})}{\frac{1}{x}}} \\
-    & =e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\left(-\frac{1}{x^2}\right)}{-\frac{1}{x^2}}} \\
-    & =e^{\lim\limits_{x\to\infty}\frac{1}{1+x}} \\
-    & =e
-\end{aligned}
-$
+$\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x$\medskip
+
+$=\lim\limits_{x\to\infty}e^{\ln(1+\frac{1}{x})^x}$
+
+$=\lim\limits_{x\to\infty}e^{x\ln(1+\frac{1}{x})}$
+
+$=e^{\lim\limits_{x\to\infty}x\ln(1+\frac{1}{x})}$
+
+$=e^{\lim\limits_{x\to\infty}\frac{\ln(1+\frac{1}{x})}{\frac{1}{x}}}$
+
+$=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\left(-\frac{1}{x^2}\right)}{-\frac{1}{x^2}}}$
+
+$=e^{\lim\limits_{x\to\infty}\frac{1}{1+x}}$
+
+$=e$
 
 从而$\lim\limits_{\Delta\to\infty}\left(1+\dfrac{1}{\Delta}\right)^\Delta=e$与$\lim\limits_{\Delta\to 0}\left(1+\Delta\right)^{\frac{1}{\Delta}}=e(\Delta\neq 0)$。
 
@@ -1069,7 +1040,7 @@ $x\to 0$：
 
 无穷间断点与振荡间断点的左右极限都不存在的点都是第二类间断点。
 
-\textcolor{orange}{注意：}两侧邻域都有定义才能讨论间断点问题。
+\textcolor{orange}{注意：}两侧邻域都有定义才能讨论间断点问题。\medskip
 
 \textbf{例题：}若$f(x)=\left\{
     \begin{array}{lcl}
@@ -1082,9 +1053,9 @@ $在$(-\infty,+\infty)$内连续，求$a$。
 
 $\therefore a=1$。
 
-\textbf{例题：}若函数$f(x)=\dfrac{\ln\vert x\vert}{\vert x-1\vert}\sin x$，则x的间断点类型是？
+\textbf{例题：}若函数$f(x)=\dfrac{\ln\vert x\vert}{\vert x-1\vert}\sin x$，则x的间断点类型是？\medskip
 
-由式子的分式部分可知有两个无定义的间断点：$x=0$，$x=1$。
+由式子的分式部分可知有两个无定义的间断点：$x=0$，$x=1$。\medskip
 
 $\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to 1}\dfrac{x-1}{\vert x-1\vert}\sin x=\left\{
     \begin{array}{lcl}
