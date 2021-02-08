@@ -74,7 +74,7 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 \subsection{对数法则}
 
-\textbf{例题：}求$\lim_{x\to 0}\dfrac{(e^{x^2}-1)(\sqrt{1+x}-\sqrt{1-x})}{[\ln(1-x)+\ln(1+x)]\sin\dfrac{x}{x+1}}$。
+\textbf{例题：}求$\lim\limits_{x\to 0}\dfrac{(e^{x^2}-1)(\sqrt{1+x}-\sqrt{1-x})}{[\ln(1-x)+\ln(1+x)]\sin\dfrac{x}{x+1}}$。
 
 注意在积或商的时候不能把对应的部分替换为0，如分母部分的$[\ln(1-x)+\ln(1+x)]$就无法使用$\ln(1+x)\sim x$替换为$-x+x$，这样底就是0了，无法求得最后的极限。
 
@@ -82,7 +82,7 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 \subsection{指数法则}
 
-求$\lim_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right]$。
+求$\lim\limits_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right]$。
 
 首先对于幂指函数需要取指数，所以$\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}=e^{\frac{n}{2}\ln(1+\frac{1}{n})}$。
 
@@ -94,11 +94,11 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 $
 \begin{aligned}
-    & \lim_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right] \\
-    & =\lim_{n\to\infty}n\left(e^{\frac{n}{2}\ln(1+\frac{1}{n})}-\sqrt{e}\right) \\
-    & =\lim_{n\to\infty}n\left[e^{\frac{1}{2}}\cdot\left(e^{\frac{n}{2}\ln(1+\frac{1}{n})-\frac{1}{2}}-1\right)\right] \\
-    & =\dfrac{e^{\frac{1}{2}}}{2}\lim_{n\to\infty}n^2\left[\ln\left(1+\frac{1}{n}\right)-\dfrac{1}{n}\right] \\
-    & =\dfrac{e^{\frac{1}{2}}}{2}\lim_{n\to\infty}\dfrac{\dfrac{1}{n}-\dfrac{1}{2n^2}-\dfrac{1}{n}}{\dfrac{1}{n^2}} \\
+    & \lim\limits_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right] \\
+    & =\lim\limits_{n\to\infty}n\left(e^{\frac{n}{2}\ln(1+\frac{1}{n})}-\sqrt{e}\right) \\
+    & =\lim\limits_{n\to\infty}n\left[e^{\frac{1}{2}}\cdot\left(e^{\frac{n}{2}\ln(1+\frac{1}{n})-\frac{1}{2}}-1\right)\right] \\
+    & =\dfrac{e^{\frac{1}{2}}}{2}\lim\limits_{n\to\infty}n^2\left[\ln\left(1+\frac{1}{n}\right)-\dfrac{1}{n}\right] \\
+    & =\dfrac{e^{\frac{1}{2}}}{2}\lim\limits_{n\to\infty}\dfrac{\dfrac{1}{n}-\dfrac{1}{2n^2}-\dfrac{1}{n}}{\dfrac{1}{n^2}} \\
     & =\dfrac{e^{\frac{1}{2}}}{2}\cdot\left(-\dfrac{1}{2}\right) \\
     & =-\dfrac{\sqrt{e}}{4}
 \end{aligned}
@@ -106,23 +106,23 @@ $
 
 \subsection{三角函数关系式}
 
-\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
+\textbf{例题：}求极限$\lim\limits_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。
 
 $
 \begin{aligned}
-    & \lim_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right) \\
-    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)\\
-    & = \lim_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
-    & = \lim_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4} \\
+    & \lim\limits_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right) \\
+    & = \lim\limits_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)\\
+    & = \lim\limits_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim\limits_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4} \\
 \end{aligned}
 $
 
 $
 \begin{aligned}
-    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4x^3} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
-    & = \lim_{x\to 0}\dfrac{2x-\dfrac{1}{2}\sin 4x}{4x^3} \\
-    & = \lim_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2} \\
-    & = \dfrac{1}{6}\lim_{x\to 0}\dfrac{1-\cos 4x}{x^2} (1-\cos x\sim \dfrac{1}{2}x^2)\\
+    & = \lim\limits_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4x^3} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)\\
+    & = \lim\limits_{x\to 0}\dfrac{2x-\dfrac{1}{2}\sin 4x}{4x^3} \\
+    & = \lim\limits_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2} \\
+    & = \dfrac{1}{6}\lim\limits_{x\to 0}\dfrac{1-\cos 4x}{x^2} (1-\cos x\sim \dfrac{1}{2}x^2)\\
     & = \dfrac{4}{3}
 \end{aligned}
 $
@@ -139,21 +139,48 @@ $
 
 当趋向为负且式子中含有根号的时候最好提取负因子，从而让趋向变为正。
 
+\textbf{例题：}求$\lim\limits_{x\to-\infty}\left[\sqrt{4x^2+x}\ln\left(2+\dfrac{1}{x}\right)+2\ln 2x\right]$
+
+题目的形式为$\infty-\infty$，所以必须使用后面的倒代换转换为商的形式。
+
+$=\lim\limits_{x\to-\infty}-x\left[\sqrt{4+\dfrac{1}{x}}\ln\left(2+\dfrac{1}{x}\right)-2\ln 2\right]$
+
+这里就需要注意到因为$\sqrt{4x^2+x}$的限制导致这个式子必然为正数，而$x\to-\infty$代表自变量为负数，所以提出来的$x$必然是负数，而原式是正数，所以就需要添加一个负号，而后面的$2\ln 2x$则没有要求，所以直接变成$-2\ln 2$就可以了。
+
+将$x$下翻变成分母为$\dfrac{1}{x}$，并令$t=\dfrac{1}{x}$。
+
+$
+\begin{aligned}
+    & =\lim\limits_{t\to 0^-}\dfrac{\sqrt{t+4}\ln\left(2+\dfrac{1}{x}\right)-2\ln 2}{-t}
+\end{aligned}
+$
+
+
 \subsection{幂指函数}
 
 当出现$f(x)^{g(x)}$的类似幂函数与指数函数类型的式子，需要使用$u^v=e^{v\ln u}$。
 
-\textbf{例题：}求极限$\lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$。
+\textbf{例题：}求极限$\lim\limits_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$。
 
-$
-\begin{aligned}
-    & \lim_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}} \\
-    & =e^{\lim_{x\to+\infty}\frac{\ln(x+\sqrt{1+x^2})}{x}} \left(\ln(x+\sqrt{1+x^2})'=\dfrac{1}{\sqrt{1+x^2}}\right) \\
-    & =e^{\lim_{x\to+\infty}\frac{1}{\sqrt{1+x^2}}} \\
-    & =e^0 \\
-    & =1
-\end{aligned}
-$
+% $
+% \begin{aligned}
+%     & \lim\limits_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}} \\
+%     & =e^{\lim\limits_{x\to+\infty}\frac{\ln(x+\sqrt{1+x^2})}{x}} \left(\ln(x+\sqrt{1+x^2})'=\dfrac{1}{\sqrt{1+x^2}}\right) \\
+%     & =e^{\lim\limits_{x\to+\infty}\frac{1}{\sqrt{1+x^2}}} \\
+%     & =e^0 \\
+%     & =1
+% \end{aligned}
+% $
+
+$\lim\limits_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$
+
+$=e^{\lim\limits_{x\to+\infty}\frac{\ln(x+\sqrt{1+x^2})}{x}} \left(\ln(x+\sqrt{1+x^2})'=\dfrac{1}{\sqrt{1+x^2}}\right)$
+
+$=e^{\lim\limits_{x\to+\infty}\frac{1}{\sqrt{1+x^2}}}$
+
+$=e^0$
+
+$=1$
 
 \subsection{有理化}
 
@@ -161,9 +188,9 @@ $
 
 如$\sqrt{a}\pm\sqrt{b}=\dfrac{a+b}{\sqrt{a}\mp\sqrt{b}}$。
 
-\textbf{例题：}求极限$\lim_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
+\textbf{例题：}求极限$\lim\limits_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
 
-首先定性分析：$\lim_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
+首先定性分析：$\lim\limits_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
 
 在$x\to-\infty$趋向时，$x$就趋向无穷大，而$\sqrt{x^2+100}$为一次，所以$\sqrt{x^2+100}+x$趋向0。
 
@@ -171,11 +198,11 @@ $
 
 $
 \begin{aligned}
-    & \lim_{x\to-\infty}x(\sqrt{x^2+100}+x) \\
-    & \lim_{x\to-\infty}x\dfrac{x^2+100-x^2}{\sqrt{x^2+100}-x} \\
-    & = \lim_{x\to-\infty}\dfrac{100x}{\sqrt{x^2+100}-x} \\
-    & \xRightarrow{\text{令}x=-t}\lim_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+100}+t} \\
-    & = \lim_{t\to+\infty}\dfrac{-100}{\sqrt{1+\dfrac{100}{t^2}}+1} \\
+    & \lim\limits_{x\to-\infty}x(\sqrt{x^2+100}+x) \\
+    & \lim\limits_{x\to-\infty}x\dfrac{x^2+100-x^2}{\sqrt{x^2+100}-x} \\
+    & = \lim\limits_{x\to-\infty}\dfrac{100x}{\sqrt{x^2+100}-x} \\
+    & \xRightarrow{\text{令}x=-t}\lim\limits_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+100}+t} \\
+    & = \lim\limits_{t\to+\infty}\dfrac{-100}{\sqrt{1+\dfrac{100}{t^2}}+1} \\
     & = -50
 \end{aligned}
 $
@@ -184,7 +211,7 @@ $
 
 换元法本身没什么技巧性，主要是更方便计算。最重要的是获取到共有的最大因子进行替换。
 
-\textbf{例题：}求极限$\lim_{x\to 1^-}\ln x\ln(1-x)$。
+\textbf{例题：}求极限$\lim\limits_{x\to 1^-}\ln x\ln(1-x)$。
 
 当$x\to 1^-$时，$\ln x$趋向0，$\ln(1-x)$趋向$-\infty$。
 
@@ -192,12 +219,12 @@ $
 
 $
 \begin{aligned}
-    & \lim_{x\to 1^-}\ln x\ln(1-x) \\
-    & = \lim_{x\to 1^-}(x-1)\ln(1-x) \\
-    & \xRightarrow{令t=1-x} =-\lim_{t\to 0^+}t\ln t \\
-    & = -\lim_{t\to 0^+}\dfrac{\ln t}{\dfrac{1}{t}} \\
-    & = -\lim_{t\to 0^+}\dfrac{\dfrac{1}{t}}{-\dfrac{1}{t^2}} \\
-    & = \lim_{t\to 0^+}t \\
+    & \lim\limits_{x\to 1^-}\ln x\ln(1-x) \\
+    & = \lim\limits_{x\to 1^-}(x-1)\ln(1-x) \\
+    & \xRightarrow{令t=1-x} =-\lim\limits_{t\to 0^+}t\ln t \\
+    & = -\lim\limits_{t\to 0^+}\dfrac{\ln t}{\dfrac{1}{t}} \\
+    & = -\lim\limits_{t\to 0^+}\dfrac{\dfrac{1}{t}}{-\dfrac{1}{t^2}} \\
+    & = \lim\limits_{t\to 0^+}t \\
     & = 0
 \end{aligned}
 $
@@ -208,13 +235,13 @@ $
 
 当极限式子中含有分式中一般都需要用其倒数，把分式换成整式方便计算。
 
-\textbf{例题：}求极限$\lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}$
+\textbf{例题：}求极限$\lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}$
 
 $
 \begin{aligned}
-    & \lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}} \\
-    & = \lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}\cdot 2x^{-3}}{100x^{99}} \\
-    & = \lim_{x\to 0}\dfrac{1}{50}\lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{102}}
+    & \lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}} \\
+    & = \lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}\cdot 2x^{-3}}{100x^{99}} \\
+    & = \lim\limits_{x\to 0}\dfrac{1}{50}\lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{102}}
 \end{aligned}
 $
 
@@ -226,26 +253,26 @@ $
 
 $
 \begin{aligned}
-    & \lim_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}} \\
-    & = \lim_{t\to+\infty}\dfrac{e^{-t}}{t^{-50}} \\
-    & = \lim_{t\to+\infty}\dfrac{t^{50}}{e^t} \\
-    & = \lim_{t\to+\infty}\dfrac{50t^{49}}{e^t} \\
+    & \lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}} \\
+    & = \lim\limits_{t\to+\infty}\dfrac{e^{-t}}{t^{-50}} \\
+    & = \lim\limits_{t\to+\infty}\dfrac{t^{50}}{e^t} \\
+    & = \lim\limits_{t\to+\infty}\dfrac{50t^{49}}{e^t} \\
     & = \cdots \\
-    & = \lim_{t\to+\infty}\dfrac{50!}{e^t} \\
+    & = \lim\limits_{t\to+\infty}\dfrac{50!}{e^t} \\
     & = 0
 \end{aligned}
 $
 
-\textbf{例题：}求极限$\lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$。
+\textbf{例题：}求极限$\lim\limits_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$。
 
 该式子含有分数，所以尝试使用倒数代换：
 
 $
 \begin{aligned}
-    & \lim_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x] \\
-    & \xRightarrow{\text{令}x=\frac{1}{t}}\lim_{t\to 0^+}\left(\dfrac{e^t-1}{t^2}-\dfrac{1}{t}\right) \\
-    & \lim_{t\to 0^+}\dfrac{e^t-1-t}{t^2} \\
-    & \xRightarrow{\text{泰勒展开}e^t}\lim_{t\to 0^+}\dfrac{\dfrac{1}{2}t^2}{t^2} \\
+    & \lim\limits_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x] \\
+    & \xRightarrow{\text{令}x=\frac{1}{t}}\lim\limits_{t\to 0^+}\left(\dfrac{e^t-1}{t^2}-\dfrac{1}{t}\right) \\
+    & \lim\limits_{t\to 0^+}\dfrac{e^t-1-t}{t^2} \\
+    & \xRightarrow{\text{泰勒展开}e^t}\lim\limits_{t\to 0^+}\dfrac{\dfrac{1}{2}t^2}{t^2} \\
     & =\dfrac{1}{2}
 \end{aligned}
 $
@@ -256,18 +283,48 @@ $
 
 当极限式子中出现不知道项数的$n$时，一般需要使用拆项，把项重新组合。一般的组合是根据等价无穷小。
 
-\textbf{例题：}求极限$\lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
+而对于复杂的具有同一结构的式子也可以考虑拆项。
+
+\textbf{例题：}求极限$\lim\limits_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
+
+这里可以使用等价无穷小$e^x-1\sim x$。
 
 $
 \begin{aligned}
-    & \lim_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}} \\
-    & =e^{\lim_{x\to 0}\frac{e}{x}\ln\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)} \\
-    & =e^{\lim_{x\to 0}\frac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}-1\right)} \\
-    & =e^{\lim_{x\to 0}\frac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}-n}{n}\right)} \\
-    & =e^{\frac{e}{n}\lim_{x\to 0}\left(\frac{e^x-1}{x}+\frac{e^{2x}-1}{x}+\cdots+\frac{e^{nx}-1}{x}\right)} \\
+    & \lim\limits_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}} \\
+    & =e^{\lim\limits_{x\to 0}\frac{e}{x}\ln\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)} \\
+    & =e^{\lim\limits_{x\to 0}\frac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}-1\right)} \\
+    & =e^{\lim\limits_{x\to 0}\frac{e}{x}\left(\frac{e^x+e^{2x}+\cdots+e^{nx}-n}{n}\right)} \\
+\end{aligned}
+$
+
+$
+\begin{aligned}
+    & =e^{\frac{e}{n}\lim\limits_{x\to 0}\left(\frac{e^x-1}{x}+\frac{e^{2x}-1}{x}+\cdots+\frac{e^{nx}-1}{x}\right)} \\
     & =e^{\frac{e}{n}[1+2+\cdots+n]} \\
     & =e^{\frac{e}{n}\cdot\frac{n(1+n)}{2}} \\
     & =e^{\frac{e(1+n)}{2}}
+\end{aligned}
+$
+
+\textbf{例题：}求$\lim\limits_{x\to 0}\dfrac{1-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{\ln\cos x}$
+
+可以使用$\cos x-1\sim\dfrac{x^2}{2}$。
+
+$
+\begin{aligned}
+    & \lim\limits_{x\to 0}\dfrac{1-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{\ln\cos x} \\
+    & =\lim\limits_{x\to 0}\dfrac{1-\cos x+\cos x-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{-\dfrac{x^2}{2}} \\
+    & =\lim\limits_{x\to 0}\dfrac{\dfrac{x^2}{2}}{-\dfrac{x^2}{2}}+\dfrac{\cos x(1-\sqrt{\cos 2x}\sqrt[3]{\cos 3x})}{-\dfrac{x^2}{2}} \\
+    & =-1+\lim\limits_{x\to 0}\dfrac{(1-\sqrt{\cos 2x})+\sqrt{\cos 2x}-\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{-\dfrac{x^2}{2}} \\
+\end{aligned}
+$
+    
+$
+\begin{aligned}
+    & =-1+\lim\limits_{x\to 0}\dfrac{-\dfrac{1}{2}(\cos 2x-1)+\sqrt{\cos 2x}(1-\sqrt[3]{\cos 3x})}{-\dfrac{x^2}{2}} \\
+    & =-1+\lim\limits_{x\to 0}\dfrac{-\dfrac{1}{2}(-\dfrac{4x^2}{2})+\left(-\dfrac{1}{3}\right)\left(-\dfrac{9x^2}{2}\right)}{-\dfrac{x^2}{2}} \\
+    & =-6
 \end{aligned}
 $
 
@@ -293,7 +350,7 @@ $
 
 夹逼准则可以用来证明不等式也可以用来计算极限。但是最重要的是找到能夹住目标式子的两个式子。
 
-\textbf{例题：}求极限$\lim_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
+\textbf{例题：}求极限$\lim\limits_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
 
 取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
 
@@ -301,13 +358,13 @@ $
 
 当$x>0$时，$x\to 0^-$，同样也是夹逼准则得到极限为10。
 
-$\therefore \lim_{x\to 0}x\left[\dfrac{10}{x}\right]=10$。
+$\therefore \lim\limits_{x\to 0}x\left[\dfrac{10}{x}\right]=10$。
 
 \subsection{拉格朗日中值定理}
 
 对于形如$f(a)-f(b)$的极限式子就可以使用拉格朗日中值定理，这个$f(x)$为任意的函数。
 
-\textbf{例题：}求极限$\lim_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\right)$。
+\textbf{例题：}求极限$\lim\limits_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\right)$。
 
 因为式子不算非常复杂，其实也可以通过洛必达法则来完成，但是求导会很复杂。而$\arctan x$可以认定为$f(x)$。
 
@@ -317,7 +374,7 @@ $\therefore \lim_{x\to 0}x\left[\dfrac{10}{x}\right]=10$。
 
 $\therefore\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\sim\dfrac{2}{n}-\dfrac{2}{n+1}=\dfrac{2}{n(n+1)}$。
 
-$\therefore\lim_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\right)=\lim_{n\to\infty}n^2\cdot\dfrac{2}{n(n+1)}=2$。
+$\therefore\lim\limits_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\right)=\lim\limits_{n\to\infty}n^2\cdot\dfrac{2}{n(n+1)}=2$。
 
 \subsection{洛必达法则}
 
@@ -333,7 +390,7 @@ $\therefore\lim_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\r
 
 且一般只有麦克劳林公式表上的基本初等函数才会使用倒泰勒公式，复合函数最好不要使用。
 
-\textbf{例题：}求极限$\lim_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
+\textbf{例题：}求极限$\lim\limits_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。
 
 分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开：
 
@@ -363,53 +420,53 @@ $\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)
 
 最常用的方式就是将目标值作为一个部分，然后对已知的式子进行替换。
 
-\textbf{例题：}已知$\lim_{x\to 0}\dfrac{\ln(1-x)+xf(x)}{x^2}=0$，求$\lim_{x\to 0}\dfrac{f(x)-1}{x}$。
+\textbf{例题：}已知$\lim\limits_{x\to 0}\dfrac{\ln(1-x)+xf(x)}{x^2}=0$，求$\lim\limits_{x\to 0}\dfrac{f(x)-1}{x}$。
 
 令目标$\dfrac{f(x)-1}{x}=t$，$\therefore f(x)=tx+1$。
 
 $
 \begin{aligned}
-    & \lim_{x\to 0}\dfrac{\ln(1-x)+xf(x)}{x^2} \\
-    & =\lim_{x\to 0}\dfrac{\ln(1-x)+tx^2+x}{x^2} (\text{泰勒展开}) \\
-    & =\lim_{x\to 0}\dfrac{-x-\dfrac{x^2}{2}+tx^2+x}{x^2} \\
-    & =\lim_{x\to 0}\dfrac{\left(t-\dfrac{1}{2}\right)x^2}{x^2} \\
-    & ==\lim_{x\to 0}\left(t-\dfrac{1}{2}\right) \\
+    & \lim\limits_{x\to 0}\dfrac{\ln(1-x)+xf(x)}{x^2} \\
+    & =\lim\limits_{x\to 0}\dfrac{\ln(1-x)+tx^2+x}{x^2} (\text{泰勒展开}) \\
+    & =\lim\limits_{x\to 0}\dfrac{-x-\dfrac{x^2}{2}+tx^2+x}{x^2} \\
+    & =\lim\limits_{x\to 0}\dfrac{\left(t-\dfrac{1}{2}\right)x^2}{x^2} \\
+    & ==\lim\limits_{x\to 0}\left(t-\dfrac{1}{2}\right) \\
     & =0
 \end{aligned}
 $
 
-$\therefore\lim_{x\to 0}t=\lim_{x\to 0}\dfrac{f(x)-1}{x}=\dfrac{1}{2}$。
+$\therefore\lim\limits_{x\to 0}t=\lim\limits_{x\to 0}\dfrac{f(x)-1}{x}=\dfrac{1}{2}$。
 
 \subsubsection{关系转换}
 
-\textbf{例题：}如果$\lim_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
+\textbf{例题：}如果$\lim\limits_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim\limits_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
 
-由$\lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$，而目标是$x^3$，所以需要变形：
+由$\lim\limits_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$，而目标是$x^3$，所以需要变形：
 
 $
 \begin{aligned}
-    & \lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A \\
-    & \lim_{x\to 0}\dfrac{x\sin x+f(x)\cdot x}{x^4}=A\cdot\lim_{x\to 0}x=0 \\
-    & \lim_{x\to 0}\dfrac{x-\sin x}{x^3}+\lim_{x\to 0}\dfrac{f(x)}{x^3}=0 \\
+    & \lim\limits_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A \\
+    & \lim\limits_{x\to 0}\dfrac{x\sin x+f(x)\cdot x}{x^4}=A\cdot\lim\limits_{x\to 0}x=0 \\
+    & \lim\limits_{x\to 0}\dfrac{x-\sin x}{x^3}+\lim\limits_{x\to 0}\dfrac{f(x)}{x^3}=0 \\
     & \text{泰勒展开：}x-\sin x=\dfrac{1}{6}x^3 \\
-    & \lim_{x\to 0}\dfrac{f(x)}{x^3}=-\dfrac{1}{6} \\
-    & \lim_{x\to 0}\dfrac{x^3}{f(x)}=-6
+    & \lim\limits_{x\to 0}\dfrac{f(x)}{x^3}=-\dfrac{1}{6} \\
+    & \lim\limits_{x\to 0}\dfrac{x^3}{f(x)}=-6
 \end{aligned}
 $
 
 \subsubsection{脱帽法}
 
-$\lim_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim_{x\to x_0}\alpha(x)=0$。
+$\lim\limits_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim\limits_{x\to x_0}\alpha(x)=0$。
 
-\textbf{例题：}如果$\lim_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
+\textbf{例题：}如果$\lim\limits_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim\limits_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
 
-由$\lim_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$脱帽：$\dfrac{x\sin x+f(x)}{x^4}=A+\alpha$。
+由$\lim\limits_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$脱帽：$\dfrac{x\sin x+f(x)}{x^4}=A+\alpha$。
 
 得到：$f(x)=Ax^4+\alpha\cdot x^4-(x-\sin x)$。
 
-反代入：$\lim_{x\to 0}\dfrac{f(x)}{x^3}=\lim_{x\to 0}\dfrac{Ax^4+\alpha\cdot x^4-x+\sin x}{x^3}=0+0-\dfrac{1}{6}=-\dfrac{1}{6}$。
+反代入：$\lim\limits_{x\to 0}\dfrac{f(x)}{x^3}=\lim\limits_{x\to 0}\dfrac{Ax^4+\alpha\cdot x^4-x+\sin x}{x^3}=0+0-\dfrac{1}{6}=-\dfrac{1}{6}$。
 
-$\therefore \lim_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
+$\therefore \lim\limits_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
 
 \subsection{求参数}
 
@@ -417,14 +474,16 @@ $\therefore \lim_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
 
 一般极限式子右侧等于一个常数，或是表明高阶或低阶。具体的关系参考无穷小比阶。
 
-\textbf{例题：}设$\lim_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2$，求常数a，b。
+在求参数的时候要注意与0的关系。
+
+\textbf{例题：}设$\lim\limits_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2$，求常数a，b。
 
 根据泰勒展开式：$x\to 0,\ln(1+x)=x-\dfrac{x^2}{x}+o(x^2)$。
 
 $
 \begin{aligned}
-    & \lim_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2 \\
-    & =\lim_{x\to 0}\dfrac{(1-a)x-\left(\dfrac{1}{2}+b\right)x^2+o(x^2)}{x^2}=2\neq 0 \\
+    & \lim\limits_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2 \\
+    & =\lim\limits_{x\to 0}\dfrac{(1-a)x-\left(\dfrac{1}{2}+b\right)x^2+o(x^2)}{x^2}=2\neq 0 \\
     & 1-a=0;-\left(\dfrac{1}{2}+b\right)=2 \\
     & \therefore a=1;b=-\dfrac{5}{2}
 \end{aligned}
@@ -438,23 +497,23 @@ $
 
 函数的连续性代表：极限值=函数值。
 
-\textbf{例题：}函数在$f(x)$在$x=1$处连续，且$f(1)=1$，求$\lim_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$。
+\textbf{例题：}函数在$f(x)$在$x=1$处连续，且$f(1)=1$，求$\lim\limits_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$。
 
-根据题目，所求的$\lim_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$中，唯一未知的且会随着$x\to+\infty$而变换就是$f\left(x^{\frac{1}{x}}\right)$。如果我们可以求出这个值就可以了。
+根据题目，所求的$\lim\limits_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$中，唯一未知的且会随着$x\to+\infty$而变换就是$f\left(x^{\frac{1}{x}}\right)$。如果我们可以求出这个值就可以了。
 
-而我们对于$f(x)$的具体的关系是未知的，只知道$f(1)=1$。那么先需要考察$\lim_{x\to+\infty}x^{\frac{1}{x}}$的整数最大值。
+而我们对于$f(x)$的具体的关系是未知的，只知道$f(1)=1$。那么先需要考察$\lim\limits_{x\to+\infty}x^{\frac{1}{x}}$的整数最大值。
 
 $
 \begin{aligned}
-    & \lim_{x\to+\infty}x^{\frac{1}{x}} \\
-    & e^{\lim_{x\to+\infty}\frac{\ln x}{x}} \\
-    & e^{\lim_{x\to+\infty}\frac{1}{x}} \\
+    & \lim\limits_{x\to+\infty}x^{\frac{1}{x}} \\
+    & e^{\lim\limits_{x\to+\infty}\frac{\ln x}{x}} \\
+    & e^{\lim\limits_{x\to+\infty}\frac{1}{x}} \\
     & =e^0 \\
     & =1
 \end{aligned}
 $
 
-$\therefore\lim_{x\to+\infty}f(x^{\frac{1}{x}})=f(1)=1$。
+$\therefore\lim\limits_{x\to+\infty}f(x^{\frac{1}{x}})=f(1)=1$。
 
 \subsection{迭代式数列}
 
@@ -462,7 +521,7 @@ $\therefore\lim_{x\to+\infty}f(x^{\frac{1}{x}})=f(1)=1$。
 
 最重要的是将迭代式进行变形。
 
-\textbf{例题：}数列$\{a_n\}$满足$a_0=0,a_1=1,2a_{n+1}=a_n+a_{n-1},n=1,2,\cdots$。计算$\lim_{n\to\infty}a_n$。
+\textbf{例题：}数列$\{a_n\}$满足$a_0=0,a_1=1,2a_{n+1}=a_n+a_{n-1},n=1,2,\cdots$。计算$\lim\limits_{n\to\infty}a_n$。
 
 首先看题目，给出的递推式设计到二阶递推，即存在三个数列变量，所以我们必须先求出对应的数列表达式。因为这个表达式涉及三个变量，所以尝试对其进行变型：
 
@@ -485,9 +544,10 @@ $
      & = \left(-\dfrac{1}{2}\right)^{n-1} + \left(-\dfrac{1}{2}\right)^{n-2} + \cdots + \left(-\dfrac{1}{2}\right)^0 \\
      & = \dfrac{1\cdot\left(1-\left(-\dfrac{1}{2}\right)^n\right)}{1-\left(-\dfrac{1}{2}\right)} \\
      & = \dfrac{2}{3}\left[1-\left(-\dfrac{1}{2}\right)^n\right] \\
-    \lim_{n\to\infty}a_n & =\dfrac{2}{3}
 \end{aligned}
 $
+
+$\therefore\lim\limits_{n\to\infty}a_n=\dfrac{2}{3}$
 
 \subsubsection{单调有界准则}
 

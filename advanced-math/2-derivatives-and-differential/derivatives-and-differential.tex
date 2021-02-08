@@ -49,13 +49,13 @@
 
 设$f(x)$下$x$在$x_0$的邻域内，$\alpha$为切线所成夹角。
 
-$\tan\alpha=f'(x_0)=\lim_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=k$。
+$\tan\alpha=f'(x_0)=\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=k$。
 
 导数的本质是增量比的极限。
 
 \subsection{定义}
 
-设$y=f(x)$定义在区间$I$上，让自变量在$x=x_0$处加一个增量$\Delta x$，其中$x_0\in I$，$x_0+\Delta x\in I$，则可得函数的增量$\Delta y=f(x_0+\Delta x)-f(x_0)$。若函数增量$\Delta y$与自变量增量$\Delta x$的比值在$\Delta x\to 0$时的极限存在，则称函数$y=f(x)$在$x_0$处可导，并称这个极限为$y=f(x)$在点$x_0$处的导数，记作$f'(x)$，即$f'(x)=\lim_{\Delta x\to 0}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$。
+设$y=f(x)$定义在区间$I$上，让自变量在$x=x_0$处加一个增量$\Delta x$，其中$x_0\in I$，$x_0+\Delta x\in I$，则可得函数的增量$\Delta y=f(x_0+\Delta x)-f(x_0)$。若函数增量$\Delta y$与自变量增量$\Delta x$的比值在$\Delta x\to 0$时的极限存在，则称函数$y=f(x)$在$x_0$处可导，并称这个极限为$y=f(x)$在点$x_0$处的导数，记作$f'(x)$，即$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$。
 
 下面三句话等价：
 
@@ -67,9 +67,9 @@ $\tan\alpha=f'(x_0)=\lim_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}=k$。
 
 单侧导数分为左导数和右导数。
 
-$f'_-(x)=\lim_{\Delta x\to 0^-}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$
+$f'_-(x)=\lim\limits_{\Delta x\to 0^-}\dfrac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$
 
-$f'_+(x)=\lim_{\Delta x\to 0^+}\dfrac{\Delta y}{\Delta x}=\lim_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$
+$f'_+(x)=\lim\limits_{\Delta x\to 0^+}\dfrac{\Delta y}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{f(x_0+\Delta x)-f(x_0)}{\Delta x}$
 
 所以$f(x)$在$x_0$处可导的充要条件是其左导数和右导数存在且相等。
 
@@ -87,9 +87,9 @@ $\therefore$
 
 $
 \begin{aligned}
-    f'(-x) &=\lim_{\Delta x\to 0}\dfrac{f(-x+\Delta x)-f(-x)}{\Delta x} \\
-    & =\lim_{\Delta x\to 0}\dfrac{f(x+(-\Delta x))}{\Delta x} \\
-    & =-\lim_{-\Delta x\to 0}\dfrac{f(x+(-\Delta x))}{-\Delta x} \\
+    f'(-x) &=\lim\limits_{\Delta x\to 0}\dfrac{f(-x+\Delta x)-f(-x)}{\Delta x} \\
+    & =\lim\limits_{\Delta x\to 0}\dfrac{f(x+(-\Delta x))}{\Delta x} \\
+    & =-\lim\limits_{-\Delta x\to 0}\dfrac{f(x+(-\Delta x))}{-\Delta x} \\
     & =-f'(x)
 \end{aligned}
 $
@@ -100,9 +100,9 @@ $
 
 已知$f(x+T)=f(x)$，求证$f'(x+T)=f'(x)$。
 
-$\therefore f'(x+T)=\lim_{\Delta x\to 0}\dfrac{f(x+T+\Delta x)-f(x+T)}{\Delta x}$
+$\therefore f'(x+T)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+T+\Delta x)-f(x+T)}{\Delta x}$
 
-$=\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}=f'(x)$。
+$=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}=f'(x)$。
 
 \textbf{例题：}设$f(x)$是二阶可导的以2为周期的奇函数，且$f(\dfrac{1}{2})>0$，$f'(\dfrac{1}{2})>0$，比较$f(-\dfrac{1}{2})$、$f'(\dfrac{3}{2})$、$f''(0)$的大小。
 
@@ -118,10 +118,10 @@ $\therefore f'(\dfrac{3}{2})>f''(0)>f(-\dfrac{1}{2})$。
 
 $
 \begin{aligned}
-    & \lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} \\
-    & =\lim_{\Delta x\to 0}\dfrac{\left(x+\Delta x\right)^\alpha-x^\alpha}{\Delta x} \\
-    & =\lim_{\Delta x\to 0}\dfrac{x^\alpha\left[\left(1+\dfrac{\Delta x}{x}\right)^\alpha-1\right]}{\Delta x} \\
-    & =\lim_{\Delta x\to 0}\dfrac{x^\alpha\cdot\alpha\cdot\dfrac{\Delta x}{x}}{\Delta x} \\
+    & \lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} \\
+    & =\lim\limits_{\Delta x\to 0}\dfrac{\left(x+\Delta x\right)^\alpha-x^\alpha}{\Delta x} \\
+    & =\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\left[\left(1+\dfrac{\Delta x}{x}\right)^\alpha-1\right]}{\Delta x} \\
+    & =\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\cdot\alpha\cdot\dfrac{\Delta x}{x}}{\Delta x} \\
     & =\alpha x^{\alpha-1}
 \end{aligned}
 $
@@ -140,26 +140,26 @@ $
 
 \textbf{例题：}证明可导必连续。
 
-已知连续定义：$\lim_{\Delta x\to 0}f(x+\Delta x)=f(x)$，即$\lim_{\Delta x\to 0}f(x+\Delta x)-f(x)=0$。
+已知连续定义：$\lim\limits_{\Delta x\to 0}f(x+\Delta x)=f(x)$，即$\lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x)=0$。
 
-可导定义：$f'(x)=\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} = A$
+可导定义：$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} = A$
 
 $
 \begin{aligned}
-    & \lim_{\Delta x\to 0}f(x+\Delta x)-f(x) \\
-    & =\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}\cdot\Delta x \\
+    & \lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x) \\
+    & =\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}\cdot\Delta x \\
     & =A\cdot 0 \\
     & =0
 \end{aligned}
 $
 
-\textbf{例题：}若$f(x)$在$x=x_0$处连续，且$\lim_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$，则$f(x_0)=0$且$f'(x_0)=A$。
+\textbf{例题：}若$f(x)$在$x=x_0$处连续，且$\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$，则$f(x_0)=0$且$f'(x_0)=A$。
 
-证明：$\because\text{连续，}\therefore f(x_0)=\lim_{x\to x_0}f(x)=\lim_{x\to x_0}\dfrac{f(x)}{x-x_0}(x-x_0)=A\cdot 0=0$。
+证明：$\because\text{连续，}\therefore f(x_0)=\lim\limits_{x\to x_0}f(x)=\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}(x-x_0)=A\cdot 0=0$。
 
-又$f'(x_0)=\lim_{x\to x_0\dfrac{f(x)-f(x_0)}{x-x_0}}=\lim_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$。
+又$f'(x_0)=\lim\limits_{x\to x_0\dfrac{f(x)-f(x_0)}{x-x_0}}=\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$。
 
-如$\lim_{x\to 1}\dfrac{f(x)}{x-1}=2$且$f(x)$连续，可以推出$f(1)=0$与$f'(1)=2$。
+如$\lim\limits_{x\to 1}\dfrac{f(x)}{x-1}=2$且$f(x)$连续，可以推出$f(1)=0$与$f'(1)=2$。
 
 
 \section{函数求导法则}
@@ -182,10 +182,10 @@ $
 \begin{aligned}
     & (u\cdot v)' \\
     & =f'(x) \\
-    & =\lim_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} \\
-    & =\lim_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x)}{\Delta x} \\
-    & =\lim_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x+\Delta x)+u(x)v(x+\Delta x)-u(x)v(x)}{\Delta x} \\
-    & =\lim_{\Delta x\to 0}\dfrac{u(x+\Delta x)-u(x)}{\Delta x}v(x+\Delta x) +\lim_{\Delta x\to 0}\dfrac{v(x+\Delta x)-v(x)}{\Delta x}u(x) \\
+    & =\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} \\
+    & =\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x)}{\Delta x} \\
+    & =\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x+\Delta x)+u(x)v(x+\Delta x)-u(x)v(x)}{\Delta x} \\
+    & =\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)-u(x)}{\Delta x}v(x+\Delta x) +\lim\limits_{\Delta x\to 0}\dfrac{v(x+\Delta x)-v(x)}{\Delta x}u(x) \\
     & =u'(x)v(x)+v'(x)u(x)
 \end{aligned}
 $
@@ -273,7 +273,7 @@ $
 
 在分段点用定义：
 
-判断$f'_+(x_0)=\lim_{x\to x_0^+}\dfrac{f_1(x)-f(x_0)}{x-x_0}\overset{?}{=}\lim_{x\to x_0^-}\dfrac{f_2(x)-f(x_0)}{x-x_0}$。
+判断$f'_+(x_0)=\lim\limits_{x\to x_0^+}\dfrac{f_1(x)-f(x_0)}{x-x_0}\overset{?}{=}\lim\limits_{x\to x_0^-}\dfrac{f_2(x)-f(x_0)}{x-x_0}$。
 
 非分段点使用导数公式求导：$x>x_0,f'(x)=f_1'(x),x<0，f'(x)=f_2'(x)$。
 
@@ -317,9 +317,9 @@ $\therefore y'=\left(x^{\frac{1}{x}}\right)=\left(e^{\frac{1}{x}\ln x}\right)'=x
 
 $0<x<e$时$1-\ln x$大于0，所以导数大于0，函数在该区间增。相反$x>e$时函数在区间减。
 
-研究驻点左侧情况，求对应的极限：$e^{\lim_{x\to 0^+}\frac{\ln x}{x}}=e^{-\infty}\to 0$。
+研究驻点左侧情况，求对应的极限：$e^{\lim\limits_{x\to 0^+}\frac{\ln x}{x}}=e^{-\infty}\to 0$。
 
-研究驻点右侧情况，求对应的极限：$e^{\lim_{x\to+\infty}\frac{\ln x}{x}}=e^0\to 1$。
+研究驻点右侧情况，求对应的极限：$e^{\lim\limits_{x\to+\infty}\frac{\ln x}{x}}=e^0\to 1$。
 
 \begin{tikzpicture}[scale=0.5]
     \draw[-latex](-0.5,0) -- (10,0) node[below]{$x$};
@@ -340,7 +340,7 @@ $0<x<e$时$1-\ln x$大于0，所以导数大于0，函数在该区间增。相�
 
 \subsection{定义}
 
-高阶导数\textcolor{violet}{\textbf{定义：}}$f^{(n)}(x_0)=\lim_{\Delta x\to 0}\dfrac{f^{(n-1)}(x_0+\Delta x)-f^{(n-1)}(x_0)}{\Delta x}$，其中$n\geqslant 2$且$n\in N^+$，$f^{(n-1)}(x)$在$x_0$的某领域内有定义，$x_0+\Delta x$也在该邻域内。
+高阶导数\textcolor{violet}{\textbf{定义：}}$f^{(n)}(x_0)=\lim\limits_{\Delta x\to 0}\dfrac{f^{(n-1)}(x_0+\Delta x)-f^{(n-1)}(x_0)}{\Delta x}$，其中$n\geqslant 2$且$n\in N^+$，$f^{(n-1)}(x)$在$x_0$的某领域内有定义，$x_0+\Delta x$也在该邻域内。
 
 若$f^{(n)}(x)$在区间$I$上连续，称$f(x)$在$I$上$n$阶连续可导。
 

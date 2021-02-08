@@ -263,7 +263,7 @@ $f(x+T)=f(x)$，其中T为周期。 \bigskip
 
 \section{数列的极限}
 
-极限就是一个无限逼近某个值的过程。如$\dfrac{n}{n+1}$这个分式在$n$无限增大的时候会无限逼近1，这个1叫做极限值，所以写成$\lim_{n\to\infty}\dfrac{n}{n+1}=1$。
+极限就是一个无限逼近某个值的过程。如$\dfrac{n}{n+1}$这个分式在$n$无限增大的时候会无限逼近1，这个1叫做极限值，所以写成$\lim\limits_{n\to\infty}\dfrac{n}{n+1}=1$。
 
 所以从另一个方面更精确的指出一个数$N>0$，使得数列下标大于$N$的项与极限值之间的距离始终保持在$(0,\varepsilon)$之间，即$\dfrac{1}{n+1}<\varepsilon$，即$n>\dfrac{1}{\varepsilon}-1$，所以任意正数都能得到从$N>\dfrac{1}{\varepsilon}-1$项开始之后都有$\left\vert\dfrac{n}{n+1}-1\right\vert<\varepsilon$。
 
@@ -273,9 +273,9 @@ $f(x+T)=f(x)$，其中T为周期。 \bigskip
 
 \subsubsection{数列极限定义}
 
-\textcolor{violet}{\textbf{定义：}}设$\{x_n\}$为一数列，若存在常数$a$，对于不论任意小的$\varepsilon>0$，总存在正整数$N$，使$n>N$时，$\vert x_n-a\vert<\varepsilon$恒成立，则常数$a$为数列$\{x_n\}$的极限，或$\{x_n\}$收敛于$a$，记为：$\lim_{x\to\infty}x_n=a$或$x_n\to a(n\to\infty)$。
+\textcolor{violet}{\textbf{定义：}}设$\{x_n\}$为一数列，若存在常数$a$，对于不论任意小的$\varepsilon>0$，总存在正整数$N$，使$n>N$时，$\vert x_n-a\vert<\varepsilon$恒成立，则常数$a$为数列$\{x_n\}$的极限，或$\{x_n\}$收敛于$a$，记为：$\lim\limits_{x\to\infty}x_n=a$或$x_n\to a(n\to\infty)$。
 
-常用语言（$\varepsilon-N$语言）：$\lim_{x\to\infty}x_n=a\Leftrightarrow\forall\varepsilon>0,\exists N\in N_+$，当$n>N$时，恒有$\vert x_n-a\vert<\varepsilon$。
+常用语言（$\varepsilon-N$语言）：$\lim\limits_{x\to\infty}x_n=a\Leftrightarrow\forall\varepsilon>0,\exists N\in N_+$，当$n>N$时，恒有$\vert x_n-a\vert<\varepsilon$。
 
 如果不存在该数$a$，则称数列$x_n$发散。
 
@@ -291,7 +291,7 @@ $f(x+T)=f(x)$，其中T为周期。 \bigskip
     \item 取$N=[g(\varepsilon)]+1$，所以令$n>N$就可以证明。
 \end{enumerate}
 
-\textbf{例题：}用定义证明$\lim_{x\to\infty}\left[1+\dfrac{(-1)^n}{n}\right]=1$
+\textbf{例题：}用定义证明$\lim\limits_{x\to\infty}\left[1+\dfrac{(-1)^n}{n}\right]=1$
 
 证明：
 
@@ -305,7 +305,7 @@ $\therefore\forall\varepsilon>0$，当$n>N$时，就有$n>\dfrac{1}{\varepsilon}
 
 $\therefore$证明完毕。
 
-\textbf{例题：}用定义证明$\lim_{n\to\infty}q^n=0$（$q$为常数且$\vert q\vert<1$）。
+\textbf{例题：}用定义证明$\lim\limits_{n\to\infty}q^n=0$（$q$为常数且$\vert q\vert<1$）。
 
 证明：
 
@@ -317,19 +317,19 @@ $\therefore$证明完毕。
 
 $\therefore$当$n>N$时，必然$n>\dfrac{\ln\varepsilon}{\ln\vert q\vert}$，有$\vert q^n-0\vert<\varepsilon$。
 
-故$\lim_{n\to\infty}q^n=0$。
+故$\lim\limits_{n\to\infty}q^n=0$。
 
 \subsubsection{数列绝对值}
 
-\textbf{例题：}证明若$\lim_{x\to\infty}a_n=A$，则$\lim_{x\to\infty}\vert a_n\vert=\vert A\vert$。
+\textbf{例题：}证明若$\lim\limits_{x\to\infty}a_n=A$，则$\lim\limits_{x\to\infty}\vert a_n\vert=\vert A\vert$。
 
-因为$\lim_{n\to\infty}a_n=A\Leftrightarrow\forall\varepsilon>0,\exists N>0,\text{当}n>N$，恒有$\vert a_n-A\vert<\varepsilon$。
+因为$\lim\limits_{n\to\infty}a_n=A\Leftrightarrow\forall\varepsilon>0,\exists N>0,\text{当}n>N$，恒有$\vert a_n-A\vert<\varepsilon$。
 
 又由重要不等式$\vert\vert a\vert-\vert b\vert\vert\leqslant\vert a-b\vert$，所以$\vert\vert a_n-\vert A\vert\vert\leqslant\varepsilon$。
 
 所以恒成立，证明完毕。
 
-从这个题推出：$\lim_{n\to\infty}a_n=0\Leftrightarrow\lim_{n\to\infty}\vert a_n\vert=0$。所以如果我们以后需要证明某一数列极限为0，可以证明数列绝对值极限0，而数列绝对值绝对时大于等于0的，所以由夹逼准则，其中小的一头已经固定为0了，所以只用找另一个偏大的数列夹逼所证明数列就可以了。
+从这个题推出：$\lim\limits_{n\to\infty}a_n=0\Leftrightarrow\lim\limits_{n\to\infty}\vert a_n\vert=0$。所以如果我们以后需要证明某一数列极限为0，可以证明数列绝对值极限0，而数列绝对值绝对时大于等于0的，所以由夹逼准则，其中小的一头已经固定为0了，所以只用找另一个偏大的数列夹逼所证明数列就可以了。
 
 \subsubsection{子数列}
 
@@ -356,17 +356,17 @@ $\therefore$当$n>N$时，必然$n>\dfrac{\ln\varepsilon}{\ln\vert q\vert}$，�
 
 证明：
 
-设$\lim_{n\to\infty}a_n=A$且$\lim_{n\to\infty}a_n=B$且$A\neq B$。
+设$\lim\limits_{n\to\infty}a_n=A$且$\lim\limits_{n\to\infty}a_n=B$且$A\neq B$。
 
 不如设$A>B$。任意取$\varepsilon=\dfrac{A-B}{2}>0$。
 
-$\because\lim_{n\to\infty}a_n=A$
+$\because\lim\limits_{n\to\infty}a_n=A$
 
 $\therefore\exists N_1>0$，当$n>N_1$时，$\vert a_n-A\vert<\dfrac{A-B}{2}$。
 
 得到$\dfrac{A+B}{2}<a_n<\dfrac{3A-B}{2}$并设为式子一。
 
-又$\because\lim_{n\to\infty}a_n=B$
+又$\because\lim\limits_{n\to\infty}a_n=B$
 
 $\therefore\exists N_2>0$，当$n>N_2$时，$\vert a_n-B\vert<\dfrac{A-B}{2}$。
 
@@ -380,13 +380,13 @@ $\therefore\exists N_2>0$，当$n>N_2$时，$\vert a_n-B\vert<\dfrac{A-B}{2}$。
 
 \textcolor{violet}{\textbf{定义：}}若数列$\{x_n\}$极限存在，则数列有界。
 
-即$\lim_{n\to\infty}a_n=A$，则存在$M>0$，使得$\vert a_n\vert\leqslant M$。
+即$\lim\limits_{n\to\infty}a_n=A$，则存在$M>0$，使得$\vert a_n\vert\leqslant M$。
 
 证明：
 
 由极限定义，取$\varepsilon=1$。
 
-$\because\lim_{n\to\infty}a_n=A$
+$\because\lim\limits_{n\to\infty}a_n=A$
 
 $\therefore\exists N>0$，当$n>N$时，$\vert a_n-A\vert<1$。
 
@@ -406,17 +406,17 @@ $\forall n$，有$\vert a_n\vert\leqslant M$
 
 较重要。也称为脱帽法。
 
-\textcolor{violet}{\textbf{定义：}}若数列$\{x_n\}$存在极限$\lim_{n\to\infty}a_n=a\neq 0$，则存在正整数$N$，当$n>N$时$a_n$都与$a$同号。
+\textcolor{violet}{\textbf{定义：}}若数列$\{x_n\}$存在极限$\lim\limits_{n\to\infty}a_n=a\neq 0$，则存在正整数$N$，当$n>N$时$a_n$都与$a$同号。
 
 简单来说，就是极限大于0，后面一部分数列大于0，极限小于0，后面一部分数列小于0。
 
-推论，戴帽法：若数列$\{a_n\}$从某项开始$a_n\geqslant b$，且$\lim_{n\to\infty}a_n=a$，则$a\geqslant b$。这里一定要带等号。
+推论，戴帽法：若数列$\{a_n\}$从某项开始$a_n\geqslant b$，且$\lim\limits_{n\to\infty}a_n=a$，则$a\geqslant b$。这里一定要带等号。
 
 证明：
 
 设$A>0$，取$\varepsilon=\dfrac{A}{2}>0$。
 
-$\because\lim_{n\to\infty}a_n=A$
+$\because\lim\limits_{n\to\infty}a_n=A$
 
 $\therefore\exists N>0$，当$n>N$时，$\vert a_n-A\vert<\dfrac{A}{2}\Rightarrow a_n>\dfrac{A}{2}>0$
 
@@ -424,17 +424,17 @@ $\therefore\exists N>0$，当$n>N$时，$\vert a_n-A\vert<\dfrac{A}{2}\Rightarro
 
 \subsection{海涅定理（归结原则）}
 
-设$f(x)$在$\mathring{U}(x_0,\delta)$内有定义，则$\lim_{x\to x_0}f(x)=A$存在$\Leftrightarrow$对任何$\mathring{U}(x_0,\delta)$内以$x_0$为极限的数列$\{x_n\}(x_n\neq x_0)$，极限$\lim_{n\to\infty}f(x_n)=A$存在。
+设$f(x)$在$\mathring{U}(x_0,\delta)$内有定义，则$\lim\limits_{x\to x_0}f(x)=A$存在$\Leftrightarrow$对任何$\mathring{U}(x_0,\delta)$内以$x_0$为极限的数列$\{x_n\}(x_n\neq x_0)$，极限$\lim\limits_{n\to\infty}f(x_n)=A$存在。
 
 海涅定理用来连接数列极限与函数极限。在极限存在下他们可以相互转换。
 
-\textbf{例题：}求$\lim_{n\to\infty}\left(n\tan\dfrac{1}{n}\right)^{n^2}$（$n\in N^+$）。
+\textbf{例题：}求$\lim\limits_{n\to\infty}\left(n\tan\dfrac{1}{n}\right)^{n^2}$（$n\in N^+$）。
 
-$\because \lim_{x\to 0}\left(\dfrac{\tan x}{x}\right)^{\frac{1}{x^2}}$
+$\because \lim\limits_{x\to 0}\left(\dfrac{\tan x}{x}\right)^{\frac{1}{x^2}}$
 
 又$u^v=e^{v\ln u}$
 
-$\therefore =e^{\lim_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}$
+$\therefore =e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}$
 
 又在$x\to 0$下$\ln (1+x)\sim x$，$\therefore \ln(1+g(x))\sim g(x),g(x)\to 0$。
 
@@ -450,14 +450,14 @@ $\therefore$ \bigskip
 
 $
 \begin{aligned}
-    & e^{\lim_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}} \\
-    & =e^{\lim_{x\to 0}\frac{1}{x^2}\frac{\tan x-x}{x}} \\
-    & =e^{\lim_{x\to 0}\frac{1}{x^2}\cdot\frac{x^2}{3}} \\
+    & e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}} \\
+    & =e^{\lim\limits_{x\to 0}\frac{1}{x^2}\frac{\tan x-x}{x}} \\
+    & =e^{\lim\limits_{x\to 0}\frac{1}{x^2}\cdot\frac{x^2}{3}} \\
     & = e^{\frac{1}{3}}
 \end{aligned}
 $
 
-根据海涅定理：取$x=\dfrac{1}{n},n\to\infty$，$\lim_{n\to\infty}\left(n\tan\dfrac{1}{n}\right)^{n^2}=e^{\frac{1}{3}}$。
+根据海涅定理：取$x=\dfrac{1}{n},n\to\infty$，$\lim\limits_{n\to\infty}\left(n\tan\dfrac{1}{n}\right)^{n^2}=e^{\frac{1}{3}}$。
 
 \section{函数的极限}
 
@@ -465,11 +465,11 @@ $
 
 \subsubsection{极限定义}
 
-设函数$f(x)$在点$x_0$的某一个去心邻域有定义，若存在常数$A$，对于任意给定的$\varepsilon>0$，总存在正数$\delta$，使得当$0<\vert x-x_0\vert<\delta$式，对应的函数值$f(x)$都满足不等式$\vert f(x)-A\vert <\varepsilon$，则$A$就是函数$f(x)$当$x\to x_0$时的极限，记作$\lim_{x\to x_0}f(x)=A$或$f(x)\rightarrow A(x\rightarrow x_0)$。
+设函数$f(x)$在点$x_0$的某一个去心邻域有定义，若存在常数$A$，对于任意给定的$\varepsilon>0$，总存在正数$\delta$，使得当$0<\vert x-x_0\vert<\delta$式，对应的函数值$f(x)$都满足不等式$\vert f(x)-A\vert <\varepsilon$，则$A$就是函数$f(x)$当$x\to x_0$时的极限，记作$\lim\limits_{x\to x_0}f(x)=A$或$f(x)\rightarrow A(x\rightarrow x_0)$。
 
-写成$\varepsilon-\delta$语言：$\lim_{x\to x_0}f(x)=A\Leftrightarrow\forall\varepsilon>0,\exists\delta>0,\text{当}0<\vert x-x_0\vert<\delta$时，有$\vert f(x)-A\vert\varepsilon$。
+写成$\varepsilon-\delta$语言：$\lim\limits_{x\to x_0}f(x)=A\Leftrightarrow\forall\varepsilon>0,\exists\delta>0,\text{当}0<\vert x-x_0\vert<\delta$时，有$\vert f(x)-A\vert\varepsilon$。
 
-而对于趋向无穷时，写成$\varepsilon-X$语言：$\lim_{x\to\infty}f(x)=A\Leftrightarrow\forall\varepsilon>0,\exists X>0,\text{当}\vert x\vert>X$时，有$\vert f(x)-A\vert<\varepsilon$。
+而对于趋向无穷时，写成$\varepsilon-X$语言：$\lim\limits_{x\to\infty}f(x)=A\Leftrightarrow\forall\varepsilon>0,\exists X>0,\text{当}\vert x\vert>X$时，有$\vert f(x)-A\vert<\varepsilon$。
 
 \textcolor{orange}{注意：}这里的趋向分为六种：$x\to x_0$、$x\to x_0^+$、$x\to x_0^-$、$x\to\infty$、$x\to\infty^+$、$x\to\infty^-$。
 
@@ -482,8 +482,8 @@ $
 函数存在的充要条件是：
 
 \begin{enumerate}
-    \item $\lim_{x\to x_0}f(x)\Leftrightarrow\lim_{x\to x_0^-}f(x)=\lim_{x\to x_0^+}f(x)=A$。
-    \item 函数脱帽法：$\lim_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim_{x\to x_0}\alpha(x)=0$，后面的$\alpha(x)$就是函数与极限值的误差。
+    \item $\lim\limits_{x\to x_0}f(x)\Leftrightarrow\lim\limits_{x\to x_0^-}f(x)=\lim\limits_{x\to x_0^+}f(x)=A$。
+    \item 函数脱帽法：$\lim\limits_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim\limits_{x\to x_0}\alpha(x)=0$，后面的$\alpha(x)$就是函数与极限值的误差。
 \end{enumerate}
 
 \subsubsection{极限情况总结}
@@ -518,7 +518,7 @@ $
 
 若极限存在，则极限唯一。
 
-\textbf{例题：}设$a$为常数，$\lim_{x\to 0}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right)$存在，求出极限值。
+\textbf{例题：}设$a$为常数，$\lim\limits_{x\to 0}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right)$存在，求出极限值。
 
 因为求$x\to 0$，所以需要分两种情况讨论：
 
@@ -526,16 +526,16 @@ $
 
 $
 \begin{aligned}
-    & \lim_{x\to 0^+}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right) \\
-    & = \lim_{x\to 0^+}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}\right)+\lim_{x\to 0^+}\left(a\cdot\arctan\dfrac{1}{x}\right) \\
-    & = \lim_{x\to 0^+}\left(\dfrac{0\cdot\left(e^{\frac{2}{x}}\right)^2+e^{\frac{1}{x}}-\pi}{1\cdot\left(e^{\frac{2}{x}}\right)^2+1}\right)+a\cdot\dfrac{\pi}{2} \\
+    & \lim\limits_{x\to 0^+}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right) \\
+    & = \lim\limits_{x\to 0^+}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}\right)+\lim\limits_{x\to 0^+}\left(a\cdot\arctan\dfrac{1}{x}\right) \\
+    & = \lim\limits_{x\to 0^+}\left(\dfrac{0\cdot\left(e^{\frac{2}{x}}\right)^2+e^{\frac{1}{x}}-\pi}{1\cdot\left(e^{\frac{2}{x}}\right)^2+1}\right)+a\cdot\dfrac{\pi}{2} \\
     & = a\cdot\dfrac{\pi}{2}
 \end{aligned}
 $
 
 $
 \begin{aligned}
-    & \lim_{x\to 0^-}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right) \\
+    & \lim\limits_{x\to 0^-}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right) \\
     & = -\pi+a\cdot\left(-\dfrac{\pi}{2}\right) \\
     & = -\pi-\dfrac{\pi}{2}\cdot a
 \end{aligned}
@@ -579,31 +579,31 @@ $A.(-1,0)$\qquad$B.(0,1)$\qquad$C.(1,2)$\qquad$D.(2,3)$
 
 解：看选项，0，1，2出现次数较多，所以从$B$选项开始检查是否有界：
 
-$\lim_{x\to 0^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=(-1)\cdot\dfrac{-\sin 2}{(-1)\cdot 4}=-\dfrac{\sin 2}{4}$
+$\lim\limits_{x\to 0^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=(-1)\cdot\dfrac{-\sin 2}{(-1)\cdot 4}=-\dfrac{\sin 2}{4}$
 
 所以趋于$0^-$的一段有界。
 
-同理$\lim_{x\to 0^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=\dfrac{\sin 2}{4}$。
+同理$\lim\limits_{x\to 0^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=\dfrac{\sin 2}{4}$。
 
 所以趋于$0^+$的一段有界。
 
-$\lim_{x\to 1^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中$(x-1)$为0且在分母位置，所以极限为$\infty$，无界。
+$\lim\limits_{x\to 1^-}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中$(x-1)$为0且在分母位置，所以极限为$\infty$，无界。
 
 所以$(0,1)$无界，$B$排除。
 
-同理$\lim_{x\to 1^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$也无穷大而无界。
+同理$\lim\limits_{x\to 1^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$也无穷大而无界。
 
 所以$(1,2)$无界，$C$排除。
 
-$\lim_{x\to 2^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中不管前面的项，而看到后面的$\dfrac{\sin(x-2)}{(x-2)^2}$。
+$\lim\limits_{x\to 2^+}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}$中不管前面的项，而看到后面的$\dfrac{\sin(x-2)}{(x-2)^2}$。
 
-因为$\lim_{x\to 0}\dfrac{\sin x}{x}=1$，所以对于$\lim_{x\to 2}\dfrac{\sin(x-2)}{(x-2)}=1$，所以下面还有一个$x-2$，所以还是为$\infty$。
+因为$\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$，所以对于$\lim\limits_{x\to 2}\dfrac{\sin(x-2)}{(x-2)}=1$，所以下面还有一个$x-2$，所以还是为$\infty$。
 
 所以$(2,3)$无界，$D$排除。
 
 验证-1处是否有界：
 
-$\lim_{x\to -1}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=-\dfrac{\sin 3}{18}$。
+$\lim\limits_{x\to -1}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=-\dfrac{\sin 3}{18}$。
 
 所以该处有界，所以选$A$。
 
@@ -634,17 +634,17 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
 关于三个性质要注意自变量取值的双向性，所以需要留意下面几个函数：
 
 \begin{enumerate}
-    \item $\lim_{x\to\infty}e^x$不存在，因为$\lim_{x\to +\infty}e^x=+\infty$，$\lim_{x\to -\infty}e^x=0$。
-    \item $\lim_{x\to 0}\dfrac{\sin x}{\vert x\vert}$不存在，因为$\lim_{x\to 0^+}\dfrac{\sin x}{\vert x\vert}=1$，$\lim_{x\to 0^-}\dfrac{\sin x}{\vert x\vert}=-1$。
-    \item $\lim_{x\to\infty}\arctan x$不存在，因为$\lim_{x\to +\infty}\arctan x=\dfrac{\pi}{2}$，$\lim_{x\to -\infty}\arctan x=-\dfrac{\pi}{2}$。
-    \item $\lim_{x\to 0}[x]$不存在，因为$\lim_{x\to 0^+}[x]=0$，$\lim_{x\to 0^-}[x]=-1$
+    \item $\lim\limits_{x\to\infty}e^x$不存在，因为$\lim\limits_{x\to +\infty}e^x=+\infty$，$\lim\limits_{x\to -\infty}e^x=0$。
+    \item $\lim\limits_{x\to 0}\dfrac{\sin x}{\vert x\vert}$不存在，因为$\lim\limits_{x\to 0^+}\dfrac{\sin x}{\vert x\vert}=1$，$\lim\limits_{x\to 0^-}\dfrac{\sin x}{\vert x\vert}=-1$。
+    \item $\lim\limits_{x\to\infty}\arctan x$不存在，因为$\lim\limits_{x\to +\infty}\arctan x=\dfrac{\pi}{2}$，$\lim\limits_{x\to -\infty}\arctan x=-\dfrac{\pi}{2}$。
+    \item $\lim\limits_{x\to 0}[x]$不存在，因为$\lim\limits_{x\to 0^+}[x]=0$，$\lim\limits_{x\to 0^-}[x]=-1$
 \end{enumerate}
 
 \section{无穷大与无穷小}
 
 \subsection{无穷定义}
 
-无穷小\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$f(x)$极限为0，就称$f(x)$为当$x\to x_0(\infty)$时的无穷小，记为：$\lim_{x\to x_0(\infty)}f(x)=0$。
+无穷小\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$f(x)$极限为0，就称$f(x)$为当$x\to x_0(\infty)$时的无穷小，记为：$\lim\limits_{x\to x_0(\infty)}f(x)=0$。
 
 以0为极限的数列称为$n\to\infty$时的无穷小。
 
@@ -654,11 +654,11 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
 
 \textcolor{aqua}{\textbf{定理：}}$\lim f(x)=A\Leftrightarrow f(x)=A+o(x)$，其中$\lim o(x)=0$。
 
-无穷大\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$\vert f(x)\vert$无限增大，就称$f(x)$为当$x\to x_0(\infty)$时的无穷大，记为：$\lim_{x\to x_0(\infty)}f(x)=\infty$。
+无穷大\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$\vert f(x)\vert$无限增大，就称$f(x)$为当$x\to x_0(\infty)$时的无穷大，记为：$\lim\limits_{x\to x_0(\infty)}f(x)=\infty$。
 
-若$\lim_{x\to x_0}f(x)=\infty$则$x=x_0$为$y=f(x)$的垂直渐进线。
+若$\lim\limits_{x\to x_0}f(x)=\infty$则$x=x_0$为$y=f(x)$的垂直渐进线。
 
-若$\lim_{x\to\infty}f(x)=a$则$y=a$为$y=f(x)$的水平渐进线。
+若$\lim\limits_{x\to\infty}f(x)=a$则$y=a$为$y=f(x)$的水平渐进线。
 
 \textcolor{aqua}{\textbf{定理：}}若同一极限过程中，$f(x)$为无穷大，则$\dfrac{1}{f(x)}$为无穷小，反之若$f(x)$为无穷小且不为0，则$\dfrac{1}{f(x)}$为无穷大。
 
@@ -672,25 +672,25 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
 
 \subsection{数列极限}
 
-若$\lim_{n\to\infty}x_n=a$，$\lim_{n\to\infty}y_n=b$则：
+若$\lim\limits_{n\to\infty}x_n=a$，$\lim\limits_{n\to\infty}y_n=b$则：
 
 \begin{enumerate}
-    \item $\lim_{n\to\infty}x_n\pm y_n=a\pm b$。
-    \item $\lim_{n\to\infty}(x_ny_n)=\lim_{n\to\infty}x_n\lim_{n\to\infty}y_n=ab$。
-    \item $\lim_{n\to\infty}\dfrac{x_n}{y_n}=\dfrac{\lim_{n\to\infty}x_n}{\lim_{n\to\infty}y_n}=\dfrac{a}{b}(b\neq 0)$。
+    \item $\lim\limits_{n\to\infty}x_n\pm y_n=a\pm b$。
+    \item $\lim\limits_{n\to\infty}(x_ny_n)=\lim\limits_{n\to\infty}x_n\lim\limits_{n\to\infty}y_n=ab$。
+    \item $\lim\limits_{n\to\infty}\dfrac{x_n}{y_n}=\dfrac{\lim\limits_{n\to\infty}x_n}{\lim\limits_{n\to\infty}y_n}=\dfrac{a}{b}(b\neq 0)$。
 \end{enumerate}
 
-\textbf{例题：}若$\lim_{n\to\infty}(a_n+b_n)=1$且$\lim_{n\to\infty}(a_n-b_n)=3$，计算$\lim_{n\to\infty}a_n$与$\lim_{n\to\infty}b_n$。
+\textbf{例题：}若$\lim\limits_{n\to\infty}(a_n+b_n)=1$且$\lim\limits_{n\to\infty}(a_n-b_n)=3$，计算$\lim\limits_{n\to\infty}a_n$与$\lim\limits_{n\to\infty}b_n$。
 
 首先是不能通过运算法则第一条将两个条件直接加减的，因为不能保证两个极限是否都存在。
 
-所以必须先令$u_n=a_n+b_n$，$v_n=a_n-b_n$，所以$\lim_{n\to\infty}u_n=1$，$\lim_{n\to\infty}v_n=3$。
+所以必须先令$u_n=a_n+b_n$，$v_n=a_n-b_n$，所以$\lim\limits_{n\to\infty}u_n=1$，$\lim\limits_{n\to\infty}v_n=3$。
 
 因为这两个极限都存在，所以可以进行运算。
 
-相加得到$\lim_{n\to\infty}(u_n+v_n)=2\lim_{n\to\infty}a_n=4$。
+相加得到$\lim\limits_{n\to\infty}(u_n+v_n)=2\lim\limits_{n\to\infty}a_n=4$。
 
-所以得到$\lim_{n\to\infty}a_n=2$。同理$\lim_{n\to\infty}(u_n-v_n)$得到$\lim_{n\to\infty}b_n=-1$。
+所以得到$\lim\limits_{n\to\infty}a_n=2$。同理$\lim\limits_{n\to\infty}(u_n-v_n)$得到$\lim\limits_{n\to\infty}b_n=-1$。
 
 \subsection{函数极限}
 
@@ -701,7 +701,7 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
     \item $\lim[f(x)\cdot g(x)]=\lim f(x)\cdot\lim g(x)=A\cdot B$
     \item $\lim[f(x)]^n=[\lim f(x)]^n$，其中$n$为正整数。
     \item $\lim\dfrac{f(x)}{g(x)}=\dfrac{\lim f(x)}{\lim g(x)}=\dfrac{A}{B}(B\neq 0)$。
-    \item $\lim_{x\to\infty}\dfrac{a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0}{b_mx^m+\cdots+b_{m-1}x^{m-1}+\cdots+b_1x+b_0}=\left\{
+    \item $\lim\limits_{x\to\infty}\dfrac{a_nx^n+a_{n-1}x^{n-1}+\cdots+a_1x+a_0}{b_mx^m+\cdots+b_{m-1}x^{m-1}+\cdots+b_1x+b_0}=\left\{
         \begin{array}{lcl}
             \dfrac{a_n}{b_m}, & & n=m \\
             0, & & n<m \\
@@ -709,12 +709,12 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
         \end{array}
     \right.$
     \item 若$f(x)\geqslant g(x)$，则$A\geqslant B$。
-    \item 若$y=f[g(x)]$由$y=f(u)$与$u=g(x)$复合而成，且$\lim_{x\to x_0}g(x)=u_0$且$\lim_{u\to u_0}f(u)=a$，当$x\in\mathring{U}(x_0,\delta_0)$时，$g(x)\neq u_0$，则$\lim_{x\to x_0}f[g(x)]=a$。 
+    \item 若$y=f[g(x)]$由$y=f(u)$与$u=g(x)$复合而成，且$\lim\limits_{x\to x_0}g(x)=u_0$且$\lim\limits_{u\to u_0}f(u)=a$，当$x\in\mathring{U}(x_0,\delta_0)$时，$g(x)\neq u_0$，则$\lim\limits_{x\to x_0}f[g(x)]=a$。 
 \end{enumerate}
 
 对于结论7必须\textcolor{orange}{注意}$g(x)\neq u_0$。
 
-假设$f(u)=\dfrac{u^2-1}{u-1}$，所以这个$f(x)$在$x=1$处应无定义。但是这并不影响$\lim_{u\to 1}f(u)=2$。
+假设$f(u)=\dfrac{u^2-1}{u-1}$，所以这个$f(x)$在$x=1$处应无定义。但是这并不影响$\lim\limits_{u\to 1}f(u)=2$。
 
 假设$g(x)=\left\{
     \begin{array}{lcl}
@@ -723,7 +723,7 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
     \end{array}
 \right.$。
 
-则$\lim_{x\to 0}g(x)=1$，所以$\lim_{x\to 0}f[g(x)]=2?$。
+则$\lim\limits_{x\to 0}g(x)=1$，所以$\lim\limits_{x\to 0}f[g(x)]=2?$。
 
 答案是不，因为当$x>0$时，$u=g(x)=1$，而$1$在$g(x)$中是无定义的，所以复合函数当$x>0$时无定义，从而在$0$处极限不存在。
 
@@ -744,13 +744,13 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
 
 \begin{enumerate}
     \item $y_n\leqslant x_n\leqslant z_n(n=1,2,3,\cdots)$。
-    \item $\lim_{n\to\infty}y_n=a,\lim_{n\to\infty}z_n=a$。
-    \item 则$\lim_{n\to\infty}x_n=a$。
+    \item $\lim\limits_{n\to\infty}y_n=a,\lim\limits_{n\to\infty}z_n=a$。
+    \item 则$\lim\limits_{n\to\infty}x_n=a$。
 \end{enumerate}
 
 证明：
 
-由于$\lim_{n\to\infty}y_n=a,\lim_{n\to\infty}z_n=a$。
+由于$\lim\limits_{n\to\infty}y_n=a,\lim\limits_{n\to\infty}z_n=a$。
 
 则$\forall\varepsilon>0$，$\exists N$，当$n>N$时，$\vert y_n<\varepsilon$，$\vert z_n<\varepsilon$。
 
@@ -760,13 +760,13 @@ $\therefore a-\varepsilon<y_n\leqslant x_n\leqslant z_n<a+\varepsilon$。
 
 $\therefore\vert x_n-a\vert<\varepsilon$。
 
-\textbf{例题：}求极限$\lim_{n\to\infty}\left(\dfrac{n}{n^2+1}+\dfrac{n}{n^2+2}+\cdots+\dfrac{n}{n^2+n}\right)$。
+\textbf{例题：}求极限$\lim\limits_{n\to\infty}\left(\dfrac{n}{n^2+1}+\dfrac{n}{n^2+2}+\cdots+\dfrac{n}{n^2+n}\right)$。
 
 使用夹逼准则：$\dfrac{n^2}{n^2+n}<\sum_{i=1}^n\dfrac{n}{n^2+i}<\dfrac{n^2}{n^2+1}$。
 
-又$\lim_{n\to\infty}\dfrac{n^2}{n^2+1}=\lim_{n\to\infty}\dfrac{n^2/n^2}{n^2/n^2+1/n^2}=\lim_{n\to\infty}\dfrac{1}{1+\dfrac{1}{n^2}}=1$。
+又$\lim\limits_{n\to\infty}\dfrac{n^2}{n^2+1}=\lim\limits_{n\to\infty}\dfrac{n^2/n^2}{n^2/n^2+1/n^2}=\lim\limits_{n\to\infty}\dfrac{1}{1+\dfrac{1}{n^2}}=1$。
 
-且$\lim_{n\to\infty}\dfrac{n^2}{n^2+n}=\lim_{n\to\infty}\dfrac{1}{1+\dfrac{1}{n}}=1$。
+且$\lim\limits_{n\to\infty}\dfrac{n^2}{n^2+n}=\lim\limits_{n\to\infty}\dfrac{1}{1+\dfrac{1}{n}}=1$。
 
 由夹逼准则，原式的极限为1。
 
@@ -782,13 +782,13 @@ $\therefore\vert x_n-a\vert<\varepsilon$。
 
 \textcolor{orange}{注意：}两函数差值极限为0不代表两函数极限相同，也不能保证中间的$f(x)$的极限存在。
 
-\textbf{例题：}求$\lim_x\to+\infty(2+\sin x)^{\frac{1}{x}}$。
+\textbf{例题：}求$\lim\limits_x\to+\infty(2+\sin x)^{\frac{1}{x}}$。
 
 $\because \sin x\in[-1,1]$，$\therefore 1\leqslant 2+\sin x\leqslant 3$。
 
 $\therefore 1^{\frac{1}{x}}\leqslant\left(2+\sin x\right)^{\frac{1}{x}}\leqslant 3^{\frac{1}{x}}$。
 
-而当$x\to+\infty$时两边的极限都为$1$，则由夹逼定理$\lim_x\to+\infty(2+\sin x)^{\frac{1}{x}}=1$。
+而当$x\to+\infty$时两边的极限都为$1$，则由夹逼定理$\lim\limits_x\to+\infty(2+\sin x)^{\frac{1}{x}}=1$。
 
 \subsection{单调有界准则}
 
@@ -819,7 +819,7 @@ $\therefore$数列$\{a_n\}$有下界$\sqrt{2}$。
 
 $\therefore a_{n+1}\leqslant a_n$，得到数列单调减少。
 
-由单调有界准则，$\lim_{n\to\infty}a_n$存在并记为$A$。
+由单调有界准则，$\lim\limits_{n\to\infty}a_n$存在并记为$A$。
 
 将$A$代入递推式并两边求极限：$A=\dfrac{1}{2}(A+\dfrac{2}{A})$，得到$A=\pm\sqrt{2}$。
 
@@ -837,11 +837,11 @@ $\therefore a_{n+1}\leqslant a_n$，得到数列单调减少。
 
 \ding{175}故$\{x_n\}\searrow$且有下界0。
 
-$\therefore\lim_{n\to\infty}x_n$存在，并记为$A$。
+$\therefore\lim\limits_{n\to\infty}x_n$存在，并记为$A$。
 
 对两边取极限：$A=\sin A$，所以$A=0$。
 
-$\therefore\lim_{n\to\infty}x_n=0$。
+$\therefore\lim\limits_{n\to\infty}x_n=0$。
 
 \textbf{例题：}证明$a_n=\dfrac{1}{1^2}+\dfrac{1}{2^2}+\cdots+\dfrac{1}{n^2}$存在极限。
 
@@ -864,7 +864,7 @@ $
 
 单调增且有上界，所以必然有极限。
 
-\subsection{\texorpdfstring{$\lim_{x\to 0}\dfrac{\sin x}{x}=1$}{}}
+\subsection{\texorpdfstring{$\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$}{}}
 
 证明：
 
@@ -893,13 +893,13 @@ $\therefore 1<\dfrac{x}{\sin x}<\dfrac{1}{\cos x}\Rightarrow\cos x<\dfrac{\sin x
 
 $\therefore 0<1-\dfrac{\sin x}{x}<1-\cos x=2\sin^2\dfrac{x}{2}\leqslant 2\left(\dfrac{x}{2}\right)^2$。
 
-根据夹逼定理，$\lim_{x\to 0}2\left(\dfrac{x}{2}\right)^2=0\Rightarrow\lim_{x\to 0}1-\dfrac{\sin x}{x}=0$。
+根据夹逼定理，$\lim\limits_{x\to 0}2\left(\dfrac{x}{2}\right)^2=0\Rightarrow\lim\limits_{x\to 0}1-\dfrac{\sin x}{x}=0$。
 
-$\therefore\lim_{x\to 0}\dfrac{\sin x}{x}=1$。
+$\therefore\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$。
 
-从而$\lim_{\Delta\to 0}\dfrac{\sin\Delta}{\Delta}=1(\Delta\neq 0)$。
+从而$\lim\limits_{\Delta\to 0}\dfrac{\sin\Delta}{\Delta}=1(\Delta\neq 0)$。
 
-\subsection{\texorpdfstring{$\lim_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x=e$}{}}
+\subsection{\texorpdfstring{$\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x=e$}{}}
 
 书上通过数列进行单调有界定理证明极限存在性。
 
@@ -907,24 +907,24 @@ $\therefore\lim_{x\to 0}\dfrac{\sin x}{x}=1$。
 
 $
 \begin{aligned}
-    & \lim_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x \\
-    & =\lim_{x\to\infty}e^{\ln(1+\frac{1}{x})^x} \\
-    & =\lim_{x\to\infty}e^{x\ln(1+\frac{1}{x})} \\
-    & =e^{\lim_{x\to\infty}x\ln(1+\frac{1}{x})} \\
-    & =e^{\lim_{x\to\infty}\frac{\ln(1+\frac{1}{x})}{\frac{1}{x}}} \\
-    & =e^{\lim_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\left(-\frac{1}{x^2}\right)}{-\frac{1}{x^2}}} \\
-    & =e^{\lim_{x\to\infty}\frac{1}{1+x}} \\
+    & \lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x \\
+    & =\lim\limits_{x\to\infty}e^{\ln(1+\frac{1}{x})^x} \\
+    & =\lim\limits_{x\to\infty}e^{x\ln(1+\frac{1}{x})} \\
+    & =e^{\lim\limits_{x\to\infty}x\ln(1+\frac{1}{x})} \\
+    & =e^{\lim\limits_{x\to\infty}\frac{\ln(1+\frac{1}{x})}{\frac{1}{x}}} \\
+    & =e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\left(-\frac{1}{x^2}\right)}{-\frac{1}{x^2}}} \\
+    & =e^{\lim\limits_{x\to\infty}\frac{1}{1+x}} \\
     & =e
 \end{aligned}
 $
 
-从而$\lim_{\Delta\to\infty}\left(1+\dfrac{1}{\Delta}\right)^\Delta=e$与$\lim_{\Delta\to 0}\left(1+\Delta\right)^{\frac{1}{\Delta}}=e(\Delta\neq 0)$。
+从而$\lim\limits_{\Delta\to\infty}\left(1+\dfrac{1}{\Delta}\right)^\Delta=e$与$\lim\limits_{\Delta\to 0}\left(1+\Delta\right)^{\frac{1}{\Delta}}=e(\Delta\neq 0)$。
 
 \section{无穷小的比较}
 
 \subsection{无穷小量}
 
-\textcolor{violet}{\textbf{定义：}}若$\lim_{x\to x_0}f(x)=0$，则称$f(x)$为当$x\to x_0$时的无穷小量。
+\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)=0$，则称$f(x)$为当$x\to x_0$时的无穷小量。
 
 \subsection{无穷小的比较}
 
@@ -940,15 +940,15 @@ $
 
 \textcolor{aqua}{\textbf{定理：}}$\alpha(x)\sim\beta(x)$的充要条件是$\alpha(x)=\beta(x)+o(\beta(x))$。
 
-\textcolor{orange}{注意：}并不是任意无穷小都可以比阶。如$\lim_{x\to 0}\dfrac{x\sin\dfrac{1}{x}}{x^2}$就因为得到函数振荡而无法得到极限。
+\textcolor{orange}{注意：}并不是任意无穷小都可以比阶。如$\lim\limits_{x\to 0}\dfrac{x\sin\dfrac{1}{x}}{x^2}$就因为得到函数振荡而无法得到极限。
 
 \textbf{例题：}证明当$x\to 0$时，$\sqrt[n]{1+x}-1\sim\dfrac{1}{n}x$。
 
-证明$\sqrt[n]{1+x}-1\sim\dfrac{1}{n}x$就是证明$\lim_{x\to 0}\dfrac{\sqrt[n]{1+x}-1}{x}\sim\dfrac{1}{n}$。
+证明$\sqrt[n]{1+x}-1\sim\dfrac{1}{n}x$就是证明$\lim\limits_{x\to 0}\dfrac{\sqrt[n]{1+x}-1}{x}\sim\dfrac{1}{n}$。
 
 令$\sqrt[n]{1+x}-1=t$，则$1+x=(1+t)^n$，则$x=(1+t)^n-1$。
 
-利用二项式展开：$=\lim_{t\to 0}\dfrac{t}{nt+\dfrac{n(n-1)}{2}t^2+\cdots}=\dfrac{1}{n}$。
+利用二项式展开：$=\lim\limits_{t\to 0}\dfrac{t}{nt+\dfrac{n(n-1)}{2}t^2+\cdots}=\dfrac{1}{n}$。
 
 \subsection{无穷小运算}
 
@@ -992,7 +992,7 @@ $x\to 0$：
 
 \subsection{连续定义}
 
-若函数$f(x)$在点$x_0$的某一邻域内有定义，且有$\lim_{x\to x_0}f(x)=f(x_0)$或$\lim_{\Delta x\to 0}\Delta y=0$，则称函数$f(x)$在点$x_0$处连续。
+若函数$f(x)$在点$x_0$的某一邻域内有定义，且有$\lim\limits_{x\to x_0}f(x)=f(x_0)$或$\lim\limits_{\Delta x\to 0}\Delta y=0$，则称函数$f(x)$在点$x_0$处连续。
 
 极限值等于函数值，则该点连续。
 
@@ -1000,7 +1000,7 @@ $x\to 0$：
 
 讨论间断只看两类点：分段函数分段点，无定义点。
 
-若函数$f(x)$在点$x_0$的某一去心邻域内有定义，且有$\lim_{x\to x_0}f(x)\neq f(x_0)$，则称函数$f(x)$在点$x_0$处间断。
+若函数$f(x)$在点$x_0$的某一去心邻域内有定义，且有$\lim\limits_{x\to x_0}f(x)\neq f(x_0)$，则称函数$f(x)$在点$x_0$处间断。
 
 极限值不等于函数值，则该点间断。
 
@@ -1008,7 +1008,7 @@ $x\to 0$：
 
 \subsubsection{可去间断点（可补间断点）}
 
-若$\lim_{x\to x_0}f(x)=A\neq f(x_0)$（甚至可以没有定义）。
+若$\lim\limits_{x\to x_0}f(x)=A\neq f(x_0)$（甚至可以没有定义）。
 
 \begin{tikzpicture}
     \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
@@ -1020,12 +1020,12 @@ $x\to 0$：
     \draw[black, densely dashed](1,1) -- (0,1) node[left]{$A$};
     \draw[black, densely dashed](1,2) -- (1,0) node[below]{$x_0$};
     \filldraw[black] (1,2) circle (2pt) node[above]{$f(x_0)=B$};
-    \filldraw[black] (1,1) node[right]{$\lim_{x\to x_0}=A$};
+    \filldraw[black] (1,1) node[right]{$\lim\limits_{x\to x_0}=A$};
 \end{tikzpicture}
 
 \subsubsection{跳跃间断点}
 
-若$\lim_{x\to x_0^-}f(x)$与$\lim_{x\to x_0^+}$都存在，但是$\lim_{x\to x_0^-}f(x)\neq\lim_{x\to x_0^+}$。
+若$\lim\limits_{x\to x_0^-}f(x)$与$\lim\limits_{x\to x_0^+}$都存在，但是$\lim\limits_{x\to x_0^-}f(x)\neq\lim\limits_{x\to x_0^+}$。
 
 \begin{tikzpicture}
     \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
@@ -1038,14 +1038,14 @@ $x\to 0$：
     \draw[black, densely dashed](1,1) -- (0,1) node[left]{$A$};
     \draw[black, densely dashed](1,2) -- (1,0) node[below]{$x_0$};
     \filldraw[black] (1,2) circle (2pt) node[above]{$f(x_0)=B$};
-    \filldraw[black] (1,1) node[right]{$\lim_{x\to x_0}=A$};
+    \filldraw[black] (1,1) node[right]{$\lim\limits_{x\to x_0}=A$};
 \end{tikzpicture}
 
 可去间断点与跳跃间断点的左右极限都存在的点都称为第一类间断点。
 
 \subsubsection{无穷间断点}
 
-若$\lim_{x\to x_0}f(x)=\infty$，或至少一个方向为无穷大（定义分歧）。如$y=\dfrac{1}{x}$在$x=0$处为无穷间断点。
+若$\lim\limits_{x\to x_0}f(x)=\infty$，或至少一个方向为无穷大（定义分歧）。如$y=\dfrac{1}{x}$在$x=0$处为无穷间断点。
 
 \begin{tikzpicture}
     \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
@@ -1057,7 +1057,7 @@ $x\to 0$：
 
 \subsubsection{振荡间断点}
 
-若$\lim_{x\to x_0}f(x)$为振荡不存在。如$\lim_{x\to 0}\sin\dfrac{1}{x}$的$x=0$就是振荡间断点。
+若$\lim\limits_{x\to x_0}f(x)$为振荡不存在。如$\lim\limits_{x\to 0}\sin\dfrac{1}{x}$的$x=0$就是振荡间断点。
 
 \begin{tikzpicture}
     \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
@@ -1078,7 +1078,7 @@ $x\to 0$：
     \end{array} \right.
 $在$(-\infty,+\infty)$内连续，求$a$。
 
-因为连续，所以$f(0)=\lim_{x\to 0^+}f(x)=\lim_{x\to 0^-}f(x)$。
+因为连续，所以$f(0)=\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^-}f(x)$。
 
 $\therefore a=1$。
 
@@ -1086,7 +1086,7 @@ $\therefore a=1$。
 
 由式子的分式部分可知有两个无定义的间断点：$x=0$，$x=1$。
 
-$\lim_{x\to 1}f(x)=\lim_{x\to 1}\dfrac{x-1}{\vert x-1\vert}\sin x=\left\{
+$\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to 1}\dfrac{x-1}{\vert x-1\vert}\sin x=\left\{
     \begin{array}{lcl}
         x\to 1^+ & \rightarrow & \sin 1 \\
         x\to 1^- & \rightarrow & -\sin 1
@@ -1095,7 +1095,7 @@ $。
 
 所以$x=1$跳跃间断点。
 
-$\lim_{x\to 0}f(x)=\lim_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim_{x\to 0}x\ln\vert x\vert=0$。
+$\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim\limits_{x\to 0}x\ln\vert x\vert=0$。
 
 而$x=0$未定义，所以其为可去间断点。
 
