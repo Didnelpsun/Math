@@ -541,7 +541,7 @@ $\therefore\lim\limits_{x\to+\infty}f(x^{\frac{1}{x}})=f(1)=1$。
 
 \subsection{迭代式数列}
 
-\subsubsection{关系式变形}
+\subsubsection{数列表达式}
 
 最重要的是将迭代式进行变形。
 
@@ -576,6 +576,36 @@ $= \dfrac{2}{3}\left[1-\left(-\dfrac{1}{2}\right)^n\right]$\medskip
 $\therefore\lim\limits_{n\to\infty}a_n=\dfrac{2}{3}$
 
 \subsubsection{单调有界准则}
+
+对于无法将关系式通过变形归纳为一般式的关系式，对于其极限就必须使用单调有界准则来求出。
+
+单调有界的数列必有极限。需要证明单调性和有界性，然后对式子求极限就能求出目标极限。
+
+\textbf{例题：}$x_0=0$，$x_n=\dfrac{1+2x_{n-1}}{1+x_{n-1}}(n\in N*)$，求$\lim\limits_{n\to\infty}x_n$。\medskip
+
+首先应该知道数列的趋向都是趋向正无穷。
+
+然后对关系式进行变形：$x_n=\dfrac{1+2x_{n-1}}{1+x_{n-1}}=1+\dfrac{x_{n-1}}{1+x_{n-1}}=2-\dfrac{1}{1+x_{n-1}}$。
+
+首先证明单调性，令$f(x)=2-\dfrac{1}{1+x}$。
+
+$\therefore f'(x)=\dfrac{1}{(x+1)^2}>0$，则$f(x)$单调递增。
+
+所以不管$x=x_{n-1}$或其他，$f'(x)>0$，$x_n$都是单调递增，则$x_n\geqslant x_0=0$。
+
+然后证明有界性，$\because x_n\geqslant 0$且单调，$\therefore x_n=2-\dfrac{1}{1+x_{n-1}}\in[0,2]$。
+
+从而$x_n$有界。
+
+所以根据单调有界定理，$x_n$的极限存在。
+
+对于关系式两边取极限：
+
+$\lim\limits_{n\to\infty}x_n=\lim\limits_{n\to\infty}\dfrac{1+2x_{n-1}}{1+x_{n-1}}=\dfrac{1+2\lim\limits_{n\to\infty}x_{n-1}}{1+\lim\limits_{n\to\infty}x_{n-1}}=\dfrac{1+2\lim\limits_{n\to\infty}x_n}{1+\lim\limits_{n\to\infty}x_n}$。
+
+解该一元二次方程：$\lim\limits_{n\to\infty}x_n=\dfrac{1\pm\sqrt{5}}{2}$，又根据保号性，$\lim\limits_{n\to\infty}x_n>0$。
+
+$\therefore\lim\limits_{n\to\infty}x_n=\dfrac{1+\sqrt{5}}{2}$。
 
 \subsection{变限积分极限}
 
