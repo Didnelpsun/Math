@@ -1,0 +1,119 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\author{Didnelpsun}
+\title{连续与间断}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{连续}
+
+连续则极限值等于函数值。
+
+\subsection{求连续区间}
+
+若要考察一个函数的连续区间，必须要了解函数的所有部分，一般会给出分段函数，所以要了解分段函数的每段函数的性质。\medskip
+
+\textbf{例题：}$f(x)=\lim\limits_{n\to\infty}\dfrac{x+x^2e^{nx}}{1+e^{nx}}$，求函数连续区间。\medskip
+
+注意到函数的形式为一个极限值，其极限趋向的变量为$n$（$n\to\infty$指$n\to+\infty$）。
+
+\subsection{已知连续区间求参数}
+
+一般会给出带有参数的分段函数，要计算参数就必须了解连续区间与函数之间的关系。
+
+\textbf{例题：}$f(x)=\left\{\begin{array}{lcl}
+    6, & & x\leqslant 0 \\
+    \dfrac{e^{ax^3}-1}{x-\arcsin x}, & & x>0
+\end{array}
+\right.$，$g(x)=\left\{\begin{array}{lcl}
+    \dfrac{3\sin(x-1)}{x-1}, & & x<1 \\
+    e^{bx}+1, & & x\geqslant 1
+\end{array}
+\right.$，\smallskip \\ 若$f(x)+g(x)$在$R$上连续，则求$a,b$。
+
+解：已知$f(x)+g(x)$在$R$上连续，但是不能判断$f(x)$与$g(x)$的连续性。
+
+所以分开讨论。
+
+对于$f(x)$因为左侧为常数函数，所以若是$f(x)$连续，则必然：\medskip
+
+$\lim\limits_{x\to 0^+}\dfrac{e^{ax^3}-1}{x-\arcsin x}=6$\medskip
+
+$\therefore\lim\limits_{x\to 0^+}\dfrac{e^{ax^3}-1}{x-\arcsin x}$\medskip
+
+$=\lim\limits_{x\to 0^+}\dfrac{ax^3}{x-\arcsin x}$\medskip
+
+$\text{令}t=\arcsin x\Rightarrow=\lim\limits_{x\to 0^+}\dfrac{a\sin^3t}{\sin t-t}$
+
+$=a\lim\limits_{x\to 0^+}\dfrac{t^3}{\sin t-t}$\medskip
+
+$=a\lim\limits_{x\to 0^+}\dfrac{3t^2}{\cos t-1}=-6a=6$。\medskip
+
+$\therefore a=-1$时$f(x)$在$R$上连续。\medskip
+
+对于$g(x)$，当$x<1$时，$\lim\limits_{x\to 1^-}\dfrac{3\sin(x-1)}{x-1}=\lim\limits_{t\to 0^-}\dfrac{3\sin t}{t}=3$。\medskip
+
+$\therefore\lim\limits_{x\to 1^+}e^{bx}+1=e^b+1=3$。\medskip
+
+$\therefore b=\ln 2$时$g(x)$在$R$上连续。\medskip
+
+$\therefore a=-1,b=\ln 2$时$f(x)+g(x)$在$R$上连续。而$a\neq -1$时$f(x)+g(x)$在$x=0$时不连续，$b\neq\ln 2$时$f(x)+g(x)$在$x=1$时不连续。
+
+\section{间断}
+
+\subsection{求间断点}
+
+\subsection{已知间断点求参数}
+
+这种题目已知间断点，而未知式子中的参数，只用将间断点代入式子并利用极限计算间断点的类型就可以了。
+
+\textbf{例题：}$f(x)=\dfrac{e^x-b}{(x-a)(x-b)}$有无穷间断点$x=e$，可去间断点$x=1$，求$ab$的值。
+
+已知有两个间断点$x=a,x=b$，其中无穷间断点指极限值为无穷的点，可去间断点表示极限值存在且两侧相等，但是与函数值不相等的点。
+
+已经给出两个间断点的值为$x=1$和$x=e$，所以$ab$必然对应其中一个，但是不清楚到底谁是谁。
+
+当$a=1,b=e$时，$f(x)=\dfrac{e^x-e}{(x-1)(x-e)}$。\medskip
+
+当$x\to 1$时，$\lim\limits_{x\to 1}\dfrac{e^x-e}{(x-1)(x-e)}$$=\dfrac{1}{1-e}\lim\limits_{x\to 1}\dfrac{e^x-e}{x-1}$$=\dfrac{e}{1-e}\lim\limits_{x\to 1}\dfrac{e^{x-1}-1}{x-1}$$=\dfrac{e}{1-e}\lim\limits_{x\to 1}\dfrac{x-1}{x-1}$$=\dfrac{e}{1-e}$。\medskip
+
+$\therefore x=1$为可去间断点。\medskip
+
+当$x\to e$时，$\lim\limits_{x\to e}\dfrac{e^x-e}{(x-1)(x-e)}$$=\dfrac{1}{e-1}\lim\limits_{x\to e}\dfrac{e^x-e}{x-e}$$=\dfrac{e}{e-1}\lim\limits_{x\to e}\dfrac{e^{x-1}-1}{x-e}$\medskip$=\dfrac{e}{e-1}\lim\limits_{x\to e}\dfrac{x-1}{x-e}$$=\dfrac{e(e-1)}{e-1}\lim\limits_{x\to e}\dfrac{1}{x-e}=\infty$。\medskip
+
+$\therefore x=e$为无穷间断点。\medskip
+
+当$a=e,b=1$时，$f(x)=\dfrac{e^x-1}{(x-e)(x-1)}$。\medskip
+
+而作为分子的$e^x-1$必然为一个常数，当式子趋向$1$或$e$的时候分母两个不等式中的一个不等式必然为一个常数，从而另一个不等式则变为了无穷小，所以$\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to e}f(x)=\infty$。
+
+$\therefore a=1,b=e$。
+
+\end{document}

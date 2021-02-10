@@ -28,7 +28,7 @@
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
 \author{Didnelpsun}
-\title{极限练习题}
+\title{极限}
 \date{}
 \begin{document}
 \maketitle
@@ -485,11 +485,43 @@ $=\lim\limits_{x\to 0}\dfrac{(1-a)x-\left(\dfrac{1}{2}+b\right)x^2+o(x^2)}{x^2}=
 
 $1-a=0;-\left(\dfrac{1}{2}+b\right)=2$\medskip
 
-$\therefore a=1;b=-\dfrac{5}{2}$
+$\therefore a=1;b=-\dfrac{5}{2}$。
 
 \subsection{极限存在性}
 
+一般会给出带有参数的例子，并给定一个点指明在该点极限存在，求参数。
 
+若该点极限存在，则该点两侧的极限都相等。\medskip
+
+\textbf{例题：}设函数$f(x)=\left\{\begin{array}{lcl}
+    \dfrac{\sin x(b\cos x-1)}{e^x+a}, & & x>0 \\
+    \dfrac{\sin x}{\ln(1+3x)}, & & x<0
+\end{array}
+\right.$在$x=0$处极限存在，则$a$，$b$分别为。
+
+解：首先根据极限在$x=0$存在，且极限的唯一性。分段函数在0两侧的极限值必然相等。
+
+$\because\lim\limits_{x\to 0^-}\dfrac{\sin x}{\ln(1+3x)}=\lim\limits_{x\to 0^-}\dfrac{\sin x}{3x}=\dfrac{1}{3}=\lim\limits_{x\to 0^+}\dfrac{\sin x(b\cos x-1)}{e^x+a}$。
+
+\medskip
+
+又$\lim\limits_{x\to 0^+}\dfrac{\sin x(b\cos x-1)}{e^x+a}$的分母的$e^x$当$x\to 0^+$时$e^x\to 1$，假如$a\neq-1$，则$e^x+a\neq 0$，则为一个常数。
+
+从而提取常数因子：$\lim\limits_{x\to 0^+}\dfrac{\sin x(b\cos x-1)}{e^x+a}=\dfrac{1}{1+a}\lim\limits_{x\to 0^+}\sin x(b\cos x-1)$，这时候$\sin x$是趋向0的，而$b\cos x-1$无论其中的$b$为何值都是趋向一个常数或0，这时候他们的乘积必然为无穷小，从而无法等于$\dfrac{1}{3}$这个常数。
+
+$\therefore a=-1$，从而让极限式子变为一个商的形式：\medskip
+
+$\lim\limits_{x\to 0^+}\dfrac{\sin x(b\cos x-1)}{e^x+a}$\medskip
+
+$=\lim\limits_{x\to 0^+}\dfrac{\sin x(b\cos x-1)}{e^x-1}$\medskip
+
+$=\lim\limits_{x\to 0^+}\dfrac{\sin x(b\cos x-1)}{x}$\medskip
+
+$=\lim\limits_{x\to 0^+}b\cos x-1$\medskip
+
+$=b-1=\dfrac{1}{3}$\medskip
+
+$\therefore a=-1,b=\dfrac{4}{3}$。
 
 \subsection{极限唯一性}
 
