@@ -31,6 +31,10 @@
 % 圆圈序号
 \usepackage{mathtools}
 % 有字的长箭头
+\usepackage{yhmath}
+% 弧线标识
+\usetikzlibrary{decorations.pathreplacing}
+% tikz的大括号
 \author{Didnelpsun}
 \title{微分中值定理与导数的应用}
 \date{}
@@ -452,5 +456,160 @@ $\forall x\in U(x_0,\delta)$恒有$f(x)\leqslant f(x_0)$，则$f(x)$在$x_0$取�
     \item 若$\lim\limits_{x\to x_0}f(x)=\infty$，那么$x=x_0$就是垂直渐近线。
     \item 若$\lim\limits_{x\to\infty}\dfrac{f(x)}{x}=a,b=\lim\limits_{x\to\infty}(f(x)-ax)$，那么$y=ax+b$就是斜渐近线。
 \end{itemize}
+
+\section{弧微分与曲率}
+
+\subsection{弧微分}
+
+\begin{minipage}{0.5\linewidth}
+    \begin{tikzpicture}[scale=3]
+        \draw[-latex](-0.1,0) -- (1.25,0) node[below]{$x$};
+        \draw[-latex](0,-0.1) -- (0,1.25) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick,domain=0.4:1.1] plot (\x, \x*\x);
+        \filldraw[black] (0.5,1) node {$y=f(x)$};
+        \draw[densely dashed](0.5,0.25) -- (0.5, 0) node[below]{$x$};
+        \draw[densely dashed](1,1) -- (1, 0) node[below]{$x+\Delta x$};
+        \draw[densely dashed](0.5,0.25) -- (1,0.25);
+        \filldraw[black](0.5,0.35) node{$y$};
+        \filldraw[black](0.95,1.1) node{$y_0$};
+        \filldraw[black](0.75,0.35) node{$\Delta x$};
+        \filldraw[black](1.1,0.6) node{$\Delta y$};
+    \end{tikzpicture} 
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    $\vert\wideparen{yy_0}\vert=S(x)$
+
+    $\Delta y=f(x+\Delta x)-f(x)$
+
+    $(\Delta s)^2\approx(\Delta x)^2+(\Delta y)^2$
+\end{minipage}\medskip
+
+当偏移量无穷小时，$y=f(x)$所构成的线段就是一条直线，所以：
+
+\begin{minipage}{0.5\linewidth}
+    \begin{tikzpicture}[scale=3]
+        \draw[-latex](-0.1,0) -- (1.25,0) node[below]{$x$};
+        \draw[-latex](0,-0.1) -- (0,1.25) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick,domain=0.4:1.1] plot (\x, \x);
+        \filldraw[black] (0.5,1) node {$y=f(x)$};
+        \draw[densely dashed](0.5,0.5) -- (0.5, 0) node[below]{$x$};
+        \draw[densely dashed](1,1) -- (1, 0) node[below]{$x+\rm{d} x$};
+        \draw[densely dashed](0.5,0.5) -- (1,0.5);
+        \filldraw[black](0.5,0.6) node{$y$};
+        \filldraw[black](0.95,1.1) node{$y_0$};
+        \filldraw[black](0.75,0.35) node{$\rm{d} x$};
+        \filldraw[black](1.1,0.6) node{$\rm{d} y$};
+    \end{tikzpicture} 
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    $\rm{d} y=f(x+\rm{d} x)-f(x)$
+
+    $(\rm{d} s)^2=(\rm{d} x)^2+(\rm{d} y)^2$
+
+    $\rm{d}s=\sqrt{(\rm{d}x)^2+(\rm{d}y)^2}$（弧微分）
+\end{minipage}
+
+对于弧微分：
+
+\begin{itemize}
+    \item 若直角坐标系下$y=f(x)$，$\rm{d}s=\sqrt{1+\left(\dfrac{\rm{d}y}{\rm{d}x}\right)^2}\rm{d}x$$=\sqrt{1+f'^2(x)}\rm{d}x$，即$\rm{d}s=$$\sqrt{1+f'^2(x)}\rm{d}x$。
+    \item 若参数方程下：$x=\phi(t),y=\psi(t)$，$\rm{d}s=\sqrt{\left(\dfrac{\rm{d}x}{\rm{d}t}\right)^2+\left(\dfrac{\rm{d}y}{\rm{d}t}\right)^2}\rm{d}t$\medskip\\$=\sqrt{\psi'^2(t)+\phi'^2(t)}\rm{d}t$，即$\rm{d}s=\sqrt{\psi'^2(t)+\phi'^2(t)}\rm{d}t$。
+\end{itemize}
+
+\subsection{曲率与曲率半径}
+
+曲率\textcolor{violet}{\textbf{定义：}}表明曲线在某一点的弯曲程度的数值，针对曲线上某个点的切线方向角对弧长的转动率，通过微分来定义，表明曲线偏离直线的程度。曲率越大，表示曲线的弯曲程度越大。
+
+曲率的倒数就是曲率半径。\medskip
+
+\begin{minipage}{0.5\linewidth}
+    两点切线改变角相同时，弯曲程度与两点之间的弧长度成反比。
+
+    两点之间的弧长度相同时，弯曲程度与两点切线改变角成正比。
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\linewidth}
+    \begin{tikzpicture}[scale=0.6]
+        \draw[black, thick,domain=-2:2] plot (\x, {\x*\x});
+        \filldraw[black] (-1,1) circle (2pt) node[left]{$M_1$};
+        \filldraw[black] (1,1) circle (2pt) node[right]{$N_1$};
+        \draw[black](2,3) -- (0,-1);
+        \draw[black](-2,3) -- (0,-1);
+    \end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\linewidth}
+    \begin{tikzpicture}[scale=0.6]
+        \draw[black, thick,domain=-1.5:1.5] plot (\x, {2*\x*\x});
+        \filldraw[black] (-1/2,1/2) circle (2pt) node[left]{$M_2$};
+        \filldraw[black] (1/2,1/2) circle (2pt) node[right]{$N_2$};
+        \draw[black](2,3.5) -- (0,-1/2);
+        \draw[black](-2,3.5) -- (0,-1/2);
+    \end{tikzpicture}
+\end{minipage}
+
+\begin{minipage}{0.3\linewidth}
+    \begin{tikzpicture}[scale=3]
+        \draw[-latex](-0.1,0) -- (1.25,0) node[below]{$x$};
+        \draw[-latex](0,-0.1) -- (0,1.25) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick,domain=-0.1:1.1] plot (\x, \x*\x);
+        \draw[densely dashed](0.5,0.25) -- (0.5, 0) node[below]{$x$};
+        \draw[densely dashed](1,1) -- (1, 0) node[below]{$x+\Delta x$}; 
+        \filldraw[black](0.5,0.35) node{$y$};
+        \filldraw[black](0.95,1.1) node{$y_0$};
+        \filldraw[black] (1/2,1/4) circle (0.5pt);
+        \filldraw[black] (1,1) circle (0.5pt);
+        \draw[black](1,3/4) -- (1/4,0);
+        \draw[black](0.6,0.2) -- (9/8,5/4);
+        \draw[line width=0.1] (0.85,0.7) arc (50:0:0.1);
+        \filldraw[black](1,0.8) node{$\Delta\alpha$};
+        \filldraw[black](0.5,0.8) node{$\vert\wideparen{yy_0}\vert=\Delta s$};
+    \end{tikzpicture} 
+\end{minipage}
+\hfill
+\begin{minipage}{0.6\linewidth}
+    $y-y_0$平均曲率：$\hat{k}=\dfrac{\vert\Delta\alpha\vert}{\vert\Delta s\vert}$。\medskip
+
+    $y$曲率：$k=\lim\limits_{\Delta x\to 0}\left\lvert\dfrac{\Delta\alpha}{\Delta s}\right\rvert=\left\lvert\dfrac{\rm{d}\alpha}{\rm{d}s}\right\rvert$（$\alpha$为$y$处切线与$x$轴所成角）。
+\end{minipage}\medskip
+
+需要对曲率公式进行化简，得到$s$与$\alpha$关于$x$的表示。根据弧微分的定义：$\rm{d}s=$$\sqrt{1+f'^2(x)}\rm{d}x$。
+
+而对于$\alpha$：$\tan\alpha=y'=f'(x)$。
+
+两边对$x$求导：$\sec^2\alpha\cdot\dfrac{\rm{d}\alpha}{\rm{d}x}=y''=f''(x)$。
+
+又$\because\sec^2\alpha=1+\tan^2\alpha=1+y'^2$。
+
+$\therefore\dfrac{\rm{d}\alpha}{\rm{d}x}=\dfrac{y''}{1+y'^2}\Rightarrow\rm{d}\alpha=\dfrac{y''}{1+y'^2}\rm{d}x$。
+
+$\therefore k=\left\lvert\dfrac{\rm{d}\alpha}{\rm{d}s}\right\rvert=\dfrac{\vert y''\vert}{(1+y'^2)^{\frac{3}{2}}}$。
+
+
+\begin{minipage}{0.5\linewidth}
+    $\bigcirc O$为函数$L$在点$X$处的曲率圆，该圆与$L$在$X$处相切，切线为$T$。
+
+    该点的曲率半径为$R$，其中$R=\dfrac{1}{K}$。
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    \begin{tikzpicture}[scale=2]
+        \draw (-1,0) -- (1,0);
+        \node (X) at (0,0)[below]{X};
+        \node (O) at (0,0.5)[above]{O};
+        \draw[densely dashed] (X) -- (O);
+        \filldraw[black] (0.75,0.25) node{$L$};
+        \draw[decorate,decoration={brace,mirror,raise=2pt}] (X) -- (O);
+        \filldraw[black] (0.2,0.25) node{$R$};
+        \filldraw[black] (-0.75,0) node{$T$};
+        \draw[black, thick,domain=-1:1] plot (\x, \x*\x);
+        \draw[black] (0,0.5) circle (0.5);
+    \end{tikzpicture} 
+\end{minipage}
 
 \end{document}

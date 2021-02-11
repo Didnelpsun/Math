@@ -1,0 +1,87 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\author{Didnelpsun}
+\title{导数与微分}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{一阶导数}
+
+\subsection{导数存在性}
+
+导数存在即可导。
+
+\subsection{导数连续性}
+
+\subsection{已知导数求极限}
+
+\section{高阶导数}
+
+\subsection{导数存在性}
+
+\section{微分}
+
+\section{隐函数与参数方程}
+
+\section{导数应用}
+
+\subsection{单调性与凹凸性}
+
+\subsection{极值与最值}
+
+\subsection{函数图像}
+
+\subsection{曲率}
+
+曲率公式：$k=\left\lvert\dfrac{\rm{d}\alpha}{\rm{d}s}\right\rvert=\dfrac{\vert y''\vert}{(1+y'^2)^{\frac{3}{2}}}$。
+
+\subsubsection{一般计算}
+
+\textbf{例题：}求$y=\sin xx$在$x=\dfrac{\pi}{4}$对应的曲率
+
+$y'=\cos x$，$y'(\dfrac{\pi}{4})=\dfrac{\sqrt{2}}{2}$。
+
+$y''=-\sin x$，$y''(\dfrac{\pi}{4})=-\dfrac{\sqrt{2}}{2}$。
+
+$\therefore k=\dfrac{\dfrac{\sqrt{2}}{2}}{\dfrac{3}{2}\cdot\sqrt{\dfrac{3}{2}}}=\dfrac{2\sqrt{3}}{9}$。
+
+所以$y=\sin x$在$x=\dfrac{\pi}{4}$的点$(\dfrac{\pi}{4},\dfrac{\sqrt{2}}{2})$的曲率为$\dfrac{2\sqrt{3}}{9}$。
+
+\subsubsection{最值}
+
+\textbf{例题：}求$y=x^2-4x+11$曲率最大值所在的点。
+
+简单得$y'=2x-4$，$y''=2$。
+
+曲率为$\dfrac{2}{[1+(2x-4)^2]^{\frac{3}{2}}}$。
+
+当$2x-4=0$时即在$(2,7)$时曲率最大为2。
+
+\end{document}
