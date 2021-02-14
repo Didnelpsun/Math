@@ -62,7 +62,7 @@ $f(x)=\left\{\begin{array}{lcl}
 
 可导必连续，连续不一定可导。
 
-导数的定义：$\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}$。
+导数的定义：$\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}$或$\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}$。
 
 导数的存在性：若$\lim\limits_{x\to x_0}f'(x)$存在，则$f'(x_0)=\lim\limits_{x\to x_0}f'(x)$。\medskip
 
@@ -128,7 +128,7 @@ $\therefore f'(0)=\lim\limits_{x\to 0}f'(x)$。计算过程类似。
     x^2, & & x\leqslant 0 \\
     x^\alpha\sin\dfrac{1}{x}, & & x>0
 \end{array}
-\right.$，若$f'(x)$连续，则$\alpha$应该满足？
+\right.$，若$f'(x)$连续，则$\alpha$应该满足？ 
 
 若导数连续，则两侧导数相等。
 
@@ -145,6 +145,22 @@ $\therefore\lim\limits_{x\to 0^+}x^{\alpha-2}=0$。
 $\therefore\alpha-2>0$，从而$\alpha>2$。
 
 \subsection{已知导数求极限}
+
+题目会给出对应的导数以及相关条件，并要求求一个极限，这个极限式子并不是个随机的式子，而一个是与导数定义相关的极限式子，所需要的就是将极限式子转换为导数定义的相关式子。
+
+\textbf{例题：}设$f(x)$是以3为周期的可导函数，且是偶函数，$f'(-2)=-1$，求$\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}$。\medskip
+
+根据导数与函数的基本性质，原函数为偶函数，则其导函数为奇函数，所以$f'(5)=f'(2)=-f'(-2)=1$。
+
+然后需要转换目标的极限式子，因为目标式子倒过来的式子类似于导数定义的$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}$结构。所以我们可以先求其倒数式子：\medskip
+
+$=\lim\limits_{h\to 0}\dfrac{f(5-2\sin h)-f(5)}{h}$
+
+$=\lim\limits_{h\to 0}\dfrac{f(5-2\sin h)-f(5)}{-2\sin h}\cdot\dfrac{-2\sin h}{h}$
+
+$=-2f'(5)=-2\times 1=-2$
+
+$\therefore\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}=-\dfrac{1}{2}$。
 
 \section{高阶导数}
 
