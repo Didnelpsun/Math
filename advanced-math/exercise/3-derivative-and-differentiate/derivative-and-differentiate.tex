@@ -34,11 +34,115 @@
 \setcounter{page}{1}
 \section{一阶导数}
 
+\subsection{分段函数导数}
+
+当给出一个分段函数，要求求出该函数的导数时，最重要的就是分段点是否可导，计算分段点的导数，如果两边的导数不相等，则需要挖去该点。\medskip
+
+\textbf{例题：}设$f(x)=\left\{\begin{array}{lcl}
+    \arctan x, & & x\leqslant 1 \\
+    \dfrac{1}{2}(e^{x^2-1}-x)+\dfrac{\pi}{4}, & & x>1
+\end{array}
+\right.$，求$f'(x)$。
+
+当$x\leqslant 1$时，$f'(x)=\dfrac{1}{1+x^2}$，当$x>1$时，$f'(x)=xe^{x^2-1}-\dfrac{1}{2}$。
+
+然后需要查看分段点两边的导数是否一样：$f'_-(1)=\dfrac{1}{1+x^2}\,\bigg\vert_{x=1}=\dfrac{1}{1+1}=\dfrac{1}{2}$，$f'_+(1)=xe^{x^2-1}-\dfrac{1}{2}\,\bigg\vert_{x=1}=1\cdot e^{1-1}-\dfrac{1}{2}=\dfrac{1}{2}$。\medskip
+
+$\therefore f'_-(1)=f'_+(1)$，所以该点可导。\medskip
+
+$f(x)=\left\{\begin{array}{lcl}
+    \dfrac{1}{1+x^2}, & & x\leqslant 1 \\
+    xe^{x^2-1}-\dfrac{1}{2}, & & x>1
+\end{array}
+\right.$。
+
 \subsection{导数存在性}
 
-导数存在即可导。
+导数存在即可导。而该点左右导数都相等该点才可导。
+
+可导必连续，连续不一定可导。
+
+导数的定义：$\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}$。
+
+导数的存在性：若$\lim\limits_{x\to x_0}f'(x)$存在，则$f'(x_0)=\lim\limits_{x\to x_0}f'(x)$。\medskip
+
+\textbf{例题：}设$f(x)=\left\{\begin{array}{lcl}
+    \dfrac{\ln(1+bx)}{x}, & & x\neq 0 \\
+    -1, & & x=0
+\end{array}
+\right.$，其中$b$为某常数，$f(x)$在定义域上处处可导，求$f'(x)$。
+
+首先需要求出参数$b$，而定义域上可导则在分段点$x=0$处也必然可导。
+
+而可导必连续，所以当$x=0$时$f(x)$也是连续的，而连续的定义就是两边极限相等，且两边极限等于该点函数值。\medskip
+
+$\lim\limits_{x\to 0}\dfrac{\ln(1+bx)}{x}=\lim\limits_{x\to 0}\dfrac{bx}{x}=b=-1$。从而可以完善函数与定义域。\medskip
+
+$\therefore f(x)=\left\{\begin{array}{lcl}
+    \dfrac{\ln(1-x)}{x}, & & x<1,x\neq 0 \\
+    -1, & & x=0
+\end{array}
+\right.$。
+
+这样就能转换为直接求导数问题。
+
+对于定义域的$x<1,x\neq 0$部分：\medskip
+
+$f'(x)=\dfrac{\dfrac{-x}{1-x}-\ln(1-x)}{x^2}=\dfrac{x-(x-1)\ln(1-x)}{x^2(x-1)}\,(x<1,x\neq 0)$。
+
+然后需要求分段点$x=0$处的导数。
+
+可以由导数的定义：、
+
+根据导数的定义是某点偏移量的极限值$\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}$：
+
+$f'(0)=\lim\limits_{x\to 0}\dfrac{f(x)-f(0)}{x-0}$\medskip
+
+$=\dfrac{\dfrac{\ln(1-x)}{x}-(-1)}{x-0}$\medskip
+
+$=\dfrac{\dfrac{\ln(1-x)}{x}+1}{x}$\medskip
+
+$=\dfrac{\ln(1-x)+x}{x^2}$
+
+泰勒公式：$=\dfrac{-x-\dfrac{1}{2}x^2+o(x^2)+x}{x^2}=-\dfrac{1}{2}$。\medskip
+
+$\therefore f'(x)=\left\{\begin{array}{lcl}
+    \dfrac{x-(x-1)\ln(1-x)}{x^2(x-1)}, & & x<1,x\neq 0 \\
+    -\dfrac{1}{2}, & & x=0
+\end{array}
+\right.$。\medskip
+
+同样也可以使用导数的存在性：
+
+$\because f(x)$在$x=0$处连续，$\therefore x=0$的空心邻域上可导。从而$\lim\limits_{x\to x_0}f'(x)$存在。
+
+$\therefore f'(0)=\lim\limits_{x\to 0}f'(x)$。计算过程类似。
 
 \subsection{导数连续性}
+
+导数具有连续性与之前的函数连续性类似，不过要对函数求导数罢了。
+
+要求导数两侧的极限并让其相等。\medskip
+
+\textbf{例题：}设$f(x)=\left\{\begin{array}{lcl}
+    x^2, & & x\leqslant 0 \\
+    x^\alpha\sin\dfrac{1}{x}, & & x>0
+\end{array}
+\right.$，若$f'(x)$连续，则$\alpha$应该满足？
+
+若导数连续，则两侧导数相等。
+
+$\lim\limits_{x\to 0^-}f'(x)=\lim\limits_{x\to 0^-}2x=0$。
+
+$\lim\limits_{x\to 0^+}f'(x)=\lim\limits_{x\to 0^+}\alpha x^{\alpha-1}\sin\dfrac{1}{x}-x^{\alpha-2}\cos\dfrac{1}{x}=\lim\limits_{x\to 0^+}x^{\alpha-2}\left(\alpha x\sin\dfrac{1}{x}-\cos\dfrac{1}{x}\right)$。
+
+$\because x\to 0^+$时，$\sin\dfrac{1}{x}\in[-1,1]$，$\therefore\alpha x\sin\dfrac{1}{x}=0$，$-\cos\dfrac{1}{x}\in[-1,1]$，$\therefore \alpha x\sin\dfrac{1}{x}-\cos\dfrac{1}{x}$为一个不为0的常数。
+
+又$\lim\limits_{x\to 0^+}f'(x)=\lim\limits_{x\to 0^+}x^{\alpha-2}\left(\alpha x\sin\dfrac{1}{x}-\cos\dfrac{1}{x}\right)=\lim\limits_{x\to 0^-}f'(x)=0$。
+
+$\therefore\lim\limits_{x\to 0^+}x^{\alpha-2}=0$。
+
+$\therefore\alpha-2>0$，从而$\alpha>2$。
 
 \subsection{已知导数求极限}
 

@@ -38,11 +38,34 @@
 
 \subsection{求连续区间}
 
-若要考察一个函数的连续区间，必须要了解函数的所有部分，一般会给出分段函数，所以要了解分段函数的每段函数的性质。\medskip
+若要考察一个函数的连续区间，必须要了解函数的所有部分，一般会给出分段函数，所以要了解分段函数的每段函数的性质。
+
+对于函数$f(x)$是个极限表达形式，我们要简化这个极限，最好得到一个$x$的表达式，从而才能判断其连续区间。\medskip
 
 \textbf{例题：}$f(x)=\lim\limits_{n\to\infty}\dfrac{x+x^2e^{nx}}{1+e^{nx}}$，求函数连续区间。\medskip
 
-注意到函数的形式为一个极限值，其极限趋向的变量为$n$（$n\to\infty$指$n\to+\infty$）。
+注意到函数的形式为一个极限值，其极限趋向的变量为$n$（$n\to\infty$指$n\to+\infty$）。所以在该极限式子中将$x$当作类似$t$的常数。
+
+需要先求出极限形式的$f(x)$，而$x$变量的取值会影响到极限，且求的就是$x$的取值范围。所以将其分为三段：
+
+当$x<0$时，$nx\to-\infty$，$\therefore e^{nx}\to 0$，$x^2$在这个极限式子为一个常数，$\therefore x^2e^{nx}\to 0$，$f(x)=\lim\limits_{n\to\infty}\dfrac{x+x^2e^{nx}}{1+e^{nx}}=\dfrac{x+0}{1+0}=x$。\medskip
+
+当$x=0$时，$f(x)=\lim\limits_{n\to\infty}\dfrac{x+x^2e^{nx}}{1+e^{nx}}=\dfrac{0}{2}=0$。\medskip
+
+当$x>0$时，$e^{nx}$在$n\to\infty$时为$\infty$，上下都有这个无穷大的因子，所以上下都除以$e^{nx}$，$f(x)=\lim\limits_{n\to\infty}\dfrac{x+x^2e^{nx}}{1+e^{nx}}=f(x)=\lim\limits_{n\to\infty}\dfrac{xe^{-nx}+x^2}{1+e^{-nx}}=\dfrac{0+x^2}{1}=x^2$。\medskip
+
+从而得到了$f(x)$关于$x$的表达式：\medskip
+
+$f(x)=\left\{\begin{array}{lcl}
+    x, & & x<0 \\
+    0, & & x=0 \\
+    x^2, & & x>0
+\end{array}
+\right.$\medskip
+
+又$\lim\limits_{x\to 0^-}f(x)=\lim\limits_{x\to 0^-}x=\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^-}x^2=f(0)=0$。
+
+$f(x)$在$R$上连续。
 
 \subsection{已知连续区间求参数}
 
