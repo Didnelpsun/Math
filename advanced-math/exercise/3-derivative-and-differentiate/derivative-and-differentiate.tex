@@ -20,6 +20,8 @@
 % 因为所以
 \usepackage{amsmath}
 % 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
 \author{Didnelpsun}
 \title{导数与微分}
 \date{}
@@ -148,6 +150,10 @@ $\therefore\alpha-2>0$，从而$\alpha>2$。
 
 题目会给出对应的导数以及相关条件，并要求求一个极限，这个极限式子并不是个随机的式子，而一个是与导数定义相关的极限式子，所需要的就是将极限式子转换为导数定义的相关式子。
 
+\subsubsection{导数定义式子}
+
+有时极限式子可以直接转换为导数定义式子，稍微变换就可以代入导数。
+
 \textbf{例题：}设$f(x)$是以3为周期的可导函数，且是偶函数，$f'(-2)=-1$，求$\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}$。\medskip
 
 根据导数与函数的基本性质，原函数为偶函数，则其导函数为奇函数，所以$f'(5)=f'(2)=-f'(-2)=1$。
@@ -161,6 +167,12 @@ $=\lim\limits_{h\to 0}\dfrac{f(5-2\sin h)-f(5)}{-2\sin h}\cdot\dfrac{-2\sin h}{h
 $=-2f'(5)=-2\times 1=-2$
 
 $\therefore\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}=-\dfrac{1}{2}$。
+
+\subsubsection{定义近似式子}
+
+有时候极限式子不为导数定义的近似式子，这时候就需要先根据求极限的计算方式简化目标极限式子。
+
+
 
 \section{高阶导数}
 
