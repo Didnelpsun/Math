@@ -35,6 +35,29 @@
 \pagestyle{plain}
 \setcounter{page}{1}
 \section{一阶导数}
+\subsection{幂指函数求导}
+
+形如$f(x)^{g(x)}$的幂指函数求导也可以类似幂指函数的求极限方法。既可以取$e$为底的指数也可以取对数。
+
+\textbf{例题：}求$f(x)=x^{\sin x}(x>0)$的导数。
+
+取对数：
+
+$\therefore\ln y=\sin x\ln x$
+
+求导：
+
+$\dfrac{y'}{y}=\cos\ln x+\dfrac{\sin x}{x}$
+
+$\therefore y'=x^{\sin x}\left(\cos\ln x+\dfrac{\sin x}{x}\right)$。
+
+取指数：
+
+$x^{\sin x}=e^{\sin x\cdot\ln x}$
+
+求导：
+
+$e^{\sin x\cdot\ln x}(\sin x\cdot\ln x)'=x^{\sin x}\left(\cos\ln x+\dfrac{\sin x}{x}\right)$。
 
 \subsection{分段函数导数}
 
@@ -152,7 +175,7 @@ $\therefore\alpha-2>0$，从而$\alpha>2$。
 
 \subsubsection{导数定义式子}
 
-有时极限式子可以直接转换为导数定义式子，稍微变换就可以代入导数。
+有时极限式子可以直接转换为导数定义式子，先稍微变换就可以代入导数。
 
 \textbf{例题：}设$f(x)$是以3为周期的可导函数，且是偶函数，$f'(-2)=-1$，求$\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}$。\medskip
 
@@ -172,11 +195,61 @@ $\therefore\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}=-\dfrac{1}{2}$。
 
 有时候极限式子不为导数定义的近似式子，这时候就需要先根据求极限的计算方式简化目标极限式子。
 
+\textbf{例题：}设$f(x)$在$x=0$处可导且$f(0)=1$，$f'(0)=3$，则数列极限$I=\lim\limits_{n\to\infty}\left(f\left(\dfrac{1}{n}\right)\right)^{\frac{\frac{1}{n}}{1-\cos\frac{1}{n}}}$。\medskip
 
+设$\dfrac{1}{n}=x$，则：
+
+$=\lim\limits_{x\to 0}(f(x))^{\frac{x}{1-\cos x}}$
+
+$=e^{\lim\limits_{x\to 0}\frac{x}{1-\cos x}\ln f(x)}$
+
+$=e^{2\lim\limits_{x\to 0}\frac{\ln f(x)}{x}}$
+
+$=e^{2\lim\limits_{x\to 0}\frac{f(x)-1}{x}}$
+
+$=e^{2\lim\limits_{x\to 0}\frac{f(x)-f(0)}{x-0}}$
+
+$=e^{2f'(0)}=e^6$。
 
 \section{高阶导数}
 
 \subsection{导数存在性}
+
+\subsection{携带未知数的多项式求高阶导}
+
+当所需要的求导的式子为一个多项式的时候，这个求导必然是有规律的。
+
+当所求高阶导数的$x$值为一个常数时，那么这个常数值代入求导的式子必然是会消去一部分的，最常用的常数为$x=0$。
+
+\textbf{例题：}已知$f(x)=x^2(x+1)^2(x+2)^2\cdots(x+n)^2$，求$f''(0)$。
+
+因为式子中带有未知数$n$，所以结果很可能会带有$n$。
+
+而这个式子项数为$n+1$项，所以求导结果必然很大，所以一定会消去一部分。
+
+又求导的自变量$x=0$，而0代入很多式子都会被消去，所以这就是个突破口。
+
+因为求导是求二阶导数，所以很可能这种求导是消去一部分而不是得到一个规律，因为阶数太低很难看出规律。
+
+首先对$f(x)$求一阶导数（需要记住乘积的导数为各项求导的和）：
+
+$f'(x)=2x(x+1)^2(x+2)^2\cdots(x+n)^2$
+
+$\quad\quad\quad+x^22(x+1)(x+2)^2\cdots(x+n)^2$
+
+$\quad\quad\quad+x^2(x+1)^22(x+2)\cdots(x+n)^2$
+
+$\quad\quad\quad\cdots$
+
+$\quad\quad\quad+x^2(x+1)^2(x+2)^2\cdots 2(x+n)$
+
+原式子一共1项，一阶导数后变为$n+1$项和，然后求二阶导数，会变为$(n+1)^2$项和。这时候我们应该回头看目标求的式子为$f''(0)$，而根据式子，只要乘积项中含有$x$项，那么这一整个项就都为0。
+
+一阶导数中除一项每个项都含有$x^2$，所以求二阶导数的时候，$x^2$会变为$2x$在$x=0$处二阶导数为0，所以求二阶导数的时候一次导数的第一项后面$n$项在$x=0$处都是0，可以不用考虑。
+
+而一阶导数的第一项只有对第一个$x$求导时会消去这个$x$变为$2(x+1)^2(x+2)^2\cdots(x+n)^2$，其他的$n$项二阶导数仍然含有$x$的项，所以结果也为0。
+
+所以求$f''(0)$时，只有对一阶导数的第一项的第一个$x$求导所得到的导数项不为0，其他都是0，所以最后$f''(0)=2(x+1)^2(x+2)^2\cdots(x+n)^2=2(n!)^2$。
 
 \section{微分}
 
