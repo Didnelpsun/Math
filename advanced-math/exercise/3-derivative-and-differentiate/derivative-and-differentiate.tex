@@ -251,9 +251,35 @@ $\quad\quad\quad+x^2(x+1)^2(x+2)^2\cdots 2(x+n)$
 
 所以求$f''(0)$时，只有对一阶导数的第一项的第一个$x$求导所得到的导数项不为0，其他都是0，所以最后$f''(0)=2(x+1)^2(x+2)^2\cdots(x+n)^2=2(n!)^2$。
 
+\subsection{反函数高阶导数}
+
+已知一阶导数的时候，反函数的导数为原函数导数的倒数（$g'(x)=\dfrac{1}{f'(x)}$）。
+
+因为原函数的一阶导数是$\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}$，而反函数就是对原函数的$xy$对调，所以其反函数的一阶导数为$\dfrac{\rm{d}\textit{x}}{\rm{d}\textit{y}}$。
+
+\textbf{例题：}已知$y=x+e^x$，求其反函数的二阶导数。
+
+$y=x+e^x$的反函数的一阶导数为$\dfrac{\rm{d}\textit{x}}{\rm{d}\textit{y}}=\dfrac{1}{1+e^x}$。
+
+所以二阶导数为$\dfrac{\rm{d}^2\textit{x}}{\rm{d}\textit{y}^2}=\dfrac{\rm{d}\left(\dfrac{1}{1+\textit{e}^{\textit{x}}}\right)}{\rm{d}\textit{y}}=\dfrac{\dfrac{\rm{d}\left(\dfrac{1}{1+\textit{e}^{\textit{x}}}\right)}{\rm{d}\textit{x}}}{\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}}=-\dfrac{e^x}{(1+e^x)^3}$。
+
 \section{微分}
 
 \section{隐函数与参数方程}
+
+隐函数与参数方程求导基本上只用记住：\medskip
+
+$\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}=\dfrac{\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{t}}}{\dfrac{\rm{d}\textit{x}}{\rm{d}\textit{t}}}$。
+
+\textbf{例题：}已知$y=y(x)$由参数方程$\left\{\begin{array}{lcl}
+    x=\dfrac{1}{2}\ln(1+t^2) \\
+    y=\arctan t
+\end{array}
+\right.$确定，求其一阶导数与二阶导数。
+
+$\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}=\dfrac{\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{t}}}{\dfrac{\rm{d}\textit{x}}{\rm{d}\textit{t}}}=\dfrac{\dfrac{1}{2}\cdot\dfrac{2t}{1+t^2}}{\dfrac{1}{1+t^2}}=\dfrac{1}{t}$。
+
+$\dfrac{\rm{d}^2y}{\rm{d}\textit{x}^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}\right)}{\rm{d}\textit{x}}=\dfrac{\dfrac{\rm{d}\left(\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}\right)}{\rm{d}\textit{t}}}{\dfrac{\rm{d}\textit{x}}{\rm{d}\textit{t}}}=\dfrac{-\dfrac{1}{t^2}}{\dfrac{t}{1+t^2}}=-\dfrac{1+t^2}{t^3}$。
 
 \section{导数应用}
 
@@ -265,11 +291,11 @@ $\quad\quad\quad+x^2(x+1)^2(x+2)^2\cdots 2(x+n)$
 
 \subsection{曲率}
 
-曲率公式：$k=\left\lvert\dfrac{\rm{d}\alpha}{\rm{d}s}\right\rvert=\dfrac{\vert y''\vert}{(1+y'^2)^{\frac{3}{2}}}$。
+曲率公式：$k=\left\lvert\dfrac{\rm{d}\alpha}{\rm{d}\textit{s}}\right\rvert=\dfrac{\vert y''\vert}{(1+y'^2)^{\frac{3}{2}}}$。
 
 \subsubsection{一般计算}
 
-\textbf{例题：}求$y=\sin xx$在$x=\dfrac{\pi}{4}$对应的曲率
+\textbf{例题：}求$y=\sin x$在$x=\dfrac{\pi}{4}$对应的曲率
 
 $y'=\cos x$，$y'(\dfrac{\pi}{4})=\dfrac{\sqrt{2}}{2}$。
 

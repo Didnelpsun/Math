@@ -193,7 +193,9 @@ $=u'(x)v(x)+v'(x)u(x)$
 
 \subsection{反函数导数}
 
-\textcolor{aqua}{\textbf{定理：}}$y=f(x)$可导，且$f'(x)\neq 0$，则存在反函数$x=\varphi(y)$，且$\dfrac{\rm{d}x}{\rm{d}y}=\dfrac{1}{\dfrac{\rm{d}y}{\rm{d}x}}$，即$\varphi'(x)=\dfrac{1}{f'(x)}$。\medskip
+\textcolor{aqua}{\textbf{定理：}}$y=f(x)$可导，且$f'(x)\neq 0$，
+
+则存在反函数$x=\varphi(y)$，且$\dfrac{\rm{d}\textit{x}}{\rm{d}\textit{y}}=\dfrac{1}{\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}}$，即$\varphi'(x)=\dfrac{1}{f'(x)}$。\medskip
 
 $y=f(x)$可导，且$f'(x)\neq 0$就是指严格单调，而严格单调必有反函数。
 
@@ -201,13 +203,13 @@ $y=f(x)$可导，且$f'(x)\neq 0$就是指严格单调，而严格单调必有�
 
 首先反三角函数就是三角函数的反函数。
 
-求$y=\arcsin x$，即$x=\sin y$。
+求$y=\arcsin x$，即$x=\sin y$。\medskip
 
-$\therefore\dfrac{\rm{d}\arcsin x}{\rm{d}x}=\dfrac{1}{\dfrac{\rm{d}\sin y}{\rm{d}y}}=\dfrac{1}{\cos y}=\dfrac{1}{\sqrt{1-\sin^2y}}=\dfrac{1}{\sqrt{1-x^2}}$。\medskip
+$\therefore\dfrac{\rm{d}\arcsin\textit{x}}{\rm{d}\textit{x}}=\dfrac{1}{\dfrac{\rm{d}\sin\textit{y}}{\rm{d}\textit{y}}}=\dfrac{1}{\cos y}=\dfrac{1}{\sqrt{1-\sin^2y}}=\dfrac{1}{\sqrt{1-x^2}}$。\medskip
 
 求$y=\arctan x$，就$x=\tan y$。\medskip
 
-$\therefore\dfrac{\rm{d}\arctan x}{\rm{d}x}=\dfrac{1}{\dfrac{\rm{d}\tan y}{\rm{d}y}}=\dfrac{1}{\sec^2y}=\dfrac{1}{1+\tan^2y}=\dfrac{1}{1+x^2}$。\medskip
+$\therefore\dfrac{\rm{d}\arctan\textit{x}}{\rm{d}\textit{x}}=\dfrac{1}{\dfrac{\rm{d}\tan\textit{y}}{\rm{d}\textit{y}}}=\dfrac{1}{\sec^2y}=\dfrac{1}{1+\tan^2y}=\dfrac{1}{1+x^2}$。\medskip
 
 二阶反函数导数\textcolor{aqua}{\textbf{定理：}}：
 
@@ -215,21 +217,21 @@ $f''(x)$
 
 $=y''_{xx}$\medskip
 
-$=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}$\medskip
+$=\dfrac{\rm{d}\left(\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}\right)}{\rm{d}\textit{x}}$\medskip
 
-$=\dfrac{\rm{d}^2y}{\rm{d}x^2}$\medskip
+$=\dfrac{\rm{d}^2\textit{y}}{\rm{d}\textit{x}^2}$\medskip
 
-$=\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\rm{d}x}$\medskip
+$=\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(\textit{y})}\right)}{\rm{d}\textit{x}}$\medskip
 
-$=\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\rm{d}y}\cdot\dfrac{\rm{d}y}{\rm{d}x}$\medskip
+$=\dfrac{\rm{d}\left(\dfrac{1}{\varphi'(\textit{y})}\right)}{\rm{d}\textit{y}}\cdot\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}$\medskip
 
 $=-\dfrac{x_{yy}''}{(x_y')^2}\cdot\dfrac{1}{x_y'}$\medskip
 
 $=-\dfrac{x_{yy}''}{(x_y')^3}$\medskip
 
-其中$\rm{d}x\cdot\rm{d}x=(\rm{d}x)^2=\rm{d}x^2$称为微分的幂，而$\rm{d}(x^2)$叫幂的微分。
+其中$\rm{d}\textit{x}\cdot\rm{d}\textit{x}=(\rm{d}\textit{x})^2=\rm{d}\textit{x}^2$称为微分的幂，而$\rm{d}(x^2)$叫幂的微分。
 
-\textbf{例题：}设$y=f(x)$的反函数是$x=\varphi(y)$，且$f(x)=\int_1^{2x}e^{t^2}\rm{d}t+1$，求$\varphi''(1)$。
+\textbf{例题：}设$y=f(x)$的反函数是$x=\varphi(y)$，且$f(x)=\int_1^{2x}e^{t^2}\rm{d}\textit{t}+1$，求$\varphi''(1)$。
 
 $\because y=f(x)$，$\therefore x=\varphi(y)$，$x_{yy}''=\varphi''(y)=-\dfrac{y_{xx}''}{(y_x')^3}=-\dfrac{f''(x)}{[f'(x)]^3}$。\medskip
 
@@ -241,7 +243,7 @@ $\because y=f(x)$，$\therefore x=\varphi(y)$，$x_{yy}''=\varphi''(y)=-\dfrac{y
 
 $u=g(x)$在$x$可导，$y=f(u)$在$u=g(x)$处可导，则$\{f[g(x)]\}'=f'[g(x)]g'(x)$。
 
-\textbf{例题：}设$f(x)=\Pi_{n=1}^{100}\left(\tan\dfrac{\pi x^a}{4}-n\right)$，则$f'(1)$为？
+\textbf{例题：}设$f(x)=\prod\limits_{n=1}^{100}\left(\tan\dfrac{\pi x^a}{4}-n\right)$，则$f'(1)$为？
 
 原式=$\left(\tan\dfrac{\pi x}{4}-1\right)\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)$。
 
@@ -492,9 +494,9 @@ $
 
 \medskip
 
-一阶导数：$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{\rm{d}y/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{\psi'(t)}{\varphi'(t)}=u(t)$。
+一阶导数：$\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}=\dfrac{\rm{d}\textit{y}/\rm{d}\textit{t}}{\rm{d}\textit{x}/\rm{d}\textit{t}}=\dfrac{\psi'(t)}{\varphi'(t)}=u(t)$。
 
-二阶导数：$\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{\rm{d}u/\rm{d}t}{\rm{d}x/\rm{d}t}=\dfrac{u'_t}{x'_t}$
+二阶导数：$\dfrac{\rm{d}^2y}{\rm{d}\textit{x}^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}\right)}{\rm{d}\textit{x}}=\dfrac{\rm{d}\left(\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}\right)/\rm{d}\textit{t}}{\rm{d}\textit{x}/\rm{d}\textit{t}}=\dfrac{\rm{d}u/\rm{d}\textit{t}}{\rm{d}\textit{x}/\rm{d}\textit{t}}=\dfrac{u'_t}{x'_t}$
 
 \textbf{例题：}设$y=y(x)$由方程$\left\{
 \begin{array}{l}
@@ -502,13 +504,13 @@ $
     y=t\sin t+\cos t
 \end{array}
 \right.
-$（$t$为参数）确定，求$\dfrac{\rm{d}^2y}{\rm{d}x^2}\vert_{t=\frac{\pi}{4}}$。
+$（$t$为参数）确定，求$\dfrac{\rm{d}^2\textit{y}}{\rm{d}\textit{x}^2}\vert_{t=\frac{\pi}{4}}$。
 
-求参数方程的二阶导数首先就要求出其一阶导数：
+求参数方程的二阶导数首先就要求出其一阶导数：\medskip
 
-$\dfrac{\rm{d}y}{\rm{d}x}=\dfrac{y_t'}{x_t'}=\dfrac{t\cos t}{\cos t}=t$。\medskip
+$\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}=\dfrac{y_t'}{x_t'}=\dfrac{t\cos t}{\cos t}=t$。\medskip
 
-$\therefore\dfrac{\rm{d}^2y}{\rm{d}x^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}y}{\rm{d}x}\right)}{\rm{d}x}=\dfrac{t_t'}{(\sin t)_t'}=\dfrac{1}{\cos t}$\medskip
+$\therefore\dfrac{\rm{d}^2\textit{y}}{\rm{d}\textit{x}^2}=\dfrac{\rm{d}\left(\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}\right)}{\rm{d}\textit{x}}=\dfrac{t_t'}{(\sin t)_t'}=\dfrac{1}{\cos t}$\medskip
 
 $\therefore \sqrt{2}$。
 
@@ -526,9 +528,9 @@ $\therefore \sqrt{2}$。
 
 当$\Delta x\to 0$时，将这个变化定义为$2x\cdot\Delta x+o(\Delta x)$，前项为线性主部，后面为误差。这个就是$S$的微分。
 
-增量$\Delta y=f(x_0+\Delta)-f(x_0)=A\Delta x+o(\Delta x)$，这个$A\Delta x$定义为$\rm{d}y$，叫做$y$的微分。
+增量$\Delta y=f(x_0+\Delta)-f(x_0)=A\Delta x+o(\Delta x)$，这个$A\Delta x$定义为$\rm{d}\textit{y}$，叫做$y$的微分。
 
-$\therefore \rm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\rm{d}x$
+$\therefore \rm{d}\textit{y}\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\rm{d}\textit{x}$
 
 由此，可导必可微，可微必可导。
 
@@ -541,7 +543,7 @@ $\therefore \rm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\rm{
     \draw[black, densely dashed](1.5,1.125) -- (0,1.125) node[left]{$y_0$};
     \draw[black, densely dashed](3,3) -- (3,0) node[below]{$x_0+\Delta x$};
     \draw[black, densely dashed](3,3) -- (0,3) node[left]{$y_0+\Delta x$};
-    \draw[black, densely dashed](3,1.875) -- (0,0.375) node[left]{$\rm{d}yx+b$};
+    \draw[black, densely dashed](3,1.875) -- (0,0.375) node[left]{$\rm{d}\textit{y}\cdot\textit{x}+\textit{b}$};
     \draw[<->, black](1.5,1.125) -- (3,1.125);
     \draw[<->, black](4,1.125) -- (4,3);
     \draw[<->, black](3.25,1.125) -- (3.25,1.875);
@@ -551,7 +553,7 @@ $\therefore \rm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\rm{
     \draw[black](3,1.875) -- (3.75,1.875);
     \filldraw[black] (2.25,0.75) node{$\Delta x$};
     \filldraw[black] (4.3,2) node{$\Delta y$};
-    \filldraw[black] (3.5,1.5) node{\scriptsize{$\rm{d}y$}};
+    \filldraw[black] (3.5,1.5) node{\scriptsize{$\rm{d}\textit{y}$}};
     \filldraw[black] (3.5,2.5) node{\scriptsize{$o(\Delta x)$}};
 \end{tikzpicture}
 
@@ -564,28 +566,28 @@ $\therefore \rm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\rm{
 若函数可导：
 
 \begin{enumerate}
-    \item 和差的微分：$\rm{d}[u(x)\pm v(x)]=\rm{d}u(x)\pm\rm{d}v(x)$。
-    \item 积的微分：$\rm{d}[u(x)v(x)]$$=u(x)\rm{d}v(x)+v(x)\rm{d}u(x)$。
-    \item 商的微分：$\rm{d}\left[\dfrac{u(x)}{v(x)}\right]=\dfrac{v(x)\rm{d}u(x)-u(x)\rm{d}v(x)}{[v(x)]^2}$，$v(x)\neq 0$。
-    \item 复合函数的微分：链式求导法则$\dfrac{\rm{d}u}{\rm{d}x}=\dfrac{\rm{d}u}{\rm{d}y}\cdot\dfrac{\rm{d}y}{\rm{d}x}$。
+    \item 和差的微分：$\rm{d}[\textit{u}(\textit{x})\pm\textit{v}(\textit{x})]=\rm{d}\textit{u}(\textit{x})\pm\rm{d}\textit{v}(\textit{x})$。
+    \item 积的微分：$\rm{d}[\textit{u}(\textit{x})\textit{v}(\textit{x})]$$=\textit{u}(\textit{x})\rm{d}\textit{v}(\textit{x})+\textit{v}(\textit{x})\rm{d}\textit{u}(\textit{x})$。
+    \item 商的微分：$\rm{d}\left[\dfrac{\textit{u}(\textit{x})}{\textit{v}(\textit{x})}\right]=\dfrac{\textit{v}(\textit{x})\rm{d}\textit{u}(\textit{x})-\textit{u}(\textit{x})\rm{d}\textit{v}(\textit{x})}{[\textit{v}(\textit{x})]^2}$，$\textit{v}(\textit{x})\neq 0$。
+    \item 复合函数的微分：链式求导法则$\dfrac{\rm{d}\textit{u}}{\rm{d}\textit{x}}=\dfrac{\rm{d}\textit{u}}{\rm{d}\textit{y}}\cdot\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}$。
 \end{enumerate}
 
 \subsubsection{微分形式不变性}
 
-设$y=f(u)$可微，$u=g(x)$可微，则$y=f(g(x))$可微，且$\rm{d}y=y'_x\rm{d}x=y'_u\rm{d}u$。即对哪个变量求导都是一样的，即$\rm{d}\{f[g(x)]\}=f'[g(x)]g'(x)\rm{d}x$。
+设$y=f(u)$可微，$u=g(x)$可微，则$y=f(g(x))$可微，且$\rm{d}\textit{y}=\textit{y}'_{\textit{x}}\rm{d}\textit{x}=\textit{y}'_{\textit{u}}\rm{d}\textit{u}$。即对哪个变量求导都是一样的，即$\rm{d}\{\textit{f}\,[\textit{g}(\textit{x})]\}=\textit{f}\,'[\textit{g}(\textit{x})]\textit{g}'(\textit{x})\rm{d}\textit{x}$。
 
-一阶微分形式不变性指：$\rm{d}f(\varsigma)=f'(\varsigma)\rm{d}\varsigma$，无论$\varsigma$是什么（类似导数的链式求导法则）。
+一阶微分形式不变性指：$\rm{d}\textit{f}\,(\varsigma)=\textit{f}\,'(\varsigma)\rm{d}\varsigma$，无论$\varsigma$是什么（类似导数的链式求导法则）。
 
-\textbf{例题：}设$y=e^{\sin(\ln x)}$，求$\rm{d}y$。
+\textbf{例题：}设$y=e^{\sin(\ln x)}$，求$\rm{d}\textit{y}$。
 
 $\because y=e^{\sin(\ln x)} \therefore$
 
 $
 \begin{aligned}
-    \rm{d}y &=\rm{d}e^{\sin(\ln x)} \\
-    & =e^{\sin(\ln x)}\cdot\rm{d}(\sin(\ln x)) \\
-    & =e^{\sin(\ln x)}\cdot\cos(\ln x)\cdot\rm{d}\ln x \\
-    & =e^{\sin(\ln x)}\cdot\cos(\ln x)\cdot\dfrac{1}{x}\rm{d}x
+    \rm{d}\textit{y} &=\rm{d}e^{\sin(\ln\textit{x})} \\
+    & =e^{\sin(\ln x)}\cdot\rm{d}(\sin(\ln\textit{x})) \\
+    & =e^{\sin(\ln x)}\cdot\cos(\ln x)\cdot\rm{d}\ln\textit{x} \\
+    & =e^{\sin(\ln x)}\cdot\cos(\ln x)\cdot\dfrac{1}{x}\rm{d}\textit{x}
 \end{aligned}
 $
 
@@ -624,15 +626,15 @@ $
 \subsection{双曲与反双曲函数}
 
 \begin{itemize}
-    \item 双曲正弦：$\rm{sinh}\,\textit{x}=\rm{sh}\,\textit{x}=\dfrac{e^x-e^{-x}}{2}$。
-    \item 双曲余弦：$\rm{cosh}\,\textit{x}=\rm{ch}\,\textit{x}=\dfrac{e^x+e^{-x}}{2}$。
-    \item 双曲正切：$\rm{tanh}\,\textit{x}=\rm{th}\,\textit{x}=\dfrac{\rm{sinh}\,\textit{x}}{\rm{cosh}\,\textit{x}}=\dfrac{e^x-e^{-x}}{e^x+e^{-x}}$。
-    \item 双曲余切：$\rm{coth}\,\textit{x}=\dfrac{\rm{cosh}\,\textit{x}}{\rm{sinh}\,\textit{x}}=\dfrac{e^x+e^{-x}}{e^x-e^{-x}}$。
-    \item 双曲正割：$\rm{sech}\,\textit{x}=\dfrac{1}{\rm{cosh}\,\textit{x}}=\dfrac{2}{e^x+e^{-x}}$。
-    \item 双曲余割：$\rm{csch}\,\textit{x}=\dfrac{1}{\rm{sinh}\,\textit{x}}=\dfrac{2}{e^x-e^{-x}}$。
-    \item 反双曲正弦：$\rm{arcsinh}\,\textit{x}=\ln\left(x+\sqrt{x^2+1}\right)$。
-    \item 反双曲余弦：$\rm{arccosh}\,\textit{x}=\ln\left(x+\sqrt{x^2-1}\right)$。
-    \item 反双曲正切：$\rm{arctanh}\,\textit{x}=\dfrac{1}{2}\ln\left(\dfrac{1+x}{1-x}\right)$。
+    \item 双曲正弦：$\rm{sinh}\,\textit{x}=\rm{sh}\,\textit{x}=\dfrac{\textit{e}^{\textit{x}}-\textit{e}^{\textit{-x}}}{2}$。
+    \item 双曲余弦：$\rm{cosh}\,\textit{x}=\rm{ch}\,\textit{x}=\dfrac{\textit{e}^{\textit{x}}+\textit{e}^{\textit{-x}}}{2}$。
+    \item 双曲正切：$\rm{tanh}\,\textit{x}=\rm{th}\,\textit{x}=\dfrac{\rm{sinh}\,\textit{x}}{\rm{cosh}\,\textit{x}}=\dfrac{\textit{e}^{\textit{x}}-\textit{e}^{\textit{-x}}}{\textit{e}^{\textit{x}}+\textit{e}^{\textit{-x}}}$。
+    \item 双曲余切：$\rm{coth}\,\textit{x}=\dfrac{\rm{cosh}\,\textit{x}}{\rm{sinh}\,\textit{x}}=\dfrac{\textit{e}^{\textit{x}}+\textit{e}^{\textit{-x}}}{\textit{e}^{\textit{x}}-\textit{e}^{\textit{-x}}}$。
+    \item 双曲正割：$\rm{sech}\,\textit{x}=\dfrac{1}{\rm{cosh}\,\textit{x}}=\dfrac{2}{\textit{e}^{\textit{x}}+\textit{e}^{\textit{-x}}}$。
+    \item 双曲余割：$\rm{csch}\,\textit{x}=\dfrac{1}{\rm{sinh}\,\textit{x}}=\dfrac{2}{\textit{e}^{\textit{x}}-\textit{e}^{\textit{-x}}}$。
+    \item 反双曲正弦：$\rm{arcsinh}\,\textit{x}=\ln\left(\textit{x}+\sqrt{\textit{x}^2+1}\right)$。
+    \item 反双曲余弦：$\rm{arccosh}\,\textit{x}=\ln\left(\textit{x}+\sqrt{\textit{x}^2-1}\right)$。
+    \item 反双曲正切：$\rm{arctanh}\,\textit{x}=\dfrac{1}{2}\ln\left(\dfrac{1+\textit{x}}{1-\textit{x}}\right)$。
 \end{itemize}
 
 \begin{center}

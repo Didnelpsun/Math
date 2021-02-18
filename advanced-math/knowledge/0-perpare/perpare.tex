@@ -354,9 +354,9 @@ $$
 反切函数有如下特征：
 
 \begin{enumerate}
-    \item 特殊函数值：$\arctan 0=0$，$\arctan\dfrac{\pi}{6}=\dfrac{\sqrt{3}}{3}=$，$\arctan 1=\dfrac{\pi}{4}$，$\arctan\sqrt{3}=\dfrac{\pi}{3}$，$\rm{arccot}0=\dfrac{\pi}{2}$，$\rm{arccot}\sqrt{3}=\dfrac{\pi}{6}$，$\rm{arccot}1=\dfrac{\pi}{4}$，$\rm{arccot}\dfrac{\sqrt{3}}{3}=\dfrac{\pi}{3}$。
+    \item 特殊函数值：$\arctan 0=0$，$\arctan\dfrac{\pi}{6}=\dfrac{\sqrt{3}}{3}=$，$\arctan 1=\dfrac{\pi}{4}$，$\arctan\sqrt{3}=\dfrac{\pi}{3}$，$\rm{arccot}\,0=\dfrac{\pi}{2}$，$\rm{arccot}\,\sqrt{3}=\dfrac{\pi}{6}$，$\rm{arccot}\,1=\dfrac{\pi}{4}$，$\rm{arccot}\,\dfrac{\sqrt{3}}{3}=\dfrac{\pi}{3}$。
     \item 定义域：$(-\infty, +\infty)$，值域：$\arctan x:[-\dfrac{\pi}{2},+\dfrac{\pi}{2}]$，$\rm{arccot}\,\textit{x}:[0,\pi]$。
-    \item 单调性：$y=\arctan x$单调增，$y=\rm{arccot}x$单调减。
+    \item 单调性：$y=\arctan x$单调增，$y=\rm{arccot}\,\textit{x}$单调减。
     \item 奇偶性：$y=\arctan x$为奇函数。
     \item 有界性：$\vert\arctan x\vert\leqslant\dfrac{\pi}{2}$，$0\leqslant\rm{arccot}\,\textit{x}\leqslant\pi$。
     \item 性质：$\arctan x+\rm{arccot}\,\textit{x}=\dfrac{\pi}{2}(-\infty<x<+\infty)$
@@ -409,7 +409,7 @@ $
 \subparagraph{符号函数} \leavevmode \medskip
 
 $
-    y=\rm{sgn}x=\left\{
+    y=\rm{sgn}\,\textit{x}=\left\{
     \begin{array}{lcl}
         1,  &  & x>0 \\
         0,  &  & x=0 \\
@@ -423,7 +423,7 @@ $
     \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
     \draw[black, thick, domain=0:2] plot (\x,1);
     \draw[black, thick, domain=-2:0] plot (\x,-1);
-    \filldraw[black] (-1.5,1) node{$\rm{sgn}x$};
+    \filldraw[black] (-1.5,1) node{$\rm{sgn}\,\textit{x}$};
     \filldraw[black] circle (2pt) (0,0) node[below]{$O$};
     \filldraw[white, draw=black, line width=1pt] (0,1) circle (2pt);
     \filldraw[black] (0,1) node[left]{$1$};
@@ -993,9 +993,9 @@ $a^\alpha\cdot a^\beta=a^{\alpha+\beta},\dfrac{a^\alpha}{a^\beta}=a^{\alpha-\bet
 
 以后的华里士公式（点火公式）会使用到，如下面的题目：
 
-\textbf{例题5：}计算$\int_0^{\frac{\pi}{2}}\sin^{10}x\rm{d}x$与$\int_0^{\frac{\pi}{2}}\cos^9x\rm{d}x$。
+\textbf{例题5：}计算$\int_0^{\frac{\pi}{2}}\sin^{10}x\rm{d}\textit{x}$与$\int_0^{\frac{\pi}{2}}\cos^9x\rm{d}\textit{x}$。\medskip
 
-原式1为偶数次幂，所以$=\dfrac{9}{10}\cdot\dfrac{7}{8}\cdot\dfrac{5}{6}\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=\dfrac{\pi}{2}\cdot\dfrac{9!!}{10!!}$
+原式1为偶数次幂，所以$=\dfrac{9}{10}\cdot\dfrac{7}{8}\cdot\dfrac{5}{6}\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=\dfrac{\pi}{2}\cdot\dfrac{9!!}{10!!}$。\medskip
 
 原式2为奇数次幂，所以$=\dfrac{8}{9}\cdot\dfrac{6}{7}\cdot\dfrac{4}{5}\cdot\dfrac{2}{3}=\dfrac{8!!}{9!!}$
 
@@ -1010,7 +1010,7 @@ $a^\alpha\cdot a^\beta=a^{\alpha+\beta},\dfrac{a^\alpha}{a^\beta}=a^{\alpha-\bet
 \begin{enumerate}
     \item $\vert a\pm b\vert\leqslant\vert a\vert+\vert b\vert$。
     \item 推广公式一到离散区间：$\vert a_1\pm a_2\pm a_3\pm\cdots\pm a_n\vert\leqslant\vert a_1\vert+\vert a_2\vert+\cdots+\vert a_n\vert$。
-    \item 推广公式一到连续区间且$f(x)$在$[a,b](a<b)$上可积：$\vert\int_a^bf(x)\rm{d}x\vert\leqslant\int_a^b\vert f(x)\vert\rm{d}x$。因为符号不一定相同的面积代数和一定小于同为正的面积代数和。
+    \item 推广公式一到连续区间且$f(x)$在$[a,b](a<b)$上可积：$\vert\int_a^bf(x)\rm{d}\textit{x}\vert\leqslant\int_a^b\vert f(x)\vert\rm{d}\textit{x}$。因为符号不一定相同的面积代数和一定小于同为正的面积代数和。
     \item $\vert\vert a\vert-\vert b\vert\vert\leqslant\vert a-b\vert$。后式子为两点之差，前式子可以看作$a$、$b$两点与0之间的距离的差，若异号则两者必然抵消一部分，若同号则就等于后式。
 \end{enumerate}
 
