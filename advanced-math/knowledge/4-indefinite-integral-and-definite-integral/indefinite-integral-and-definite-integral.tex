@@ -2,6 +2,9 @@
 % UTF8编码，ctexart现实中文
 \usepackage{color}
 % 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\definecolor{violet}{RGB}{192,0,255} 
+\definecolor{aqua}{RGB}{0,255,255} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -16,6 +19,12 @@
 \usepackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 % 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
 \author{Didnelpsun}
 \title{不定积分与定积分}
 \date{}
@@ -28,5 +37,33 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{}
+\section{不定积分}
+
+积分就是导数的逆运算。$\int f(x)\,\rm{d}$$x=F(x)+C$，$F'(x)=f(x)$。 
+
+所以积分运算就可以将原来求导的方式进行逆运算。其中隐函数求导法与参数方程求导法都可以看作复合函数求导法则的变式。
+
+函数和差的求导法则的逆运算，就是分项积分法。
+
+复合函数的求导法则的逆运算，就是换元积分法。
+
+函数乘积的求导法则的逆运算，就是分部积分法。
+
+\subsection{换元积分法}
+
+\subsubsection{第一类换元法（凑微分法）}
+
+\textcolor{aqua}{\textbf{定理：}}$\int f(u)\,\rm{d}$$u=F(u)+C$，则$\int f[\varphi(x)]\varphi'(x)\,\rm{d}$$x=\int f[\varphi(x)]\,\rm{d}$$\varphi(x)=F[\varphi(x)]+C$。
+
+如已知$\int e^x\,\rm{d}$$x=e^x+C$，则$\int xe^{x^2}\,\rm{d}$$x=\dfrac{1}{2}\int e^{x^2}(x^2)'\rm{d}$$x=\dfrac{1}{2}\int e^{x^2}\rm{d}$$x^2=\dfrac{1}{2}e^{x^2}+C$。
+
+\textbf{例题：}求$\int(1+3x)^{100}\,\rm{d}\textit{x}$
+
+$\int(1+3x)^{100}\,\rm{d}$$x=\dfrac{1}{3}\int(1+3x)^{100}\rm{d}$$(1+3x)=\dfrac{1}{303}(1+3x)^{101}+C$。
+
+
+
+\subsection{分部积分法}
+
+\section{定积分}
 \end{document}
