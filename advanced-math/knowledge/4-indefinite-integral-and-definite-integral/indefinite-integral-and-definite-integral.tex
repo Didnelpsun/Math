@@ -55,12 +55,59 @@
 
 \textcolor{aqua}{\textbf{定理：}}$\int f(u)\,\rm{d}$$u=F(u)+C$，则$\int f[\varphi(x)]\varphi'(x)\,\rm{d}$$x=\int f[\varphi(x)]\,\rm{d}$$\varphi(x)=F[\varphi(x)]+C$。
 
-如已知$\int e^x\,\rm{d}$$x=e^x+C$，则$\int xe^{x^2}\,\rm{d}$$x=\dfrac{1}{2}\int e^{x^2}(x^2)'\rm{d}$$x=\dfrac{1}{2}\int e^{x^2}\rm{d}$$x^2=\dfrac{1}{2}e^{x^2}+C$。
+$\int\dfrac{\rm{d}\textit{x}}{a^2+x^2}=\dfrac{1}{a}\int\dfrac{\rm{d}\dfrac{\textit{x}}{\textit{a}}}{1+\left(\dfrac{x}{a}\right)^2}=\dfrac{1}{a}\arctan\dfrac{x}{a}+C$，$\int\dfrac{\rm{d}\textit{x}}{\sqrt{a^2-x^2}}=\int\dfrac{\rm{d}\dfrac{\textit{x}}{\textit{a}}}{\sqrt{1-\left(\dfrac{x}{a}\right)^2}}=\arcsin\dfrac{x}{a}+C$。
 
-\textbf{例题：}求$\int(1+3x)^{100}\,\rm{d}\textit{x}$
+如$\int\dfrac{x}{\sqrt{1+x^2}}\rm{d}\textit{x}=\dfrac{1}{2}\int\dfrac{\rm{d}(1+\textit{x}^2)}{\sqrt{1+x^2}}=\sqrt{1+x^2}+C$。\medskip
 
-$\int(1+3x)^{100}\,\rm{d}$$x=\dfrac{1}{3}\int(1+3x)^{100}\rm{d}$$(1+3x)=\dfrac{1}{303}(1+3x)^{101}+C$。
+凑微分法适用于式子比较简单的情况，所凑微分的形式必须符合一个简单积分公式的式子，且有一定的式子可以提出来到微分号后面。
 
+\textbf{例题：}
+
+$\int(1+3x)^{100}\,\rm{d}$$x=\dfrac{1}{3}\int(1+3x)^{100}\,\rm{d}$$(1+3x)=\dfrac{1}{303}(1+3x)^{101}+C$。
+
+$\int\cos^2x\,\rm{d}$$x=\dfrac{1}{2}\int(1+\cos 2\textit{x})\,\rm{d}$$x=\dfrac{1}{2}\left(x+\dfrac{1}{2}\sin 2x\right)+C$。
+
+$\int\cos^3x\,\rm{d}$$x=\int\cos^2\,\rm{d}$$\sin x=\int(1-\sin^2x)\,\rm{d}$$\sin x=\sin x-\dfrac{1}{3}\sin^3x+C$。
+
+$\int\dfrac{\rm{d}\textit{x}}{x\sqrt{1+\ln x}}=\int\dfrac{\rm{d}(1+\ln\textit{x})}{\sqrt{1+\ln x}}=2\sqrt{1+\ln x}+C$。
+
+$\int\dfrac{\rm{d}\textit{x}}{\sqrt{x}(1+x)}=2\int\dfrac{\rm{d}\sqrt{\textit{x}}}{1+(\sqrt{x})^2}=2\arctan\sqrt{x}+C$。
+
+$\int\dfrac{\arcsin\sqrt{x}}{\sqrt{x(1-x)}}\,\rm{d}$$x=\int\dfrac{\arcsin\sqrt{x}}{1-x}\cdot\dfrac{\rm{d}\textit{x}}{\sqrt{x}}$$=2\int\dfrac{\arcsin\sqrt{x}}{1-(\sqrt{x})^2}\,\rm{d}$$\sqrt{x}$
+
+$=2\int\arcsin\sqrt{x}\,\rm{d}$$\arcsin\sqrt{x}=(\arcsin\sqrt{x})^2+C$。
+
+\subsubsection{第二类换元法}
+
+\textcolor{aqua}{\textbf{定理：}}设$x=\varphi(t)$为单调可导函数，且$\varphi'(t)\neq 0$，$\int f[\varphi(t)\varphi'(t)]\,\rm{d}$$t=F(t)+C$，则$\int f(x)\rm{d}$$x=\int f[\varphi(t)\varphi'(t)]\,\rm{d}$$t=F(t)+C=F[\varphi^{-1}(x)]+C$。
+
+第二类换元法适用于无法适用第一类换元法的情况，但是最重要的还是对于中间变量的取值，这个中间变量必须要让原式子更简单，且还要注意到变量取值范围。
+
+\textcolor{orange}{注意：}$\varphi'(t)\neq 0$是为了保证中间变量函数具有反函数，而单调函数必然有反函数，所以只要能证明这个中间变量函数必然单调，那么其实$\varphi'(t)$也可以等于0。
+
+\textbf{例题：}求$\int\sqrt{a^2-x^2}\,\rm{d}$$x(a>0)$。
+
+首先看题目，如果使用凑微分法，那必须从式子中提取出一个式子放到微分后面，且提取后的式子满足一个简单的积分公式。
+
+这个式子一般就只能提取出$x$到平方号外面，但是提取后式子仍不能变为一个简单微分公式，所以说第一种凑微分法就无法使用，就只能使用第二类换元法。
+
+这个式子是一个平方取开平方的式子，所以取中间变量后最好让这个式子能被开平方。又涉及到一个常数$a$，所以我们很容易就想到是否可以通过三角函数来作为中间变量。
+
+所以取$x=a\sin t$，从而$\sqrt{a^2-x^2}=a\cos t$。
+
+并且还要注意到这个$t$的取值范围。
+
+因为$x=\varphi(t)$是一个单调可导的函数。所以$\sin t$必须取在单调区间上。
+
+又$\sqrt{a^2-x^2}$要求$-a\leqslant x\leqslant a$，$-a\leqslant a\sin t\leqslant a$，从而$-1\leqslant\sin t\leqslant 1$。
+
+且$\varphi'(t)\neq 0$，所以$\cos t\neq 0$。
+
+所以综上三个条件从而得到一个$t$的定义域：$t\in\left[-\dfrac{\pi}{2},0\right)\bigcup\left(0,\dfrac{\pi}{2}\right]$。
+
+但是在$\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$上$\varphi'(t)=a\sin t$是严格单调递增的，单调函数必然存在反函数，所以$\varphi'(t)$可以等于0，从而$t\in\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$。
+
+$\int\sqrt{a^2-x^2}\,\rm{d}$$x=a\int\cos t\,\rm{d}$$a\sin t=a^2\int\cos^2t\rm{d}$$t=\dfrac{a^2}{2}\int(1+\cos 2t)\rm{d}$$t=\dfrac{a^2}{2}\left(t+\dfrac{1}{2}\sin 2t\right)+C=\dfrac{a^2}{2}\left(\arcsin\dfrac{x}{a}+\dfrac{x}{a}\sqrt{1-\dfrac{x^2}{a^2}}\right)+C$。
 
 
 \subsection{分部积分法}
