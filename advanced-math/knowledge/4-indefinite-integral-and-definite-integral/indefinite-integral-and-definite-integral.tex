@@ -39,11 +39,26 @@
 \setcounter{page}{1}
 \section{不定积分}
 
-积分就是导数的逆运算。$\int f(x)\,\rm{d}$$x=F(x)+C$，$F'(x)=f(x)$。 
+\subsection{定义}
 
-所以积分运算就可以将原来求导的方式进行逆运算。其中隐函数求导法与参数方程求导法都可以看作复合函数求导法则的变式。
+设$f(x)$定义在区间$I$上，若存在可导函数$F(x)$，使得$F'(x)=f(x)$对于任意$x\in I$都成立，则称$F(x)$为$f(x)$在区间$I$上的一个原函数。对于全体的原函数集合，就称为不定积分。
 
-函数和差的求导法则的逆运算，就是分项积分法。
+连续函数必有原函数。
+
+在区间$I$上，函数$f(x)$带有任意常数项的原函数称为$f(x)/f(x)\,\textrm{d}x$在该区间上的不定积分，记为$\int f(x)\,\textrm{d}x$，其中$\int$为积分号，$f(x)$为被积函数，$f(x)\,\textrm{d}x$为被积表达式，$x$为积分变量。
+
+积分就是导数的逆运算。$\int f(x)\,\textrm{d}x=F(x)+C$，$F'(x)=f(x)$。 
+
+\subsection{性质与积分运算}
+
+积分运算就可以将原来求导的方式进行逆运算。其中隐函数求导法与参数方程求导法都可以看作复合函数求导法则的变式。
+
+积分运算具有两个性质：
+
+\begin{enumerate}
+    \item $\int[f(x)+g(x)]\textrm{d}x=\int f(x)\textrm{d}x+\int g(x)\textrm{d}x$，就是分项积分法。
+    \item $\int kf(x)\textrm{d}x=k\int f(x)\textrm{d}x$。
+\end{enumerate}
 
 复合函数的求导法则的逆运算，就是换元积分法。
 
@@ -53,39 +68,41 @@
 
 \subsubsection{第一类换元法（凑微分法）}
 
-\textcolor{aqua}{\textbf{定理：}}$\int f(u)\,\rm{d}$$u=F(u)+C$，则$\int f[\varphi(x)]\varphi'(x)\,\rm{d}$$x=\int f[\varphi(x)]\,\rm{d}$$\varphi(x)=F[\varphi(x)]+C$。
+\textcolor{aqua}{\textbf{定理：}}$\int f(u)\,\textrm{d}u=F(u)+C$，则$\int f[\varphi(x)]\varphi'(x)\,\textrm{d}x=\int f[\varphi(x)]\,\textrm{d}\varphi(x)=F[\varphi(x)]+C$。
 
-$\int\dfrac{\rm{d}\textit{x}}{a^2+x^2}=\dfrac{1}{a}\int\dfrac{\rm{d}\dfrac{\textit{x}}{\textit{a}}}{1+\left(\dfrac{x}{a}\right)^2}=\dfrac{1}{a}\arctan\dfrac{x}{a}+C$，$\int\dfrac{\rm{d}\textit{x}}{\sqrt{a^2-x^2}}=\int\dfrac{\rm{d}\dfrac{\textit{x}}{\textit{a}}}{\sqrt{1-\left(\dfrac{x}{a}\right)^2}}=\arcsin\dfrac{x}{a}+C$。
+$\displaystyle{\int\dfrac{\textrm{d}x}{a^2+x^2}}=\displaystyle{\dfrac{1}{a}\int\dfrac{\textrm{d}\dfrac{x}{a}}{1+\left(\dfrac{x}{a}\right)^2}}=\dfrac{1}{a}\arctan\dfrac{x}{a}+C$。\medskip
 
-如$\int\dfrac{x}{\sqrt{1+x^2}}\rm{d}\textit{x}=\dfrac{1}{2}\int\dfrac{\rm{d}(1+\textit{x}^2)}{\sqrt{1+x^2}}=\sqrt{1+x^2}+C$。\medskip
+$\displaystyle{\int\dfrac{\textrm{d}x}{\sqrt{a^2-x^2}}}=\displaystyle{\int\dfrac{\textrm{d}\dfrac{x}{a}}{\sqrt{1-\left(\dfrac{x}{a}\right)^2}}}=\arcsin\dfrac{x}{a}+C$。\medskip
+
+如$\displaystyle{\int\dfrac{x}{\sqrt{1+x^2}}\textrm{d}x=\dfrac{1}{2}\int\dfrac{\textrm{d}(1+x^2)}{\sqrt{1+x^2}}}=\sqrt{1+x^2}+C$。\medskip
 
 凑微分法适用于式子比较简单的情况，所凑微分的形式必须符合一个简单积分公式的式子，且有一定的式子可以提出来到微分号后面。
 
 \textbf{例题：}
 
-$\int(1+3x)^{100}\,\rm{d}$$x=\dfrac{1}{3}\int(1+3x)^{100}\,\rm{d}$$(1+3x)=\dfrac{1}{303}(1+3x)^{101}+C$。
+$\int(1+3x)^{100}\,\textrm{d}x=\dfrac{1}{3}\int(1+3x)^{100}\,\textrm{d}(1+3x)=\dfrac{1}{303}(1+3x)^{101}+C$。
 
-$\int\cos^2x\,\rm{d}$$x=\dfrac{1}{2}\int(1+\cos 2\textit{x})\,\rm{d}$$x=\dfrac{1}{2}\left(x+\dfrac{1}{2}\sin 2x\right)+C$。
+$\int\cos^2x\,\textrm{d}x=\dfrac{1}{2}\int(1+\cos 2x)\,\textrm{d}x=\dfrac{1}{2}\left(x+\dfrac{1}{2}\sin 2x\right)+C$。
 
-$\int\cos^3x\,\rm{d}$$x=\int\cos^2\,\rm{d}$$\sin x=\int(1-\sin^2x)\,\rm{d}$$\sin x=\sin x-\dfrac{1}{3}\sin^3x+C$。
+$\int\cos^3x\,\textrm{d}x=\int\cos^2\,\textrm{d}\sin x=\int(1-\sin^2x)\,\textrm{d}\sin x=\sin x-\dfrac{1}{3}\sin^3x+C$。
 
-$\int\dfrac{\rm{d}\textit{x}}{x\sqrt{1+\ln x}}=\int\dfrac{\rm{d}(1+\ln\textit{x})}{\sqrt{1+\ln x}}=2\sqrt{1+\ln x}+C$。
+$\displaystyle{\int\dfrac{\textrm{d}x}{x\sqrt{1+\ln x}}=\int\dfrac{\textrm{d}(1+\ln x)}{\sqrt{1+\ln x}}}=2\sqrt{1+\ln x}+C$。
 
-$\int\dfrac{\rm{d}\textit{x}}{\sqrt{x}(1+x)}=2\int\dfrac{\rm{d}\sqrt{\textit{x}}}{1+(\sqrt{x})^2}=2\arctan\sqrt{x}+C$。
+$\displaystyle{\int\dfrac{\textrm{d}x}{\sqrt{x}(1+x)}=2\int\dfrac{\textrm{d}\sqrt{x}}{1+(\sqrt{x})^2}}=2\arctan\sqrt{x}+C$。
 
-$\int\dfrac{\arcsin\sqrt{x}}{\sqrt{x(1-x)}}\,\rm{d}$$x=\int\dfrac{\arcsin\sqrt{x}}{1-x}\cdot\dfrac{\rm{d}\textit{x}}{\sqrt{x}}$$=2\int\dfrac{\arcsin\sqrt{x}}{1-(\sqrt{x})^2}\,\rm{d}$$\sqrt{x}$
+$\displaystyle{\int\dfrac{\arcsin\sqrt{x}}{\sqrt{x(1-x)}}\,\textrm{d}x=\int\dfrac{\arcsin\sqrt{x}}{1-x}\cdot\dfrac{\textrm{d}x}{\sqrt{x}}=2\int\dfrac{\arcsin\sqrt{x}}{1-(\sqrt{x})^2}\,\textrm{d}\sqrt{x}}$
 
-$=2\int\arcsin\sqrt{x}\,\rm{d}$$\arcsin\sqrt{x}=(\arcsin\sqrt{x})^2+C$。
+$=2\int\arcsin\sqrt{x}\,\textrm{d}\arcsin\sqrt{x}=(\arcsin\sqrt{x})^2+C$。
 
 \subsubsection{第二类换元法}
 
-\textcolor{aqua}{\textbf{定理：}}设$x=\varphi(t)$为单调可导函数，且$\varphi'(t)\neq 0$，$\int f[\varphi(t)\varphi'(t)]\,\rm{d}$$t=F(t)+C$，则$\int f(x)\rm{d}$$x=\int f[\varphi(t)\varphi'(t)]\,\rm{d}$$t=F(t)+C=F[\varphi^{-1}(x)]+C$。
+\textcolor{aqua}{\textbf{定理：}}设$x=\varphi(t)$为单调可导函数，且$\varphi'(t)\neq 0$，$\int f[\varphi(t)\varphi'(t)]\,\textrm{d}t=F(t)+C$，则$\int f(x)\textrm{d}x=\int f[\varphi(t)\varphi'(t)]\,\textrm{d}t=F(t)+C=F[\varphi^{-1}(x)]+C$。
 
 第二类换元法适用于无法适用第一类换元法的情况，但是最重要的还是对于中间变量的取值，这个中间变量必须要让原式子更简单，且还要注意到变量取值范围。
 
 \textcolor{orange}{注意：}$\varphi'(t)\neq 0$是为了保证中间变量函数具有反函数，而单调函数必然有反函数，所以只要能证明这个中间变量函数必然单调，那么其实$\varphi'(t)$也可以等于0。
 
-\textbf{例题：}求$\int\sqrt{a^2-x^2}\,\rm{d}$$x(a>0)$。
+\textbf{例题：}求$\int\sqrt{a^2-x^2}\,\textrm{d}x(a>0)$。
 
 首先看题目，如果使用凑微分法，那必须从式子中提取出一个式子放到微分后面，且提取后的式子满足一个简单的积分公式。
 
@@ -107,10 +124,198 @@ $=2\int\arcsin\sqrt{x}\,\rm{d}$$\arcsin\sqrt{x}=(\arcsin\sqrt{x})^2+C$。
 
 但是在$\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$上$\varphi'(t)=a\sin t$是严格单调递增的，单调函数必然存在反函数，所以$\varphi'(t)$可以等于0，从而$t\in\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$。
 
-$\int\sqrt{a^2-x^2}\,\rm{d}$$x=a\int\cos t\,\rm{d}$$a\sin t=a^2\int\cos^2t\rm{d}$$t=\dfrac{a^2}{2}\int(1+\cos 2t)\rm{d}$$t=\dfrac{a^2}{2}\left(t+\dfrac{1}{2}\sin 2t\right)+C=\dfrac{a^2}{2}\left(\arcsin\dfrac{x}{a}+\dfrac{x}{a}\sqrt{1-\dfrac{x^2}{a^2}}\right)+C$。
+$\int\sqrt{a^2-x^2}\,\textrm{d}x=a\int\cos t\,\textrm{d}a\sin t=a^2\int\cos^2t\textrm{d}t=\dfrac{a^2}{2}\int(1+\cos 2t)\textrm{d}t=\dfrac{a^2}{2}\left(t+\dfrac{1}{2}\sin 2t\right)+C=\dfrac{a^2}{2}\left(\arcsin\dfrac{x}{a}+\dfrac{x}{a}\sqrt{1-\dfrac{x^2}{a^2}}\right)+C$。
 
+\textbf{例题：}
+
+已知$\tan^2x+1=\sec^2x$。
+
+$\displaystyle{\int\dfrac{\textrm{d}x}{\sqrt{a^2+x^2}}}(a>0)$。
+
+令$x=a\tan t$。
+
+原式$=\displaystyle{\int\dfrac{a\sec^2t}{a\sec t}\,\textrm{d}t=\int\sec t\,\textrm{d}t}=\ln\vert\sec t+\tan t\vert+C=\ln\bigg\vert\sqrt{1+\dfrac{x^2}{a^2}}+\dfrac{x}{a}\bigg\vert+C$。
+
+$\displaystyle{\int\dfrac{\textrm{d}x}{\sqrt{x^2-a^2}}}(a>0)$。
+
+令$x=a\sec t$。
+
+原式$=\displaystyle{\int\dfrac{a\sec t\tan t}{a\tan t}\,\textrm{d}t}=\ln\bigg\vert\sec t+\tan t\bigg\vert+C=\ln\bigg\vert\dfrac{x}{a}+\sqrt{\dfrac{x^2}{a^2}-1}\vert+C$。\medskip
+
+所以常用的换元积分替换方式：
+
+\begin{enumerate}
+    \item $\sqrt{a^2-x^2}$：$x=a\sin t(a\cos t)$。
+    \item $\sqrt{a^2+x^2}$：$x=a\tan t$。
+    \item $\sqrt{x^2-a^2}$：$x=a\sec t$。
+\end{enumerate}
+
+换元法本质是将式子转换为我们已知的积分公式，所以换元积分法只适合于能转换为积分公式的简单式子上，如果式子比较复杂或形式与大部分积分公式不一致，那么也无法换元了。
 
 \subsection{分部积分法}
 
+已知$(uv)'=uv'+u'v$，所以$uv'=(uv)'-u'v$，从而$\int uv'\,\textrm{d}x=\int(uv)'\,\textrm{d}x-\int vu'\,\textrm{d}x$，即$\int u\,\textrm{d}v=uv-\int v\,\textrm{d}u$。
+
+所以分部积分法的公式就是：$\int u\,\textrm{d}v=uv-\int v\,\textrm{d}u$。
+
+所以分部积分法的适用方式就是所求积分的式子是一个可拆分为两项不同函数的式子，式子的分式中一个式子不好积分，另一个式子好积分，就可以用好积分的式子来积分计算。
+
+\subsubsection{基本分部积分}
+
+\textbf{例题：}
+
+$\int xe^x\,\textrm{d}x=\int x\,\textrm{d}e^x=xe^x-\int e^x\textrm{d}x=xe^x-e^x+C$。
+
+$\int x\sin x\,\textrm{d}x=-\int x\,\textrm{d}\cos x=-[x\cos x-\int\cos x\,\textrm{d}x]=-[x\cos x-\sin x]+C=\sin x-x\cos x+C$。
+
+$\int x\ln x\,\textrm{d}x=\dfrac{1}{2}\int\ln x\textrm{d}x^2=\dfrac{1}{2}[x^2\ln x-\ln x^2\textrm{d}\ln x]=\dfrac{1}{2}[x^2\ln x-\ln x\textrm{d}x]=\dfrac{1}{2}x^2\ln x-\dfrac{1}{4}x^2+C$。
+
+$\int x\arctan x\textrm{d}x=\dfrac{1}{2}\int\arctan x\textrm{d}x^2=\dfrac{1}{2}\left[x^2\arctan x-\displaystyle{\int\dfrac{x^2}{1+x^2}\textrm{d}x}\right]=\\ \dfrac{1}{2}[x^2\arctan x-x+\arctan x]+C$。
+
+\subsubsection{多次分部积分还原}
+
+当式子中含有$\sin x$，$\cos x$，$e^x$这种积分后变化不大的因式时，可以适用多步分部积分，然后在右边计算的式子中得到左边目标式子一样的因式，然后移到一边就能得到目标式子的表达式。
+
+\textbf{例题：}\medskip
+
+$
+\begin{aligned}
+    \int e^x\sin x\,\textrm{d}x & =\int\sin x\,\textrm{d}e^x \\
+    & =e^x\sin x-\int e^x\cos x\,\textrm{d}x \\
+    & =e^x\sin x-\int\cos x\,\textrm{d}e^x \\
+    & =e^x\sin x-\left[e^x\cos x+\int e^x\sin\,\textrm{d}x\right] \\
+    2\int e^x\sin x\,\textrm{d}x & =e^x\sin x-e^x\cos x
+\end{aligned}
+$
+
+$\therefore\int e^x\sin x\,\textrm{d}x=\dfrac{e^x\sin x-e^x\cos}{2}+C$。
+
+$
+\begin{aligned}
+    \int\sec^3x\,\textrm{d}x =&\int\sec x\,\textrm{d}\tan x \\
+    & =\sec x\tan x-\int\tan^2x\sec x\,\textrm{d}x \\
+    & =\sec x\tan x-\int\sec^3x\textrm{d}x+\int\sec x\textrm{d}x \\
+    2\int\sec^3x\,\textrm{d}x =&[\sec x\tan x+\ln\vert\sec x+\tan x\vert]
+\end{aligned}
+$
+
+$\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\vert}{2}+C$。
+
+如上所说分部积分的方法就是找到目标式子中两个因式好求的一部分进行积分，其中好求是指$\textrm{d}v$微分后这个结果会简化整个式子。
+
+其中$e^x$，$\sin x$，$\cos x$这三个因式求微分后无法简化，所以无法对其微分，除非需要多次分部积分还原间接求出；$x^n$微分后会降幂，所以一般可以积分；而$\ln x$，$\arctan x$，$\arcsin x$微分会转换为幂函数相关的式子降低幂次，如果不对其微分则无法消去这三个函数，所以如果出现这三个因式必然优先微分。
+
+所以常用的分部积分方式：
+
+\begin{enumerate}
+    \item $\int x^ne^x\,\textrm{d}x$、$\int x^n\sin x\,\textrm{d}x$，$\int x^n\cos x\,\textrm{d}x$：对非幂函数的部分，即对$e^x$或三角函数进行分部。
+    \item $\int x^n\ln x\,\textrm{d}x$，$\int x^n\arctan x\,\textrm{d}x$，$\int x^n\arcsin x\,\textrm{d}x$：对幂函数的部分，即对$x^n$进行分部。
+    \item $\int e^x\sin x\,\textrm{d}x$，$\int e^x\cos x\,\textrm{d}x$：对哪个部分进行分部都可以，而$e^x$进行分部积分时没有正负号的改变，所以对$e^x$进行分部积分，需要多次分部积分还原。
+\end{enumerate}
+
+\subsection{有理函数的积分}
+
+两个多项式的商$\dfrac{P(x)}{Q(x)}$被称为有理函数，或有理分式。
+
+假设该多项式之间没有公因式，当$P(x)$的次数小于$Q(x)$的次数时村各位真分式，否则称为假分式。
+
+假分式可以分解为多项式与真分式之和。
+
+真分式$\dfrac{P(x)}{Q(x)}$若可以分解为两个多项式的乘积：$\dfrac{P(x)}{Q(x)}=\dfrac{P_1(x)}{Q_1(x)}+\dfrac{P_2(x)}{Q_2(x)}$，则称为将真分式化为部分分式之和。
+
+通过这种化简方式，可以在求以商的形式的有利函数的式子的积分时拆分因式，从而简化积分运算。
+
 \section{定积分}
+
+定积分是积分的一种，是函数在一个区间上积分和的极限。已知$f(x)$为速度函数，则$f'(x)$为速度变化率函数，$\textrm{d}f(x)$为瞬时位移，则$\int_{a}^bf(x)\,\textrm{d}x$为位移函数。
+
+\subsection{定义}
+
+设函数$f(x)$在区间$[a,b]$上连续，将区间分割为$n$个子区间：$[x_0,x_1],(x_1,x_2],$\\$(x_2,x_3],\cdots,(x_{n-1},x_n]$，其中$x_0=a$，$x_n=b$。并可知各区间长度为$\Delta x_1=x_1-x_0\cdots$，在每个子区间$(x_{i-1},x_i]$上任意取一点$\xi_i(i=1,2,\cdots,n)$，做累计和$\sum\limits_{i=1}^nf(\xi_i)\Delta x_i$，这个式子被称为积分和。
+
+设$\lambda=\max{\Delta x_1,\Delta x_2,\cdots,\Delta x_n}$，从而$\lambda$为最大的区间长度，若$\lambda\to 0$时积分和极限存在，则这个极限就是函数在区间$[a,b]$的定积分，记为$\int_a^bf(x)\,\textrm{d}x$，并称函数$f(x)$在区间$[a,b]$上可积。
+
+其中$a$为积分下限，$b$为积分上限，区间$[a,b]$为积分区间，函数$f(x)$为被积函数，$x$是积分变量，$f(x)\,\textrm{d}x$为被积表达式，$\int$为积分号。
+
+\subsection{存在性}
+
+\textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上连续，则$f(x)$在该区间上可积。
+
+\textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上有界，且只有有限个间断点，则$f(x)$在该区间上可积。
+
+\subsection{性质}
+
+设函数$f(x)$在区间$[a,b]$上连续，则：
+
+\begin{enumerate}
+    \item 当$a=b$时，$\int_a^bf(x)\,\textrm{d}x=0$。
+    \item 当$a>b$时，$\int_a^bf(x)\,\textrm{d}x=-\int_b^af(x)\,\textrm{d}x$。
+    \item $\int_a^bkf(x)\,\textrm{d}x=k\int_a^bf(x)\,\textrm{d}x$。
+    \item $\int_a^b[f(x)\pm g(x)]\,\textrm{d}x=\int_a^bf(x)\,\textrm{d}x\pm\int_a^bg(x)\,\textrm{d}x$。
+    \item $\int_a^bf(x)\,\textrm{d}x=\int_a^cf(x)\,\textrm{d}x+\int_c^bf(x)\,\textrm{d}x$，若$c$处于函数的可积区间。
+    \item 若$[a,b]$上$f(x)\geqslant 0$，则$\int_a^bf(x)\,\textrm{d}x\geqslant 0$。
+    \item 若$[a,b]$上$f(x)\leqslant g(x)$，则$\int_a^bf(x)\,\textrm{d}x\leqslant\int_a^bg(x)\,\textrm{d}x$。
+    \item 积分中值定理：$\exists\,\varepsilon\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\varepsilon)(b-a)$。
+\end{enumerate}
+
+证明积分中值定理：
+
+设函数$f(x)$在区间$[a,b]$上连续，因为闭区间上连续函数必然有最大最小值，所以设最大值为$M$，最小值为$m$，$M\geqslant m$。
+
+对$m\leqslant f(x)\leqslant M$两边积分得到：$m(b-a)\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant M(b-a)$。
+
+同时除以$b-a$得到：$m\leqslant\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x\leqslant M$。
+
+由连续函数的介值定理，必然存在一个$\varepsilon$，使得$f(\varepsilon)=\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x$。
+
+从而得到$\exists\,\varepsilon\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\varepsilon)(b-a)$。
+
+\subsection{变限积分}
+
+设$f(x)$在$[a,b]$上连续，且$\Phi(x)=\int_a^xf(t)\,\textrm{d}t(x\in[a,b])$，这个函数就是积分上限函数或叫积分变限函数。
+
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$在$[a,b]$上$(\int_a^xf(t)\,\textrm{d}t)'=f(x)$。
+
+证明：设$x\in(a,b)$。
+
+则$\dfrac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x}=\dfrac{\int_a^{x+\Delta x}f(t)\,\textrm{d}t-\int_a^xf(t)\,\textrm{d}t}{\Delta x}=\dfrac{\int_x^{x+\Delta x}f(t)\,\textrm{d}t}{\Delta x}$。
+
+由积分中值定理存在$\xi$使得原式$=\dfrac{\Delta x\,f(\xi)}{\Delta x}=f(\xi)$。
+
+从而$\Phi'(x)=\lim\limits_{\Delta x\to 0}\dfrac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x}=f(x)$。
+
+同理当$x=a,\Delta x>0$与$x=b,\Delta x<0$时也同样成立。
+
+\textbf{例题：}求$F(x)=\int_0^{x^2}e^{-t^2}\,\textrm{d}t$的导数。
+
+由定理，可以将式子看作复合函数求导（注意定理中积分上限为$x$，而这里不是$x$，但是对$x$求导，所以必须看作为一个复合函数求导）。
+
+$F(x)=\int_0^ue^{-t^2}\,\textrm{d}t$，$u=x^2$。
+
+$\therefore F'_x(x)=F'_u(x)\cdot u'_x=e^{-u^2}\cdot 2x=2xe^{-x^4}$。
+
+同理，如果是变下限的变限积分，则可以看作负的变上限积分进行运算，本质是一样的。
+
+也同理，如果上限下限都在变化，则可以利用积分区间的可加性，将这个积分的区间插入一个常数（一般为0），将一个积分式子变为两个积分式子，再分别进行运算。
+
+所以变限积分\textcolor{aqua}{\textbf{定理：}}若$\phi(x)$与$\psi(x)$都可导，$f(x)$连续，则$\dfrac{\textrm{d}}{\textrm{d}x}\int_{\psi(x)}^{\phi(x)}=f(\psi(x))\psi'(x)-f(\phi(x))\phi'(x)$。
+
+\textbf{例题：}求极限$\lim\limits_{x\to 0}\dfrac{\int_0^{\sin^2x}\ln(1+t)\,\textrm{d}t}{x(\sqrt{1+x^3}-1)}$。
+
+原式$=\lim\limits_{x\to 0}\dfrac{\ln(1+\sin^2x)2\sin x\cos x}{x(\sqrt{1+x^3}-1)}=\lim\limits_{x\to 0}\dfrac{x^2\cdot 2x\cdot 1}{\dfrac{4}{3}x^3}=\dfrac{3}{2}$。\smallskip
+
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$是$f(x)$在$[a,b]$上的一个原函数。
+
+\subsection{牛顿-莱布尼茨公式}
+
+\textcolor{aqua}{\textbf{定理：}}（微积分基本定理/牛顿-莱布尼茨公式）若函数$F(x)$是连续函数$f(x)$在区间$[a,b]$上的一个原函数，则$\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)$。
+
+利用牛莱公式证明积分中值定理：
+
+已知$F'(x)=f(x)$。
+
+$\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
+
+牛-莱公式连接了微分学和积分学之间的关系。
+
 \end{document}

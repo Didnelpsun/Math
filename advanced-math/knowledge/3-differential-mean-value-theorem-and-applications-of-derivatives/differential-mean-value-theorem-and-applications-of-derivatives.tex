@@ -496,28 +496,28 @@ $\forall x\in U(x_0,\delta)$恒有$f(x)\leqslant f(x_0)$，则$f(x)$在$x_0$取�
         \draw[black, thick,domain=0.4:1.1] plot (\x, \x);
         \filldraw[black] (0.5,1) node {$y=f(x)$};
         \draw[densely dashed](0.5,0.5) -- (0.5, 0) node[below]{$x$};
-        \draw[densely dashed](1,1) -- (1, 0) node[below]{$x+\rm{d}\textit{x}$};
+        \draw[densely dashed](1,1) -- (1, 0) node[below]{$x+\textrm{d}x$};
         \draw[densely dashed](0.5,0.5) -- (1,0.5);
         \filldraw[black](0.5,0.6) node{$y$};
         \filldraw[black](0.95,1.1) node{$y_0$};
-        \filldraw[black](0.75,0.35) node{$\rm{d}\textit{x}$};
-        \filldraw[black](1.1,0.6) node{$\rm{d}\textit{y}$};
+        \filldraw[black](0.75,0.35) node{$\textrm{d}x$};
+        \filldraw[black](1.1,0.6) node{$\textrm{d}y$};
     \end{tikzpicture} 
 \end{minipage}
 \hfill
 \begin{minipage}{0.4\linewidth}
-    $\rm{d}\textit{y}=\textit{f}\,(\textit{x}+\rm{d}\textit{x})-\textit{f}\,(\textit{x})$
+    $\textrm{d}y=f\,(x+\textrm{d}x)-f\,(x)$
 
-    $(\rm{d}\textit{s})^2=(\rm{d}\textit{x})^2+(\rm{d}\textit{y})^2$
+    $(\textrm{d}s)^2=(\textrm{d}x)^2+(\textrm{d}y)^2$
 
-    $\rm{d}\textit{s}=\sqrt{(\rm{d}\textit{x})^2+(\rm{d}\textit{y})^2}$（弧微分）
+    $\textrm{d}s=\sqrt{(\textrm{d}x)^2+(\textrm{d}y)^2}$（弧微分）
 \end{minipage}
 
 对于弧微分：
 
 \begin{itemize}
-    \item 若直角坐标系下$y=f(x)$，$\rm{d}\textit{s}=\sqrt{1+\left(\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{x}}\right)^2}\rm{d}\textit{x}$$=\sqrt{1+f'^2(x)}\rm{d}\textit{x}$，即$\rm{d}\textit{s}=$$\sqrt{1+f'^2(x)}\rm{d}\textit{x}$。
-    \item 若参数方程下：$x=\phi(t),y=\psi(t)$，$\rm{d}\textit{s}=\sqrt{\left(\dfrac{\rm{d}\textit{x}}{\rm{d}\textit{t}}\right)^2+\left(\dfrac{\rm{d}\textit{y}}{\rm{d}\textit{t}}\right)^2}\rm{d}\textit{t}$\medskip\\$=\sqrt{\psi'^2(t)+\phi'^2(t)}\rm{d}\textit{t}$，即$\rm{d}\textit{s}=\sqrt{\psi'^2(t)+\phi'^2(t)}\rm{d}\textit{t}$。
+    \item 若直角坐标系下$y=f(x)$，$\textrm{d}s=\sqrt{1+\left(\dfrac{\textrm{d}y}{\textrm{d}x}\right)^2}\textrm{d}x=\sqrt{1+f'^2(x)}\textrm{d}x$，即$\textrm{d}s=\sqrt{1+f'^2(x)}\textrm{d}x$。
+    \item 若参数方程下：$x=\phi(t),y=\psi(t)$，$\textrm{d}s=\sqrt{\left(\dfrac{\textrm{d}x}{\textrm{d}t}\right)^2+\left(\dfrac{\textrm{d}y}{\textrm{d}t}\right)^2}\textrm{d}t$\medskip\\$=\sqrt{\psi'^2(t)+\phi'^2(t)}\textrm{d}t$，即$\textrm{d}s=\sqrt{\psi'^2(t)+\phi'^2(t)}\textrm{d}t$。
 \end{itemize}
 
 \subsection{曲率}
@@ -575,20 +575,20 @@ $\forall x\in U(x_0,\delta)$恒有$f(x)\leqslant f(x_0)$，则$f(x)$在$x_0$取�
 \begin{minipage}{0.6\linewidth}
     $y-y_0$平均曲率：$\hat{k}=\dfrac{\vert\Delta\alpha\vert}{\vert\Delta s\vert}$。\medskip
 
-    $y$曲率：$k=\lim\limits_{\Delta x\to 0}\left\lvert\dfrac{\Delta\alpha}{\Delta s}\right\rvert=\left\lvert\dfrac{\rm{d}\alpha}{\rm{d}\textit{s}}\right\rvert$（$\alpha$为$y$处切线与$x$轴所成角）。
+    $y$曲率：$k=\lim\limits_{\Delta x\to 0}\left\lvert\dfrac{\Delta\alpha}{\Delta s}\right\rvert=\left\lvert\dfrac{\textrm{d}\alpha}{\textrm{d}s}\right\rvert$（$\alpha$为$y$处切线与$x$轴所成角）。
 \end{minipage}\medskip
 
-需要对曲率公式进行化简，得到$s$与$\alpha$关于$x$的表示。根据弧微分的定义：$\rm{d}\textit{s}=$$\sqrt{1+f'^2(x)}\rm{d}\textit{x}$。
+需要对曲率公式进行化简，得到$s$与$\alpha$关于$x$的表示。根据弧微分的定义：$\textrm{d}s=\sqrt{1+f'^2(x)}\textrm{d}x$。
 
 而对于$\alpha$：$\tan\alpha=y'=f'(x)$。
 
-两边对$x$求导：$\sec^2\alpha\cdot\dfrac{\rm{d}\alpha}{\rm{d}\textit{x}}=y''=f''(x)$。
+两边对$x$求导：$\sec^2\alpha\cdot\dfrac{\textrm{d}\alpha}{\textrm{d}x}=y''=f''(x)$。
 
 又$\because\sec^2\alpha=1+\tan^2\alpha=1+y'^2$。
 
-$\therefore\dfrac{\rm{d}\alpha}{\rm{d}\textit{x}}=\dfrac{y''}{1+y'^2}\Rightarrow\rm{d}\alpha=\dfrac{\textit{y}''}{1+\textit{y}\,'^2}\rm{d}\textit{x}$。
+$\therefore\dfrac{\textrm{d}\alpha}{\textrm{d}x}=\dfrac{y''}{1+y'^2}\Rightarrow\textrm{d}\alpha=\dfrac{y''}{1+y\,'^2}\textrm{d}x$。
 
-$\therefore k=\left\lvert\dfrac{\rm{d}\alpha}{\rm{d}\textit{s}}\right\rvert=\dfrac{\vert y''\vert}{(1+y'^2)^{\frac{3}{2}}}$。
+$\therefore k=\left\lvert\dfrac{\textrm{d}\alpha}{\textrm{d}s}\right\rvert=\dfrac{\vert y''\vert}{(1+y'^2)^{\frac{3}{2}}}$。
 
 \subsection{曲率半径}
 
