@@ -120,7 +120,7 @@ $=2\int\arcsin\sqrt{x}\,\textrm{d}\arcsin\sqrt{x}=(\arcsin\sqrt{x})^2+C$。
 
 且$\varphi'(t)\neq 0$，所以$\cos t\neq 0$。
 
-所以综上三个条件从而得到一个$t$的定义域：$t\in\left[-\dfrac{\pi}{2},0\right)\bigcup\left(0,\dfrac{\pi}{2}\right]$。
+所以综上三个条件从而得到一个$t$的定义域：$t\in\left[-\dfrac{\pi}{2},0\right)\cup\left(0,\dfrac{\pi}{2}\right]$。
 
 但是在$\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$上$\varphi'(t)=a\sin t$是严格单调递增的，单调函数必然存在反函数，所以$\varphi'(t)$可以等于0，从而$t\in\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$。
 
@@ -237,12 +237,6 @@ $\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\v
 
 其中$a$为积分下限，$b$为积分上限，区间$[a,b]$为积分区间，函数$f(x)$为被积函数，$x$是积分变量，$f(x)\,\textrm{d}x$为被积表达式，$\int$为积分号。
 
-\subsection{存在性}
-
-\textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上连续，则$f(x)$在该区间上可积。
-
-\textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上有界，且只有有限个间断点，则$f(x)$在该区间上可积。
-
 \subsection{性质}
 
 设函数$f(x)$在区间$[a,b]$上连续，则：
@@ -269,6 +263,12 @@ $\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\v
 由连续函数的介值定理，必然存在一个$\varepsilon$，使得$f(\varepsilon)=\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x$。
 
 从而得到$\exists\,\varepsilon\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\varepsilon)(b-a)$。
+
+对于定积分的存在性：
+
+\textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上连续，则$f(x)$在该区间上可积。
+
+\textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上有界，且只有有限个间断点，则$f(x)$在该区间上可积。
 
 \subsection{变限积分}
 
@@ -317,5 +317,231 @@ $\therefore F'_x(x)=F'_u(x)\cdot u'_x=e^{-u^2}\cdot 2x=2xe^{-x^4}$。
 $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
 
 牛-莱公式连接了微分学和积分学之间的关系。
+
+\subsection{换元积分法与分部积分法}
+
+定积分的换元积分法与分部积分法就是在定积分的换元积分法与分部积分法上代入了牛-莱公式。
+
+\subsubsection{换元积分法}
+
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，函数$x=\varphi(t)$满足(1)$\varphi(\alpha)=a,\varphi(\beta)=b$，(2)$\varphi(t)$在$[\alpha,\beta]$上具有连续导数，且其值域$R_\varphi=[a,b]$，则有$\int_a^bf(x)\,\textrm{d}x=\int_\alpha^\beta f[\varphi(t)]\varphi'(t)\,\textrm{d}t$。
+
+\subsubsection{分部积分法}
+
+\textcolor{aqua}{\textbf{定理：}}$\int_a^bu\,\textrm{d}v=[uv]_a^b-\int_a^bv\,\textrm{d}u$。
+
+\subsection{反常积分}
+
+当积分区间为无穷区间，或被积函数为无界函数，那么定积分就无法“定”下来，所以这种积分就是反常积分。
+
+\subsubsection{无穷限}
+
+设函数$f(x)$在区间$[a,+\infty)$上连续，任取$t>a$，做定积分$\int_a^tf(x)\,\textrm{d}x$，对这种变上限积分的极限$\lim\limits_{t\to+\infty}\int_a^tf(x)\,\textrm{d}x$就是$f(x)$在无穷区间$[a,+\infty)$上的反常积分，记为$\int_a^{+\infty}f(x)\,\textrm{d}x$。
+
+\textcolor{violet}{\textbf{定义：}}若函数$f(x)$在区间$[a,+\infty)$上连续，且极限$\lim\limits_{t\to+\infty}\int_a^tf(x)\,\textrm{d}x$存在，则称反常积分$\int_a^{+\infty}f(x)\,\textrm{d}x$收敛，且这极限就是该反常积分的值，若该极限不存在，则反常积分$\int_a^{+\infty}f(x)\,\textrm{d}x$发散。
+
+同理可以给出定义$\int_{-\infty}^af(x)\,\textrm{d}x=\lim\limits_{t\to-\infty}\int_t^af(x)\,\textrm{d}x$。
+
+无穷限反常积分$\int_{-\infty}^{+\infty}f(x)\,\textrm{d}x=\int_{-\infty}^0f(x)\,\textrm{d}x+\int_0^{+\infty}f(x)\,\textrm{d}x$。
+
+\subsubsection{无界函数}
+
+若$f(x)$在点$a$的任意一个邻域内都无界，则$a$就是$f(x)$的瑕点（无界间断点），无界函数的反常积分又称为瑕积分。
+
+设$f(x)$在区间$(a,b]$上连续，点$a$为$f(x)$的瑕点，任取$t>a$，作定积分$\int_t^bf(x)\,\textrm{d}x$，则对变下限的定积分求极限的$\lim\limits_{t\to a^+}\int_t^bf(x)\,\textrm{d}x$就是函数$f(x)$在区间$(a,b]$上的反常积分，记为$\int_a^bf(x)\,\textrm{d}x$。
+
+\textcolor{violet}{\textbf{定义：}}若$f(x)$在区间$(a,b]$上连续，$a$为$f(x)$的瑕点，若极限$\lim\limits_{t\to a^+}\int_t^bf(x)\,\textrm{d}x$存在，则称反常积分$\int_a^bf(x)\,\textrm{d}x$收敛，并称为此极限为该反常积分的值，若不存在，则反常积分$\int_a^bf(x)\,\textrm{d}x$发散。
+
+同理可得$\int_a^bf(x)\,\textrm{d}x=\lim\limits_{t\to b^-}\int_a^tf(x)\,\textrm{d}x$
+
+若$f(x)$在区间$[a,c)\cup(c,b]$上连续，$c$为瑕点，则$\int_a^bf(x)\,\textrm{d}x=\int_a^cf(x)\,\textrm{d}x+\int_c^bf(x)\,\textrm{d}x$。
+
+\subsection{反常积分的判敛}
+
+\subsection{不定积分与定积分的区别与联系}
+
+区别：
+
+不定积分最后结果是一类函数的集合；定积分的结果是一个数，或是关于积分上下限的二元函数或运算。
+
+不定积分概念建立于原函数上，定积分的概念建立于求曲边图形面积上。
+
+一个函数，可以存在不定积分，而不存在定积分，也可以存在定积分，而没有不定积分。连续函数，一定存在定积分和不定积分；若在有限区间$[a,b]$上只有有限个间断点且函数有界，则定积分存在；若有跳跃、可去、无穷间断点，则原函数一定不存在，即不定积分一定不存在。
+
+联系：
+
+定积分的计算建立于不定积分。且方法都是类似的。
+
+可以通过牛-莱公式转换定积分与不定积分。
+
+\section{定积分应用}
+
+对比不定积分的直接数学计算，定积分的实际应用要广许多，往往可以用来解决几何、物理等问题。
+
+对于定积分概念的引入就是对求面积采用元素法，即将曲边多边形无限次的分割得到每一片的平均值再求和得到近似解。
+
+元素法也叫微元法，是分析、解决物理问题中的常用方法，也是从部分到整体的思维方法。用该方法可以使一些复杂的物理过程用我们熟悉的物理规律迅速地加以解决，使所求的问题简单化。在使用元素法处理问题时，需将其分解为众多微小的“元过程”，而且每个“元过程”所遵循的规律是相同的，这样，我们只需分析这些“元过程”，然后再将“元过程”进行必要的数学方法或物理思想处理，进而使问题求解。
+
+\subsection{几何应用}
+
+\subsubsection{面积}
+
+\paragraph{直角坐标系}  \leavevmode \medskip
+
+\textbf{例题：}求曲线$y^2=x$与$y=x^2$所围成面积。
+
+首先确定$x$的范围，是$x\in[0,1]$。
+
+第二步确立微元，即切割的微小元素，是$\textrm{d}S=[\sqrt{x}-x^2]\textrm{d}x$（也可以对$y$积分：$S=\int_0^1(\sqrt{y}-y^2)\,\textrm{d}y$）。
+
+最后一步对其积分：$S=\int_0^1(\sqrt{x}-x^2)\,\textrm{d}x=\dfrac{2}{3}-\dfrac{1}{3}=\dfrac{1}{3}$。
+
+\textbf{例题：}求曲线$y^2=2x$与$y=x-4$围成面积。
+
+首先确定范围，将$y=x-4$代入$y^2=2x$，从而得到$x\in[0,8]$，$y\in[-2,4]$。
+
+若是对$x$确立微元，则对于不同的区间，面积有不同的表达式：
+
+$S=\int_0^22\sqrt{2x}\,\textrm{d}x+\int_2^8(\sqrt{2x}-x+4)\,\textrm{d}x$。
+
+这显然很麻烦，然而如果对$y$确立微元，那么$y^2=2x$在$y\in[-2,4]$上总是在$y=x-4$下面，所以这个面积只要一个表达式就能表达出来：
+
+$\textrm{d}S=\left[(y+4)-\dfrac{y^2}{2}\right]\textrm{d}y$。
+
+所以$S=\displaystyle{\int_{-2}^4\left[(y+4)-\dfrac{y^2}{2}\right]\textrm{d}y}$
+
+\paragraph{参数方程}  \leavevmode \medskip
+
+\textbf{例题：}求摆线一拱$\left\{\begin{array}{l}
+    x=a(t-\sin t) \\
+    y=a(1-\cos t)
+\end{array}
+\right.$$(0\leqslant t\leqslant 2\pi)$与$x$轴所围成的面积。\medskip
+
+首先计算范围，代入$2\pi$，得到$x\in[0,2a\pi]$。
+
+然后是找微元，这里是对$x$确立：$\textrm{d}S=y(x)\,\textrm{d}x$。
+
+从而$S=\int_0^{2a\pi}y(x)\,\textrm{d}x$。
+
+因为无法计算对于$x$的表达式，所以使用参数方程代入，并改变上下限$S$：
+
+$=\int_0^{2\pi}a(1-\cos t)\,\textrm{d}[a(t-\sin t)]$
+
+$=\int_0^{2\pi}a^2(1-\cos t)^2\,\textrm{d}t$
+
+$=a^2\displaystyle{\int_0^{2\pi}\left(2\sin^2\dfrac{t}{2}\right)^2\textrm{d}t}$（消去里面的1）
+
+$=4a^2\displaystyle{\int_0^{2\pi}\sin^4\dfrac{t}{2}\,\textrm{d}t}$
+
+令$u=\dfrac{t}{2}$，从而$\textrm{d}t=2\textrm{d}u$，从而$u\in[0,\pi]$。
+
+$=8a^2\int_0^\pi\sin^4u\,\textrm{d}u$
+
+$=16a^2\int_0^{\frac{\pi}{2}}\sin^4u\,\textrm{d}u$（积分可加性拆分为两个相同限的项）
+
+$=16a^2\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=3a^2\pi$（点火公式）。
+
+\paragraph{极坐标}  \leavevmode \medskip
+
+已知极径函数$\rho=\rho(\theta)$，极角$\theta\in[\alpha,\beta]$，极坐标所围成面积就是初始角所在射线与结束角所在射线以及函数所围成的图形。所以微元计算时所围成的图形可以近似看作扇形。
+
+从而根据扇形公式得到微元：$\textrm{d}S=\dfrac{1}{2}\rho^2(\theta)\,\textrm{d}\theta$。
+
+最后$S=\dfrac{1}{2}\int_\alpha^\beta\rho^2(\theta)\,\textrm{d}\theta$。
+
+\textbf{例题：}求心形线$\rho=a(1+\cos\theta)(a>0)$所围成面积。
+
+极角发生变化时，可以计算到心形线必然会穿过$(2a,0),(0,a),(0,0)$这三个点，而$\cos x$是一个偶函数，所以心形线图形是上下对称的。如果要求心形线的面积，可以只用求上半部分就可以了。
+
+所以可以根据公式$S=2\dfrac{1}{2}\int_0^\pi a^2(1+\cos\theta)^2\,\textrm{d}\theta$。
+
+$=a^2\displaystyle{\int_0^\pi\left(2\cos^2\dfrac{\theta}{2}\right)^2\textrm{d}\theta}$
+
+$=4a^2\displaystyle{\int_0^\pi\cos^4\dfrac{\theta}{2}\,\textrm{d}\theta}$
+
+令$\dfrac{\theta}{2}=t$，所以$\textrm{d}\theta=2\textrm{d}t$，同时上下限缩小一半：
+
+$=8a^2\int_0^{\frac{\pi}{2}}\cos^4t\,\textrm{d}t$
+
+根据华理士公式：$=8a^2\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=\dfrac{3}{2}a^2\pi$。
+
+\subsubsection{体积}
+
+\paragraph{旋转体}  \leavevmode \medskip
+
+当绕$x$轴进行旋转，可以看作从$x$轴沿$y$轴水平切割旋转体，就得到了以$x$轴为中心的一个圆柱，底边半径为$f(x)$，高度为$\textrm{d}x$，所以$\textrm{d}V_x=\pi f^2(x)\,\textrm{d}x$，所以$V_x=\pi\int_a^bf^2(x)\,\textrm{d}x$（如果用$y(x)$表达，就是$V_x=\pi\int_c^d\varphi^2(y)\,\textrm{d}y$）。
+
+当绕$y$轴进行旋转，可以看作从旋转中心向外围按同样的半径切割环形体，这个环形体从里到外半径与体积都在不断变大，然后将这个环形体展开为长方体来计算体积，其中长度为原来圆周$2\pi x$，宽度为$f(x)$，高度为$\textrm{d}x$，所以$\textrm{d}V_y=2\pi xf(x)\,\textrm{d}x$，所以$V_y=2\pi\int_a^bxf(x)\,\textrm{d}x$。
+
+\textbf{例题：}计算由椭圆$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$所围成的图形绕$x$轴旋转一周而成的体积。
+
+由式子得到$y^2=b^2\left(1-\dfrac{x^2}{b^2}\right)$。
+
+所以旋转体体积就是两倍的第一象限的旋转体积，直接计算第一象限部分就可以了。
+
+$V_x=2\pi\displaystyle{\int_0^ab^2\left(1-\dfrac{x^2}{a^2}\right)\,\textrm{d}x}=2\pi b^2\left(a-\dfrac{a}{3}\right)=\dfrac{4\pi ab^2}{3}$。
+
+\textbf{例题：}计算摆线$\left\{\begin{array}{l}
+    x=a(t-\sin t) \\
+    y=a(1-\cos t)
+\end{array}
+\right.$$(0\leqslant t\leqslant 2\pi)$与$x$轴，$y$轴所旋转得到的体积。
+
+$\because t\in[0,2\pi]$，$\therefore x\in[0,2a\pi]$。
+
+$V_x=\pi\int_0^{2a\pi}y^2\,\textrm{d}x$
+
+代入参数方程并改变上下限：
+
+$=\pi\int_0^{2\pi}a^2(1-\cos t)^2\,\textrm{d}[a(t-\sin t)]$
+
+$=a^3\pi\int_0^{2\pi}(1-\cos t)^3\,\textrm{d}t$
+
+$=a^3\pi\displaystyle{\int_0^{2\pi}\left(2\sin^2\dfrac{t}{2}\right)^3\textrm{d}t}$
+
+$=8a^3\pi\displaystyle{\int_0^{2\pi}\sin^6\dfrac{t}{2}\textrm{d}t}$
+
+令$\dfrac{\theta}{2}=t$，所以$\textrm{d}\theta=2\textrm{d}t$，同时上下限缩小一半：
+
+$=16a^3\pi\int_0^\pi\sin^6u\,\textrm{d}u$
+
+$=32a^3\pi\int_0^{\frac{\pi}{2}}\sin^6u\,\textrm{d}u$
+
+华理士公式得到最后$=5a^3\pi^2$。
+
+同理可得$y$轴旋转体积为$V_y=2\pi\int_0^{2\pi}xy(x)\,\textrm{d}x$
+
+$=2\pi\int_0^{2\pi}a(t-\sin t)a^2(1-\cos t)^2\,\textrm{d}t$
+
+$=2a^3\pi\int_0^{2\pi}(t-\sin t)\cdot 4\sin^4\dfrac{t}{2}\,\textrm{d}t$
+
+然后拆开分别进行凑微分法，得到$6a^3\pi^3$。
+
+\paragraph{平行截面已知的立体体积}  \leavevmode \medskip
+
+已知截面面积可以通过对应的高得到立体体积：$V=\int_a^bS(x)\,\textrm{d}x$。
+
+\textbf{例题：}计算由$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$所围成的椭球体的体积。
+
+已知$\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1-\dfrac{x^2}{a^2}$.
+
+$S(x)=\pi bc\left(1-\dfrac{x^2}{a^2}\right)$
+
+$V=2\int_0^a\pi bc\left(1-\dfrac{x^2}{a^2}\right)\,\textrm{d}x$。
+
+解得$V=\dfrac{4}{3}\pi abc$。
+
+\subsubsection{弧长}
+
+在弧长中插入$n$个点$M_1,M_2,\cdots,M_{i-1},M_i,\cdots,M_n$。
+
+$S_n=\sum\limits_{i=1}^n\Vert\overline{M_{i-1}M_{i}}\Vert$，$S=\lim\limits_{\delta\to 0}S_n=\lim\limits_{\delta\to 0}\sum\limits_{i=1}^n\Vert\overline{M_{i-1}M_{i}}\Vert$。
+
+对于弧长采用弧微分的方式进行计算：$S=\int_a^b\sqrt{1+y'^2}\,\textrm{d}x$。
+
+如果是参数方程，则$S=\int_\alpha^\beta\sqrt{x'^2+y'^2}\,\textrm{d}t$。
+
+如果是极坐标方程，则$S=\int_\alpha^\beta\sqrt{\rho^2+\rho'^2}\,\textrm{d}\theta$。
 
 \end{document}
