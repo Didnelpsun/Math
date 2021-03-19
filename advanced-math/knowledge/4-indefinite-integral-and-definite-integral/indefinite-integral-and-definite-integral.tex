@@ -41,11 +41,13 @@
 
 \subsection{定义}
 
-设$f(x)$定义在区间$I$上，若存在可导函数$F(x)$，使得$F'(x)=f(x)$对于任意$x\in I$都成立，则称$F(x)$为$f(x)$在区间$I$上的一个原函数。对于全体的原函数集合，就称为不定积分。
+设$f(x)$定义在区间$I$上，若存在可导函数$F(x)$，使得$F'(x)=f(x)$对于任意$x\in I$都成立，则称$F(x)$为$f(x)$在区间$I$上的一个原函数。
 
-连续函数必有原函数。
+连续函数必有原函数。而反之有原函数不一定是连续函数。
 
-在区间$I$上，函数$f(x)$带有任意常数项的原函数称为$f(x)/f(x)\,\textrm{d}x$在该区间上的不定积分，记为$\int f(x)\,\textrm{d}x$，其中$\int$为积分号，$f(x)$为被积函数，$f(x)\,\textrm{d}x$为被积表达式，$x$为积分变量。
+任意的两个原函数只相差一个常数。
+
+在区间$I$上，函数$f(x)$带有任意常数项的原函数$F(x)+C$称为$f(x)/f(x)\,\textrm{d}x$在该区间上的不定积分，记为$\int f(x)\,\textrm{d}x$，其中$\int$为积分号，$f(x)$为被积函数，$f(x)\,\textrm{d}x$为被积表达式，$x$为积分变量。
 
 积分就是导数的逆运算。$\int f(x)\,\textrm{d}x=F(x)+C$，$F'(x)=f(x)$。 
 
@@ -70,9 +72,7 @@
 
 \textcolor{aqua}{\textbf{定理：}}$\int f(u)\,\textrm{d}u=F(u)+C$，则$\int f[\varphi(x)]\varphi'(x)\,\textrm{d}x=\int f[\varphi(x)]\,\textrm{d}\varphi(x)=F[\varphi(x)]+C$。
 
-$\displaystyle{\int\dfrac{\textrm{d}x}{a^2+x^2}}=\displaystyle{\dfrac{1}{a}\int\dfrac{\textrm{d}\dfrac{x}{a}}{1+\left(\dfrac{x}{a}\right)^2}}=\dfrac{1}{a}\arctan\dfrac{x}{a}+C$。\medskip
-
-$\displaystyle{\int\dfrac{\textrm{d}x}{\sqrt{a^2-x^2}}}=\displaystyle{\int\dfrac{\textrm{d}\dfrac{x}{a}}{\sqrt{1-\left(\dfrac{x}{a}\right)^2}}}=\arcsin\dfrac{x}{a}+C$。\medskip
+即用一个中间变量如$t$替换一个$x$的复杂表达式从而让式子更简单接近基本积分公式。
 
 如$\displaystyle{\int\dfrac{x}{\sqrt{1+x^2}}\textrm{d}x=\dfrac{1}{2}\int\dfrac{\textrm{d}(1+x^2)}{\sqrt{1+x^2}}}=\sqrt{1+x^2}+C$。\medskip
 
@@ -84,23 +84,33 @@ $\int(1+3x)^{100}\,\textrm{d}x=\dfrac{1}{3}\int(1+3x)^{100}\,\textrm{d}(1+3x)=\d
 
 $\int\cos^2x\,\textrm{d}x=\dfrac{1}{2}\int(1+\cos 2x)\,\textrm{d}x=\dfrac{1}{2}\left(x+\dfrac{1}{2}\sin 2x\right)+C$。
 
-$\int\cos^3x\,\textrm{d}x=\int\cos^2\,\textrm{d}\sin x=\int(1-\sin^2x)\,\textrm{d}\sin x=\sin x-\dfrac{1}{3}\sin^3x+C$。
+$\int\cos^3x\,\textrm{d}x=\int\cos^2\,\textrm{d}\sin x=\int(1-\sin^2x)\,\textrm{d}\sin x=\sin x-\dfrac{1}{3}\sin^3x+C$。\medskip
 
-$\displaystyle{\int\dfrac{\textrm{d}x}{x\sqrt{1+\ln x}}=\int\dfrac{\textrm{d}(1+\ln x)}{\sqrt{1+\ln x}}}=2\sqrt{1+\ln x}+C$。
+$\displaystyle{\int\dfrac{\textrm{d}x}{x\sqrt{1+\ln x}}=\int\dfrac{\textrm{d}(1+\ln x)}{\sqrt{1+\ln x}}}=2\sqrt{1+\ln x}+C$。\medskip
 
-$\displaystyle{\int\dfrac{\textrm{d}x}{\sqrt{x}(1+x)}=2\int\dfrac{\textrm{d}\sqrt{x}}{1+(\sqrt{x})^2}}=2\arctan\sqrt{x}+C$。
+$\displaystyle{\int\dfrac{\textrm{d}x}{\sqrt{x}(1+x)}=2\int\dfrac{\textrm{d}\sqrt{x}}{1+(\sqrt{x})^2}}=2\arctan\sqrt{x}+C$。\medskip
 
-$\displaystyle{\int\dfrac{\arcsin\sqrt{x}}{\sqrt{x(1-x)}}\,\textrm{d}x=\int\dfrac{\arcsin\sqrt{x}}{1-x}\cdot\dfrac{\textrm{d}x}{\sqrt{x}}=2\int\dfrac{\arcsin\sqrt{x}}{1-(\sqrt{x})^2}\,\textrm{d}\sqrt{x}}$
+$\displaystyle{\int\dfrac{\arcsin\sqrt{x}}{\sqrt{x(1-x)}}\,\textrm{d}x=\int\dfrac{\arcsin\sqrt{x}}{1-x}\cdot\dfrac{\textrm{d}x}{\sqrt{x}}=2\int\dfrac{\arcsin\sqrt{x}}{1-(\sqrt{x})^2}\,\textrm{d}\sqrt{x}}$ \medskip
 
-$=2\int\arcsin\sqrt{x}\,\textrm{d}\arcsin\sqrt{x}=(\arcsin\sqrt{x})^2+C$。
+$=2\int\arcsin\sqrt{x}\,\textrm{d}\arcsin\sqrt{x}=(\arcsin\sqrt{x})^2+C$。\medskip
+
+$\displaystyle{\int\dfrac{\textrm{d}x}{\sqrt{a^2-x^2}}}=\displaystyle{\int\dfrac{\textrm{d}\left(\dfrac{x}{a}\right)}{\sqrt{1-\left(\dfrac{x}{a}\right)^2}}}=\arcsin\dfrac{x}{a}+C$。
+
+$\displaystyle{\int\dfrac{\textrm{d}x}{a^2+x^2}}=\displaystyle{\int\dfrac{\textrm{d}\left(\dfrac{x}{a}\right)}{1+\left(\dfrac{x}{a}\right)^2}}=\dfrac{1}{a}\arctan\dfrac{x}{a}+C$。\medskip
+
+$\displaystyle{\int\dfrac{\textrm{d}x}{x^2-a^2}}=\displaystyle{\int\dfrac{\textrm{d}x}{(x-a)(x+a)}}=\dfrac{1}{2a}\displaystyle{\int\left(\dfrac{1}{x-a}-\dfrac{1}{x+a}\right)\textrm{d}x}$ \medskip
+
+$=\dfrac{1}{2a}\left(\displaystyle{\int\dfrac{\textrm{d}(x-a)}{x-a}-\int\dfrac{\textrm{d}(x+a)}{x+a}}\right)=\dfrac{1}{2a}\ln\left\vert\dfrac{x-a}{x+a}\right\vert+C$。
 
 \subsubsection{第二类换元法}
 
 \textcolor{aqua}{\textbf{定理：}}设$x=\varphi(t)$为单调可导函数，且$\varphi'(t)\neq 0$，$\int f[\varphi(t)\varphi'(t)]\,\textrm{d}t=F(t)+C$，则$\int f(x)\textrm{d}x=\int f[\varphi(t)\varphi'(t)]\,\textrm{d}t=F(t)+C=F[\varphi^{-1}(x)]+C$。
 
-第二类换元法适用于无法适用第一类换元法的情况，但是最重要的还是对于中间变量的取值，这个中间变量必须要让原式子更简单，且还要注意到变量取值范围。
+第二类换元法适用于无法适用第一类换元法的情况，但是最重要的还是对于中间变量的取值，这个中间变量必须要让原式子更能接近公式，且还要注意到变量取值范围。
 
-\textcolor{orange}{注意：}$\varphi'(t)\neq 0$是为了保证中间变量函数具有反函数，而单调函数必然有反函数，所以只要能证明这个中间变量函数必然单调，那么其实$\varphi'(t)$也可以等于0。
+第二类换元法相当于第一类换元法的逆运算，不是将复杂的$x$表达式转为简单的一个$t$，而是将一个简单的$x$转换为一个关于$t$的表达式。这是因为简单的$x$无法求出积分结果，必须通过复杂化$x$“中和”一部分式子来进行转化。
+
+\textcolor{orange}{注意：}$\varphi'(t)\neq 0$是为了保证中间变量函数具有反函数，而严格单调函数必然有反函数，所以只要能证明这个中间变量函数必然严格单调，那么其实$\varphi'(t)$也可以等于0。
 
 \textbf{例题：}求$\int\sqrt{a^2-x^2}\,\textrm{d}x(a>0)$。
 

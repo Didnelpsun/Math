@@ -764,7 +764,7 @@ $\therefore 1^{\frac{1}{x}}\leqslant\left(2+\sin x\right)^{\frac{1}{x}}\leqslant
 
 也称为魏尔施特拉斯准则，该部分对于数列而言最重要。
 
-对于函数而言也有单调有界准则，但是很少用到。
+\subsubsection{数列单调有界准则}
 
 \textcolor{violet}{\textbf{定义：}}单调有界数列必有极限，即若$\{x_n\}$单调增加（减少）且有上界（下界），则极限存在。
 
@@ -834,6 +834,20 @@ $
 
 单调增且有上界，所以必然有极限。
 
+\subsubsection{柯西极限存在准则}
+
+由函数的单调有界准则可以看出这个准则只能规范左邻域部分，而很多时候收敛的数列都不一定为单调的可以是波动逼近的。所以单调有界准则是充分条件而非必要条件，而柯西极限存在准则则（柯西审敛原理）是数列收敛性的充要准则。
+
+\textcolor{violet}{\textbf{定义：}}数列$\{x_n\}$收敛的充要条件是：对于任意给定的正数$\varepsilon$，都存在正整数$N$，使得当$m>N$，$n>N$时有$\vert x_n-x_m\vert<\varepsilon$。
+
+其几何意义是数列收敛的充要条件是对于任意给定的正数$\varepsilon$在数轴上都可以找到一个点后的任意两个项的值小于$\varepsilon$。
+
+\subsubsection{函数单调有界准则}
+
+对于函数而言也有单调有界准则，但是很少用到。因为其准则与数列的不一致。
+
+\textcolor{violet}{\textbf{定义：}}设函数$f(x)$在$x_0$的某个左邻域内单调且有界，则$f(x)$在$x_0$处的左极限$f(x_0^-)$必然存在。
+
 \subsection{\texorpdfstring{$\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$}{}}
 
 证明：当$x\to 0$时$x\in[0,\dfrac{\pi}{2}]$。
@@ -893,10 +907,6 @@ $=e$
 
 \section{无穷小的比较}
 
-\subsection{无穷小量}
-
-\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)=0$，则称$f(x)$为当$x\to x_0$时的无穷小量。
-
 \subsection{无穷小的比较}
 
 设在自变量同一变化过程中，$\lim\alpha(x)=0$，$\lim\beta(x)=0$，且$\beta(x)\neq 0$，则：
@@ -939,7 +949,7 @@ $=e$
 
 \textcolor{red}{警告：}一般只有所替换的式子为乘除的整个因子才能替换，加减一般都不能替换，如$x-\sin x\sim\dfrac{1}{6}x^3$。
 
-$x\to 0$：
+通过麦克劳林公式可以得到当$x\to 0$时的相应等价无穷小：
 
 \begin{enumerate}
     \item $\sin x\sim x$。
@@ -963,15 +973,17 @@ $x\to 0$：
 
 \subsection{连续定义}
 
-若函数$f(x)$在点$x_0$的某一邻域内有定义，且有$\lim\limits_{x\to x_0}f(x)=f(x_0)$或$\lim\limits_{\Delta x\to 0}\Delta y=0$，则称函数$f(x)$在点$x_0$处连续。
+\textcolor{violet}{\textbf{定义：}}若函数$f(x)$在点$x_0$的某一邻域内有定义，且有$\lim\limits_{x\to x_0}f(x)=f(x_0)$或$\lim\limits_{\Delta x\to 0}\Delta y=0$，则称函数$f(x)$在点$x_0$处连续。
 
 极限值等于函数值，则该点连续。
+
+在区间上每一点都连续的函数，就是该区间上的连续函数，或该函数在该区间上连续。
 
 \subsection{间断定义}
 
 讨论间断只看两类点：分段函数分段点，无定义点。
 
-若函数$f(x)$在点$x_0$的某一去心邻域内有定义，且有$\lim\limits_{x\to x_0}f(x)\neq f(x_0)$，则称函数$f(x)$在点$x_0$处间断。
+\textcolor{violet}{\textbf{定义：}}若函数$f(x)$在点$x_0$的某一去心邻域内有定义，且有$\lim\limits_{x\to x_0}f(x)\neq f(x_0)$，则称函数$f(x)$在点$x_0$处间断。
 
 极限值不等于函数值，则该点间断。
 
@@ -996,7 +1008,7 @@ $x\to 0$：
 
 \subsubsection{跳跃间断点}
 
-若$\lim\limits_{x\to x_0^-}f(x)$与$\lim\limits_{x\to x_0^+}$都存在，但是$\lim\limits_{x\to x_0^-}f(x)\neq\lim\limits_{x\to x_0^+}$。
+若$\lim\limits_{x\to x_0^-}f(x)$与$\lim\limits_{x\to x_0^+}f(x)$都存在，但是$\lim\limits_{x\to x_0^-}f(x)\neq\lim\limits_{x\to x_0^+}f(x)$。
 
 \begin{tikzpicture}
     \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
@@ -1012,7 +1024,7 @@ $x\to 0$：
     \filldraw[black] (1,1) node[right]{$\lim\limits_{x\to x_0}=A$};
 \end{tikzpicture}
 
-可去间断点与跳跃间断点的左右极限都存在的点都称为第一类间断点。
+可去间断点与跳跃间断点的左右极限都存在的间断点都称为第一类间断点。
 
 \subsubsection{无穷间断点}
 
@@ -1078,7 +1090,7 @@ $\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim\li
 
 \subsubsection{反函数的连续性}
 
-若函数在定义域是严格单调的函数，则其反函数在其原值域上也是连续的。
+若函数在定义域是严格单调的函数，则其反函数在其原值域上也是连续的且单调性不变。
 
 \subsubsection{复合函数的连续性}
 
@@ -1103,6 +1115,8 @@ $\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim\li
     \item 介值定理：若$f(a)\neq f(b)$，$\mu$为介于$f(a)$与$f(b)$之间的任何值，那么至少存在$\xi\in[a,b]$使得$f(\xi)=\mu$。
 \end{enumerate}
 
+如果是开区间连续则不能保证有界性，因为可能开区间两边的端点为函数的间断点（如$\dfrac{1}{x}$在$x=0$处）。
+
 \textbf{例题：}证明方程$x=a\sin x+b(a>0,b>0)$中至少有一个正根，并且不超过$a+b$。
 
 令$f(x)=x-a\sin x-b$，其中$f(0)=-b<0$，$f(a+b)=a+b=a\sin(a+b)-b=a[1-\sin(a+b)]\geqslant 0$。
@@ -1110,6 +1124,5 @@ $\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim\li
 若$\sin(a+b)=1$，则根为$a$，结论成立。
 
 若$\sin(a+b)<1$，$\because f(a+b)\cdot f(0)<0$根据零点定理$\exists\,\xi\in[0,a+b]$使得$f(\xi)=0$，从而得证。
-
 
 \end{document}
