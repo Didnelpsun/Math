@@ -243,11 +243,11 @@ $\because y=f(x)$，$\therefore x=\varphi(y)$，$x_{yy}''=\varphi''(y)=-\dfrac{y
 
 $u=g(x)$在$x$可导，$y=f(u)$在$u=g(x)$处可导，则$\{f[g(x)]\}'=f'[g(x)]g'(x)$。
 
-\textbf{例题：}设$f(x)=\prod\limits_{n=1}^{100}\left(\tan\dfrac{\pi x^a}{4}-n\right)$，则$f'(1)$为？
+\textbf{例题：}设$f(x)=\prod\limits_{n=1}^{100}\left(\tan\dfrac{\pi x^n}{4}-n\right)$，则$f'(1)$为？
 
-原式=$\left(\tan\dfrac{\pi x}{4}-1\right)\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)$。
+原式=$\left(\tan\dfrac{\pi x}{4}-1\right)\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^{100}}{4}-100\right)$。
 
-令$\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^100}{4}-100\right)=g(x)$。\medskip
+令$\left(\tan\dfrac{\pi x^2}{4}-2\right)\cdots\left(\tan\dfrac{\pi x^{100}}{4}-100\right)=g(x)$。\medskip
 
 $\therefore f(x)=\left(\tan\dfrac{\pi x}{4}-1\right)\cdot g(x)$。\medskip
 
@@ -255,9 +255,7 @@ $\therefore f'(x)=\sec^2\dfrac{\pi x}{4}\cdot\dfrac{\pi}{4}\cdot g(x)+\left(\tan
 
 $\therefore$根据导数的四则运算，需要导数的乘积为每一项求导乘以其他不求导项的和，而$\tan\dfrac{\pi x}{4}-1$当$x=1$时为0，只要它不求导，其他的项都必然是0，所以原式的后面的结果都是0。
 
-$\therefore$
-
-$f'(1)$
+$\therefore f'(1)$
 
 $=f'(x)\vert_{x=1}$\medskip
 
@@ -518,6 +516,8 @@ $\therefore \sqrt{2}$。
 
 \subsection{相关变化率}
 
+已知$x=x(t)$与$y=y(t)$都是可导函数，而变量$xy$之间存在一定的关系，从而导致变化率$\dfrac{\textrm{d}x}{\textrm{d}t}$与$\dfrac{\textrm{d}y}{\textrm{d}t}$之间也存在一定关系，这就是相关变化率。。
+
 列出依赖于$t$的相关变化率关系式，然后等式两端对$t$求导。
 
 \section{函数微分}
@@ -566,7 +566,7 @@ $\therefore \textrm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot
 若函数可导：
 
 \begin{enumerate}
-    \item 和差的微分：$\textrm{d}[u(x)\pm v(x)]=\textrm{d}u(x)\pm\textrm{d}v(x)$。
+    \item 和差的微分：$\textrm{d}[ku(x)\pm lv(x)]=k\textrm{d}u(x)\pm l\textrm{d}v(x)$。
     \item 积的微分：$\textrm{d}[u(x)v(x)]=u(x)\textrm{d}v(x)+v(x)\textrm{d}u(x)$。
     \item 商的微分：$\textrm{d}\left[\dfrac{u(x)}{v(x)}\right]=\dfrac{v(x)\textrm{d}u(x)-u(x)\textrm{d}v(x)}{[v(x)]^2}$，$v(x)\neq 0$。
     \item 复合函数的微分：链式求导法则$\dfrac{\textrm{d}u}{\textrm{d}x}=\dfrac{\textrm{d}u}{\textrm{d}y}\cdot\dfrac{\textrm{d}y}{\textrm{d}x}$。
