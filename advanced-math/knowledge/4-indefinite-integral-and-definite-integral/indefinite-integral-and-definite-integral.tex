@@ -59,7 +59,7 @@
 
 \begin{enumerate}
     \item $\int[f(x)+g(x)]\textrm{d}x=\int f(x)\textrm{d}x+\int g(x)\textrm{d}x$，就是分项积分法。
-    \item $\int kf(x)\textrm{d}x=k\int f(x)\textrm{d}x$。
+    \item $\int kf(x)\textrm{d}x=k\int f(x)\textrm{d}x$（$k\neq 0$）。
 \end{enumerate}
 
 复合函数的求导法则的逆运算，就是换元积分法。
@@ -239,11 +239,13 @@ $\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\v
 
 定积分是积分的一种，是函数在一个区间上积分和的极限。已知$f(x)$为速度函数，则$f'(x)$为速度变化率函数，$\textrm{d}f(x)$为瞬时位移，则$\int_{a}^bf(x)\,\textrm{d}x$为位移函数。
 
+如果说是微分就是微小改变量的计算，那么积分就是累加无穷个微分得到的整个计算。
+
 \subsection{定义}
 
 设函数$f(x)$在区间$[a,b]$上连续，将区间分割为$n$个子区间：$[x_0,x_1],(x_1,x_2],$\\$(x_2,x_3],\cdots,(x_{n-1},x_n]$，其中$x_0=a$，$x_n=b$。并可知各区间长度为$\Delta x_1=x_1-x_0\cdots$，在每个子区间$(x_{i-1},x_i]$上任意取一点$\xi_i(i=1,2,\cdots,n)$，做累计和$\sum\limits_{i=1}^nf(\xi_i)\Delta x_i$，这个式子被称为积分和。
 
-设$\lambda=\max{\Delta x_1,\Delta x_2,\cdots,\Delta x_n}$，从而$\lambda$为最大的区间长度，若$\lambda\to 0$时积分和极限存在，则这个极限就是函数在区间$[a,b]$的定积分，记为$\int_a^bf(x)\,\textrm{d}x$，并称函数$f(x)$在区间$[a,b]$上可积。
+设$\lambda=\max{\Delta x_1,\Delta x_2,\cdots,\Delta x_n}$，从而$\lambda$为最大的区间长度，若$\lambda\to 0$时积分和极限$\lim\limits_{\lambda\to 0}\sum\limits_{i=1}^nf(\xi_i)\Delta x_i$存在，则这个极限就是函数在区间$[a,b]$的定积分，记为$\int_a^bf(x)\,\textrm{d}x$，并称函数$f(x)$在区间$[a,b]$上可积。
 
 其中$a$为积分下限，$b$为积分上限，区间$[a,b]$为积分区间，函数$f(x)$为被积函数，$x$是积分变量，$f(x)\,\textrm{d}x$为被积表达式，$\int$为积分号。
 
@@ -259,7 +261,9 @@ $\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\v
     \item $\int_a^bf(x)\,\textrm{d}x=\int_a^cf(x)\,\textrm{d}x+\int_c^bf(x)\,\textrm{d}x$，若$c$处于函数的可积区间。
     \item 若$[a,b]$上$f(x)\geqslant 0$，则$\int_a^bf(x)\,\textrm{d}x\geqslant 0$。
     \item 若$[a,b]$上$f(x)\leqslant g(x)$，则$\int_a^bf(x)\,\textrm{d}x\leqslant\int_a^bg(x)\,\textrm{d}x$。
-    \item 积分中值定理：$\exists\,\varepsilon\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\varepsilon)(b-a)$。
+    \item $\left\vert\int_a^bf(x)\,\textrm{d}x\right\vert\leqslant\int_a^b\vert f(x)\vert\,\textrm{d}x$。
+    \item 已知$f(x)\in[m,M]$在$[a,b]$上成立，则$m(b-a)\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant M(a-b)$。
+    \item 积分中值定理：$\exists\,\xi\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$。
 \end{enumerate}
 
 证明积分中值定理：
