@@ -25,6 +25,8 @@
 % 数学公式
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
+\usepackage{pifont}
+% 圆圈序号
 \author{Didnelpsun}
 \title{不定积分与定积分}
 \date{}
@@ -233,9 +235,13 @@ $\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\v
 
 真分式$\dfrac{P(x)}{Q(x)}$若可以分解为两个多项式的乘积：$\dfrac{P(x)}{Q(x)}=\dfrac{P_1(x)}{Q_1(x)}+\dfrac{P_2(x)}{Q_2(x)}$，则称为将真分式化为部分分式之和。
 
-通过这种化简方式，可以在求以商的形式的有利函数的式子的积分时拆分因式，从而简化积分运算。
+通过这种化简方式，可以在求以商的形式的有利函数的式子的积分时拆分因式，从而简化积分运算。这种简化运算主要体现在分数的积分为对数。
+
+当然如果多项式是无法拆分为一次的多个式子，那就无法使用有理函数积分的化简方式。
 
 \section{定积分}
+
+不定积分的概念根据导数的代数定义给出，而定积分则由几何的面积运算引出。
 
 定积分是积分的一种，是函数在一个区间上积分和的极限。已知$f(x)$为速度函数，则$f'(x)$为速度变化率函数，$\textrm{d}f(x)$为瞬时位移，则$\int_{a}^bf(x)\,\textrm{d}x$为位移函数。
 
@@ -286,7 +292,7 @@ $\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\v
 
 \subsection{变限积分}
 
-设$f(x)$在$[a,b]$上连续，且$\Phi(x)=\int_a^xf(t)\,\textrm{d}t(x\in[a,b])$，这个函数就是积分上限函数或叫积分变限函数。
+设$f(x)$在$[a,b]$上连续，且$\Phi(x)=\int_a^xf(t)\,\textrm{d}t(x\in[a,b])$，这个函数就是积分上限函数或叫积分变限函数（如果$\int_x^af(t)\,\textrm{d}t$就是变下限积分或积分下限函数）。
 
 \textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$在$[a,b]$上$(\int_a^xf(t)\,\textrm{d}t)'=f(x)$。
 
@@ -299,6 +305,8 @@ $\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\v
 从而$\Phi'(x)=\lim\limits_{\Delta x\to 0}\dfrac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x}=f(x)$。
 
 同理当$x=a,\Delta x>0$与$x=b,\Delta x<0$时也同样成立。
+
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$是$f(x)$在$[a,b]$上的一个原函数。
 
 \textbf{例题：}求$F(x)=\int_0^{x^2}e^{-t^2}\,\textrm{d}t$的导数。
 
@@ -318,8 +326,6 @@ $\therefore F'_x(x)=F'_u(x)\cdot u'_x=e^{-u^2}\cdot 2x=2xe^{-x^4}$。
 
 原式$=\lim\limits_{x\to 0}\dfrac{\ln(1+\sin^2x)2\sin x\cos x}{x(\sqrt{1+x^3}-1)}=\lim\limits_{x\to 0}\dfrac{x^2\cdot 2x\cdot 1}{\dfrac{4}{3}x^3}=\dfrac{3}{2}$。\smallskip
 
-\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$是$f(x)$在$[a,b]$上的一个原函数。
-
 \subsection{牛顿-莱布尼茨公式}
 
 \textcolor{aqua}{\textbf{定理：}}（微积分基本定理/牛顿-莱布尼茨公式）若函数$F(x)$是连续函数$f(x)$在区间$[a,b]$上的一个原函数，则$\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)$。
@@ -334,11 +340,11 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
 
 \subsection{换元积分法与分部积分法}
 
-定积分的换元积分法与分部积分法就是在定积分的换元积分法与分部积分法上代入了牛-莱公式。
+定积分的换元积分法与分部积分法就是在定积分的换元积分法与分部积分法上代入了牛-莱公式。定积分的积分法和不定积分的积分法的使用基本上类似。
 
 \subsubsection{换元积分法}
 
-\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，函数$x=\varphi(t)$满足(1)$\varphi(\alpha)=a,\varphi(\beta)=b$，(2)$\varphi(t)$在$[\alpha,\beta]$上具有连续导数，且其值域$R_\varphi=[a,b]$，则有$\int_a^bf(x)\,\textrm{d}x=\int_\alpha^\beta f[\varphi(t)]\varphi'(t)\,\textrm{d}t$。
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，函数$x=\varphi(t)$满足\ding{172}$\varphi(\alpha)=a,\varphi(\beta)=b$，\ding{173}$\varphi(t)$在$[\alpha,\beta]$上具有连续导数，且其值域$R_\varphi=[a,b]$（值域超出而其他条件满足时也成立），则有$\int_a^bf(x)\,\textrm{d}x=\int_\alpha^\beta f[\varphi(t)]\varphi'(t)\,\textrm{d}t$。
 
 \subsubsection{分部积分法}
 
