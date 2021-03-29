@@ -84,7 +84,7 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 \subsection{指数法则}
 
-求$\lim\limits_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right]$。
+\textbf{例题：}求$\lim\limits_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right]$。
 
 首先对于幂指函数需要取指数，所以$\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}=e^{\frac{n}{2}\ln(1+\frac{1}{n})}$。\medskip
 
@@ -138,6 +138,14 @@ $= \dfrac{4}{3}$
 
 当作为商的极限式子上下都具有公因子时可以提取公因子然后相除，从而让未知数集中在分子或分母上。
 
+\textbf{例题：}求$\lim\limits_{x\to 4}\dfrac{x^2-6x+8}{x^5-5x+4}$。
+
+需要先提取公因子：
+
+$=\lim\limits_{x\to 4}\dfrac{(x-2)(x-4)}{(x-1)(x-4)}=\lim\limits_{x\to 4}\dfrac{x-2}{x-1}=\dfrac{2}{3}$。
+
+（当然可以使用洛必达法则得到极限为$\lim\limits_{x\to 4}\dfrac{2x-6}{2x-5}=\lim\limits_{x\to 4}\dfrac{8-6}{8-5}$）
+
 \textcolor{orange}{注意：}提取公因子的时候应该注意开平方等情况下符号的问题。如果极限涉及倒正负两边则必须都讨论。
 
 当趋向为负且式子中含有根号的时候最好提取负因子，从而让趋向变为正。\medskip
@@ -186,7 +194,9 @@ $=1$
 
 首先定性分析：$\lim\limits_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
 
-在$x\to-\infty$趋向时，$x$就趋向无穷大，而$\sqrt{x^2+100}$为一次，所以$\sqrt{x^2+100}+x$趋向0。
+在$x\to-\infty$趋向时，$x$就趋向无穷大。
+
+而$\sqrt{x^2+100}$为一次，所以$\sqrt{x^2+100}+x$趋向0。
 
 又$\sqrt{x^2+100}$在$x\to-\infty$时本质为根号差，所以有理化：
 
@@ -277,6 +287,14 @@ $=\dfrac{1}{2}$
 \subsubsection{\texorpdfstring{$\infty-\infty$}\ 型}
 
 \subsection{拆项}
+
+拆项需要根据式子形式进行，所以很难找到普遍规律。
+
+\textbf{例题：}求$\lim\limits_{n\to\infty}\dfrac{(n+1)(n+2)(n+3)\cdots(n+6)}{6n^6}$。
+
+需要将分子和分母都拆为6项：
+
+$=\dfrac{1}{6}\lim\limits_{n\to\infty}\dfrac{n+1}{n}\times\dfrac{n+2}{n}\times\cdots\dfrac{n+6}{n}=\dfrac{1}{6}\lim\limits_{n\to\infty}(1+\dfrac{1}{n})(1+\dfrac{2}{n})\cdots(1+\dfrac{6}{n})=\dfrac{1}{6}$。
 
 当极限式子中出现不知道项数的$n$时，一般需要使用拆项，把项重新组合。一般的组合是根据等价无穷小。
 
@@ -641,9 +659,30 @@ $\lim\limits_{n\to\infty}x_n=\lim\limits_{n\to\infty}\dfrac{1+2x_{n-1}}{1+x_{n-1
 
 $\therefore\lim\limits_{n\to\infty}x_n=\dfrac{1+\sqrt{5}}{2}$。
 
+而许多题目只给出样子，连通项公式都不会给出。\medskip
+
+\textbf{例题：}求出数列$\sqrt{2}$，$\sqrt{2+\sqrt{2}}$，$\sqrt{2+\sqrt{2+\sqrt{2}}}$$\cdots$的极限。
+
+根据数列样式，无法通过普通的通项公式来表达，所以需要考虑使用递推式来表示：$x_{n+1}=\sqrt{2+x_n}$。
+
+首先证明有界性：
+
+给定一个任意的正整数$k$，再根据递推式，假定$x_k<2$，所以$x_{k+1}=\sqrt{2+x_k}<\sqrt{2+2}=2$。且$x_1=\sqrt{2}$满足假定，所以$x_k<2$对于任意的正整数$k$都成立，所以$x_n$存在上界2。
+
+然后证明单调性，根据其递推式：
+
+$x_{n+1}-x_n=\sqrt{2+x_n}-x_n=\dfrac{2+x_n-x_n^2}{\sqrt{2+x_n}+x_n}=\dfrac{-(x_n-2)(x_n+1)}{\sqrt{2+x_n}+x_n}$。\medskip
+
+又$0<x_n<2$，从而上式子大于0，从而数列单调递增。
+
+所以根据单调有界定理，数列$x_{n+1}=\sqrt{2+x_n}$一定存在极限，令其极限值$\lim\limits_{n\to\infty}x_n=a$。
+
+将递推式两边平方并取极限：$\lim\limits_{n\to\infty}x^2_{n+1}=\lim\limits_{n\to\infty}(2+x_n)$。
+
+从而$a^2=2+a$，得出$a=2$（根据极限的保号性$-1$被舍去）。
+
 \subsection{变限积分极限}
 
 已知更改区间限制的积分$s(x)=\int_{\varphi_1(x)}^{\varphi_2(x)}g(t)\,\textrm{d}x$，$s'(x)=g[\varphi_2(x)]\cdot\varphi_2'(x)-g[\varphi_1(x)]\cdot\varphi_1'(x)$。
-
 
 \end{document}
