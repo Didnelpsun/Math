@@ -84,6 +84,20 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 \subsection{指数法则}
 
+一般需要与洛必达法则配合使用。
+
+\textbf{例题：}求$\lim\limits_{x\to 0}\left(\dfrac{a^x+b^x+c^x}{3}\right)^{\frac{1}{x}}(a>0,b>0,c>0)$。\medskip
+
+$=e^{\lim\limits_{x\to 0}\frac{\ln\left(\frac{a^x+b^x+c^x}{3}\right)}{x}}$
+
+$=e^{\lim\limits_{x\to 0}\frac{\ln(a^x+b^x+c^x)-\ln 3}{x}}$
+
+$=e^{\lim\limits_{x\to 0}\frac{a^x\ln a+b^x\ln b+c^x\ln c}{a^x+b^x+c^x}}$（洛必达法则）
+
+$=e^{\lim\limits_{x\to 0}\frac{\ln a+\ln b+\ln c}{1+1+1}}$
+
+$=e^{\lim\limits_{x\to 0}\frac{\ln(abc)}{3}}=\sqrt[3]{abc}$。
+
 \textbf{例题：}求$\lim\limits_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right]$。
 
 首先对于幂指函数需要取指数，所以$\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}=e^{\frac{n}{2}\ln(1+\frac{1}{n})}$。\medskip
@@ -211,6 +225,18 @@ $\xRightarrow{\text{令}x=-t}\lim\limits_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+10
 $=\lim\limits_{t\to+\infty}\dfrac{-100}{\sqrt{1+\dfrac{100}{t^2}}+1}$
 
 $=-50$
+
+\textbf{例题：}求$\lim\limits_{x\to 0}\dfrac{\sqrt{1+\tan x}-\sqrt{1+\sin x}}{x\sqrt{1+\sin^2x}-x}$。
+
+$=\lim\limits_{x\to 0}\sqrt{1+\tan x}-\sqrt{1+\sin x}\cdot\lim\limits_{x\to 0}\dfrac{1}{x\sqrt{1+\sin^2x}-x}$\medskip
+
+$=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{\sqrt{1+\tan x}+\sqrt{1+\sin x}}\cdot\lim\limits_{x\to 0}\dfrac{x\sqrt{1+\sin^2x}+x}{x^2(1+\sin^2x)-x^2}$\medskip
+
+$=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{\sqrt{1+\tan x}+\sqrt{1+\sin x}}\cdot\lim\limits_{x\to 0}\dfrac{\sqrt{1+\sin^2x}+1}{x\sin^2x}$\medskip
+
+$=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{2}\cdot\lim\limits_{x\to 0}\dfrac{2}{x\sin^2x}$
+
+$=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{x\sin^2x}=\lim\limits_{x\to 0}\dfrac{1-\cos x}{x\cos x\sin x}=\lim\limits_{x\to 0}\dfrac{\dfrac{1}{2}x^2}{x^2}=\dfrac{1}{2}$。
 
 \subsection{换元法}
 
@@ -346,7 +372,27 @@ $=-6$
 
 只有式子的极限各自存在才能使用四则运算，使用的频率较少。
 
-\subsection{两个重要极限}
+\subsection{重要极限}
+
+重要极限有两个，但是$\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$这个很少用，因为往往用等价无穷小替代了，而$\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x=e$则用的较多，当出现分数幂的幂指函数时，不要先去取对数，而是使用重要极限看看能不能转换。\medskip
+
+\textbf{例题：}求$\lim\limits_{x\to\infty}\left(\dfrac{3+x}{6+x}\right)^{\frac{x-1}{2}}$。
+
+$=\lim\limits_{x\to\infty}\left(1-\dfrac{3}{6+3}\right)^{\frac{6+x}{-3}\cdot\frac{-3}{6+x}\cdot\frac{x-1}{2}}$
+
+$=\lim\limits_{x\to\infty}e^{\frac{-3}{6+x}\cdot\frac{x-1}{2}}$
+
+$=\lim\limits_{x\to\infty}e^{-\frac{3}{2}\cdot\frac{x-1}{x+6}}$
+
+$=e^{-\frac{3}{2}}$。
+
+\textbf{例题：}求$\lim\limits_{x\to\infty}\left(\dfrac{2x+3}{2x+1}\right)^{x+1}$。\medskip
+
+$=\lim\limits_{x\to\infty}\left(\dfrac{2x+3}{2x+1}\right)^x\cdot\dfrac{2x+3}{2x+1}=\lim\limits_{x\to\infty}\left(\dfrac{2x+3}{2x+1}\right)^x$\medskip
+
+$=\lim\limits_{x\to\infty}\left(\dfrac{1+\dfrac{3}{2x}}{1+\dfrac{1}{2x}}\right)^x=\lim\limits_{x\to\infty}\dfrac{\left(1+\dfrac{3}{2x}\right)^x}{\left(1+\dfrac{1}{2x}\right)^x}$
+
+$=\lim\limits_{x\to\infty}\dfrac{\left[\left(1+\dfrac{3}{2x}\right)^{\frac{2x}{3}}\right]^{\frac{3}{2}}}{\left[\left(1+\dfrac{1}{2x}\right)^{2x}\right]^{\frac{1}{2}}}=\dfrac{e^{\frac{3}{2}}}{e^{\frac{1}{2}}}=e$。
 
 \subsection{导数定义}
 
@@ -397,6 +443,14 @@ $\therefore\lim\limits_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}
 洛必达在处理一般的极限式子比较好用，但是一旦式子比较复杂最好不要使用洛必达法则，最好是对求导后有规律或幂次较低的式子进行上下求导。
 
 对于幂次高的式子必然使用洛必达法则。
+
+洛必达法则必须使用在分式都趋向0或$\infty$时，如果不是这样的趋向则不能使用。如：
+
+\textbf{例题：}求$\lim\limits_{x\to 1}\dfrac{x^2-x+1}{(x-1)^2}$。
+
+如果使用洛必达法则，则会得到结果为1，这是错误的，因为分子在$x\to 1$时结果为常数1。正确的计算方式：
+
+$=\lim\limits_{x\to 1}\dfrac{1}{(x-1)^2}=\infty$。
 
 \subsection{泰勒公式}
 

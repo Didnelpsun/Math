@@ -59,11 +59,11 @@
 从而得到了$f(x)$关于$x$的表达式：\medskip
 
 $f(x)=\left\{\begin{array}{lcl}
-    x, & & x<0 \\
-    0, & & x=0 \\
-    x^2, & & x>0
-\end{array}
-\right.$\medskip
+        x,   &  & x<0 \\
+        0,   &  & x=0 \\
+        x^2, &  & x>0
+    \end{array}
+    \right.$\medskip
 
 又$\lim\limits_{x\to 0^-}f(x)=\lim\limits_{x\to 0^-}x=\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^-}x^2=f(0)=0$。
 
@@ -74,14 +74,14 @@ $f(x)$在$R$上连续。
 一般会给出带有参数的分段函数，要计算参数就必须了解连续区间与函数之间的关系。
 
 \textbf{例题：}$f(x)=\left\{\begin{array}{lcl}
-    6, & & x\leqslant 0 \\
-    \dfrac{e^{ax^3}-1}{x-\arcsin x}, & & x>0
-\end{array}
-\right.$，$g(x)=\left\{\begin{array}{lcl}
-    \dfrac{3\sin(x-1)}{x-1}, & & x<1 \\
-    e^{bx}+1, & & x\geqslant 1
-\end{array}
-\right.$，\smallskip \\ 若$f(x)+g(x)$在$R$上连续，则求$a,b$。
+        6,                               &  & x\leqslant 0 \\
+        \dfrac{e^{ax^3}-1}{x-\arcsin x}, &  & x>0
+    \end{array}
+    \right.$，$g(x)=\left\{\begin{array}{lcl}
+        \dfrac{3\sin(x-1)}{x-1}, &  & x<1          \\
+        e^{bx}+1,                &  & x\geqslant 1
+    \end{array}
+    \right.$，\smallskip \\ 若$f(x)+g(x)$在$R$上连续，则求$a,b$。
 
 解：已知$f(x)+g(x)$在$R$上连续，但是不能判断$f(x)$与$g(x)$的连续性。
 
@@ -115,6 +115,27 @@ $\therefore a=-1,b=\ln 2$时$f(x)+g(x)$在$R$上连续。而$a\neq -1$时$f(x)+g
 
 \subsection{求间断点}
 
+求间断点需要首先分析函数的表达形式。
+
+\textbf{例题：}设$f(x)=\lim\limits_{n\to\infty}\dfrac{1+x}{1+x^{2n}}$，求其间断点并分析其类型。
+
+根据函数形式，我们需要首先回顾一下幂函数的性质，幂函数的变化趋势取决于底数。
+
+当$x=1$时，$x^n\equiv 1$，当$x\in(-\infty,-1)\cup(1,+\infty)$时，当$n\to\infty$时，$x^n\to\infty$，而$x\in(-1,1)$时，当$n\to\infty$时，$x^n\to 0$。
+
+$\therefore\lim\limits_{n\to\infty}\dfrac{1+x}{1+x^{2n}}=\left\{\begin{array}{lcl}
+        0,   &  & x\in(-\infty,-1]\cup(1,+\infty) \\
+        1,   &  & x=1                                        \\
+        x+1, &  & x\in(-1,1)
+    \end{array}
+    \right.$
+
+所以分段点为$x=\pm 1$。
+
+当$x=-1$时，$f(-1^+)=f(-1^-)=f(-1)=0$，所以在此处连续。
+
+当$x=1$时，$f(1^+)=0\neq f(1^-)=2$，所以在此处简短，为跳跃间断点。
+
 \subsection{已知间断点求参数}
 
 这种题目已知间断点，而未知式子中的参数，只用将间断点代入式子并利用极限计算间断点的类型就可以了。
@@ -131,15 +152,14 @@ $\therefore a=-1,b=\ln 2$时$f(x)+g(x)$在$R$上连续。而$a\neq -1$时$f(x)+g
 
 $\therefore x=1$为可去间断点。\medskip
 
-当$x\to e$时，$\lim\limits_{x\to e}\dfrac{e^x-e}{(x-1)(x-e)}$$=\dfrac{1}{e-1}\lim\limits_{x\to e}\dfrac{e^x-e}{x-e}$$=\dfrac{e}{e-1}\lim\limits_{x\to e}\dfrac{e^{x-1}-1}{x-e}$\medskip$=\dfrac{e}{e-1}\lim\limits_{x\to e}\dfrac{x-1}{x-e}$$=\dfrac{e(e-1)}{e-1}\lim\limits_{x\to e}\dfrac{1}{x-e}=\infty$。\medskip
+    当$x\to e$时，$\lim\limits_{x\to e}\dfrac{e^x-e}{(x-1)(x-e)}$$=\dfrac{1}{e-1}\lim\limits_{x\to e}\dfrac{e^x-e}{x-e}$$=\dfrac{e}{e-1}\lim\limits_{x\to e}\dfrac{e^{x-1}-1}{x-e}$\medskip$=\dfrac{e}{e-1}\lim\limits_{x\to e}\dfrac{x-1}{x-e}$$=\dfrac{e(e-1)}{e-1}\lim\limits_{x\to e}\dfrac{1}{x-e}=\infty$。\medskip
 
 $\therefore x=e$为无穷间断点。\medskip
 
-当$a=e,b=1$时，$f(x)=\dfrac{e^x-1}{(x-e)(x-1)}$。\medskip
+    当$a=e,b=1$时，$f(x)=\dfrac{e^x-1}{(x-e)(x-1)}$。\medskip
 
-而作为分子的$e^x-1$必然为一个常数，当式子趋向$1$或$e$的时候分母两个不等式中的一个不等式必然为一个常数，从而另一个不等式则变为了无穷小，所以$\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to e}f(x)=\infty$。
+    而作为分子的$e^x-1$必然为一个常数，当式子趋向$1$或$e$的时候分母两个不等式中的一个不等式必然为一个常数，从而另一个不等式则变为了无穷小，所以$\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to e}f(x)=\infty$。
 
 $\therefore a=1,b=e$。
-
 
 \end{document}
