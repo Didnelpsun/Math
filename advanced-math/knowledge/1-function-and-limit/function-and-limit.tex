@@ -442,15 +442,7 @@ $\therefore \ln\left(1+\dfrac{\tan x}{x}-1\right)\sim\dfrac{\tan x}{x}-1$，$\df
 
 又根据泰勒展开$\tan x-x=x+\dfrac{x^3}{3}+o(x^3)-x-0\cdot x^3=\dfrac{x^3}{3}$。
 
-$\therefore$ \medskip
-
-$e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}$
-
-$=e^{\lim\limits_{x\to 0}\frac{1}{x^2}\frac{\tan x-x}{x}}$
-
-$=e^{\lim\limits_{x\to 0}\frac{1}{x^2}\cdot\frac{x^2}{3}}$
-
-$= e^{\frac{1}{3}}$
+$\therefore e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}=e^{\lim\limits_{x\to 0}\frac{1}{x^2}\frac{\tan x-x}{x}}=e^{\lim\limits_{x\to 0}\frac{1}{x^2}\cdot\frac{x^2}{3}}=e^{\frac{1}{3}}$
 
 根据海涅定理：取$x=\dfrac{1}{n},n\to\infty$，$\lim\limits_{n\to\infty}\left(n\tan\dfrac{1}{n}\right)^{n^2}=e^{\frac{1}{3}}$。
 
@@ -887,21 +879,9 @@ $\therefore\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$。
 
 证明：
 
-$\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x$\medskip
+$\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x=\lim\limits_{x\to\infty}e^{\ln(1+\frac{1}{x})^x}=\lim\limits_{x\to\infty}e^{x\ln(1+\frac{1}{x})}=e^{\lim\limits_{x\to\infty}x\ln(1+\frac{1}{x})}=e^{\lim\limits_{x\to\infty}\frac{\ln(1+\frac{1}{x})}{\frac{1}{x}}}$
 
-$=\lim\limits_{x\to\infty}e^{\ln(1+\frac{1}{x})^x}$
-
-$=\lim\limits_{x\to\infty}e^{x\ln(1+\frac{1}{x})}$
-
-$=e^{\lim\limits_{x\to\infty}x\ln(1+\frac{1}{x})}$
-
-$=e^{\lim\limits_{x\to\infty}\frac{\ln(1+\frac{1}{x})}{\frac{1}{x}}}$
-
-$=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\left(-\frac{1}{x^2}\right)}{-\frac{1}{x^2}}}$
-
-$=e^{\lim\limits_{x\to\infty}\frac{1}{1+x}}$
-
-$=e$
+$=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\left(-\frac{1}{x^2}\right)}{-\frac{1}{x^2}}}=e^{\lim\limits_{x\to\infty}\frac{1}{1+x}}=e$\medskip
 
 从而$\lim\limits_{\Delta\to\infty}\left(1+\dfrac{1}{\Delta}\right)^\Delta=e$与$\lim\limits_{\Delta\to 0}\left(1+\Delta\right)^{\frac{1}{\Delta}}=e(\Delta\neq 0)$。
 

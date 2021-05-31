@@ -125,7 +125,7 @@ $\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化�
 
 \section{洛必达法则}
 
-若当$x\to a$或$x\to\infty$时两个函数$f(x)F(x)$都趋向0或无穷大，那么极限$\lim\limits_{x\to a/\infty}\dfrac{f(x)}{F(x)}$可能存在，也可能不存在，这种极限就是不定式。\medskip
+若当$x\to a$或$x\to\infty$时两个函数$f(x)F(x)$都趋向0或无穷大，那么极限$\lim\limits_{x\to \frac{a}{\infty}}\dfrac{f(x)}{F(x)}$可能存在，也可能不存在，这种极限就是不定式。\medskip
 
 \textcolor{aqua}{\textbf{定理：}}
 
@@ -149,11 +149,7 @@ $\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化�
 
 而使用洛必达法则：\medskip
 
-$\lim\limits_{x\to 0}\dfrac{x^2\cdot\sin\dfrac{1}{x}}{x}$
-
-$=\lim\limits_{x\to 0}\left(2x\cdot\sin\dfrac{1}{x}-\cos\dfrac{1}{x}\right)$
-
-$=\lim\limits_{x\to 0}\left(-\cos\dfrac{1}{x}\right)=\text{不存在}$
+$\lim\limits_{x\to 0}\dfrac{x^2\cdot\sin\dfrac{1}{x}}{x}=\lim\limits_{x\to 0}\left(2x\cdot\sin\dfrac{1}{x}-\cos\dfrac{1}{x}\right)=\lim\limits_{x\to 0}\left(-\cos\dfrac{1}{x}\right)=\text{不存在}$
 
 \section{泰勒公式}
 
@@ -225,13 +221,7 @@ $R_n(x)=\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$就是函数的拉格朗日�
 
 如：
 
-$\lim\limits_{x\to 0}\dfrac{[\sin x-\sin(\sin x)]\sin x}{x^4}$
-
-$=\dfrac{\dfrac{1}{6}\sin^3x\cdot\sin x}{x^4}$
-
-$=\dfrac{\dfrac{1}{6}\sin^4x}{x^4}$
-
-$=\dfrac{1}{6}$
+$\lim\limits_{x\to 0}\dfrac{[\sin x-\sin(\sin x)]\sin x}{x^4}=\dfrac{\dfrac{1}{6}\sin^3x\cdot\sin x}{x^4}=\dfrac{\dfrac{1}{6}\sin^4x}{x^4}=\dfrac{1}{6}$
 
 \subsubsection{泰勒公式计算}
 
@@ -266,13 +256,7 @@ $\therefore \dfrac{y^{(6)}(0)}{6!}=-\dfrac{1}{6}\Rightarrow y^{(6)}(0)=-5!=-120$
 
 如$\lim\limits_{x\to 0}\dfrac{x-\sin x}{x^3}$展开为三次：\medskip
 
-$\lim\limits_{x\to 0}\dfrac{x-\sin x}{x^3}$
-
-$=\lim\limits_{x\to 0}\dfrac{x-\left[x-\dfrac{1}{6}x^3+o(x^3)\right]}{x^3}$\medskip
-
-$=\lim\limits_{x\to 0}\dfrac{\dfrac{1}{6}x^3+o(x^3)}{x^3}$\medskip
-
-$=\dfrac{1}{6}$
+$\lim\limits_{x\to 0}\dfrac{x-\sin x}{x^3}=\lim\limits_{x\to 0}\dfrac{x-\left[x-\dfrac{1}{6}x^3+o(x^3)\right]}{x^3}=\lim\limits_{x\to 0}\dfrac{\dfrac{1}{6}x^3+o(x^3)}{x^3}=\dfrac{1}{6}$
 
 \subsubsection{\texorpdfstring{$A-B$}\ 型，幂次最低}
 
@@ -282,14 +266,9 @@ $=\dfrac{1}{6}$
 
 泰勒展开：
 
-$
-\begin{aligned}
-    & \cos x-e^{-\frac{x^2}{2}} \\
-    & = 1-\dfrac{x^2}{2}+\dfrac{1}{24}x^4+o(x^4)-\left(1-\dfrac{x^2}{2}+\dfrac{1}{8}x^4+o(x^4)\right) \\
-    & = -\dfrac{1}{12}x^4+o(x^4) \\
-    & \sim -\dfrac{1}{12}x^4
-\end{aligned}
-$
+$\cos x-e^{-\frac{x^2}{2}}= 1-\dfrac{x^2}{2}+\dfrac{1}{24}x^4+o(x^4)-\left(1-\dfrac{x^2}{2}+\dfrac{1}{8}x^4+o(x^4)\right)$
+
+$=-\dfrac{1}{12}x^4+o(x^4)\sim -\dfrac{1}{12}x^4$
 
 $\therefore a=-\dfrac{1}{12},b=4$。
 
@@ -301,33 +280,11 @@ $\therefore e^{x^4}-1\sim x^4$。
 
 然后泰勒展开：
 
-$x-\sin x$
+$x-\sin x=1\cdot x^1+0\cdot x^3 - (1\cdot x^1-\dfrac{1}{6}x^3+o(x^3))= \dfrac{1}{6}x^3+o(x^3)\sim\dfrac{1}{6}x^3$
 
-$= 1\cdot x^1+0\cdot x^3 - (1\cdot x^1-\dfrac{1}{6}x^3+o(x^3))$
+$x+\sin x=x-(-\sin x)=1\cdot x^1-(-1\cdot x^1)+o(x)=2x+o(x)\sim 2x$ \medskip
 
-$= \dfrac{1}{6}x^3+o(x^3)$
-
-$\sim \dfrac{1}{6}x^3$
-
-$x+\sin x$
-
-$=x-(-\sin x)$
-
-$=1\cdot x^1-(-1\cdot x^1)+o(x)$
-
-$=2x+o(x)$
-
-$\sim 2x$
-
-$\therefore$
-
-$\lim\limits_{x\to 0}\dfrac{\sin^2x-x^2}{e^{x^4}-1}$\medskip
-
-$=\lim\limits_{x\to 0}\dfrac{(\sin x+x)(\sin x-x)}{x^4}$\medskip
-
-$=\lim\limits_{x\to 0}\dfrac{2x\cdot\left(-\dfrac{1}{6}x^3\right)}{x^4}$\medskip
-
-$=-\dfrac{1}{3}$
+$\therefore\lim\limits_{x\to 0}\dfrac{\sin^2x-x^2}{e^{x^4}-1}=\lim\limits_{x\to 0}\dfrac{(\sin x+x)(\sin x-x)}{x^4}=\lim\limits_{x\to 0}\dfrac{2x\cdot\left(-\dfrac{1}{6}x^3\right)}{x^4}=-\dfrac{1}{3}$
 
 \section{函数单调性与曲线凹凸性}
 
@@ -384,15 +341,9 @@ $\therefore$在$(0,+\infty]$上$g(x)>g(0)=0$，即$\sin x>x-\dfrac{x^3}{6}$。
 
 不妨设$x_1<x_2$，且$\dfrac{x_1+x_2}{2}=x_0$。
 
-$f(x_1)+f(x_2)-2(x_0)$
+$f(x_1)+f(x_2)-2(x_0)=[f(x_2)-f(x_0)]-[f(x_1)-f(x_0)]$
 
-$=[f(x_2)-f(x_0)]-[f(x_1)-f(x_0)]$
-
-$\xRightarrow{\text{拉格朗日中值定理}}$
-
-$=f'(\xi_2)(x_2-x_0)-f'(\xi_1)(x_0-x_1)$
-
-$=\dfrac{x_2-x_1}{2}[f'(\xi_2)-f'(\xi_1)]>0$
+$\xRightarrow{\text{拉格朗日中值定理}}=f'(\xi_2)(x_2-x_0)-f'(\xi_1)(x_0-x_1)=\dfrac{x_2-x_1}{2}[f'(\xi_2)-f'(\xi_1)]>0$
 
 $\therefore f''(x)>0\Rightarrow f(\dfrac{x_1+x_2}{2})<\dfrac{f(x_1)+f(x_2)}{2}$。
 

@@ -446,19 +446,13 @@ $\textrm{d}S=\left[(y+4)-\dfrac{y^2}{2}\right]\textrm{d}y$。
 
 因为无法计算对于$x$的表达式，所以使用参数方程代入，并改变上下限$S$：
 
-$=\int_0^{2\pi}a(1-\cos t)\,\textrm{d}[a(t-\sin t)]$
+$=\int_0^{2\pi}a(1-\cos t)\,\textrm{d}[a(t-\sin t)]=\int_0^{2\pi}a^2(1-\cos t)^2\,\textrm{d}t$
 
-$=\int_0^{2\pi}a^2(1-\cos t)^2\,\textrm{d}t$
-
-$=a^2\displaystyle{\int_0^{2\pi}\left(2\sin^2\dfrac{t}{2}\right)^2\textrm{d}t}$（消去里面的1）
-
-$=4a^2\displaystyle{\int_0^{2\pi}\sin^4\dfrac{t}{2}\,\textrm{d}t}$
+$=a^2\displaystyle{\int_0^{2\pi}\left(2\sin^2\dfrac{t}{2}\right)^2\textrm{d}t}\,\text{（消去里面的1）}=4a^2\displaystyle{\int_0^{2\pi}\sin^4\dfrac{t}{2}\,\textrm{d}t}$
 
 令$u=\dfrac{t}{2}$，从而$\textrm{d}t=2\textrm{d}u$，从而$u\in[0,\pi]$。
 
-$=8a^2\int_0^\pi\sin^4u\,\textrm{d}u$
-
-$=16a^2\int_0^{\frac{\pi}{2}}\sin^4u\,\textrm{d}u$（积分可加性拆分为两个相同限的项）
+$=8a^2\int_0^\pi\sin^4u\,\textrm{d}u=16a^2\int_0^{\frac{\pi}{2}}\sin^4u\,\textrm{d}u$（积分可加性拆分为两个相同限的项）
 
 $=16a^2\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=3a^2\pi$（点火公式）。
 
@@ -476,13 +470,9 @@ $=16a^2\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=3a^2\pi$（点火�
 
 所以可以根据公式$S=2\dfrac{1}{2}\int_0^\pi a^2(1+\cos\theta)^2\,\textrm{d}\theta$。
 
-$=a^2\displaystyle{\int_0^\pi\left(2\cos^2\dfrac{\theta}{2}\right)^2\textrm{d}\theta}$
+$=a^2\displaystyle{\int_0^\pi\left(2\cos^2\dfrac{\theta}{2}\right)^2\textrm{d}\theta}=4a^2\displaystyle{\int_0^\pi\cos^4\dfrac{\theta}{2}\,\textrm{d}\theta}$
 
-$=4a^2\displaystyle{\int_0^\pi\cos^4\dfrac{\theta}{2}\,\textrm{d}\theta}$
-
-令$\dfrac{\theta}{2}=t$，所以$\textrm{d}\theta=2\textrm{d}t$，同时上下限缩小一半：
-
-$=8a^2\int_0^{\frac{\pi}{2}}\cos^4t\,\textrm{d}t$
+令$\dfrac{\theta}{2}=t$，所以$\textrm{d}\theta=2\textrm{d}t$，同时上下限缩小一半：$=8a^2\int_0^{\frac{\pi}{2}}\cos^4t\,\textrm{d}t$
 
 根据华理士公式：$=8a^2\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=\dfrac{3}{2}a^2\pi$。
 
@@ -514,27 +504,19 @@ $V_x=\pi\int_0^{2a\pi}y^2\,\textrm{d}x$
 
 代入参数方程并改变上下限：
 
-$=\pi\int_0^{2\pi}a^2(1-\cos t)^2\,\textrm{d}[a(t-\sin t)]$
+$=\pi\int_0^{2\pi}a^2(1-\cos t)^2\,\textrm{d}[a(t-\sin t)]=a^3\pi\int_0^{2\pi}(1-\cos t)^3\,\textrm{d}t$
 
-$=a^3\pi\int_0^{2\pi}(1-\cos t)^3\,\textrm{d}t$
-
-$=a^3\pi\displaystyle{\int_0^{2\pi}\left(2\sin^2\dfrac{t}{2}\right)^3\textrm{d}t}$
-
-$=8a^3\pi\displaystyle{\int_0^{2\pi}\sin^6\dfrac{t}{2}\textrm{d}t}$
+$=a^3\pi\displaystyle{\int_0^{2\pi}\left(2\sin^2\dfrac{t}{2}\right)^3\textrm{d}t}=8a^3\pi\displaystyle{\int_0^{2\pi}\sin^6\dfrac{t}{2}\textrm{d}t}$
 
 令$\dfrac{\theta}{2}=t$，所以$\textrm{d}\theta=2\textrm{d}t$，同时上下限缩小一半：
 
-$=16a^3\pi\int_0^\pi\sin^6u\,\textrm{d}u$
-
-$=32a^3\pi\int_0^{\frac{\pi}{2}}\sin^6u\,\textrm{d}u$
+$=16a^3\pi\int_0^\pi\sin^6u\,\textrm{d}u=32a^3\pi\int_0^{\frac{\pi}{2}}\sin^6u\,\textrm{d}u$
 
 华理士公式得到最后$=5a^3\pi^2$。
 
 同理可得$y$轴旋转体积为$V_y=2\pi\int_0^{2\pi}xy(x)\,\textrm{d}x$
 
-$=2\pi\int_0^{2\pi}a(t-\sin t)a^2(1-\cos t)^2\,\textrm{d}t$
-
-$=2a^3\pi\int_0^{2\pi}(t-\sin t)\cdot 4\sin^4\dfrac{t}{2}\,\textrm{d}t$
+$=2\pi\int_0^{2\pi}a(t-\sin t)a^2(1-\cos t)^2\,\textrm{d}t=2a^3\pi\int_0^{2\pi}(t-\sin t)\cdot 4\sin^4\dfrac{t}{2}\,\textrm{d}t$
 
 然后拆开分别进行凑微分法，得到$6a^3\pi^3$。
 
@@ -563,5 +545,22 @@ $S_n=\sum\limits_{i=1}^n\Vert\overline{M_{i-1}M_{i}}\Vert$，$S=\lim\limits_{\de
 如果是参数方程，则$S=\int_\alpha^\beta\sqrt{x'^2+y'^2}\,\textrm{d}t$。
 
 如果是极坐标方程，则$S=\int_\alpha^\beta\sqrt{\rho^2+\rho'^2}\,\textrm{d}\theta$。
+
+\section{积分表}
+
+\begin{center}
+    \begin{tabular}{|c|c|c|c|}
+        \hline
+        原函数 & 积分函数 & 原函数 & 积分函数\\ \hline
+        $\int k\,\textrm{d}x$ & $kx+C$ & $\int x^\mu\,\textrm{d}x$ & $\dfrac{x^{\mu+1}}{\mu+1}+C$ \\ \hline
+        $\int\dfrac{\textrm{d}x}{x}$ & $\ln\vert x\vert+C$ & $\int\dfrac{\textrm{d}x}{1+x^2}$ & $\arctan x+C$ \\ \hline
+        $\int\dfrac{\textrm{d}x}{\sqrt{1-x^2}}$ & $\arcsin x+C$ & $\int\cos x\,\textrm{d}x$ & $\sin x+C$ \\ \hline
+        $\int\sin x\,\textrm{d}x$ & $-\cos x+C$ & $\int\dfrac{\textrm{d}x}{\cos^2x}$ & $\tan x+C$ \\ \hline
+        $\int\dfrac{\textrm{d}x}{\sin^2x}$ & $-\cot x+C$ & $\int\sec x\tan x\,\textrm{d}x$ & $\sec x+C$ \\ \hline
+        $\int\csc x\cot x\,\textrm{d}x$ & $-\csc x+C$ & $\int e^x\,\textrm{d}x$ & $e^x+C$ \\ \hline
+        $\int a^x\,\textrm{d}x$ & $\dfrac{a^x}{\ln a}+C$ & & \\
+        \hline
+    \end{tabular}
+\end{center}
 
 \end{document}

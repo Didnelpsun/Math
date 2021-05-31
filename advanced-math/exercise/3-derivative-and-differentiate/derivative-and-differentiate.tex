@@ -35,7 +35,7 @@
 \pagestyle{plain}
 \setcounter{page}{1}
 \section{一阶导数}
-\subsection{幂指函数求导}
+\subsection{幂指函数导数}
 
 形如$f(x)^{g(x)}$的幂指函数求导也可以类似幂指函数的求极限方法。既可以取$e$为底的指数也可以取对数。
 
@@ -117,15 +117,11 @@ $f'(x)=\dfrac{\dfrac{-x}{1-x}-\ln(1-x)}{x^2}=\dfrac{x-(x-1)\ln(1-x)}{x^2(x-1)}\,
 
 然后需要求分段点$x=0$处的导数。
 
-可以由导数的定义：、
+可以由导数的定义：
 
 根据导数的定义是某点偏移量的极限值$\lim\limits_{x\to x_0}\dfrac{f(x)-f(x_0)}{x-x_0}$：
 
-$f'(0)=\lim\limits_{x\to 0}\dfrac{f(x)-f(0)}{x-0}$\medskip
-
-$=\dfrac{\dfrac{\ln(1-x)}{x}-(-1)}{x-0}$\medskip
-
-$=\dfrac{\dfrac{\ln(1-x)}{x}+1}{x}$\medskip
+$f'(0)=\lim\limits_{x\to 0}\dfrac{f(x)-f(0)}{x-0}=\dfrac{\dfrac{\ln(1-x)}{x}-(-1)}{x-0}=\dfrac{\dfrac{\ln(1-x)}{x}+1}{x}$\medskip
 
 $=\dfrac{\ln(1-x)+x}{x^2}$
 
@@ -169,7 +165,49 @@ $\therefore\lim\limits_{x\to 0^+}x^{\alpha-2}=0$。
 
 $\therefore\alpha-2>0$，从而$\alpha>2$。
 
-\subsection{已知导数求极限}
+\section{极限与导数}
+
+导数的定义由极限产生，所以其之间是可以互相转换的，当求一个导数时可以寻找是否能求出其极限。
+
+\subsection{极限求导数}
+
+在导数这一章中的极限不会直接给出极限，而是会给出导数或函数的相关定义，来求极限，再根据导数定义转换为导数。同时要注意这里不止会有导数定义，还会有函数等性质。
+
+\textbf{例题：}已知$f(x)$是周期为5的连续函数，它在$x=0$的某个邻域内满足关系式：$f(1+\sin x)-3f(1-\sin x)= 8x+o(x)$，且$f(x)$在$x=1$处可导，求曲线$y=f(x)$在点$(6,f(6))$处的切线方程。
+
+因为这是个函数等式，而我们最后要求的是一个导数，所以先尝试对其直接求极限，令$x\to0$：
+
+$f(1)-3f(1)=0$，从而得到了一个函数值$f(1)=0$。
+
+然后再对这个式子思考，等式右边为$8x$，而除以$x$就变成了8，而再对其求极限，右边就彻底变成了一个常数8：
+
+$\lim\limits_{x\to 0}\dfrac{f(1+\sin x)-3f(1-\sin x)}{x}=8$。对式子左边进行变形：
+
+$\lim\limits_{x\to 0}\dfrac{f(1+\sin x)-3f(1-\sin x)}{x}=\lim\limits_{x\to 0}\dfrac{f(1+\sin x)-3f(1-\sin x)}{\sin x}$。
+
+令$t=\sin x$：
+
+$=\lim\limits_{t\to 0}\dfrac{f(1+t)-3f(1-t)}{t}=\lim\limits_{t\to 0}\dfrac{f(1+t)-f(1)}{t}+3\lim\limits_{t\to 0}\dfrac{f(1-t)-f(1)}{-t}$。
+
+因为$t\to 0$，所以$1-t$和$1+t$都是$t=1$时的导数$f'(x)$的定义：$=4f'(1)=8$，从而$f'(1)=2$。
+
+由$f(x)$的周期为5，所以$f(6)=f(1)=0$，$f'(6)=f'(1)=2$，所以曲线$y=f(x)$在$(6,f(6))$即$(6,0)$处的切线方程为$y-0=2(x-6)$即$2x-y-12=0$。
+
+15.当正在高度H水平飞行的飞机开始向机场跑道下降时，如图2-16所示从飞机到北场的水平地面距离为L.假设飞机下降的路径为三次函
+
+数y=ax' +bx2 +cx+d的图形,其中yl..=H.y1..o=0.试
+
+确定飞机的降落路径.
+
+16.甲船以6 km/h的速率向东行驶,乙船以8 km/h
+
+的速事向南行驶在中午十二点整,乙船位于甲船之北
+
+L01
+
+16 km处问下午一点整两船相离的速率为多少?
+
+\subsection{导数求极限}
 
 题目会给出对应的导数以及相关条件，并要求求一个极限，这个极限式子并不是个随机的式子，而一个是与导数定义相关的极限式子，所需要的就是将极限式子转换为导数定义的相关式子。
 
@@ -183,9 +221,7 @@ $\therefore\alpha-2>0$，从而$\alpha>2$。
 
 然后需要转换目标的极限式子，因为目标式子倒过来的式子类似于导数定义的$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}$结构。所以我们可以先求其倒数式子：\medskip
 
-$=\lim\limits_{h\to 0}\dfrac{f(5-2\sin h)-f(5)}{h}$
-
-$=\lim\limits_{h\to 0}\dfrac{f(5-2\sin h)-f(5)}{-2\sin h}\cdot\dfrac{-2\sin h}{h}$
+$=\lim\limits_{h\to 0}\dfrac{f(5-2\sin h)-f(5)}{h}=\lim\limits_{h\to 0}\dfrac{f(5-2\sin h)-f(5)}{-2\sin h}\cdot\dfrac{-2\sin h}{h}$
 
 $=-2f'(5)=-2\times 1=-2$
 
@@ -199,17 +235,9 @@ $\therefore\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}=-\dfrac{1}{2}$。
 
 设$\dfrac{1}{n}=x$，则：
 
-$=\lim\limits_{x\to 0}(f(x))^{\frac{x}{1-\cos x}}$
+$=\lim\limits_{x\to 0}(f(x))^{\frac{x}{1-\cos x}}=e^{\lim\limits_{x\to 0}\frac{x}{1-\cos x}\ln f(x)}=e^{2\lim\limits_{x\to 0}\frac{\ln f(x)}{x}}=e^{2\lim\limits_{x\to 0}\frac{f(x)-1}{x}}$
 
-$=e^{\lim\limits_{x\to 0}\frac{x}{1-\cos x}\ln f(x)}$
-
-$=e^{2\lim\limits_{x\to 0}\frac{\ln f(x)}{x}}$
-
-$=e^{2\lim\limits_{x\to 0}\frac{f(x)-1}{x}}$
-
-$=e^{2\lim\limits_{x\to 0}\frac{f(x)-f(0)}{x-0}}$
-
-$=e^{2f'(0)}=e^6$。
+$=e^{2\lim\limits_{x\to 0}\frac{f(x)-f(0)}{x-0}}=e^{2f'(0)}=e^6$。
 
 \section{高阶导数}
 
@@ -257,11 +285,21 @@ $\quad\quad\quad+x^2(x+1)^2(x+2)^2\cdots 2(x+n)$
 
 因为原函数的一阶导数是$\dfrac{\textrm{d}y}{\textrm{d}x}$，而反函数就是对原函数的$xy$对调，所以其反函数的一阶导数为$\dfrac{\textrm{d}x}{\textrm{d}y}$。
 
+当求反函数的高阶导数时需要将分子分母同时除以$\textrm{d}x$。
+
 \textbf{例题：}已知$y=x+e^x$，求其反函数的二阶导数。
 
-$y=x+e^x$的反函数的一阶导数为$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{1+e^x}$。
+$y=x+e^x$的反函数的一阶导数为$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{1+e^x}$。\medskip
 
 所以二阶导数为$\dfrac{\textrm{d}^2x}{\textrm{d}y^2}=\dfrac{\textrm{d}\left(\dfrac{1}{1+e^{x}}\right)}{\textrm{d}y}=\dfrac{\dfrac{\textrm{d}\left(\dfrac{1}{1+e^{x}}\right)}{\textrm{d}x}}{\dfrac{\textrm{d}y}{\textrm{d}x}}=-\dfrac{e^x}{(1+e^x)^3}$。
+
+\textbf{例题：}已知$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{y'}$，求$\dfrac{\textrm{d}^2x}{\textrm{d}y^2}$和$\dfrac{\textrm{d}^3x}{\textrm{d}y^3}$。
+
+其实就是求$\dfrac{\textrm{d}^2x}{\textrm{d}y^2}$和$\dfrac{\textrm{d}^3x}{\textrm{d}y^3}$，$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{y'}$这个条件只是让我们用$y'$来表示结果而已。
+
+$\dfrac{\textrm{d}^2x}{\textrm{d}y^2}=\dfrac{\textrm{d}\dfrac{\textrm{d}x}{\textrm{d}y}}{\textrm{d}y}=\dfrac{\dfrac{\textrm{d}\dfrac{\textrm{d}x}{\textrm{d}y}}{\textrm{d}x}}{\dfrac{\textrm{d}y}{\textrm{d}x}}=\dfrac{-\dfrac{y''}{(y')^2}}{y'}=-\dfrac{y''}{(y')^3}$。\medskip
+
+$\dfrac{\textrm{d}^3x}{\textrm{d}y^3}=\dfrac{\textrm{d}\dfrac{\textrm{d}^2x}{\textrm{d}^2y}}{\textrm{d}y}=\dfrac{\dfrac{\textrm{d}\dfrac{\textrm{d}^2x}{\textrm{d}^2y}}{\textrm{d}x}}{\dfrac{\textrm{d}y}{\textrm{d}x}}=\dfrac{-\dfrac{y'''y'-3(y'')^2}{(y')^4}}{y'}=\dfrac{3(y'')^2-y'y'''}{(y')^5}$。
 
 \section{微分}
 
@@ -270,6 +308,22 @@ $y=x+e^x$的反函数的一阶导数为$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{
 隐函数与参数方程求导基本上只用记住：\medskip
 
 $\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\dfrac{\textrm{d}y}{\textrm{d}t}}{\dfrac{\textrm{d}x}{\textrm{d}t}}$。
+
+\subsection{隐函数应用}
+
+对于隐函数的应用题，最重要的是找到等价于$\textrm{d}x$和$\textrm{d}y$的两个相关变量。最简单的就是根据题目最后面的所求问题所涉及的变量设置其为变量和因变量。
+
+\textbf{例题：}落在平静水面上的石头，产生同心波纹。若最外一圈波半径的增大速率总是6m/s，问在2s末扰动水面面积增大的速率为多少？
+
+首先根据题目最后的要求的是面积，所以肯定要设一个面积变量，随时间变动而改变，所以也一定会设一个时间变量，同时还给出一个条件是半径增大速度，所以也会有一个半径的变量。同时要求的是面积增大速率，正好跟另外两个变量相关，时间跟半径和面积都相关，所以时间就是中间变量。
+
+从而设最外一圈波的半径为$r=r(t)$，圆的面积$S=S(t)$。根据$S$和$r$的公式$S=\pi r^2$，因为求的是随时间变化的速率，所以其两端分别对$t$求导，得：
+
+$\dfrac{\textrm{d}S}{\textrm{d}t}=2\pi r\dfrac{\textrm{d}r}{\textrm{d}t}$。当$t=2$时，$r=6\times2=12$，代入上式得：\medskip
+
+$\dfrac{\textrm{d}S}{\textrm{d}t}\bigg|_{t=2}=2\pi\cdot12\cdot6=144\pi$。
+
+\subsection{分段参数方程}
 
 \textbf{例题：}已知$y=y(x)$由参数方程$\left\{\begin{array}{lcl}
     x=\dfrac{1}{2}\ln(1+t^2) \\

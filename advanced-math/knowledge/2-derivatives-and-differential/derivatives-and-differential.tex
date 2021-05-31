@@ -116,15 +116,9 @@ $\therefore f'(\dfrac{3}{2})>f''(0)>f(-\dfrac{1}{2})$。\medskip
 
 \textbf{例题：}$\left(x^\alpha\right)'=\alpha x^{\alpha-1}(x>0)$。\medskip
 
-$\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}$\medskip
+$\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{\left(x+\Delta x\right)^\alpha-x^\alpha}{\Delta x}$\medskip
 
-$=\lim\limits_{\Delta x\to 0}\dfrac{\left(x+\Delta x\right)^\alpha-x^\alpha}{\Delta x}$\medskip
-
-$=\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\left[\left(1+\dfrac{\Delta x}{x}\right)^\alpha-1\right]}{\Delta x}$\medskip
-
-$=\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\cdot\alpha\cdot\dfrac{\Delta x}{x}}{\Delta x}$\medskip
-
-$=\alpha x^{\alpha-1}$
+$=\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\left[\left(1+\dfrac{\Delta x}{x}\right)^\alpha-1\right]}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\cdot\alpha\cdot\dfrac{\Delta x}{x}}{\Delta x}=\alpha x^{\alpha-1}$
 
 \subsection{导数的几何意义}
 
@@ -144,13 +138,7 @@ $=\alpha x^{\alpha-1}$
 
 可导定义：$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} = A$
 
-$\lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x)$
-
-$=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}\cdot\Delta x$
-
-$=A\cdot 0$
-
-$=0$
+$\lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}\cdot\Delta x=A\cdot 0=0$
 
 \textbf{例题：}若$f(x)$在$x=x_0$处连续，且$\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$，则$f(x_0)=0$且$f'(x_0)=A$。
 
@@ -178,11 +166,7 @@ $=0$
 
 $(u\cdot v)'$
 
-$=f'(x)$
-
-$=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}$
-
-$=\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x)}{\Delta x}$
+$=f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}=\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x)}{\Delta x}$
 
 $=\lim\limits_{\Delta x\to 0}\dfrac{u(x+\Delta x)v(x+\Delta x)-u(x)v(x+\Delta x)+u(x)v(x+\Delta x)-u(x)v(x)}{\Delta x}$
 
@@ -210,23 +194,11 @@ $\therefore\dfrac{\textrm{d}\arcsin x}{\textrm{d}x}=\dfrac{1}{\dfrac{\textrm{d}\
 
 $\therefore\dfrac{\textrm{d}\arctan x}{\textrm{d}x}=\dfrac{1}{\dfrac{\textrm{d}\tan y}{\textrm{d}y}}=\dfrac{1}{\sec^2y}=\dfrac{1}{1+\tan^2y}=\dfrac{1}{1+x^2}$。\medskip
 
-二阶反函数导数\textcolor{aqua}{\textbf{定理：}}：
+二阶反函数导数\textcolor{aqua}{\textbf{定理：}}：\medskip
 
-$f''(x)$
+$f''(x)=y''_{xx}=\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}{\textrm{d}x}\right)}{\textrm{d}x}=\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\textrm{d}x}=\dfrac{\textrm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\textrm{d}y}\cdot\dfrac{\textrm{d}y}{\textrm{d}x}$
 
-$=y''_{xx}$\medskip
-
-$=\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}{\textrm{d}x}\right)}{\textrm{d}x}$\medskip
-
-$=\dfrac{\textrm{d}^2y}{\textrm{d}x^2}$\medskip
-
-$=\dfrac{\textrm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\textrm{d}x}$\medskip
-
-$=\dfrac{\textrm{d}\left(\dfrac{1}{\varphi'(y)}\right)}{\textrm{d}y}\cdot\dfrac{\textrm{d}y}{\textrm{d}x}$\medskip
-
-$=-\dfrac{x_{yy}''}{(x_y')^2}\cdot\dfrac{1}{x_y'}$\medskip
-
-$=-\dfrac{x_{yy}''}{(x_y')^3}$\medskip
+$=-\dfrac{x_{yy}''}{(x_y')^2}\cdot\dfrac{1}{x_y'}=-\dfrac{x_{yy}''}{(x_y')^3}$\medskip
 
 其中$\textrm{d}x\cdot\textrm{d}x=(\textrm{d}x)^2=\textrm{d}x^2$称为微分的幂，而$\textrm{d}(x^2)$叫幂的微分。
 
@@ -256,15 +228,7 @@ $\therefore$根据导数的四则运算，需要导数的乘积为每一项求�
 
 $\therefore f'(1)$
 
-$=f'(x)\vert_{x=1}$\medskip
-
-$=\dfrac{\pi}{2}\cdot g(1)+0\cdot g'(x)$\medskip
-
-$=\dfrac{\pi}{2}\cdot g(1)$\medskip
-
-$=\dfrac{\pi}{2}(-1)(-2)\cdots(-99)$
-
-$=-\dfrac{\pi}{2}\cdot 99!$
+$=f'(x)\vert_{x=1}=\dfrac{\pi}{2}\cdot g(1)+0\cdot g'(x)=\dfrac{\pi}{2}\cdot g(1)=\dfrac{\pi}{2}(-1)(-2)\cdots(-99)=-\dfrac{\pi}{2}\cdot 99!$
 
 \subsection{分段函数的导数}
 
