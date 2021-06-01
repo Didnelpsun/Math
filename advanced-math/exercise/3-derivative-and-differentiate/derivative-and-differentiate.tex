@@ -337,9 +337,59 @@ $\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}
 
 \section{导数应用}
 
-\subsection{单调性与凹凸性}
+\subsection{单调性}
+
+\textbf{例题：}求$y=x+\vert\sin 2x\vert$的单调区间。
+
+因为函数的定义域为$R$。
+
+又$y=\left\{\begin{array}{lcl}
+    x+\sin 2x, & & n\pi\leqslant x\leqslant n\pi+\dfrac{\pi}{2} \\
+    x-\sin 2x, & &n\pi+\dfrac{\pi}{2}\leqslant x\leqslant (n+1)\pi
+\end{array}\right.$（$n=0,\pm 1,\pm2,\cdots$）。
+
+$\therefore y'=\left\{\begin{array}{lcl}
+    1+2\cos 2x, & & n\pi\leqslant x\leqslant n\pi+\dfrac{\pi}{2} \\
+    1-2\cos 2x, & &n\pi+\dfrac{\pi}{2}\leqslant x\leqslant (n+1)\pi
+\end{array}\right.$（$n=0,\pm 1,\pm2,\cdots$）。
+
+令$y'=0$，所以得到驻点为$x=n\pi+\dfrac{\pi}{3}$和$x=n\pi+\dfrac{5\pi}{6}$。
+
+分割区间：$\left[n\pi,n\pi+\dfrac{\pi}{3}\right]$，$\left[n\pi+\dfrac{\pi}{3},n\pi+\dfrac{\pi}{2}\right]$，$\left[n\pi+\dfrac{\pi}{2},x=n\pi+\dfrac{5\pi}{6}\right]$，
+
+$\left[x=n\pi+\dfrac{5\pi}{6},(n+1)\pi\right]$（$n=0,\pm 1,\pm2,\cdots$）。
+
+当$x\in\left[n\pi,n\pi+\dfrac{\pi}{3}\right]$，$y'>0$，所以函数在区间上单调递增。
+
+当$x\in\left[n\pi+\dfrac{\pi}{3},n\pi+\dfrac{\pi}{2}\right]$，$y'<0$，所以函数在区间上单调递减。
+
+当$x\in\left[n\pi+\dfrac{\pi}{2},x=n\pi+\dfrac{5\pi}{6}\right]$，$y'>0$，所以函数在区间上单调递增。
+
+当$x\in\left[x=n\pi+\dfrac{5\pi}{6},(n+1)\pi\right]$，$y'<0$，所以函数在区间上单调递减。
+
+从而函数在$\left[\dfrac{k\pi}{2},\dfrac{k\pi}{2}+\dfrac{\pi}{3}\right]$时单调增加，在$\left[\dfrac{k\pi}{2}+\dfrac{\pi}{3},\dfrac{k\pi}{2}+\dfrac{\pi}{2}\right]$上单调减少（$k=0,\pm 1,\pm2,\cdots$）。
+
+\subsection{凹凸性}
+
+二阶导数为0处就是拐点。
+
+\textbf{例题：}决定曲线$y=ax^3+bx^2+cx+d$中参数，使得$x=-2$处曲线有水平切线，$(1,-10)$为拐点，且点$(-2,44)$在曲线上。
+
+$y'=3ax^2+2bx+c$，$y''=6ax+2b$。
+
+因为$x=-2$处曲线有水平切线，即$y'\vert_{x=-2}=12a-4b+c=0$。
+
+$(1,-10)$为拐点，代入：$y''\vert_{x=1}=6a+2b=0$，$y\vert_{x=1}=a+b+c+d=-10$。
+
+又点$(-2,44)$在曲线上，所以$y\vert_{x=-2}=-8a+4b-2c+d=44$。
+
+解得四个方程：$a=1$，$b=-3$，$c=-24$，$d=16$。
 
 \subsection{极值与最值}
+
+求极值需要考虑$y'$与点两边正负号，如果$y''$存在则可以考虑，$y''<0$则取极大值，$y''>0$则取极小值。
+
+对于最值需要考虑极值和闭区间端点两个部分。
 
 \subsection{函数图像}
 
