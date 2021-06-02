@@ -1,0 +1,147 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{不定积分与定积分}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{不定积分}
+\subsection{基本积分}
+
+\textbf{例题：}汽车以20m/s的速度行驶，刹车后匀减速行驶了50m停止，求刹车加速度。
+
+已知题目含有两个变量：距离和时间，设距离为$s$，时间为$t$。
+
+因为汽车首先按20m/s匀速运动，所以$\dfrac{\textrm{d}s}{\textrm{d}t}\bigg\vert_{t=0}=20$，最开始距离为0，所以$s\vert_{t=0}=0$。
+
+又因为是匀减速的，所以速度形如：$v=\dfrac{s}{t}=kt+b$，从而令二阶导数下$\dfrac{\textrm{d}^2s}{\textrm{d}t^2}=k$。
+
+所以$\displaystyle{\dfrac{\textrm{d}s}{\textrm{d}t}=\int\dfrac{\textrm{d}^2s}{\textrm{d}t^2}\,\textrm{d}t=\int k\,\textrm{d}t}=kt+C_1$。
+
+代入$\dfrac{\textrm{d}s}{\textrm{d}t}\bigg\vert_{t=0}=20$，所以$C_1=20$，即$\dfrac{\textrm{d}s}{\textrm{d}t}=kt+20$。
+
+所以$\textrm{d}s=(kt+20)\,\textrm{d}t$，从而$s=\displaystyle{\int(kt+20)\,\textrm{d}t}=\dfrac{1}{2}kt^2+20t+C_2$。
+
+又$s\vert_{t=0}=0$，所以代入得$C_2=0$，所以$s=\dfrac{1}{2}kt^2+20t$。
+
+当$s=50$时停住，所以此时$\dfrac{\textrm{d}s}{\textrm{d}t}=0$，得到$t=-\dfrac{20}{k}$。
+
+代入$s$：$50=\dfrac{1}{2}k\left(-\dfrac{20}{k}\right)^2+20\left(-\dfrac{20}{k}\right)$，解得$k=-4$，即加速度为-4m/$s^2$。
+
+\subsection{换元积分}
+
+\subsubsection{第一类换元}
+
+\paragraph{聚集因式} \leavevmode \medskip
+
+将复杂的式子转换为简单的一个因式放到$\textrm{d}$后面看作一个整体，然后利用基本积分公式计算。
+
+\textbf{例题：}$\displaystyle{\int\dfrac{\textrm{d}x}{x\ln x\ln\ln x}}$。 \medskip
+
+$=\displaystyle{\int\dfrac{\textrm{d}(\ln x)}{\ln x\ln\ln x}}=\displaystyle{\int\dfrac{\textrm{d}(\ln\ln x)}{\ln\ln x}}=\ln\vert\ln\ln x\vert+C$。\medskip
+
+\textbf{例题：}$\displaystyle{\int\dfrac{10^{2\arccos x}}{\sqrt{1-x^2}}\,\textrm{d}x}$。
+
+$=-\displaystyle{\int10^{2\arccos x}\,\textrm{d}(\arccos x)}=-\dfrac{1}{2}\displaystyle{\int10^{2\arccos x}\,\textrm{d}(2\arccos x)}=-\dfrac{10^{2\arccos x}}{2\ln10}+C$。
+
+\paragraph{积化和差} \leavevmode \medskip
+
+对于两个三角函数的乘积可以使用积化和差简单计算。
+
+\textbf{例题：}$\displaystyle{\int\sin2x\cos3x\,\textrm{d}x}$。
+
+$=\displaystyle{\int\cos3x\sin2x\,\textrm{d}x=\dfrac{1}{2}\int(\sin5x-\sin x)\,\textrm{d}x}$
+
+$=\dfrac{1}{2}\int\sin5x\,\textrm{d}x-\dfrac{1}{2}\int\sin x\,\textrm{d}x=-\dfrac{1}{10}\cos5x+\dfrac{1}{2}\cos x+C$。
+
+\paragraph{三角拆分} \leavevmode \medskip
+
+主要用于$\sec^2-1=\tan^2x$，当出现$\tan^2$、$\tan^3$等与$\sec x$在一起作为乘积时可以考虑拆分。
+
+\textbf{例题：}$\displaystyle{\int\tan^3x\sec x\,\textrm{d}x}$。
+
+$=\displaystyle{\int(\sec^2x-1)}\tan x\sec x\,\textrm{d}x=\displaystyle{\int(\sec^2x-1)}\,\textrm{d}(\sec x)=\dfrac{1}{3}\sec^3x-\sec x+C$。
+
+\subsubsection{第二类换元}
+
+\begin{enumerate}
+    \item $\sqrt{a^2-x^2}$：$x=a\sin t(a\cos t)$。
+    \item $\sqrt{a^2+x^2}$：$x=a\tan t$。
+    \item $\sqrt{x^2-a^2}$：$x=a\sec t$。
+\end{enumerate}
+
+\subsection{分部积分}
+
+\subsubsection{基本分部}
+
+\subsubsection{多次分部}
+
+\subsection{有理积分}
+
+\subsubsection{高阶多项式分配}
+
+当不定积分式子形如$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x}$，且$f(x)$、$g(x)$都为与$x$相关的多项式，$f(x)$阶数高于或等于$g(x)$，则$f(x)$可以按照$g(x)$的形式分配，约去式子，得到最简单的表达。
+
+\textbf{例题：}$\displaystyle{\int\dfrac{x^3}{x^2+9}\,\textrm{d}x}$。 \medskip
+
+$=\displaystyle{\int\dfrac{x^3+9x-9x}{x^2+9}\,\textrm{d}x=\int\dfrac{x^3+9x}{x^2+9}\,\textrm{d}x-\int\dfrac{9x}{x^2+9}\,\textrm{d}x}$ \medskip
+
+$\displaystyle{=\int x\,\textrm{d}x-\dfrac{9}{2}\int\dfrac{\textrm{d}(x^2+9)}{x^2+9}}=\dfrac{x^2}{2}-\dfrac{9}{2}\ln(9+x^2)+C$。
+
+\subsubsection{低阶多项式分解}
+
+当不定积分式子形如$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x}$，且$f(x)$、$g(x)$都为与$x$相关的多项式，$f(x)$阶数低于$g(x)$，则可以分解式子：$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x=\int\dfrac{f_1(x)}{g_1(x)}\,\textrm{d}x+\int\dfrac{f_2(x)}{g_2(x)}\,\textrm{d}x}$。
+
+
+
+\section{定积分}
+
+\subsection{变限积分}
+
+\subsection{牛莱公式}
+
+\subsection{换元积分}
+
+\subsection{分部积分}
+
+\subsection{反常积分}
+
+\section{积分应用}
+
+\subsection{面积}
+
+\subsection{体积}
+
+\subsection{弧长}
+
+\end{document}

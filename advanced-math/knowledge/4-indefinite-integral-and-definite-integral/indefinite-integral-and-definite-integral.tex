@@ -402,11 +402,11 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
 
 元素法也叫微元法，是分析、解决物理问题中的常用方法，也是从部分到整体的思维方法。用该方法可以使一些复杂的物理过程用我们熟悉的物理规律迅速地加以解决，使所求的问题简单化。在使用元素法处理问题时，需将其分解为众多微小的“元过程”，而且每个“元过程”所遵循的规律是相同的，这样，我们只需分析这些“元过程”，然后再将“元过程”进行必要的数学方法或物理思想处理，进而使问题求解。
 
-\subsection{几何应用}
+数一基本上只考几何应用不考物理应用。
 
-\subsubsection{面积}
+\subsection{面积}
 
-\paragraph{直角坐标系}  \leavevmode \medskip
+\subsubsection{直角坐标系}
 
 \textbf{例题：}求曲线$y^2=x$与$y=x^2$所围成面积。
 
@@ -430,7 +430,7 @@ $\textrm{d}S=\left[(y+4)-\dfrac{y^2}{2}\right]\textrm{d}y$。
 
 所以$S=\displaystyle{\int_{-2}^4\left[(y+4)-\dfrac{y^2}{2}\right]\textrm{d}y}$
 
-\paragraph{参数方程}  \leavevmode \medskip
+\subsubsection{参数方程}
 
 \textbf{例题：}求摆线一拱$\left\{\begin{array}{l}
     x=a(t-\sin t) \\
@@ -456,7 +456,7 @@ $=8a^2\int_0^\pi\sin^4u\,\textrm{d}u=16a^2\int_0^{\frac{\pi}{2}}\sin^4u\,\textrm
 
 $=16a^2\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=3a^2\pi$（点火公式）。
 
-\paragraph{极坐标}  \leavevmode \medskip
+\subsubsection{极坐标}
 
 已知极径函数$\rho=\rho(\theta)$，极角$\theta\in[\alpha,\beta]$，极坐标所围成面积就是初始角所在射线与结束角所在射线以及函数所围成的图形。所以微元计算时所围成的图形可以近似看作扇形。
 
@@ -476,9 +476,9 @@ $=a^2\displaystyle{\int_0^\pi\left(2\cos^2\dfrac{\theta}{2}\right)^2\textrm{d}\t
 
 根据华理士公式：$=8a^2\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=\dfrac{3}{2}a^2\pi$。
 
-\subsubsection{体积}
+\subsection{体积}
 
-\paragraph{旋转体}  \leavevmode \medskip
+\subsubsection{旋转体}
 
 当绕$x$轴进行旋转，可以看作从$x$轴沿$y$轴水平切割旋转体，就得到了以$x$轴为中心的一个圆柱，底边半径为$f(x)$，高度为$\textrm{d}x$，所以$\textrm{d}V_x=\pi f^2(x)\,\textrm{d}x$，所以$V_x=\pi\int_a^bf^2(x)\,\textrm{d}x$（如果用$y(x)$表达，就是$V_x=\pi\int_c^d\varphi^2(y)\,\textrm{d}y$）。
 
@@ -520,7 +520,7 @@ $=2\pi\int_0^{2\pi}a(t-\sin t)a^2(1-\cos t)^2\,\textrm{d}t=2a^3\pi\int_0^{2\pi}(
 
 然后拆开分别进行凑微分法，得到$6a^3\pi^3$。
 
-\paragraph{平行截面已知的立体体积}  \leavevmode \medskip
+\subsubsection{平行截面已知的立体体积}
 
 已知截面面积可以通过对应的高得到立体体积：$V=\int_a^bS(x)\,\textrm{d}x$。
 
@@ -534,7 +534,7 @@ $V=2\int_0^a\pi bc\left(1-\dfrac{x^2}{a^2}\right)\,\textrm{d}x$。
 
 解得$V=\dfrac{4}{3}\pi abc$。
 
-\subsubsection{弧长}
+\subsection{弧长}
 
 在弧长中插入$n$个点$M_1,M_2,\cdots,M_{i-1},M_i,\cdots,M_n$。
 
