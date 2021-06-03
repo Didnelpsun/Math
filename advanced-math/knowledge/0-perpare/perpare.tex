@@ -860,9 +860,73 @@ $\cos\alpha+\cos\beta=2\cos\dfrac{\alpha+\beta}{2}\cos\dfrac{\alpha-\beta}{2},\c
 
 \subsubsection{万能公式}
 
-一般不会用到。
-
 若$u=\tan\dfrac{x}{2}(-\pi<x<\pi)$，则$\sin x=\dfrac{2u}{1+u^2},\cos x=\dfrac{1-u^2}{1+u^2}$。
+
+\subsection{反三角函数}
+
+因为只有单调函数才有反函数，所以对于三角函数必须选取其单调区间才有反函数。一般只讨论三角函数在其主值区间上的反函数（主值区间即包括锐角最大的单调区间）。
+
+可以画单位圆直观思考。
+
+\subsubsection{反正弦函数}
+
+正弦函数$y=\sin x$在主值区间$\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$上的反函数就是反正弦函数，记为$y=\arcsin x$或$y=\sin^{-1}x$。表示其区间上正弦值等于$x$的一个角。
+
+反正弦函数与正弦函数图像一样都是关于原点对称、严格单调递增、有界的奇函数。
+
+当$x\in[-1,1]$时，$\arcsin(-x)=-\arcsin x$。
+
+当$x\in\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$时，$\arcsin(\sin x)=x$。
+
+当$x\in[-1,1]$时，$\sin(\arcsin x)=x$。
+
+\subsubsection{反余弦函数}
+
+余弦函数$y=\cos x$在主值区间$[0,\pi]$上的反函数就是反余弦函数，记为$y=\arccos x$或$y=\cos^{-1}x$。表示其区间上余弦值等于$x$的一个角。
+
+反余弦函数是严格单调递减、有界的非奇非偶函数，图像关于$\left(0,\dfrac{\pi}{2}\right)$对称。
+
+因为关于$\left(0,\dfrac{\pi}{2}\right)$对称，若$x_1,x_2\in(-1,1)$，$x_1=-x_2$，则$\arccos x_1+\arccos x_2=\pi$。
+
+当$x\in(-1,1)$时，$\arccos(-x)+\arccos x=\pi$。
+
+当$x\in[0,\pi]$时，$\arccos(\cos x)=x$。
+
+当$x\in[-1,1]$时，$\cos(\arccos x)=x$。
+
+当$x\in[-1,1]$时，$\sin(\arccos x)=\sqrt{1-x^2}$。令$u=\arccos x\in[0,\pi]$，所以$\cos u=x$，从而$\sin(\arccos x)=\sin u=\sqrt{1-\cos^2u}=\sqrt{1-x^2}$。
+
+同理可得$\cos(\arcsin x)=\sqrt{1-x^2}$。
+
+$\arcsin x+\arccos x=\dfrac{\pi}{2}$。证明需要分三种情况。
+
+\subsubsection{反正切函数}
+
+正切函数$y=\tan x$在主值区间$\left[-\dfrac{\pi}{2},\dfrac{\pi}{2}\right]$上的反函数就是反正切函数，记为$y=\arctan x$或$y=\tan^{-1}x$。表示其区间上正切值等于$x$的一个角。
+
+正切函数是关于原点对称、严格单调递增、有界的奇函数。值域为$\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，定义域为$(-\infty,+\infty)$。
+
+当$x\in(-\infty,+\infty)$时，$\arctan(-x)=-\arctan x$。
+
+当$x\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，$\arctan(\tan x)=x$。
+
+当$x\in(-\infty,+\infty)$时，$\tan(\arctan x)=x$。
+
+\subsubsection{反余切函数}
+
+余切函数$y=\cot x$在主值区间$[0,\pi]$上的反函数就是反余切函数，记为$y=\textrm{arccot}\,x$或$y=\cot^{-1}x$。表示其区间上余切值等于$x$的一个角。
+
+余切函数是关于$\left(0,\dfrac{\pi}{2}\right)$中心对称、严格单调递减、有界的非奇非偶函数。值域为$(0,\pi)$，定义域为$(-\infty,+\infty)$。
+
+当$x\in(-\infty,+\infty)$时，$\textrm{arccot}(-x)=\pi-\textrm{arccot}\,x$。
+
+当$x\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，$\textrm{arccot}(\cot x)=x$。
+
+当$x\in(-\infty,+\infty)$时，$\cot(\textrm{arccot}\,x)=x$。
+
+当$x\in(-\infty,0)\cup(0,+\infty)$时，$\tan(\textrm{arccot}\,x)=\dfrac{1}{x}$，$\cot(\arctan x)=\dfrac{1}{x}$。
+
+当$x\in(-\infty,+\infty)$时，$\arctan x+\textrm{acrccot}\,x=\dfrac{\pi}{2}$。
 
 \subsection{指数运算法则}
 

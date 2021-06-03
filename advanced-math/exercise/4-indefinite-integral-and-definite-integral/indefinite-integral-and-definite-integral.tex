@@ -60,6 +60,10 @@
 
 \subsection{换元积分}
 
+使用换元法做了换元之后是要带回式子中的，也就是说要保证反函数的存在才能代入有意义。为了保证反函数的存在，因此要保证原函数的单调性，所以要有一个规定的范围来使原函数保证单调。
+
+对于第二类换元特别要考虑这方面，而第一类换元一般不考虑。
+
 \subsubsection{第一类换元}
 
 \paragraph{聚集因式} \leavevmode \medskip
@@ -94,11 +98,65 @@ $=\displaystyle{\int(\sec^2x-1)}\tan x\sec x\,\textrm{d}x=\displaystyle{\int(\se
 
 \subsubsection{第二类换元}
 
-\begin{enumerate}
-    \item $\sqrt{a^2-x^2}$：$x=a\sin t(a\cos t)$。
-    \item $\sqrt{a^2+x^2}$：$x=a\tan t$。
-    \item $\sqrt{x^2-a^2}$：$x=a\sec t$。
-\end{enumerate}
+当使用第二类换元时需要考虑$x$定义域与换元后式子的正负号的问题，因为根号一定为正，而在定义域上的不同部分，换元式子正负号可能不同。
+
+\paragraph{\texorpdfstring{$\sqrt{a^2-x^2}$：$x=a\sin t(a\cos t)$}\ } \leavevmode \medskip
+
+若令$x=a\sin t$，则根据$\sin t\in(-1,1)$得到主区间：$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，从而代入式子$\sqrt{a^2-x^2}=a\cos t$，根据$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，所以$\cos t>0$，所以正负号无误。
+
+若令$x=a\cos t$，则根据$\cos t\in(-1,1)$，得到主区间：$t\in(0,\pi)$，从而代入式子$\sqrt{a^2-x^2}=a\sin t$，根据$t\in(0,\pi)$，所以$\sin t>0$，所以正负号无误。
+
+所以这种情况不用考虑正负号。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{1+\sqrt{1-x^2}}}$。
+
+令$x=\sin t$（$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$），所以$\sqrt{1-x^2}=\cos t$，$\textrm{d}x=\cos t\,\textrm{d}t$，$t=\arcsin x$。
+
+$=\displaystyle{\int\dfrac{\cos t}{1+\cos t}\textrm{d}t=\int\dfrac{2\cos^2\dfrac{t}{2}-1}{2\cos^2\dfrac{t}{2}}\textrm{d}t=\int\textrm{d}t-\int\sec^2\dfrac{t}{2}\,\textrm{d}t=t-\tan}\dfrac{t}{2}+C$
+
+$=t-\dfrac{\sin\dfrac{t}{2}}{\cos\dfrac{t}{2}}+C=t-\dfrac{\sin\dfrac{t}{2}\cos\dfrac{t}{2}}{\cos^2\dfrac{t}{2}}+C=t-\dfrac{\sin t}{1+\cos t}+C$
+
+$=\arcsin x-\dfrac{x}{1+\sqrt{1-x^2}}+C$。
+
+\paragraph{\texorpdfstring{$\sqrt{a^2+x^2}$：$x=a\tan t$}\ } \leavevmode \medskip
+
+根据$\tan t\in R$，从而得到主空间：$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，代入$\sqrt{a^2+x^2}=a\sec t$，根据$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，所以$\cos t>0$，$\sec t>0$，所以正负号无误。
+
+所以这种情况不用考虑正负号。
+
+\paragraph{\texorpdfstring{$\sqrt{x^2-a^2}$：$x=a\sec t$}\ } \leavevmode \medskip
+
+根据$\sec t\in(-1,1)$，所以从而得到主空间：$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，代入$\sqrt{x^2-a^2}=a\tan t$，根据$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，所以$\tan t\in R$，所以此时不能保证转换后的$a\tan t>0$，此时必须对$x$分正负情况讨论。\medskip
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{\sqrt{x^2-9}}{x}\textrm{d}x}$。
+
+令$x=3\sec t$。$\therefore\sqrt{x^2-9}=3\tan t$，$\textrm{d}x=3\sec t\tan t\,\textrm{d}t$。
+
+当$x>3$时，$\sec t>1$，即$t\in\left(0,\dfrac{\pi}{2}\right)$。
+
+$=\displaystyle{\int3\tan^2t\,\textrm{d}t=3\int(\sec^2t-1)\textrm{d}t}$
+
+$=3\tan t-3t+C=\sqrt{x^2-9}-3\arccos\dfrac{3}{x}+C$。
+
+当$x<-3$时，$\sec t<-1$，即$t\in\left(-\dfrac{\pi}{2},0\right)$。
+
+$=\displaystyle{-\int3\tan^2t\,\textrm{d}t=-3\int(\sec^2t-1)\textrm{d}t}$
+
+$=-3\tan t+3t+C=\sqrt{x^2-9}+3\arccos\dfrac{3}{x}+C$（$\tan t<0$）
+
+$=\sqrt{x^2-9}-3\arccos\dfrac{3}{-x}+3\pi+C$（$3\arccos\dfrac{3}{x}=3\pi-3\arccos-\dfrac{3}{x}$）
+
+$=\sqrt{x^2-9}-3\arccos\dfrac{3}{-x}+C$。
+
+\paragraph{辅助换元} \leavevmode \medskip
+
+在使用换元法的时候有可能单个式子不能求出积分，而使用其他辅助式子加减在一起积分可以得到结果，从而能得到原式和辅助式子的积分结果。对于这类题目需要观察什么样的式子能让积分简单。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x+\sqrt{1-x^2}}}$。
+
+令$x=\sin t$，所以$\sqrt{1-x^2}=\cos t$，$\textrm{d}x=\cos t\,\textrm{d}t$。
+
+$\therefore=\displaystyle{\int\dfrac{\cos t}{\sin t+\cos t}\textrm{d}t}$。
 
 \subsection{分部积分}
 
