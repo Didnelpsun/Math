@@ -60,10 +60,6 @@
 
 \subsection{换元积分}
 
-使用换元法做了换元之后是要带回式子中的，也就是说要保证反函数的存在才能代入有意义。为了保证反函数的存在，因此要保证原函数的单调性，所以要有一个规定的范围来使原函数保证单调。
-
-对于第二类换元特别要考虑这方面，而第一类换元一般不考虑。
-
 \subsubsection{第一类换元}
 
 \paragraph{聚集因式} \leavevmode \medskip
@@ -98,19 +94,19 @@ $=\displaystyle{\int(\sec^2x-1)}\tan x\sec x\,\textrm{d}x=\displaystyle{\int(\se
 
 \subsubsection{第二类换元}
 
-当使用第二类换元时需要考虑$x$定义域与换元后式子的正负号的问题，因为根号一定为正，而在定义域上的不同部分，换元式子正负号可能不同。
+使用换元法做了换元之后是要带回式子中的，也就是说要保证反函数的存在才能代入有意义。为了保证反函数的存在，因此要保证原函数的单调性，所以要有一个规定的范围来使原函数保证单调。
 
 \paragraph{\texorpdfstring{$\sqrt{a^2-x^2}$：$x=a\sin t(a\cos t)$}\ } \leavevmode \medskip
 
-若令$x=a\sin t$，则根据$\sin t\in(-1,1)$得到主区间：$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，从而代入式子$\sqrt{a^2-x^2}=a\cos t$，根据$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，所以$\cos t>0$，所以正负号无误。
+若令$x=a\sin t$，则根据$\sin t\in(-1,1)$得到主区间：$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$。
 
-若令$x=a\cos t$，则根据$\cos t\in(-1,1)$，得到主区间：$t\in(0,\pi)$，从而代入式子$\sqrt{a^2-x^2}=a\sin t$，根据$t\in(0,\pi)$，所以$\sin t>0$，所以正负号无误。
+若令$x=a\cos t$，则根据$\cos t\in(-1,1)$，得到主区间：$t\in(0,\pi)$。
 
-所以这种情况不用考虑正负号。
-
-\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{1+\sqrt{1-x^2}}}$。
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{1+\sqrt{1-x^2}}}$。\medskip
 
 令$x=\sin t$（$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$），所以$\sqrt{1-x^2}=\cos t$，$\textrm{d}x=\cos t\,\textrm{d}t$，$t=\arcsin x$。
+
+因为式子$\dfrac{1}{1+\sqrt{1-x^2}}>0$，单调递减，所以不用讨论正负号。
 
 $=\displaystyle{\int\dfrac{\cos t}{1+\cos t}\textrm{d}t=\int\dfrac{2\cos^2\dfrac{t}{2}-1}{2\cos^2\dfrac{t}{2}}\textrm{d}t=\int\textrm{d}t-\int\sec^2\dfrac{t}{2}\,\textrm{d}t=t-\tan}\dfrac{t}{2}+C$
 
@@ -120,17 +116,37 @@ $=\arcsin x-\dfrac{x}{1+\sqrt{1-x^2}}+C$。
 
 \paragraph{\texorpdfstring{$\sqrt{a^2+x^2}$：$x=a\tan t$}\ } \leavevmode \medskip
 
-根据$\tan t\in R$，从而得到主空间：$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，代入$\sqrt{a^2+x^2}=a\sec t$，根据$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，所以$\cos t>0$，$\sec t>0$，所以正负号无误。
+根据$\tan t\in R$，从而得到主空间：$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$。
 
-所以这种情况不用考虑正负号。
+\textbf{例题：}求$\displaystyle{\int\dfrac{x^3+1}{(x^2+1)^2}\textrm{d}x}$。\medskip
+
+虽然本题目看着可以从分母解开平方，然后低阶分配，但是这分母是平方的式子很难分配，所以需要使用换元法。
+
+令$x=\tan t$，$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，$x^2+1=\sec^2t$，$\textrm{d}x=\sec^2t\,\textrm{d}t$。
+
+因为$(x^2+1)^2>0$，虽然$x^3+1$可能为负可能为正，但是都是单调递增的，所以不用考虑正负号。
+
+$=\displaystyle{\int\dfrac{\tan^3t+1}{\sec^2t}\textrm{d}t=\int\dfrac{\sin^3t+\cos^3t}{\cos t}\textrm{d}t=\int\dfrac{\sin t(1-\cos^2t)+\cos^3t}{\cos t}\textrm{d}t}$
+
+$=\displaystyle{\int\dfrac{\cos^2t-1}{\cos t}\textrm{d}(\cos t)+\int\dfrac{1+\cos2t}{2}\textrm{d}t}$
+
+$=\displaystyle{\int\cos t\,\textrm{d}(\cos t)-\int\dfrac{1}{\cos t}\,\textrm{d}(\cos t)+\dfrac{1}{2}\int\textrm{d}t+\dfrac{1}{4}\int\cos2t\,\textrm{d}(2t)}$
+
+$=\displaystyle{\int\cos^t-\ln\cos t+\dfrac{t}{2}+\dfrac{1}{4}\sin2t+C}$（$\cos t$在$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$中为正）
+
+$\because\tan t=x$，$\therefore\sin t=\dfrac{x}{\sqrt{1+x^2}}$，$\cos t=\dfrac{1}{\sqrt{1+x^2}}$。
+
+$=\dfrac{1+x}{2(1+x^2)}+\dfrac{1}{2}\ln(1+x^2)+\dfrac{1}{2}\textrm{arctan}\,x+C$。
 
 \paragraph{\texorpdfstring{$\sqrt{x^2-a^2}$：$x=a\sec t$}\ } \leavevmode \medskip
 
-根据$\sec t\in(-1,1)$，所以从而得到主空间：$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，代入$\sqrt{x^2-a^2}=a\tan t$，根据$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，所以$\tan t\in R$，所以此时不能保证转换后的$a\tan t>0$，此时必须对$x$分正负情况讨论。\medskip
+根据$\sec t\in(-1,1)$，所以从而得到主空间：$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$。\medskip
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\sqrt{x^2-9}}{x}\textrm{d}x}$。
 
-令$x=3\sec t$。$\therefore\sqrt{x^2-9}=3\tan t$，$\textrm{d}x=3\sec t\tan t\,\textrm{d}t$。
+令$x=3\sec t$。$\therefore\sqrt{x^2-9}=3\tan t$，$\textrm{d}x=3\sec t\tan t\,\textrm{d}t$。\medskip
+
+因为式子$\dfrac{\sqrt{x^2-9}}{x}$的分子必然为为正，而对于分子在0两边的单调性不同，所以需要对$x$进行正负区分，又$x\in(-\infty,-3]\cup[3,+\infty)$，所以：
 
 当$x>3$时，$\sec t>1$，即$t\in\left(0,\dfrac{\pi}{2}\right)$。
 
@@ -148,21 +164,77 @@ $=\sqrt{x^2-9}-3\arccos\dfrac{3}{-x}+3\pi+C$（$3\arccos\dfrac{3}{x}=3\pi-3\arcc
 
 $=\sqrt{x^2-9}-3\arccos\dfrac{3}{-x}+C$。
 
+综上结果为$\sqrt{x^2-9}-3\arccos\dfrac{3}{\vert x\vert}+C$。
+
 \paragraph{辅助换元} \leavevmode \medskip
 
 在使用换元法的时候有可能单个式子不能求出积分，而使用其他辅助式子加减在一起积分可以得到结果，从而能得到原式和辅助式子的积分结果。对于这类题目需要观察什么样的式子能让积分简单。
 
-\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x+\sqrt{1-x^2}}}$。
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x+\sqrt{1-x^2}}}$。\medskip
 
 令$x=\sin t$，所以$\sqrt{1-x^2}=\cos t$，$\textrm{d}x=\cos t\,\textrm{d}t$。
 
-$\therefore=\displaystyle{\int\dfrac{\cos t}{\sin t+\cos t}\textrm{d}t}$。
+$\because x+\sqrt{1-x^2}$可能为正可能为负，正负时单调性不同，所以令$ x+\sqrt{1-x^2}=0$，即$\sin t=-\dfrac{\sqrt{2}}{2}$，从而$t\in(-\dfrac{\pi}{2},-\dfrac{\pi}{4})\cup(-\dfrac{\pi}{4},\dfrac{\pi}{2})$。
+
+$\therefore=\displaystyle{\int\dfrac{\cos t}{\sin t+\cos t}\textrm{d}t}$（$t\in(-\dfrac{\pi}{4},\dfrac{\pi}{2})$）。 \medskip
+
+这时你会发现使用积化和差、万能公式、倍角公式都无法解出这个积分，所以这时候就需要另外一个辅助积分式子加上或减去这个式子，从而让和以及差更容易解出积分。这里根据式子特点让辅助式子分子为$\sin t$：
+
+令$I_1=\displaystyle{\int\dfrac{\cos t}{\sin t+\cos t}\textrm{d}t}$，$I_2=\displaystyle{\int\dfrac{\sin t}{\sin t+\cos t}\textrm{d}t}$。
+
+$I_1+I_2=\displaystyle{\int\dfrac{\sin t+\cos t}{\sin t+\cos t}\textrm{d}t=\int\textrm{d}t=t}$。
+
+$I_1-I_2=\displaystyle{\int\dfrac{\cos t-\sin t}{\sin t+\cos t}\textrm{d}t=\int\dfrac{\textrm{d}(\sin t+\cos t)}{\sin t+\cos t}}=\ln\vert\sin t+\cos t\vert +C$。
+
+所以$I_1=\dfrac{1}{2}(\arcsin x+\ln\vert x+\sqrt{1-x^2}\vert)+C$。
+
+同理$t\in(-\dfrac{\pi}{2},-\dfrac{\pi}{4})$也得到同样结果。
 
 \subsection{分部积分}
 
+因为分部积分法使用$\int u\,\textrm{d}v=uv-\int v\,\textrm{d}u$，所以基本上用于两项乘积形式的积分式子。
+
 \subsubsection{基本分部}
 
+\paragraph{非幂函数优先} \leavevmode \medskip
+
+当幂函数与一些微分后能降低幂函数幂次的函数在一起时，先对非幂函数优先分部积分，结果与幂函数相乘可以消去幂次，以达到降低幂次的作用。
+
+如$\int x^n\ln x\,\textrm{d}x$，$\int x^n\arctan x\,\textrm{d}x$，$\int x^n\arcsin x\,\textrm{d}x$。
+
+\textbf{例题：}求$\int x^2\arctan x\,\textrm{d}x$。
+
+$=\dfrac{1}{3}\int\arctan x\,\textrm{d}(x^3)=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{3}\int x^3\,\textrm{d}(\arctan x)$
+
+$=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{3}\displaystyle{\int\dfrac{x^3}{1+x^2}\textrm{d}x}=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{3}\displaystyle{\int\dfrac{x+x^3-x}{1+x^2}\textrm{d}x}$
+
+$=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{3}\int x\,\textrm{d}x+\displaystyle{\dfrac{1}{6}\int\dfrac{\textrm{d}(1+x^2)}{1+x^2}}$
+
+$=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{6}x^2+\dfrac{1}{6}\ln(1+x^2)+C$。
+
+\paragraph{幂函数优先} \leavevmode \medskip
+
+当幂函数与三角函数在一起微分时，因为三角函数无论如何积分都不会被消去，所以应该优先消去幂函数部分，从而降低幂次。
+
+\textbf{例题：}求$\int x\tan^2x\,\textrm{d}x$。
+
+$=\int x(\sec^2-1)\,\textrm{d}x=\int x\,\textrm{d}(\tan x)-\dfrac{x^2}{2}=x\tan x+\ln\vert\cos x\vert-\dfrac{x^2}{2}+C$。
+
 \subsubsection{多次分部}
+
+\subsubsection{分部与换元}
+
+分部积分法和换元积分法经常一起使用。
+
+\textbf{例题：}求$\int e^{\sqrt[3]{x}}\,\textrm{d}x$。
+
+令$\sqrt[3]{x}=u$，从而$x=u^3$，$\textrm{d}x=3u^2\,\textrm{d}u$。
+
+$=3\int e^uu^2\,\textrm{d}u=3\int u^2\,\textrm{d}(e^u)=3u^2e^u-3\int e^u\,\textrm{d}(u^2)=3u^2e^u-6\int e^uu\,\textrm{d}u$
+
+$=3u^2e^u-6\int u\,\textrm{d}(e^u)=3u^2e^u-6ue^u+6\int e^u\,\textrm{d}u=3u^2e^u-6ue^u+6e^u+C$
+
+$=3e^u(u^2-2u+2)+C=3e^{\sqrt[3]{x}}(x^{\frac{2}{3}}-2x^{\frac{1}{3}}+2)+C$。
 
 \subsection{有理积分}
 
@@ -176,11 +248,23 @@ $=\displaystyle{\int\dfrac{x^3+9x-9x}{x^2+9}\,\textrm{d}x=\int\dfrac{x^3+9x}{x^2
 
 $\displaystyle{=\int x\,\textrm{d}x-\dfrac{9}{2}\int\dfrac{\textrm{d}(x^2+9)}{x^2+9}}=\dfrac{x^2}{2}-\dfrac{9}{2}\ln(9+x^2)+C$。
 
-\subsubsection{低阶多项式分解}
+\subsubsection{低阶多项式分配}
 
-当不定积分式子形如$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x}$，且$f(x)$、$g(x)$都为与$x$相关的多项式，$f(x)$阶数低于$g(x)$，则可以分解式子：$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x=\int\dfrac{f_1(x)}{g_1(x)}\,\textrm{d}x+\int\dfrac{f_2(x)}{g_2(x)}\,\textrm{d}x}$。
+当不定积分式子形如$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x}$，且$f(x)$、$g(x)$都为与$x$相关的多项式，$f(x)$阶数低于$g(x)$，且$g(x)$不能因式分解为$g(x)=g_1(x)g_2(x)\cdots$时，则可以分解式子：$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x=a_1\int\dfrac{\textrm{d}(f_1(x))}{g_1(x)}+a_2\int\dfrac{\textrm{d}(f_2(x))}{g_2(x)}}+\cdots$，将积分式子组合成积分结果为分式的函数，如$\ln x$、$\arcsin x$、$\arctan x$等。
 
+\textbf{例题：}求$\displaystyle{\int\dfrac{x-1}{x^2+2x+3}\textrm{d}x}$。
 
+因为$x^2+2x+3$不能因式分解，所以考虑将分子按照分母形式进行分配。优先对高阶的$x$进行分配。
+
+首先因为分子最高阶为$x$只比分母最高阶$x^2$低一阶，所以考虑将$x-1$分配到微分号内。
+
+$\because\textrm{d}(x^2+2x+3)=2x+2$，而现在是$x-1$，所以：
+
+$=\displaystyle{\dfrac{1}{2}\int\dfrac{2x+2}{x^2+2x+3}\textrm{d}x-2\int\dfrac{1}{x^2+2x+3}\textrm{d}x}=\displaystyle{\dfrac{1}{2}\int\dfrac{\textrm{d}(x^2+2x+3)}{x^2+2x+3}}$
+
+$-\displaystyle{\int\dfrac{1}{\left(\dfrac{x+1}{\sqrt{2}}\right)^2+1}\textrm{d}x}=\displaystyle{\dfrac{1}{2}\ln(x^2x+3)-\sqrt{2}\int\dfrac{\textrm{d}\left(\dfrac{x+1}{\sqrt{2}}\right)}{\left(\dfrac{x+1}{\sqrt{2}}\right)^2+1}}$
+
+$=\dfrac{1}{2}\ln(x^2+2x+3)-\sqrt{2}\arctan\dfrac{x+1}{\sqrt{2}}+C$。
 
 \section{定积分}
 
