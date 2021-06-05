@@ -21,6 +21,8 @@
 % 因为所以
 \usepackage{amsmath}
 % 数学公式
+\usepackage{pifont}
+% 圆圈序号
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
 \author{Didnelpsun}
@@ -216,11 +218,43 @@ $=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{6}x^2+\dfrac{1}{6}\ln(1+x^2)+C$。
 
 当幂函数与三角函数在一起微分时，因为三角函数无论如何积分都不会被消去，所以应该优先消去幂函数部分，从而降低幂次。
 
+如$\int x^a\sin x\,\textrm{d}x$，$\int x^a\cos x\,\textrm{d}x$。
+
 \textbf{例题：}求$\int x\tan^2x\,\textrm{d}x$。
 
 $=\int x(\sec^2-1)\,\textrm{d}x=\int x\,\textrm{d}(\tan x)-\dfrac{x^2}{2}=x\tan x+\ln\vert\cos x\vert-\dfrac{x^2}{2}+C$。
 
 \subsubsection{多次分部}
+
+对于一部分通过微分形式不会发生变化的函数，所以需要多次积分，然后利用等式求出目标值。
+
+如：$\int e^x\sin x\,\textrm{d}x$，$\int e^x\cos x\,\textrm{d}x$。
+
+\textbf{例题：}求$\int e^x\sin^2x\,\textrm{d}x$。
+
+$=\sin^2x\cdot e^x-\int e^x\,\textrm{d}(\sin^2x)=\sin^2x\cdot e^x-\int e^x\cdot\sin 2x\,\textrm{d}x$
+
+$=\sin^2x\cdot e^x-\int\sin2x\,\textrm{d}(e^x)=\sin^2x\cdot e^x-\sin2x\cdot e^x+\int e^x\,\textrm{d}(\sin2x)$
+
+$=\sin^2x\cdot e^x-\sin2x\cdot e^x+2\int e^x\cdot\cos2x\,\textrm{d}x$ （\ding{172}）
+
+$=\sin^2x\cdot e^x-\sin2x\cdot e^x+2\int\cos2x\,\textrm{d}(e^x)$
+
+$=\sin^2x\cdot e^x-\sin2x\cdot e^x+2e^x\cos2x-2\int e^x\,\textrm{d}(\cos2x)$
+
+$=\sin^2x\cdot e^x-\sin2x\cdot e^x+2e^x\cos2x+4\int e^x\cdot\sin2x\,\textrm{d}x$
+
+$=\sin^2x\cdot e^x-\sin2x\cdot e^x+2e^x\cos2x+4\int\sin2x\,\textrm{d}(e^x)$
+
+$=\sin^2x\cdot e^x-\sin2x\cdot e^x+2e^x\cos2x+4\sin2x\cdot e^x-4\int e^x\,\textrm{d}(\sin2x)$
+
+$=\sin^2x\cdot e^x-\sin2x\cdot e^x+2e^x\cos2x+4\sin2x\cdot e^x-8\int e^x\cdot\cos2x\,\textrm{d}x$ （\ding{173}）
+
+然后\ding{172}=\ding{173}：$\int e^x\cdot\cos2x\,\textrm{d}x=\dfrac{e^x(\cos2x+2\sin2x)}{5}+C$
+
+代入\ding{172}：$=\dfrac{e^x(5\sin^2x-5\sin2x+2\cos2x+4\sin2x)}{5}+C$
+
+$=\dfrac{e^x(5\sin^2x-\sin2x+2\cos2x)}{5}+C=e^x\left(\dfrac{1}{2}-\dfrac{1}{5}\sin2x-\dfrac{1}{10}\cos2x\right)+C$
 
 \subsubsection{分部与换元}
 
@@ -235,6 +269,14 @@ $=3\int e^uu^2\,\textrm{d}u=3\int u^2\,\textrm{d}(e^u)=3u^2e^u-3\int e^u\,\textr
 $=3u^2e^u-6\int u\,\textrm{d}(e^u)=3u^2e^u-6ue^u+6\int e^u\,\textrm{d}u=3u^2e^u-6ue^u+6e^u+C$
 
 $=3e^u(u^2-2u+2)+C=3e^{\sqrt[3]{x}}(x^{\frac{2}{3}}-2x^{\frac{1}{3}}+2)+C$。
+
+\textbf{例题：}求$\int e^{\sqrt{3x+9}}\,\textrm{d}x$。
+
+令$\sqrt{3x+9}=u$，从而$x=\dfrac{1}{3}(u^2-9)$，$\textrm{d}x=\dfrac{2}{3}u\,\textrm{d}u$：
+
+$=\displaystyle{\dfrac{2}{3}\int ue^u\,\textrm{d}u=\dfrac{2}{3}\int u\,\textrm{d}(e^u)=\dfrac{2}{3}ue^u-\int\dfrac{2}{3}e^u\,\textrm{d}u=\dfrac{2}{3}ue^u-\dfrac{2}{3}e^u+C}$
+
+$=\dfrac{2}{3}e^{\sqrt{3x+9}}(\sqrt{3x+9}-1)+C$。
 
 \subsection{有理积分}
 

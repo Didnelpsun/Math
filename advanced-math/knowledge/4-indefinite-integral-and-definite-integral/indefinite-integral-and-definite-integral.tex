@@ -229,15 +229,53 @@ $\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\v
 
 两个多项式的商$\dfrac{P(x)}{Q(x)}$被称为有理函数，或有理分式。
 
-假设该多项式之间没有公因式，当$P(x)$的次数小于$Q(x)$的次数时村各位真分式，否则称为假分式。
+假设该多项式之间没有公因式，当$P(x)$的次数小于$Q(x)$的次数时称为真分式，否则称为假分式。
 
 假分式可以分解为多项式与真分式之和。
 
-真分式$\dfrac{P(x)}{Q(x)}$若可以分解为两个或多个多项式的乘积：$\dfrac{P(x)}{Q(x)}=\dfrac{P_1(x)}{Q_1(x)}+\dfrac{P_2(x)}{Q_2(x)}+\cdots$，则称为将真分式化为部分分式之和。
+真分式$\dfrac{P(x)}{Q(x)}$若可以分解为两个或多个多项式的乘积：$\dfrac{P(x)}{Q(x)}=\dfrac{P_1(x)}{Q_1(x)}+\dfrac{P_2(x)}{Q_2(x)}+\cdots$，则称为将真分式化为部分分式之和。其中$P_i$的最高阶应该低于$Q_i$最高阶次数。
 
 通过这种化简方式，可以在求以商的形式的有利函数的式子的积分时拆分因式，从而简化积分运算。这种简化运算主要体现在分数的积分为对数。
 
+即将多项式的积分式子转换为$\displaystyle{\int\dfrac{A}{x-a}\textrm{d}x}$和$\displaystyle{\int\dfrac{A}{(x-a)^n}\textrm{d}x}$等形式。
+
 当然如果多项式是无法拆分为一次的多个式子，那就无法使用有理函数积分的化简方式。
+
+$\dfrac{P}{(A_0x^a+A_1x^{a-1}+\cdots+A_ax^0)\cdots(N_0x^n+N_1x^{n-1}+\cdots+N_nx^0)}$ \medskip
+
+$=\dfrac{a_0x^{a-1}+a_1x^{a-2}+\cdots+a_{a-1}x^0}{A_0x^a+A_1x^{a-1}+\cdots+A_ax^0}+\cdots+\dfrac{n_0x^{n-1}+n_1x^{n-2}+\cdots+n_{n-1}x^0}{N_0x^n+N_1x^{n-1}+\cdots+N_nx^0}$ \medskip
+
+如$\dfrac{2x+3}{(x+1)(x+2)(x^2+3x+1)}=\dfrac{A}{x+1}+\dfrac{B}{x+2}+\dfrac{Cx+D}{x^2+3x+1}$ \medskip
+
+从而$A(x+2)(x^2+3x+1)+B(x+1)(x^2+3x+1)+(Cx+D)(x+1)(x+2)$
+
+$=A(x^3+5x^2+7x+2)+B(x^3+4x^2+4x+1)+(Cx^3+(3C+D)x^2+(2C+3D)x+2D)$
+
+$=(A+B+C)x^3+(5A+4B+3C+D)x^2+(7A+4B+2C+3D)x+(2A+B+2D)$
+
+从而$A+B+C=0$（\ding{172}），$5A+4B+3C+D=0$（\ding{173}），$7A+4B+2C+3D=2$（\ding{174}），$2A+B+2D=3$（\ding{175}）。
+
+\ding{173}-3×\ding{172}=$2A+B+D=0$（\ding{176}）
+
+\ding{175}-\ding{176}=$D=3$。
+
+从而$5A+4B+3C=-3$（\ding{173}），$7A+4B+2C=-7$（\ding{174}），$2A+B=-3$（\ding{175}）。
+
+\ding{174}-\ding{173}=$2A-C=-4$（\ding{177}）。
+
+\ding{177}+\ding{172}=$3A+B=-4$（\ding{178}）。
+
+\ding{178}-\ding{175}=$A=-1$。
+
+从而$B+C=1$（\ding{172}），$4B+3C=2$（\ding{173}），$4B+2C=0$（\ding{174}），$B=-1$（\ding{175}）。
+
+从而$C=2$。
+
+所以$\dfrac{2x}{(x+1)(x+2)(x^2+3x+1)}=-\dfrac{1}{x+1}-\dfrac{1}{x+2}+\dfrac{2x+3}{x^2+3x+1}$。\medskip
+
+$\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdots+N_{n-1}x^0}{x^n}$ \medskip
+
+如$\dfrac{2x}{(1+x)(x^2+1)^2}=-\dfrac{1}{2}\dfrac{1}{x+1}+\dfrac{1}{2}\dfrac{x-1}{x^2+1}+\dfrac{x+1}{(x^2+1)^2}$。
 
 \section{定积分}
 
