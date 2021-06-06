@@ -68,11 +68,11 @@
 
 将复杂的式子转换为简单的一个因式放到$\textrm{d}$后面看作一个整体，然后利用基本积分公式计算。
 
-\textbf{例题：}$\displaystyle{\int\dfrac{\textrm{d}x}{x\ln x\ln\ln x}}$。 \medskip
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x\ln x\ln\ln x}}$。 \medskip
 
 $=\displaystyle{\int\dfrac{\textrm{d}(\ln x)}{\ln x\ln\ln x}}=\displaystyle{\int\dfrac{\textrm{d}(\ln\ln x)}{\ln\ln x}}=\ln\vert\ln\ln x\vert+C$。\medskip
 
-\textbf{例题：}$\displaystyle{\int\dfrac{10^{2\arccos x}}{\sqrt{1-x^2}}\,\textrm{d}x}$。
+\textbf{例题：}求$\displaystyle{\int\dfrac{10^{2\arccos x}}{\sqrt{1-x^2}}\,\textrm{d}x}$。
 
 $=-\displaystyle{\int10^{2\arccos x}\,\textrm{d}(\arccos x)}=-\dfrac{1}{2}\displaystyle{\int10^{2\arccos x}\,\textrm{d}(2\arccos x)}=-\dfrac{10^{2\arccos x}}{2\ln10}+C$。
 
@@ -80,7 +80,7 @@ $=-\displaystyle{\int10^{2\arccos x}\,\textrm{d}(\arccos x)}=-\dfrac{1}{2}\displ
 
 对于两个三角函数的乘积可以使用积化和差简单计算。
 
-\textbf{例题：}$\displaystyle{\int\sin2x\cos3x\,\textrm{d}x}$。
+\textbf{例题：}求$\displaystyle{\int\sin2x\cos3x\,\textrm{d}x}$。
 
 $=\displaystyle{\int\cos3x\sin2x\,\textrm{d}x=\dfrac{1}{2}\int(\sin5x-\sin x)\,\textrm{d}x}$
 
@@ -88,11 +88,61 @@ $=\dfrac{1}{2}\int\sin5x\,\textrm{d}x-\dfrac{1}{2}\int\sin x\,\textrm{d}x=-\dfra
 
 \paragraph{三角拆分} \leavevmode \medskip
 
-主要用于$\sec^2-1=\tan^2x$，当出现$\tan^2$、$\tan^3$等与$\sec x$在一起作为乘积时可以考虑拆分。
+主要用于$\sec^2-1=\tan^2x$，当出现$\tan^2$、$\tan^3$等与$\sec x$在一起作为乘积时可以考虑拆分换元。
 
 \textbf{例题：}$\displaystyle{\int\tan^3x\sec x\,\textrm{d}x}$。
 
 $=\displaystyle{\int(\sec^2x-1)}\tan x\sec x\,\textrm{d}x=\displaystyle{\int(\sec^2x-1)}\,\textrm{d}(\sec x)=\dfrac{1}{3}\sec^3x-\sec x+C$。
+
+需要利用到有理积分的高阶多项式分配与低阶多项式因式分解。
+
+\paragraph{有理换元} \leavevmode \medskip
+
+书上这个类型属于有理函数部分，我这里移动到第一类换元中。即将无理因式设为一个变量，从而提高式子的阶数，消除无理式变为有理式。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{1+\sqrt[3]{x+1}}}$。
+
+令$u=\sqrt[3]{x+1}$，从而$x=u^3-1$，$\textrm{d}x=3u^2\,\textrm{d}u$。
+
+$=\displaystyle{\int\dfrac{3u^2}{1+u}\textrm{d}u=\int\dfrac{3u^2+3u-3u-3+3}{1+u}\textrm{d}u=\int\left(3u-3+\dfrac{3}{1+u}\right)\textrm{d}u}$
+
+$=\dfrac{3}{2}u^2-3u+3\ln\vert1+u\vert+C=\dfrac{3}{2}\sqrt[3]{(x+1)^2}-3\sqrt[3]{x+1}+3\ln\vert1+\sqrt[3]{x+1}\vert+C$。
+
+\textbf{例题：}求$\displaystyle{\int\sqrt{\dfrac{1-x}{1+x}}\dfrac{\textrm{d}x}{x}}$。\medskip
+
+令$u=\sqrt{\dfrac{1-x}{1+x}}$，$x=\dfrac{1-u^2}{1+u^2}$，$\textrm{d}x=\textrm{d}\left(\dfrac{1-u^2}{1+u^2}\right)=\dfrac{-2u(1+u^2)-2u(1-u^2)}{(1+u^2)^2}$
+
+$=\displaystyle{\int u\cdot\dfrac{1+u^2}{1-u^2}\cdot\dfrac{-4u}{(1+u^2)^2}\textrm{d}u=\int\dfrac{-4u^2}{(1-u)(1+u)(1+u^2)}\textrm{d}u}$
+
+令$\dfrac{A}{1-u}+\dfrac{B}{1+u}+\dfrac{Cu+D}{1+u^2}=\dfrac{-4u^2}{(1-u)(1+u)(1+u^2)}$。
+
+通分：$A(1+u^2+u+u^3)+B(1+u^2-u-u^3)+(Cu-Cu^3+D-Du^2)$
+
+$=(A-B-C)u^3+(A+B-D)u^2+(A-B+C)u+(A+B+D)=-4u^2$
+
+$\therefore A-B-C=0$，$A+B-D=-4$，$A-B+C=0$，$A+B+D=0$。
+
+$\therefore A=B=-1$，$C=0$，$D=2$。
+
+原式$=\displaystyle{\int\left(\dfrac{2}{1+u^2}-\dfrac{1}{1-u}-\dfrac{1}{1+u}\right)\textrm{d}u}$
+
+$=2\arctan u+\ln\vert1-u\vert-\ln\vert1+u\vert+C$
+
+$=2\arctan\sqrt{\dfrac{1-x}{1+x}}+\ln\left\vert\dfrac{\sqrt{1+x}-\sqrt{1-x}}{\sqrt{1+x}+\sqrt{1-x}}\right\vert+C$。
+
+\paragraph{万能公式} \leavevmode \medskip
+
+同样属于有理积分的内容，但是本质还是属于三角函数的部分。
+
+令$u=\tan\dfrac{x}{2}$，$\sin x=\dfrac{2u}{1+u^2}$，$\cos x=\dfrac{1-u^2}{1+u^2}$，$\textrm{d}x=\dfrac{2}{1+u^2}\textrm{d}u$。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{3+\cos x}}$。
+
+令$u=\tan\dfrac{x}{2}$，从而$\cos x=\dfrac{1-u^2}{1+u^2}$：
+
+$=\displaystyle{\int\dfrac{1}{3+\dfrac{1-u^2}{1+u^2}}\cdot\dfrac{2}{1+u^2}\textrm{d}u=\dfrac{1}{2+u^2}\textrm{d}u=\dfrac{1}{\sqrt{2}}\arctan\dfrac{u}{\sqrt{2}}+C}$
+
+$=\dfrac{1}{\sqrt{2}}\arctan\dfrac{\tan\dfrac{x}{2}}{\sqrt{2}}+C$。
 
 \subsubsection{第二类换元}
 
@@ -290,9 +340,35 @@ $=\displaystyle{\int\dfrac{x^3+9x-9x}{x^2+9}\,\textrm{d}x=\int\dfrac{x^3+9x}{x^2
 
 $\displaystyle{=\int x\,\textrm{d}x-\dfrac{9}{2}\int\dfrac{\textrm{d}(x^2+9)}{x^2+9}}=\dfrac{x^2}{2}-\dfrac{9}{2}\ln(9+x^2)+C$。
 
+\subsubsection{低阶多项式分解}
+
+当不定积分式子形如$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x}$，且$f(x)$、$g(x)$都为与$x$相关的多项式，$f(x)$阶数低于$g(x)$，且$g(x)$可以因式分解为$g(x)=g_1(x)g_2(x)\cdots$时，先因式分解再进行运算。
+
+因式分解时需要注意两点：一点是分解后的式子的分子最高阶要低于分母最高阶数一阶；二是当分母中出现某一因式有大于等于二的幂次时，需要把其分解为从一阶到其当前阶数的因式相加，但是阶数跟一阶因式的分子阶数一样，否则就缺一个不等式而求不出来。
+
+虽然分母可以因式分解，但是整个式子不一定能因式分解，特别是某个因子的阶数高于一阶，所以若不能因式分解则可以考虑低阶多项式分配的方式。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{x^2+1}{(x+1)^2(x-1)}\textrm{d}x}$。\medskip
+
+令$\dfrac{A}{x+1}+\dfrac{B}{(x+1)^2}+\dfrac{C}{x-1}=\dfrac{x^2+1}{(x+1)^2(x-1)}$。 \medskip
+
+通分：$=A(x+1)(x-1)+B(x-1)+C(x+1)^2$
+
+$=A(x^2-1)+B(x-1)+C(x^2+2x+1)$
+
+$=(A+C)x^2+(B+2C)x+(C-A-B)=x^2+1$。
+
+从而$A+C=1$，$B+2C=0$，$C-A-B=1$。
+
+所以$A=C=\dfrac{1}{2}$，$B=-1$，所以$\dfrac{x^2+1}{(x+1)^2(x-1)}=\dfrac{1}{2(x+1)}-\dfrac{1}{(x+1)^2}+\dfrac{1}{2(x-1)}$。
+
+$\therefore=\displaystyle{\int\left[\dfrac{1}{2(x+1)}-\dfrac{1}{(x+1)^2}+\dfrac{1}{2(x-1)}\right]\textrm{d}x}$ \medskip
+
+$=\dfrac{1}{2}\ln\vert x-1\vert+\dfrac{1}{2}\ln\vert x+1\vert+\dfrac{1}{x+1}+C=\dfrac{1}{2}\ln\vert x^2-1\vert+\dfrac{1}{x+1}+C$。
+
 \subsubsection{低阶多项式分配}
 
-当不定积分式子形如$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x}$，且$f(x)$、$g(x)$都为与$x$相关的多项式，$f(x)$阶数低于$g(x)$，且$g(x)$不能因式分解为$g(x)=g_1(x)g_2(x)\cdots$时，则可以分解式子：$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x=a_1\int\dfrac{\textrm{d}(f_1(x))}{g_1(x)}+a_2\int\dfrac{\textrm{d}(f_2(x))}{g_2(x)}}+\cdots$，将积分式子组合成积分结果为分式的函数，如$\ln x$、$\arcsin x$、$\arctan x$等。
+当不定积分式子形如$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x}$，且$f(x)$、$g(x)$都为与$x$相关的多项式，$f(x)$阶数低于$g(x)$，且$g(x)$不能因式分解为$g(x)=g_1(x)g_2(x)\cdots$时，则可以分配式子：$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x=a_1\int\dfrac{\textrm{d}(f_1(x))}{g_1(x)}+a_2\int\dfrac{\textrm{d}(f_2(x))}{g_2(x)}}+\cdots$，将积分式子组合成积分结果为分式的函数，如$\ln x$、$\arcsin x$、$\arctan x$等。
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{x-1}{x^2+2x+3}\textrm{d}x}$。
 
@@ -307,6 +383,70 @@ $=\displaystyle{\dfrac{1}{2}\int\dfrac{2x+2}{x^2+2x+3}\textrm{d}x-2\int\dfrac{1}
 $-\displaystyle{\int\dfrac{1}{\left(\dfrac{x+1}{\sqrt{2}}\right)^2+1}\textrm{d}x}=\displaystyle{\dfrac{1}{2}\ln(x^2x+3)-\sqrt{2}\int\dfrac{\textrm{d}\left(\dfrac{x+1}{\sqrt{2}}\right)}{\left(\dfrac{x+1}{\sqrt{2}}\right)^2+1}}$
 
 $=\dfrac{1}{2}\ln(x^2+2x+3)-\sqrt{2}\arctan\dfrac{x+1}{\sqrt{2}}+C$。
+
+\subsubsection{低阶多项式因式分解与分配}
+
+有时候一个式子需要同时用到因式分解和分配两种方式。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{x^5+x^4-8}{x^3-x}\textrm{d}x}$。
+
+$=\displaystyle{\int\dfrac{x^5-x^3+x^4-x^2+x^3-x+x^2+x-8}{x^3-x}\textrm{d}x}$
+
+$=\int x^2\,\textrm{d}x+\int x\,\textrm{d}x+\int\textrm{d}x+\displaystyle{\int\dfrac{x^x+x-8}{x^3-x}\textrm{d}x}=\dfrac{x^3}{3}+\dfrac{x^2}{2}+x+\displaystyle{\int\dfrac{x^2+x-8}{x^3-x}\textrm{d}x}$
+
+令$\dfrac{A}{x}+\dfrac{B}{x+1}+\dfrac{C}{x-1}=\dfrac{x^2+x-8}{x^3-x}$。
+
+$\therefore(A+B+C)x^2+(C-B)x-A=x^2+x-8$。$A=8$，$B=-4$，$C=-3$。
+
+$=\dfrac{x^3}{3}+\dfrac{x^2}{2}+x+\displaystyle{\int\dfrac{8}{x}\textrm{d}x-\int\dfrac{4}{x+1}\textrm{d}x-\int\dfrac{3}{x-1}\textrm{d}x}$
+
+$=\dfrac{x^3}{3}+\dfrac{x^2}{2}+x+8\ln\vert x\vert-4\ln\vert x+1\vert-3\ln\vert x-1\vert+C$。
+
+\subsubsection{有理积分与其他积分运算}
+
+换元积分法可以与有理积分、分部积分共同使用。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{-x^2-2}{(x^2+x+1)^2}\textrm{d}x}$。
+
+首先根据因式分解：$\dfrac{-x^2-2}{(x^2+x+1)^2}=\dfrac{Ax+B}{x^2+x+1}+\dfrac{Cx+D}{(x^2+x+1)^2}$。
+
+$\therefore Ax^3+(A+B)x^2+(A+B+C)x+(B+D)=-x^2-2$。
+
+解得：$A=0$，$B=D=-1$，$C=1$。
+
+$=\displaystyle{\int\dfrac{x-1}{(x^2+x+1)^2}\textrm{d}x-\int\dfrac{1}{x^2+x+1}\textrm{d}x}$
+
+$=\displaystyle{\dfrac{1}{2}\int\dfrac{\textrm{d}(x^2+x+1)}{(x^2+x+1)^2}-\dfrac{3}{2}\int\dfrac{1}{(x^2+x+1)^2}\textrm{d}x-\int\dfrac{1}{\left(x+\dfrac{1}{2}\right)^2+\left(\dfrac{\sqrt{3}}{2}\right)^2}\textrm{d}x}$
+
+$=-\dfrac{1}{2(x^2+x+1)}\displaystyle{-\dfrac{3}{2}\int\dfrac{1}{(x^2+x+1)^2}\textrm{d}x}-\dfrac{2}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}$ \smallskip
+
+$\because x^2+x+1=\left(x+\dfrac{1}{2}\right)^2+\left(\dfrac{\sqrt{3}}{2}\right)^2$，$\therefore$令$u=x+\dfrac{1}{2}$，$a=\dfrac{\sqrt{3}}{2}$：
+
+$\displaystyle{\int\dfrac{1}{(x^2+x+1)^2}\textrm{d}x=\int\dfrac{1}{(u^2+a^2)^2}\textrm{d}u=\int\dfrac{1}{\left(a^2\left(\left(\dfrac{u}{a}\right)^2+1\right)\right)^2}}$，使用第二类换元法（三角换元）：$\dfrac{u}{a}=\tan t$，$u=a\tan t$，$\textrm{d}u=a\sec^2t\,\textrm{d}t$，$t=\arctan\dfrac{u}{a}$。
+
+$\therefore=\displaystyle{\int\dfrac{a\sec^2t}{a^4\sec^4t}\textrm{d}t=\dfrac{1}{a^3}\int\dfrac{\textrm{d}t}{sec^2t}}=\dfrac{1}{a^3}\int\cos^2t\,\textrm{d}t=\dfrac{1}{a^3}\int(1+\cos2t)\,\textrm{d}t$
+
+$=\dfrac{1}{a^3}\int\textrm{d}t+\dfrac{1}{2a^3}\int\cos2t\,\textrm{d}(2t)=\dfrac{t}{a^3}+\dfrac{\sin2t}{2a^3}=\dfrac{\arctan\dfrac{u}{a}}{a^3}+\dfrac{\sin t\cos t}{a^3}$。
+
+$\because\tan t=\dfrac{u}{a}$，$\therefore\tan^2t=\dfrac{\sin^2t}{\cos^2t}=\dfrac{1-\cos^2t}{\cos2t}=\dfrac{\sin^2t}{1-\sin^2t}=\dfrac{u^2}{a^2}$
+
+$\therefore\sin t=\dfrac{u}{\sqrt{a^2+u^2}}$，$\cos t=\dfrac{a}{\sqrt{a^2+u^2}}$，$\dfrac{\sin t\cos t}{a^3}=\dfrac{u}{a^2(a^2+u^2)}$。
+
+$\therefore$原式$=-\dfrac{1}{2(x^2+x+1)}-\dfrac{2}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}\displaystyle{-\dfrac{3}{2}\int\dfrac{1}{(x^2+x+1)^2}\textrm{d}x}$
+
+$=-\dfrac{1}{2(x^2+x+1)}-\dfrac{2}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}-\dfrac{3}{2}\left(\dfrac{\arctan\dfrac{u}{a}}{a^3}+\dfrac{u}{a^2(a^2+u^2)}\right)+C$
+
+$=-\dfrac{1}{2(x^2+x+1)}-\dfrac{2}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}$
+
+$-\dfrac{3}{2}\left(\dfrac{\arctan\dfrac{x+\dfrac{1}{2}}{\dfrac{\sqrt{3}}{2}}}{\left(\dfrac{\sqrt{3}}{2}\right)^3}+\dfrac{x+\dfrac{1}{2}}{\left(\dfrac{\sqrt{3}}{2}\right)^2\left(\left(\dfrac{\sqrt{3}}{2}\right)^2+\left(x+\dfrac{1}{2}\right)^2\right)}\right)+C$
+
+$=-\dfrac{1}{2(x^2+x+1)}-\dfrac{2}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}$
+
+$-\dfrac{3}{2}\left(\dfrac{\arctan\dfrac{2x+1}{\sqrt{3}}}{\dfrac{3\sqrt{3}}{8}}+\dfrac{x+\dfrac{1}{2}}{\dfrac{3}{4}\left(x^2+x+1\right)}\right)+C$
+
+$=-\dfrac{1}{2(x^2+x+1)}-\dfrac{2}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}-\dfrac{4}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}-\dfrac{2x+1}{x^2+x+1}+C$
+
+$=-\dfrac{4x+3}{2(x^2+x+1)}-\dfrac{6}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}+C$。
 
 \section{定积分}
 
