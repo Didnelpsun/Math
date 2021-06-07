@@ -16,6 +16,14 @@
 \usepackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 % 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\usepackage{multicol}
+% 分栏
 \author{Didnelpsun}
 \title{行列式}
 \date{}
@@ -28,5 +36,213 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{}
+
+高数研究连续的问题，而代数研究离散的问题。
+
+行列式本质是研究线性方程组的问题。
+
+\section{行列式概念}
+
+\subsection{二三阶行列式}
+
+若要解一个二元一次方程组：
+
+$\begin{cases}
+    a_1x+b_1y=c_1 (1) \\
+    a_2x+b_2y=c_2 (2) 
+\end{cases}
+$
+
+则利用$(1)\times b_2-(2)\times b_1=(a_1b_2-a_2b_1)x=c_1b_2-c_2b_1$。
+
+$(1)\times a_2-(2)\times a_1=(a_2b_1-a_1b_2)y=c_1a_2-c_2a_1$。
+
+根据系数形式可以得到一个二阶行列式：
+
+$
+\left|\begin{array}{cc} 
+    a & b \\
+    c & d
+\end{array}\right| 
+=ad-bc$。
+
+同理解三元一次方程组可得三阶行列式：
+
+$
+\left|\begin{array}{ccc} 
+    a_{11} & a_{12} & a_{13} \\
+    a_{21} & a_{22} & a_{23} \\
+    a_{31} & a_{32} & a_{33}
+\end{array}\right| 
+=a_{11}a_{22}a_{33}+a_{12}a_{23}a_{31}+a_{13}a_{21}a_{32}-a_{13}a_{22}a_{31}-a_{11}a_{23}a_{32}+a_{12}a_{21}a_{33}$。
+
+行列式是一个数，是不同行不同列元素乘积的代数和。
+
+二阶三阶行列式的值就是所有左对角线的值减去所有右对角线的值。
+
+\subsection{排列、逆序、逆序数}
+
+由$1,2,\cdots,n$任意组成的有序数组称为一个$n$阶排列，通常用$j_1j_2\cdots j_n$表示$n$阶排列。如9 5 4 7就是一个4阶排列。
+
+一个排列中，若一个大的数排在一个小的数的前面，就称为这两个数构成一个逆序。如9 5 4 7的9和4就构成一个逆序。
+
+一个排列的逆序的总数称为这个排列的逆序数，用$\tau(j_1j_2\cdots j_n)$表示排列$j_1j_2\cdots j_n$的逆序数。如9 5 4 7有逆序9-5，9-4，9-7，5-4四个逆序，逆序数为4。
+
+若一个排列的逆序数是偶数，则这个排列是偶排列，否则称为奇排列。如9 5 4 7是偶排列。
+
+若是1 2 $\cdots$ n按序排列，称为这个排列为自然排列，逆序数为0，是偶排列。
+
+\subsection{n阶行列式}
+
+$
+\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{array}\right| 
+=\sum\limits_{j_1j_2\cdots j_n}(-1)^{\tau(j_1j_2\cdots j_n)}a_{1j_1}a_{2j_2}\cdots a_{nj_n}$。
+
+即在$n$行每一行都取一个不同于之前取的列的数相乘，把所有的乘积相加起来，其每个项的正负号由其列号序列的逆序数决定。一共有$n!$个项相加减。
+
+\subsection{特殊行列式}
+
+\subsubsection{三角行列式}
+
+$\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+     & \ddots & \cdots & a_{2n} \\
+     & & \ddots & \vdots  \\
+     & & & a_{nn}
+\end{array}\right|=
+\left|\begin{array}{cccc} 
+    a_{11} & & & \\
+    a_{21} & \ddots & & \\
+    \vdots & \cdots & \ddots &  \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{array}\right|=
+\left|\begin{array}{cccc} 
+    a_{11} & & & \\
+     & \ddots & & \\
+     & & \ddots &  \\
+     & & & a_{nn}
+\end{array}\right|=a_{11}\cdots a_{nn}$
+
+    上三角行列式：包括主对角线的右上部分元素不全为0，左下部分元素全为0。
+
+
+    下三角行列式：包括主对角线的左下部分元素不全为0，右上部分元素全为0。
+
+
+    对角行列式：省略号处的元素不全为0，其他主对角线外的元素全为0。
+
+\subsubsection{范德蒙德行列式}
+
+\begin{multicols}{2}
+
+    $\left|\begin{array}{cccc} 
+        1 & 1 & \cdots & 1 \\
+        a_1 & a_2  & \cdots & a_n \\
+        \cdots & \cdots & \cdots & \cdots \\
+        a_1^{n-1} & a_2^{n-1} & \cdots & a_n^{n-1} \\
+    \end{array}\right|$
+
+    范德蒙德行列式：元素连乘，结果为$\sum\limits_{1\leqslant j<i\leqslant n}(a_i-a_j)$。
+    若一个四阶范德蒙德行列式的结果为$(a_4-a_1)(a_4-a_2)(a_4-a_3)(a_3-a_1)(a_3-a_2)(a_2-a_1)$。
+
+\end{multicols}
+
+若一个范德蒙德行列式不等于0，则其每个元素$a_1a_2\cdots a_n$两两不等。
+
+\subsubsection{分块行列式}
+
+$\left|\begin{array}{cc}
+    A & O \\
+    O & B
+\end{array}\right|=
+\left|\begin{array}{cc}
+    A & * \\
+    O & B
+\end{array}\right|=
+\left|\begin{array}{cc}
+    A & O \\
+    * & B
+\end{array}\right|=\vert A\vert\cdot\vert B\vert$。
+
+\section{行列式性质}
+
+拉普拉斯法则：$A_{n\times n}$，$B_{n\times n}$，则$\vert AB\vert=\vert A\vert\cdot\vert B\vert$。
+
+若对于行列式$D$，将$a_{ij}$和$a_{ji}$的元素互换位置得到$D^T$，则其就是$D$的转置行列式，转置行列式与其行列式相等。
+
+对调行列式的任意两行或两列，行列式变号。
+
+若行列式中有两行或两列元素完全相同，则此行列式等于0。
+
+行列式中如果有两行或两列元素成比例，则此行列式等于0。
+
+行列式的某一行或某一列中所有的元素都乘以同一个数$k$，则等于用$k$乘此行列式。行列式中某一行或一列的所有元素的公因子可以提到行列式记号外面。
+
+即$
+\left|\begin{array}{ccccc} 
+    a_{11} & \cdots & ka_{1i} & \cdots & a_{1n} \\
+    a_{21} & \cdots & ka_{2i} & \cdots & a_{2n} \\
+    \vdots & \cdots & \vdots & \ddots & \vdots \\
+    a_{n1} & \cdots & ka_{ni} & \cdots & a_{nn}
+\end{array}\right| 
+=k\left|\begin{array}{ccccc} 
+    a_{11} & \cdots & a_{1i} & \cdots & a_{1n} \\
+    a_{21} & \cdots & a_{2i} & \cdots & a_{2n} \\
+    \vdots & \cdots & \vdots & \ddots & \vdots \\
+    a_{n1} & \cdots & a_{ni} & \cdots & a_{nn}
+\end{array}\right|$。
+
+行列式某一行列的元素是两数之和$
+\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \cdots & \vdots \\
+    a_{i1}+a_{j1} & a_{i2}+a_{j2} & \cdots & a_{in}+a_{jn} \\
+    \vdots & \vdots & \cdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{array}\right| 
+$，
+
+则$=\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \cdots & \vdots \\
+    a_{i1} & a_{i2} & \cdots & a_{in}\\
+    \vdots & \vdots & \cdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{array}\right|+
+\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    \vdots & \vdots & \cdots & \vdots \\
+    a_{j1} & a_{j2} & \cdots & a_{jn} \\
+    \vdots & \vdots & \cdots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{array}\right|$
+
+把行列式的某一行或某一列的个元素乘以同一个数然后加到另一行或一列对应元素上去，行列式不变。
+
+\section{行列式展开}
+
+\subsection{代数余子式}
+
+$
+D=\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & a_{22} & \cdots & a_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{array}\right|
+$
+
+$\forall a_{ij}$，$D$中划去$i$行，$j$列余下元素而成的$n-1$阶行列式记为$M_{ij}$，其就是$a_{ij}$的余子式。
+
+令$A_{ij}=(-1)^{i+j}M_{ij}$，其就是$a_{ij}$的代数余子式。
+
+\subsection{展开公式}
+
+\section{克拉默法则}
+
 \end{document}
