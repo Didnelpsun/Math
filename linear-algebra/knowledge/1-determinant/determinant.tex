@@ -24,6 +24,8 @@
 % 超链接
 \usepackage{multicol}
 % 分栏
+\usepackage{rotating}
+% 用于旋转对象（旋转包）
 \author{Didnelpsun}
 \title{行列式}
 \date{}
@@ -39,7 +41,7 @@
 
 高数研究连续的问题，而代数研究离散的问题。
 
-行列式本质是研究线性方程组的问题。
+行列式本质是研究线性方程组的问题。行列式本质是一个数，必须是一个长宽相等的形式。
 
 \section{行列式概念}
 
@@ -78,11 +80,13 @@ $
 
 行列式是一个数，是不同行不同列元素乘积的代数和。
 
+横排为行，竖排为列，数$a_{ij}$为元素或元，第一个下标$i$为行标，第二个下标$j$为列标。
+
 二阶三阶行列式的值就是所有左对角线的值减去所有右对角线的值。
 
 \subsection{排列、逆序、逆序数}
 
-由$1,2,\cdots,n$任意组成的有序数组称为一个$n$阶排列，通常用$j_1j_2\cdots j_n$表示$n$阶排列。如9 5 4 7就是一个4阶排列。
+由$1,2,\cdots,n$任意组成的有序数组称为一个$n$阶排列（全排列），通常用$j_1j_2\cdots j_n$表示$n$阶排列。如9 5 4 7就是一个4阶排列。
 
 一个排列中，若一个大的数排在一个小的数的前面，就称为这两个数构成一个逆序。如9 5 4 7的9和4就构成一个逆序。
 
@@ -91,6 +95,12 @@ $
 若一个排列的逆序数是偶数，则这个排列是偶排列，否则称为奇排列。如9 5 4 7是偶排列。
 
 若是1 2 $\cdots$ n按序排列，称为这个排列为自然排列，逆序数为0，是偶排列。
+
+将任意两个元素对调，其他元素不动就是对换，若这两个元素相邻则是相邻对换。
+
+一个排列中任意两个元素对换，排列奇偶性变化。
+
+奇排列对换成标准排列（一般为自然排列）的对换次数为奇数，偶排列的对换次数为偶数。
 
 \subsection{n阶行列式}
 
@@ -128,13 +138,36 @@ $\left|\begin{array}{cccc}
      & & & a_{nn}
 \end{array}\right|=a_{11}\cdots a_{nn}$
 
-    上三角行列式：包括主对角线的右上部分元素不全为0，左下部分元素全为0。
+上三角行列式：包括主对角线的右上部分元素不全为0，左下部分元素全为0。
 
 
-    下三角行列式：包括主对角线的左下部分元素不全为0，右上部分元素全为0。
+下三角行列式：包括主对角线的左下部分元素不全为0，右上部分元素全为0。
 
 
-    对角行列式：省略号处的元素不全为0，其他主对角线外的元素全为0。
+对角行列式：省略号处的元素不全为0，其他主对角线外的元素全为0。
+
+\subsubsection{反三角行列式}
+
+$\left|\begin{array}{cccc} 
+     & & & a_{1n} \\
+     & & \begin{turn}{80}$\ddots$\end{turn} & a_{2n} \\
+     &  \begin{turn}{80}$\ddots$\end{turn} & \cdots & \vdots  \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{array}\right|=
+\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & \cdots & \begin{turn}{80}$\ddots$\end{turn} & \\
+    \vdots & \begin{turn}{80}$\ddots$\end{turn} & & \\
+    a_{n1} & & &
+\end{array}\right|=
+\left|\begin{array}{cccc} 
+     & & & a_{1n} \\
+     & & \begin{turn}{80}$\ddots$\end{turn} & \\
+     & \begin{turn}{80}$\ddots$\end{turn} & & \\
+    a_{n1} & & &
+\end{array}\right|=(-1)^{\frac{n(n-1)}{2}}a_{1n}\cdots a_{n1}$
+
+可以从第$n$行开始向上相邻对换$n-1$次到达第$1$层，依此类推，反下三角可以对换成上三角行列式，对换次数为$(n-1),(n-2),\cdots,1$一共$\dfrac{n(n-1)}{2}$次，反上三角行列式也同理。
 
 \subsubsection{范德蒙德行列式}
 
@@ -143,7 +176,7 @@ $\left|\begin{array}{cccc}
     $\left|\begin{array}{cccc} 
         1 & 1 & \cdots & 1 \\
         a_1 & a_2  & \cdots & a_n \\
-        \cdots & \cdots & \cdots & \cdots \\
+        \cdots & \cdots & \vdots & \cdots \\
         a_1^{n-1} & a_2^{n-1} & \cdots & a_n^{n-1} \\
     \end{array}\right|$
 
@@ -241,8 +274,16 @@ $\forall a_{ij}$，$D$中划去$i$行，$j$列余下元素而成的$n-1$阶行�
 
 令$A_{ij}=(-1)^{i+j}M_{ij}$，其就是$a_{ij}$的代数余子式。
 
+若一个$n$阶行列式，若其中第$i$行所有元素除$(i,j)$元$a_{ij}$外都是零，则行列式值$D=a_{ij}A_{ij}$。
+
 \subsection{展开公式}
 
-\section{克拉默法则}
+行列式等于其任一行或列的各元素与对应的代数余子式乘积之和。
+
+即$D=a_{i1}A_{i1}+\cdots+a_{in}A_{in}$或$D=a_{1j}A_{1j}+\cdots+a_{nj}A_{nj}$。
+
+若元素与不对应的代数余子式乘积之和必然为0。
+
+即$a_{i1}A_{k1}+\cdots+a_{in}A_{kn}=0$。
 
 \end{document}

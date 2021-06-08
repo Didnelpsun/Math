@@ -2,6 +2,7 @@
 % UTF8编码，ctexart现实中文
 \usepackage{color}
 % 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -16,6 +17,12 @@
 \usepackage{setspace}
 \renewcommand{\baselinestretch}{1.5}
 % 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
 \author{Didnelpsun}
 \title{微分方程}
 \date{}
@@ -28,8 +35,53 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{}
 
+本节内容较少。
 
+\section{微分方程基本概念}
+
+表示未知函数、未知函数的导数与自变量之间的关系的方程，即含导数的方程就是微分方程。导数可能是一阶导数也可能是二阶以及以上阶数的导数。
+
+微分方程所出现的未知函数的最高阶导数的阶数就是该微分方程的阶。
+
+$n$阶微分方程的形式是$F(x,y,y',\cdots,y^{(n)})=0$。其中最高阶导数是必须出现的。
+
+若微分方程中的解中含有任意常数，且任意常数的个数与微分方程的阶数相同，则就是微分方程的通解。如若$y''=3$，则$y'=3x+C_1$，$y=\dfrac{3}{2}x^2+C_1x+C_2$，此时含有两个任意常数$C_1C_2$，则微分方程的阶数也为2。
+
+当给出$x=x_0$时$y_0$与$y_0'$的值，那么这些条件就是初值条件，如上面的$y''=3$。
+
+微分方程的解的图形是一条曲线，叫做微分方程的积分曲线，初值问题的集几何意义就是求微分方程的通过某点的积分曲线。
+
+\section{可分离变量的微分方程}
+
+若可以变型为$g(y)\textrm{d}y=f(x)\textrm{d}x$的方程就是可分离变量的微分方程。即将含$y$的放在一边，含$x$的放在另一边。
+
+然后对两边求积分就得到$\int g(y)\,\textrm{d}y=\int f(x)\,\textrm{d}x$，解得$G(y)=F(x)+C$。如$y'=2$，所以$\dfrac{\textrm{d}y}{\textrm{d}x}=2$，$\textrm{d}y=2\,\textrm{d}x$，$\int\textrm{d}y=\int2\,\textrm{d}x$，$y=2x+C$。
+
+\textbf{例题：}求微分方程$\dfrac{\textrm{d}y}{\textrm{d}x}=2xy$。
+
+$\displaystyle{\int\dfrac{\textrm{d}y}{y}}=\int2x\,\textrm{d}x$，$\ln\vert y\vert=x^2+C$，$\vert y\vert=e^{x^2+C}$。
+
+$\therefore y=\pm e^{x^2}e^C=\pm C_1e^{x^2}=C_2e^{x^2}$。
+
+\textcolor{orange}{注意：}在微分方程部分可以直接$\ln y=x^2+C$而不用管正负号，因为正负号都会被归为常数中。
+
+\section{齐次方程}
+
+若一阶微分方程可化为$\dfrac{\textrm{d}y}{\textrm{d}x}=\psi\left(\dfrac{y}{x}\right)$，则这方程就是一个齐次方程。
+
+解决齐次方程问题的过程：令$u=\dfrac{y}{x}$；$y=xu$；$\dfrac{\textrm{d}y}{\textrm{d}x}=u+x\dfrac{\textrm{d}u}{\textrm{d}x}$。
+
+\textbf{例题：}求$y^2+x^2\dfrac{\textrm{d}y}{\textrm{d}x}=xy\dfrac{\textrm{d}y}{\textrm{d}x}$。
+
+得到$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{y^2}{xy-x^2}$。
+
+然后将这个等式化为$\dfrac{y}{x}$的形式，分子分母同时除以$x^2$：$\dfrac{\dfrac{y^2}{x^2}}{\dfrac{xy-x^2}{x^2}}=\dfrac{\left(\dfrac{y}{x}\right)^2}{\dfrac{y}{x}-1}$。
+
+从而到第三步：$u+x\dfrac{\textrm{d}u}{\textrm{d}x}=\dfrac{u^2}{u-1}$，$\therefore x\dfrac{\textrm{d}u}{\textrm{d}x}=\dfrac{u^2}{u-1}-u=\dfrac{u}{u-1}$。
+
+$\therefore\dfrac{u-1}{u}\textrm{d}u=\dfrac{\textrm{d}x}{x}$，$\therefore\displaystyle{\int\dfrac{u-1}{u}\textrm{d}u=\int\dfrac{\textrm{d}x}{x}}$，$u-\ln u=\ln x+C$，$\ln xu=u+C$。
+
+代入$u=\dfrac{y}{x}$，得到$\ln y=\dfrac{y}{x}+C$，所以得到$y=Ce^{\frac{y}{x}}$。
 
 \end{document}
