@@ -22,6 +22,8 @@
 % 数学公式
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
+\usepackage{multicol}
+% 分栏
 \author{Didnelpsun}
 \title{矩阵}
 \date{}
@@ -38,5 +40,44 @@
 矩阵本质是一个表格。
 
 \section{矩阵定义}
+
+$m\times n$矩阵是由$m\times n$个数$a_{ij}$（元素）排成的$m$行$n$列的数表。
+
+元素是实数的矩阵称为实矩阵，元素是复数的矩阵是复矩阵。
+
+行数列数都为$n$的就是$n$阶矩阵或方阵，记为$A_n$。
+
+行矩阵或行向量：只有一行的矩阵$A=(a_1a_2\cdots a_n)$。
+
+列矩阵或列向量：只有一列的矩阵$B=
+\left(\begin{array}{c} 
+    b_1 \\
+    b_2 \\
+    \cdots \\
+    b_m
+\end{array}\right)$。
+
+同型矩阵：两个矩阵行数、列数相等。
+
+相等矩阵：是同型矩阵，且对应元素相等的矩阵。记为$A=B$。
+
+零矩阵：元素都是零的矩阵，记为$O$，但是不同型的零矩阵不相等。
+
+\begin{multicols}{2}
+    
+    
+    对角矩阵或对角阵：从左上角到右下角的直线（对角线）以外的元素都是0的矩阵，记为$\varLambda=\textrm{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$。
+
+    $\varLambda=\left(
+        \begin{array}{cccc}
+            \lambda_1 & 0 & \cdots & 0 \\
+        \end{array}
+    \right)$
+
+    单位矩阵或单位阵：$\lambda_1=\lambda_2=\cdots=\lambda_n=1$的对角矩阵，记为$E$。
+
+
+
+\end{multicols}
 
 \end{document}

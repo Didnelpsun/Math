@@ -3,6 +3,7 @@
 \usepackage{color}
 % 使用颜色
 \definecolor{orange}{RGB}{255,127,0} 
+\definecolor{aqua}{RGB}{0,255,255}
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -221,5 +222,43 @@ $\dfrac{\textrm{d}p}{p}=\dfrac{2x}{1+x^2}\textrm{d}x$，$\ln p=\ln(1+x^2)+C'$，
 若$p=0$，则$y'=0$，则$y$是一个常数。
 
 所以综上$y=C_2e^{C_1y}$。
+
+\section{高阶线性微分方程}
+
+第一部分是一阶微分方程，分为可分离变量微分方程、齐次微分方程、一阶齐次线性微分方程、一阶非齐次线性微分方程。
+
+第二部分是可降阶的高阶微分方程，分为三种。
+
+第三部分就是本节的高阶线性微分方程，$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=0$就是$n$阶齐次线性微分方程，$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)$就是$n$阶非齐次线性微分方程
+
+若$\varphi_1(x)$与$\varphi_2(x)$为两个函数，当$\varphi_1(x)$与$\varphi_2(x)$不成比例，则称$\varphi_1(x)$与$\varphi_2(x)$线性无关，否则$\varphi_1(x)$与$\varphi_2(x)$线性相关。
+
+\textcolor{aqua}{\textbf{定理：}}若$\varphi_1(x)$与$\varphi_2(x)$为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=0$的解，则$y=C_1\varphi_1(x)+C_2\varphi_2(x)$也为其解。
+
+证明：因为$\varphi_1(x)$与$\varphi_2(x)$为解，所以代入方程：
+
+$\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1=0$，$\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2=0$
+
+从而$(C_1\varphi_1+C_2\varphi_2)''+a(x)(C_1\varphi_1+C_2\varphi_2)'+b(x)(C_1\varphi_1+C_2\varphi_2)=C_1(\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1)+C_2(\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2)=0$。
+
+所以得证。
+
+\textcolor{aqua}{\textbf{定理：}}若$\varphi_1(x)$与$\varphi_2(x)$分别为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=0$与$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)$的解，则$y=\varphi_1(x)+\varphi_2(x)$为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)$的解。
+
+证明：$\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1=0$，$\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2=f(x)$，代入$y=\varphi_1(x)+\varphi_2(x)$：
+
+$(\varphi_1+\varphi_2)''+a(x)(\varphi_1+\varphi_2)'+b(x)(\varphi_1+\varphi_2)=(\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1)+(\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2)=f(x)$。
+
+所以得证。
+
+\textcolor{aqua}{\textbf{定理：}}若$\varphi_1(x)$与$\varphi_2(x)$为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)$的解，则$y=\varphi_1(x)-\varphi_2(x)$为$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=0$的解。
+
+证明：$\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1=f(x)$，$\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2=f(x)$，代入$y=\varphi_1(x)-\varphi_2(x)$：
+
+$(\varphi_2-\varphi_1)''+a(x)(\varphi_2-\varphi_1)'+b(x)(\varphi_2-\varphi_1)$
+
+$(\varphi_2''+a(x)\varphi_2'+b(x)\varphi_2)-(\varphi_1''+a(x)\varphi_1'+b(x)\varphi_1)$
+
+$f(x)-f(x)=0$，所以得证。
 
 \end{document}
