@@ -2,6 +2,7 @@
 % UTF8编码，ctexart现实中文
 \usepackage{color}
 % 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -71,13 +72,313 @@ $m\times n$矩阵是由$m\times n$个数$a_{ij}$（元素）排成的$m$行$n$�
     $\varLambda=\left(
         \begin{array}{cccc}
             \lambda_1 & 0 & \cdots & 0 \\
+            0 & \lambda_2 & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \vdots \\
+            0 & 0 & \cdots & \lambda_n
         \end{array}
     \right)$
 
-    单位矩阵或单位阵：$\lambda_1=\lambda_2=\cdots=\lambda_n=1$的对角矩阵，记为$E$。
+    单位矩阵或单位阵：$\lambda_1=\lambda_2=\cdots=\lambda_n=1$的对角矩阵，记为$E$。这种线性变换叫做恒等变换，$AE=A$。
 
-
+    $E=\left(
+        \begin{array}{cccc}
+            1 & 0 & \cdots & 0 \\
+            0 & 1 & \cdots & 0 \\
+            \vdots & \vdots & \vdots & \vdots \\
+            0 & 0 & \cdots & 1
+        \end{array}
+    \right)$
 
 \end{multicols}
+
+\section{矩阵运算}
+
+\subsection{矩阵加法减法}
+
+设与两个矩阵都是同型矩阵$m\times n$$A=(a_{ij})$和$B=(b_{ij})$，则其加法就是$A+B$。
+
+$$A+B=\left(
+    \begin{array}{cccc}
+        a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\
+        a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
+        \vdots & \vdots & \vdots & \vdots \\
+        a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{m+n}+b_{m+n}
+    \end{array}
+\right)$$
+
+\begin{itemize}
+    \item $A+B=B+A$。
+    \item $(A+B)+C=A+(B+C)$。
+\end{itemize}
+
+若$-A=(-a_{ij})$，则$-A$是$A$的负矩阵，$A+(-A)=O$。
+
+从而矩阵的减法为$A-B=A+(-B)$。
+
+\subsection{数乘矩阵}
+
+数$\lambda$与矩阵$A$的乘积记为$\lambda A$或$A\lambda$，规定：
+
+$$\lambda A=A\lambda=\left(
+    \begin{array}{cccc}
+        \lambda a_{11} & \lambda a_{12} & \cdots & \lambda a_{1n} \\
+        \lambda a_{21} & \lambda a_{22} & \cdots & \lambda a_{2n} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        \lambda a_{m1} & \lambda a_{m2} & \cdots & \lambda a_{mn}
+    \end{array}
+\right)$$
+
+假设$A$、$B$都是$m\times n$的矩阵，$\lambda$、$\mu$为数：
+
+\begin{itemize}
+    \item $(\lambda\mu)A=\lambda(\mu A)$。
+    \item $(\lambda+\mu)A=\lambda A+\mu A$。
+    \item $\lambda(A+B)=\lambda A+\lambda B$。
+\end{itemize}
+
+矩阵加法与数乘矩阵都是矩阵的线性运算。
+
+\subsection{矩阵相乘}
+
+设$A=(a_{ij})$是一个$m\times s$的矩阵，$B=(b_{ij})$是一个$s\times n$的矩阵，那么$A\times B=AB=C_{m\times n}=(c_{ij})$。即：
+
+$$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{is}b_{sj}=\sum\limits_{k=1}^sa_{ik}b_{kj}\,\text{（}i=1,2,\cdots,m;j=1,2,\cdots,n\text{）}$$
+
+所以按此定义一个$1\times s$行矩阵与$s\times 1$列矩阵的乘积就是一个1阶方针即一个数：
+
+$(a_{i1},a_{i2},\cdots,a_{is})\left(
+    \begin{array}{c}
+        b_{1j} \\
+        b_{2j} \\
+        \cdots \\
+        b_{sj}
+    \end{array}
+\right)=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{is}b_{sj}=\sum\limits_{k=1}^sa_{ik}b_{kj}=c_{ij}$。
+
+从而$AB=C$的$c_{ij}$就是$A$的第$i$行与$B$的$j$列的乘积。
+
+\textcolor{orange}{注意：}只有左矩阵的列数等于右矩阵的行数才能相乘。
+
+只有$AB$都是方阵的时候才能$AB$与$BA$。
+
+矩阵的左乘与右乘不一定相等，即$AB\neq BA$。
+
+若方阵$AB$乘积满足$AB=BA$，则表示其是可交换的。
+
+$A\neq O$，$B\neq O$，但是不能推出$AB\neq O$或$BA\neq O$。
+
+$AB=O$不能推出$A=O$或$B=O$。
+
+$A(X-Y)=O$当$A\neq O$也不能推出$X=Y$。
+
+\begin{itemize}
+    \item $(AB)C=A(BC)$。
+    \item $\lambda(AB)=(\lambda A)B=A(\lambda B)$。
+    \item $A(B+C)=AB+AC$。
+    \item $(B+C)A=BA+CA$。
+    \item $EA=AE=A$。
+\end{itemize}
+
+$\lambda E$称为纯量阵，$(\lambda E_n)A_n=\lambda A_n=A_n(\lambda E_n)$。
+
+若$A_{m\times s}$，$B_{s\times n}=(\beta_1,\cdots,\beta_s)$，其中$\beta$为$n$行的列矩阵，则：
+
+$AB=A(\beta_1,\cdots,\beta_s)=(A\beta_1,\cdots,A\beta_n)$。
+
+\subsection{矩阵幂}
+
+只有方阵才能连乘，从而只有方阵才有幂。
+
+若$A$是$n$阶方阵，所以：
+
+$$A^1=A\text{，}A^2=A^1A^1\text{，}\cdots\text{，}A^{k+1}=A^kA^1$$
+
+\begin{itemize}
+    \item $A^kA^l=A^{k+l}$。
+    \item $(A^k)^l=A^{kl}$。
+\end{itemize}
+
+因为矩阵乘法一般不满足交换率，所以$(AB)^k\neq A^kB^k$。只有$AB$可交换时才相等。
+
+若$A\neq 0$不能推出$A^k\neq 0$，如：
+
+$A=\left(
+    \begin{array}{cc}
+        0 & 2 \\
+        0 & 0
+    \end{array}
+\right)\neq 0$。$A^2=\left(
+    \begin{array}{cc}
+        0 & 2 \\
+        0 & 0
+    \end{array}
+\right)\left(
+    \begin{array}{cc}
+        0 & 2 \\
+        0 & 0
+    \end{array}
+\right)=\left(
+    \begin{array}{cc}
+        0 & 0 \\
+        0 & 0
+    \end{array}
+\right)=O$。
+
+$A=\left(
+    \begin{array}{ccc}
+        0 & 1 & 1 \\
+        0 & 0 & 1 \\
+        0 & 0 & 0
+    \end{array}
+\right)$，$A^3=O$。
+
+矩阵幂可以同普通多项式进行处理。
+
+如$f(x)=a_nx^n+\cdots+a_1x+n$，对于$A$就是$f(A)=a_nA^n+\cdots+a_1A+a_nE$。
+
+$f(A)=A^2-A-6E=(A+2E)(A-3E)$。
+
+\subsection{矩阵转置}
+
+把矩阵$A$的行换成同序数的列就得到一个新矩阵，就是$A$的转置矩阵$A^T$。若$A$为$m\times n$，则$A^T$为$n\times m$。
+
+\begin{itemize}
+    \item $(A^T)^T=A$。
+    \item $(A+B)^T=A^T+B^T$。
+    \item $(\lambda A)^T=\lambda A^T$。
+    \item $(AB)^T=B^TA^T$。
+\end{itemize}
+
+对称矩阵或对称阵：元素以对角线为对称轴对应相等，$A=A^T$。
+
+\subsection{方阵行列式}
+
+由$n$阶方阵$A$的元素所构成的行列式称为矩阵$A$的行列式，记为$\textrm{det}\,A$或$\vert A\vert$。
+
+\subsection{线性方程组与矩阵}
+
+\begin{itemize}
+    \item $\vert A^T\vert=\vert A\vert$。
+    \item $\vert\lambda A\vert=\lambda^n\vert A\vert$。
+    \item $\vert AB\vert=\vert A\vert\cdot\vert B\vert=\vert BA\vert$。
+\end{itemize}
+
+伴随矩阵或伴随阵：行列式$\vert A\vert$各个元素的代数余子式$A_{ij}$构成的矩阵。
+
+$$A^*=\left(
+    \begin{array}{cccc}
+        A_{11} & A_{21} & \cdots & A_{n1} \\
+        A_{12} & A_{22} & \cdots & A_{n2} \\
+        \vdots & \vdots & \ddots & \vdots \\
+        A_{1n} & A_{2n} & \cdots & A_{nn}
+    \end{array}
+\right)$$
+
+其中$AA^*=A^*A=\vert A\vert E$。
+
+\section{线性方程组}
+
+矩阵是根据线性方程组得到。
+
+\subsection{线性方程组与矩阵}
+
+\begin{multicols}{2}
+    
+    $\begin{cases}
+        a_{11}x_1+\cdots+a_{1n}x_n=0 \\
+        \cdots \\
+        a_{m1}x_1+\cdots+a_{mn}x_n=0
+    \end{cases}$ \medskip
+    
+    $n$元齐次线性方程组。
+
+    $\begin{cases}
+        a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+        \cdots \\
+        a_{m1}x_1+\cdots+a_{mn}x_n=b_n
+    \end{cases}$ \medskip
+    
+    $n$元非齐次线性方程组。
+
+\end{multicols}
+
+对于齐次方程，$x_1=\cdots=x_n=0$一定是其解，称为其零解，若有一组不全为零的解，则称为其非零解。其一定有零解，但是不一定有非零解。
+
+对于非齐次方程，只有$b_1\cdots b_n$不全为零才是。
+
+令系数矩阵$A_{m\times n}=\left(
+    \begin{array}{ccc}
+        a_{11} & \cdots & a_{1n} \\
+        \cdots \\
+        a_{m1} & \cdots & a_{mn}
+    \end{array}
+\right)$，未知数矩阵$X_{n\times 1}=\left(
+    \begin{array}{c}
+        x_1 \\
+        \cdots \\
+        x_n
+    \end{array}
+\right)$，常数项矩阵$b_{m\times 1}=\left(
+    \begin{array}{c}
+        b_1 \\
+        \cdots \\
+        b_m
+    \end{array}
+\right)$，增广矩阵$B_{m\times(n+1)}=\left(
+    \begin{array}{cccc}
+        a_{11} & \cdots & a_{1n} & b_1\\
+        \cdots \\
+        a_{m1} & \cdots & a_{mn} & b_n
+    \end{array}
+\right)$。
+
+
+
+所以$AX=\left(
+    \begin{array}{c}
+        a_11x_1+\cdots+a_{1n}x_n \\
+        \cdots \\
+        a_{m1}x_1+\cdots+a_{mn}x_n
+    \end{array}
+\right)$。
+
+从而$AX=b$等价于$\begin{cases}
+    a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+    \cdots \\
+    a_{m1}x_1+\cdots+a_{mn}x_n=b_n
+\end{cases}$，当$b=O$就是齐次线性方程。
+
+从而矩阵可以简单表示线性方程。
+
+\subsection{线性方程组的解}
+
+对于一元一次线性方程：$ax=b$：
+
+\begin{itemize}
+    \item 当$a\neq 0$时，可以解得$x=\dfrac{b}{a}$。
+    \item 当$a=0$时，若$b\neq 0$时，无解，若$b=0$时，无数解。
+\end{itemize}
+
+当推广到多元一次线性方程组：$AX=b$，如何求出$X$这一系列的$x$的解？
+
+从数学逻辑上看，已知多元一次方程，有$m$个约束方程，有$n$个未知数，假定$m\leqslant n$。
+
+当$m<n$时，就代表有更多的未知变量不能被方程约束，从而有$n-m$个自由变量，所以就是无数解，解组中其他解可以由自由变量来表示。
+
+当$m=n$时代表约束与变量数量相等，此时又要分三种情况。
+
+当所有的约束条件其中存在线性相关，即一部分约束条件可以由其他约束表示，则代表这部分约束条件是没用的，实际上的约束条件变少，从而情况等于$m<n$，结果是无数解。
+
+当所有的约束条件不存在线性相关，但是一部分约束条件互相矛盾，则约束条件下就无法解出解，从而结果是无实数解。
+
+当所有的约束条件不存在线性相关，且相互之间不存在矛盾情况，这时候才会解出一个实数解，从而结果是有唯一实解。
+
+若使用矩阵来解决线性方程组的问题，其系数矩阵$A_{m\times n}$。
+
+对于$A\neq O$，则$AX=b$，若存在一个矩阵$B_{n\times n}$类似$\dfrac{1}{a}$，使得$BAX=Bb$，解得$EX=X=Bb$，这个$B$就是$A$的逆矩阵。
+
+对于$A=O$即不可逆，需要判断$b$是否为0，若不是则无实数解，若是则无穷解，这种判断需要用到增广矩阵，需要用到矩阵的秩判断。
+
+\section{逆矩阵}
 
 \end{document}
