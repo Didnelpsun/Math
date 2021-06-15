@@ -3,6 +3,7 @@
 \usepackage{color}
 % 使用颜色
 \definecolor{orange}{RGB}{255,127,0} 
+\definecolor{aqua}{RGB}{0,255,255} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -382,5 +383,13 @@ $$A^*=\left(
 \section{逆矩阵}
 
 逆矩阵类比倒数，若对于$n$阶矩阵$A$，有一个$n$阶矩阵$B$，使得$AB=BA=E$，则$A$可逆，$B$是$A$的逆矩阵也称为逆阵，且逆矩阵唯一，记为$B=A^{-1}$。
+
+\textcolor{aqua}{\textbf{定理：}}若矩阵$A$可逆，则$\vert A\vert\neq 0$。
+
+证明：若$A$可逆，则$AA^{-1}=E$，所以$\vert A\vert\cdot\vert A^{-1}\vert=\vert E\vert=1$，$\vert A\vert\neq 0$。
+
+可以类比普通数字，若$a$有一个倒数$\dfrac{1}{a}$，则$a\neq 0$，否则无法倒。
+
+\textcolor{aqua}{\textbf{定理：}}若$\vert A\vert\neq 0$，则$A$可逆，且$A^{-1}=\dfrac{1}{\vert A\vert}A^*$。
 
 \end{document}
