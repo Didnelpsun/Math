@@ -3,6 +3,7 @@
 \usepackage{color}
 % 使用颜色
 \definecolor{orange}{RGB}{255,127,0} 
+\definecolor{violet}{RGB}{192,0,255} 
 \definecolor{aqua}{RGB}{0,255,255} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
@@ -43,15 +44,15 @@
 
 \section{矩阵定义}
 
-$m\times n$矩阵是由$m\times n$个数$a_{ij}$（元素）排成的$m$行$n$列的数表。
+\textcolor{violet}{\textbf{定义：}}$m\times n$矩阵是由$m\times n$个数$a_{ij}$（元素）排成的$m$行$n$列的数表。
 
-元素是实数的矩阵称为实矩阵，元素是复数的矩阵是复矩阵。
+元素是实数的矩阵称为\textbf{实矩阵}，元素是复数的矩阵是\textbf{复矩阵}。
 
-行数列数都为$n$的就是$n$阶矩阵或方阵，记为$A_n$。
+行数列数都为$n$的就是\textbf{$n$阶矩阵}或\textbf{方阵}，记为$A_n$。
 
-行矩阵或行向量：只有一行的矩阵$A=(a_1a_2\cdots a_n)$。
+行矩阵或行向量\textcolor{violet}{\textbf{定义：}}只有一行的矩阵$A=(a_1a_2\cdots a_n)$。
 
-列矩阵或列向量：只有一列的矩阵$B=
+列矩阵或列向量\textcolor{violet}{\textbf{定义：}}只有一列的矩阵$B=
 \left(\begin{array}{c} 
     b_1 \\
     b_2 \\
@@ -59,16 +60,16 @@ $m\times n$矩阵是由$m\times n$个数$a_{ij}$（元素）排成的$m$行$n$�
     b_m
 \end{array}\right)$。
 
-同型矩阵：两个矩阵行数、列数相等。
+同型矩阵\textcolor{violet}{\textbf{定义：}}两个矩阵行数、列数相等。
 
-相等矩阵：是同型矩阵，且对应元素相等的矩阵。记为$A=B$。
+相等矩阵\textcolor{violet}{\textbf{定义：}}是同型矩阵，且对应元素相等的矩阵。记为$A=B$。
 
-零矩阵：元素都是零的矩阵，记为$O$，但是不同型的零矩阵不相等。
+零矩阵\textcolor{violet}{\textbf{定义：}}元素都是零的矩阵，记为$O$，但是不同型的零矩阵不相等。
 
 \begin{multicols}{2}
     
     
-    对角矩阵或对角阵：从左上角到右下角的直线（对角线）以外的元素都是0的矩阵，记为$\varLambda=\textrm{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$。
+    对角矩阵或对角阵\textcolor{violet}{\textbf{定义：}}从左上角到右下角的直线（对角线）以外的元素都是0的矩阵，记为$\varLambda=\textrm{diag}(\lambda_1,\lambda_2,\cdots,\lambda_n)$。
 
     $\varLambda=\left(
         \begin{array}{cccc}
@@ -79,7 +80,7 @@ $m\times n$矩阵是由$m\times n$个数$a_{ij}$（元素）排成的$m$行$n$�
         \end{array}
     \right)$
 
-    单位矩阵或单位阵：$\lambda_1=\lambda_2=\cdots=\lambda_n=1$的对角矩阵，记为$E$。这种线性变换叫做恒等变换，$AE=A$。
+    单位矩阵或单位阵\textcolor{violet}{\textbf{定义：}}$\lambda_1=\lambda_2=\cdots=\lambda_n=1$的对角矩阵，记为$E$。这种线性变换叫做恒等变换，$AE=A$。 \medskip
 
     $E=\left(
         \begin{array}{cccc}
@@ -96,7 +97,7 @@ $m\times n$矩阵是由$m\times n$个数$a_{ij}$（元素）排成的$m$行$n$�
 
 \subsection{矩阵加法减法}
 
-设与两个矩阵都是同型矩阵$m\times n$$A=(a_{ij})$和$B=(b_{ij})$，则其加法就是$A+B$。
+设与两个矩阵都是同型矩阵$m\times n$，$A=(a_{ij})$和$B=(b_{ij})$，则其加法就是$A+B$。
 
 $$A+B=\left(
     \begin{array}{cccc}
@@ -141,9 +142,7 @@ $$\lambda A=A\lambda=\left(
 
 \subsection{矩阵相乘}
 
-设$A=(a_{ij})$是一个$m\times s$的矩阵，$B=(b_{ij})$是一个$s\times n$的矩阵，那么$A\times B=AB=C_{m\times n}=(c_{ij})$。即：
-
-$$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{is}b_{sj}=\sum\limits_{k=1}^sa_{ik}b_{kj}\,\text{（}i=1,2,\cdots,m;j=1,2,\cdots,n\text{）}$$
+设$A=(a_{ij})$是一个$m\times s$的矩阵，$B=(b_{ij})$是一个$s\times n$的矩阵，那么$A\times B=AB=C_{m\times n}=(c_{ij})$。即：$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{is}b_{sj}=\sum\limits_{k=1}^sa_{ik}b_{kj}\,\text{（}i=1,2,\cdots,m;j=1,2,\cdots,n\text{）}$
 
 所以按此定义一个$1\times s$行矩阵与$s\times 1$列矩阵的乘积就是一个1阶方针即一个数：
 
@@ -158,13 +157,15 @@ $(a_{i1},a_{i2},\cdots,a_{is})\left(
 
 从而$AB=C$的$c_{ij}$就是$A$的第$i$行与$B$的$j$列的乘积。
 
+当$A$左边乘$P$为$PA$，称为\textbf{左乘}$P$，若右边乘$P$为$AP$，则称为\textbf{右乘}$P$。
+
 \textcolor{orange}{注意：}只有左矩阵的列数等于右矩阵的行数才能相乘。
 
 只有$AB$都是方阵的时候才能$AB$与$BA$。
 
 矩阵的左乘与右乘不一定相等，即$AB\neq BA$。
 
-若方阵$AB$乘积满足$AB=BA$，则表示其是可交换的。
+\textcolor{violet}{\textbf{定义：}}若方阵$AB$乘积满足$AB=BA$，则表示其是\textbf{可交换}的。
 
 $A\neq O$，$B\neq O$，但是不能推出$AB\neq O$或$BA\neq O$。
 
@@ -180,7 +181,7 @@ $A(X-Y)=O$当$A\neq O$也不能推出$X=Y$。
     \item $EA=AE=A$。
 \end{itemize}
 
-$\lambda E$称为纯量阵，$(\lambda E_n)A_n=\lambda A_n=A_n(\lambda E_n)$。
+$\lambda E$称为\textbf{纯量阵}，$(\lambda E_n)A_n=\lambda A_n=A_n(\lambda E_n)$。
 
 若$A_{m\times s}$，$B_{s\times n}=(\beta_1,\cdots,\beta_s)$，其中$\beta$为$n$行的列矩阵，则：
 
@@ -250,13 +251,11 @@ $f(A)=A^2-A-6E=(A+2E)(A-3E)$。
     \item $(AB)^T=B^TA^T$。
 \end{itemize}
 
-对称矩阵或对称阵：元素以对角线为对称轴对应相等，$A=A^T$。
+对称矩阵或对称阵\textcolor{violet}{\textbf{定义：}}元素以对角线为对称轴对应相等，$A=A^T$。
 
 \subsection{方阵行列式}
 
 由$n$阶方阵$A$的元素所构成的行列式称为矩阵$A$的行列式，记为$\textrm{det}\,A$或$\vert A\vert$。
-
-\subsection{线性方程组与矩阵}
 
 \begin{itemize}
     \item $\vert A^T\vert=\vert A\vert$。
@@ -264,7 +263,7 @@ $f(A)=A^2-A-6E=(A+2E)(A-3E)$。
     \item $\vert AB\vert=\vert A\vert\cdot\vert B\vert=\vert BA\vert$。
 \end{itemize}
 
-伴随矩阵或伴随阵：行列式$\vert A\vert$各个元素的代数余子式$A_{ij}$构成的矩阵。
+伴随矩阵或伴随阵\textcolor{violet}{\textbf{定义：}}行列式$\vert A\vert$各个元素的代数余子式$A_{ij}$转置构成的矩阵。
 
 $$A^*=\left(
     \begin{array}{cccc}
@@ -276,6 +275,147 @@ $$A^*=\left(
 \right)$$
 
 其中$AA^*=A^*A=\vert A\vert E$。
+
+\subsection{分块矩阵}
+
+在行列式的时候提到了分块行列式，分块行列式计算时要求对应的零行列式必须是行列数相等的，而对于分块矩阵而言则不要求，且不一定要零矩阵。
+
+对于行列数较多的矩阵常使用\textbf{分块法}，将大矩阵化为小矩阵。将矩阵用横纵线分为多个小矩阵，每个矩阵成为矩阵的\textbf{子块}，以子块为元素的矩阵就是\textbf{分块矩阵}。
+
+\subsubsection{分块矩阵计算}
+
+分块矩阵的计算法则与普通矩阵计算类似。
+
+\textcolor{aqua}{\textbf{定理：}}若$AB$矩阵行列数相同，采用相同的分块法，则
+
+$$A=\left(
+    \begin{array}{ccc}
+        A_{11} & \cdots & A_{1r} \\
+        \vdots & & \vdots \\
+        A_{s1} & \cdots & A_{sr}
+    \end{array}
+\right)\text{，}B=\left(
+    \begin{array}{ccc}
+        B_{11} & \cdots & B_{1r} \\
+        \vdots & & \vdots \\
+        B_{s1} & \cdots & B_{sr}
+    \end{array}
+\right)$$
+
+$$A+B=\left(
+    \begin{array}{ccc}
+        A_{11}+B_{11} & \cdots & A_{1r}+B_{1r} \\
+        \vdots & & \vdots \\
+        A_{s1}+B_{s1} & \cdots & A_{sr}+B_{sr}
+    \end{array}
+\right)\text{。}$$
+
+\textcolor{aqua}{\textbf{定理：}}设$A=\left(
+    \begin{array}{ccc}
+        A_{11} & \cdots & A_{1r} \\
+        \vdots & & \vdots \\
+        A_{s1} & \cdots & A_{sr}
+    \end{array}
+\right)$，$\lambda$为数，则$\lambda A=\left(
+    \begin{array}{ccc}
+        \lambda A_{11} & \cdots & \lambda A_{1r} \\
+        \vdots & & \vdots \\
+        \lambda A_{s1} & \cdots & \lambda A_{sr}
+    \end{array}
+\right)$。\medskip
+
+\textcolor{aqua}{\textbf{定理：}}若$A_{m\times l}$，$B_{l\times n}$，采用相同的分块法，则
+
+$$A=\left(
+    \begin{array}{ccc}
+        A_{11} & \cdots & A_{1t} \\
+        \vdots & & \vdots \\
+        A_{s1} & \cdots & A_{st}
+    \end{array}
+\right)\text{，}B=\left(
+    \begin{array}{ccc}
+        B_{11} & \cdots & B_{1t} \\
+        \vdots & & \vdots \\
+        B_{t1} & \cdots & B_{sr}
+    \end{array}
+\right)$$
+
+$$AB=\left(
+    \begin{array}{ccc}
+        C_{11} & \cdots & C_{1r} \\
+        \vdots & & \vdots \\
+        C_{s1} & \cdots & C_{sr}
+    \end{array}
+\right)\text{，}C_{ij}=\sum\limits_{k=1}^tA_{ik}B_{kj}\text{。}$$
+
+\textcolor{aqua}{\textbf{定理：}}设$A=\left(
+    \begin{array}{ccc}
+        A_{11} & \cdots & A_{1r} \\
+        \vdots & & \vdots \\
+        A_{s1} & \cdots & A_{sr}
+    \end{array}
+\right)$，则$A^T=\left(
+    \begin{array}{ccc}
+        A_{11}^T & \cdots & A_{s1}^T \\
+        \vdots & & \vdots \\
+        A_{1r}^T & \cdots & A_{sr}^T
+    \end{array}
+\right)$。 \medskip
+
+\textcolor{aqua}{\textbf{定理：}}设$A$为$n$阶方阵，$A$的分块矩阵只有对角线上才有非零子块且都是方阵，其余子块都是零矩阵，即$A=\left(
+    \begin{array}{cccc}
+        A_1 & & & O \\
+         & A_2 & \\
+         & & \ddots & \\
+        O & & & A_s
+    \end{array}
+\right)$，称为\textbf{分块对角矩阵}。$\vert A\vert=\vert A_1\vert\vert A_2\vert\cdots\vert A_s\vert$。
+
+若$\vert A_i\vert\neq0$，则$\vert A\vert\neq0$，且$A^{-1}=\left(
+    \begin{array}{cccc}
+        A_1^{-1} & & & O \\
+         & A_2^{-1} & \\
+         & & \ddots & \\
+        O & & & A_s^{-1}
+    \end{array}
+\right)$。
+
+\subsubsection{按行按列分块}
+
+对于$m\times n$的矩阵$A$，其$n$列称为$A$的$n$个列向量，若第$j$列记为$a_j=\left(
+    \begin{array}{c}
+        a_{1j} \\
+        a_{2j} \\
+        \vdots \\
+        a_{mj}
+    \end{array}
+\right)$，则$A$可以按列分块为$A=(a_1,a_2,\cdots,a_n)$。
+
+其$m$行称为$A$的$m$个行向量，若第$i$行记为$a_i^T=(a_{i1},a_{i2},\cdots,a_{in})$，则$A$可以按行分块为$A=\left(\begin{array}{c}
+    a_1^T \\
+    a_2^T \\
+    \vdots \\
+    a_{m}^T
+\end{array}\right)$。
+
+若对于$A_{m\times s}$与$B_{s\times n}$的乘积矩阵$AB=C=(c_{ij})_{m\times n}$，若将$A$按行分为$m$块，$B$按列分为$n$块，则有：
+
+$$AB=\left(
+    \begin{array}{c}
+        a_1^T \\
+        a_2^T \\
+        \vdots \\
+        a_{m}^T
+    \end{array}
+\right)(b_1,b_2,\cdots,b_n)=\left(
+    \begin{array}{cccc}
+        a_1^Tb_1 & a_1^Tb_2 & \cdots & a_1^Tb_n \\
+        a_2^Tb_1 & a_2^Tb_2 & \cdots & a_2^Tb_n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m}^Tb_1 & a_{m}^Tb_2 & \cdots & a_{m}^Tb_n
+    \end{array}
+\right)=(c_{ij})_{m\times n}\text{。}$$
+
 
 \section{线性方程组}
 
@@ -303,37 +443,35 @@ $$A^*=\left(
 
 \end{multicols}
 
-对于齐次方程，$x_1=\cdots=x_n=0$一定是其解，称为其零解，若有一组不全为零的解，则称为其非零解。其一定有零解，但是不一定有非零解。
+对于齐次方程，$x_1=\cdots=x_n=0$一定是其解，称为其\textbf{零解}，若有一组不全为零的解，则称为其\textbf{非零解}。其一定有零解，但是不一定有非零解。
 
 对于非齐次方程，只有$b_1\cdots b_n$不全为零才是。
 
-令系数矩阵$A_{m\times n}=\left(
+令\textbf{系数矩阵}$A_{m\times n}=\left(
     \begin{array}{ccc}
         a_{11} & \cdots & a_{1n} \\
         \cdots \\
         a_{m1} & \cdots & a_{mn}
     \end{array}
-\right)$，未知数矩阵$X_{n\times 1}=\left(
+\right)$，\textbf{未知数矩阵}$X_{n\times 1}=\left(
     \begin{array}{c}
         x_1 \\
         \cdots \\
         x_n
     \end{array}
-\right)$，常数项矩阵$b_{m\times 1}=\left(
+\right)$，\textbf{常数项矩阵}$b_{m\times 1}=\left(
     \begin{array}{c}
         b_1 \\
         \cdots \\
         b_m
     \end{array}
-\right)$，增广矩阵$B_{m\times(n+1)}=\left(
+\right)$，\textbf{增广矩阵}$B_{m\times(n+1)}=\left(
     \begin{array}{cccc}
         a_{11} & \cdots & a_{1n} & b_1\\
         \cdots \\
         a_{m1} & \cdots & a_{mn} & b_n
     \end{array}
 \right)$。
-
-
 
 所以$AX=\left(
     \begin{array}{c}
@@ -382,7 +520,7 @@ $$A^*=\left(
 
 \section{逆矩阵}
 
-逆矩阵类比倒数，若对于$n$阶矩阵$A$，有一个$n$阶矩阵$B$，使得$AB=BA=E$，则$A$可逆，$B$是$A$的逆矩阵也称为逆阵，且逆矩阵唯一，记为$B=A^{-1}$。
+\textcolor{violet}{\textbf{定义：}}逆矩阵类比倒数，若对于$n$阶矩阵$A$，有一个$n$阶矩阵$B$，使得$AB=BA=E$，则$A$可逆，$B$是$A$的逆矩阵也称为逆阵，且逆矩阵唯一，记为$B=A^{-1}$。
 
 \textcolor{aqua}{\textbf{定理：}}若矩阵$A$可逆，则$\vert A\vert\neq 0$。
 
@@ -391,5 +529,23 @@ $$A^*=\left(
 可以类比普通数字，若$a$有一个倒数$\dfrac{1}{a}$，则$a\neq 0$，否则无法倒。
 
 \textcolor{aqua}{\textbf{定理：}}若$\vert A\vert\neq 0$，则$A$可逆，且$A^{-1}=\dfrac{1}{\vert A\vert}A^*$。
+
+证明：$\because AA^*=A^*A=\vert A\vert E$，又$\vert A\vert\neq 0$，$A\dfrac{1}{\vert A\vert}A^*=\dfrac{1}{\vert A\vert}A^*A=E$。
+
+按逆矩阵定义，当$A$可逆，与$A^{-1}=\dfrac{1}{\vert A\vert}A^*$。
+
+当$\vert A\vert=0$时，$A$为\textbf{奇异矩阵}，否则是\textbf{非奇异矩阵}。
+
+\textcolor{aqua}{\textbf{定理：}}矩阵是可逆矩阵的必要条件是非奇异矩阵。
+
+\textcolor{aqua}{\textbf{定理：}}若$AB=E$或$BA=E$，则$B=A^{-1}$。
+
+\begin{itemize}
+    \item 若$A$可逆，则$(A^{-1})^{-1}=A$。
+    \item 若$A$可逆，数$\lambda\neq0$，则$(\lambda A)^{-1}=\dfrac{1}{\lambda}A^{-1}$。
+    \item 若$AB$为同阶矩阵且都可逆，则$(AB)^{-1}=B^{-1}A^{-1}$。
+    \item 若$A$可逆，则$(A^T)^{-1}=(A^{-1})^T$。
+    \item 若$A$可逆，$\lambda\mu$为整数时，$A^\lambda A^\mu=A^{\lambda+\mu}$，$(A^\lambda)^\mu=A^{\lambda\mu}$。
+\end{itemize}
 
 \end{document}

@@ -204,15 +204,15 @@ $$
 
 \subsubsection{有界性}
 
-函数指明定义域区间才能讨论函数是否有界。
+\textcolor{violet}{\textbf{定义：}}函数$f(x)$的定义域$D$，数集$I\in D$，如果存在某正数$M$，对于任一$x\in I$，有$\vert f(x)\vert\leqslant M$，则$f(x)$在$I$上有界，否则无界。
 
-证明有界性：函数$f(x)$的定义域$D$，数集$I\in D$，如果存在某正数$M$，对于任一$x\in I$，有$\vert f(x)\vert\leqslant M$，则$f(x)$在$I$上有界，否则无界。
+函数指明定义域区间才能讨论函数是否有界。
 
 如果$f(x)\geqslant M$有下界，$f(x)\leqslant M$则有上界。
 
 \subsubsection{单调性}
 
-$y=f(x)\,x\in D$，如果$\forall x_1,x_2\in D$且$x_1<x_2$，有$f(x_1)<f(x_2)$，则函数在$D$上单调递增。反之则单调递减。
+\textcolor{violet}{\textbf{定义：}}$y=f(x)\,x\in D$，如果$\forall x_1,x_2\in D$且$x_1<x_2$，有$f(x_1)<f(x_2)$，则函数在$D$上单调递增。反之则单调递减。
 
 \medskip
 
@@ -289,9 +289,7 @@ $f(x+T)=f(x)$，其中T为周期。 \medskip
 
 \textbf{例题：}用定义证明$\lim\limits_{x\to\infty}\left[1+\dfrac{(-1)^n}{n}\right]=1$
 
-证明：
-
-\ding{172}计算距离：$\left\vert 1+\dfrac{(-1)^n}{n}-1\right\vert=\left\vert\dfrac{(-1)^n}{n}\right\vert<\varepsilon$。
+证明：\ding{172}计算距离：$\left\vert 1+\dfrac{(-1)^n}{n}-1\right\vert=\left\vert\dfrac{(-1)^n}{n}\right\vert<\varepsilon$。
 
 \ding{173}解得到：$\dfrac{1}{n}<\varepsilon$，反解为$n>\dfrac{1}{\varepsilon}$。
 
@@ -303,9 +301,7 @@ $\therefore$证明完毕。
 
 \textbf{例题：}用定义证明$\lim\limits_{n\to\infty}q^n=0$（$q$为常数且$\vert q\vert<1$）。
 
-证明：
-
-\ding{172}$\vert q^n-0\vert<\varepsilon$。
+证明：\ding{172}$\vert q^n-0\vert<\varepsilon$。
 
 \ding{173}$\vert q^n\vert<\varepsilon$，取对数进行反解$n\ln\vert q\vert<\ln\varepsilon$，又因为$\vert q\vert<1$，所以$\ln\vert q\vert<0$，所以得到$n>\dfrac{\ln\varepsilon}{\ln\vert q\vert}$。（若$\varepsilon>1$则$n$就是负数，这样条件必然成立）
 
@@ -317,9 +313,9 @@ $\therefore$当$n>N$时，必然$n>\dfrac{\ln\varepsilon}{\ln\vert q\vert}$，�
 
 \subsubsection{数列绝对值}
 
-\textbf{例题：}证明若$\lim\limits_{x\to\infty}a_n=A$，则$\lim\limits_{x\to\infty}\vert a_n\vert=\vert A\vert$。
+\textcolor{aqua}{\textbf{定理：}}若$\lim\limits_{x\to\infty}a_n=A$，则$\lim\limits_{x\to\infty}\vert a_n\vert=\vert A\vert$。
 
-因为$\lim\limits_{n\to\infty}a_n=A\Leftrightarrow\forall\varepsilon>0,\exists N>0,\text{当}n>N$，恒有$\vert a_n-A\vert<\varepsilon$。
+证明：$\because\lim\limits_{n\to\infty}a_n=A\Leftrightarrow\forall\varepsilon>0,\exists N>0,\text{当}n>N$，恒有$\vert a_n-A\vert<\varepsilon$。
 
 又由重要不等式$\vert\vert a\vert-\vert b\vert\vert\leqslant\vert a-b\vert$，所以$\vert\vert a_n-\vert A\vert\vert\leqslant\varepsilon$。
 
@@ -350,9 +346,7 @@ $\therefore$当$n>N$时，必然$n>\dfrac{\ln\varepsilon}{\ln\vert q\vert}$，�
 
 \textcolor{violet}{\textbf{定义：}}若数列$\{x_n\}$收敛于$a$，则$a$是唯一的。
 
-证明：
-
-设$\lim\limits_{n\to\infty}a_n=A$且$\lim\limits_{n\to\infty}a_n=B$且$A\neq B$。
+证明：设$\lim\limits_{n\to\infty}a_n=A$且$\lim\limits_{n\to\infty}a_n=B$且$A\neq B$。
 
 不如设$A>B$。任意取$\varepsilon=\dfrac{A-B}{2}>0$。
 
@@ -378,9 +372,7 @@ $\therefore\exists N_2>0$，当$n>N_2$时，$\vert a_n-B\vert<\dfrac{A-B}{2}$。
 
 即$\lim\limits_{n\to\infty}a_n=A$，则存在$M>0$，使得$\vert a_n\vert\leqslant M$。
 
-证明：
-
-由极限定义，取$\varepsilon=1$。
+证明：由极限定义，取$\varepsilon=1$。
 
 $\because\lim\limits_{n\to\infty}a_n=A$
 
@@ -408,9 +400,7 @@ $\forall n$，有$\vert a_n\vert\leqslant M$
 
 推论，戴帽法：若数列$\{a_n\}$从某项开始$a_n\geqslant b$，且$\lim\limits_{n\to\infty}a_n=a$，则$a\geqslant b$。这里一定要带等号。
 
-证明：
-
-设$A>0$，取$\varepsilon=\dfrac{A}{2}>0$。
+证明：设$A>0$，取$\varepsilon=\dfrac{A}{2}>0$。
 
 $\because\lim\limits_{n\to\infty}a_n=A$
 
@@ -420,7 +410,7 @@ $\therefore\exists N>0$，当$n>N$时，$\vert a_n-A\vert<\dfrac{A}{2}\Rightarro
 
 \subsection{海涅定理（归结原则）}
 
-设$f(x)$在$\mathring{U}(x_0,\delta)$内有定义，则$\lim\limits_{x\to x_0}f(x)=A$存在$\Leftrightarrow$对任何$\mathring{U}(x_0,\delta)$内以$x_0$为极限的数列$\{x_n\}(x_n\neq x_0)$，极限$\lim\limits_{n\to\infty}f(x_n)=A$存在。
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$\mathring{U}(x_0,\delta)$内有定义，则$\lim\limits_{x\to x_0}f(x)=A$存在$\Leftrightarrow$对任何$\mathring{U}(x_0,\delta)$内以$x_0$为极限的数列$\{x_n\}(x_n\neq x_0)$，极限$\lim\limits_{n\to\infty}f(x_n)=A$存在。
 
 海涅定理用来连接数列极限与函数极限。在极限存在下他们可以相互转换。
 
@@ -452,7 +442,7 @@ $\therefore e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}=e^{\lim\lim
 
 \subsubsection{极限定义}
 
-设函数$f(x)$在点$x_0$的某一个去心邻域有定义，若存在常数$A$，对于任意给定的$\varepsilon>0$，总存在正数$\delta$，使得当$0<\vert x-x_0\vert<\delta$式，对应的函数值$f(x)$都满足不等式$\vert f(x)-A\vert <\varepsilon$，则$A$就是函数$f(x)$当$x\to x_0$时的极限，记作$\lim\limits_{x\to x_0}f(x)=A$或$f(x)\rightarrow A(x\rightarrow x_0)$。
+\textcolor{violet}{\textbf{定义：}}设函数$f(x)$在点$x_0$的某一个去心邻域有定义，若存在常数$A$，对于任意给定的$\varepsilon>0$，总存在正数$\delta$，使得当$0<\vert x-x_0\vert<\delta$式，对应的函数值$f(x)$都满足不等式$\vert f(x)-A\vert <\varepsilon$，则$A$就是函数$f(x)$当$x\to x_0$时的极限，记作$\lim\limits_{x\to x_0}f(x)=A$或$f(x)\rightarrow A(x\rightarrow x_0)$。
 
 写成$\varepsilon-\delta$语言：$\lim\limits_{x\to x_0}f(x)=A\Leftrightarrow\forall\varepsilon>0,\exists\delta>0,\text{当}0<\vert x-x_0\vert<\delta$时，有$\vert f(x)-A\vert\varepsilon$。
 
@@ -503,11 +493,11 @@ $\therefore e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}=e^{\lim\lim
 
 \subsubsection{唯一性}
 
-若极限存在，则极限唯一。
+\textcolor{violet}{\textbf{定义：}}若极限存在，则极限唯一。
 
 \subsubsection{局部有界性}
 
-若极限存在且为$A$，则存在正常数$M$和$\delta$，使得当$0<\vert x-x_0\vert<\delta$时，有$\vert f(x)\vert\leqslant M$。
+\textcolor{violet}{\textbf{定义：}}若极限存在且为$A$，则存在正常数$M$和$\delta$，使得当$0<\vert x-x_0\vert<\delta$时，有$\vert f(x)\vert\leqslant M$。
 
 \begin{enumerate}
     \item 极限存在是函数局部有界性的充分不必要条件。
@@ -571,13 +561,11 @@ $\lim\limits_{x\to -1}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=-\dfrac{\sin 
 
 \subsubsection{局部保号性}
 
-若极限存在，则存在常数$\delta>0$，使得当$0<\vert x-x_0\vert<\delta$时，$f(x)$与$A$同号。
+\textcolor{violet}{\textbf{定义：}}若极限存在，则存在常数$\delta>0$，使得当$0<\vert x-x_0\vert<\delta$时，$f(x)$与$A$同号。
 
 简单来说，函数值在$x\to x_0$时函数值与极限值同号。
 
-证明局部保号性：
-
-首先根据极限存在定义：$\forall\varepsilon>0,\exists\delta>0,0<\vert x-x_0\vert<\delta$时，恒有$\vert f(x)-A\vert<\varepsilon$。
+证明：首先根据极限存在定义：$\forall\varepsilon>0,\exists\delta>0,0<\vert x-x_0\vert<\delta$时，恒有$\vert f(x)-A\vert<\varepsilon$。
 
 $\Rightarrow -\varepsilon<f(x)-A<\varepsilon$。
 
@@ -710,9 +698,7 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
     \item 则$\lim\limits_{n\to\infty}x_n=a$。
 \end{enumerate}
 
-证明：
-
-由于$\lim\limits_{n\to\infty}y_n=a,\lim\limits_{n\to\infty}z_n=a$。
+证明：由于$\lim\limits_{n\to\infty}y_n=a,\lim\limits_{n\to\infty}z_n=a$。
 
 则$\forall\varepsilon>0$，$\exists N$，当$n>N$时，$\vert y_n<\varepsilon$，$\vert z_n<\varepsilon$。
 
@@ -877,9 +863,7 @@ $\therefore\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$。
 
 书上通过数列进行单调有界定理证明极限存在性。
 
-证明：
-
-$\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x=\lim\limits_{x\to\infty}e^{\ln(1+\frac{1}{x})^x}=\lim\limits_{x\to\infty}e^{x\ln(1+\frac{1}{x})}=e^{\lim\limits_{x\to\infty}x\ln(1+\frac{1}{x})}=e^{\lim\limits_{x\to\infty}\frac{\ln(1+\frac{1}{x})}{\frac{1}{x}}}$
+证明：$\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x=\lim\limits_{x\to\infty}e^{\ln(1+\frac{1}{x})^x}=\lim\limits_{x\to\infty}e^{x\ln(1+\frac{1}{x})}=e^{\lim\limits_{x\to\infty}x\ln(1+\frac{1}{x})}=e^{\lim\limits_{x\to\infty}\frac{\ln(1+\frac{1}{x})}{\frac{1}{x}}}$
 
 $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\left(-\frac{1}{x^2}\right)}{-\frac{1}{x^2}}}=e^{\lim\limits_{x\to\infty}\frac{1}{1+x}}=e$\medskip
 
@@ -971,7 +955,7 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 \subsubsection{可去间断点（可补间断点）}
 
-若$\lim\limits_{x\to x_0}f(x)=A\neq f(x_0)$（甚至可以没有定义）。
+\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)=A\neq f(x_0)$（甚至可以没有定义）。
 
 \begin{tikzpicture}
     \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
@@ -988,7 +972,7 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 \subsubsection{跳跃间断点}
 
-若$\lim\limits_{x\to x_0^-}f(x)$与$\lim\limits_{x\to x_0^+}f(x)$都存在，但是$\lim\limits_{x\to x_0^-}f(x)\neq\lim\limits_{x\to x_0^+}f(x)$。
+\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0^-}f(x)$与$\lim\limits_{x\to x_0^+}f(x)$都存在，但是$\lim\limits_{x\to x_0^-}f(x)\neq\lim\limits_{x\to x_0^+}f(x)$。
 
 \begin{tikzpicture}
     \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
@@ -1008,7 +992,7 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 \subsubsection{无穷间断点}
 
-若$\lim\limits_{x\to x_0}f(x)=\infty$，或至少一个方向为无穷大（定义分歧）。如$y=\dfrac{1}{x}$在$x=0$处为无穷间断点。
+\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)=\infty$，或至少一个方向为无穷大（定义分歧）。如$y=\dfrac{1}{x}$在$x=0$处为无穷间断点。
 
 \begin{tikzpicture}
     \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
@@ -1020,7 +1004,7 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 \subsubsection{振荡间断点}
 
-若$\lim\limits_{x\to x_0}f(x)$为振荡不存在。如$\lim\limits_{x\to 0}\sin\dfrac{1}{x}$的$x=0$就是振荡间断点。
+\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)$为振荡不存在。如$\lim\limits_{x\to 0}\sin\dfrac{1}{x}$的$x=0$就是振荡间断点。
 
 \begin{tikzpicture}
     \draw[-latex](-2,0) -- (2,0) node[below]{$x$};

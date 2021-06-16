@@ -77,11 +77,11 @@ $f'_+(x)=\lim\limits_{\Delta x\to 0^+}\dfrac{\Delta y}{\Delta x}=\lim\limits_{\D
 
 若$f(x)$在$x_0$处导数为无穷，如$y=x^{\frac{1}{3}}$在$0$处利用导数的极限定义计算得到为正无穷，那么该点的导数为无穷导数，在考研中被认为是不存在的。
 
-\textbf{例题：}证明若$f(x)$为可导的偶函数，则$f'(x)$为奇函数，若$f(x)$为可导的奇函数，则$f'(x)$为偶函数。
+\textcolor{aqua}{\textbf{定理：}}若$f(x)$为可导的偶函数，则$f'(x)$为奇函数，若$f(x)$为可导的奇函数，则$f'(x)$为偶函数。
 
 该证明是准备部分的定理。
 
-首先已知$f(-x)=f(x)$，证明$f'(-x)=-f'(x)$。
+证明：首先已知$f(-x)=f(x)$，证明$f'(-x)=-f'(x)$。
 
 $\therefore$
 
@@ -96,9 +96,9 @@ $
 
 同理得证$f(-x)=-f(x)\Rightarrow f'(-x)=f'(x)$。
 
-\textbf{例题：}证明$f(x)$为可导的周期为$T$的周期函数，则$f'(x)$也是以$T$为周期的周期函数。
+\textcolor{aqua}{\textbf{定理：}}$f(x)$为可导的周期为$T$的周期函数，则$f'(x)$也是以$T$为周期的周期函数。
 
-已知$f(x+T)=f(x)$，求证$f'(x+T)=f'(x)$。\medskip
+证明：已知$f(x+T)=f(x)$，求证$f'(x+T)=f'(x)$。\medskip
 
 $\therefore f'(x+T)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+T+\Delta x)-f(x+T)}{\Delta x}$
 
@@ -130,17 +130,15 @@ $=\lim\limits_{\Delta x\to 0}\dfrac{x^\alpha\left[\left(1+\dfrac{\Delta x}{x}\ri
 
 \subsection{可导与连续的关系}
 
-可导必连续，连续不一定可导。
+\textcolor{aqua}{\textbf{定理：}}可导必连续，连续不一定可导。
 
-\textbf{例题：}证明可导必连续。
-
-已知连续定义：$\lim\limits_{\Delta x\to 0}f(x+\Delta x)=f(x)$，即$\lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x)=0$。
+证明：已知连续定义：$\lim\limits_{\Delta x\to 0}f(x+\Delta x)=f(x)$，即$\lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x)=0$。
 
 可导定义：$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x} = A$
 
 $\lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}\cdot\Delta x=A\cdot 0=0$
 
-\textbf{例题：}若$f(x)$在$x=x_0$处连续，且$\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$，则$f(x_0)=0$且$f'(x_0)=A$。
+\textcolor{aqua}{\textbf{定理：}}若$f(x)$在$x=x_0$处连续，且$\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}=A$，则$f(x_0)=0$且$f'(x_0)=A$。
 
 证明：$\because\text{连续，}\therefore f(x_0)=\lim\limits_{x\to x_0}f(x)=\lim\limits_{x\to x_0}\dfrac{f(x)}{x-x_0}(x-x_0)=A\cdot 0=0$。
 
@@ -160,9 +158,9 @@ $\lim\limits_{\Delta x\to 0}f(x+\Delta x)-f(x)=\lim\limits_{\Delta x\to 0}\dfrac
     \item 商的导数：$\left[\dfrac{u(x)}{v(x)}\right]'=\dfrac{u'(x)v(x)-u(x)v'(x)}{[v(x)]^2}$，$v(x)\neq 0$。
 \end{enumerate}
 
-\textbf{例题：}证明$(uv)'=u'v+uv'$。
+证明$(uv)'=u'v+uv'$。
 
-令$f(x)=u(x)v(x)$。
+证明：令$f(x)=u(x)v(x)$。
 
 $(u\cdot v)'$
 
@@ -212,7 +210,7 @@ $\because y=f(x)$，$\therefore x=\varphi(y)$，$x_{yy}''=\varphi''(y)=-\dfrac{y
 
 \subsection{复合函数的导数}
 
-$u=g(x)$在$x$可导，$y=f(u)$在$u=g(x)$处可导，则$\{f[g(x)]\}'=f'[g(x)]g'(x)$。
+\textcolor{aqua}{\textbf{定理：}}$u=g(x)$在$x$可导，$y=f(u)$在$u=g(x)$处可导，则$\{f[g(x)]\}'=f'[g(x)]g'(x)$。
 
 \textbf{例题：}设$f(x)=\prod\limits_{n=1}^{100}\left(\tan\dfrac{\pi x^n}{4}-n\right)$，则$f'(1)$为？
 
@@ -350,7 +348,7 @@ $y^{(n)}=\sin(x+\dfrac{\pi}{2}\cdot n)$
 
 \subsection{莱布尼茨公式}
 
-设$u=u(x)$，$v=v(x)$均$n$阶可导，则$(uv)^{(n)}=\sum_{k=0}^nC_n^ku^{(n-k)}v^{(k)}$。
+\textcolor{violet}{\textbf{定义：}}设$u=u(x)$，$v=v(x)$均$n$阶可导，则$(uv)^{(n)}=\sum_{k=0}^nC_n^ku^{(n-k)}v^{(k)}$。
 
 展开：$(uv)^{(n)}=C_n^0u^{(n)}v^{(0)}+C_n^1u^{(n-1)}v'+\cdots+C_n^nu^{(0)}v^{(n)}$。
 
@@ -446,7 +444,7 @@ $
 
 \subsection{参数方程函数导数}
 
-设函数$y=y(x)$由参数方程$\left\{
+\textcolor{aqua}{\textbf{定理：}}设函数$y=y(x)$由参数方程$\left\{
     \begin{array}{l}
         x=\varphi(t) \\
         y=\psi(t)
@@ -537,7 +535,7 @@ $\therefore \textrm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot
 
 \subsubsection{微分形式不变性}
 
-设$y=f(u)$可微，$u=g(x)$可微，则$y=f(g(x))$可微，且$\textrm{d}y=y'_{x}\textrm{d}x=y'_{u}\textrm{d}u$。即对哪个变量求导都是一样的，即$\textrm{d}\{f\,[g(x)]\}=f\,'[g(x)]g'(x)\textrm{d}x$。
+\textcolor{violet}{\textbf{定义：}}设$y=f(u)$可微，$u=g(x)$可微，则$y=f(g(x))$可微，且$\textrm{d}y=y'_{x}\textrm{d}x=y'_{u}\textrm{d}u$。即对哪个变量求导都是一样的，即$\textrm{d}\{f\,[g(x)]\}=f\,'[g(x)]g'(x)\textrm{d}x$。
 
 一阶微分形式不变性指：$\textrm{d}f\,(\varsigma)=f\,'(\varsigma)\textrm{d}\varsigma$，无论$\varsigma$是什么（类似导数的链式求导法则）。
 

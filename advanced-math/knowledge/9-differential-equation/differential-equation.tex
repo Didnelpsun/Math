@@ -51,17 +51,17 @@
 
 表示未知函数、未知函数的导数与自变量之间的关系的方程，即含导数的方程就是微分方程。导数可能是一阶导数也可能是二阶以及以上阶数的导数。
 
-微分方程所出现的未知函数的最高阶导数的阶数就是该微分方程的阶。
+微分方程所出现的未知函数的最高阶导数的阶数就是该微分方程的\textbf{阶}。
 
 $n$阶微分方程的形式是$F(x,y,y',\cdots,y^{(n)})=0$。其中最高阶导数是必须出现的。若能从中解出最高阶导数，则可得微分方程$y^{(n)}=f(x,y,y',\cdots,y^{(n-1)})$。
 
-若微分方程中的解中含有任意常数，且任意常数的个数与微分方程的阶数相同，则就是微分方程的通解。
+若微分方程中的解中含有任意常数，且任意常数的个数与微分方程的阶数相同，则就是微分方程的\textbf{通解}。
 
 如若$y''=3$，则$y'=3x+C_1$，$y=\dfrac{3}{2}x^2+C_1x+C_2$，此时含有两个任意常数$C_1C_2$，则微分方程的阶数也为2。
 
-确定通解中任意常数后，就得到微分方程的特解。
+确定通解中任意常数后，就得到微分方程的\textbf{特解}。
 
-当给出$x=x_0$时$y_0$与$y_0'$的值，那么这些条件就是初值条件，如上面的$y''=3$。
+当给出$x=x_0$时$y_0$与$y_0'$的值，那么这些条件就是\textbf{初值条件}，如上面的$y''=3$。
 
 求微分方程$y'=f(x,y)$满足初值条件$y\vert_{x=x_0}=y_0$的特解这样的问题，就是一阶微分方程的初值问题，记为$\left\{\begin{array}{l}
     y'=f(x,y) \\
@@ -69,7 +69,7 @@ $n$阶微分方程的形式是$F(x,y,y',\cdots,y^{(n)})=0$。其中最高阶导�
 \end{array}
 \right.$。
 
-微分方程的解的图形是一条曲线，叫做微分方程的积分曲线，初值问题的集几何意义就是求微分方程的通过某点的积分曲线。
+微分方程的解的图形是一条曲线，叫做微分方程的\textbf{积分曲线}，初值问题的集几何意义就是求微分方程的通过某点的积分曲线。
 
 \textbf{例题：}判断函数$x=C_1\cos kt+C_2\sin kt$是否是微分方程$\dfrac{\textrm{d}^2x}{\textrm{d}t^2}+k^2x=0$的解，若是则令其为$k\neq0$时方程的通解，求满足初值条件$x\vert_{t=0}=A$，$\dfrac{\textrm{d}x}{\textrm{d}t}\bigg\vert_{t=0}=0$时的特解。
 
@@ -161,7 +161,7 @@ $=\dfrac{(A_1\lambda+B_1)v+A_1C_2+B_1C_1}{\lambda v+C_2}$。此时未知数只�
 
 若$Q(x)\equiv 0$，则是齐次一阶线性微分方程，可化为$\dfrac{\textrm{d}y}{y}=-P(x)\,\textrm{d}x$，$\ln y=\int P(x)\,\textrm{d}x+C'$，$y=e^{-\int P(x)\,\textrm{d}x}\cdot e^{C'}$，$y=Ce^{-\int P(x)\,\textrm{d}x}$。
 
-若$Q(x)\neq 0$，则是非齐次一阶线性微分方程，令$y=ue^{-\int P(x)\,\textrm{d}x}$，求$u$这个关于$x$的函数的具体值，这就是\textcolor{orange}{常数变易法}。代入$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)$，得到$u'e^{-\int P(x)\,\textrm{d}x}-ue^{-\int P(x)\,\textrm{d}x}P(x)+P(x)ue^{-\int P(x)\,\textrm{d}x}=Q(x)$，得到$u'e^{-\int P(x)\,\textrm{d}x}=Q(x)$，从而得到$u'$，再对$u'$积分得到$u=\displaystyle{\int Q(x)e^{\int P(x)\,\textrm{d}x}\,\textrm{d}x}+C$。从而代入$y=ue^{-\int P(x)\,\textrm{d}x}$，得到$y=e^{-\int P(x)\,\textrm{d}x}\left(\displaystyle{\int Q(x)e^{\int P(x)\,\textrm{d}x}\,\textrm{d}x}+C\right)$。非齐次通解就是其齐次通解加上一个非齐次的特解。
+若$Q(x)\neq 0$，则是非齐次一阶线性微分方程，令$y=ue^{-\int P(x)\,\textrm{d}x}$，求$u$这个关于$x$的函数的具体值，这就是\textbf{常数变易法}。代入$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)$，得到$u'e^{-\int P(x)\,\textrm{d}x}-ue^{-\int P(x)\,\textrm{d}x}P(x)+P(x)ue^{-\int P(x)\,\textrm{d}x}=Q(x)$，得到$u'e^{-\int P(x)\,\textrm{d}x}=Q(x)$，从而得到$u'$，再对$u'$积分得到$u=\displaystyle{\int Q(x)e^{\int P(x)\,\textrm{d}x}\,\textrm{d}x}+C$。从而代入$y=ue^{-\int P(x)\,\textrm{d}x}$，得到\textcolor{aqua}{\textbf{定理：}}$y=e^{-\int P(x)\,\textrm{d}x}\left(\displaystyle{\int Q(x)e^{\int P(x)\,\textrm{d}x}\,\textrm{d}x}+C\right)$。非齐次通解就是其齐次通解加上一个非齐次的特解。
 
 \textbf{例题：}求$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{1}{x+y}$。
 

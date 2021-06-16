@@ -43,13 +43,13 @@
 
 \subsection{定义}
 
-设$f(x)$定义在区间$I$上，若存在可导函数$F(x)$，使得$F'(x)=f(x)$对于任意$x\in I$都成立，则称$F(x)$为$f(x)$在区间$I$上的一个原函数。
+设$f(x)$定义在区间$I$上，若存在可导函数$F(x)$，使得$F'(x)=f(x)$对于任意$x\in I$都成立，则称$F(x)$为$f(x)$在区间$I$上的一个\textbf{原函数}。
 
-连续函数必有原函数。而反之有原函数不一定是连续函数。
+\textcolor{aqua}{\textbf{定理：}}连续函数必有原函数。而反之有原函数不一定是连续函数。
 
-任意的两个原函数只相差一个常数。
+\textcolor{aqua}{\textbf{定理：}}任意的两个原函数只相差一个常数。
 
-在区间$I$上，函数$f(x)$带有任意常数项的原函数$F(x)+C$称为$f(x)/f(x)\,\textrm{d}x$在该区间上的不定积分，记为$\int f(x)\,\textrm{d}x$，其中$\int$为积分号，$f(x)$为被积函数，$f(x)\,\textrm{d}x$为被积表达式，$x$为积分变量。
+在区间$I$上，函数$f(x)$带有任意常数项的原函数$F(x)+C$称为$f(x)/f(x)\,\textrm{d}x$在该区间上的不定积分，记为$\int f(x)\,\textrm{d}x$，其中$\int$为\textbf{积分号}，$f(x)$为\textbf{被积函数}，$f(x)\,\textrm{d}x$为\textbf{被积表达式}，$x$为\textbf{积分变量}。
 
 积分就是导数的逆运算。$\int f(x)\,\textrm{d}x=F(x)+C$，$F'(x)=f(x)$。 
 
@@ -241,6 +241,8 @@ $\therefore\int\sec^3x\,\textrm{d}x =\dfrac{\sec x\tan x+\ln\vert\sec x+\tan x\v
 
 当然如果多项式是无法拆分为一次的多个式子，那就无法使用有理函数积分的化简方式。
 
+\textcolor{aqua}{\textbf{定理：}}
+
 $\dfrac{P}{(A_0x^a+A_1x^{a-1}+\cdots+A_ax^0)\cdots(N_0x^n+N_1x^{n-1}+\cdots+N_nx^0)}$ \medskip
 
 $=\dfrac{a_0x^{a-1}+a_1x^{a-2}+\cdots+a_{a-1}x^0}{A_0x^a+A_1x^{a-1}+\cdots+A_ax^0}+\cdots+\dfrac{n_0x^{n-1}+n_1x^{n-2}+\cdots+n_{n-1}x^0}{N_0x^n+N_1x^{n-1}+\cdots+N_nx^0}$ \medskip
@@ -272,6 +274,8 @@ $=(A+B+C)x^3+(5A+4B+3C+D)x^2+(7A+4B+2C+3D)x+(2A+B+2D)$
 从而$C=2$。
 
 所以$\dfrac{2x}{(x+1)(x+2)(x^2+3x+1)}=-\dfrac{1}{x+1}-\dfrac{1}{x+2}+\dfrac{2x+3}{x^2+3x+1}$。\medskip
+
+\textcolor{aqua}{\textbf{定理：}}
 
 $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdots+N_{n-1}x^0}{x^n}$ \medskip
 
@@ -398,9 +402,9 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
 
 \textcolor{violet}{\textbf{定义：}}若函数$f(x)$在区间$[a,+\infty)$上连续，且极限$\lim\limits_{t\to+\infty}\int_a^tf(x)\,\textrm{d}x$存在，则称反常积分$\int_a^{+\infty}f(x)\,\textrm{d}x$收敛，且这极限就是该反常积分的值，若该极限不存在，则反常积分$\int_a^{+\infty}f(x)\,\textrm{d}x$发散。
 
-同理可以给出定义$\int_{-\infty}^af(x)\,\textrm{d}x=\lim\limits_{t\to-\infty}\int_t^af(x)\,\textrm{d}x$。
+同理可以给出\textcolor{violet}{\textbf{定义：}}$\int_{-\infty}^af(x)\,\textrm{d}x=\lim\limits_{t\to-\infty}\int_t^af(x)\,\textrm{d}x$。
 
-无穷限反常积分$\int_{-\infty}^{+\infty}f(x)\,\textrm{d}x=\int_{-\infty}^0f(x)\,\textrm{d}x+\int_0^{+\infty}f(x)\,\textrm{d}x$。
+无穷限反常积分\textcolor{violet}{\textbf{定义：}}$\int_{-\infty}^{+\infty}f(x)\,\textrm{d}x=\int_{-\infty}^0f(x)\,\textrm{d}x+\int_0^{+\infty}f(x)\,\textrm{d}x$。
 
 \subsubsection{无界函数}
 
