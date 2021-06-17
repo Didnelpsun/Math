@@ -416,6 +416,56 @@ $$AB=\left(
     \end{array}
 \right)=(c_{ij})_{m\times n}\text{。}$$
 
+$$c_{ij}=a_i^Tb_j=(a_{i1},a_{i2},\cdots,a_{is})\left(\begin{array}{c}
+    b_{1j} \\
+    b_{2j} \\
+    \vdots \\
+    b_{sj}
+\end{array}\right)=\sum\limits_{k=1}^s=a_{ik}b_{kj}\text{。}$$
+
+\textcolor{aqua}{\textbf{定理：}}$A=O$的充要条件是$A^TA=O$。
+
+证明：$\because A=O$，$\therefore A^T=O$，$A^TA=O$。
+
+设$A=(a_{ij})_{m\times n}$，将$A$按列分块为$A=(a_1,a_2,\cdots,a_n)$，则
+
+$$A^TA=\left(
+    \begin{array}{c}
+        a_1^T \\
+        a_2^T \\
+        \vdots \\
+        a_{m}^T
+    \end{array}
+\right)(a_1,a_2,\cdots,a_n)=\left(
+    \begin{array}{cccc}
+        a_1^Ta_1 & a_1^Ta_2 & \cdots & a_1^Ta_n \\
+        a_2^Ta_1 & a_2^Ta_2 & \cdots & a_2^Ta_n \\
+        \vdots & \vdots & \ddots & \vdots \\
+        a_{m}^Ta_1 & a_{m}^Ta_2 & \cdots & a_{m}^Ta_n
+    \end{array}
+\right)\text{。}$$
+
+所以$A^TA$的元为$a^T_ia_j$，又$\because A^TA=O$，$\therefore a^T_ia_j=0$（$i,j=1,2,\cdots n$）。
+
+$\therefore a^T_ja_j=0$（$j=1,2,\cdots n$），对角线元素全部为0。
+
+且$a^T_ja_j=\left(
+    \begin{array}{cccc}
+        a_1^Ta_1 & & & \\
+         & a_2^Ta_2 & & \\
+         & & \ddots & \\
+         & & & a_{m}^Ta_n
+    \end{array}
+\right)=(a_{1j},a_{2j},\cdots,a_{mj})\left(\begin{array}{c}
+    a_{1j} \\
+    a_{2j} \\
+    \vdots \\
+    a_{mj}
+\end{array}\right)$
+
+$=a_{1j}^2+a_{2j}^2+\cdots+a_{mj}^2=0$，所以$a_{1j}=a_{2j}=\cdots+a_{mj}=0$。
+
+$\therefore A=O$。
 
 \section{线性方程组}
 
@@ -453,7 +503,7 @@ $$AB=\left(
         \cdots \\
         a_{m1} & \cdots & a_{mn}
     \end{array}
-\right)$，\textbf{未知数矩阵}$X_{n\times 1}=\left(
+\right)$，\textbf{未知数矩阵}$x_{n\times 1}=\left(
     \begin{array}{c}
         x_1 \\
         \cdots \\
@@ -489,6 +539,53 @@ $$AB=\left(
 
 从而矩阵可以简单表示线性方程。
 
+\subsection{矩阵乘法与线性变换}
+
+矩阵乘法实际上就是线性方程组的线性变换，将一个变量关于另一个变量的关系式代入原方程组，得到与另一个变量的关系。
+
+$$\begin{cases}
+    y_1=a_{11}x_1+a_{12}x_2+\cdots+a_{1s}x_s \\
+    \cdots \\
+    y_m=a_{m1}x_1+a_{m2}x_2+\cdots+a_{ms}x_s
+\end{cases}\text{，}\begin{cases}
+    x_1=b_{11}t_1+b_{12}t_2+\cdots+b_{1n}t_n \\
+    \cdots \\
+    x_s=b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n
+\end{cases}\text{。}$$
+
+原本是线性方程分别是$y$与$x$和$x$与$t$的关系式，而如果将$t$关于$x$的关系式代入$x$关于$y$的关系式中，就会得到$t$关于$y$的关系式：
+
+$$\begin{cases}
+    y_1=a_{11}(b_{11}t_1+b_{12}t_2+\cdots+b_{1n}t_n)+\cdots+a_{1s}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n) \\
+    \cdots \\
+    y_m=a_{m1}(b_{11}t_1+b_{12}t_2+\cdots+b_{1n}t_n)+\cdots+a_{ms}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n)
+\end{cases}$$
+
+$$=\begin{cases}
+    y_1=(a_{11}b_{11}+\cdots+a_{1s}b_{s1})t_1+\cdots+(a_{11}b_{1n}+\cdots+a_{1s}b_{sn})t_n \\
+    \cdots \\
+    y_m=(a_{m1}b_{11}+\cdots+a_{ms}b_{s1})t_1+\cdots+(a_{m1}b_{1n}+\cdots+a_{ms}b_{sn})t_m
+\end{cases}$$
+
+这可以看作上面两个线性方程组相乘，也可以将线性方程组表示为矩阵，进行相乘就得到乘积，从而了解矩阵乘积与线性方程组的关系：
+
+
+$$\left(\begin{array}{ccc}
+    a_{11} & \cdots & a_{1s} \\
+    \vdots & \ddots & \vdots \\
+    a_{m1} & \cdots & a_{ms}
+\end{array}\right)_{m\times s}\left(\begin{array}{ccc}
+    b_{11} & \cdots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    b_{s1} & \cdots & b_{sn}
+\end{array}\right)_{s\times n}$$
+
+$$=\left(\begin{array}{ccc}
+    a_{11}b_{11}+\cdots+a_{1s}b_{s1} & \cdots & a_{11}b_{1n}+\cdots+a_{1s}b_{sn} \\
+    \vdots & \ddots & \vdots \\
+    a_{m1}b_{11}+\cdots+a_{ms}b_{s1} & \cdots & a_{m1}b_{1n}+\cdots+a_{ms}b_{sn}
+\end{array}\right)_{m\times n}\text{。}$$
+
 \subsection{线性方程组的解}
 
 对于一元一次线性方程：$ax=b$：
@@ -498,7 +595,7 @@ $$AB=\left(
     \item 当$a=0$时，若$b\neq 0$时，无解，若$b=0$时，无数解。
 \end{itemize}
 
-当推广到多元一次线性方程组：$AX=b$，如何求出$X$这一系列的$x$的解？
+当推广到多元一次线性方程组：$Ax=b$，如何求出$x$这一系列的$x$的解？
 
 从数学逻辑上看，已知多元一次方程，有$m$个约束方程，有$n$个未知数，假定$m\leqslant n$。
 
@@ -514,9 +611,43 @@ $$AB=\left(
 
 若使用矩阵来解决线性方程组的问题，其系数矩阵$A_{m\times n}$。
 
-对于$A\neq O$，则$AX=b$，若存在一个矩阵$B_{n\times n}$类似$\dfrac{1}{a}$，使得$BAX=Bb$，解得$EX=X=Bb$，这个$B$就是$A$的逆矩阵。
+对于$A\neq O$，则$Ax=b$，若存在一个矩阵$B_{n\times n}$类似$\dfrac{1}{a}$，使得$BAx=Bb$，解得$Ex=x=Bb$，这个$B$就是$A$的逆矩阵。
 
 对于$A=O$即不可逆，需要判断$b$是否为0，若不是则无实数解，若是则无穷解，这种判断需要用到增广矩阵，需要用到矩阵的秩判断。
+
+\subsection{线性方程组的矩阵解表示}
+
+已知对于线性方程组$\begin{cases}
+    a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+    \cdots \\
+    a_{m1}x_1+\cdots+a_{mn}x_n=b_n
+\end{cases}$。
+
+按乘积表示为$A_{m\times n}x_{n\times 1}=b_{m\times 1}$，然后将$A$按列分块，$x$按行分块：
+
+$$(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{array}\right)=b\text{，}\left(\begin{array}{c}
+    a_{11} \\
+    a_{21} \\
+    \vdots \\
+    a_{m1}
+\end{array}\right)x_1+\cdots+\left(\begin{array}{c}
+    a_{1n} \\
+    a_{2n} \\
+    \vdots \\
+    a_{mn}
+\end{array}\right)x_n=\left(\begin{array}{c}
+    b_1 \\
+    b_2 \\
+    \vdots \\
+    b_m
+\end{array}\right)\text{。}$$
+
+这三种都是解的表示方法。
 
 \section{逆矩阵}
 
@@ -547,5 +678,23 @@ $$AB=\left(
     \item 若$A$可逆，则$(A^T)^{-1}=(A^{-1})^T$。
     \item 若$A$可逆，$\lambda\mu$为整数时，$A^\lambda A^\mu=A^{\lambda+\mu}$，$(A^\lambda)^\mu=A^{\lambda\mu}$。
 \end{itemize}
+
+\section{矩阵初等变换}
+
+求逆矩阵可以使用伴随矩阵来求，但是只针对三阶以及以下的矩阵，若阶数过高则会十分困难。可以使用矩阵初等变换来实现求逆矩阵。且初等变换还可以用来求线性方程组的解。
+
+\subsection{初等变换}
+
+矩阵的三种初等行变换：
+
+\begin{enumerate}
+    \item 对换两行（对换$ij$两行，记为$r_i\leftrightarrow r_j$）。
+    \item 以数$k\neq0$乘某一行中的所有元（第$i$行乘$k$，记为$r_i\times k$），对角线元素全部为0。
+    \item 把某一行所有元的$k$倍加到另一行对应元上（第$j$行的$k$倍加上第$i$行上，记为$r_i+kr_j$）。
+\end{enumerate}
+
+把对应的行换为列就得到初等列变换，将$r$改为$c$。其逆变换也是一种初等变换。初等行变换和初等列变换都是\textbf{初等变换}。
+
+\textcolor{violet}{\textbf{定义：}}若$A$经过有限次行变换得到$B$，则称$AB$行等价，记为$A\overset{r}{\thicksim}B$；若$A$经过有限次列变换得到$B$，则称$AB$行等价，记为$A\overset{c}{\thicksim}B$；若$A$经过有限次初等变换得到$B$，则称$AB$行等价，记为$A\thicksim B$。
 
 \end{document}
