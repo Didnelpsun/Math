@@ -27,6 +27,10 @@
 % 超链接
 \usepackage{multicol}
 % 分栏
+\usepackage{arydshln}
+\setlength{\dashlinegap}{1pt}
+\setlength{\dashlinedash}{1pt}
+% 阶梯矩阵的虚线
 \author{Didnelpsun}
 \title{矩阵}
 \date{}
@@ -516,10 +520,17 @@ $\therefore A=O$。
         b_m
     \end{array}
 \right)$，\textbf{增广矩阵}$B_{m\times(n+1)}=\left(
-    \begin{array}{cccc}
-        a_{11} & \cdots & a_{1n} & b_1\\
-        \cdots \\
-        a_{m1} & \cdots & a_{mn} & b_n
+    \begin{array}{c:c}
+        \begin{matrix}
+            a_{11} & \cdots & a_{1n}\\
+            \cdots \\
+            a_{m1} & \cdots & a_{mn}
+        \end{matrix}&
+        \begin{matrix}
+            b_1\\
+            \\
+            b_n
+        \end{matrix}
     \end{array}
 \right)$。
 
@@ -696,5 +707,44 @@ $$(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
 把对应的行换为列就得到初等列变换，将$r$改为$c$。其逆变换也是一种初等变换。初等行变换和初等列变换都是\textbf{初等变换}。
 
 \textcolor{violet}{\textbf{定义：}}若$A$经过有限次行变换得到$B$，则称$AB$行等价，记为$A\overset{r}{\thicksim}B$；若$A$经过有限次列变换得到$B$，则称$AB$行等价，记为$A\overset{c}{\thicksim}B$；若$A$经过有限次初等变换得到$B$，则称$AB$行等价，记为$A\thicksim B$。
+
+矩阵之间的等价关系：
+
+\begin{enumerate}
+    \item 反身性：$A\thicksim A$。
+    \item 对称性：若$A\thicksim B$，则$B\thicksim A$。
+    \item 传递性：若$A\thicksim B$，$B\thicksim C$，则$A\thicksim C$。
+\end{enumerate}
+
+若是解方程组，则使用初等行变换解不会发生改变，若使用初等列变换则会改变解。
+
+\subsection{阶梯型矩阵}
+
+将方程式用增广矩阵表示，然后通过初等行变换就可以对方程式进行消元。得到如下类型的矩阵结果，类似三角行列式，如：
+
+\begin{multicols}{2}
+    
+    $
+    \left(
+    \begin{array}{@{} c c c c c @{}}
+        \multicolumn{1}{: c}{1} & 2 & -1 &  3 &  4 \\
+      \cdashline{1-1}
+      0 & \multicolumn{1}{: c}{1} &  3 & -2 & -1 \\
+      \cdashline{2-5}
+      0 & 0 &  0 &  0 &  0 \\
+      0 & 0 &  0 &  0 &  0
+    \end{array}
+    \right)
+    $
+
+    竖线区分零元素与非零元素，每行的竖线右方第一个元素，称为该非零行的\textbf{首非零元}。
+
+\end{multicols}
+
+行阶梯形矩阵\textcolor{violet}{\textbf{定义：}}非零行在零行的上面，非零行的首非零元素所在列在上一行首非零元素所在列的右边的非零矩阵。
+
+行最简形矩阵\textcolor{violet}{\textbf{定义：}}非零行的首非零元素为1，首非零元所在列其他的元全部为0的行阶梯矩阵。
+
+对于任何矩阵都能通过初等列变换变为行阶梯形矩阵和行最简形矩阵，再通过列变换可以变为\textbf{标准形}：左上角是一个单位矩阵，其他元全部是0。
 
 \end{document}
