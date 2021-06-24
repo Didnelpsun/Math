@@ -332,9 +332,21 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
 
 \textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上有界，且只有有限个间断点，则$f(x)$在该区间上可积。
 
+\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是周期函数且周期为$T$，$\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^Tf(x)\,\textrm{d}x$对于$\forall a$成立。
+
+证明：根据积分区间可拆性：
+
+$\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^af(x)\,\textrm{d}x+\int_0^Tf(x)\,\textrm{d}x+\int_T^{a+T}f(x)\,\textrm{d}x$
+
 \subsection{变限积分}
 
 设$f(x)$在$[a,b]$上连续，且$\Phi(x)=\int_a^xf(t)\,\textrm{d}t(x\in[a,b])$，这个函数就是积分上限函数或叫积分变限函数（如果$\int_x^af(t)\,\textrm{d}t$就是变下限积分或积分下限函数）。
+
+积分值与积分变量无关，即$\int_a^xf(x)\,\textrm{d}x=\int_a^xf(t)\,\textrm{d}t$。
+
+对变限积分$\int_{a}^xf(t)\,\textrm{d}t$求导得到$f(t)$，再求导就得到$f'(t)$。
+
+定限积分是一个数值，而变限积分是一个函数。
 
 \textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$在$[a,b]$上$(\int_a^xf(t)\,\textrm{d}t)'=f(x)$。
 
@@ -348,7 +360,13 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
 
 同理当$x=a,\Delta x>0$与$x=b,\Delta x<0$时也同样成立。
 
+固定的上限或下限都不会影响到最后的变限积分结果，因为他们之间只差了一个常数。所以一般会将$a$取为0，这样更方便计算。
+
 \textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$是$f(x)$在$[a,b]$上的一个原函数。
+
+\textcolor{aqua}{\textbf{定理：}}$\int_a^{\varphi(x)}f(t)\,\textrm{d}t=\int_a^xf(\varphi(x))\,\textrm{d}(\varphi(x))=\int_a^xf(\varphi(x))\varphi'(x)\,\textrm{d}x$，
+
+所以$(\int_a^{\varphi(x)}f(t)\,\textrm{d}t)'=f(\varphi(x))\varphi'(x)$。
 
 \textbf{例题：}求$F(x)=\int_0^{x^2}e^{-t^2}\,\textrm{d}t$的导数。
 
@@ -362,11 +380,33 @@ $\therefore F'_x(x)=F'_u(x)\cdot u'_x=e^{-u^2}\cdot 2x=2xe^{-x^4}$。
 
 也同理，如果上限下限都在变化，则可以利用积分区间的可加性，将这个积分的区间插入一个常数（一般为0），将一个积分式子变为两个积分式子，再分别进行运算。
 
-所以变限积分\textcolor{aqua}{\textbf{定理：}}若$\phi(x)$与$\psi(x)$都可导，$f(x)$连续，则$\dfrac{\textrm{d}}{\textrm{d}x}\int_{\psi(x)}^{\phi(x)}=f(\psi(x))\psi'(x)-f(\phi(x))\phi'(x)$。
+所以变限积分\textcolor{aqua}{\textbf{定理：}}若$\phi(x)$与$\psi(x)$都可导，$f(x)$连续，则$\dfrac{\textrm{d}\int_{\psi(x)}^{\phi(x)}f(t)\,\textrm{d}t}{\textrm{d}x}=f(\psi(x))\psi'(x)-f(\phi(x))\phi'(x)$。
 
 \textbf{例题：}求极限$\lim\limits_{x\to 0}\dfrac{\int_0^{\sin^2x}\ln(1+t)\,\textrm{d}t}{x(\sqrt{1+x^3}-1)}$。
 
 原式$=\lim\limits_{x\to 0}\dfrac{\ln(1+\sin^2x)2\sin x\cos x}{x(\sqrt{1+x^3}-1)}=\lim\limits_{x\to 0}\dfrac{x^2\cdot 2x\cdot 1}{\dfrac{4}{3}x^3}=\dfrac{3}{2}$。\smallskip
+
+\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是连续的偶函数，则其积分只有一个$\int^x_0f(t)\,\textrm{d}t$是奇函数。
+
+证明：令$F(x)=\int_0^xf(t)\,\textrm{d}t$，需要证明$F(-x)=-F(x)$。
+
+$F(-x)=\int_0^{-x}f(t)\,\textrm{d}t$，令$t=-u$，所以得到$\int_0^xf(-u)\,\textrm{d}(-u)$。
+
+又$f(x)$偶函数，所以$f(-x)=f(x)$，从而$=\int_0^xf(-u)\,\textrm{d}(-u)=-\int_0^xf(u)\,\textrm{d}u$
+
+$=-\int_0^xf(t)\,\textrm{d}t=-F(x)$。这就是个奇函数。若加上一个常数就不是个奇函数了。
+
+\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是连续的奇函数，则其所有积分$\int^x_af(t)\,\textrm{d}t$都是偶函数。
+
+证明：令$F(x)=\int_0^xf(t)\,\textrm{d}t$，需要证明$F(-x)=F(x)$。
+
+$F(-x)=\int_0^{-x}f(t)\,\textrm{d}t$，令$t=-u$，所以得到$\int_0^xf(-u)\,\textrm{d}(-u)$。
+
+又$f(x)$奇函数，所以$f(-x)=-f(x)$，从而$=\int_0^x-f(u)(-\textrm{d}u)=\int_0^xf(u)\,\textrm{d}u=\int_0^xf(t)\,\textrm{d}t=F(x)$。而$\int_a^xf(t)\,\textrm{d}t=\int_a^0f(t)\,\textrm{d}t+\int_0^xf(t)\,\textrm{d}t$也为偶函数。
+
+\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是周期函数且周期为$T$，虽然其导数也为周期函数且周期，但是其变限积分不一定为周期函数。若$\int_0^Tf(x)\,\textrm{d}x=0$即一个周期上的定积分值为0，则这个函数为周期函数，且周期为$T$。
+
+
 
 \subsection{牛顿-莱布尼茨公式}
 
