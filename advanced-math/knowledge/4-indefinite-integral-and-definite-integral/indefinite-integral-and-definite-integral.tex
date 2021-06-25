@@ -49,6 +49,20 @@
 
 \textcolor{aqua}{\textbf{定理：}}任意的两个原函数只相差一个常数。
 
+\textcolor{aqua}{\textbf{定理：}}含有第一类间断点、无穷间断点的函数$f(x)$在包含其间断点的区间内必没有原函数$F(x)$。（可以用导数介值定理反证，一个函数的导数不可能导出不可导的点）
+
+若原函数含有震荡间断点则可能导出导函数。
+
+如$F(x)=\left\{\begin{array}{lcl}
+    x^2\sin\dfrac{1}{x}, & & x\neq 0 \\
+    0, & & x=0
+\end{array}\right.$，$f(x)=\left\{\begin{array}{lcl}
+    2x\sin\dfrac{1}{x}-\cos\dfrac{1}{x}, & & x\neq 0 \\
+    0, & & x=0
+\end{array}\right.$。
+
+这个函数$F(x)$是连续函数，而$f(x)$在靠近0时的极限为$\lim\limits_{x\to 0}(2x\sin\dfrac{1}{x}-\cos\dfrac{1}{x})=-\lim\limits_{x\to 0}\cos\dfrac{1}{x}$是一个振荡间断点。
+
 在区间$I$上，函数$f(x)$带有任意常数项的原函数$F(x)+C$称为$f(x)/f(x)\,\textrm{d}x$在该区间上的不定积分，记为$\int f(x)\,\textrm{d}x$，其中$\int$为\textbf{积分号}，$f(x)$为\textbf{被积函数}，$f(x)\,\textrm{d}x$为\textbf{被积表达式}，$x$为\textbf{积分变量}。
 
 积分就是导数的逆运算。$\int f(x)\,\textrm{d}x=F(x)+C$，$F'(x)=f(x)$。 
@@ -291,7 +305,7 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
 
 \subsection{定义}
 
-设函数$f(x)$在区间$[a,b]$上连续，将区间分割为$n$个子区间：$[x_0,x_1],(x_1,x_2],$\\$(x_2,x_3],\cdots,(x_{n-1},x_n]$，其中$x_0=a$，$x_n=b$。并可知各区间长度为$\Delta x_1=x_1-x_0\cdots$，在每个子区间$(x_{i-1},x_i]$上任意取一点$\xi_i(i=1,2,\cdots,n)$，做累计和$\sum\limits_{i=1}^nf(\xi_i)\Delta x_i$，这个式子被称为积分和。
+设函数$f(x)$在区间$[a,b]$上连续，将区间分割为$n$个子区间：$[x_0,x_1],(x_1,x_2],$\\$(x_2,x_3],\cdots,(x_{n-1},x_n]$，其中$x_0=a$，$x_n=b$。并可知各区间长度为$\Delta x_1=x_1-x_0\cdots$，在每个子区间$(x_{i-1},x_i]$上任意取一点$\xi_i(i=1,2,\cdots,n)$，做累计和$\sum\limits_{i=1}^nf(\xi_i)\Delta x_i=\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf(a+\dfrac{b-a}{n}i)\dfrac{b-a}{n}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf(\dfrac{i}{n})\dfrac{1}{n}=\int_0^1f(x)\,\textrm{d}x$，这个式子被称为积分和。
 
 设$\lambda=\max{\Delta x_1,\Delta x_2,\cdots,\Delta x_n}$，从而$\lambda$为最大的区间长度，若$\lambda\to 0$时积分和极限$\lim\limits_{\lambda\to 0}\sum\limits_{i=1}^nf(\xi_i)\Delta x_i$存在，则这个极限就是函数在区间$[a,b]$的定积分，记为$\int_a^bf(x)\,\textrm{d}x$，并称函数$f(x)$在区间$[a,b]$上可积。
 
@@ -337,6 +351,10 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
 证明：根据积分区间可拆性：
 
 $\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^af(x)\,\textrm{d}x+\int_0^Tf(x)\,\textrm{d}x+\int_T^{a+T}f(x)\,\textrm{d}x$
+
+其中令$x-T=t$，即$x=t+T$，将$t$代入上下限：$\int_T^{a+T}f(x)\,\textrm{d}x=\int_0^af(t+T)\,\textrm{d}(t+T)$，因为$f(x)$是周期函数，周期为$T$，$\therefore=\int_0^af(t)\,\textrm{d}t=\int_0^af(x)\,\textrm{d}x$。
+
+$\therefore\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^af(x)\,\textrm{d}x+\int_0^Tf(x)\,\textrm{d}x+\int_0^af(x)\,\textrm{d}x=\int_0^Tf(x)\,\textrm{d}x$。
 
 \subsection{变限积分}
 
@@ -406,7 +424,19 @@ $F(-x)=\int_0^{-x}f(t)\,\textrm{d}t$，令$t=-u$，所以得到$\int_0^xf(-u)\,\
 
 \textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是周期函数且周期为$T$，虽然其导数也为周期函数且周期，但是其变限积分不一定为周期函数。若$\int_0^Tf(x)\,\textrm{d}x=0$即一个周期上的定积分值为0，则这个函数为周期函数，且周期为$T$。
 
+证明：若需要证明其为周期函数，所以要证明$F(x)=\int_0^xf(t)\,\textrm{d}t=F(x+T)$。
 
+$F(x+T)=\int_0^{x+T}f(t)\,\textrm{d}t=\int_0^xf(t)\,\textrm{d}t+\int_x^{x+T}f(t)\,\textrm{d}t$
+
+又根据定积分的周期性质$\int_x^{x+T}f(t)\,\textrm{d}t=\int_0^Tf(x)\,\textrm{d}x$：
+
+$=\int_0^xf(t)\,\textrm{d}t+\int_0^Tf(x)\,\textrm{d}x=\int_0^xf(t)\,\textrm{d}t=F(x)$。（下限值为$a$也可以）
+
+\textbf{例题：}若$f(x)$是一个有周期的奇函数，则其积分$\int_a^xf(t)\,\textrm{d}t$是否为周期函数。
+
+考察积分是否为周期函数，已知其原式是周期函数，只需要考察$\int_0^Tf(x)\,\textrm{d}x$是否为0。
+
+$\int_0^Tf(x)\,\textrm{d}x=\int_a^{a+T}f(x)\,\textrm{d}x=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}f(x)\,\textrm{d}x=0$，所以是周期函数。
 
 \subsection{牛顿-莱布尼茨公式}
 

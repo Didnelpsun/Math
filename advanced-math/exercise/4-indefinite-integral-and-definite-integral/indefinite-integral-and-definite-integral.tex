@@ -451,6 +451,28 @@ $=-\dfrac{4x+3}{2(x^2+x+1)}-\dfrac{6}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}+C$�
 
 \section{定积分}
 
+\subsection{定限积分与极限}
+
+若极限中有$n$这种变量，也可以通过定积分的定义来做，$\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf\left(\dfrac{i}{n}\right)\dfrac{1}{n}=\int_1^0f(x)\,\textrm{d}x$。
+
+\begin{enumerate}
+    \item 先提出$\dfrac{1}{n}$。
+    \item 凑出$\dfrac{i}{n}$。
+    \item 写出$\int_0^1f(x)\,\textrm{d}x$。
+\end{enumerate}
+
+\textbf{例题：}求$\lim\limits_{n\to\infty}\left(\dfrac{1}{n+1}+\dfrac{1}{n+2}\cdots+\dfrac{1}{n+n}\right)$。
+
+即求$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}$。如果我们要传统求的话一般使用夹逼准则，找到放缩的两个函数。
+
+所以找到两个：$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+n}<\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}<\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+1}$。
+
+即$\dfrac{1}{2}<\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}<\lim\limits_{n\to\infty}\dfrac{n}{n+1}=1$。夹逼准则失败。
+
+所以对$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}$通过定积分定义进行计算。
+
+$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+\dfrac{i}{n}}\dfrac{1}{n}=\displaystyle{\int_0^1\dfrac{1}{1+x}\,\textrm{d}x}=[\ln(1+x)]_0^1=\ln2$。
+
 \subsection{变限积分}
 
 \subsection{牛莱公式}
