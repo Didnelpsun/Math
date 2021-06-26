@@ -473,6 +473,14 @@ $=-\dfrac{4x+3}{2(x^2+x+1)}-\dfrac{6}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}+C$�
 
 $\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+\dfrac{i}{n}}\dfrac{1}{n}=\displaystyle{\int_0^1\dfrac{1}{1+x}\,\textrm{d}x}=[\ln(1+x)]_0^1=\ln2$。
 
+\textbf{例题：}求$\lim\limits_{n\to\infty}\left(\dfrac{n+1}{n^2+1}+\dfrac{n+2}{n^2+4}+\cdots+\dfrac{n+n}{n^2+n^2}\right)$。
+
+即求$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{n+i}{n^2+i^2}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{n^2+ni}{n^2+i^2}\cdot\dfrac{1}{n}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1+\dfrac{i}{n}}{1+\left(\dfrac{i}{n}\right)^2}\cdot\dfrac{1}{n}$
+
+$=\displaystyle{\int_0^1\dfrac{1+x}{1+x^2}\textrm{d}x}=\displaystyle{\int_0^1\dfrac{1}{1+x^2}\textrm{d}x+\int_0^1\dfrac{x}{1+x^2}\textrm{d}x}$
+
+$=\left[\arctan x+\dfrac{1}{2}\ln(1+x^2)\right]_0^1$。
+
 \subsection{变限积分}
 
 \subsection{牛莱公式}
