@@ -321,14 +321,15 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
     \item $\int_a^bkf(x)\,\textrm{d}x=k\int_a^bf(x)\,\textrm{d}x$。
     \item $\int_a^b[f(x)\pm g(x)]\,\textrm{d}x=\int_a^bf(x)\,\textrm{d}x\pm\int_a^bg(x)\,\textrm{d}x$。
     \item $\int_a^bf(x)\,\textrm{d}x=\int_a^cf(x)\,\textrm{d}x+\int_c^bf(x)\,\textrm{d}x$，若$c$处于函数的可积区间。
-    \item 若$[a,b]$上$f(x)\geqslant 0$，则$\int_a^bf(x)\,\textrm{d}x\geqslant 0$。
+    \item 若$[a,b]$上$f(x)\geqslant 0$，则$\int_a^bf(x)\,\textrm{d}x\geqslant 0$。当$f(x)\equiv0$时等号成立。
     \item 若$[a,b]$上$f(x)\leqslant g(x)$，则$\int_a^bf(x)\,\textrm{d}x\leqslant\int_a^bg(x)\,\textrm{d}x$。
     \item $\left\vert\int_a^bf(x)\,\textrm{d}x\right\vert\leqslant\int_a^b\vert f(x)\vert\,\textrm{d}x$。
     \item 已知$f(x)\in[m,M]$在$[a,b]$上成立，则$m(b-a)\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant M(a-b)$。
+    \item 估值定理：当$M$，$m$分别为$f(x)$在$[a,b]$上的最大值和最小值，则$m(b-a)\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant M(b-a)$。
     \item 积分中值定理：$\exists\,\xi\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$。
 \end{enumerate}
 
-证明积分中值定理：
+证明第十一条积分中值定理：
 
 设函数$f(x)$在区间$[a,b]$上连续，因为闭区间上连续函数必然有最大最小值，所以设最大值为$M$，最小值为$m$，$M\geqslant m$。
 
@@ -340,9 +341,17 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
 
 从而得到$\exists\,\varepsilon\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\varepsilon)(b-a)$。
 
+也可以使用下面的变限积分来证明：
+
+因为$f(x)$连续，所以有积分，设$F(x)=\int_a^xf(t)\,\textrm{d}t$。
+
+对$F(x)$使用拉格朗日中值定理：$F(b)-F(a)=F'(\xi)(b-a)$，即$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$，其中$\xi\in(a,b)\subset[a,b]$。
+
 对于定积分的存在性：
 
 \textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上连续，则$f(x)$在该区间上可积。
+
+\textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上单调，则$f(x)$在该区间上可积。
 
 \textcolor{aqua}{\textbf{定理：}}设函数$f(x)$在区间$[a,b]$上有界，且只有有限个间断点，则$f(x)$在该区间上可积。
 
@@ -398,7 +407,7 @@ $\therefore F'_x(x)=F'_u(x)\cdot u'_x=e^{-u^2}\cdot 2x=2xe^{-x^4}$。
 
 也同理，如果上限下限都在变化，则可以利用积分区间的可加性，将这个积分的区间插入一个常数（一般为0），将一个积分式子变为两个积分式子，再分别进行运算。
 
-所以变限积分\textcolor{aqua}{\textbf{定理：}}若$\phi(x)$与$\psi(x)$都可导，$f(x)$连续，则$\dfrac{\textrm{d}\int_{\psi(x)}^{\phi(x)}f(t)\,\textrm{d}t}{\textrm{d}x}=f(\psi(x))\psi'(x)-f(\phi(x))\phi'(x)$。
+所以变限为函数的积分求导\textcolor{aqua}{\textbf{定理：}}若$\phi(x)$与$\psi(x)$都可导，$f(x)$连续，则$\dfrac{\textrm{d}\int_{\psi(x)}^{\phi(x)}f(t)\,\textrm{d}t}{\textrm{d}x}=f(\psi(x))\psi'(x)-f(\phi(x))\phi'(x)$。
 
 \textbf{例题：}求极限$\lim\limits_{x\to 0}\dfrac{\int_0^{\sin^2x}\ln(1+t)\,\textrm{d}t}{x(\sqrt{1+x^3}-1)}$。
 
@@ -464,9 +473,11 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
 
 \subsection{反常积分}
 
+无论是定限积分还是变限积分，有一部分的区间是固定不变的。
+
 当积分区间为无穷区间，或被积函数为无界函数，那么定积分就无法“定”下来，所以这种积分就是反常积分。
 
-\subsubsection{无穷限}
+\subsubsection{无穷区间}
 
 设函数$f(x)$在区间$[a,+\infty)$上连续，任取$t>a$，做定积分$\int_a^tf(x)\,\textrm{d}x$，对这种变上限积分的极限$\lim\limits_{t\to+\infty}\int_a^tf(x)\,\textrm{d}x$就是$f(x)$在无穷区间$[a,+\infty)$上的反常积分，记为$\int_a^{+\infty}f(x)\,\textrm{d}x$。
 
@@ -476,9 +487,11 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
 
 无穷限反常积分\textcolor{violet}{\textbf{定义：}}$\int_{-\infty}^{+\infty}f(x)\,\textrm{d}x=\int_{-\infty}^0f(x)\,\textrm{d}x+\int_0^{+\infty}f(x)\,\textrm{d}x$。
 
+对于无穷区间的反常积分要求的就是$\lim\limits_{x\to\infty}f(x)$。
+
 \subsubsection{无界函数}
 
-若$f(x)$在点$a$的任意一个邻域内都无界，则$a$就是$f(x)$的瑕点（无界间断点），无界函数的反常积分又称为瑕积分。
+若$f(x)$在点$a$的任意一个邻域内都无界，则$a$就是$f(x)$的瑕点（无穷间断点），无界函数的反常积分又称为瑕积分。
 
 设$f(x)$在区间$(a,b]$上连续，点$a$为$f(x)$的瑕点，任取$t>a$，作定积分$\int_t^bf(x)\,\textrm{d}x$，则对变下限的定积分求极限的$\lim\limits_{t\to a^+}\int_t^bf(x)\,\textrm{d}x$就是函数$f(x)$在区间$(a,b]$上的反常积分，记为$\int_a^bf(x)\,\textrm{d}x$。
 
@@ -487,6 +500,8 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
 同理可得$\int_a^bf(x)\,\textrm{d}x=\lim\limits_{t\to b^-}\int_a^tf(x)\,\textrm{d}x$
 
 若$f(x)$在区间$[a,c)\cup(c,b]$上连续，$c$为瑕点，则$\int_a^bf(x)\,\textrm{d}x=\int_a^cf(x)\,\textrm{d}x+\int_c^bf(x)\,\textrm{d}x$。
+
+对于无界函数的反常积分要求的就是$\lim\limits_{x\to a}f(x)$。
 
 \subsection{* 反常积分的判敛}
 

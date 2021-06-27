@@ -95,9 +95,21 @@ $=\displaystyle{\int(\sec^2x-1)}\tan x\sec x\,\textrm{d}x=\displaystyle{\int(\se
 
 需要利用到有理积分的高阶多项式分配与低阶多项式因式分解。
 
+\paragraph{反三角换元} \leavevmode \medskip
+
+当积分式子中存在$\arcsin x$、$\arccos x$、$\arctan x$这种反三角函数时，可以考虑将其令为$t$来进行简化计算。从而$x$分别为$\sin t$、$\cos t$、$\tan t$。
+
+\paragraph{指对换元} \leavevmode \medskip
+
+当积分式子存在指数函数$e^x$或对数函数$\ln x$时，可以考虑令其为$t$，从而$x$分别为$\ln t$和$e^t$。
+
+\paragraph{倒数换元} \leavevmode \medskip
+
+当被积函数的分母的幂次要比分子高两次以及以上时，令$x=\dfrac{1}{t}$。
+
 \paragraph{有理换元} \leavevmode \medskip
 
-书上这个类型属于有理函数部分，我这里移动到第一类换元中。即将无理因式设为一个变量，从而提高式子的阶数，消除无理式变为有理式。
+书上这个类型属于有理函数部分，我这里移动到第一类换元中。即将无理因式直接设为一个变量，从而提高式子的阶数，消除无理式变为有理式。
 
 有理换元时无理因式中的$x$必须是一阶的，如$\sqrt[3]{x+6}=u$，若是二阶需要利用第二类换元（三角换元），否则则无法消去无理因式项，因为$x$不能用单个的$u$来表示，如$\sqrt{x^3+6}=u$，$u=\sqrt[3]{u^2-6}$。
 
@@ -243,11 +255,19 @@ $I_1-I_2=\displaystyle{\int\dfrac{\cos t-\sin t}{\sin t+\cos t}\textrm{d}t=\int\
 
 同理$t\in(-\dfrac{\pi}{2},-\dfrac{\pi}{4})$也得到同样结果。
 
+\paragraph{\texorpdfstring{$\sqrt{ax^2+bx+c}$}\ } \leavevmode \medskip
+
+当被积函数含有根式$\sqrt{ax^2+bx+c}$时，需要对其配方变成$\sqrt{\varphi^2(x)+k^2}$、$\sqrt{\varphi^2(x)-k^2}$、$\sqrt{k^2-\varphi^2(x)}$三种形式再进行三角函数换元。
+
 \subsection{分部积分}
 
 因为分部积分法使用$\int u\,\textrm{d}v=uv-\int v\,\textrm{d}u$，所以基本上用于两项乘积形式的积分式子。
 
+函数积分难度为：反三角函数、对数函数、幂函数、指数函数、三角函数。越往右求导越难，左边更应该当$u$进行求导，而右边更适合做$v$进行积分。
+
 \subsubsection{基本分部}
+
+如果不是多次分部就是基本分部，目的都是为了降低积分式子幂次。
 
 \paragraph{非幂函数优先} \leavevmode \medskip
 
@@ -277,7 +297,7 @@ $=\int x(\sec^2-1)\,\textrm{d}x=\int x\,\textrm{d}(\tan x)-\dfrac{x^2}{2}=x\tan 
 
 \subsubsection{多次分部}
 
-对于一部分通过微分形式不会发生变化的函数，所以需要多次积分，然后利用等式求出目标值。
+对于一部分通过微分形式不会发生变化的函数，所以需要多次积分，然后利用等式求出目标值。即三角函数和指数函数，这两种积分形式不变，指数函数一次积分保持不变，而三角函数两次积分保持不变。
 
 如：$\int e^x\sin x\,\textrm{d}x$，$\int e^x\cos x\,\textrm{d}x$。
 
@@ -306,6 +326,14 @@ $=\sin^2x\cdot e^x-\sin2x\cdot e^x+2e^x\cos2x+4\sin2x\cdot e^x-8\int e^x\cdot\co
 代入\ding{172}：$=\dfrac{e^x(5\sin^2x-5\sin2x+2\cos2x+4\sin2x)}{5}+C$
 
 $=\dfrac{e^x(5\sin^2x-\sin2x+2\cos2x)}{5}+C=e^x\left(\dfrac{1}{2}-\dfrac{1}{5}\sin2x-\dfrac{1}{10}\cos2x\right)+C$
+
+$\int uv'''\,\textrm{d}x=\int u\,\textrm{d}(v'')=uv''-\int v''u'\,\textrm{d}x$
+
+$\int u'v''\,\textrm{d}x=\int u'\,\textrm{d}(v')=u'v'-\int v'u''\,\textrm{d}x$
+
+$\int u''v'\,\textrm{d}x=\int u''\,\textrm{d}v=u''v-\int vu'''\,\textrm{d}x$
+
+$\therefore\int uv'''\,\textrm{d}x=uv''-u'v'+u''v-\int u'''v\,\textrm{d}x$。
 
 \subsubsection{分部与换元}
 
@@ -479,7 +507,7 @@ $\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}=\lim\limits_{n\to\inf
 
 $=\displaystyle{\int_0^1\dfrac{1+x}{1+x^2}\textrm{d}x}=\displaystyle{\int_0^1\dfrac{1}{1+x^2}\textrm{d}x+\int_0^1\dfrac{x}{1+x^2}\textrm{d}x}$
 
-$=\left[\arctan x+\dfrac{1}{2}\ln(1+x^2)\right]_0^1$。
+$=\left[\arctan x+\dfrac{1}{2}\ln(1+x^2)\right]_0^1=\dfrac{\pi}{4}+\dfrac{1}{2}\ln2$。
 
 \subsection{变限积分}
 
