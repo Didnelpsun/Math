@@ -99,6 +99,21 @@ $=\displaystyle{\int(\sec^2x-1)}\tan x\sec x\,\textrm{d}x=\displaystyle{\int(\se
 
 当积分式子中存在$\arcsin x$、$\arccos x$、$\arctan x$这种反三角函数时，可以考虑将其令为$t$来进行简化计算。从而$x$分别为$\sin t$、$\cos t$、$\tan t$。
 
+\textbf{例题：}求$\int(\arcsin x)^2\,\textrm{d}x$。
+
+令$\arcsin x=t$，$\therefore x=\sin t$，$\textrm{d}x=\cos t\,\textrm{d}t$。
+
+$=\int t^2\cos t\,\textrm{d}t$。除了换元法还需要使用分部积分法，可以直接进行分部积分也可以使用下面讲到的分部积分拓展公式的表格法来计算，$\cos t$更难求导，所以对其积分，放在下面，$t^2$容易求导，所以对其求导，放在上面：\medskip
+
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    $t^2$ & $2t$ & $2$ & $0$ \\ \hline
+    $\cos t$ & $\sin t$ & $-\cos t$ & $-\sin t$ \\
+    \hline
+\end{tabular} \medskip
+
+$\therefore=t^2\sin t-2t\cos t-\sin t+C=(\arcsin x)^2x+2\arcsin x\sqrt{1-x^2}-2x+C$。
+
 \paragraph{指对换元} \leavevmode \medskip
 
 当积分式子存在指数函数$e^x$或对数函数$\ln x$时，可以考虑令其为$t$，从而$x$分别为$\ln t$和$e^t$。
@@ -299,6 +314,8 @@ $=\int x(\sec^2-1)\,\textrm{d}x=\int x\,\textrm{d}(\tan x)-\dfrac{x^2}{2}=x\tan 
 
 对于一部分通过微分形式不会发生变化的函数，所以需要多次积分，然后利用等式求出目标值。即三角函数和指数函数，这两种积分形式不变，指数函数一次积分保持不变，而三角函数两次积分保持不变。
 
+也称为积分再现、循环积分法。
+
 如：$\int e^x\sin x\,\textrm{d}x$，$\int e^x\cos x\,\textrm{d}x$。
 
 \textbf{例题：}求$\int e^x\sin^2x\,\textrm{d}x$。
@@ -327,6 +344,10 @@ $=\sin^2x\cdot e^x-\sin2x\cdot e^x+2e^x\cos2x+4\sin2x\cdot e^x-8\int e^x\cdot\co
 
 $=\dfrac{e^x(5\sin^2x-\sin2x+2\cos2x)}{5}+C=e^x\left(\dfrac{1}{2}-\dfrac{1}{5}\sin2x-\dfrac{1}{10}\cos2x\right)+C$
 
+\subsubsection{分部积分推广公式}
+
+分部积分法可以直接利用表格简便计算，以三次导数的积分为例：
+
 $\int uv'''\,\textrm{d}x=\int u\,\textrm{d}(v'')=uv''-\int v''u'\,\textrm{d}x$
 
 $\int u'v''\,\textrm{d}x=\int u'\,\textrm{d}(v')=u'v'-\int v'u''\,\textrm{d}x$
@@ -334,6 +355,44 @@ $\int u'v''\,\textrm{d}x=\int u'\,\textrm{d}(v')=u'v'-\int v'u''\,\textrm{d}x$
 $\int u''v'\,\textrm{d}x=\int u''\,\textrm{d}v=u''v-\int vu'''\,\textrm{d}x$
 
 $\therefore\int uv'''\,\textrm{d}x=uv''-u'v'+u''v-\int u'''v\,\textrm{d}x$。
+
+所以分部积分法找到对应的规律，表格上求导，下积分：\medskip
+
+\begin{tabular}{|c|c|c|c|c|c|}
+    \hline
+    符号 & + & - & + & $\cdots$ & $(-1)^{n+1}$ \\ \hline
+    $u$的各阶导数 & $u$ & $u'$ & $u''$ & $\cdots$ & $u^{n+1}$ \\ \hline
+    $v^{(n+1)}$的各阶原函数 & $v^{(n+1)}$ & $v^{(n)}$ & $v^{(n-1)}$ & $\cdots$ & $v$ \\
+    \hline
+\end{tabular} \medskip
+
+以$u$为起点左上右下错位相乘，各项符号正负交错，直到$uv$的导阶数相同，最后一项是$(-1)^{n+1}\int u^{(n+1)}v\,\textrm{d}x$，只要这最后一项可以解出来就可以停止了，即上下是同一类的函数或幂函数求导成0。
+
+\textbf{例题：}求$\int(x^3+2x+6)e^{2x}\,\textrm{d}x$。
+
+如果要一般求，则需要拆分：$\int(x^3+2x+6)e^{2x}\,\textrm{d}x=\int x^3e^{2x}\,\textrm{d}x+2\int xe^{2x}\,\textrm{d}x+6\int e^2x\,\textrm{d}x$。
+
+而如果使用分部积分的推广公式，令$u=x^3+2x+6$，$v=e^{2x}$。\medskip
+
+\begin{tabular}{|c|c|c|c|c|}
+    \hline
+    $x^3+2x+6$ & $3x^2+2$ & $6x$ & 6 & 0 \\ \hline
+    $e^{2x}$ & $\dfrac{1}{2}e^{2x}$ & $\dfrac{1}{4}e^{2x}$ & $\dfrac{1}{8}e^{2x}$ & $\dfrac{1}{16}e^{2x}$ \\
+    \hline
+\end{tabular}
+
+$\therefore=(x^3+2x+6)\left(\dfrac{1}{2}e^{2x}\right)-(3x^2+2)\left(\dfrac{1}{4}e^{2x}\right)+6x\left(\dfrac{1}{8}e^{2x}\right)-6\left(\dfrac{1}{16}e^{2x}\right)+\displaystyle{\int0\cdot(\dfrac{1}{16}e^{2x})\,\textrm{d}x}=\left(\dfrac{1}{2}x^3-\dfrac{3}{4}x^2+\dfrac{7}{4}x+\dfrac{17}{8}\right)e^{2x}+C$。
+
+\textbf{例题：}求$\int x^2\ln x\,\textrm{d}x$。\medskip
+
+\begin{tabular}{|c|c|}
+    \hline
+    $\ln x$ & $\dfrac{1}{x}$ \\ \hline
+    $x^2$ & $\dfrac{1}{3}x^3$ \\
+    \hline
+\end{tabular} \medskip
+
+$\therefore=\dfrac{1}{3}x^3\ln x-\displaystyle{\int\dfrac{1}{x}\dfrac{1}{3}x^3\,\textrm{d}x}=\dfrac{1}{3}x^3\ln x-\dfrac{1}{9}x^3+C$。
 
 \subsubsection{分部与换元}
 
@@ -359,6 +418,8 @@ $=\dfrac{2}{3}e^{\sqrt{3x+9}}(\sqrt{3x+9}-1)+C$。
 
 \subsection{有理积分}
 
+针对于多项式分式，需要将分母和分子拆解。
+
 \subsubsection{高阶多项式分配}
 
 当不定积分式子形如$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x}$，且$f(x)$、$g(x)$都为与$x$相关的多项式，$f(x)$阶数高于或等于$g(x)$，则$f(x)$可以按照$g(x)$的形式分配，约去式子，得到最简单的表达。
@@ -373,7 +434,14 @@ $\displaystyle{=\int x\,\textrm{d}x-\dfrac{9}{2}\int\dfrac{\textrm{d}(x^2+9)}{x^
 
 当不定积分式子形如$\displaystyle{\int\dfrac{f(x)}{g(x)}\,\textrm{d}x}$，且$f(x)$、$g(x)$都为与$x$相关的多项式，$f(x)$阶数低于$g(x)$，且$g(x)$可以因式分解为$g(x)=g_1(x)g_2(x)\cdots$时，先因式分解再进行运算。
 
-因式分解时需要注意两点：一点是分解后的式子的分子最高阶要低于分母最高阶数一阶；二是当分母中出现某一因式有大于等于二的幂次时，需要把其分解为从一阶到其当前阶数的因式相加，但是阶数跟一阶因式的分子阶数一样，否则就缺一个不等式而求不出来。
+有理积分的拆项是最小项的最高次数不超过2。所以具体的分解基本原理：
+
+\begin{enumerate}
+    \item 一次单项式$ax+b$产生一项$\dfrac{A}{ax+b}$。
+    \item $k$重一次因式$(ax+b)^k$产生$k$项：$\dfrac{A_1}{ax+b}+\dfrac{A_2}{(ax+b)^2}+\cdots+\dfrac{A_n}{(ax+b)^n}$。
+    \item 二次因式$px^2+qx+r$产生一项：$\dfrac{Ax+B}{px^2+qx+r}$。
+    \item $k$重二次因式$(px^2+qx+r)^k$产生$k$项：$\dfrac{A_1x+B_1}{px^2+qx+r}+\cdots+\dfrac{A_nx+B_n}{(px^2+qx+r)^k}$。
+\end{enumerate}
 
 虽然分母可以因式分解，但是整个式子不一定能因式分解，特别是某个因子的阶数高于一阶，所以若不能因式分解则可以考虑低阶多项式分配的方式。
 
@@ -394,6 +462,16 @@ $=(A+C)x^2+(B+2C)x+(C-A-B)=x^2+1$。
 $\therefore=\displaystyle{\int\left[\dfrac{1}{2(x+1)}-\dfrac{1}{(x+1)^2}+\dfrac{1}{2(x-1)}\right]\textrm{d}x}$ \medskip
 
 $=\dfrac{1}{2}\ln\vert x-1\vert+\dfrac{1}{2}\ln\vert x+1\vert+\dfrac{1}{x+1}+C=\dfrac{1}{2}\ln\vert x^2-1\vert+\dfrac{1}{x+1}+C$。
+
+当然也没必要将所有式子拆开再同类型合并进行相等计算，可以直接将因式的解代入令部分因式等于0来计算，如：
+
+通分：$=A(x+1)(x-1)+B(x-1)+C(x+1)^2=x^2+1$。
+
+代入$x=-1$：$B(-1-1)=-2B=(-1)^2+1$，$\therefore B=-1$。
+
+代入$x=1$：$C(1+1)^2=1^2+1$，$\therefore4C=2$，$C=\dfrac{1}{2}$。
+
+代入$x=0$：$-A-B+C=1$，代入$B=-1$，$C=\dfrac{1}{2}$，$\therefore A=\dfrac{1}{2}$。
 
 \subsubsection{低阶多项式分配}
 
