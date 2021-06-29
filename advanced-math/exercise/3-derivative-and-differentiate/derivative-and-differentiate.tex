@@ -241,7 +241,22 @@ $=e^{2\lim\limits_{x\to 0}\frac{f(x)-f(0)}{x-0}}=e^{2f'(0)}=e^6$。
 
 \section{高阶导数}
 
-\subsection{导数存在性}
+求高阶导数基本上使用归纳法或莱布尼茨公式。
+
+高阶导数基本公式：
+
+\begin{enumerate}
+    \item $(e^x)^{(n)}=e^x$。
+    \item $(a^x)^{(n)}=a^x(\ln a)^n$。
+    \item $(\ln x)^{(n)}=(-1)^{n-1}(n-1)!x^{-n}$。
+    \item $\left(\dfrac{1}{1+x}\right)^{(n)}=(-1)^n\dfrac{n!}{(1+x)^n}$。
+    \item $\left(\dfrac{1}{1-x}\right)^{(n)}=\dfrac{n!}{(1-x)^n}$。
+    \item $(\sin x)^{(n)}=\sin\left(x+\dfrac{n\pi}{2}\right)$。
+    \item $(\cos x)^{(n)}=\cos\left(x+\dfrac{n\pi}{2}\right)$。
+    \item $\{f(ax+b)\}^{(n)}=a^nf^{(n)}(ax+b)$。
+\end{enumerate}
+
+\subsection{高阶导数存在性}
 
 \subsection{携带未知数的多项式求高阶导}
 
@@ -302,6 +317,52 @@ $\dfrac{\textrm{d}^2x}{\textrm{d}y^2}=\dfrac{\textrm{d}\dfrac{\textrm{d}x}{\text
 $\dfrac{\textrm{d}^3x}{\textrm{d}y^3}=\dfrac{\textrm{d}\dfrac{\textrm{d}^2x}{\textrm{d}^2y}}{\textrm{d}y}=\dfrac{\dfrac{\textrm{d}\dfrac{\textrm{d}^2x}{\textrm{d}^2y}}{\textrm{d}x}}{\dfrac{\textrm{d}y}{\textrm{d}x}}=\dfrac{-\dfrac{y'''y'-3(y'')^2}{(y')^4}}{y'}=\dfrac{3(y'')^2-y'y'''}{(y')^5}$。
 
 \section{微分}
+
+微分若是出单独的计算很可能是物理应用问题，如计算速度增量、面积增量等，但是对于数一而言单独考的概率不大。
+
+微分一般都是微分不等式的形式进行出题，即含有微分的不等式证明。
+
+\subsection{函数性态}
+
+包括单调性、凹凸性与最值。
+
+\textbf{例题：}证明当$x>0$时$\ln\left(1+\dfrac{1}{x}\right)<\dfrac{1}{\sqrt{x(x+1)}}$。
+
+证明：令$F(x)=\ln\left(1+\dfrac{1}{x}\right)-\dfrac{1}{\sqrt{x(x+1)}}$。
+
+即证明$\sqrt{x(x+1)}\ln\left(1+\dfrac{1}{x}\right)<1$。
+
+令$t=\dfrac{1}{x}$，即证$\ln(1+t)\sqrt{\dfrac{1}{t}\left(\dfrac{1}{t}+1\right)}<1$，$\ln(1+t)\sqrt{1+t}<t$。
+
+令$F(t)=t-\ln(1+t)\sqrt{1+t}$，证明$F(t)>0$。\medskip
+
+则$F'(t)=1-\dfrac{\sqrt{1+t}}{1+t}-\dfrac{\ln(1+t)}{2\sqrt{1+t}}=1-\dfrac{2+\ln(1+t)}{2\sqrt{1+t}}>0$。
+
+$F(t)$递增，所以$F(t)>F(0)=0$。
+
+\subsection{常数变量}
+
+如果不等式中都是常数，可以将其中的一个或几个常数变量化再利用导数去证明。
+
+\textbf{例题：}设$0<a<b$，证明$\ln\dfrac{b}{a}>2\dfrac{b-a}{a+b}$。
+
+因为左边含有$\dfrac{b}{a}$不好处理，所以右边分子分母同时除以$a$全部变成统一变量：$\ln\dfrac{b}{a}>2\dfrac{\dfrac{b}{a}-1}{1+\dfrac{b}{a}}$。然后令$x=\dfrac{b}{a}$，所以即需要证明$\ln x>2\dfrac{x-1}{1+x}$，$x>1$。
+
+\subsection{中值定理}
+
+一般使用拉格朗日中值定理或泰勒公式。
+
+\textbf{例题：}设$f(x)$在闭区间$[0,c]$上连续，其导数$f'(x)$在开区间$(0,c)$内存在且单调减少，又$f(0)=0$，证明$f(a+b)\leqslant f(a)+f(b)$，$0\leqslant a\leqslant b\leqslant a+b\leqslant c$。
+
+因为所要证明的式子中含有$a$、$b$、$a+b$，$f(0)=0$，所以对这几个区间进行拉格朗日中值定理。
+
+$f(a)-f(0)=f'(\xi_1)(a-0)$，$f(a+b)-f(b)=f'(\xi_2)(a+b-b)$。
+
+从而$f(a)=f'(\xi_1)a$，$f(a+b)-f(b)=f'(\xi_2)a$。
+
+又$f'(x)$单调减少，所以$f'(\xi_1)>f'(\xi_2)$。
+
+$f(a)\geqslant f(a+b)-f(b)$，所以$f(a+b)\leqslant f(a)+f(b)$。
 
 \section{隐函数与参数方程}
 
@@ -419,6 +480,84 @@ $\therefore k=\dfrac{\dfrac{\sqrt{2}}{2}}{\dfrac{3}{2}\cdot\sqrt{\dfrac{3}{2}}}=
 
 当$2x-4=0$时即在$(2,7)$时曲率最大为2。
 
+\subsection{零点问题}
 
+\subsubsection{零点定理}
+
+若$f(x)$在$[a,b]$上连续，且$f(a)f(b)<0$，则$f(x)=0$在$(a,b)$内至少有一个根。其中$ab$是具体数也可以是无穷大。
+
+用于证明存在某一个零点。
+
+\subsubsection{单调性}
+
+若$f(x)$在$(a,b)$内单调（$f'(x)$存在且不恒等于0），则$f(x)=0$在$(a,b)$内至多有一个根。
+
+用于证明只有一个零点。
+
+\subsubsection{罗尔原话}
+
+若$f^{(n)}(x)=0$至多有$k$个根，则$f(x)=0$至多有$k+n$个根。是罗尔定理的推论。
+
+即若$f(x)=0$至少有两个根，则$f'(x)$至少有一个根。
+
+\textbf{例题：}证明方程$2^x-x^2=1$有且仅有3个实根。
+
+解：令$f(x)=2^x-x^2-1$，则$f'(x)=\ln22^x-2x$，$f''(x)=(\ln2)^22^x-2$，$f'''(x)=(\ln2)^32^x\neq 0$。
+
+所以$f'''(x)=0$至多0个根。所以根据罗尔原话$f(x)=0$至多三个根。
+
+又观察法$f(0)=0$，$f(1)=0$得到两个实根。
+
+$f(4)=-1$，$f(5)=6$，所以$(4,5)$内存在一个实根，从而一共与三个根。
+
+\subsubsection{实系数奇次方程}
+
+实系数奇次方程至少与一个实根。即$x^{2n+1}+a_1x^{2n}+\cdots+a_{2n}x+a_{2n+1}=0$至少与一个实根。
+
+\textbf{例题：}若$3a^2-5b<0$，则方程$x^5+2ax^3+3bx+4c=0$()。
+
+$A.\text{无实根}$\qquad$B.\text{有唯一实根}$\qquad$C.\text{有三个不同实根}$\qquad$D.\text{与五个不同实根}$
+
+解：令$f(x)=x^5+2ax^3+3bx+4c$，该实系数奇次方程至少有一个根。
+
+$f'(x)=5x^4+6ax^2+3b$，令$t=x^2$，$5t^2+6at+3b=0$。
+
+$\Delta=36a^2-4\cdot5\cdot3b=36a^2-60b=12(3a^2-5b)<0$。
+
+$\therefore f'(x)$无实根，所以$t=x^2$解不出来，所以$f'(x)\neq0$。
+
+$f'(x)=0$至多0个根。所以根据罗尔原话$f(x)=0$至多一个根，又由上面至少一个根，所以只有一个根，选择$B$。
+
+\subsubsection{函数含参导数不含参}
+
+参数是一个加在式子上的常数，函数求导后参数就被消掉了，所以可以在计算过程中不考虑参数，等到了最后的结果再讨论参数。
+
+\textbf{例题：}设常数$k>0$，函数$f(x)=\ln x-\dfrac{x}{e}+k$在$(0,+\infty)$内的零点个数为()。
+
+$A.3$\qquad$B.2$\qquad$C.1$\qquad$D.0$
+
+解：$f'(x)=\dfrac{1}{x}-\dfrac{1}{e}$，令其为0，则$x=e$。
+
+$x\in(0,e)$，$f'(x)>0$，$f(x)\nearrow$，$x\in(e,+\infty)$，$f'(x)<0$，$f(x)\searrow$。
+
+又$f(e)=k>0$，$\lim\limits_{x\to0^+}f(x)=\lim\limits_{x\to0^+}(\ln x-\dfrac{x}{e}+k)=-\infty$，所以左边有一个根，$\lim\limits_{x\to+\infty}f(x)=\lim\limits_{x\to+\infty}(\ln x-\dfrac{x}{e}+k)=-\infty$，所以一共有两个根。
+
+\subsubsection{函数导数含参}
+
+参数与自变量进行运算，从而求导后参数仍在式子中，计算时需要携带参数来思考。
+
+\textbf{例题：}求方程$k\arctan x-x=0$的不同实根的个数，其中$k$为参数。
+
+解：令$f(x)=k\arctan x-x$$，\because f(-x)=-f(x)$，所以$f(x)$是一个奇函数，所以可以只要考虑一边的情况。$x=0$是函数的一个根。
+
+$f'(x)=\dfrac{k}{1+x^2}-1=\dfrac{k-1-x^2}{1+x^2}$。
+
+若$k-1\leqslant0$即$k<1$则$f'(x)\leqslant0$，所以$f(x)$单调减少，从而只有一个根。
+
+若$k-1>0$即$k>1$，令$f'(x)=0$，即$k-1-x^2=0$，$x=\sqrt{k-1}$。
+
+$x\in(0,\sqrt{k-1})$，$f'(x)>0$，$f(x)\nearrow$。$x\in(\sqrt{k-1},+\infty)$，$f'(x)<0$，$f(x)\searrow$。
+
+$\lim\limits_{x\to+\infty}(k\arctan x-x)=-\infty$，所以在0的右侧一定存在一个零点，同理左边也因为奇函数对称存在一个零点，所以一共有三个根。
 
 \end{document}
