@@ -73,7 +73,7 @@ $n$阶微分方程的形式是$F(x,y,y',\cdots,y^{(n)})=0$。其中最高阶导�
 
 \textbf{例题：}判断函数$x=C_1\cos kt+C_2\sin kt$是否是微分方程$\dfrac{\textrm{d}^2x}{\textrm{d}t^2}+k^2x=0$的解，若是则令其为$k\neq0$时方程的通解，求满足初值条件$x\vert_{t=0}=A$，$\dfrac{\textrm{d}x}{\textrm{d}t}\bigg\vert_{t=0}=0$时的特解。
 
-判断是否为方程的解，就要将这个解代入微分方程中。微分方程中除了$x$，还出现了$x''$，所以需要先将$x$对$t$求两次导：
+解：判断是否为方程的解，就要将这个解代入微分方程中。微分方程中除了$x$，还出现了$x''$，所以需要先将$x$对$t$求两次导：
 
 $x'=-kC_1\sin kt+kC_2\cos kt$，$x''=-k^2C_1\sin kt-k^2C_2\sin kt$。代入方程：
 
@@ -95,7 +95,7 @@ $-k^2(C_1\sin kt+C_2\sin kt)+k^2(C_1\cos kt+C_2\sin kt)\equiv0$，所以是解�
 
 \textbf{例题：}求微分方程$\dfrac{\textrm{d}y}{\textrm{d}x}=2xy$。
 
-$\displaystyle{\int\dfrac{\textrm{d}y}{y}}=\int2x\,\textrm{d}x$，$\ln\vert y\vert=x^2+C$，$\vert y\vert=e^{x^2+C}$。
+解：$\displaystyle{\int\dfrac{\textrm{d}y}{y}}=\int2x\,\textrm{d}x$，$\ln\vert y\vert=x^2+C$，$\vert y\vert=e^{x^2+C}$。
 
 $\therefore y=\pm e^{x^2}e^C=\pm C_1e^{x^2}=C_2e^{x^2}$。
 
@@ -117,7 +117,7 @@ $\therefore y=\pm e^{x^2}e^C=\pm C_1e^{x^2}=C_2e^{x^2}$。
 
 \textbf{例题：}求$y^2+x^2\dfrac{\textrm{d}y}{\textrm{d}x}=xy\dfrac{\textrm{d}y}{\textrm{d}x}$。
 
-得到$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{y^2}{xy-x^2}$。
+解：得到$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{y^2}{xy-x^2}$。
 
 然后将这个等式化为$\dfrac{y}{x}$的形式，分子分母同时除以$x^2$：$\dfrac{\dfrac{y^2}{x^2}}{\dfrac{xy-x^2}{x^2}}=\dfrac{\left(\dfrac{y}{x}\right)^2}{\dfrac{y}{x}-1}$。
 
@@ -165,7 +165,7 @@ $=\dfrac{(A_1\lambda+B_1)v+A_1C_2+B_1C_1}{\lambda v+C_2}$。此时未知数只�
 
 \textbf{例题：}求$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{1}{x+y}$。
 
-不能直接做，因为不能分离出$y$。
+解：不能直接做，因为不能分离出$y$。
 
 可以两边求倒数：$\dfrac{\textrm{d}x}{\textrm{d}y}-x=y$，颠倒$xy$，得到$\dfrac{\textrm{d}y}{\textrm{d}x}-y=x$。就可以按照公式来求。
 
@@ -189,7 +189,7 @@ $=\dfrac{(A_1\lambda+B_1)v+A_1C_2+B_1C_1}{\lambda v+C_2}$。此时未知数只�
 
 \textbf{例题：}求$y'''=e^{2x}-\cos x$。
 
-$y''=\dfrac{1}{2}e^{2x}-\sin x+C_1$，$y'=\dfrac{1}{4}e^{2x}+\cos x+C_1x+C_2$，$y=\dfrac{1}{8}e^{2x}+\sin x+\dfrac{1}{2}C_1x^2+C_2x+C_3$。
+解：$y''=\dfrac{1}{2}e^{2x}-\sin x+C_1$，$y'=\dfrac{1}{4}e^{2x}+\cos x+C_1x+C_2$，$y=\dfrac{1}{8}e^{2x}+\sin x+\dfrac{1}{2}C_1x^2+C_2x+C_3$。
 
 \subsection{\texorpdfstring{$y''=f(x,y')$}\ 型}
 
@@ -199,7 +199,7 @@ $y''=\dfrac{1}{2}e^{2x}-\sin x+C_1$，$y'=\dfrac{1}{4}e^{2x}+\cos x+C_1x+C_2$，
 
 \textbf{例题：}求$(1+x^2)y''=2xy'$，满足初值条件$y\vert_{x=0}=1$，$y'\vert_{x=0}=3$的特解。
 
-令$y'=p$，$y''=p'$，所以$(1+x^2)p'=2xp$。
+解：令$y'=p$，$y''=p'$，所以$(1+x^2)p'=2xp$。
 
 $\dfrac{\textrm{d}p}{p}=\dfrac{2x}{1+x^2}\textrm{d}x$，$\ln p=\ln(1+x^2)+C'$，$p=C(1+x^2)$，所以$y'=3(1+x^2)$，$y=x^3+3x+1$。
 
@@ -215,7 +215,7 @@ $\dfrac{\textrm{d}p}{p}=\dfrac{2x}{1+x^2}\textrm{d}x$，$\ln p=\ln(1+x^2)+C'$，
 
 \textbf{例题：}求微分方程$yy''-y'^2=0$的通解。
 
-令$y'=p$，$y''=p\dfrac{\textrm{d}p}{\textrm{d}y}$，代入$yp\dfrac{\textrm{d}p}{\textrm{d}y}-p^2=0$。
+解：令$y'=p$，$y''=p\dfrac{\textrm{d}p}{\textrm{d}y}$，代入$yp\dfrac{\textrm{d}p}{\textrm{d}y}-p^2=0$。
 
 若$p\neq0$，$y\neq0$，则$yp\dfrac{\textrm{d}p}{\textrm{d}y}$，$\dfrac{\textrm{d}p}{p}=\dfrac{\textrm{d}y}{y}$，$p=Cy$。
 

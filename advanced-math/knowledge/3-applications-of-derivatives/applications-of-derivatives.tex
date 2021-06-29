@@ -38,7 +38,7 @@
 \usepackage{yhmath}
 % 圆弧
 \author{Didnelpsun}
-\title{微分中值定理与导数的应用}
+\title{导数应用}
 \date{}
 \begin{document}
 \maketitle
@@ -108,7 +108,7 @@ $\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化�
 
 \textbf{例题：}证明$x>0$时，$\dfrac{x}{1+x}<\ln(1+x)<x$。
 
-令$f(x)=\ln x$，又$\ln 1=0$，$\therefore\ln(1+x)=\ln(1+x)-\ln 1$。
+证明：令$f(x)=\ln x$，又$\ln 1=0$，$\therefore\ln(1+x)=\ln(1+x)-\ln 1$。
 
 根据拉格朗日中值定理$\ln(1+x)-\ln 1=f'(\xi)x=\dfrac{x}{\xi}(1<\xi<1+x)$。
 
@@ -236,7 +236,7 @@ $\lim\limits_{x\to 0}\dfrac{[\sin x-\sin(\sin x)]\sin x}{x^4}=\dfrac{\dfrac{1}{6
 
 \textbf{例题：}设$y=x^3\sin x$，求$y^{(6)}(0)$。\medskip
 
-\ding{172}$y=\sum_{n=0}^\infty\dfrac{y^{(n)}(0)}{n!}x^n$。\medskip
+解：\ding{172}$y=\sum_{n=0}^\infty\dfrac{y^{(n)}(0)}{n!}x^n$。\medskip
 
 $\because$需要结果的导数阶数为6，所以最后得到的次数为6就可以了。\medskip
 
@@ -274,7 +274,7 @@ $\therefore a=-\dfrac{1}{12},b=4$。
 
 \textbf{例题：}求解$\lim\limits_{x\to 0}\dfrac{\sin^2x-x^2}{e^{x^4}-1}$。
 
-首先由泰勒展开式$e^x=1+x+o(x)$，得到$e^x-1\sim x$。
+解：首先由泰勒展开式$e^x=1+x+o(x)$，得到$e^x-1\sim x$。
 
 $\therefore e^{x^4}-1\sim x^4$。
 
@@ -300,7 +300,7 @@ $\therefore\lim\limits_{x\to 0}\dfrac{\sin^2x-x^2}{e^{x^4}-1}=\lim\limits_{x\to 
 
 \textbf{例题：}证明$x>0$时，$x-\dfrac{x^3}{6}<\sin x<x$。
 
-首先令$f(x)=x-\sin x$，而$f(0)=0$。
+证明：首先令$f(x)=x-\sin x$，而$f(0)=0$。
 
 $f'(x)=1-\cos x\geqslant 0$，则$f(x)$在$R$上递增。
 
@@ -337,7 +337,7 @@ $\therefore$在$(0,+\infty]$上$g(x)>g(0)=0$，即$\sin x>x-\dfrac{x^3}{6}$。
 
 \textbf{例题：}证明凹凸性与二阶导数的关系。
 
-不妨先证明凹函数与二阶导数的关系。已知$f''(x)>0$
+证明：不妨先证明凹函数与二阶导数的关系。已知$f''(x)>0$
 
 不妨设$x_1<x_2$，且$\dfrac{x_1+x_2}{2}=x_0$。
 

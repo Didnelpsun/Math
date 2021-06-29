@@ -41,7 +41,7 @@
 
 \textbf{例题：}求$f(x)=x^{\sin x}(x>0)$的导数。
 
-取对数：
+解：取对数：
 
 $\therefore\ln y=\sin x\ln x$
 
@@ -65,7 +65,7 @@ $e^{\sin x\cdot\ln x}(\sin x\cdot\ln x)'=x^{\sin x}\left(\cos\ln x+\dfrac{\sin x
 
 \textbf{例题：}设$f(x)=\left\{\begin{array}{lcl}
     \arctan x, & & x\leqslant 1 \\
-    \dfrac{1}{2}(e^{x^2-1}-x)+\dfrac{\pi}{4}, & & x>1
+解：    \dfrac{1}{2}(e^{x^2-1}-x)+\dfrac{\pi}{4}, & & x>1
 \end{array}
 \right.$，求$f'(x)$。
 
@@ -97,7 +97,7 @@ $f(x)=\left\{\begin{array}{lcl}
 \end{array}
 \right.$，其中$b$为某常数，$f(x)$在定义域上处处可导，求$f'(x)$。
 
-首先需要求出参数$b$，而定义域上可导则在分段点$x=0$处也必然可导。
+解：首先需要求出参数$b$，而定义域上可导则在分段点$x=0$处也必然可导。
 
 而可导必连续，所以当$x=0$时$f(x)$也是连续的，而连续的定义就是两边极限相等，且两边极限等于该点函数值。\medskip
 
@@ -151,7 +151,7 @@ $\therefore f'(0)=\lim\limits_{x\to 0}f'(x)$。计算过程类似。
 \end{array}
 \right.$，若$f'(x)$连续，则$\alpha$应该满足？ 
 
-若导数连续，则两侧导数相等。
+解：若导数连续，则两侧导数相等。
 
 $\lim\limits_{x\to 0^-}f'(x)=\lim\limits_{x\to 0^-}2x=0$。
 
@@ -175,7 +175,7 @@ $\therefore\alpha-2>0$，从而$\alpha>2$。
 
 \textbf{例题：}已知$f(x)$是周期为5的连续函数，它在$x=0$的某个邻域内满足关系式：$f(1+\sin x)-3f(1-\sin x)= 8x+o(x)$，且$f(x)$在$x=1$处可导，求曲线$y=f(x)$在点$(6,f(6))$处的切线方程。
 
-因为这是个函数等式，而我们最后要求的是一个导数，所以先尝试对其直接求极限，令$x\to0$：
+解：因为这是个函数等式，而我们最后要求的是一个导数，所以先尝试对其直接求极限，令$x\to0$：
 
 $f(1)-3f(1)=0$，从而得到了一个函数值$f(1)=0$。
 
@@ -217,7 +217,7 @@ L01
 
 \textbf{例题：}设$f(x)$是以3为周期的可导函数，且是偶函数，$f'(-2)=-1$，求$\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}$。\medskip
 
-根据导数与函数的基本性质，原函数为偶函数，则其导函数为奇函数，所以$f'(5)=f'(2)=-f'(-2)=1$。
+解：根据导数与函数的基本性质，原函数为偶函数，则其导函数为奇函数，所以$f'(5)=f'(2)=-f'(-2)=1$。
 
 然后需要转换目标的极限式子，因为目标式子倒过来的式子类似于导数定义的$f'(x)=\lim\limits_{\Delta x\to 0}\dfrac{f(x+\Delta x)-f(x)}{\Delta x}$结构。所以我们可以先求其倒数式子：\medskip
 
@@ -233,7 +233,7 @@ $\therefore\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}=-\dfrac{1}{2}$。
 
 \textbf{例题：}设$f(x)$在$x=0$处可导且$f(0)=1$，$f'(0)=3$，则数列极限$I=\lim\limits_{n\to\infty}\left(f\left(\dfrac{1}{n}\right)\right)^{\frac{\frac{1}{n}}{1-\cos\frac{1}{n}}}$。\medskip
 
-设$\dfrac{1}{n}=x$，则：
+解：设$\dfrac{1}{n}=x$，则：
 
 $=\lim\limits_{x\to 0}(f(x))^{\frac{x}{1-\cos x}}=e^{\lim\limits_{x\to 0}\frac{x}{1-\cos x}\ln f(x)}=e^{2\lim\limits_{x\to 0}\frac{\ln f(x)}{x}}=e^{2\lim\limits_{x\to 0}\frac{f(x)-1}{x}}$
 
@@ -251,7 +251,7 @@ $=e^{2\lim\limits_{x\to 0}\frac{f(x)-f(0)}{x-0}}=e^{2f'(0)}=e^6$。
 
 \textbf{例题：}已知$f(x)=x^2(x+1)^2(x+2)^2\cdots(x+n)^2$，求$f''(0)$。
 
-因为式子中带有未知数$n$，所以结果很可能会带有$n$。
+解：因为式子中带有未知数$n$，所以结果很可能会带有$n$。
 
 而这个式子项数为$n+1$项，所以求导结果必然很大，所以一定会消去一部分。
 
@@ -289,13 +289,13 @@ $\quad\quad\quad+x^2(x+1)^2(x+2)^2\cdots 2(x+n)$
 
 \textbf{例题：}已知$y=x+e^x$，求其反函数的二阶导数。
 
-$y=x+e^x$的反函数的一阶导数为$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{1+e^x}$。\medskip
+解：$y=x+e^x$的反函数的一阶导数为$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{1+e^x}$。\medskip
 
 所以二阶导数为$\dfrac{\textrm{d}^2x}{\textrm{d}y^2}=\dfrac{\textrm{d}\left(\dfrac{1}{1+e^{x}}\right)}{\textrm{d}y}=\dfrac{\dfrac{\textrm{d}\left(\dfrac{1}{1+e^{x}}\right)}{\textrm{d}x}}{\dfrac{\textrm{d}y}{\textrm{d}x}}=-\dfrac{e^x}{(1+e^x)^3}$。
 
 \textbf{例题：}已知$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{y'}$，求$\dfrac{\textrm{d}^2x}{\textrm{d}y^2}$和$\dfrac{\textrm{d}^3x}{\textrm{d}y^3}$。
 
-其实就是求$\dfrac{\textrm{d}^2x}{\textrm{d}y^2}$和$\dfrac{\textrm{d}^3x}{\textrm{d}y^3}$，$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{y'}$这个条件只是让我们用$y'$来表示结果而已。
+解：其实就是求$\dfrac{\textrm{d}^2x}{\textrm{d}y^2}$和$\dfrac{\textrm{d}^3x}{\textrm{d}y^3}$，$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{y'}$这个条件只是让我们用$y'$来表示结果而已。
 
 $\dfrac{\textrm{d}^2x}{\textrm{d}y^2}=\dfrac{\textrm{d}\dfrac{\textrm{d}x}{\textrm{d}y}}{\textrm{d}y}=\dfrac{\dfrac{\textrm{d}\dfrac{\textrm{d}x}{\textrm{d}y}}{\textrm{d}x}}{\dfrac{\textrm{d}y}{\textrm{d}x}}=\dfrac{-\dfrac{y''}{(y')^2}}{y'}=-\dfrac{y''}{(y')^3}$。\medskip
 
@@ -315,7 +315,7 @@ $\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\dfrac{\textrm{d}y}{\textrm{d}t}}{\dfra
 
 \textbf{例题：}落在平静水面上的石头，产生同心波纹。若最外一圈波半径的增大速率总是6m/s，问在2s末扰动水面面积增大的速率为多少？
 
-首先根据题目最后的要求的是面积，所以肯定要设一个面积变量，随时间变动而改变，所以也一定会设一个时间变量，同时还给出一个条件是半径增大速度，所以也会有一个半径的变量。同时要求的是面积增大速率，正好跟另外两个变量相关，时间跟半径和面积都相关，所以时间就是中间变量。
+解：首先根据题目最后的要求的是面积，所以肯定要设一个面积变量，随时间变动而改变，所以也一定会设一个时间变量，同时还给出一个条件是半径增大速度，所以也会有一个半径的变量。同时要求的是面积增大速率，正好跟另外两个变量相关，时间跟半径和面积都相关，所以时间就是中间变量。
 
 从而设最外一圈波的半径为$r=r(t)$，圆的面积$S=S(t)$。根据$S$和$r$的公式$S=\pi r^2$，因为求的是随时间变化的速率，所以其两端分别对$t$求导，得：
 
@@ -331,7 +331,7 @@ $\dfrac{\textrm{d}S}{\textrm{d}t}\bigg|_{t=2}=2\pi\cdot12\cdot6=144\pi$。
 \end{array}
 \right.$确定，求其一阶导数与二阶导数。
 
-$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\dfrac{\textrm{d}y}{\textrm{d}t}}{\dfrac{\textrm{d}x}{\textrm{d}t}}=\dfrac{\dfrac{1}{2}\cdot\dfrac{2t}{1+t^2}}{\dfrac{1}{1+t^2}}=\dfrac{1}{t}$。
+解：$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\dfrac{\textrm{d}y}{\textrm{d}t}}{\dfrac{\textrm{d}x}{\textrm{d}t}}=\dfrac{\dfrac{1}{2}\cdot\dfrac{2t}{1+t^2}}{\dfrac{1}{1+t^2}}=\dfrac{1}{t}$。
 
 $\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}{\textrm{d}x}\right)}{\textrm{d}x}=\dfrac{\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}{\textrm{d}x}\right)}{\textrm{d}t}}{\dfrac{\textrm{d}x}{\textrm{d}t}}=\dfrac{-\dfrac{1}{t^2}}{\dfrac{t}{1+t^2}}=-\dfrac{1+t^2}{t^3}$。
 
@@ -341,7 +341,7 @@ $\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}
 
 \textbf{例题：}求$y=x+\vert\sin 2x\vert$的单调区间。
 
-因为函数的定义域为$R$。
+解：因为函数的定义域为$R$。
 
 又$y=\left\{\begin{array}{lcl}
     x+\sin 2x, & & n\pi\leqslant x\leqslant n\pi+\dfrac{\pi}{2} \\
@@ -375,7 +375,7 @@ $\left[x=n\pi+\dfrac{5\pi}{6},(n+1)\pi\right]$（$n=0,\pm 1,\pm2,\cdots$）。
 
 \textbf{例题：}决定曲线$y=ax^3+bx^2+cx+d$中参数，使得$x=-2$处曲线有水平切线，$(1,-10)$为拐点，且点$(-2,44)$在曲线上。
 
-$y'=3ax^2+2bx+c$，$y''=6ax+2b$。
+解：$y'=3ax^2+2bx+c$，$y''=6ax+2b$。
 
 因为$x=-2$处曲线有水平切线，即$y'\vert_{x=-2}=12a-4b+c=0$。
 
@@ -401,7 +401,7 @@ $(1,-10)$为拐点，代入：$y''\vert_{x=1}=6a+2b=0$，$y\vert_{x=1}=a+b+c+d=-
 
 \textbf{例题：}求$y=\sin x$在$x=\dfrac{\pi}{4}$对应的曲率
 
-$y'=\cos x$，$y'(\dfrac{\pi}{4})=\dfrac{\sqrt{2}}{2}$。
+解：$y'=\cos x$，$y'(\dfrac{\pi}{4})=\dfrac{\sqrt{2}}{2}$。
 
 $y''=-\sin x$，$y''(\dfrac{\pi}{4})=-\dfrac{\sqrt{2}}{2}$。
 
@@ -413,7 +413,7 @@ $\therefore k=\dfrac{\dfrac{\sqrt{2}}{2}}{\dfrac{3}{2}\cdot\sqrt{\dfrac{3}{2}}}=
 
 \textbf{例题：}求$y=x^2-4x+11$曲率最大值所在的点。
 
-简单得$y'=2x-4$，$y''=2$。
+解：简单得$y'=2x-4$，$y''=2$。
 
 曲率为$\dfrac{2}{[1+(2x-4)^2]^{\frac{3}{2}}}$。
 

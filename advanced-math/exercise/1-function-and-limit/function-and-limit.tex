@@ -55,7 +55,7 @@
 
 \textbf{例题：}证明多项式$f(x)=x^3-3x+a$在$[0,1]$上不可能有两个零点。
 
-假设$f(x)=x^3-3x+a$在$[0,1]$有两个零点$x_1$和$x_2$，其中$x_1<x_2$。
+证明：假设$f(x)=x^3-3x+a$在$[0,1]$有两个零点$x_1$和$x_2$，其中$x_1<x_2$。
 
 因为$f(x)=x^3-3x+a$在$[0,1]$内连续，所以$f(x)=x^3-3x+a$在$[0,1]$内可导。
 
@@ -67,7 +67,7 @@
 
 \textbf{例题：}设$a_0+\dfrac{a_1}{2}+\cdots+\dfrac{a_n}{n+1}=0$，证明多项式$f(x)=a_0+a_1x+\cdots+a_nx^n$在$(0,1)$中至少有一个零点。
 
-因为所要证明零点，所以一定使用罗尔定理。所给出的约束参数式子$a_0+\dfrac{a_1}{2}+\cdots+\dfrac{a_n}{n+1}=0$与所求$f(x)$之间存在一个关系。
+证明：因为所要证明零点，所以一定使用罗尔定理。所给出的约束参数式子$a_0+\dfrac{a_1}{2}+\cdots+\dfrac{a_n}{n+1}=0$与所求$f(x)$之间存在一个关系。
 
 设$F(x)=a_0x+a_1\dfrac{x^2}{2}+\cdots+a_n\dfrac{x^{n+1}}{n+1}$，$F'(x)=a_0+a_1x+\cdots+a_nx^n=f(x)$。
 
@@ -85,7 +85,7 @@
 
 \textbf{例题：}设$a>b>0$，证明：$\dfrac{a-b}{a}<\ln\dfrac{a}{b}<\dfrac{a-b}{b}$。
 
-因为$\ln\dfrac{a}{b}=\ln a-\ln b$，所以令$f(x)=\ln x$。
+证明：因为$\ln\dfrac{a}{b}=\ln a-\ln b$，所以令$f(x)=\ln x$。
 
 所以根据拉格朗日中值定理：$\ln a-\ln b=f'(\xi)(a-b)$（$\xi\in(b,a)$）。
 
@@ -103,7 +103,7 @@
 
 \textbf{例题：}当$x>1$时，证明$e^x>ex$。
 
-题目中没有差式，所以需要选择一个函数作为基准函数，里面有一个指数函数和一个幂函数，所以选择$e^x$作为基准函数。
+证明：题目中没有差式，所以需要选择一个函数作为基准函数，里面有一个指数函数和一个幂函数，所以选择$e^x$作为基准函数。
 
 然后选择一个常数作为$b$值，可以先选一个1作为$b$值：$f(x)-f(1)=f'(\xi)(x-1)$。
 
@@ -115,7 +115,7 @@
 
 \textbf{例题：}设$0<a<b$，函数$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明存在一点$\xi\in(a,b)$使得$f(b)-f(a)=\xi f'(\xi)\ln\dfrac{b}{a}$。
 
-由对数函数的特性可以知道$\dfrac{b}{a}=\ln b-\ln a$，所以可以令$F(x)=\ln x$，所以$F'(x)=\dfrac{1}{x}$。
+证明：由对数函数的特性可以知道$\dfrac{b}{a}=\ln b-\ln a$，所以可以令$F(x)=\ln x$，所以$F'(x)=\dfrac{1}{x}$。
 
 $f(b)-f(a)=\xi f'(\xi)\ln\dfrac{b}{a}=\dfrac{f(b)-f(a)}{\ln b-\ln a}=\dfrac{f'(\xi)}{\dfrac{1}{\xi}}\dfrac{f(b)-f(a)}{F(b)-F(a)}=\dfrac{f'(\xi)}{F'(\xi)}$。
 
@@ -137,11 +137,11 @@ $f(b)-f(a)=\xi f'(\xi)\ln\dfrac{b}{a}=\dfrac{f(b)-f(a)}{\ln b-\ln a}=\dfrac{f'(\
 
 \textbf{例题：}求$\lim\limits_{x\to\infty}\left(\dfrac{3+x}{6+x}\right)^{\frac{x-1}{2}}$。\medskip
 
-$=\lim\limits_{x\to\infty}\left(1-\dfrac{3}{6+3}\right)^{\frac{6+x}{-3}\cdot\frac{-3}{6+x}\cdot\frac{x-1}{2}}=\lim\limits_{x\to\infty}e^{\frac{-3}{6+x}\cdot\frac{x-1}{2}}=\lim\limits_{x\to\infty}e^{-\frac{3}{2}\cdot\frac{x-1}{x+6}}=e^{-\frac{3}{2}}$。\medskip
+解：$=\lim\limits_{x\to\infty}\left(1-\dfrac{3}{6+3}\right)^{\frac{6+x}{-3}\cdot\frac{-3}{6+x}\cdot\frac{x-1}{2}}=\lim\limits_{x\to\infty}e^{\frac{-3}{6+x}\cdot\frac{x-1}{2}}=\lim\limits_{x\to\infty}e^{-\frac{3}{2}\cdot\frac{x-1}{x+6}}=e^{-\frac{3}{2}}$。\medskip
 
 \textbf{例题：}求$\lim\limits_{x\to\infty}\left(\dfrac{2x+3}{2x+1}\right)^{x+1}$。\medskip
 
-$=\lim\limits_{x\to\infty}\left(\dfrac{2x+3}{2x+1}\right)^x\cdot\dfrac{2x+3}{2x+1}=\lim\limits_{x\to\infty}\left(\dfrac{2x+3}{2x+1}\right)^x$\medskip
+解：$=\lim\limits_{x\to\infty}\left(\dfrac{2x+3}{2x+1}\right)^x\cdot\dfrac{2x+3}{2x+1}=\lim\limits_{x\to\infty}\left(\dfrac{2x+3}{2x+1}\right)^x$\medskip
 
 $=\lim\limits_{x\to\infty}\left(\dfrac{1+\dfrac{3}{2x}}{1+\dfrac{1}{2x}}\right)^x=\lim\limits_{x\to\infty}\dfrac{\left(1+\dfrac{3}{2x}\right)^x}{\left(1+\dfrac{1}{2x}\right)^x}$
 
@@ -165,7 +165,7 @@ $=\lim\limits_{x\to\infty}\dfrac{\left[\left(1+\dfrac{3}{2x}\right)^{\frac{2x}{3
 
 \textbf{例题：}求极限$\lim\limits_{x\to 0}x\left[\dfrac{10}{x}\right]$，其中$[\cdot]$为取整符号。
 
-取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
+解：取整函数公式：$x-1<[x]\leqslant x$，所以$\dfrac{10}{x}-1<\left[\dfrac{10}{x}\right]\leqslant\dfrac{10}{x}$。
 
 当$x>0$时，$x\to 0^+$，两边都乘以10，$10-x<x\cdot\left[\dfrac{10}{x}\right]\leqslant x\cdots\dfrac{10}{x}=10$，而左边在$x\to 0^+$时极限也为10，所以夹逼准则，中间$x\cdot\left[\dfrac{10}{x}\right]$极限也为10。\medskip
 
@@ -181,7 +181,7 @@ $\therefore \lim\limits_{x\to 0}x\left[\dfrac{10}{x}\right]=10$。
 
 \textbf{例题：}求极限$\lim\limits_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\right)$。\medskip
 
-因为式子不算非常复杂，其实也可以通过洛必达法则来完成，但是求导会很复杂。而$\arctan x$可以认定为$f(x)$。
+解：因为式子不算非常复杂，其实也可以通过洛必达法则来完成，但是求导会很复杂。而$\arctan x$可以认定为$f(x)$。
 
 从而$\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}$为$f(\dfrac{2}{n})-f(\dfrac{2}{n+1})=f'(\xi)\left(\dfrac{2}{n}-\dfrac{2}{n+1}\right)$。
 
@@ -205,7 +205,7 @@ $\therefore\lim\limits_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}
 
 如果使用洛必达法则，则会得到结果为1，这是错误的，因为分子在$x\to 1$时结果为常数1。正确的计算方式：
 
-$=\lim\limits_{x\to 1}\dfrac{1}{(x-1)^2}=\infty$。
+解：$=\lim\limits_{x\to 1}\dfrac{1}{(x-1)^2}=\infty$。
 
 \subsubsection{泰勒公式}
 
@@ -215,9 +215,9 @@ $=\lim\limits_{x\to 1}\dfrac{1}{(x-1)^2}=\infty$。
 
 \textbf{例题：}求极限$\lim\limits_{x\to 0}\dfrac{\arcsin x-\arctan x}{\sin x-\tan x}$。\medskip
 
-分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开：
+分析：该题目使用洛必达法则会比较麻烦且难以计算，所以先考虑是否能用泰勒展开。
 
-$x\to 0$，$\sin x=x-\dfrac{1}{6}x^3+o(x^3)$，$\tan x=x+\dfrac{1}{3}x^3+o(x^3)$，$\arcsin x=x+\dfrac{1}{6}x^3+o(x^3)$，$\arctan x=x-\dfrac{1}{3}x^3+o(x^3)$。
+解：$x\to 0$，$\sin x=x-\dfrac{1}{6}x^3+o(x^3)$，$\tan x=x+\dfrac{1}{3}x^3+o(x^3)$，$\arcsin x=x+\dfrac{1}{6}x^3+o(x^3)$，$\arctan x=x-\dfrac{1}{3}x^3+o(x^3)$。
 
 $\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac{1}{2}x^3+o(x^3)$
 
@@ -236,7 +236,7 @@ $\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)
 
 注意在积或商的时候不能把对应的部分替换为0，如分母部分的$[\ln(1-x)+\ln(1+x)]$就无法使用$\ln(1+x)\sim x$替换为$-x+x$，这样底就是0了，无法求得最后的极限。
 
-这时可以尝试变形，如对数函数相加等于对数函数内部式子相乘：$\ln(1-x)+\ln(1+x)=\ln(1-x^2)\sim-x^2$。
+解：这时可以尝试变形，如对数函数相加等于对数函数内部式子相乘：$\ln(1-x)+\ln(1+x)=\ln(1-x^2)\sim-x^2$。
 
 \subsubsection{指数法则}
 
@@ -246,19 +246,19 @@ $\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)
 
 \textbf{例题：}求$\lim\limits_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}$。
 
-$\lim\limits_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}=e^{\lim\limits_{x\to+\infty}\frac{\ln(x+\sqrt{1+x^2})}{x}} \left(\ln(x+\sqrt{1+x^2})'=\dfrac{1}{\sqrt{1+x^2}}\right)$\medskip
+解：$\lim\limits_{x\to+\infty}(x+\sqrt{1+x^2})^{\frac{1}{x}}=e^{\lim\limits_{x\to+\infty}\frac{\ln(x+\sqrt{1+x^2})}{x}} \left(\ln(x+\sqrt{1+x^2})'=\dfrac{1}{\sqrt{1+x^2}}\right)$\medskip
 
 $=e^{\lim\limits_{x\to+\infty}\frac{1}{\sqrt{1+x^2}}}=e^0=1$
 
 \textbf{例题：}求$\lim\limits_{x\to 0}\left(\dfrac{a^x+b^x+c^x}{3}\right)^{\frac{1}{x}}(a>0,b>0,c>0)$。\medskip
 
-$=e^{\lim\limits_{x\to 0}\frac{\ln\left(\frac{a^x+b^x+c^x}{3}\right)}{x}}=e^{\lim\limits_{x\to 0}\frac{\ln(a^x+b^x+c^x)-\ln 3}{x}}=e^{\lim\limits_{x\to 0}\frac{a^x\ln a+b^x\ln b+c^x\ln c}{a^x+b^x+c^x}}$（洛必达法则）
+解：$=e^{\lim\limits_{x\to 0}\frac{\ln\left(\frac{a^x+b^x+c^x}{3}\right)}{x}}=e^{\lim\limits_{x\to 0}\frac{\ln(a^x+b^x+c^x)-\ln 3}{x}}=e^{\lim\limits_{x\to 0}\frac{a^x\ln a+b^x\ln b+c^x\ln c}{a^x+b^x+c^x}}$（洛必达法则）
 
 $=e^{\lim\limits_{x\to 0}\frac{\ln a+\ln b+\ln c}{1+1+1}}=e^{\lim\limits_{x\to 0}\frac{\ln(abc)}{3}}=\sqrt[3]{abc}$。\medskip
 
 \textbf{例题：}求$\lim\limits_{n\to\infty}n\left[\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}-\sqrt{e}\right]$。
 
-首先对于幂指函数需要取指数，所以$\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}=e^{\frac{n}{2}\ln(1+\frac{1}{n})}$。\medskip
+解：首先对于幂指函数需要取指数，所以$\left(1+\dfrac{1}{n}\right)^{\frac{n}{2}}=e^{\frac{n}{2}\ln(1+\frac{1}{n})}$。\medskip
 
 而后面的多一个$\sqrt{e}$导致整个式子变为一个复杂的式子，而与$e^x$相关的是$e^x-1\sim x$。
 
@@ -276,7 +276,7 @@ $=\dfrac{e^{\frac{1}{2}}}{2}\lim\limits_{n\to\infty}\dfrac{\dfrac{1}{n}-\dfrac{1
 
 \textbf{例题：}求极限$\lim\limits_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。\medskip
 
-$\lim\limits_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)=\lim\limits_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)$ \medskip
+解：$\lim\limits_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)=\lim\limits_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{\sin^2x\cdot x^2} (\sin x\sim x)$ \medskip
 
 $=\lim\limits_{x\to 0}\dfrac{x^2-\sin^2x\cos^2x}{x^4} (\sin x\cos x\sim\dfrac{1}{2}\sin 2x)=\lim\limits_{x\to 0}\dfrac{x^2-\dfrac{1}{4}\sin^22x}{x^4}$ \medskip
 
@@ -294,9 +294,7 @@ $=\lim\limits_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2}=\dfrac{1}{6}\l
 
 \textbf{例题：}求$\lim\limits_{x\to 4}\dfrac{x^2-6x+8}{x^5-5x+4}$。
 
-需要先提取公因子：
-
-$=\lim\limits_{x\to 4}\dfrac{(x-2)(x-4)}{(x-1)(x-4)}=\lim\limits_{x\to 4}\dfrac{x-2}{x-1}=\dfrac{2}{3}$。
+解：需要先提取公因子：$=\lim\limits_{x\to 4}\dfrac{(x-2)(x-4)}{(x-1)(x-4)}=\lim\limits_{x\to 4}\dfrac{x-2}{x-1}=\dfrac{2}{3}$。
 
 （当然可以使用洛必达法则得到极限为$\lim\limits_{x\to 4}\dfrac{2x-6}{2x-5}=\lim\limits_{x\to 4}\dfrac{8-6}{8-5}$）
 
@@ -306,7 +304,7 @@ $=\lim\limits_{x\to 4}\dfrac{(x-2)(x-4)}{(x-1)(x-4)}=\lim\limits_{x\to 4}\dfrac{
 
 \textbf{例题：}求$\lim\limits_{x\to-\infty}\left[\sqrt{4x^2+x}\ln\left(2+\dfrac{1}{x}\right)+2\ln 2x\right]$。\medskip
 
-题目的形式为$\infty-\infty$，所以必须使用后面的倒代换转换为商的形式。\medskip
+解：题目的形式为$\infty-\infty$，所以必须使用后面的倒代换转换为商的形式。\medskip
 
 $=\lim\limits_{x\to-\infty}-x\left[\sqrt{4+\dfrac{1}{x}}\ln\left(2+\dfrac{1}{x}\right)-2\ln 2\right]$。 \medskip
 
@@ -328,7 +326,7 @@ $=\lim\limits_{t\to 0^-}\left(\dfrac{1}{2}\cdot\dfrac{\ln(2+t)}{\sqrt{t+4}}+\dfr
 
 \textbf{例题：}求极限$\lim\limits_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
 
-首先定性分析：$\lim\limits_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
+解：首先定性分析：$\lim\limits_{x\to-\infty}x\cdot(\sqrt{x^2+100}+x)$。
 
 在$x\to-\infty$趋向时，$x$就趋向无穷大。
 
@@ -342,7 +340,7 @@ $\xRightarrow{\text{令}x=-t}\lim\limits_{t\to+\infty}\dfrac{-100t}{\sqrt{t^2+10
 
 \textbf{例题：}求$\lim\limits_{x\to 0}\dfrac{\sqrt{1+\tan x}-\sqrt{1+\sin x}}{x\sqrt{1+\sin^2x}-x}$。
 
-$=\lim\limits_{x\to 0}\sqrt{1+\tan x}-\sqrt{1+\sin x}\cdot\lim\limits_{x\to 0}\dfrac{1}{x\sqrt{1+\sin^2x}-x}$\medskip
+解：$=\lim\limits_{x\to 0}\sqrt{1+\tan x}-\sqrt{1+\sin x}\cdot\lim\limits_{x\to 0}\dfrac{1}{x\sqrt{1+\sin^2x}-x}$\medskip
 
 $=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{\sqrt{1+\tan x}+\sqrt{1+\sin x}}\cdot\lim\limits_{x\to 0}\dfrac{x\sqrt{1+\sin^2x}+x}{x^2(1+\sin^2x)-x^2}$\medskip
 
@@ -358,7 +356,7 @@ $=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{x\sin^2x}=\lim\limits_{x\to 0}\dfrac
 
 \textbf{例题：}求极限$\lim\limits_{x\to 1^-}\ln x\ln(1-x)$。
 
-当$x\to 1^-$时，$\ln x$趋向0，$\ln(1-x)$趋向$-\infty$。
+解：当$x\to 1^-$时，$\ln x$趋向0，$\ln(1-x)$趋向$-\infty$。
 
 又$x\to 0$，$\ln(1+x)\sim x$，所以$x\to 1$，$\ln x\sim x-1$：
 
@@ -374,7 +372,7 @@ $=-\lim\limits_{t\to 0^+}\dfrac{\ln t}{\dfrac{1}{t}}=-\lim\limits_{t\to 0^+}\dfr
 
 \textbf{例题：}求极限$\lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}$ \medskip
 
-$\lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}=\lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}\cdot 2x^{-3}}{100x^{99}}=\lim\limits_{x\to 0}\dfrac{1}{50}\lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{102}}$
+解：$\lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{100}}=\lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}\cdot 2x^{-3}}{100x^{99}}=\lim\limits_{x\to 0}\dfrac{1}{50}\lim\limits_{x\to 0}\dfrac{e^{-\frac{1}{x^2}}}{x^{102}}$
 
 \medskip
 
@@ -390,7 +388,7 @@ $=\lim\limits_{t\to+\infty}\dfrac{50!}{e^t}=0$
 
 \textbf{例题：}求极限$\lim\limits_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]$。
 
-该式子含有分数，所以尝试使用倒数代换：\medskip
+解：该式子含有分数，所以尝试使用倒数代换：\medskip
 
 $\lim\limits_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]\xRightarrow{\text{令}x=\frac{1}{t}}\lim\limits_{t\to 0^+}\left(\dfrac{e^t-1}{t^2}-\dfrac{1}{t}\right)=\lim\limits_{t\to 0^+}\dfrac{e^t-1-t}{t^2}$
 
@@ -408,7 +406,7 @@ $\xRightarrow{\text{泰勒展开}e^t}\lim\limits_{t\to 0^+}\dfrac{\dfrac{1}{2}t^
 
 \textbf{例题：}求$\lim\limits_{n\to\infty}\dfrac{(n+1)(n+2)(n+3)\cdots(n+6)}{6n^6}$。
 
-需要将分子和分母都拆为6项：
+解：需要将分子和分母都拆为6项：
 
 $=\dfrac{1}{6}\lim\limits_{n\to\infty}\dfrac{n+1}{n}\times\dfrac{n+2}{n}\times\cdots\dfrac{n+6}{n}=\dfrac{1}{6}\lim\limits_{n\to\infty}(1+\dfrac{1}{n})(1+\dfrac{2}{n})\cdots(1+\dfrac{6}{n})=\dfrac{1}{6}$。
 
@@ -420,7 +418,7 @@ $=\dfrac{1}{6}\lim\limits_{n\to\infty}\dfrac{n+1}{n}\times\dfrac{n+2}{n}\times\c
 
 \textbf{例题：}求极限$\lim\limits_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}$。（$n\in N^+$）
 
-这里可以使用等价无穷小$e^x-1\sim x$。
+解：这里可以使用等价无穷小$e^x-1\sim x$。
 
 $\lim\limits_{x\to 0}\left(\dfrac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)^{\frac{e}{x}}=e^{\lim\limits_{x\to 0}\frac{e}{x}\ln\left(\frac{e^x+e^{2x}+\cdots+e^{nx}}{n}\right)}$
 
@@ -430,7 +428,7 @@ $=e^{\frac{e}{n}\lim\limits_{x\to 0}\left(\frac{e^x-1}{x}+\frac{e^{2x}-1}{x}+\cd
 
 \textbf{例题：}求$\lim\limits_{x\to 0}\dfrac{1-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{\ln\cos x}$\medskip
 
-可以使用$\cos x-1\sim\dfrac{x^2}{2}$。\medskip
+解：可以使用$\cos x-1\sim\dfrac{x^2}{2}$。\medskip
 
 $\lim\limits_{x\to 0}\dfrac{1-\cos x\sqrt{\cos 2x}\sqrt[3]{\cos 3x}}{\ln\cos x}$
 
@@ -500,7 +498,7 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 \textbf{例题：}已知$\lim\limits_{x\to 0}\dfrac{\ln(1-x)+xf(x)}{x^2}=0$，求$\lim\limits_{x\to 0}\dfrac{f(x)-1}{x}$。\medskip
 
-令目标$\dfrac{f(x)-1}{x}=t$，$\therefore f(x)=tx+1$。\medskip
+解：令目标$\dfrac{f(x)-1}{x}=t$，$\therefore f(x)=tx+1$。\medskip
 
 $\lim\limits_{x\to 0}\dfrac{\ln(1-x)+xf(x)}{x^2}=\lim\limits_{x\to 0}\dfrac{\ln(1-x)+tx^2+x}{x^2} (\text{泰勒展开})$\medskip
 
@@ -512,7 +510,7 @@ $\therefore\lim\limits_{x\to 0}t=\lim\limits_{x\to 0}\dfrac{f(x)-1}{x}=\dfrac{1}
 
 \textbf{例题：}如果$\lim\limits_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim\limits_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
 
-由$\lim\limits_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$，而目标是$x^3$，所以需要变形：
+解：由$\lim\limits_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$，而目标是$x^3$，所以需要变形：
 
 $\lim\limits_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$
 
@@ -532,7 +530,7 @@ $\lim\limits_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim\limits_{x\to x_
 
 \textbf{例题：}如果$\lim\limits_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim\limits_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
 
-由$\lim\limits_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$脱帽：$\dfrac{x\sin x+f(x)}{x^4}=A+\alpha$。
+解：由$\lim\limits_{x\to 0}\dfrac{x\sin x+f(x)}{x^4}=A$脱帽：$\dfrac{x\sin x+f(x)}{x^4}=A+\alpha$。
 
 得到：$f(x)=Ax^4+\alpha\cdot x^4-(x-\sin x)$。
 
@@ -552,7 +550,7 @@ $\therefore \lim\limits_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
 
 \textbf{例题：}设$\lim\limits_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2$，求常数a，b。
 
-根据泰勒展开式：$x\to 0,\ln(1+x)=x-\dfrac{x^2}{x}+o(x^2)$，$x-\ln(1+x)\sim\dfrac{1}{2}x^2\sim 1-\cos x$。
+解：根据泰勒展开式：$x\to 0,\ln(1+x)=x-\dfrac{x^2}{x}+o(x^2)$，$x-\ln(1+x)\sim\dfrac{1}{2}x^2\sim 1-\cos x$。
 
 $\lim\limits_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2$
 
@@ -568,7 +566,7 @@ $\therefore a=1;b=-\dfrac{5}{2}$。
 
 \textbf{例题：}确定常数$a$和$b$，使得$f(x)=x-(a+b\cos x)\sin x$当$x\to 0$时关于$x$的5阶等价无穷小。
 
-使用泰勒展开展开到五阶：
+解：使用泰勒展开展开到五阶：
 
 $f(x)=x-(a+b\cos x)\sin x$
 
@@ -618,7 +616,7 @@ $\therefore a=-1,b=\dfrac{4}{3}$。
 
 \textbf{例题：}设$a$为常数，$\lim\limits_{x\to 0}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cdot\arctan\dfrac{1}{x}\right)$存在，求出极限值。
 
-因为求$x\to 0$，所以需要分两种情况讨论：
+解：因为求$x\to 0$，所以需要分两种情况讨论：
 
 \medskip
 
@@ -647,7 +645,7 @@ $\lim\limits_{x\to 0^-}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cd
     e^{-\frac{1}{2}}, & & x\leqslant 0
 \end{array}\right.$在$x=0$处的连续性。
 
-因为$\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^+}\left[\dfrac{(1+x)^{\frac{1}{x}}}{e}\right]^{\frac{1}{x}}=e^{\lim\limits_{x\to 0^+}\frac{1}{x}\ln[\frac{(1+x)^{\frac{1}{x}}}{e}]}$。
+解：因为$\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^+}\left[\dfrac{(1+x)^{\frac{1}{x}}}{e}\right]^{\frac{1}{x}}=e^{\lim\limits_{x\to 0^+}\frac{1}{x}\ln[\frac{(1+x)^{\frac{1}{x}}}{e}]}$。
 
 又$\lim\limits_{x\to 0^+}\dfrac{1}{x}\ln\left[\dfrac{(1+x)^{\frac{1}{x}}}{e}\right]=\lim\limits_{x\to 0^+}\dfrac{1}{x}\left[\dfrac{1}{x}\ln(1+x)-1\right]=\lim\limits_{x\to 0^+}\dfrac{\ln(1+x)-x}{x^2}$
 
@@ -663,7 +661,7 @@ $\therefore\lim\limits_{x\to 0^+}f(x)=e^{-\frac{1}{2}}$。
 
 \textbf{例题：}函数在$f(x)$在$x=1$处连续，且$f(1)=1$，求$\lim\limits_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$。
 
-根据题目，所求的$\lim\limits_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$中，唯一未知的且会随着$x\to+\infty$而变换就是$f\left(x^{\frac{1}{x}}\right)$。如果我们可以求出这个值就可以了。
+解：根据题目，所求的$\lim\limits_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$中，唯一未知的且会随着$x\to+\infty$而变换就是$f\left(x^{\frac{1}{x}}\right)$。如果我们可以求出这个值就可以了。
 
 而我们对于$f(x)$的具体的关系是未知的，只知道$f(1)=1$。那么先需要考察$\lim\limits_{x\to+\infty}x^{\frac{1}{x}}$的整数最大值。
 
@@ -679,7 +677,7 @@ $\therefore\lim\limits_{x\to+\infty}f(x^{\frac{1}{x}})=f(1)=1$。
 
 \textbf{例题：}数列$\{a_n\}$满足$a_0=0,a_1=1,2a_{n+1}=a_n+a_{n-1},n=1,2,\cdots$。计算$\lim\limits_{n\to\infty}a_n$。
 
-首先看题目，给出的递推式设计到二阶递推，即存在三个数列变量，所以我们必须先求出对应的数列表达式。因为这个表达式涉及三个变量，所以尝试对其进行变型：
+解：首先看题目，给出的递推式设计到二阶递推，即存在三个数列变量，所以我们必须先求出对应的数列表达式。因为这个表达式涉及三个变量，所以尝试对其进行变型：
 
 $a_{n+1}-a_n=\dfrac{a_{n-1}-a_n}{2}=\left(-\dfrac{1}{2}\right)(a_n-a_{n-1})=\left(-\dfrac{1}{2}\right)^2(a_{n-1}-a_{n-2})$
 
@@ -705,7 +703,7 @@ $\therefore\lim\limits_{n\to\infty}a_n=\dfrac{2}{3}$
 
 \textbf{例题：}$x_0=0$，$x_n=\dfrac{1+2x_{n-1}}{1+x_{n-1}}(n\in N*)$，求$\lim\limits_{n\to\infty}x_n$。\medskip
 
-首先应该知道数列的趋向都是趋向正无穷。
+解：首先应该知道数列的趋向都是趋向正无穷。
 
 然后对关系式进行变形：$x_n=\dfrac{1+2x_{n-1}}{1+x_{n-1}}=1+\dfrac{x_{n-1}}{1+x_{n-1}}=2-\dfrac{1}{1+x_{n-1}}$。
 
@@ -733,7 +731,7 @@ $\therefore\lim\limits_{n\to\infty}x_n=\dfrac{1+\sqrt{5}}{2}$。
 
 \textbf{例题：}求出数列$\sqrt{2}$，$\sqrt{2+\sqrt{2}}$，$\sqrt{2+\sqrt{2+\sqrt{2}}}$$\cdots$的极限。
 
-根据数列样式，无法通过普通的通项公式来表达，所以需要考虑使用递推式来表示：$x_{n+1}=\sqrt{2+x_n}$。
+解：根据数列样式，无法通过普通的通项公式来表达，所以需要考虑使用递推式来表示：$x_{n+1}=\sqrt{2+x_n}$。
 
 首先证明有界性：
 

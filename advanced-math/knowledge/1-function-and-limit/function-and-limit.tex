@@ -83,7 +83,7 @@ $y=f(x)$，定义域为$D$，值域为$R$，若对于每一个$y\in R$，必然�
 
 \textbf{例题：}设$f(x)=x^2$，$f[\psi(x)]=-x^2+2x+3$，且$\psi(x)\geqslant 0$，求$\psi(x)$以及定义域与值域。
 
-广义化：$\because f(x)=x^2$，$\therefore f[\psi(x)]=\psi^2(x)=-x^2+2x+3$
+解：广义化：$\because f(x)=x^2$，$\therefore f[\psi(x)]=\psi^2(x)=-x^2+2x+3$
 
 又$\because\psi(x)\geqslant 0$， $\therefore\sqrt{\psi^2(x)}=\sqrt{-x^2+2x+3}=\psi(x)\geqslant 0$
 
@@ -105,7 +105,7 @@ $\therefore\psi(x)\in[0,2]$
 
 \textbf{例题：}求函数$y=f(x)=\ln(x+\sqrt{x^2+1})$的反函数$f^{-1}(x)$的表达式及其定义域
 
-首先研究$f(x)$本身，因为$\ln(x)$的定义域必然要求大于0，而任意实数x都有下面不等式成立：
+解：首先研究$f(x)$本身，因为$\ln(x)$的定义域必然要求大于0，而任意实数x都有下面不等式成立：
 
 $x+\sqrt{x^2+1}>x+\vert x\vert \geqslant 0$，所以$x\in R$。
 
@@ -418,7 +418,7 @@ $\therefore\exists N>0$，当$n>N$时，$\vert a_n-A\vert<\dfrac{A}{2}\Rightarro
 
 \textbf{例题：}求$\lim\limits_{n\to\infty}\left(n\tan\dfrac{1}{n}\right)^{n^2}$（$n\in N^+$）。
 
-$\because \lim\limits_{x\to 0}\left(\dfrac{\tan x}{x}\right)^{\frac{1}{x^2}}$
+解：$\because \lim\limits_{x\to 0}\left(\dfrac{\tan x}{x}\right)^{\frac{1}{x^2}}$
 
 又$u^v=e^{v\ln u}$
 
@@ -634,7 +634,7 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
 
 \textbf{例题：}若$\lim\limits_{n\to\infty}(a_n+b_n)=1$且$\lim\limits_{n\to\infty}(a_n-b_n)=3$，计算$\lim\limits_{n\to\infty}a_n$与$\lim\limits_{n\to\infty}b_n$。
 
-首先是不能通过运算法则第一条将两个条件直接加减的，因为不能保证两个极限是否都存在。
+解：首先是不能通过运算法则第一条将两个条件直接加减的，因为不能保证两个极限是否都存在。
 
 所以必须先令$u_n=a_n+b_n$，$v_n=a_n-b_n$，所以$\lim\limits_{n\to\infty}u_n=1$，$\lim\limits_{n\to\infty}v_n=3$。
 
@@ -712,7 +712,7 @@ $\therefore\vert x_n-a\vert<\varepsilon$。
 
 \textbf{例题：}求极限$\lim\limits_{n\to\infty}\left(\dfrac{n}{n^2+1}+\dfrac{n}{n^2+2}+\cdots+\dfrac{n}{n^2+n}\right)$。
 
-使用夹逼准则：$\dfrac{n^2}{n^2+n}<\sum_{i=1}^n\dfrac{n}{n^2+i}<\dfrac{n^2}{n^2+1}$。
+解：使用夹逼准则：$\dfrac{n^2}{n^2+n}<\sum_{i=1}^n\dfrac{n}{n^2+i}<\dfrac{n^2}{n^2+1}$。
 
 又$\lim\limits_{n\to\infty}\dfrac{n^2}{n^2+1}=\lim\limits_{n\to\infty}\dfrac{n^2/n^2}{n^2/n^2+1/n^2}=\lim\limits_{n\to\infty}\dfrac{1}{1+\dfrac{1}{n^2}}=1$。
 
@@ -734,7 +734,7 @@ $\therefore\vert x_n-a\vert<\varepsilon$。
 
 \textbf{例题：}求$\lim\limits_x\to+\infty(2+\sin x)^{\frac{1}{x}}$。
 
-$\because \sin x\in[-1,1]$，$\therefore 1\leqslant 2+\sin x\leqslant 3$。
+解：$\because \sin x\in[-1,1]$，$\therefore 1\leqslant 2+\sin x\leqslant 3$。
 
 $\therefore 1^{\frac{1}{x}}\leqslant\left(2+\sin x\right)^{\frac{1}{x}}\leqslant 3^{\frac{1}{x}}$。
 
@@ -759,7 +759,7 @@ $\therefore 1^{\frac{1}{x}}\leqslant\left(2+\sin x\right)^{\frac{1}{x}}\leqslant
 
 \textbf{例题：}已知$a_1=a>0$，证明$a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{2}{a_n}\right)$的极限存在并求出。
 
-$\because a_1=a>0$，且递推式中没有负数与减的操作，所以$a_n>0$。
+解：$\because a_1=a>0$，且递推式中没有负数与减的操作，所以$a_n>0$。
 
 由重要不等式$\dfrac{a+b}{2}\geqslant\sqrt{ab}$，所以$a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{2}{a_n}\right)\geqslant\sqrt{a_n\cdot\dfrac{2}{a_n}})=\sqrt{2}$
 
@@ -777,7 +777,7 @@ $\therefore a_{n+1}\leqslant a_n$，得到数列单调减少。
 
 \textbf{例题：}求证$x_{n+1}=\sin x_n$极限存在，$0<x_1<\pi$。
 
-由三角函数中的不等式$\sin x<x$。
+解：由三角函数中的不等式$\sin x<x$。
 
 \ding{172}当$n=1$，$\because 0<x_1<\pi$，$\therefore 0<\sin x_1<1$，$\therefore 0<x_2=sin x_1<x<\pi$。
 
@@ -795,7 +795,7 @@ $\therefore\lim\limits_{n\to\infty}x_n=0$。
 
 \textbf{例题：}证明$a_n=\dfrac{1}{1^2}+\dfrac{1}{2^2}+\cdots+\dfrac{1}{n^2}$存在极限。
 
-因为是递推式，所以一般使用单调有界准则。
+证明：因为是递推式，所以一般使用单调有界准则。
 
 \ding{172}$a_{n+1}=\dfrac{1}{1^2}+\dfrac{1}{2^2}+\cdots+\dfrac{1}{n^2}+\dfrac{1}{(n+1)^2}$。
 
@@ -891,7 +891,7 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 \textbf{例题：}证明当$x\to 0$时，$\sqrt[n]{1+x}-1\sim\dfrac{1}{n}x$。
 
-证明$\sqrt[n]{1+x}-1\sim\dfrac{1}{n}x$就是证明$\lim\limits_{x\to 0}\dfrac{\sqrt[n]{1+x}-1}{x}\sim\dfrac{1}{n}$。
+证明：证明$\sqrt[n]{1+x}-1\sim\dfrac{1}{n}x$就是证明$\lim\limits_{x\to 0}\dfrac{\sqrt[n]{1+x}-1}{x}\sim\dfrac{1}{n}$。
 
 令$\sqrt[n]{1+x}-1=t$，则$1+x=(1+t)^n$，则$x=(1+t)^n-1$。
 
@@ -1022,18 +1022,18 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 \textbf{例题：}若$f(x)=\left\{
     \begin{array}{lcl}
-        2x+a, & & x\leqslant 0 \\
+    2x+a, & & x\leqslant 0 \\
         e^x(\sin x+\cos x), & & x>0
     \end{array} \right.
 $在$(-\infty,+\infty)$内连续，求$a$。
 
-因为连续，所以$f(0)=\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^-}f(x)$。
+解：因为连续，所以$f(0)=\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^-}f(x)$。
 
 $\therefore a=1$。
 
 \textbf{例题：}若函数$f(x)=\dfrac{\ln\vert x\vert}{\vert x-1\vert}\sin x$，则x的间断点类型是？\medskip
 
-由式子的分式部分可知有两个无定义的间断点：$x=0$，$x=1$。\medskip
+解：由式子的分式部分可知有两个无定义的间断点：$x=0$，$x=1$。\medskip
 
 $\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to 1}\dfrac{x-1}{\vert x-1\vert}\sin x=\left\{
     \begin{array}{lcl}
@@ -1090,7 +1090,7 @@ $\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim\li
 
 \textbf{例题：}证明方程$x=a\sin x+b(a>0,b>0)$中至少有一个正根，并且不超过$a+b$。
 
-令$f(x)=x-a\sin x-b$，其中$f(0)=-b<0$，$f(a+b)=a+b=a\sin(a+b)-b=a[1-\sin(a+b)]\geqslant 0$。
+证明：令$f(x)=x-a\sin x-b$，其中$f(0)=-b<0$，$f(a+b)=a+b=a\sin(a+b)-b=a[1-\sin(a+b)]\geqslant 0$。
 
 若$\sin(a+b)=1$，则根为$a$，结论成立。
 

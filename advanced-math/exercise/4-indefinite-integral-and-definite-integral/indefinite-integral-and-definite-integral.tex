@@ -41,7 +41,7 @@
 
 \textbf{例题：}汽车以20m/s的速度行驶，刹车后匀减速行驶了50m停止，求刹车加速度。
 
-已知题目含有两个变量：距离和时间，设距离为$s$，时间为$t$。
+解：已知题目含有两个变量：距离和时间，设距离为$s$，时间为$t$。
 
 因为汽车首先按20m/s匀速运动，所以$\dfrac{\textrm{d}s}{\textrm{d}t}\bigg\vert_{t=0}=20$，最开始距离为0，所以$s\vert_{t=0}=0$。
 
@@ -69,11 +69,13 @@
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x\ln x\ln\ln x}}$。 \medskip
 
-$=\displaystyle{\int\dfrac{\textrm{d}(\ln x)}{\ln x\ln\ln x}}=\displaystyle{\int\dfrac{\textrm{d}(\ln\ln x)}{\ln\ln x}}=\ln\vert\ln\ln x\vert+C$。\medskip
+解：$=\displaystyle{\int\dfrac{\textrm{d}(\ln x)}{\ln x\ln\ln x}}=\displaystyle{\int\dfrac{\textrm{d}(\ln\ln x)}{\ln\ln x}}=\ln\vert\ln\ln x\vert+C$。\medskip
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{10^{2\arccos x}}{\sqrt{1-x^2}}\,\textrm{d}x}$。
 
-$=-\displaystyle{\int10^{2\arccos x}\,\textrm{d}(\arccos x)}=-\dfrac{1}{2}\displaystyle{\int10^{2\arccos x}\,\textrm{d}(2\arccos x)}=-\dfrac{10^{2\arccos x}}{2\ln10}+C$。
+解：$=-\displaystyle{\int10^{2\arccos x}\,\textrm{d}(\arccos x)}=-\dfrac{1}{2}\displaystyle{\int10^{2\arccos x}\,\textrm{d}(2\arccos x)}$
+
+$=-\dfrac{10^{2\arccos x}}{2\ln10}+C$。
 
 \paragraph{积化和差} \leavevmode \medskip
 
@@ -81,7 +83,7 @@ $=-\displaystyle{\int10^{2\arccos x}\,\textrm{d}(\arccos x)}=-\dfrac{1}{2}\displ
 
 \textbf{例题：}求$\displaystyle{\int\sin2x\cos3x\,\textrm{d}x}$。
 
-$=\displaystyle{\int\cos3x\sin2x\,\textrm{d}x=\dfrac{1}{2}\int(\sin5x-\sin x)\,\textrm{d}x}$
+解：$=\displaystyle{\int\cos3x\sin2x\,\textrm{d}x=\dfrac{1}{2}\int(\sin5x-\sin x)\,\textrm{d}x}$
 
 $=\dfrac{1}{2}\int\sin5x\,\textrm{d}x-\dfrac{1}{2}\int\sin x\,\textrm{d}x=-\dfrac{1}{10}\cos5x+\dfrac{1}{2}\cos x+C$。
 
@@ -91,7 +93,9 @@ $=\dfrac{1}{2}\int\sin5x\,\textrm{d}x-\dfrac{1}{2}\int\sin x\,\textrm{d}x=-\dfra
 
 \textbf{例题：}$\displaystyle{\int\tan^3x\sec x\,\textrm{d}x}$。
 
-$=\displaystyle{\int(\sec^2x-1)}\tan x\sec x\,\textrm{d}x=\displaystyle{\int(\sec^2x-1)}\,\textrm{d}(\sec x)=\dfrac{1}{3}\sec^3x-\sec x+C$。
+解：$=\displaystyle{\int(\sec^2x-1)}\tan x\sec x\,\textrm{d}x=\displaystyle{\int(\sec^2x-1)}\,\textrm{d}(\sec x)$
+
+$=\dfrac{1}{3}\sec^3x-\sec x+C$。
 
 需要利用到有理积分的高阶多项式分配与低阶多项式因式分解。
 
@@ -101,7 +105,7 @@ $=\displaystyle{\int(\sec^2x-1)}\tan x\sec x\,\textrm{d}x=\displaystyle{\int(\se
 
 \textbf{例题：}求$\int(\arcsin x)^2\,\textrm{d}x$。
 
-令$\arcsin x=t$，$\therefore x=\sin t$，$\textrm{d}x=\cos t\,\textrm{d}t$。
+解：令$\arcsin x=t$，$\therefore x=\sin t$，$\textrm{d}x=\cos t\,\textrm{d}t$。
 
 $=\int t^2\cos t\,\textrm{d}t$。除了换元法还需要使用分部积分法，可以直接进行分部积分也可以使用下面讲到的分部积分拓展公式的表格法来计算，$\cos t$更难求导，所以对其积分，放在下面，$t^2$容易求导，所以对其求导，放在上面：\medskip
 
@@ -130,7 +134,7 @@ $\therefore=t^2\sin t-2t\cos t-\sin t+C=(\arcsin x)^2x+2\arcsin x\sqrt{1-x^2}-2x
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{1+\sqrt[3]{x+1}}}$。
 
-令$u=\sqrt[3]{x+1}$，从而$x=u^3-1$，$\textrm{d}x=3u^2\,\textrm{d}u$。
+解：令$u=\sqrt[3]{x+1}$，从而$x=u^3-1$，$\textrm{d}x=3u^2\,\textrm{d}u$。
 
 $=\displaystyle{\int\dfrac{3u^2}{1+u}\textrm{d}u=\int\dfrac{3u^2+3u-3u-3+3}{1+u}\textrm{d}u=\int\left(3u-3+\dfrac{3}{1+u}\right)\textrm{d}u}$
 
@@ -138,7 +142,9 @@ $=\dfrac{3}{2}u^2-3u+3\ln\vert1+u\vert+C=\dfrac{3}{2}\sqrt[3]{(x+1)^2}-3\sqrt[3]
 
 \textbf{例题：}求$\displaystyle{\int\sqrt{\dfrac{1-x}{1+x}}\dfrac{\textrm{d}x}{x}}$。\medskip
 
-令$u=\sqrt{\dfrac{1-x}{1+x}}$，$x=\dfrac{1-u^2}{1+u^2}$，$\textrm{d}x=\textrm{d}\left(\dfrac{1-u^2}{1+u^2}\right)=\dfrac{-2u(1+u^2)-2u(1-u^2)}{(1+u^2)^2}$
+解：令$u=\sqrt{\dfrac{1-x}{1+x}}$，$x=\dfrac{1-u^2}{1+u^2}$。
+
+$\therefore\textrm{d}x=\textrm{d}\left(\dfrac{1-u^2}{1+u^2}\right)=\dfrac{-2u(1+u^2)-2u(1-u^2)}{(1+u^2)^2}$
 
 $=\displaystyle{\int u\cdot\dfrac{1+u^2}{1-u^2}\cdot\dfrac{-4u}{(1+u^2)^2}\textrm{d}u=\int\dfrac{-4u^2}{(1-u)(1+u)(1+u^2)}\textrm{d}u}$
 
@@ -166,7 +172,7 @@ $=2\arctan\sqrt{\dfrac{1-x}{1+x}}+\ln\left\vert\dfrac{\sqrt{1+x}-\sqrt{1-x}}{\sq
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{3+\cos x}}$。
 
-令$u=\tan\dfrac{x}{2}$，从而$\cos x=\dfrac{1-u^2}{1+u^2}$：
+解：令$u=\tan\dfrac{x}{2}$，从而$\cos x=\dfrac{1-u^2}{1+u^2}$：
 
 $=\displaystyle{\int\dfrac{1}{3+\dfrac{1-u^2}{1+u^2}}\cdot\dfrac{2}{1+u^2}\textrm{d}u=\dfrac{1}{2+u^2}\textrm{d}u=\dfrac{1}{\sqrt{2}}\arctan\dfrac{u}{\sqrt{2}}+C}$
 
@@ -184,7 +190,7 @@ $=\dfrac{1}{\sqrt{2}}\arctan\dfrac{\tan\dfrac{x}{2}}{\sqrt{2}}+C$。
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{1+\sqrt{1-x^2}}}$。\medskip
 
-令$x=\sin t$（$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$），所以$\sqrt{1-x^2}=\cos t$，$\textrm{d}x=\cos t\,\textrm{d}t$，$t=\arcsin x$。
+解：令$x=\sin t$（$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$），所以$\sqrt{1-x^2}=\cos t$，$\textrm{d}x=\cos t\,\textrm{d}t$，$t=\arcsin x$。
 
 因为式子$\dfrac{1}{1+\sqrt{1-x^2}}>0$，单调递减，所以不用讨论正负号。
 
@@ -200,7 +206,7 @@ $=\arcsin x-\dfrac{x}{1+\sqrt{1-x^2}}+C$。
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{x^3+1}{(x^2+1)^2}\textrm{d}x}$。\medskip
 
-虽然本题目看着可以从分母解开平方，然后低阶分配，但是这分母是平方的式子很难分配，所以需要使用换元法。
+解：虽然本题目看着可以从分母解开平方，然后低阶分配，但是这分母是平方的式子很难分配，所以需要使用换元法。
 
 令$x=\tan t$，$t\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，$x^2+1=\sec^2t$，$\textrm{d}x=\sec^2t\,\textrm{d}t$。
 
@@ -224,7 +230,7 @@ $=\dfrac{1+x}{2(1+x^2)}+\dfrac{1}{2}\ln(1+x^2)+\dfrac{1}{2}\textrm{arctan}\,x+C$
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\sqrt{x^2-9}}{x}\textrm{d}x}$。
 
-令$x=3\sec t$。$\therefore\sqrt{x^2-9}=3\tan t$，$\textrm{d}x=3\sec t\tan t\,\textrm{d}t$。\medskip
+解：令$x=3\sec t$。$\therefore\sqrt{x^2-9}=3\tan t$，$\textrm{d}x=3\sec t\tan t\,\textrm{d}t$。\medskip
 
 因为式子$\dfrac{\sqrt{x^2-9}}{x}$的分子必然为为正，而对于分子在0两边的单调性不同，所以需要对$x$进行正负区分，又$x\in(-\infty,-3]\cup[3,+\infty)$，所以：
 
@@ -252,7 +258,7 @@ $=\sqrt{x^2-9}-3\arccos\dfrac{3}{-x}+C$。
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x+\sqrt{1-x^2}}}$。\medskip
 
-令$x=\sin t$，所以$\sqrt{1-x^2}=\cos t$，$\textrm{d}x=\cos t\,\textrm{d}t$。
+解：令$x=\sin t$，所以$\sqrt{1-x^2}=\cos t$，$\textrm{d}x=\cos t\,\textrm{d}t$。
 
 $\because x+\sqrt{1-x^2}$可能为正可能为负，正负时单调性不同，所以令$ x+\sqrt{1-x^2}=0$，即$\sin t=-\dfrac{\sqrt{2}}{2}$，从而$t\in(-\dfrac{\pi}{2},-\dfrac{\pi}{4})\cup(-\dfrac{\pi}{4},\dfrac{\pi}{2})$。
 
@@ -292,7 +298,7 @@ $I_1-I_2=\displaystyle{\int\dfrac{\cos t-\sin t}{\sin t+\cos t}\textrm{d}t=\int\
 
 \textbf{例题：}求$\int x^2\arctan x\,\textrm{d}x$。
 
-$=\dfrac{1}{3}\int\arctan x\,\textrm{d}(x^3)=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{3}\int x^3\,\textrm{d}(\arctan x)$
+解：$=\dfrac{1}{3}\int\arctan x\,\textrm{d}(x^3)=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{3}\int x^3\,\textrm{d}(\arctan x)$
 
 $=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{3}\displaystyle{\int\dfrac{x^3}{1+x^2}\textrm{d}x}=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{3}\displaystyle{\int\dfrac{x+x^3-x}{1+x^2}\textrm{d}x}$
 
@@ -308,7 +314,7 @@ $=\dfrac{1}{3}x^3\arctan x-\dfrac{1}{6}x^2+\dfrac{1}{6}\ln(1+x^2)+C$。
 
 \textbf{例题：}求$\int x\tan^2x\,\textrm{d}x$。
 
-$=\int x(\sec^2-1)\,\textrm{d}x=\int x\,\textrm{d}(\tan x)-\dfrac{x^2}{2}=x\tan x+\ln\vert\cos x\vert-\dfrac{x^2}{2}+C$。
+解：$=\int x(\sec^2-1)\,\textrm{d}x=\int x\,\textrm{d}(\tan x)-\dfrac{x^2}{2}=x\tan x+\ln\vert\cos x\vert-\dfrac{x^2}{2}+C$。
 
 \subsubsection{多次分部}
 
@@ -320,7 +326,7 @@ $=\int x(\sec^2-1)\,\textrm{d}x=\int x\,\textrm{d}(\tan x)-\dfrac{x^2}{2}=x\tan 
 
 \textbf{例题：}求$\int e^x\sin^2x\,\textrm{d}x$。
 
-$=\sin^2x\cdot e^x-\int e^x\,\textrm{d}(\sin^2x)=\sin^2x\cdot e^x-\int e^x\cdot\sin 2x\,\textrm{d}x$
+解：$=\sin^2x\cdot e^x-\int e^x\,\textrm{d}(\sin^2x)=\sin^2x\cdot e^x-\int e^x\cdot\sin 2x\,\textrm{d}x$
 
 $=\sin^2x\cdot e^x-\int\sin2x\,\textrm{d}(e^x)=\sin^2x\cdot e^x-\sin2x\cdot e^x+\int e^x\,\textrm{d}(\sin2x)$
 
@@ -346,7 +352,9 @@ $=\dfrac{e^x(5\sin^2x-\sin2x+2\cos2x)}{5}+C=e^x\left(\dfrac{1}{2}-\dfrac{1}{5}\s
 
 \subsubsection{分部积分推广公式}
 
-分部积分法可以直接利用表格简便计算，以三次导数的积分为例：
+分部积分法可以直接利用表格简便计算，特别是积分式子中含有$f(x)$这种不定的因子。
+
+如何得到分部积分推广公式？以三次导数的积分为例：
 
 $\int uv'''\,\textrm{d}x=\int u\,\textrm{d}(v'')=uv''-\int v''u'\,\textrm{d}x$
 
@@ -370,7 +378,9 @@ $\therefore\int uv'''\,\textrm{d}x=uv''-u'v'+u''v-\int u'''v\,\textrm{d}x$。
 
 \textbf{例题：}求$\int(x^3+2x+6)e^{2x}\,\textrm{d}x$。
 
-如果要一般求，则需要拆分：$\int(x^3+2x+6)e^{2x}\,\textrm{d}x=\int x^3e^{2x}\,\textrm{d}x+2\int xe^{2x}\,\textrm{d}x+6\int e^2x\,\textrm{d}x$。
+解：如果要一般求，则需要拆分：
+
+$\int(x^3+2x+6)e^{2x}\,\textrm{d}x=\int x^3e^{2x}\,\textrm{d}x+2\int xe^{2x}\,\textrm{d}x+6\int e^2x\,\textrm{d}x$。
 
 而如果使用分部积分的推广公式，令$u=x^3+2x+6$，$v=e^{2x}$。\medskip
 
@@ -384,6 +394,8 @@ $\therefore\int uv'''\,\textrm{d}x=uv''-u'v'+u''v-\int u'''v\,\textrm{d}x$。
 $\therefore=(x^3+2x+6)\left(\dfrac{1}{2}e^{2x}\right)-(3x^2+2)\left(\dfrac{1}{4}e^{2x}\right)+6x\left(\dfrac{1}{8}e^{2x}\right)-6\left(\dfrac{1}{16}e^{2x}\right)+\displaystyle{\int0\cdot(\dfrac{1}{16}e^{2x})\,\textrm{d}x}=\left(\dfrac{1}{2}x^3-\dfrac{3}{4}x^2+\dfrac{7}{4}x+\dfrac{17}{8}\right)e^{2x}+C$。
 
 \textbf{例题：}求$\int x^2\ln x\,\textrm{d}x$。\medskip
+
+解：
 
 \begin{tabular}{|c|c|}
     \hline
@@ -400,7 +412,7 @@ $\therefore=\dfrac{1}{3}x^3\ln x-\displaystyle{\int\dfrac{1}{x}\dfrac{1}{3}x^3\,
 
 \textbf{例题：}求$\int e^{\sqrt[3]{x}}\,\textrm{d}x$。
 
-令$\sqrt[3]{x}=u$，从而$x=u^3$，$\textrm{d}x=3u^2\,\textrm{d}u$。
+解：令$\sqrt[3]{x}=u$，从而$x=u^3$，$\textrm{d}x=3u^2\,\textrm{d}u$。
 
 $=3\int e^uu^2\,\textrm{d}u=3\int u^2\,\textrm{d}(e^u)=3u^2e^u-3\int e^u\,\textrm{d}(u^2)=3u^2e^u-6\int e^uu\,\textrm{d}u$
 
@@ -410,7 +422,7 @@ $=3e^u(u^2-2u+2)+C=3e^{\sqrt[3]{x}}(x^{\frac{2}{3}}-2x^{\frac{1}{3}}+2)+C$。
 
 \textbf{例题：}求$\int e^{\sqrt{3x+9}}\,\textrm{d}x$。
 
-令$\sqrt{3x+9}=u$，从而$x=\dfrac{1}{3}(u^2-9)$，$\textrm{d}x=\dfrac{2}{3}u\,\textrm{d}u$：
+解：令$\sqrt{3x+9}=u$，从而$x=\dfrac{1}{3}(u^2-9)$，$\textrm{d}x=\dfrac{2}{3}u\,\textrm{d}u$：
 
 $=\displaystyle{\dfrac{2}{3}\int ue^u\,\textrm{d}u=\dfrac{2}{3}\int u\,\textrm{d}(e^u)=\dfrac{2}{3}ue^u-\int\dfrac{2}{3}e^u\,\textrm{d}u=\dfrac{2}{3}ue^u-\dfrac{2}{3}e^u+C}$
 
@@ -426,7 +438,7 @@ $=\dfrac{2}{3}e^{\sqrt{3x+9}}(\sqrt{3x+9}-1)+C$。
 
 \textbf{例题：}$\displaystyle{\int\dfrac{x^3}{x^2+9}\,\textrm{d}x}$。 \medskip
 
-$=\displaystyle{\int\dfrac{x^3+9x-9x}{x^2+9}\,\textrm{d}x=\int\dfrac{x^3+9x}{x^2+9}\,\textrm{d}x-\int\dfrac{9x}{x^2+9}\,\textrm{d}x}$ \medskip
+解：$=\displaystyle{\int\dfrac{x^3+9x-9x}{x^2+9}\,\textrm{d}x=\int\dfrac{x^3+9x}{x^2+9}\,\textrm{d}x-\int\dfrac{9x}{x^2+9}\,\textrm{d}x}$ \medskip
 
 $\displaystyle{=\int x\,\textrm{d}x-\dfrac{9}{2}\int\dfrac{\textrm{d}(x^2+9)}{x^2+9}}=\dfrac{x^2}{2}-\dfrac{9}{2}\ln(9+x^2)+C$。
 
@@ -447,7 +459,7 @@ $\displaystyle{=\int x\,\textrm{d}x-\dfrac{9}{2}\int\dfrac{\textrm{d}(x^2+9)}{x^
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{x^2+1}{(x+1)^2(x-1)}\textrm{d}x}$。\medskip
 
-令$\dfrac{A}{x+1}+\dfrac{B}{(x+1)^2}+\dfrac{C}{x-1}=\dfrac{x^2+1}{(x+1)^2(x-1)}$。 \medskip
+解：令$\dfrac{A}{x+1}+\dfrac{B}{(x+1)^2}+\dfrac{C}{x-1}=\dfrac{x^2+1}{(x+1)^2(x-1)}$。 \medskip
 
 通分：$=A(x+1)(x-1)+B(x-1)+C(x+1)^2$
 
@@ -479,7 +491,7 @@ $=\dfrac{1}{2}\ln\vert x-1\vert+\dfrac{1}{2}\ln\vert x+1\vert+\dfrac{1}{x+1}+C=\
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{x-1}{x^2+2x+3}\textrm{d}x}$。
 
-因为$x^2+2x+3$不能因式分解，所以考虑将分子按照分母形式进行分配。优先对高阶的$x$进行分配。
+解：因为$x^2+2x+3$不能因式分解，所以考虑将分子按照分母形式进行分配。优先对高阶的$x$进行分配。
 
 首先因为分子最高阶为$x$只比分母最高阶$x^2$低一阶，所以考虑将$x-1$分配到微分号内。
 
@@ -497,7 +509,7 @@ $=\dfrac{1}{2}\ln(x^2+2x+3)-\sqrt{2}\arctan\dfrac{x+1}{\sqrt{2}}+C$。
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{x^5+x^4-8}{x^3-x}\textrm{d}x}$。
 
-$=\displaystyle{\int\dfrac{x^5-x^3+x^4-x^2+x^3-x+x^2+x-8}{x^3-x}\textrm{d}x}$
+解：$=\displaystyle{\int\dfrac{x^5-x^3+x^4-x^2+x^3-x+x^2+x-8}{x^3-x}\textrm{d}x}$
 
 $=\int x^2\,\textrm{d}x+\int x\,\textrm{d}x+\int\textrm{d}x+\displaystyle{\int\dfrac{x^x+x-8}{x^3-x}\textrm{d}x}=\dfrac{x^3}{3}+\dfrac{x^2}{2}+x+\displaystyle{\int\dfrac{x^2+x-8}{x^3-x}\textrm{d}x}$
 
@@ -515,7 +527,7 @@ $=\dfrac{x^3}{3}+\dfrac{x^2}{2}+x+8\ln\vert x\vert-4\ln\vert x+1\vert-3\ln\vert 
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{-x^2-2}{(x^2+x+1)^2}\textrm{d}x}$。
 
-首先根据因式分解：$\dfrac{-x^2-2}{(x^2+x+1)^2}=\dfrac{Ax+B}{x^2+x+1}+\dfrac{Cx+D}{(x^2+x+1)^2}$。
+解：首先根据因式分解：$\dfrac{-x^2-2}{(x^2+x+1)^2}=\dfrac{Ax+B}{x^2+x+1}+\dfrac{Cx+D}{(x^2+x+1)^2}$。
 
 $\therefore Ax^3+(A+B)x^2+(A+B+C)x+(B+D)=-x^2-2$。
 
@@ -569,7 +581,7 @@ $=-\dfrac{4x+3}{2(x^2+x+1)}-\dfrac{6}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}+C$�
 
 \textbf{例题：}求$\lim\limits_{n\to\infty}\left(\dfrac{1}{n+1}+\dfrac{1}{n+2}\cdots+\dfrac{1}{n+n}\right)$。
 
-即求$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}$。如果我们要传统求的话一般使用夹逼准则，找到放缩的两个函数。
+解：即求$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}$。如果我们要传统求的话一般使用夹逼准则，找到放缩的两个函数。
 
 所以找到两个：$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+n}<\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}<\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+1}$。
 
@@ -581,7 +593,7 @@ $\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1}{n+i}=\lim\limits_{n\to\inf
 
 \textbf{例题：}求$\lim\limits_{n\to\infty}\left(\dfrac{n+1}{n^2+1}+\dfrac{n+2}{n^2+4}+\cdots+\dfrac{n+n}{n^2+n^2}\right)$。
 
-即求$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{n+i}{n^2+i^2}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{n^2+ni}{n^2+i^2}\cdot\dfrac{1}{n}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1+\dfrac{i}{n}}{1+\left(\dfrac{i}{n}\right)^2}\cdot\dfrac{1}{n}$
+解：即求$\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{n+i}{n^2+i^2}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{n^2+ni}{n^2+i^2}\cdot\dfrac{1}{n}=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\dfrac{1+\dfrac{i}{n}}{1+\left(\dfrac{i}{n}\right)^2}\cdot\dfrac{1}{n}$
 
 $=\displaystyle{\int_0^1\dfrac{1+x}{1+x^2}\textrm{d}x}=\displaystyle{\int_0^1\dfrac{1}{1+x^2}\textrm{d}x+\int_0^1\dfrac{x}{1+x^2}\textrm{d}x}$
 
@@ -603,6 +615,106 @@ $=\left[\arctan x+\dfrac{1}{2}\ln(1+x^2)\right]_0^1=\dfrac{\pi}{4}+\dfrac{1}{2}\
 
 \subsection{体积}
 
+\subsection{平均值}
+
 \subsection{弧长}
+
+\section{积分等式}
+
+包括证明带有积分的等式、方程根、积分中值定理等。
+
+\subsection{中值定理}
+
+\textbf{例题：}设$f(x)$、$g(x)$在$[a,b]$上连续且$g(x)$不变号，证明至少存在一点$\xi\in[a,b]$使得$\int_a^bf(x)g(x)\,\textrm{d}x=f(\xi)\int_a^bg(x)\,\textrm{d}x$。（推广中值定理）
+
+若$g(x)\equiv1$，则结论就是$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$积分中值定理。
+
+证明：若$g(x)\equiv0$则等式显然成立。若$g(x)$不变号，则不妨设$g(x)>0$。
+
+令$F(x)=\int_a^xf(t)g(t)\,\textrm{d}t$，$G(x)=\int_a^xg(t)\,\textrm{d}t$。
+
+由柯西中值定理可得$\dfrac{F(b)-F(a)}{G(b)-G(a)}=\dfrac{F'(\xi)}{G'(\xi)}=\dfrac{\int_a^bf(x)g(x)\,\textrm{d}x}{\int_a^bg(x)\,\textrm{d}x}=\dfrac{f(\xi)g(\xi)}{g(\xi)}$。
+
+$\therefore\int_a^bf(x)g(x)\,\textrm{d}x=f(\xi)\int_a^bg(x)\,\textrm{d}x$，$\xi\in(a,b)\subset[a,b]$。
+
+同理$g(x)<0$也如此。
+
+\subsection{夹逼准则}
+
+夹逼准则一般用于求数列极限，若极限号后面有积分号可以考虑使用夹逼准则。
+
+\section{积分不等式}
+
+带积分号的不等问题。
+
+\subsection{函数单调性}
+
+将某一限一般是上限变量化，然后移项构造辅助函数，由辅助函数的单调性来证明不等式，多用于所给条件为“$f(x)$在$[a,b]$上连续”的情况，因为函数连续必然可积分与求导。
+
+\textbf{例题：}设$f(x)$在$[a,b]$上连续，且$f(x)>0$，证明$\displaystyle{\int_a^bf(x)\,\textrm{d}x\int_a^b\dfrac{1}{f(x)}\textrm{d}x}\geqslant(b-a)^2$。
+
+证明：令$F(x)=\displaystyle{\int_a^xf(t)\,\textrm{d}t\int_a^x\dfrac{1}{f(t)}\textrm{d}t-(x-a)^2}$。目标是证明$F(b)\geqslant0$。
+
+$F'(x)=f(x)\cdot\displaystyle{\int_a^x\dfrac{1}{f(t)}\textrm{d}t+\int_a^xf(t)\,\textrm{d}t\dfrac{1}{f(x)}}-2(x-a)$
+
+$=\displaystyle{\int_a^x\dfrac{f(x)}{f(t)}\textrm{d}t+\int_a^x\dfrac{f(t)}{f(x)}\textrm{d}t-2(x-a)=\int_a^x\left[\dfrac{f(x)}{f(t)}+\dfrac{f(t)}{f(x)}\right]\textrm{d}t-2(x-a)}$
+
+又$\dfrac{f(x)}{f(t)}+\dfrac{f(t)}{f(x)}\geqslant2\sqrt{\dfrac{f(x)}{f(t)}\cdot\dfrac{f(t)}{f(x)}}=2$。
+
+$\therefore\geqslant\int_a^x2\,\textrm{d}t-2(x-a)=2(x-a)-2(x-a)=0$。
+
+从而$F'(x)\geqslant0$，等于0不恒成立，所以$F(x)$在$[a,b]$上单调增，从而$F(b)>F(a)$，$\displaystyle{\int_a^xf(t)\,\textrm{d}t\int_a^x\dfrac{1}{f(t)}\textrm{d}t-(x-a)^2}>0$。
+
+所以$\displaystyle{\int_a^bf(x)\,\textrm{d}x\int_a^b\dfrac{1}{f(x)}\textrm{d}x}\geqslant(b-a)^2$
+
+\textbf{例题：}设$f(x)$在$[0,1]$上连续递减，证明$0<\lambda<1$时$\int_0^\lambda f(x)\,\textrm{d}x\geqslant\lambda\int_0^1f(x)\,\textrm{d}x$。
+
+证明：看到$\lambda$和1，可以做出辅助函数$\dfrac{\int_0^xf(t)\,\textrm{d}t}{x}$，即要证明$F(\lambda)\geqslant F(1)$。
+
+又$\lambda<1$，所以只用证明$F(x)$在$[0,1]$上递减。
+
+则$F'(x)=\dfrac{f(x)x-\int_0^xf(t)\,\textrm{d}t}{x^2}$，又根据积分中值定理$\int_0^xf(t)\,\textrm{d}t=f(\xi)(x-0)$，$\xi\in(0,x)$。
+
+$\therefore=\dfrac{f(x)x-f(\xi)x}{x^2}=\dfrac{f(x)-f(\xi)}{x}$，因为$f(x)$在$[0,1]$上递减，$\xi<x$，$f(\xi)>f(x)$。
+
+所以$F'(x)<0$，所以$F(x)$单调递减，从而$F(\lambda)\geqslant F(1)$，所以得证。
+
+
+
+\subsection{拉格朗日中值定理}
+
+多用于所给条件为“$f(x)$一阶可导”且某一端点值较简单甚至为0的题目。
+
+一阶导数不代表导数连续，导数可能存在震荡间断点。
+
+\textbf{例题：}设$f(x)$在$[0,1]$上具有一阶连续导数，且$f(0)=f(1)=0$，证明：$\vert\int_0^1f(x)\,\textrm{d}x\vert\leqslant\dfrac{1}{4}\max\limits_{x\in[0,1]}\{\vert f'(x)\vert\}$。
+
+证明：在$[0,1]$中任意取一点$x$，进行两次拉格朗日中值定理。
+
+$f(x)-f(0)=f'(\xi_1)(x-0)$（$\xi_1\in(0,x)$），$f(x)=f'(\xi_1)x$。
+
+$f(1)-f(x)=f'(\xi_2)(1-x)$（$\xi_2\in(x,1)$），$-f(x)=f'(\xi_2)(1-x)$。
+
+根据不等式性质：$\vert\int_0^1f(x)\,\textrm{d}x\vert=\vert\int_0^xf(t)\,\textrm{d}t+\int_x^1f(t)\,\textrm{d}t\vert$
+
+$\leqslant\vert\int_0^xf(t)\,\textrm{d}t\vert+\vert\int_x^1f(t)\,\textrm{d}t\vert\leqslant\int_0^x\vert f(t)\vert\,\textrm{d}t+\int_x^1\vert f(t)\vert\,\textrm{d}t$
+
+$\xi_1\in(0,x)$上代入$f(x)=f'(\xi_1)x$，$\xi_2\in(x,1)$上代入$-f(x)=f'(\xi_2)(1-x)$。
+
+$=\int_0^x\vert f'(\xi_1)\vert t\,\textrm{d}t+\int_x^1\vert f'(\xi_2)\vert(1-t)\,\textrm{d}t$，令$M=\max\limits_{x\in[0,1]}\{\vert f'(x)\vert\}$。
+
+$\leqslant\int_0^xMt\,\textrm{d}t+\int_x^1M(1-t)\,\textrm{d}t=M\left(\int_0^xt\,\textrm{d}t+\int_x^1(1-t)\,\textrm{d}t\right)$
+
+$=M\left(\dfrac{1}{2}x^2+\dfrac{1}{2}(1-x)^2\right)=M\left(\left(x-\dfrac{1}{2}\right)^2+\dfrac{1}{4}\right)$
+
+即$\vert\int_0^1f(x)\,\textrm{d}x\vert\leqslant M\left(\left(x-\dfrac{1}{2}\right)^2+\dfrac{1}{4}\right)$，$\min\left(M\left(\left(x-\dfrac{1}{2}\right)^2+\dfrac{1}{4}\right)\right)=\dfrac{1}{4}M$
+
+$\therefore\vert\int_0^1f(x)\,\textrm{d}x\vert\leqslant\dfrac{1}{4}M=\dfrac{1}{4}\max\limits_{x\in[0,1]}\{\vert f'(x)\vert\}$
+
+\subsection{泰勒公式}
+
+多用于所给条件为“$f(x)$二阶可导”且某一端点值较简单甚至为0的题目。
+
+\textbf{例题：}设$f(x)$在$[0,2]$上二阶导数连续，且$f(1)=0$，当$x\in[0,2]$时，记$M=\max\{\vert f''(x)\vert\}$，证明$\vert\int_0^2f(x)\,\textrm{d}x\vert\leqslant\dfrac{1}{3}M$。
 
 \end{document}
