@@ -132,7 +132,7 @@ $\alpha_1=[a_{11},a_{12},\cdots,a_{1n}]$，$\alpha_2=[a_{21},a_{22},\cdots,a_{2n
 
 \subsection{特殊行列式}
 
-\subsubsection{三角行列式}
+\subsubsection{主对角线行列式}
 
 $\left|\begin{array}{cccc} 
     a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -155,13 +155,11 @@ $\left|\begin{array}{cccc}
 
 上三角行列式：包括主对角线的右上部分元素不全为0，左下部分元素全为0。
 
-
 下三角行列式：包括主对角线的左下部分元素不全为0，右上部分元素全为0。
-
 
 对角行列式：省略号处的元素不全为0，其他主对角线外的元素全为0。
 
-\subsubsection{反三角行列式}
+\subsubsection{副对角线行列式}
 
 $\left|\begin{array}{cccc} 
      & & & a_{1n} \\
@@ -195,7 +193,7 @@ $\left|\begin{array}{cccc}
         a_1^{n-1} & a_2^{n-1} & \cdots & a_n^{n-1} \\
     \end{array}\right|$
 
-    范德蒙德行列式：元素连乘，结果为$\sum\limits_{1\leqslant j<i\leqslant n}(a_i-a_j)$。
+    范德蒙德行列式：元素连乘，结果为$\prod\limits_{1\leqslant j<i\leqslant n}(a_i-a_j)$。
     若一个四阶范德蒙德行列式的结果为$(a_4-a_1)(a_4-a_2)(a_4-a_3)(a_3-a_1)(a_3-a_2)(a_2-a_1)$。
 
 \end{multicols}

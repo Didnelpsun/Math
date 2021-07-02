@@ -86,7 +86,7 @@ $\therefore\,-a_{11}a_{23}a_{32}a_{44}+a_{11}a_{23}a_{34}a_{42}$。
 
 \subsection{基本行列式与计算}
 
-\subsubsection{三角行列式}
+\subsubsection{主对角线行列式}
 
 $\left|\begin{array}{cccc} 
     a_{11} & a_{12} & \cdots & a_{1n} \\
@@ -107,7 +107,7 @@ $\left|\begin{array}{cccc}
      & & & a_{nn}
 \end{array}\right|=a_{11}\cdots a_{nn}$
 
-\subsubsection{反三角行列式}
+\subsubsection{副对角线行列式}
 
 $\left|\begin{array}{cccc} 
     & & & a_{1n} \\
@@ -135,9 +135,11 @@ $\left|\begin{array}{cccc}
     a_1 & a_2  & \cdots & a_n \\
     \cdots & \cdots & \vdots & \cdots \\
     a_1^{n-1} & a_2^{n-1} & \cdots & a_n^{n-1} \\
-\end{array}\right|=\sum\limits_{1\leqslant j<i\leqslant n}(a_i-a_j)$
+\end{array}\right|=\prod\limits_{1\leqslant j<i\leqslant n}(a_i-a_j)$
 
 \subsubsection{分块行列式}
+
+也称为拉普拉斯展开式，设$A$为$m$阶矩阵，$B$为$n$阶矩阵：
 
 $\left|\begin{array}{cc}
     A & O \\
@@ -152,6 +154,19 @@ $\left|\begin{array}{cc}
     * & B
 \end{array}\right|=\vert A\vert\cdot\vert B\vert$。
 
+$\left|\begin{array}{cc}
+    O & A \\
+    B & O
+\end{array}\right|=
+\left|\begin{array}{cc}
+    * & A \\
+    B & O
+\end{array}\right|=
+\left|\begin{array}{cc}
+    O & A \\
+    B & *
+\end{array}\right|=(-1)^{mn}\vert A\vert\cdot\vert B\vert$。
+
 \subsubsection{基本行列式计算}
 
 基本的计算方式是对角线法则计算与行列式展开两种方法。若符合基本特殊行列式的可以按照公式。
@@ -162,6 +177,25 @@ $\left|\begin{array}{cc}
     \item 通过行列式的对换让一行或一列只有一个元素不为0，进行行列式展开不断降阶，最后变成第三阶的时候使用对角线法则。
     \item 通过行列式的对换从上往下让行列式变成上三角行列式，对角线相乘就得到结果。
 \end{itemize}
+
+\textbf{例题：}计算$\left|\begin{array}{cccccc} 
+    a & b & 0 & \cdots & 0 & 0 \\
+    0 & a & b & \cdots & 0 & 0 \\
+    0 & 0 & a & \cdots & 0 & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & 0 & \cdots & a & b \\
+    b & 0 & 0 & \cdots & 0 & a
+\end{array}\right|$。
+
+直接按第一列展开：
+
+$=a(-1)^{1+1}\left|\begin{array}{ccccc} 
+    a & b & \cdots & 0 & 0 \\
+    0 & a & \cdots & 0 & 0 \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & \cdots & a & b \\
+    0 & 0 & \cdots & 0 & a
+\end{array}\right|$
 
 \subsection{提取公因式}
 
