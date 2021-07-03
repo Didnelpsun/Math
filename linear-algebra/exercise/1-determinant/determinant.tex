@@ -2,6 +2,7 @@
 % UTF8编码，ctexart现实中文
 \usepackage{color}
 % 使用颜色
+\definecolor{orange}{RGB}{255,127,0}
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -167,6 +168,82 @@ $\left|\begin{array}{cc}
     B & *
 \end{array}\right|=(-1)^{mn}\vert A\vert\cdot\vert B\vert$。
 
+\subsubsection{爪形行列式}
+
+$\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & \ddots & & \\
+    \vdots & & \ddots &  \\
+    a_{n1} & & & a_{nn}
+\end{array}\right|$，$
+\left|\begin{array}{cccc} 
+    a_{11} & & & a_{1n} \\
+    a_{21} & & \begin{turn}{80}$\ddots$\end{turn} & \\
+    \vdots & \begin{turn}{80}$\ddots$\end{turn} & &  \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{array}\right|$，$
+\left|\begin{array}{cccc} 
+    a_{11} & & & a_{1n} \\
+     & \ddots & & a_{2n} \\
+     & & \ddots & \vdots \\
+    a_{n1} & a_{n2} & \cdots & a_{nn}
+\end{array}\right|$，
+
+$
+\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+     & & \begin{turn}{80}$\ddots$\end{turn} & a_{2n} \\
+     & \begin{turn}{80}$\ddots$\end{turn} & & \vdots \\
+    a_{n1} & & & a_{nn}
+\end{array}\right|$。低阶直接进行展开，高阶需要使用递推法。
+
+\subsubsection{异爪形行列式}
+
+每种爪形行列式都能变为三种异爪形行列式，如$\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & \ddots & & \\
+    \vdots & & \ddots &  \\
+    a_{n1} & & & a_{nn}
+\end{array}\right|$：
+
+$\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & \cdots & a_{1n} \\
+    a_{21} & \ddots & & \\
+     & \ddots & \ddots &  \\
+     & & \ddots & a_{nn}
+\end{array}\right|$，$\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & & \\
+    a_{21} & \ddots & \ddots & \\
+    \vdots & & \ddots & \ddots \\
+    a_{n1} & & & a_{nn}
+\end{array}\right|$，$\left|\begin{array}{cccc} 
+    a_{11} & a_{12} & & \\
+    a_{21} & \ddots & \ddots & \\
+     & \ddots & \ddots & \ddots \\
+     & & \ddots & a_{nn}
+\end{array}\right|$。
+
+基本方法是用斜着的数消去平的数，从而让异爪形行列式变为三角行列式。
+
+\textbf{例题：}计算$\left|\begin{array}{cccc} 
+    1 & 1 & 1 & 1 \\
+    1 & 2 & 0 & 0 \\
+    1 & 0 & 3 & 0 \\
+    1 & 0 & 0 & 4
+\end{array}\right|$。
+
+解：各行提取斜对角线数$=2\times3\times4\left|\begin{array}{cccc} 
+    1 & 1 & 1 & 1 \\
+    \dfrac{1}{2} & 0 & 0 & 0 \\
+    \dfrac{1}{3} & 0 & 1 & 0 \\
+    \dfrac{1}{4} & 0 & 0 & 1
+\end{array}\right|=\left|\begin{array}{cccc} 
+    -\dfrac{1}{12} & 0 & 0 & 0 \\
+    \dfrac{1}{2} & 0 & 0 & 0 \\
+    \dfrac{1}{3} & 0 & 1 & 0 \\
+    \dfrac{1}{4} & 0 & 0 & 1
+\end{array}\right|=-2$。
+
 \subsubsection{基本行列式计算}
 
 基本的计算方式是对角线法则计算与行列式展开两种方法。若符合基本特殊行列式的可以按照公式。
@@ -178,6 +255,8 @@ $\left|\begin{array}{cc}
     \item 通过行列式的对换从上往下让行列式变成上三角行列式，对角线相乘就得到结果。
 \end{itemize}
 
+这两种方式可以混合使用，直接展开可以在有足够多的0的情况下使用或阶数较低的情况下使用。\medskip
+
 \textbf{例题：}计算$\left|\begin{array}{cccccc} 
     a & b & 0 & \cdots & 0 & 0 \\
     0 & a & b & \cdots & 0 & 0 \\
@@ -187,7 +266,7 @@ $\left|\begin{array}{cc}
     b & 0 & 0 & \cdots & 0 & a
 \end{array}\right|$。
 
-直接按第一列展开：
+解：直接按第一列展开：
 
 $=a(-1)^{1+1}\left|\begin{array}{ccccc} 
     a & b & \cdots & 0 & 0 \\
@@ -195,7 +274,15 @@ $=a(-1)^{1+1}\left|\begin{array}{ccccc}
     \vdots & \vdots & \ddots & \vdots & \vdots \\
     0 & 0 & \cdots & a & b \\
     0 & 0 & \cdots & 0 & a
+\end{array}\right|+b\cdot(-1)^{n+1}\left|\begin{array}{ccccc} 
+    b & 0 & \cdots & 0 & 0 \\
+    a & b & \cdots & 0 & 0 \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & \cdots & b & 0 \\
+    0 & 0 & \cdots & a & b \\
 \end{array}\right|$
+
+$=a\cdot a^{n-1}+(-1)^{n+1}b\cdot b^{n-1}=a^n+(-1)^{n+1}b^n$。
 
 \subsection{提取公因式}
 
@@ -361,10 +448,6 @@ $=3\left|\begin{array}{cccc}
     0 & 0  & -\dfrac{7}{3} & 2 \\
 \end{array}\right|=0$。
 
-% \subsection{分块行列式}
-
-% 当行列式左下角和右上角的矩阵为零矩阵时可以只考虑对角线矩阵的乘积值。
-
 \subsection{拆项}
 
 若行列式某一行或一列是有两个值构成，则可以把其拆开，其他部分行列不变。
@@ -447,7 +530,7 @@ $
 
 \subsection{行列加和为定值}
 
-当行列式每一行或每一列相加都为一个固定的值，可以把第二行开始的各行都加到第一行，再提取公因式。
+当行列式每一行或每一列相加都为一个固定的值，可以把第二行开始的各行都加到第一行或列，再提取公因式，提出后第一行或第一列变为1，再依次对每行或每列进行消去，最终变成对角线行列式。
 
 \textbf{例题：}计算$\left|\begin{array}{cccc} 
     x & a & \cdots & a \\
@@ -498,7 +581,76 @@ $=(1+a_1+a_2+\cdots+a_n)\left|\begin{array}{cccc}
     a_n & 0 & \cdots & 1 \\
 \end{array}\right|=(1+a_1+a_2+\cdots+a_n)$。
 
-\subsection{X型矩阵}
+\subsection{分块行列式}
+
+就是分块行列式的拓展，也称为拉普拉斯展开式，当行列式左下角和右上角的矩阵为零矩阵时可以只考虑对角线矩阵的乘积值。
+
+\textbf{例题：}计算$\left|\begin{array}{cccc} 
+    a_1 & 0 & 0 & b_1 \\
+    0 & a_2 & b_2 & 0 \\
+    0 & b_3 & a_3 & 0 \\
+    b_4 & 0 & 0 & a_4
+\end{array}\right|$。
+
+$=-\left|\begin{array}{cccc} 
+    a_1 & b_1 & 0 & 0  \\
+    0 & 0 & a_2 & b_2 \\
+    0 & 0 & b_3 & a_3 \\
+    b_4 & a_4 & 0 & 0
+\end{array}\right|=\left|\begin{array}{cccc} 
+    a_1 & b_1 & 0 & 0  \\
+    b_4 & a_4 & 0 & 0 \\
+    0 & 0 & b_3 & a_3 \\
+    0 & 0 & a_2 & b_2
+\end{array}\right|=\left|\begin{array}{cc} 
+    a_1 & b_1 \\
+    b_4 & a_4
+\end{array}\right|\left|\begin{array}{cc}
+    b_3 & a_3 \\
+    a_2 & b_2
+\end{array}\right|=(a_1a_4-b_1b_4)(a_2a_3-b_2b_3)$。
+
+\subsection{递推法}
+
+当行列式一共有$n$项，很多时候都需要使用到递推法，递推法也一般与其他方法共同使用。
+
+\textbf{例题：}计算$\left|\begin{array}{cccccc} 
+    2 & -1 & 0 & \cdots & 0 & 0  \\
+    -1 & 2 & -1 & \cdots & 0 & 0 \\
+    0 & -1 & 2 & \cdots & 0 & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & 0 & \cdots & 2 & -1 \\
+    0 & 0 & 0 & \cdots & -1 & 2
+\end{array}\right|_{n\times n}$
+
+解：这是一个爪形行列式，然而无法通过斜的数数据来消去平的数据，考虑将所有列都加到第一列：
+
+$D_n=\left|\begin{array}{cccccc} 
+    1 & -1 & 0 & \cdots & 0 & 0  \\
+    0 & 2 & -1 & \cdots & 0 & 0 \\
+    0 & -1 & 2 & \cdots & 0 & 0 \\
+    \vdots & \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & 0 & \cdots & 2 & -1 \\
+    1 & 0 & 0 & \cdots & -1 & 2
+\end{array}\right|=1\cdot(-1)^{1+1}\left|\begin{array}{ccccc} 
+    2 & -1 & \cdots & 0 & 0 \\
+    -1 & 2 & \cdots & 0 & 0 \\
+    \vdots & \vdots & \ddots & \vdots & \vdots \\
+    0 & 0 & \cdots & 2 & -1 \\
+    0 & 0 & \cdots & -1 & 2
+\end{array}\right|$
+
+$+1\cdot(-1)^{n+1}\left|\begin{array}{cccccc} 
+    -1 & 0 & \cdots & 0 & 0  \\
+    2 & -1 & \cdots & 0 & 0 \\
+    -1 & 2 & \ddots & 0 & 0 \\
+    \vdots & \vdots & \cdots & \ddots & \vdots \\
+    0 & 0 & \cdots & 2 & -1
+\end{array}\right|=D_{n-1}+1\cdot(-1)^{n+1}(-1)^{n-1}$
+
+$\therefore D_n=D_{n-1}+1$。这就是本题目的递推式。$D_n=D_1+n-1=2+n-1=1+n$。
+
+\textcolor{orange}{注意：}对于爪形和异爪形行列式的递推时，只能从爪尖开始消（行列式展开），不能从爪根部消，否则就不能保证爪的形状。
 
 \textbf{例题：}计算$\left|\begin{array}{ccccccc} 
     a & & & & & b \\
@@ -507,7 +659,7 @@ $=(1+a_1+a_2+\cdots+a_n)\left|\begin{array}{cccc}
      & & c & d \\
      & \begin{turn}{80}$\ddots$\end{turn} & & & \ddots \\
     c & & & & & d
-\end{array}\right|_{2n}$。
+\end{array}\right|_{2n\times 2n}$。
 
 解：将其$2n$行不断与$2n-1\cdots2$行对换，再将其$2n$列不断与$2n-1\cdots2$列对换，一共对换$2(2n-2)$次，一定是一个偶数：
 
@@ -520,7 +672,7 @@ $=\left|\begin{array}{cccccccc}
     \vdots & \vdots & \vdots & & c & d \\
     \vdots & \vdots & \vdots & \begin{turn}{80}$\ddots$\end{turn} & & & \ddots \\
     0 & 0 & c & & & & & d
-\end{array}\right|_{2n}$，根据分块行列式的计算方式：
+\end{array}\right|_{2n\times 2n}$，根据分块行列式的计算方式：
 
 $D_{2n}=D_2D_{2(n-1)}=(ad-bc)D_{2(n-1)}$，所以不断递推可以得到结果为$(ad-bc)^n$。
 

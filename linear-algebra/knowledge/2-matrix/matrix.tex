@@ -103,14 +103,14 @@
 
 设与两个矩阵都是同型矩阵$m\times n$，$A=(a_{ij})$和$B=(b_{ij})$，则其加法就是$A+B$。
 
-$$A+B=\left(
+$A+B=\left(
     \begin{array}{cccc}
         a_{11}+b_{11} & a_{12}+b_{12} & \cdots & a_{1n}+b_{1n} \\
         a_{21}+b_{21} & a_{22}+b_{22} & \cdots & a_{2n}+b_{2n} \\
         \vdots & \vdots & \vdots & \vdots \\
         a_{m1}+b_{m1} & a_{m2}+b_{m2} & \cdots & a_{m+n}+b_{m+n}
     \end{array}
-\right)$$
+\right)$
 
 \begin{itemize}
     \item $A+B=B+A$。
@@ -125,14 +125,14 @@ $$A+B=\left(
 
 数$\lambda$与矩阵$A$的乘积记为$\lambda A$或$A\lambda$，规定：
 
-$$\lambda A=A\lambda=\left(
+$\lambda A=A\lambda=\left(
     \begin{array}{cccc}
         \lambda a_{11} & \lambda a_{12} & \cdots & \lambda a_{1n} \\
         \lambda a_{21} & \lambda a_{22} & \cdots & \lambda a_{2n} \\
         \vdots & \vdots & \ddots & \vdots \\
         \lambda a_{m1} & \lambda a_{m2} & \cdots & \lambda a_{mn}
     \end{array}
-\right)$$
+\right)$
 
 假设$A$、$B$都是$m\times n$的矩阵，$\lambda$、$\mu$为数：
 
@@ -146,7 +146,9 @@ $$\lambda A=A\lambda=\left(
 
 \subsection{矩阵相乘}
 
-设$A=(a_{ij})$是一个$m\times s$的矩阵，$B=(b_{ij})$是一个$s\times n$的矩阵，那么$A\times B=AB=C_{m\times n}=(c_{ij})$。即：$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{is}b_{sj}=\sum\limits_{k=1}^sa_{ik}b_{kj}\,\text{（}i=1,2,\cdots,m;j=1,2,\cdots,n\text{）}$
+设$A=(a_{ij})$是一个$m\times s$的矩阵，$B=(b_{ij})$是一个$s\times n$的矩阵，那么$A\times B=AB=C_{m\times n}=(c_{ij})$。即：$c_{ij}=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{is}b_{sj}=\sum\limits_{k=1}^sa_{ik}b_{kj}\,\text{（}i=1,2,\cdots,m;j=1,2,\cdots,n\text{）}$。
+
+即前一个矩阵的行乘后一个矩阵的列就得到当前元素的值。
 
 所以按此定义一个$1\times s$行矩阵与$s\times 1$列矩阵的乘积就是一个1阶方针即一个数：
 
@@ -197,7 +199,7 @@ $AB=A(\beta_1,\cdots,\beta_s)=(A\beta_1,\cdots,A\beta_n)$。
 
 若$A$是$n$阶方阵，所以：
 
-$$A^1=A\text{，}A^2=A^1A^1\text{，}\cdots\text{，}A^{k+1}=A^kA^1$$
+$A^1=A\text{，}A^2=A^1A^1\text{，}\cdots\text{，}A^{k+1}=A^kA^1$
 
 \begin{itemize}
     \item $A^kA^l=A^{k+l}$。
@@ -253,6 +255,7 @@ $f(A)=A^2-A-6E=(A+2E)(A-3E)$。
     \item $(A+B)^T=A^T+B^T$。
     \item $(\lambda A)^T=\lambda A^T$。
     \item $(AB)^T=B^TA^T$。
+    \item 若$m=n$，$\vert A\vert=\vert A^T\vert$。
 \end{itemize}
 
 对称矩阵或对称阵\textcolor{violet}{\textbf{定义：}}元素以对角线为对称轴对应相等，$A=A^T$。
@@ -267,16 +270,18 @@ $f(A)=A^2-A-6E=(A+2E)(A-3E)$。
     \item $\vert AB\vert=\vert A\vert\cdot\vert B\vert=\vert BA\vert$。
 \end{itemize}
 
+一般而言：$\vert A+B\vert\neq\vert A\vert+\vert B\vert$，$\vert A\vert\neq O\nRightarrow\vert A\vert\neq0$，$A\neq B\nRightarrow\vert A\vert\neq\vert B\vert$。
+
 伴随矩阵或伴随阵\textcolor{violet}{\textbf{定义：}}行列式$\vert A\vert$各个元素的代数余子式$A_{ij}$转置构成的矩阵。
 
-$$A^*=\left(
+$A^*=\left(
     \begin{array}{cccc}
         A_{11} & A_{21} & \cdots & A_{n1} \\
         A_{12} & A_{22} & \cdots & A_{n2} \\
         \vdots & \vdots & \ddots & \vdots \\
         A_{1n} & A_{2n} & \cdots & A_{nn}
     \end{array}
-\right)$$
+\right)$
 
 其中$AA^*=A^*A=\vert A\vert E$。
 
@@ -292,7 +297,7 @@ $$A^*=\left(
 
 \textcolor{aqua}{\textbf{定理：}}若$AB$矩阵行列数相同，采用相同的分块法，则
 
-$$A=\left(
+$A=\left(
     \begin{array}{ccc}
         A_{11} & \cdots & A_{1r} \\
         \vdots & & \vdots \\
@@ -304,15 +309,15 @@ $$A=\left(
         \vdots & & \vdots \\
         B_{s1} & \cdots & B_{sr}
     \end{array}
-\right)$$
+\right)$
 
-$$A+B=\left(
+$A+B=\left(
     \begin{array}{ccc}
         A_{11}+B_{11} & \cdots & A_{1r}+B_{1r} \\
         \vdots & & \vdots \\
         A_{s1}+B_{s1} & \cdots & A_{sr}+B_{sr}
     \end{array}
-\right)\text{。}$$
+\right)\text{。}$
 
 \textcolor{aqua}{\textbf{定理：}}设$A=\left(
     \begin{array}{ccc}
@@ -330,7 +335,7 @@ $$A+B=\left(
 
 \textcolor{aqua}{\textbf{定理：}}若$A_{m\times l}$，$B_{l\times n}$，采用相同的分块法，则
 
-$$A=\left(
+$A=\left(
     \begin{array}{ccc}
         A_{11} & \cdots & A_{1t} \\
         \vdots & & \vdots \\
@@ -342,15 +347,15 @@ $$A=\left(
         \vdots & & \vdots \\
         B_{t1} & \cdots & B_{sr}
     \end{array}
-\right)$$
+\right)$
 
-$$AB=\left(
+$AB=\left(
     \begin{array}{ccc}
         C_{11} & \cdots & C_{1r} \\
         \vdots & & \vdots \\
         C_{s1} & \cdots & C_{sr}
     \end{array}
-\right)\text{，}C_{ij}=\sum\limits_{k=1}^tA_{ik}B_{kj}\text{。}$$
+\right)\text{，}C_{ij}=\sum\limits_{k=1}^tA_{ik}B_{kj}\text{。}$
 
 \textcolor{aqua}{\textbf{定理：}}设$A=\left(
     \begin{array}{ccc}
@@ -404,28 +409,30 @@ $$AB=\left(
 
 若对于$A_{m\times s}$与$B_{s\times n}$的乘积矩阵$AB=C=(c_{ij})_{m\times n}$，若将$A$按行分为$m$块，$B$按列分为$n$块，则有：
 
-$$AB=\left(
+$AB=\left(
     \begin{array}{c}
         a_1^T \\
         a_2^T \\
         \vdots \\
         a_{m}^T
     \end{array}
-\right)(b_1,b_2,\cdots,b_n)=\left(
+\right)(b_1,b_2,\cdots,b_n)$
+
+$=\left(
     \begin{array}{cccc}
         a_1^Tb_1 & a_1^Tb_2 & \cdots & a_1^Tb_n \\
         a_2^Tb_1 & a_2^Tb_2 & \cdots & a_2^Tb_n \\
         \vdots & \vdots & \ddots & \vdots \\
         a_{m}^Tb_1 & a_{m}^Tb_2 & \cdots & a_{m}^Tb_n
     \end{array}
-\right)=(c_{ij})_{m\times n}\text{。}$$
+\right)=(c_{ij})_{m\times n}\text{。}$
 
-$$c_{ij}=a_i^Tb_j=(a_{i1},a_{i2},\cdots,a_{is})\left(\begin{array}{c}
+其中：$c_{ij}=a_i^Tb_j=(a_{i1},a_{i2},\cdots,a_{is})\left(\begin{array}{c}
     b_{1j} \\
     b_{2j} \\
     \vdots \\
     b_{sj}
-\end{array}\right)=\sum\limits_{k=1}^s=a_{ik}b_{kj}\text{。}$$
+\end{array}\right)=\sum\limits_{k=1}^s=a_{ik}b_{kj}\text{。}$
 
 \textcolor{aqua}{\textbf{定理：}}$A=O$的充要条件是$A^TA=O$。
 
@@ -433,7 +440,7 @@ $$c_{ij}=a_i^Tb_j=(a_{i1},a_{i2},\cdots,a_{is})\left(\begin{array}{c}
 
 设$A=(a_{ij})_{m\times n}$，将$A$按列分块为$A=(a_1,a_2,\cdots,a_n)$，则
 
-$$A^TA=\left(
+$A^TA=\left(
     \begin{array}{c}
         a_1^T \\
         a_2^T \\
@@ -447,7 +454,7 @@ $$A^TA=\left(
         \vdots & \vdots & \ddots & \vdots \\
         a_{m}^Ta_1 & a_{m}^Ta_2 & \cdots & a_{m}^Ta_n
     \end{array}
-\right)\text{。}$$
+\right)\text{。}$
 
 所以$A^TA$的元为$a^T_ia_j$，又$\because A^TA=O$，$\therefore a^T_ia_j=0$（$i,j=1,2,\cdots n$）。
 
@@ -554,34 +561,34 @@ $\therefore A=O$。
 
 矩阵乘法实际上就是线性方程组的线性变换，将一个变量关于另一个变量的关系式代入原方程组，得到与另一个变量的关系。
 
-$$\begin{cases}
+$\begin{cases}
     y_1=a_{11}x_1+a_{12}x_2+\cdots+a_{1s}x_s \\
     \cdots \\
     y_m=a_{m1}x_1+a_{m2}x_2+\cdots+a_{ms}x_s
-\end{cases}\text{，}\begin{cases}
+\end{cases}\begin{cases}
     x_1=b_{11}t_1+b_{12}t_2+\cdots+b_{1n}t_n \\
     \cdots \\
     x_s=b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n
-\end{cases}\text{。}$$
+\end{cases}$
 
 原本是线性方程分别是$y$与$x$和$x$与$t$的关系式，而如果将$t$关于$x$的关系式代入$x$关于$y$的关系式中，就会得到$t$关于$y$的关系式：
 
-$$\begin{cases}
-    y_1=a_{11}(b_{11}t_1+b_{12}t_2+\cdots+b_{1n}t_n)+\cdots+a_{1s}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n) \\
+$\begin{cases}
+    y_1=a_{11}(b_{11}t_1+\cdots+b_{1n}t_n)+\cdots+a_{1s}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n) \\
     \cdots \\
-    y_m=a_{m1}(b_{11}t_1+b_{12}t_2+\cdots+b_{1n}t_n)+\cdots+a_{ms}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n)
-\end{cases}$$
+    y_m=a_{m1}(b_{11}t_1+\cdots+b_{1n}t_n)+\cdots+a_{ms}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n)
+\end{cases}$
 
-$$=\begin{cases}
+$=\begin{cases}
     y_1=(a_{11}b_{11}+\cdots+a_{1s}b_{s1})t_1+\cdots+(a_{11}b_{1n}+\cdots+a_{1s}b_{sn})t_n \\
     \cdots \\
     y_m=(a_{m1}b_{11}+\cdots+a_{ms}b_{s1})t_1+\cdots+(a_{m1}b_{1n}+\cdots+a_{ms}b_{sn})t_m
-\end{cases}$$
+\end{cases}$
 
 这可以看作上面两个线性方程组相乘，也可以将线性方程组表示为矩阵，进行相乘就得到乘积，从而了解矩阵乘积与线性方程组的关系：
 
 
-$$\left(\begin{array}{ccc}
+$\left(\begin{array}{ccc}
     a_{11} & \cdots & a_{1s} \\
     \vdots & \ddots & \vdots \\
     a_{m1} & \cdots & a_{ms}
@@ -589,13 +596,13 @@ $$\left(\begin{array}{ccc}
     b_{11} & \cdots & a_{1n} \\
     \vdots & \ddots & \vdots \\
     b_{s1} & \cdots & b_{sn}
-\end{array}\right)_{s\times n}$$
+\end{array}\right)_{s\times n}$
 
-$$=\left(\begin{array}{ccc}
+$=\left(\begin{array}{ccc}
     a_{11}b_{11}+\cdots+a_{1s}b_{s1} & \cdots & a_{11}b_{1n}+\cdots+a_{1s}b_{sn} \\
     \vdots & \ddots & \vdots \\
     a_{m1}b_{11}+\cdots+a_{ms}b_{s1} & \cdots & a_{m1}b_{1n}+\cdots+a_{ms}b_{sn}
-\end{array}\right)_{m\times n}\text{。}$$
+\end{array}\right)_{m\times n}\text{。}$
 
 \subsection{线性方程组的解}
 
@@ -636,7 +643,7 @@ $$=\left(\begin{array}{ccc}
 
 按乘积表示为$A_{m\times n}x_{n\times 1}=b_{m\times 1}$，然后将$A$按列分块，$x$按行分块：
 
-$$(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
+$(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
     x_1 \\
     x_2 \\
     \vdots \\
@@ -656,7 +663,7 @@ $$(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
     b_2 \\
     \vdots \\
     b_m
-\end{array}\right)\text{。}$$
+\end{array}\right)\text{。}$
 
 这三种都是解的表示方法。
 
@@ -795,7 +802,7 @@ $(A\vdots B)\overset{r}{\thicksim}(E\vdots A^{-1})$，$\left(\begin{array}{c}
 
 解：因为$AX=B$，所以左乘$A^{-1}$：$A^{-1}AX=EX=A^{-1}B$，增广矩阵行变换：
 
-$$(A,B)=\left(\begin{array}{ccccc}
+$(A,B)=\left(\begin{array}{ccccc}
     2 & 1 & -3 & 1 & -1 \\
     1 & 2 & -2 & 2 & 0 \\
     -1 & 3 & 2 & -2 & 5
@@ -803,7 +810,7 @@ $$(A,B)=\left(\begin{array}{ccccc}
     1 & 2 & -2 & 2 & 0 \\
     0 & -3 & 1 & -3 & -1 \\
     0 & 5 & 0 & 0 & 5
-\end{array}\right)$$
+\end{array}\right)$
 
 $\thicksim\left(\begin{array}{ccccc}
     1 & 2 & -2 & 2 & 0 \\
@@ -820,5 +827,7 @@ $\thicksim\left(\begin{array}{ccccc}
 \end{array}\right)$。
 
 \section{矩阵秩}
+
+秩的本质就是组成矩阵的线性无关的向量个数。
 
 \end{document}
