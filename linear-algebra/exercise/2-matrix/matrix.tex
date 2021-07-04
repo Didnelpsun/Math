@@ -1,0 +1,189 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{矩阵}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{矩阵的幂}
+
+\subsection{对应成比例}
+
+因为矩阵运算不满足交换率但是满足结合率，且一行矩阵乘一列矩阵的乘积为一个数，所以可以推出矩阵的幂的运算方法。
+
+这个方法要求$r(A)=1$，即对应成比例。
+
+令$A$为$n$阶方阵，将$A$拆为$A=(a_1,a_2,\cdots,a_n)^T(b_1,b_2,\cdots,b_n)=\alpha^T\beta$，所以$A^n=\alpha^T\beta\alpha^T\beta\cdots\alpha^T\beta$，利用结合率：$\alpha^T(\beta\alpha^T)(\beta\cdots\alpha^T)\beta$，中间一共$n-1$个$\beta\alpha^T$，$\beta\alpha^T$是一个数，即$A^n=(\beta\alpha^T)^{n-1}\alpha^T\beta=(\beta\alpha^T)^{n-1}A$。\medskip
+
+\textbf{例题：}$A=\left(\begin{array}{ccc}
+    1 & 2 & 3 \\
+    -2 & -4 & -6 \\
+    3 & 6 & 9
+\end{array}\right)$，求$A^n$。\medskip
+
+解：$A=(1,-2,3)^T(1,2,3)$，所以$A^n=((1,2,3)(1,-2,3)^T)^n(1,-2,3)^T(1,2,3)$
+
+$=6^{n-1}A$。
+
+若矩阵$A$的行与列都成比例，则$A^n=[tr(A)]^{n-1}A$，$[tr(A)]=\sum a_{ii}$，即矩阵迹为对角线元素值之和。
+
+\subsection{试算归纳}
+
+对$A$进行试算，如$A^2$，若$A^k$是一个数量阵，那么计算$A^n$就只用找规律就可以了。
+
+\textbf{例题：}$A=\left(\begin{array}{cccc}
+    1 & -1 & -1 & -1 \\
+    -1 & 1 & -1 & -1 \\
+    -1 & -1 & 1 & -1 \\
+    -1 & -1 & -1 & 1 \\
+\end{array}\right)$，求$A^n$（$n\geqslant2$）。\medskip
+
+解：通过计算得知$A^2=4E$，这是一个数量阵。\medskip
+
+$\therefore A^n=\left\{\begin{array}{lcl}
+    4^kE, & & n=2k \\
+    4^kA, & & n=2k+1
+\end{array}\right.$。
+
+\subsection{拆分矩阵}
+
+将$A^n$拆分为两个矩阵$A^n=(B+C)^n$，其中$BC$应该是可逆的，即$BC=CB$，所以一般有一个是$E$。\medskip
+
+\textbf{例题：}$A=\left(\begin{array}{ccc}
+    1 & 1 & 0 \\
+    0 & 1 & 1 \\
+    0 & 0 & 1
+\end{array}\right)$，求$A^n$。\medskip
+
+解：$A=E+B=\left(\begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{array}\right)+\left(\begin{array}{ccc}
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+\end{array}\right)$。\medskip
+
+$\therefore A^n=(E+B)^n=C_n^0E^n+C_n^1E^{n-1}B+C_n^2E^{n-2}B^2+\cdots$。
+
+又$B^2=\left(\begin{array}{ccc}
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+\end{array}\right)\left(\begin{array}{ccc}
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+\end{array}\right)=\left(\begin{array}{ccc}
+    0 & 0 & 1 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0
+\end{array}\right)$。
+
+$B^3=B^2B=\left(\begin{array}{ccc}
+    0 & 0 & 1 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0
+\end{array}\right)\left(\begin{array}{ccc}
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+\end{array}\right)=\left(\begin{array}{ccc}
+    0 & 0 & 0 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0
+\end{array}\right)=O$。
+
+$\therefore B^4=B^5=\cdots=O$。
+
+$\therefore A^n=(E+B)^n=C_n^0E^n+C_n^1E^{n-1}B+C_n^2E^{n-2}B^2$。\medskip
+
+$=\left(\begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{array}\right)+n\left(\begin{array}{ccc}
+    0 & 1 & 0 \\
+    0 & 0 & 1 \\
+    0 & 0 & 0
+\end{array}\right)+\dfrac{n(n-1)}{2}\left(\begin{array}{ccc}
+    0 & 0 & 1 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0
+\end{array}\right)$
+
+\section{逆矩阵}
+
+\subsection{定义法}
+
+找出一个矩阵$B$，使得$AB=E$，则$A$可逆，$A^{-1}=B$。
+
+\textbf{例题：}$A$，$B$均是$n$阶方阵，且$AB=A+B$，证明$A-E$可逆，并求$(A-E)^{-1}$。
+
+解：要证明$A-E$，就要从$AB=A+B$中尽量凑出。
+
+$AB=A+B$变为$AB-B=A$，从而提取$(A-E)B=A$，$(A-E)BA^{-1}=E$。
+
+但是$A^{-1}$是未知的，所以$A-E$的逆矩阵不能用$BA^{-1}$来表示。
+
+$AB-A=B$，所以提出$A(B-E)=B$，即$A(B-E)=B-E+E$，$(A-E)(B-E)=E$，所以$A-E$的逆矩阵就是$B-E$。
+
+\subsection{分解乘积}
+
+将$A$分解为若干个可逆矩阵的乘积。若$A=BC$，$B$，$C$可逆，则$A$可逆，且$A^{-1}=C^{-1}B^{-1}$。
+
+\textbf{例题：}设$A$，$B$为同阶可逆方阵，且$A^{-1}+B^{-1}$可逆，求$(A+B)^{-1}$。
+
+解：已知$A^{-1}+B^{-1}$可以用来表示其他式子，需要求$A+B$的逆，则需要将$A+B$转为其逆。
+
+$\because A+B=A(E+A^{-1}B)=A(B^{-1}+A^{-1})B$。
+
+$\therefore (A+B)^{-1}=B^{-1}(B^{-1}+A^{-1})^{-1}A^{-1}$。
+
+\subsection{分块矩阵}
+
+对于一些分块矩阵的逆，若$A$，$B$都可逆，则：$\left[\begin{array}{cc}
+    A & O \\
+    O & B
+\end{array}\right]^{-1}=\left[\begin{array}{cc}
+    A^{-1} & O \\
+    O & B^{-1}
+\end{array}\right]$，$\left[\begin{array}{cc}
+    O & A \\
+    B & O
+\end{array}\right]^{-1}=\left[\begin{array}{cc}
+    O & B^{-1} \\
+    A^{-1} & O
+\end{array}\right]$。
+
+\end{document}

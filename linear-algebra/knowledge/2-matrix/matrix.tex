@@ -123,7 +123,7 @@ $A+B=\left(
 
 \subsection{数乘矩阵}
 
-数$\lambda$与矩阵$A$的乘积记为$\lambda A$或$A\lambda$，规定：
+数$\lambda$与矩阵$A$的乘积记为$\lambda A$或$A\lambda$，规定：\medskip
 
 $\lambda A=A\lambda=\left(
     \begin{array}{cccc}
@@ -132,7 +132,7 @@ $\lambda A=A\lambda=\left(
         \vdots & \vdots & \ddots & \vdots \\
         \lambda a_{m1} & \lambda a_{m2} & \cdots & \lambda a_{mn}
     \end{array}
-\right)$
+\right)$ \medskip
 
 假设$A$、$B$都是$m\times n$的矩阵，$\lambda$、$\mu$为数：
 
@@ -159,7 +159,7 @@ $(a_{i1},a_{i2},\cdots,a_{is})\left(
         \cdots \\
         b_{sj}
     \end{array}
-\right)=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{is}b_{sj}=\sum\limits_{k=1}^sa_{ik}b_{kj}=c_{ij}$。
+\right)=a_{i1}b_{1j}+a_{i2}b_{2j}+\cdots+a_{is}b_{sj}=\sum\limits_{k=1}^sa_{ik}b_{kj}=c_{ij}$。\medskip
 
 从而$AB=C$的$c_{ij}$就是$A$的第$i$行与$B$的$j$列的乘积。
 
@@ -208,7 +208,7 @@ $A^1=A\text{，}A^2=A^1A^1\text{，}\cdots\text{，}A^{k+1}=A^kA^1$
 
 因为矩阵乘法一般不满足交换率，所以$(AB)^k\neq A^kB^k$。只有$AB$可交换时才相等。
 
-若$A\neq 0$不能推出$A^k\neq 0$，如：
+若$A\neq 0$不能推出$A^k\neq 0$，如：\medskip
 
 $A=\left(
     \begin{array}{cc}
@@ -230,7 +230,7 @@ $A=\left(
         0 & 0 \\
         0 & 0
     \end{array}
-\right)=O$。
+\right)=O$。\medskip
 
 $A=\left(
     \begin{array}{ccc}
@@ -238,7 +238,7 @@ $A=\left(
         0 & 0 & 1 \\
         0 & 0 & 0
     \end{array}
-\right)$，$A^3=O$。
+\right)$，$A^3=O$。\medskip
 
 矩阵幂可以同普通多项式进行处理。
 
@@ -258,7 +258,14 @@ $f(A)=A^2-A-6E=(A+2E)(A-3E)$。
     \item 若$m=n$，$\vert A\vert=\vert A^T\vert$。
 \end{itemize}
 
-对称矩阵或对称阵\textcolor{violet}{\textbf{定义：}}元素以对角线为对称轴对应相等，$A=A^T$。
+对称矩阵或对称阵\textcolor{violet}{\textbf{定义：}}矩阵$A$是方阵，且元素以对角线为对称轴对应相等，$A=A^T$。
+
+反对称矩阵\textcolor{violet}{\textbf{定义：}}矩阵$A$是方阵，且满足$-A=A^T$。即$\left\{\begin{array}{l}
+    a_{ij}=-a_{ji},i\neq j \\
+    a_{ii}=0
+\end{array}\right.$。
+
+正交矩阵\textcolor{violet}{\textbf{定义：}}矩阵$A$是方阵，且满足$A^TA=E$。
 
 \subsection{方阵行列式}
 
@@ -272,6 +279,8 @@ $f(A)=A^2-A-6E=(A+2E)(A-3E)$。
 
 一般而言：$\vert A+B\vert\neq\vert A\vert+\vert B\vert$，$\vert A\vert\neq O\nRightarrow\vert A\vert\neq0$，$A\neq B\nRightarrow\vert A\vert\neq\vert B\vert$。
 
+\subsection{伴随矩阵}
+
 伴随矩阵或伴随阵\textcolor{violet}{\textbf{定义：}}行列式$\vert A\vert$各个元素的代数余子式$A_{ij}$转置构成的矩阵。
 
 $A^*=\left(
@@ -283,7 +292,30 @@ $A^*=\left(
     \end{array}
 \right)$
 
-其中$AA^*=A^*A=\vert A\vert E$。
+\begin{itemize}
+    \item 任何方阵都有伴随矩阵，其中$AA^*=A^*A=\vert A\vert E$。
+    \item $A^*=\vert A\vert A^{-1}$，$A^{-1}=\dfrac{1}{\vert A\vert}A^*$，$A=\vert A\vert(A^*)^{-1}$。
+    \item $\vert A^*\vert=\vert A\vert^{n-1}$，$(kA)(kA)^*=\vert kA\vert E$，$A^T(A^T)^*=\vert A^T\vert E$，$A^{-1}(A^{-1})^*=\vert A^{-1}\vert E$，$A^*(A^*)^*=\vert A^*\vert E$。
+    \item $(A^T)^*=(A^*)^T$，$(A^{-1})^*=(A^*)^{-1}$，$(AB)^*=B^*A^*$，$(A^*)^*=\vert A\vert^{n-2}A$。
+\end{itemize}
+
+\textbf{例题：}假设$A$为$n$阶方阵，求$\vert A^*\vert$与$(A^*)^*$。
+
+解：$\because AA^*=A^*A=\vert A\vert E$，$\therefore A^*(A^*)^*=\vert A^*\vert E$。
+
+$(A^*)^{-1}A^*(A^*)^*=(A^*)^*=(A^*)^{-1}\vert A^*\vert E$，又$AA^*=\vert A\vert E$，$\vert AA^*\vert=\vert\vert A\vert E\vert$，
+
+$\therefore\vert A\vert\vert A^*\vert=\vert A\vert^n\vert E\vert$，$\therefore\vert A^*\vert=\vert A\vert^{n-1}$。
+
+又$AA^*=\vert A\vert E$，$\therefore A^*=\vert A\vert A^{-1}$，$(A^*)^{-1}=(\vert A\vert A^{-1})^{-1}=\dfrac{1}{\vert A\vert}A$。
+
+$\because(A^*)^*=(A^*)^{-1}\vert A^*\vert E$，$\therefore=\dfrac{1}{\vert A\vert}A\vert A^*\vert=\dfrac{1}{\vert A\vert}A\vert A\vert^{n-1}=\vert A\vert^{n-2}A$。
+
+\textbf{例题：}假设$A$为$n$阶方阵，求$(kA)^*$。
+
+解：根据$AA^*=\vert A\vert E$，$\therefore (kA)(kA)^*=\vert kA\vert E$，推出$(kA)^*=\vert kA\vert(kA)^{-1}$。
+
+$=k^n\vert A\vert\dfrac{1}{k}A^{-1}=k^{n-1}\vert A\vert A^{-1}=k^{n-1}A^*$。
 
 \subsection{分块矩阵}
 
@@ -295,7 +327,7 @@ $A^*=\left(
 
 分块矩阵的计算法则与普通矩阵计算类似。
 
-\textcolor{aqua}{\textbf{定理：}}若$AB$矩阵行列数相同，采用相同的分块法，则
+\textcolor{aqua}{\textbf{定理：}}若$AB$矩阵行列数相同，采用相同的分块法，则 \medskip
 
 $A=\left(
     \begin{array}{ccc}
@@ -333,7 +365,7 @@ $A+B=\left(
     \end{array}
 \right)$。\medskip
 
-\textcolor{aqua}{\textbf{定理：}}若$A_{m\times l}$，$B_{l\times n}$，采用相同的分块法，则
+\textcolor{aqua}{\textbf{定理：}}若$A_{m\times l}$，$B_{l\times n}$，采用相同的分块法，则 \medskip
 
 $A=\left(
     \begin{array}{ccc}
@@ -398,7 +430,7 @@ $AB=\left(
         \vdots \\
         a_{mj}
     \end{array}
-\right)$，则$A$可以按列分块为$A=(a_1,a_2,\cdots,a_n)$。
+\right)$，则$A$可以按列分块为$A=(a_1,a_2,\cdots,a_n)$。\medskip
 
 其$m$行称为$A$的$m$个行向量，若第$i$行记为$a_i^T=(a_{i1},a_{i2},\cdots,a_{in})$，则$A$可以按行分块为$A=\left(\begin{array}{c}
     a_1^T \\
@@ -407,7 +439,7 @@ $AB=\left(
     a_{m}^T
 \end{array}\right)$。
 
-若对于$A_{m\times s}$与$B_{s\times n}$的乘积矩阵$AB=C=(c_{ij})_{m\times n}$，若将$A$按行分为$m$块，$B$按列分为$n$块，则有：
+若对于$A_{m\times s}$与$B_{s\times n}$的乘积矩阵$AB=C=(c_{ij})_{m\times n}$，若将$A$按行分为$m$块，$B$按列分为$n$块，则有：\medskip
 
 $AB=\left(
     \begin{array}{c}
@@ -438,7 +470,7 @@ $=\left(
 
 证明：$\because A=O$，$\therefore A^T=O$，$A^TA=O$。
 
-设$A=(a_{ij})_{m\times n}$，将$A$按列分块为$A=(a_1,a_2,\cdots,a_n)$，则
+设$A=(a_{ij})_{m\times n}$，将$A$按列分块为$A=(a_1,a_2,\cdots,a_n)$，则 \medskip
 
 $A^TA=\left(
     \begin{array}{c}
@@ -454,11 +486,11 @@ $A^TA=\left(
         \vdots & \vdots & \ddots & \vdots \\
         a_{m}^Ta_1 & a_{m}^Ta_2 & \cdots & a_{m}^Ta_n
     \end{array}
-\right)\text{。}$
+\right)\text{。}$\medskip
 
 所以$A^TA$的元为$a^T_ia_j$，又$\because A^TA=O$，$\therefore a^T_ia_j=0$（$i,j=1,2,\cdots n$）。
 
-$\therefore a^T_ja_j=0$（$j=1,2,\cdots n$），对角线元素全部为0。
+$\therefore a^T_ja_j=0$（$j=1,2,\cdots n$），对角线元素全部为0。\medskip
 
 且$a^T_ja_j=\left(
     \begin{array}{cccc}
@@ -472,7 +504,7 @@ $\therefore a^T_ja_j=0$（$j=1,2,\cdots n$），对角线元素全部为0。
     a_{2j} \\
     \vdots \\
     a_{mj}
-\end{array}\right)$
+\end{array}\right)$ \medskip
 
 $=a_{1j}^2+a_{2j}^2+\cdots+a_{mj}^2=0$，所以$a_{1j}=a_{2j}=\cdots+a_{mj}=0$。
 
@@ -506,7 +538,7 @@ $\therefore A=O$。
 
 对于齐次方程，$x_1=\cdots=x_n=0$一定是其解，称为其\textbf{零解}，若有一组不全为零的解，则称为其\textbf{非零解}。其一定有零解，但是不一定有非零解。
 
-对于非齐次方程，只有$b_1\cdots b_n$不全为零才是。
+对于非齐次方程，只有$b_1\cdots b_n$不全为零才是。\medskip
 
 令\textbf{系数矩阵}$A_{m\times n}=\left(
     \begin{array}{ccc}
@@ -569,9 +601,9 @@ $\begin{cases}
     x_1=b_{11}t_1+b_{12}t_2+\cdots+b_{1n}t_n \\
     \cdots \\
     x_s=b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n
-\end{cases}$
+\end{cases}$\medskip
 
-原本是线性方程分别是$y$与$x$和$x$与$t$的关系式，而如果将$t$关于$x$的关系式代入$x$关于$y$的关系式中，就会得到$t$关于$y$的关系式：
+原本是线性方程分别是$y$与$x$和$x$与$t$的关系式，而如果将$t$关于$x$的关系式代入$x$关于$y$的关系式中，就会得到$t$关于$y$的关系式：\medskip
 
 $\begin{cases}
     y_1=a_{11}(b_{11}t_1+\cdots+b_{1n}t_n)+\cdots+a_{1s}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n) \\
@@ -583,9 +615,9 @@ $=\begin{cases}
     y_1=(a_{11}b_{11}+\cdots+a_{1s}b_{s1})t_1+\cdots+(a_{11}b_{1n}+\cdots+a_{1s}b_{sn})t_n \\
     \cdots \\
     y_m=(a_{m1}b_{11}+\cdots+a_{ms}b_{s1})t_1+\cdots+(a_{m1}b_{1n}+\cdots+a_{ms}b_{sn})t_m
-\end{cases}$
+\end{cases}$ \medskip
 
-这可以看作上面两个线性方程组相乘，也可以将线性方程组表示为矩阵，进行相乘就得到乘积，从而了解矩阵乘积与线性方程组的关系：
+这可以看作上面两个线性方程组相乘，也可以将线性方程组表示为矩阵，进行相乘就得到乘积，从而了解矩阵乘积与线性方程组的关系：\medskip
 
 
 $\left(\begin{array}{ccc}
@@ -641,7 +673,7 @@ $=\left(\begin{array}{ccc}
     a_{m1}x_1+\cdots+a_{mn}x_n=b_n
 \end{cases}$。
 
-按乘积表示为$A_{m\times n}x_{n\times 1}=b_{m\times 1}$，然后将$A$按列分块，$x$按行分块：
+按乘积表示为$A_{m\times n}x_{n\times 1}=b_{m\times 1}$，然后将$A$按列分块，$x$按行分块：\medskip
 
 $(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
     x_1 \\
@@ -663,15 +695,19 @@ $(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
     b_2 \\
     \vdots \\
     b_m
-\end{array}\right)\text{。}$
+\end{array}\right)\text{。}$ \medskip
 
 这三种都是解的表示方法。
 
 \section{逆矩阵}
 
-\textcolor{violet}{\textbf{定义：}}逆矩阵类比倒数，若对于$n$阶矩阵$A$，有一个$n$阶矩阵$B$，使得$AB=BA=E$，则$A$可逆，$B$是$A$的逆矩阵也称为逆阵，且逆矩阵唯一，记为$B=A^{-1}$。
+\subsection{逆矩阵定义}
 
-\textcolor{aqua}{\textbf{定理：}}若矩阵$A$可逆，则$\vert A\vert\neq 0$。
+逆矩阵就是类似矩阵的除运算。
+
+\textcolor{violet}{\textbf{定义：}}逆矩阵类比倒数，若对于$n$阶方阵$A$，有一个$n$阶方阵$B$，使得$AB=BA=E$，则$A$可逆，$B$是$A$的逆矩阵也称为逆阵，且逆矩阵唯一，记为$B=A^{-1}$。
+
+\textcolor{aqua}{\textbf{定理：}}若方阵$A$可逆，则$\vert A\vert\neq 0$。
 
 证明：若$A$可逆，则$AA^{-1}=E$，所以$\vert A\vert\cdot\vert A^{-1}\vert=\vert E\vert=1$，$\vert A\vert\neq 0$。
 
@@ -689,13 +725,32 @@ $(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
 
 \textcolor{aqua}{\textbf{定理：}}若$AB=E$或$BA=E$，则$B=A^{-1}$。
 
+\subsection{逆矩阵性质}
+
 \begin{itemize}
     \item 若$A$可逆，则$(A^{-1})^{-1}=A$。
     \item 若$A$可逆，数$\lambda\neq0$，则$(\lambda A)^{-1}=\dfrac{1}{\lambda}A^{-1}$。
     \item 若$AB$为同阶矩阵且都可逆，则$(AB)^{-1}=B^{-1}A^{-1}$。
     \item 若$A$可逆，则$(A^T)^{-1}=(A^{-1})^T$。
+    \item 若$A$可逆，则$\vert A^{-1}\vert=\vert A\vert^{-1}$。
     \item 若$A$可逆，$\lambda\mu$为整数时，$A^\lambda A^\mu=A^{\lambda+\mu}$，$(A^\lambda)^\mu=A^{\lambda\mu}$。
 \end{itemize}
+
+若$A$、$B$可逆，则$A+B$不一定可逆，且$(A+B)^{-1}\neq A^{-1}+B^{-1}$。
+
+\subsection{求逆矩阵}
+
+\subsubsection{伴随矩阵}
+
+根据伴随矩阵的定义，即求出矩阵所代表行列式的各行元素的代数余子式，然后按列进行排列。
+
+只能求四阶以下的矩阵，过高阶的矩阵很难求出。
+
+\begin{enumerate}
+    \item 求出$\vert A\vert$，判断是否为0。
+    \item 写出$A^*$。
+    \item 计算$A^{-1}=\dfrac{1}{\vert A\vert}A^*$。
+\end{enumerate}
 
 \section{矩阵初等变换}
 
@@ -778,7 +833,7 @@ $(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
 
 \subsection{初等行变换求逆}
 
-已知$A^{-1}=\dfrac{A^*}{\vert A\vert}$，但是伴随矩阵计算非常麻烦，并且若矩阵在三阶以上计算就很难办到，所以还有一种方法，就是若该矩阵$A$是可逆矩阵，就将$AX=B$的增广矩阵$(A,B)$化为最简形矩阵，从而得到方程解。
+已知$A^{-1}=\dfrac{A^*}{\vert A\vert}$，但是伴随矩阵计算非常麻烦，并且若矩阵在三阶以上计算就很难办到，所以还有一种方法，就是若该矩阵$A$是可逆矩阵，就将$AX=B$的增广矩阵$(A,B)$化为最简形矩阵，从而得到方程解。\medskip
 
 $(A\vdots B)\overset{r}{\thicksim}(E\vdots A^{-1})$，$\left(\begin{array}{c}
     A \\
