@@ -752,13 +752,17 @@ $(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
     \item 计算$A^{-1}=\dfrac{1}{\vert A\vert}A^*$。
 \end{enumerate}
 
+\subsubsection{初等变换}
+
+可以利用初等变换来求逆矩阵。
+
 \section{矩阵初等变换}
 
-求逆矩阵可以使用伴随矩阵来求，但是只针对三阶以及以下的矩阵，若阶数过高则会十分困难。可以使用矩阵初等变换来实现求逆矩阵。且初等变换还可以用来求线性方程组的解。
+可以使用矩阵初等变换来实现求逆矩阵。且初等变换还可以用来求线性方程组的解。
 
 \subsection{初等变换}
 
-矩阵的三种初等行变换：
+矩阵的三种初等行变换，互换、倍乘、倍加：
 
 \begin{enumerate}
     \item 对换两行（对换$ij$两行，记为$r_i\leftrightarrow r_j$）。
@@ -811,39 +815,79 @@ $(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
 
 \subsection{初等变换性质}
 
-\textcolor{aqua}{\textbf{定理：}}设$AB$都是$m\times n$矩阵：\begin{enumerate}
+\textcolor{aqua}{\textbf{定理：}}设$AB$都是$m\times n$矩阵，初等变换与矩阵乘积关系：\begin{enumerate}
     \item $A\overset{r}{\thicksim}B$的充要条件是存在$m$阶可逆矩阵$P$，使得$PA=B$。
     \item $A\overset{c}{\thicksim}B$的充要条件是存在$n$阶可逆矩阵$Q$，使得$AQ=B$。
     \item $A\thicksim B$的充要条件是存在$m$阶可逆矩阵$P$和$n$阶可逆矩阵$Q$，使得$PAQ=B$。
 \end{enumerate}
 
-初等矩阵\textcolor{violet}{\textbf{定义：}}由单位矩阵$E$经过一次初等变换得到的矩阵。
+初等变换具有如下性质：
 
-初等矩阵包括：\begin{enumerate}
+\begin{itemize}
+    \item 设$A$是一个$m\times n$矩阵，对$A$进行一次初等行变换，相当于在$A$左乘对应$m$阶初等矩阵；对$A$进行一次列变换，相当于在$A$右乘对应$n$阶初等矩阵。
+    \item 方阵$A$可逆的充分必要条件是存在有限个初等矩阵$P_i$使得$A=\prod\limits_{i=1}^nP_i$。
+    \item 可逆方阵$A$一定可以通过有限次初等变换化为同阶单位矩阵$E$。
+    \item 方阵$A$可逆的充要条件是$A\overset{r}{\thicksim}E$。（即$A$方阵所代表的线性方程组能通过初等计算得到最后的解）
+\end{itemize}
+
+对于$A_{m\times n}$进行初等变换：\begin{enumerate}
     \item 第$ij$行对换：$E_m(ij)A$，第$ij$列变换：$AE_n(ij)$。
     \item 数$k$乘第$i$行：$E_m(i(k))A$，数$k$乘第$i$列：$AE_n(i(k))$。
     \item 数$k$乘第$j$行加到$i$行：$E_m(ij(k))A$，数$k$乘第$j$列加到$i$列：$AE_n(ij(k))$。
 \end{enumerate}
 
-\textcolor{aqua}{\textbf{定理：}}设$A$是一个$m\times n$矩阵，对$A$进行一次初等行变换，相当于在$A$左乘对应$m$阶初等矩阵；对$A$进行一次列变换，相当于在$A$右乘对应$n$阶初等矩阵。
+已知$A$经过无数次初等变换就能变成单位矩阵，即通过乘无数个初等矩阵就可以变成单位矩阵，那么这些初等矩阵是什么呢？\medskip
 
-\textcolor{aqua}{\textbf{定理：}}方阵$A$可逆的充分必要条件是存在有限个初等矩阵$P_i$使得$A=\prod\limits_{i=1}^nP_i$。
+例如$A=\left(\begin{array}{cc}
+    1 & 2 \\
+    2 & 3
+\end{array}\right)$要变成$\left(\begin{array}{cc}
+    1 & 2 \\
+    0 & -1
+\end{array}\right)$，就需要将第一排的数据乘-2加到第二排。
 
-\textcolor{aqua}{\textbf{定理：}}方阵$A$可逆的充要条件是$A\overset{r}{\thicksim}E$。（即$A$方阵所代表的线性方程组能通过初等计算得到最后的解）
+即按照初等矩阵的表示方法就是$E_{21}(-2)$，然后这个初等矩阵就是对单位矩阵进行同样变换。
+
+即$E_{21}(-2)$就是将初等矩阵第一排的数据乘-2加到第二排，得到$E_{21}(-2)=\left(\begin{array}{cc}
+    1 & 0 \\
+    -2 & 1
+\end{array}\right)$，而行变换$\left(\begin{array}{cc}
+    1 & 0 \\
+    -2 & 1
+\end{array}\right)\left(\begin{array}{cc}
+    1 & 2 \\
+    2 & 3
+\end{array}\right)=\left(\begin{array}{cc}
+    1 & 2 \\
+    0 & -1
+\end{array}\right)$，果然就得到目标结果。
+
+从而对一个矩阵进行初等行变换就是左乘一个进行同样行变换的初等矩阵，列变换同理。
+
+\subsection{初等矩阵性质}
+
+初等矩阵\textcolor{violet}{\textbf{定义：}}由单位矩阵$E$经过一次初等变换得到的矩阵。所以初等矩阵都是方阵。
+
+\begin{itemize}
+    \item 初等矩阵的转置也是初等矩阵。
+    \item 对初等矩阵进行行或列变换，$\vert E_{ij}\vert=-1$，对其求逆：$E_{ij}^{-1}=E_{ij}$。
+    \item 对初等矩阵$i$行乘$k$，$\vert E_i(k)\vert=k$，对其求逆：$E_i(k)^{-1}=E_i\left(\dfrac{1}{k}\right)$。
+    \item 对初等矩阵第$j$行乘$k$加到$i$行，$\vert E_{ij}(k)\vert=1$，对其求逆：$E_{ij}(k)^{-1}=E_{ij}(-k)$。
+\end{itemize}
 
 \subsection{初等行变换求逆}
 
-已知$A^{-1}=\dfrac{A^*}{\vert A\vert}$，但是伴随矩阵计算非常麻烦，并且若矩阵在三阶以上计算就很难办到，所以还有一种方法，就是若该矩阵$A$是可逆矩阵，就将$AX=B$的增广矩阵$(A,B)$化为最简形矩阵，从而得到方程解。\medskip
+若该矩阵$A$是可逆矩阵，就将$AX=B$的增广矩阵$(A,B)$化为最简形矩阵，从而得到方程解。\medskip
 
-$(A\vdots B)\overset{r}{\thicksim}(E\vdots A^{-1})$，$\left(\begin{array}{c}
+$\because P_i\cdots P_2P_1A=E$，$P_i\cdots P_2P_1E=A^{-1}$。
+
+$\left[A\vdots B\right]\overset{r}{\thicksim}\left[E\vdots A^{-1}\right]$，$\left[\begin{array}{c}
     A \\
-    \cdots \\
     B
-\end{array}\right)\overset{c}{\thicksim}\left(\begin{array}{c}
+\end{array}\right]\overset{c}{\thicksim}\left[\begin{array}{c}
     E \\
-    \cdots \\
     A^{-1}
-\end{array}\right)$。
+\end{array}\right]$。
 
 \textbf{例题：}求解矩阵方程$AX=B$，$A=\left(\begin{array}{ccc}
     2 & 1 & -3 \\
@@ -853,7 +897,7 @@ $(A\vdots B)\overset{r}{\thicksim}(E\vdots A^{-1})$，$\left(\begin{array}{c}
     1 & -1 \\
     2 & 0 \\
     -2 & 5
-\end{array}\right)$。
+\end{array}\right)$。\medskip
 
 解：因为$AX=B$，所以左乘$A^{-1}$：$A^{-1}AX=EX=A^{-1}B$，增广矩阵行变换：
 

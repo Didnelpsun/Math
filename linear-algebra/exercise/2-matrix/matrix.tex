@@ -22,6 +22,8 @@
 % 数学公式
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
+\usepackage{rotating}
+% 用于旋转对象（旋转包）
 \author{Didnelpsun}
 \title{矩阵}
 \date{}
@@ -142,6 +144,72 @@ $=\left(\begin{array}{ccc}
     0 & 0 & 0
 \end{array}\right)$
 
+\section{初等变换}
+
+\subsection{可逆矩阵}
+
+若$A$和$B$等价，求一个可逆矩阵$P$，使得$PA=B$。只用右乘$P=BA^{-1}$。
+
+需要根据逻辑上的计算还原出左乘的初等矩阵。\medskip
+
+\textbf{例题：}$A=\left(\begin{array}{ccc}
+    1 & 0 & 1 \\
+    -1 & -1 & 1 \\
+    0 & 2 & -4
+\end{array}\right)$，$B=\left(\begin{array}{ccc}
+    1 & 0 & 1 \\
+    0 & -1 & 2 \\
+    0 & 0 & 0
+\end{array}\right)$，当$A\thicksim B$时，求$P$使得$PA=B$。.
+
+解：目标是将$A$变为$B$，所以第一步将第一列的第二行的-1变为0。即将第一行加到第二行。
+
+左乘$E_{21}(1)A=\left(\begin{array}{ccc}
+    1 & 0 & 0 \\
+    1 & 1 & 0 \\
+    0 & 0 & 1
+\end{array}\right)\left(\begin{array}{ccc}
+    1 & 0 & 1 \\
+    -1 & -1 & 1 \\
+    0 & 2 & -4
+\end{array}\right)=\left(\begin{array}{ccc}
+    1 & 0 & 1 \\
+    0 & -1 & 2 \\
+    0 & 2 & -4
+\end{array}\right)=C$。\medskip
+
+然后对第二列进行消，首先将第三行加上第二行的两倍。
+
+$E_{32}(2)C=\left(\begin{array}{ccc}
+    1 & 0 & 0 \\
+    1 & 1 & 0 \\
+    0 & 2 & 1
+\end{array}\right)\left(\begin{array}{ccc}
+    1 & 0 & 1 \\
+    0 & -1 & 2 \\
+    0 & 2 & -4
+\end{array}\right)=\left(\begin{array}{ccc}
+    1 & 0 & 1 \\
+    1 & -1 & 2 \\
+    0 & 0 & 0
+\end{array}\right)=B$。\medskip
+
+$\therefore E_{32}(2)E_{21}(1)A=B$。
+
+$P=E_{32}(2)E_{21}(1)=\left(\begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 2 & 1
+\end{array}\right)\left(\begin{array}{ccc}
+    1 & 0 & 0 \\
+    1 & 1 & 0 \\
+    0 & 0 & 1
+\end{array}\right)=\left(\begin{array}{ccc}
+    1 & 0 & 0 \\
+    1 & 1 & 0 \\
+    2 & 2 & 1
+\end{array}\right)$。
+
 \section{逆矩阵}
 
 \subsection{定义法}
@@ -170,7 +238,19 @@ $\because A+B=A(E+A^{-1}B)=A(B^{-1}+A^{-1})B$。
 
 $\therefore (A+B)^{-1}=B^{-1}(B^{-1}+A^{-1})^{-1}A^{-1}$。
 
+\subsection{初等变换}
+
+$\left[A\vdots B\right]\overset{r}{\thicksim}\left[E\vdots A^{-1}\right]$，$\left[\begin{array}{c}
+    A \\
+    B
+\end{array}\right]\overset{c}{\thicksim}\left[\begin{array}{c}
+    E \\
+    A^{-1}
+\end{array}\right]$。
+
 \subsection{分块矩阵}
+
+基于拉普拉斯展开式。
 
 对于一些分块矩阵的逆，若$A$，$B$都可逆，则：$\left[\begin{array}{cc}
     A & O \\
@@ -184,6 +264,108 @@ $\therefore (A+B)^{-1}=B^{-1}(B^{-1}+A^{-1})^{-1}A^{-1}$。
 \end{array}\right]^{-1}=\left[\begin{array}{cc}
     O & B^{-1} \\
     A^{-1} & O
-\end{array}\right]$。
+\end{array}\right]$。\medskip
+
+\textbf{例题：}已知$A=\left(\begin{array}{cc}
+    B & O \\
+    D & C
+\end{array}\right)$，其中$B$为$r\times r$可逆矩阵，$C$为$s\times s$可逆矩阵，求$A^{-1}$。
+
+解：$\because\vert A\vert=\left|\begin{array}{cc}
+    B & O \\
+    D & C
+\end{array}\right|=\vert B\vert\vert C\vert\neq0$，所以$A$可逆，设$A^{-1}=\left(\begin{array}{cc}
+    X & Y \\
+    Z & W
+\end{array}\right)$。
+
+$AA^{-1}=\left(\begin{array}{cc}
+    E_r & O \\
+    O & E_s
+\end{array}\right)=E_{r+s}$。即$\left(\begin{array}{cc}
+    BX & BY \\
+    DX+CZ & DY+CW
+\end{array}\right)=E_{r+s}$。
+
+$\therefore\left\{\begin{array}{l}
+    BX=E \\
+    BY=O \\
+    DX+CZ=O \\
+    DY+CW=E
+\end{array}\right.$，$\left\{\begin{array}{ll}
+    B^{-1}BX=B^{-1}, & X=B^{-1}\\
+    B^{-1}BY=O, & Y=O \\
+    CZ=-DX=-DB^{-1}, & Z=-C^{-1}DB^{-1} \\
+    CW=E, & W=C^{-1}
+\end{array}\right.$。
+
+$\therefore A^{-1}=\left(\begin{array}{cc}
+    B^{-1} & O \\
+    -C^{-1}DB^{-1} & C^{-1}
+\end{array}\right)$。\medskip
+
+当分块矩阵为三角矩阵时，对角线为原方块矩阵的逆矩阵，非0的一角为原矩阵，再左乘同行的逆矩阵，右乘同列的逆矩阵。\medskip
+
+$\therefore A=\left(\begin{array}{cc}
+    B & D \\
+    O & C
+\end{array}\right)$，$A^{-1}=\left(\begin{array}{cc}
+    B^{-1} & -B^{-1}DC^{-1} \\
+    O & C^{-1}
+\end{array}\right)$。\medskip
+
+当分块矩阵为副对角矩阵时，对角线为对角方块矩阵的逆矩阵，非0的一角为原矩阵，再左乘同行的逆矩阵，右乘同列的逆矩阵。\medskip
+
+$\therefore A=\left(\begin{array}{cc}
+    O & B \\
+    C & D
+\end{array}\right)$，$A^{-1}=\left(\begin{array}{cc}
+    -C^{-1}DB^{-1} & C^{-1} \\
+    B^{-1} & O
+\end{array}\right)$。\medskip
+
+$\therefore A=\left(\begin{array}{cc}
+    D & B \\
+    C & O
+\end{array}\right)$，$A^{-1}=\left(\begin{array}{cc}
+    O & C^{-1} \\
+    B^{-1} & -C^{-1}DB^{-1}
+\end{array}\right)$。\medskip
+
+$A=\left(\begin{array}{ccc}
+    A_1 \\
+     & \ddots \\
+     & & A_n
+\end{array}\right)$，$A^{-1}=\left(\begin{array}{ccc}
+    A_1^{-1} \\
+     & \ddots \\
+     & & A_n^{-1}
+\end{array}\right)$。\medskip
+
+$A=\left(\begin{array}{ccc}
+     & & A_1 \\
+     & \ddots \\
+    A_n 
+\end{array}\right)$，$A^{-1}=\left(\begin{array}{ccc}
+    & & A_n^{-1} \\
+    & \begin{turn}{80}$\ddots$\end{turn} \\
+   A_1^{-1}
+\end{array}\right)$。
+
+\section{矩阵方程}
+
+含有未知矩阵的方程就是矩阵方程，需要将方程进行恒等变形，化为$AX=B$、$XA=B$或$AXB=C$的形式。
+
+若$A$、$B$可逆，且可以分别得到$X=A^{-1}B$，$X=BA^{-1}$，$X=A^{-1}CB^{-1}$。
+
+\textbf{例题：}设3阶方阵$A$，$B$满足$A^{-1}BA=6A+BA$，且$A=\left(\begin{array}{ccc}
+    \dfrac{1}{3} & 0 & 0 \\
+    0 & \dfrac{1}{4} & 0 \\
+    0 & 0 & \dfrac{1}{5}
+\end{array}\right)$，求$B$。
+
+解：$A^{-1}BA=(6E+B)A$，$A^{-1}B=6E+B$，$A^{-1}B-B=6E$，$(A^{-1}-E)B=6E$。
+
+$\therefore B=6(A^{-1}-E)^{-1}$。
 
 \end{document}

@@ -1,0 +1,69 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\definecolor{violet}{RGB}{192,0,255} 
+\definecolor{aqua}{RGB}{0,255,255} 
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{向量}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+
+线性代数的主要研究对象就是向量，行列式与矩阵都是由向量组成的向量组。
+
+\section{向量与向量组}
+
+\subsection{向量的定义与运算}
+
+$n$维向量\textcolor{violet}{\textbf{定义：}}$n$个数构成的一个有序数组$[a_1,a_2,\cdots,a_n]$称为一个$n$维向量，记为$\alpha=[a_1,a_2,\cdots,a_n]$，并称$\alpha$为$n$维行向量，$\alpha^T$为$n$维列向量，$a_i$为向量$\alpha$的$i$个分量。
+
+若$\alpha$与$\beta$都是$n$维向量，且对应元素相等，则$\alpha=\beta$。
+
+$\alpha+\beta=[a_1+b_1,a_2+b_2,\cdots,a_n+b_n]$。
+
+$k\alpha=[ka_1,ka_2,\cdots,ka_3]$。
+
+\subsection{向量组的线性概念}
+
+线性组合$\textcolor{violet}{\textbf{定义：}}$$m$个$n$维向量$\alpha_1,\alpha_2,\cdots,\alpha_m$以及$m$个数$k_1,k_2,\cdots,k_m$，则向量$k_1\alpha_1+k_2\alpha_2+\cdots+k_m\alpha_m$就是向量组$a_1,a_2,\cdots,a_m$的线性组合。
+
+线性表出$\textcolor{violet}{\textbf{定义：}}$若向量$\beta$能表示成向量组$\alpha_1,\alpha_2,\cdots,a_m$的线性组合，则存在$m$个数$k_1,k_2,\cdots,k_m$，使得$\beta=k_1\alpha_1+k_2\alpha_2+\cdots+k_m\alpha_m$，则成向量$\beta$能被向量组$a_1,a_2,\cdots,a_m$线性表出。否则不能被线性表出。
+
+线性相关$\textcolor{violet}{\textbf{定义：}}$对$m$个$n$维向量$a_1,a_2,\cdots,a_m$，存在一组不全为0的数$k_1,k_2,\cdots,k_m$，使得$k_1\alpha_1+k_2\alpha_2+\cdots+k_m\alpha_m=0$，则称$a_1,a_2,\cdots,a_m$线性相关。
+
+含有零向量或成比例向量的向量组必然线性相关。
+
+线性无关$\textcolor{violet}{\textbf{定义：}}$对$m$个$n$维向量$a_1,a_2,\cdots,a_m$，不存在一组不全为0的数$k_1,k_2,\cdots,k_m$，使得$k_1\alpha_1+k_2\alpha_2+\cdots+k_m\alpha_m=0$，即仅当$k_1=k_2=\cdots=k_m=0$才成立，则称$a_1,a_2,\cdots,a_m$线性无关。
+
+两个非零向量，不成比例向量的向量必然线性无关。
+
+\end{document}
