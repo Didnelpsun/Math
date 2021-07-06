@@ -1,0 +1,264 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\usepackage{multicol}
+% 分栏
+\usepackage{arydshln}
+% 增广矩阵长虚线
+\author{Didnelpsun}
+\title{线性方程组}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{基本概念}
+
+矩阵是根据线性方程组得到。线性方程组和向量组本质上是一致的。
+
+\subsection{线性方程组与矩阵}
+
+\begin{multicols}{2}
+    
+    $\begin{cases}
+        a_{11}x_1+\cdots+a_{1n}x_n=0 \\
+        \cdots \\
+        a_{m1}x_1+\cdots+a_{mn}x_n=0
+    \end{cases}$ \medskip
+    
+    $n$元齐次线性方程组。
+
+    $\begin{cases}
+        a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+        \cdots \\
+        a_{m1}x_1+\cdots+a_{mn}x_n=b_n
+    \end{cases}$ \medskip
+    
+    $n$元非齐次线性方程组。
+
+\end{multicols}
+
+$m$是方程个数，即方程组行数，$n$是方程未知数个数，即类似方程组的列数。
+
+对于齐次方程，$x_1=\cdots=x_n=0$一定是其解，称为其\textbf{零解}，若有一组不全为零的解，则称为其\textbf{非零解}。其一定有零解，但是不一定有非零解。
+
+对于非齐次方程，只有$b_1\cdots b_n$不全为零才是。\medskip
+
+令\textbf{系数矩阵}$A_{m\times n}=\left(
+    \begin{array}{ccc}
+        a_{11} & \cdots & a_{1n} \\
+        \cdots \\
+        a_{m1} & \cdots & a_{mn}
+    \end{array}
+\right)$，\textbf{未知数矩阵}$x_{n\times 1}=\left(
+    \begin{array}{c}
+        x_1 \\
+        \cdots \\
+        x_n
+    \end{array}
+\right)$，\textbf{常数项矩阵}$b_{m\times 1}=\left(
+    \begin{array}{c}
+        b_1 \\
+        \cdots \\
+        b_m
+    \end{array}
+\right)$，\textbf{增广矩阵}$B_{m\times(n+1)}=\left(
+    \begin{array}{c:c}
+        \begin{matrix}
+            a_{11} & \cdots & a_{1n}\\
+            \cdots \\
+            a_{m1} & \cdots & a_{mn}
+        \end{matrix}&
+        \begin{matrix}
+            b_1\\
+            \\
+            b_n
+        \end{matrix}
+    \end{array}
+\right)$。
+
+所以$AX=\left(
+    \begin{array}{c}
+        a_11x_1+\cdots+a_{1n}x_n \\
+        \cdots \\
+        a_{m1}x_1+\cdots+a_{mn}x_n
+    \end{array}
+\right)$。
+
+从而$AX=b$等价于$\begin{cases}
+    a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+    \cdots \\
+    a_{m1}x_1+\cdots+a_{mn}x_n=b_n
+\end{cases}$，当$b=O$就是齐次线性方程。
+
+从而矩阵可以简单表示线性方程。
+
+\subsection{矩阵乘法与线性变换}
+
+矩阵乘法实际上就是线性方程组的线性变换，将一个变量关于另一个变量的关系式代入原方程组，得到与另一个变量的关系。
+
+$\begin{cases}
+    y_1=a_{11}x_1+a_{12}x_2+\cdots+a_{1s}x_s \\
+    \cdots \\
+    y_m=a_{m1}x_1+a_{m2}x_2+\cdots+a_{ms}x_s
+\end{cases}\begin{cases}
+    x_1=b_{11}t_1+b_{12}t_2+\cdots+b_{1n}t_n \\
+    \cdots \\
+    x_s=b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n
+\end{cases}$\medskip
+
+原本是线性方程分别是$y$与$x$和$x$与$t$的关系式，而如果将$t$关于$x$的关系式代入$x$关于$y$的关系式中，就会得到$t$关于$y$的关系式：\medskip
+
+$\begin{cases}
+    y_1=a_{11}(b_{11}t_1+\cdots+b_{1n}t_n)+\cdots+a_{1s}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n) \\
+    \cdots \\
+    y_m=a_{m1}(b_{11}t_1+\cdots+b_{1n}t_n)+\cdots+a_{ms}(b_{s1}t_1+b_{s2}t_2+\cdots+b_{sn}t_n)
+\end{cases}$
+
+$=\begin{cases}
+    y_1=(a_{11}b_{11}+\cdots+a_{1s}b_{s1})t_1+\cdots+(a_{11}b_{1n}+\cdots+a_{1s}b_{sn})t_n \\
+    \cdots \\
+    y_m=(a_{m1}b_{11}+\cdots+a_{ms}b_{s1})t_1+\cdots+(a_{m1}b_{1n}+\cdots+a_{ms}b_{sn})t_m
+\end{cases}$ \medskip
+
+这可以看作上面两个线性方程组相乘，也可以将线性方程组表示为矩阵，进行相乘就得到乘积，从而了解矩阵乘积与线性方程组的关系：\medskip
+
+
+$\left(\begin{array}{ccc}
+    a_{11} & \cdots & a_{1s} \\
+    \vdots & \ddots & \vdots \\
+    a_{m1} & \cdots & a_{ms}
+\end{array}\right)_{m\times s}\left(\begin{array}{ccc}
+    b_{11} & \cdots & a_{1n} \\
+    \vdots & \ddots & \vdots \\
+    b_{s1} & \cdots & b_{sn}
+\end{array}\right)_{s\times n}$
+
+$=\left(\begin{array}{ccc}
+    a_{11}b_{11}+\cdots+a_{1s}b_{s1} & \cdots & a_{11}b_{1n}+\cdots+a_{1s}b_{sn} \\
+    \vdots & \ddots & \vdots \\
+    a_{m1}b_{11}+\cdots+a_{ms}b_{s1} & \cdots & a_{m1}b_{1n}+\cdots+a_{ms}b_{sn}
+\end{array}\right)_{m\times n}\text{。}$
+
+\subsection{线性方程组的解}
+
+对于一元一次线性方程：$ax=b$：
+
+\begin{itemize}
+    \item 当$a\neq 0$时，可以解得$x=\dfrac{b}{a}$。
+    \item 当$a=0$时，若$b\neq 0$时，无解，若$b=0$时，无数解。
+\end{itemize}
+
+当推广到多元一次线性方程组：$Ax=b$，如何求出$x$这一系列的$x$的解？
+
+从数学逻辑上看，已知多元一次方程，有$m$个约束方程，有$n$个未知数，假定$m\leqslant n$。
+
+当$m<n$时，就代表有更多的未知变量不能被方程约束，从而有$n-m$个自由变量，所以就是无数解，解组中其他解可以由自由变量来表示。
+
+当$m=n$时代表约束与变量数量相等，此时又要分三种情况。
+
+当所有的约束条件其中存在线性相关，即一部分约束条件可以由其他约束表示，则代表这部分约束条件是没用的，实际上的约束条件变少，从而情况等于$m<n$，结果是无数解。
+
+当所有的约束条件不存在线性相关，但是一部分约束条件互相矛盾，则约束条件下就无法解出解，从而结果是无实数解。
+
+当所有的约束条件不存在线性相关，且相互之间不存在矛盾情况，这时候才会解出一个实数解，从而结果是有唯一实解。
+
+若使用矩阵来解决线性方程组的问题，其系数矩阵$A_{m\times n}$。
+
+对于$A\neq O$，则$Ax=b$，若存在一个矩阵$B_{n\times n}$类似$\dfrac{1}{a}$，使得$BAx=Bb$，解得$Ex=x=Bb$，这个$B$就是$A$的逆矩阵。
+
+对于$A=O$即不可逆，需要判断$b$是否为0，若不是则无实数解，若是则无穷解，这种判断需要用到增广矩阵，需要用到矩阵的秩判断。
+
+\subsection{线性方程组的矩阵解表示}
+
+已知对于线性方程组$\begin{cases}
+    a_{11}x_1+\cdots+a_{1n}x_n=b_1 \\
+    \cdots \\
+    a_{m1}x_1+\cdots+a_{mn}x_n=b_n
+\end{cases}$。
+
+按乘积表示为$A_{m\times n}x_{n\times 1}=b_{m\times 1}$，然后将$A$按列分块，$x$按行分块：\medskip
+
+$(a_1,a_2,\cdots,a_n)\left(\begin{array}{c}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{array}\right)=b\text{，}\left(\begin{array}{c}
+    a_{11} \\
+    a_{21} \\
+    \vdots \\
+    a_{m1}
+\end{array}\right)x_1+\cdots+\left(\begin{array}{c}
+    a_{1n} \\
+    a_{2n} \\
+    \vdots \\
+    a_{mn}
+\end{array}\right)x_n=\left(\begin{array}{c}
+    b_1 \\
+    b_2 \\
+    \vdots \\
+    b_m
+\end{array}\right)\text{。}$
+
+这三种都是解的表示方法。
+
+\section{具体线性方程}
+
+\subsection{齐次方程组}
+
+\subsubsection{有解条件}
+
+\subsubsection{解的性质}
+
+\subsubsection{基础解系}
+
+\subsubsection{求解过程}
+
+\subsection{非齐次方程组}
+
+\subsubsection{有解条件}
+
+\subsubsection{解的性质}
+
+\subsubsection{求解过程}
+
+\section{抽象线性方程}
+
+\subsection{解的判定}
+
+\subsection{解的性质}
+
+\subsection{求解过程}
+
+\section{公共解}
+
+\section{通解方程组}
+
+\end{document}

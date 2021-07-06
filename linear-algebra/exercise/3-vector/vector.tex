@@ -2,6 +2,7 @@
 % UTF8编码，ctexart现实中文
 \usepackage{color}
 % 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -22,6 +23,8 @@
 % 数学公式
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
+\usepackage{arydshln}
+% 增广矩阵长虚线
 \author{Didnelpsun}
 \title{向量}
 \date{}
@@ -37,8 +40,146 @@
 
 \section{线性相关性}
 
+\subsection{代入重组}
+
+若要求线性相关的式子由其他向量构成，则将式子代入表示目标式子。
+
+\textbf{例题：}设$\alpha_1$，$\alpha_2$，$\beta_1$，$\beta_2$，$\beta_3$都是$n$维向量，$n\geqslant3$，且$\beta_1=\alpha_1+\alpha_2$，$\beta_2=\alpha_1-2\alpha_2$，$\beta_3=3\alpha+1+2\alpha_2$，证明向量组$\beta_1$，$\beta_2$，$\beta_3$线性相关。
+
+证明：若存在$k_1,k_2,k_3$使得$k_1\beta_1+k_2\beta_2+k_3\beta_3=0$。
+
+代入$\alpha$表示$\beta$的式子：$k_1(\alpha_1+\alpha_2)+k_2(\alpha_1-2\alpha_2)+k_3(3\alpha_1+2\alpha_2)=0$。
+
+$\therefore(k_1+k_2+3k_3)\alpha_1+(k_1-2k_2+2k_3)\alpha_2=0$。
+
+$\therefore k_1+k_2+3k_3=0$，且$k_1-2k_2+2k_3=0$即可。
+
+而未知数的个数大于方程个数，所以有无穷多解，从而必然有非零解，从而$\beta_1$，$\beta_2$，$\beta_3$线性相关。
+
+\subsection{同乘}
+
+若要求线性相关的式子存在一定的乘积关系，则可以用同乘一步步消去系数。
+
 \textbf{例题：}设$A$是$n$阶矩阵，若存在正整数$k$，使得线性方程组$A^kx=0$有解向量$\alpha$，且$A^{k-1}\alpha\neq0$，证明向量组$\alpha,A\alpha,\cdots,A^{k-1}\alpha$线性无关。
 
-证明：
+证明：假设$\alpha,A\alpha,\cdots,A^{k-1}\alpha$线性相关，则设存在系数$\lambda_1,\lambda_2,\cdots,\lambda_k$使得$\lambda_1\alpha+\lambda_2A\alpha+\cdots+\lambda_kA^{k-1}\alpha=0$。
+
+$\because A^kx=0$的解为$\alpha$，$\therefore A^k\alpha=0$，$\therefore\cdots=A^{k+2}\alpha=A^{k+1}\alpha=A^k\alpha=0$。
+
+左乘$A^{k-1}$，得到$\lambda_1A^{k-1}\alpha+\lambda_2A^k\alpha+\cdots+\lambda_kA^{2k-2}\alpha=\lambda_1A^{k-1}\alpha=0$。
+
+$\because A^{k-1}\alpha\neq0$，$\therefore\lambda_1=0$，消去$\lambda_1$：$\lambda_2A\alpha+\lambda_3A^2\alpha+\cdots+\lambda_kA^{k-1}\alpha=0$。
+
+左乘$A^{k-2}$，得到$\lambda_2A^{k-1}\alpha+\lambda_3A^k\alpha+\cdots+\lambda_kA^{2k-3}\alpha=\lambda_2A^{k-1}\alpha=0$。
+
+$\because A^{k-1}\alpha\neq0$，$\therefore\lambda_2=0$，消去$\lambda_2$：$\lambda_3A^2\alpha+\lambda_4A^3\alpha+\cdots+\lambda_kA^{k-1}\alpha=0$。
+
+同理依次左乘$A^n$，所以$\lambda_1=\lambda_2=\cdots=\lambda_k=0$，所以$\alpha,A\alpha,\cdots,A^{k-1}\alpha$线性无关。
+
+\subsection{行列式}
+
+对向量的线性相关性可以从其向量组组成的行列式来计算，若行列式值为0则线性相关，若行列式值不为0则线性无关。
+
+\textbf{例题：}设$a_1,a_2,\cdots,a_s$是$s$个互不相同的数，探究$s$个$n$维列向量$\alpha_i=[1,a_i,a_i^a,\cdots,a_i^{n-1}]^T$（$i=1,2,\cdots,s$）的线性相关性。
+
+解：当$s>n$时，有$n$个方程$s$个未知数，所以必然存在自由变量，从而必然线性相关性。
+
+当$s=n$时，$\vert\alpha_1 \alpha_2 \cdots \alpha_n\vert=\left|\begin{array}{cccc}
+    1 & 1 & \cdots & 1 \\
+    a_1 & a_2 & \cdots & a_n \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_1^{n-1} & a_2^{n-1} & \cdots & a_n^{n-1}
+\end{array}\right|=\prod\limits_{1\leqslant j\leqslant i\leqslant n}(a_i-a_j)\neq0$。所以线性无关。
+
+当$s<n$时，对方程矩阵切割保留方形的$s$个$=\left|\begin{array}{cccc}
+    1 & 1 & \cdots & 1 \\
+    a_1 & a_2 & \cdots & a_n \\
+    \vdots & \vdots & \ddots & \vdots \\
+    a_1^{n-1} & a_2^{n-1} & \cdots & a_n^{n-1} \\
+    \vdots & \vdots & \vdots & \vdots
+\end{array}\right|$，上面因为范德蒙德行列式已经不等于0，即上面的方阵线性无关，原来无关延长无关，所以整个方程都线性无关。
+
+综上当$s>n$时线性相关，$s\leqslant n$时线性无关。
+
+\section{极大线性无关组与向量组秩}
+
+极大线性无关组一般与向量组秩在一起使用。一般解出极大线性无关组与秩，还要用极大线性无关组表示出其余的向量，基本步骤：
+
+\begin{enumerate}
+    \item 将向量组拼接为矩阵$A$，对$A$进行初等行变换，化为最简行阶梯形矩阵，确定矩阵秩$r(A)$。
+    \item 在最简行阶梯矩阵中按列找出一个秩为$r(A)$的子矩阵，即在每个台阶上找一列列向量，找$r(A)$列构成一个新矩阵，其就是一个极大线性无关组。
+    \item 将其余向量依次与极大线性无关组进行对比解出表示方法。
+\end{enumerate}
+
+\textcolor{orange}{注意：}求向量组的秩可以进行初等变换，包括行变换和列变换。但是求极大线性无关组时最好只使用行变换，因为列变换会改变方程的解。从而解方程组只能做行变换。
+
+\section{等价向量组}
+
+$r(A)=r(B)=r(A|B)$，所以需要计算三个向量组构成的矩阵的秩就可以了。
+
+\textbf{例题：}设向量组$\alpha$：$\alpha_1=[1,0,2]^T$，$\alpha_2=[0,1,1]^T$，$\alpha_3=[2,-1,a+4]^T$，向量组$\beta$：$\beta_1=[1,2,4]^T$，$\beta_2=[1,-1,a+2]^T$，$\beta_3=[3,3,10]^T$。
+
+矩阵$A=\left(\begin{array}{ccc}
+    1 & 0 & 2 \\
+    0 & 1 & -1 \\
+    2 & 1 & a+4
+\end{array}\right)$，$B=\left(\begin{array}{ccc}
+    1 & 1 & 3 \\
+    2 & -1 & 3 \\
+    4 & a+2 & 10
+\end{array}\right)$。\medskip
+
+(1)$AB$是否等价。
+
+(2)向量组$AB$是否等价。
+
+(1)解：化简$A=\left(\begin{array}{ccc}
+    1 & 0 & 2 \\
+    0 & 1 & -1 \\
+    0 & 0 & a+1
+\end{array}\right)$，$B=\left(\begin{array}{ccc}
+    1 & 3 & 1 \\
+    0 & 1 & 1 \\
+    0 & 0 & a
+\end{array}\right)$
+
+若$a\neq-1$，则$r(A)=3$，且$a\neq0$，则$r(B)=3$，此时$AB$等价。
+
+若$a=-1$，则$r(A)=2$，$r(B)=3$，$AB$不等价。
+
+若$a=0$，则$r(B)=2$，$r(A)=2$，$AB$不等价。
+
+(2)解：因为向量组$\alpha$拼接在一起就是$A$，$\beta$拼接在一起就是$B$，所以$r(\alpha)=r(A)$，$r(\beta)=r(B)$，$r(\alpha|\beta)=r(A|B)$。
+
+将$AB$拼在一起做行变换，得到$(A|B)=\left(\begin{array}{c:c}
+    \begin{matrix}
+        1 & 0 & 2 \\
+        0 & 1 & -1 \\
+        0 & 0 & a+1
+    \end{matrix}&
+    \begin{matrix}
+        1 & 1 & 3 \\
+        2 & -1 & 3 \\
+        0 & a+1 & 1
+    \end{matrix}
+\end{array}\right)$。\medskip
+
+若$a\neq-1\neq0$，则$r(A)=r(B)=r(A|B)$。向量组等价。
+
+若$a=-1$或$a=0$，则$r(A)\neq r(B)$，所以不等价。
+
+\section{向量空间}
+
+\textbf{例题：}设$R^3$中有两个基$A$：$\alpha_1=[1,1,0]^T$，$\alpha_2=[0,1,1]^T$，$\alpha_3=[1,0,1]^T$，基$B$：$\beta_1=[1,0,0]^T$，$\beta_2=[1,1,0]^T$，$\beta_3=[1,1,1]^T$。
+
+(1)求基$B$到基$A$的过渡矩阵。
+
+(2)已知$\xi$在基$B$下的坐标为$[1,0,2]^T$，求$\xi$在基$A$下的坐标。
+
+(1)解：过渡矩阵为$A=BC$，即$B^{-1}A=C$。
+
+(2)解：令在基$A$下的坐标为$(x_1,x_2,x_3)^T$。
+
+$\therefore\xi=A(x_1,x_2,x_3)^T=B(1,0,2)^T$，$(x_1,x_2,x_3)^T=A^{-1}B(1,0,2)^T$。
 
 \end{document}
