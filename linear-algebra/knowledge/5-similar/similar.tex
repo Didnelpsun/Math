@@ -1,0 +1,174 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{相似}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+
+主要包括特征值与特征向量，相似矩阵，对角矩阵。
+
+这里的矩阵都是指方阵。
+
+\section{特征值与特征向量}
+
+\subsection{定义}
+
+设$A$是$n$阶矩阵，$\lambda$是一个数，若存在$n$维非零列向量$\xi\neq0$，使得$A\xi=\lambda\xi$，则$\lambda$是$A$的特征值，$\xi$是$A$的对应于特征值$\lambda$的特征向量。
+
+\subsection{性质}
+
+\subsubsection{特征值性质}
+
+设$A=(a_{ij})_{n\times n}$，$\lambda_i$（$i=1,2,\cdots,n$）是$A$的特征值，则：
+
+\begin{enumerate}
+    \item $\sum\limits_{i=1}^n\lambda_i=\sum\limits_{i=1}^n=tr(A)$。主对角线元素和即矩阵的迹。
+    \item $\prod\limits_{i=1}^n\lambda_i=\vert A\vert$。
+\end{enumerate}
+
+\subsubsection{特征向量性质}
+
+\begin{enumerate}
+    \item $k$重特征值$\lambda$至多只有$k$个线性无关的特征向量。
+    \item 若$\xi_1$和$\xi_2$是$A$的属于不同特征值$\lambda_1$和$\lambda_2$的特征向量，则$\xi_1$和$\xi_2$线性无关。
+    \item 若$\xi_1$和$\xi_2$是$A$的属于同特征值$\lambda$的特征向量，则$k_1\xi_1+k_2\xi_2$（$k_1k_2$不同时为0）仍是$A$的属于特征值$\lambda$的特征向量。
+\end{enumerate}
+
+证明性质二：利用定义法，首先$A\xi_1=\lambda_1\xi_1$，$A\xi_2=\lambda_2\xi_2$。
+
+要证明两个特征向量线性无关，则证明$k_1\xi_1+k_2\xi_2=0$时$k_1=k_2=0$。
+
+$Ak_1\xi_1+Ak_2\xi_2=k_1\lambda_1\xi_1+k_2\lambda_1\xi_2=0$。又$k_1\xi_1+k_2\xi_2=\lambda_1k_1\xi_1+\lambda_1k_2\xi_2=0$，
+
+两式相减：$k_2(\lambda_2-\lambda_1)\xi_2=0$，且$\lambda_1\neq\Lambda_2$，$\xi_2\neq0$，$\therefore k_2=0$。
+
+代入$k_1\xi_1+k_2\xi_2=0$，即$k_1\xi_1=0$，又$\xi_1\neq0$，$\therefore k_1=0$。
+
+\subsection{运算}
+
+$\because\lambda\xi-A\xi=0$，$\therefore(\lambda E-A)\xi=0$，又$\xi\neq0$，$\therefore(\lambda E-A)x=0$有非零解。
+
+从而$\lambda E-A$所表示的方阵线性相关，为降秩，从而$\vert\lambda E-A\vert=0$。
+
+$\vert\lambda E-A\vert=0$也称为特征方程或是特征多项式，解出的$\lambda_i$就是特征值。
+
+将$\lambda_i$代回原方程，所有非零的解就是$\xi$。
+
+\subsubsection{具体型}
+
+若矩阵$A$为对角线矩阵，则特征值为对角线上元素。
+
+\textcolor{orange}{注意：}特征向量因为要求不为0，所以需要$k\neq0$。
+
+\textcolor{orange}{注意：}得到多重特征值时要全部写出，$\lambda_1=\lambda_2=\cdots=\lambda_n=\lambda$。
+
+\textbf{例题：}求$A=\left(\begin{array}{ccc}
+    2 & -2 & 0 \\
+    -2 & 1 & -2 \\
+    0 & -2 & 0
+\end{array}\right)$的特征值与特征向量。
+
+$\vert\lambda E-A\vert=\left|\begin{array}{ccc}
+    \lambda_2 & 2 & 0 \\
+    2 & \lambda-1 & 2 \\
+    0 & 2 & \Lambda
+\end{array}\right|=(\lambda-2)(\lambda-1)\lambda-4\lambda-4(\lambda-2)=\lambda^3-3\lambda^2-6\lambda+8=(\lambda+2)(\lambda-1)(\lambda-4)=0$。
+
+$\therefore\lambda_1=-2$，$\lambda_2=1$，$\lambda=4$。
+
+当计算$\vert\lambda E-A\vert$时往往难点就是从多项式中解出$\lambda$，对于$f(\lambda)=a_k\lambda^k+\cdots+a_1\lambda+a_0=0$，可以使用试根法：
+
+\begin{enumerate}
+    \item 若$a_0=0$，$\lambda=0$就是其根。
+    \item 若$a_k+\cdots+a_1+a_0=0$，$\lambda=1$就是其根。
+    \item 若$a_0+a_2+\cdots+a_{2k}=a_1+a_3\cdots+a_{2k-1}$，$\lambda=-1$就是其根。
+    \item 若$a_k=1$，且系数都是整数，则有理根是整数，且均为$a_0$的因子。
+\end{enumerate}
+
+对于第四个，如$\lambda^3-4\lambda^2+3\lambda+2=0$，2的因子为$\pm1$和$\pm2$，分别代入得到一根为2。
+
+\subsubsection{抽象型}
+
+\begin{enumerate}
+    \item 利用定义，寻找$A\xi=\lambda\xi$，$\xi\neq0$，$\lambda$是$A$的特征值，$\xi$是$A$属于$\lambda$的特征向量。
+    \item 根据$\vert\lambda E-A\vert=0$计算出对应的$\lambda$值，再计算$\xi$的值。
+\end{enumerate}
+
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|}
+    \hline
+    矩阵 & $A$ & $kA$ & $A^k$ & $f(A)$ & $A^{-1}$ & $A^*$ & $P^{-1}AP$ & $A^T$ \\ \hline
+    特征值 & $\lambda$ & $k\lambda$ & $\lambda^k$ & $f(\lambda)$ & $\lambda^{-1}$ & $\vert A\vert/\lambda$ & $\lambda$ & $\lambda$ \\ \hline
+    特征向量 & $\xi$ & $\xi$ & $\xi$ & $\xi$ & $\xi$ & $\xi$ & $P^{-1}\xi$ & 无关 \\
+    \hline
+\end{tabular} \medskip
+
+\textbf{例题：}设$A$为$n$阶矩阵，且$A^T=A$（此时$A$就是幂等矩阵）。
+
+(1)求$A$的特征值可能的取值。
+
+(2)证明$E+A$是可逆矩阵。
+
+(1)解：$\because A^2=A$，$\therefore f(A)=A^2-A=0$，$f(\lambda)=\lambda^2-\lambda=0$，$\lambda_1=0$，$\lambda_2=1$。
+
+值得注意的是这里求的$\lambda$是可能的取值，因为不同的矩阵特征值不同，只有通过$\vert\lambda E-A\vert=0$的值才是真实的特征值。
+
+\section{相似}
+
+\subsection{矩阵相似}
+
+\subsubsection{定义}
+
+\subsubsection{性质}
+
+\subsection{相似对角化}
+
+\subsubsection{定义}
+
+\subsubsection{对角化条件}
+
+\subsubsection{步骤}
+
+\subsection{应用}
+
+\subsection{相似对角化}
+
+\subsection{反向问题}
+
+\subsubsection{参数}
+
+\subsubsection{矩阵}
+
+\subsection{幂与函数}
+
+\end{document}
