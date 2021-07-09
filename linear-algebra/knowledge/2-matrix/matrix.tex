@@ -583,14 +583,14 @@ $\therefore A=O$。
 
 把对应的行换为列就得到初等列变换，将$r$改为$c$。其逆变换也是一种初等变换。初等行变换和初等列变换都是\textbf{初等变换}。
 
-\textcolor{violet}{\textbf{定义：}}若$A$经过有限次行变换得到$B$，则称$AB$行等价，记为$A\overset{r}{\thicksim}B$；若$A$经过有限次列变换得到$B$，则称$AB$行等价，记为$A\overset{c}{\thicksim}B$；若$A$经过有限次初等变换得到$B$，则称$AB$行等价，记为$A\thicksim B$。
+\textcolor{violet}{\textbf{定义：}}若$A$经过有限次行变换得到$B$，则称$AB$行等价，记为$A\overset{r}{\sim}B$；若$A$经过有限次列变换得到$B$，则称$AB$行等价，记为$A\overset{c}{\sim}B$；若$A$经过有限次初等变换得到$B$，则称$AB$行等价，记为$A\sim B$。
 
 矩阵之间的等价关系：
 
 \begin{enumerate}
-    \item 反身性：$A\thicksim A$。
-    \item 对称性：若$A\thicksim B$，则$B\thicksim A$。
-    \item 传递性：若$A\thicksim B$，$B\thicksim C$，则$A\thicksim C$。
+    \item 反身性：$A\sim A$。
+    \item 对称性：若$A\sim B$，则$B\sim A$。
+    \item 传递性：若$A\sim B$，$B\sim C$，则$A\sim C$。
 \end{enumerate}
 
 若是解方程组，则使用初等行变换解不会发生改变，若使用初等列变换则会改变解。
@@ -627,9 +627,9 @@ $\therefore A=O$。
 \subsection{初等变换性质}
 
 \textcolor{aqua}{\textbf{定理：}}设$AB$都是$m\times n$矩阵，初等变换与矩阵乘积关系：\begin{enumerate}
-    \item $A\overset{r}{\thicksim}B$的充要条件是存在$m$阶可逆矩阵$P$，使得$PA=B$。
-    \item $A\overset{c}{\thicksim}B$的充要条件是存在$n$阶可逆矩阵$Q$，使得$AQ=B$。
-    \item $A\thicksim B$的充要条件是存在$m$阶可逆矩阵$P$和$n$阶可逆矩阵$Q$，使得$PAQ=B$。
+    \item $A\overset{r}{\sim}B$的充要条件是存在$m$阶可逆矩阵$P$，使得$PA=B$。
+    \item $A\overset{c}{\sim}B$的充要条件是存在$n$阶可逆矩阵$Q$，使得$AQ=B$。
+    \item $A\sim B$的充要条件是存在$m$阶可逆矩阵$P$和$n$阶可逆矩阵$Q$，使得$PAQ=B$。
 \end{enumerate}
 
 初等变换具有如下性质：
@@ -638,7 +638,7 @@ $\therefore A=O$。
     \item 设$A$是一个$m\times n$矩阵，对$A$进行一次初等行变换，相当于在$A$左乘对应$m$阶初等矩阵；对$A$进行一次列变换，相当于在$A$右乘对应$n$阶初等矩阵。
     \item 方阵$A$可逆的充分必要条件是存在有限个初等矩阵$P_i$使得$A=\prod\limits_{i=1}^nP_i$。
     \item 可逆方阵$A$一定可以通过有限次初等变换化为同阶单位矩阵$E$。
-    \item 方阵$A$可逆的充要条件是$A\overset{r}{\thicksim}E$。（即$A$方阵所代表的线性方程组能通过初等计算得到最后的解）
+    \item 方阵$A$可逆的充要条件是$A\overset{r}{\sim}E$。（即$A$方阵所代表的线性方程组能通过初等计算得到最后的解）
 \end{itemize}
 
 对于$A_{m\times n}$进行初等变换：\begin{enumerate}
@@ -692,10 +692,10 @@ $\therefore A=O$。
 
 $\because P_i\cdots P_2P_1A=E$，$P_i\cdots P_2P_1E=A^{-1}$。
 
-$\left[A\vdots B\right]\overset{r}{\thicksim}\left[E\vdots A^{-1}\right]$，$\left[\begin{array}{c}
+$\left[A\vdots B\right]\overset{r}{\sim}\left[E\vdots A^{-1}\right]$，$\left[\begin{array}{c}
     A \\
     B
-\end{array}\right]\overset{c}{\thicksim}\left[\begin{array}{c}
+\end{array}\right]\overset{c}{\sim}\left[\begin{array}{c}
     E \\
     A^{-1}
 \end{array}\right]$。
@@ -716,17 +716,17 @@ $(A,B)=\left(\begin{array}{ccccc}
     2 & 1 & -3 & 1 & -1 \\
     1 & 2 & -2 & 2 & 0 \\
     -1 & 3 & 2 & -2 & 5
-\end{array}\right)\thicksim\left(\begin{array}{ccccc}
+\end{array}\right)\sim\left(\begin{array}{ccccc}
     1 & 2 & -2 & 2 & 0 \\
     0 & -3 & 1 & -3 & -1 \\
     0 & 5 & 0 & 0 & 5
 \end{array}\right)$
 
-$\thicksim\left(\begin{array}{ccccc}
+$\sim\left(\begin{array}{ccccc}
     1 & 2 & -2 & 2 & 0 \\
     0 & 1 & 0 & 0 & 1 \\
     0 & 0 & 1 & -3 & 2
-\end{array}\right)\thicksim\left(\begin{array}{ccccc}
+\end{array}\right)\sim\left(\begin{array}{ccccc}
     1 & 0 & 0 & -4 & 2 \\
     0 & 1 & 0 & 0 & 1 \\
     0 & 0 & 1 & -3 & 2

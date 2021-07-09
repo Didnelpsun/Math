@@ -3,6 +3,7 @@
 \usepackage{color}
 % 使用颜色
 \definecolor{orange}{RGB}{255,127,0} 
+\definecolor{aqua}{RGB}{0,255,255} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -23,6 +24,8 @@
 % 数学公式
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
+\usepackage{pifont}
+% 圆圈序号
 \author{Didnelpsun}
 \title{相似}
 \date{}
@@ -52,18 +55,18 @@
 
 设$A=(a_{ij})_{n\times n}$，$\lambda_i$（$i=1,2,\cdots,n$）是$A$的特征值，则：
 
-\begin{enumerate}
+\begin{itemize}
     \item $\sum\limits_{i=1}^n\lambda_i=\sum\limits_{i=1}^n=tr(A)$。主对角线元素和即矩阵的迹。
     \item $\prod\limits_{i=1}^n\lambda_i=\vert A\vert$。
-\end{enumerate}
+\end{itemize}
 
 \subsubsection{特征向量性质}
 
-\begin{enumerate}
+\begin{itemize}
     \item $k$重特征值$\lambda$至多只有$k$个线性无关的特征向量。
     \item 若$\xi_1$和$\xi_2$是$A$的属于不同特征值$\lambda_1$和$\lambda_2$的特征向量，则$\xi_1$和$\xi_2$线性无关。
     \item 若$\xi_1$和$\xi_2$是$A$的属于同特征值$\lambda$的特征向量，则$k_1\xi_1+k_2\xi_2$（$k_1k_2$不同时为0）仍是$A$的属于特征值$\lambda$的特征向量。
-\end{enumerate}
+\end{itemize}
 
 证明性质二：利用定义法，首先$A\xi_1=\lambda_1\xi_1$，$A\xi_2=\lambda_2\xi_2$。
 
@@ -74,6 +77,15 @@ $Ak_1\xi_1+Ak_2\xi_2=k_1\lambda_1\xi_1+k_2\lambda_1\xi_2=0$。又$k_1\xi_1+k_2\x
 两式相减：$k_2(\lambda_2-\lambda_1)\xi_2=0$，且$\lambda_1\neq\Lambda_2$，$\xi_2\neq0$，$\therefore k_2=0$。
 
 代入$k_1\xi_1+k_2\xi_2=0$，即$k_1\xi_1=0$，又$\xi_1\neq0$，$\therefore k_1=0$。
+
+\subsubsection{特征值与特征向量}
+
+\begin{itemize}
+    \item 若特征值不相等，则特征向量线性无关。
+    \item 若特征值相等，则特征向量可能线性相关也可能线性无关。
+\end{itemize}
+
+性质一是因为特征向量的性质而来。从几何来理解，特征向量表示的是矩阵变换中只有伸缩变换没有旋转变换的方向向量，特征值是这个方向的伸缩系数，一个方向当然只有一个伸缩系数。
 
 \subsection{运算}
 
@@ -87,7 +99,9 @@ $\vert\lambda E-A\vert=0$也称为特征方程或是特征多项式，解出的$
 
 \subsubsection{具体型}
 
-若矩阵$A$为对角线矩阵，则特征值为对角线上元素。
+\textcolor{aqua}{\textbf{定理：}}若矩阵$A$为对角线矩阵，则特征值为对角线上元素。
+
+\textcolor{aqua}{\textbf{定理：}}若$n$阶矩阵$A$行或列对应成比例，即$r(A)=1$，则$\lambda_1=\lambda_2=\cdots=\lambda_{n-1}=0$，$\lambda_n=tr(A)$。
 
 \textcolor{orange}{注意：}特征向量因为要求不为0，所以需要$k\neq0$。
 
@@ -143,32 +157,249 @@ $\therefore\lambda_1=-2$，$\lambda_2=1$，$\lambda=4$。
 
 值得注意的是这里求的$\lambda$是可能的取值，因为不同的矩阵特征值不同，只有通过$\vert\lambda E-A\vert=0$的值才是真实的特征值。
 
-\section{相似}
+\section{相似理论}
+
+特征值和特征向量应用于矩阵的相似。
 
 \subsection{矩阵相似}
 
 \subsubsection{定义}
 
+设$A,B$是两个$n$阶方阵，若存在$n$阶可逆矩阵$P$，使得$P^{-1}AP=B$，则称$A$相似于$B$，记为$A\sim B$。
+
+其实就是对矩阵进行初等变换。
+
 \subsubsection{性质}
 
-\subsection{相似对角化}
+相似的性质：
+
+\begin{enumerate}
+    \item 反身性：$A\sim A$。
+    \item 对称性：若$A\sim B$，则$B\sim A$。
+    \item 传递性：若$A\sim B$，$B\sim C$，则$A\sim C$。
+\end{enumerate}
+
+相似与其他部分的关系。
+
+\begin{itemize}
+    \item 若$A\sim B$，$r(A)=r(B)$，$\vert A\vert=\vert B\vert$，$\vert\lambda E-A\vert=\vert\lambda E-B\vert$，$tr(A)=tr(B)$，$AB$具有相同的特征值。但是反之不能推出。
+    \item 若$A\sim B$，$A^m\sim B^m$，$f(A)\sim f(B)$。
+    \item 若$A\sim B$，且$A$可逆，则$A^{-1}\sim B^{-1}$，$f(A^{-1})\sim f(B^{-1})$。
+    \item 若$A\sim B$，$A^T\sim B^T$，$A^*\sim B^*$。
+\end{itemize}
+
+\subsection{可逆矩阵相似对角化}
 
 \subsubsection{定义}
 
+设$n$阶矩阵$A$，若存在$n$阶可逆矩阵$P$，使得$P^{-1}AP=\Lambda$，其中$\Lambda$为对角矩阵（纯量阵，即对角线元素不全为0，其他元素全为0），则称$A$可\textbf{相似对角化}，记为$A\sim\Lambda$，称$\Lambda$是$A$的\textbf{相似标准形}。
+
+为什么要选择$\Lambda$？，因为对角矩阵计算非常简单，只需要对对角线元素进行运算就可以了。
+
 \subsubsection{对角化条件}
+
+$\because P^{-1}AP=\Lambda$，$AP=P\Lambda$，将$P$拆解为列向量组合：
+
+$A(\xi_1,\xi_2,\cdots,\xi_n)=(\xi_1,\xi_2,\cdots,\xi_n)\left(\begin{array}{cccc}
+    \lambda_1 \\
+     & \lambda_2 \\
+     & & \ddots \\
+     & & & \lambda_n
+\end{array}\right)$
+
+$(A\xi_1,A\xi_2,\cdots,A\xi_n)=(\lambda_1\xi_1,\lambda_2\xi_2,\cdots,\lambda_n\xi_n)$，$A\xi_i=\lambda_i\xi_i$，$i=1,2,\cdots,n$。
+
+由于$P$可逆，从而$\xi$线性无关，$\xi\neq0$，$\xi$为特征向量，$\lambda$是特征值。
+
+$A\sim\Lambda$的充要条件是：\ding{172}$A$有$n$个线性无关的特征向量；\ding{173}$A$对应每个$k_i$重特征值都有$k_i$个线性无关的特征向量。
+
+$A\sim\Lambda$的充分条件是：\ding{172}$n$解矩阵$A$有$n$个不同的特征值；\ding{173}$A$为实对称方阵。（$A$可相似对角化不能反推这两个结论）
+
+\textbf{例题：}判断$A=\left(\begin{array}{ccc}
+    1 & -2 & 1 \\
+    2 & -4 & 2 \\
+    1 & -2 & 1
+\end{array}\right)$是否可以相似对角化。
+
+解：因为$A$，对应行成比例，所以$\lambda_1=\lambda_2=0$，$\lambda_3=1-4+1=-2$。
+
+有两个不同的特征值，无法判断有多少个不同的特征向量，将特征值代回到$(\lambda E-A)x=0$。首先代入0：
+
+$(0E-A)x=0$，$Ax=0$，$\left(\begin{array}{ccc}
+    1 & -2 & 1 \\
+    2 & -4 & 2 \\
+    1 & -2 & 1
+\end{array}\right)=\left(\begin{array}{ccc}
+    1 & -2 & 1 \\
+    0 & 0 & 0 \\
+    0 & 0 & 0
+\end{array}\right)$，$s=n-r=2$，所以有两个基础解系向量。
+
+所以一共有三个线性无关的特征向量，从而可以相似对角化。
 
 \subsubsection{步骤}
 
+\begin{enumerate}
+    \item 求出$A$的所有特征值$\lambda$。
+    \item 求出$A$的所有$\lambda$的特征向量$\xi$。
+    \item 令$P=(\xi_1,\xi_2,\cdots,\xi_n)$，则$P^{-1}AP=\Lambda$。（$\xi$线性无关，$\vert P\vert\neq0$，$P$可逆）
+\end{enumerate}
+
+\textbf{例题：}设$A=\left(\begin{array}{ccc}
+    2 & 2 & -2 \\
+    2 & 5 & -4 \\
+    -2 & -4 & 5
+\end{array}\right)$，求可逆矩阵$P$，使得$P^{-1}AP=\Lambda$。
+
+解：$\vert\lambda E-A\vert=\left|\begin{array}{ccc}
+    \lambda-2 & -2 & 2 \\
+    2 & \lambda+5 & -4 \\
+    -2 & -4 & \lambda+5
+\end{array}\right|=0$，$(\lambda-1)^2(\lambda-10)=0$。
+
+$\therefore\lambda_1=\lambda_2=1$，$\lambda_3=10$。
+
+当$\lambda_1=\lambda_2=1$时，$(E-A)x=0$，$\left|\begin{array}{ccc}
+    -1 & -2 & 3 \\
+    2 & 6 & -4 \\
+    -2 & -4 & 6
+\end{array}\right|$，$\xi_1=(-2,1,0)^T$，$\xi_2=(2,0,1)^T$。同理代入$\lambda_3=10$，$(10E-A)x=0$，$\xi_3=(1,2,-2)^T$。
+
+令$P=(\xi_1,\xi_2,\xi_3)=\left(\begin{array}{ccc}
+    -2 & 2 & 1 \\
+    1 & 0 & 2 \\
+    0 & 1 & -2
+\end{array}\right)$，使得$P^{-1}AP=\left(\begin{array}{ccc}
+    1 \\
+     & 1 \\
+     & & 10
+\end{array}\right)$。
+
+\subsection{实对称矩阵相似对角化}
+
+由相似对角化的充分条件可知，实对称矩阵必然可以相似对角化。
+
+\subsubsection{定义}
+
+$A^T=A$则$A$就是对称矩阵，若$A$的元素都是实数，则$A$是实对称矩阵。
+
+\begin{itemize}
+    \item $A$是实对称矩阵，则$A$的特征值是实数，特征向量是实向量。
+    \item $A$是实对称矩阵，则其属于不同特征值的特征向量相互正交（线性无关）。
+    \item $A$是实对称矩阵，必然相似于对角矩阵，必与$n$个线性无关的特征向量$\xi_1,\xi_2,\cdots,\xi_n$，即必有可逆矩阵$P=[\xi_1,\xi_2,\cdots,\xi_n]$使得$P^{-1}AP=\Lambda$，且存在正交矩阵$Q$，使得$Q^{-1}AQ=Q^TAQ=\Lambda$，所以$A$与$\Lambda$正交相似。（正交：$A^TA=E$）
+\end{itemize}
+
+证明性质二：已知实对称矩阵$A^T=A$。
+
+令$Ax_1=\lambda_1x_1$，$Ax_2=\lambda_2x_2$，$\lambda_1\neq\lambda_2$。对于第一个式子左乘$x_2^T$：
+
+$x_2^TAx_1=x_2^T\lambda_1x_1$，$x_2^TA^Tx_1=\lambda_1x_2^Tx_1$，$(Ax_2)^Tx_1=\lambda_1x_2^Tx_1$，代入$Ax_2=\lambda_2x_2$：
+
+$(\lambda_2x_2)^Tx_1=\lambda_1x_2^Tx_1$，$\lambda_2x_2^Tx_1=\lambda_1x_2^Tx_1$，$(\lambda_2-\lambda_1)x_2^Tx_1=0$，$x_2^Tx_1=0$。
+
+即$(x_2,x_1)=0$，从而$x_1$与$x_2$正交。
+
+如果不记得正交化可以等到二次型结束后再回头复习。
+
+\subsubsection{步骤}
+
+对于实对称矩阵，一定存在$P$，所以一般而言还会考求$Q$，步骤如下：
+
+\begin{enumerate}
+    \item 求出$A$的所有特征值$\lambda$。
+    \item 求出$A$的所有$\lambda$的特征向量$\xi$。
+    \item 将$(\xi_1,\xi_2,\cdots,\xi_n)$正交化、单位化为$(\eta_1,\eta_2,\cdots,\eta_n)$。
+    \item 令$Q=(\eta_1,\eta_2,\cdots,\eta_n)$，则$Q^{-1}AQ=Q^TAQ=\Lambda$。
+\end{enumerate}
+
+\textbf{例题：}设$A=\left(\begin{array}{ccc}
+    2 & 2 & -2 \\
+    2 & 5 & -4 \\
+    -2 & -4 & 5
+\end{array}\right)$，求正交矩阵$Q$，使得$Q^{-1}AQ=\Lambda$。\medskip
+
+解：这个题基本上跟上面的例题一致，只是将可逆矩阵改成了正交矩阵。
+
+所以得到三个特征向量：$\xi_1=(-2,1,0)^T$，$\xi_2=(2,0,1)^T$，$\xi_3=(1,2,-2)^T$。
+
+实对称矩阵不同特征值的特征向量必然相互正交，从而$\xi_1\perp\xi_3$，$\xi_2\perp\xi_3$。
+
+而$\xi_1$与$\xi_2$特征值相同从而不一定正交，$(\xi_1,\xi_2)=-4\neq0$，所以并不正交。
+
+令$\eta_1=\xi_1=(-2,1,0)^T$，$\eta_2=\xi_2-\dfrac{(\xi_2,\eta_1)}{(\eta_1,\eta_1)}\eta_1=(2,0,1)^T-\dfrac{-4}{5}(-2,1,0)^T$。
+
+$\therefore\eta_2=\left(\dfrac{2}{5},\dfrac{4}{5},1\right)^T$，取$\eta_2=(2,4,5)^T$，$\eta_1=(-2,1,0)^T$，$\eta_3=\xi_3=(1,2,-2)^T$。
+
+单位化$\eta_1'=\dfrac{\sqrt{5}}{5}(-2,1,0)^T$，$\eta_2'=\dfrac{\sqrt{5}}{15}(2,4,5)^T$，$\eta_3'=\dfrac{1}{3}(1,2,-2)^T$。
+
+令$Q=(\eta_1',\eta_2',\eta_3')$，使得$Q^{-1}AQ=Q^TAQ=\Lambda$。
+
 \subsection{应用}
 
-\subsection{相似对角化}
+\subsubsection{反求参数}
 
-\subsection{反向问题}
+常用方法：
 
-\subsubsection{参数}
+\begin{itemize}
+    \item 若$A\sim B$，则$\vert A\vert=\vert B\vert$，$r(A)=r(B)$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B$，通过等式计算参数。
+    \item 若$\xi$是$A$属于特征值$\lambda$的特征向量，则有$A\xi=\lambda\xi$，建立若干等式或方程组来计算参数。
+    \item 若$\lambda$是$A$的特征值，则与$\lambda E-A\vert=0$，通过该等式计算参数。
+\end{itemize}
 
-\subsubsection{矩阵}
+\textbf{例题：}已知$A=\left(\begin{array}{ccc}
+    2 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 1 & x
+\end{array}\right)$，$B=\left(\begin{array}{ccc}
+    2 \\
+     & y \\
+     & & -1
+\end{array}\right)$，且$A\sim B$，求参数。\medskip
 
-\subsection{幂与函数}
+首先可以利用迹相等，则$2+0+x=2+y-1$，行列式值相等，则$-2=-2y$，解得$x=0$，$y=1$。
+
+\subsubsection{反求矩阵}
+
+若有可逆矩阵$P$，使得$P^{-1}AP=\Lambda$，则：
+
+\begin{itemize}
+    \item $A=P\Lambda P^{-1}$。
+    \item $A^k=P\Lambda^kP^{-1}$。
+    \item $f(A)=Pf(\Lambda)P^{-1}$。
+\end{itemize}
+
+\textbf{例题：}已知$A=\left(\begin{array}{ccc}
+    2 & x & 1 \\
+    0 & 3 & 0 \\
+    3 & -6 & 0
+\end{array}\right)$相似于对角矩阵，求$A^{100}$。\medskip
+
+解：首先$A\sim\Lambda$，所以$A$能相似对角化。
+
+$\vert\lambda E-A\lambda=\left|\begin{array}{ccc}
+    \lambda-2 & -x & -1 \\
+    0 & \lambda-3 & 0 \\
+    -3 & 6 & \lambda
+\end{array}\right|=(\lambda-3)^2(\lambda+1)=0$。$\lambda_1=\lambda_2=3$，$\lambda_3=-1$。
+
+所以对于$\lambda_1=\lambda_2=3$时，需要$s=2$，从而$r(A)=1$，对应成比例。
+
+代入3：$(3E-A)x=0$，$\left(\begin{array}{ccc}
+    1 & -x & -1 \\
+    0 & 0 & 0 \\
+    -3 & 6 & 3
+\end{array}\right)=0$，所以$\dfrac{-1}{3}=\dfrac{-x}{6}$，$x=2$。
+
+解得$\xi_1=(1,0,1)^T$，$\xi_2=(2,1,0)^T$，$\xi_3=(1,0,-3)^T$。
+
+令$P=(\xi_1,\xi_2,\xi_3)$，所以$A=P\Lambda P^{-1}$，$A^{100}=P\Lambda^{100}P^{-1}$。
+
+\subsubsection{相似性}
+
+\begin{itemize}
+    \item 定义法：若存在可逆矩阵$P$，使得$P^{-1}AP=B$，则$A\sim B$。
+    \item 性质：若$A\sim B$，则$r(A)=r(B)$，$\vert A\vert=\vert B\vert$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B$。
+    \item 传递性：$A\sim\Lambda$，$\Lambda\sim B$，则$A\sim B$。
+\end{itemize}
 
 \end{document}

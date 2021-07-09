@@ -1,0 +1,124 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{二次型}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{二次型}
+
+\subsection{定义}
+
+$n$元变量$x_1,x_2,\cdots,x_n$的二次齐次多项式：
+
+$
+\begin{array}{cr}
+    f(x_1,x_2,\cdots,x_n)= & a_{11}x_1^2+2a_{12}x_1x_2+\cdots+2a_{1n}x_1x_n \\
+    & +a_{22}x_2^x+\cdots+2a_{2n}x_2x_n \\
+    & \cdots \\
+    & +a_{nn}x_n^2
+\end{array}
+$
+
+这就是\textbf{$n$元二次型}，简称\textbf{二次型}。
+
+$\because x_ix_j=x_jx_i$，令$a_{ij}=a_{ji}$（$i,j=1,2,\cdots,n$），则$2a_{ij}x_ix_j=a_{ij}x_ix_j+a_{ji}x_jx_i$：
+
+$f(x_1,x_2,\cdots,x_n)=a_{11}x_1^2+a_{12}x_1x_2+\cdots+a_{1n}x_1x_n+a_{21}x_2x_1+a_{22}x_2^2+a_{2n}x_2x_n+\cdots+a_{n1}x_nx_1+a_{n2}x_nx_2+\cdots+a_{nn}x_n^2$，这个式子就是完全展开式。
+
+$f(x_1,x_2,\cdots,x_n)=\sum\limits_{i=1}^n\sum\limits_{j=1}^na_{ij}x_ix_j$，这个就是和式。
+
+\subsection{矩阵表示}
+
+二次型可以用矩阵来表示，即$f(x)=x^TAx$。其中$x$是列向量。
+
+矩阵表示的重点就是找到中间的$A$，$A$是$f$的二次型矩阵。
+
+方法是：$A$的主对角线元素$a_{ii}$是$x_i^2$的对应系数，$a_{ij}$与$a_{ji}$是混合项$x_ix_j$的系数的一半。
+
+如一个二次型$f(x_1,x_2,x_3)=2x_1^2+5x_2^2+5x_3^2+4x_1x_2-4x_1x_3-8x_2x_3$
+
+$=(x_1,x_2,x_3)\left(\begin{array}{ccc}
+    2 & 2 & -2 \\
+    2 & 5 & -4 \\
+    -2 & -4 & 5
+\end{array}\right)(x_1,x_2,x_3)^T$。
+
+所以可以发现二次型矩阵就是一个对称矩阵，所以只要能写出二次型的就一定存在一个对称矩阵，就一定可以相似对角化。
+
+\section{标准型与规范型}
+
+\subsection{配方法}
+
+\subsection{正交变换法}
+
+\subsection{合同变换}
+
+\subsubsection{线性变换}
+
+对于$n$元二次型$f(x_1,x_2,\cdots,x_n)$，若令$\left\{\begin{array}{l}
+    x_1=c_{11}y_1+c_{12}y_2+\cdots+c_{1n}y_n \\
+    x_2=c_{21}y_1+c_{22}y_2+\cdots+c_{2n}y_n \\
+    \cdots \\
+    x_n=c_{n1}y_1+c_{n2}y_2+\cdots+c_{nn}y_n
+\end{array}\right.$
+
+记$x=(x_1,x_2,\cdots,x_n)$，$C=\left(\begin{array}{cccc}
+    c_{11} & c_{12} & \cdots & c_{1n} \\
+    c_{21} & c_{22} & \cdots & c_{2n} \\
+    \vdots & \vdots & \ddots & \vdots \\
+    c_{n1} & c_{n2} & \cdots & c_{nn}
+\end{array}\right)$，$y=(y_1,y_2,\cdots,y_n)$，则上式写为$x=Cy$称为$y_1,y_2,\cdots,y_n$到$x_1,x_2,\cdots,x_n$的\textbf{线性变换}。
+
+若线性变换的系数矩阵$C$可逆，即$\vert C\vert\neq0$，则称为\textbf{可逆线性变换}。
+
+若$f(x)=x^TAx$，令$x=Cy$，则$f(x)=(Cy)^TA(Cy)=y^T(C^TAC)y$，记$B=C^TAC$，则$f(x)=y^TBy=g(y)$，此时二次型$f(x)=x^TAx$通过线性变换$x=Cy$得到一个新二次型$g(y)=y^TBy$。即将二次型用$x$表示换成用$y$表示。
+
+$x^TAx=y^TBy$这种改变表示方法的变换就是合同变换。
+
+\subsubsection{定义}
+
+二次型$f(x)$与$g(y)$的系数矩阵$A$与$B$满足$B=C^TAC$，这种关系就是\textbf{合同变换}。
+
+设$AB$为$n$阶实对称矩阵，若存在可逆矩阵$C$，使得$C^TAC=B$，则称$AB$\textbf{合同}，记为$A\simeq B$，此时$f(x)$与$g(x)$为\textbf{合同二次型}。
+
+\subsection{惯性定理}
+
+\section{正定二次型}
+
+\subsection{定义}
+
+\subsection{性质}
+
+\subsection{判定}
+
+\end{document}

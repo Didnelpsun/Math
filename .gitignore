@@ -7,3 +7,5 @@
 *.out
 *.fdb_latexmk
 *.fls
+*.tex.bak
+
