@@ -1,0 +1,133 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\definecolor{orange}{RGB}{255,127,0}  
+\definecolor{violet}{RGB}{192,0,255}  
+\definecolor{aqua}{RGB}{0,255,255} 
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{随机事件与概率}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{基本概念}
+
+\subsection{随机试验}
+
+\textcolor{violet}{\textbf{定义：}}满足三个条件的就是随机试验：
+
+\begin{enumerate}
+    \item 试验可以在相同的条件下重复进行。
+    \item 试验所以可能结果都是明确可知，且不止一个。
+    \item 每次试验的结果事先不确定。
+\end{enumerate}
+
+随机试验也称为\textbf{试验}，并用$E_1,E_2,\cdots$来表示。
+
+\subsection{随机事件}
+
+\textcolor{violet}{\textbf{定义：}}一次试验中可能出现也可能补出现的结果称为\textbf{随机事件}，简称\textbf{事件}，并用大写字母$A,B,\cdots$来表示。
+
+必然事件\textcolor{violet}{\textbf{定义：}}每次试验中一定发生的事件，记为$\Omega$。
+
+不可能事件\textcolor{violet}{\textbf{定义：}}每次试验中一定不发生的事件，记为$\varnothing$。
+
+\subsection{样本空间}
+
+随机试验的每一个不可再分的可能结果称为\textbf{样本点}，记为$\omega$，样本点的全体组成的集合称为\textbf{样本空间}或\textbf{基本事件空间}，记为$\Omega$，即$\Omega=\{\omega\}$。
+
+由一个样本点构成的事件称为\textbf{基本事件}。
+
+随机事件$A$总是由若干个基本事件构成，即$A$是$\Omega$的子集。
+
+样本点的个数就是基本事件的个数。
+
+\section{事件}
+
+\subsection{关系}
+
+若事件$A$发生必然导致事件$B$发生，则称事件$B$\textbf{包含}事件$A$（或$A$被$B$包含），记为$A\subset B$。
+
+如果$A\subset B$且$B\subset A$，则称事件$AB$\textbf{相等}，记为$A=B$，$AB$是由完全相同的一些试验结果构成，是同一事件表面上看来两个不同说法。
+
+若事件在事件$A$与$B$同时发生，则称为事件$A$与$B$的\textbf{积}或\textbf{交}，记为$A\cap B$或$AB$。
+
+有限个事件$A_1,A_2,\cdots,A_n$同时发生的事件为事件$A_1,A_2,\cdots,A_n$的积或交，记为$\bigcap\limits_{i=1}^nA_i$或$\bigcap\limits_{i=1}^\infty A_i$。
+
+若$AB\neq\varnothing$，则称事件$AB$\textbf{相容}，否则\textbf{互不相容}或\textbf{互斥}。如果一些事件中任意两个事件都互斥，则这些事件\textbf{两两互斥}，简称互斥。
+
+事件$AB$至少有一个发生的事件称为事件$AB$的\textbf{和}或\textbf{并}，记为$A\cup B$。
+
+有限个事件$A_1,A_2,\cdots,A_n$至少有一个发生的事件为事件$A_1,A_2,\cdots,A_n$的和或并，记为$\bigcup\limits_{i=1}^nA_i$或$\bigcup\limits_{i=1}^\infty A_i$。
+
+事件$A$发生而事件$B$不发生的事件为事件$AB$的\textbf{差}，记为$A-B$。
+
+事件$A$不发生的事件为事件$A$的\textbf{逆事件}或\textbf{对立事件}，记为$\overline{A}$。
+
+若$\bigcup\limits_{i=1}^nA_i$或$\bigcup\limits_{i=1}^\infty A_i=\Omega$，$A_iA_j=\varnothing$（对一切的$i\neq j$，$i,j=1,2,3,\cdots,n,\cdots$），则称有限个事件$A_1,A_2,\cdots,A_n$构成一个\textbf{完备事件组}。
+
+\subsection{运算}
+
+定义可知：$A-B=A-AB=A\overline{B}$，$B=\overline{A}$等价于$AB=\varnothing$且$A\cup B=\Omega$。
+
+\begin{enumerate}
+    \item 吸收律：若$A\subset B$，则$A\cup B=B$，$A\cap B=A$。
+    \item 交换律：$A\cup B=B\cup A$，$A\cap B=B\cap A$。
+    \item 结合律：$(A\cup B)\cup C=A\cup(B\cup C)$，$(A\cap B)\cap C=A\cap(B\cap C)$。
+    \item 分配律：$A\cap(B\cup C)=(A\cap B)\cup(A\cap C)$，$A\cup(B\cap C)=(A\cup B)\cap(A\cup C)$，$A\cap(B-C)=(A\cap B)-(A\cap C)$。
+    \item 对偶律（德·摩根律）：$\overline{A\cup B}=\overline{A}\cap\overline{B}$，$\overline{A\cap B}=\overline{A}\cup\overline{B}$。（长杠变短杠，开口换方向）
+\end{enumerate}
+
+\textbf{例题：}判断$A-(B-C)=(A-B)\cup C$是否成立。
+
+解：$\because A-B=A\overline{B}$，$\therefore A-(B-C)=A-B\overline{C}=A\overline{B\overline{C}}=A(\overline{B}\cup C)=A\overline{B}\cup AC=(A-B)\cup AC\neq (A-B)\cup C$。
+
+\section{概率}
+
+\subsection{定义}
+
+\begin{itemize}
+    \item 描述性定义：将随机事件$A$发生的可能性大小的度量（非负）称为事件$A$发生的概率，记为$P(A)$。
+    \item 统计性定义：在相同条件下做重复试验，事件$A$出现的次数$k$和总的试验次数$n$之比$\dfrac{k}{n}$，称为事件$A$在这$n$次试验中出现的\textbf{频率}，当$n$充分大时，频率将稳定与某常数$p$附近，$n$越大频率偏离这个常数$p$的可能性越小，这个常数$p$就是事件$A$的概率。
+\end{itemize}
+
+\subsection{概率模型}
+
+\subsubsection{古典概型}
+
+\subsubsection{几何概型}
+
+\subsection{性质}
+
+\subsection{公式}
+
+\section{独立性}
+
+\end{document}
