@@ -1,0 +1,74 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{随机变量及其分布}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+
+\section{二项分布}
+
+\textbf{例题：}已知随机变量$X$的概率密度为$f(x)=\left\{\begin{array}{ll}
+    2x, & 0<x<1 \\
+    0, \text{其他}
+\end{array}\right.$，$Y$表示对$X$进行3次独立重复试验中事件$\left\{X\leqslant\dfrac{1}{2}\right\}$，求$P\{Y=2\}$。\medskip
+
+解：已知对$X$进行独立重复试验，表示这个进行的是伯努利试验，从而$Y\sim B(n,p)$。又是3次，所以$Y\sim B(3,p)$。
+
+只用求出这个$p$即$\left\{X\leqslant\dfrac{1}{2}\right\}$的概率就可以了。又已知$f(x)$。
+
+$\therefore p=\left\{X\leqslant\dfrac{1}{2}\right\}=\int_0^\frac{1}{2}2x\,\textrm{d}x=\dfrac{1}{4}$。$\therefore P\{Y=2\}=B\left(3,\dfrac{1}{4}\right)=\dfrac{9}{64}$。
+
+\section{泊松分布}
+
+\textbf{例题：}设一本书的各页印刷错误的个数$X$服从泊松分布。已知只有一个和只有两个印刷错误的页数相同，则随机抽查的4页中无印刷错误的概率$p$为？
+
+解：$\because P\{X=1\}=P\{X=2\}$，$\therefore\dfrac{\lambda^1}{1!}e^{-\lambda}=\dfrac{\lambda^2}{2!}e^{-\lambda}$，$\lambda=2$。
+
+由于随机抽四页类似于伯努利试验是相互独立的，所以随机抽4页都无错误的概率为$[P\{X=0\}]^4=e^{-8}$。
+
+\section{几何分布}
+
+\textbf{例题：}已知随机变量$X$的概率密度为$f(x)=\left\{\begin{array}{ll}
+    2^{-x}\ln2, & x>0 \\
+    0, \text{其他}
+\end{array}\right.$，对$X$进行独立重复观测，直到第2个大于3的观测值出现时停止，记$Y$为观测次数，求$Y$的概率分布。
+
+解：由题目直到就停止，知道$Y\sim G(p)$。
+
+又$p=P\{X\geqslant3\}=\int_3^{+\infty}2^{-x}\ln2\,\textrm{d}x=\dfrac{1}{8}$
+
+这是对几何分布的变形，首先进行$k$次试验，第$k$次成功，所以要乘$p$，而因为是第2个成功，所以前面的$k-1$次中有$k-2$次失败和一次成功，所以一共$p^2(1-k)^{k-2}$。因为前面的成功的一次在$k-1$中任意一个地方就可以了，所以一共有$k-1$中可能性，要考虑到排列，所以还要乘$(k-1)$。
+
+$\therefore P\{Y=k\}=(k-1)\left(\dfrac{1}{8}\right)^2\cdot\left(\dfrac{7}{8}\right)^{k-2}$。
+
+\end{document}
