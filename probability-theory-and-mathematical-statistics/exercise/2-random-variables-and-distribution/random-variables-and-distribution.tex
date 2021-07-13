@@ -71,4 +71,39 @@ $\therefore p=\left\{X\leqslant\dfrac{1}{2}\right\}=\int_0^\frac{1}{2}2x\,\textr
 
 $\therefore P\{Y=k\}=(k-1)\left(\dfrac{1}{8}\right)^2\cdot\left(\dfrac{7}{8}\right)^{k-2}$。
 
+\section{均匀分布}
+
+\textbf{例题：}已知随机变量$X\sim U(a,b)$（$a>0$）且$P\{0<X<3\}=\dfrac{1}{4}$，$P\{X>4\}=\dfrac{1}{2}$，求$X$的概率密度以及$P\{1<X<5\}$。
+
+解：$\because P\{X>4\}=\dfrac{1}{2}$，4在其区间中点上，$\dfrac{a+b}{2}=4$。
+
+$\because P\{0<X<3\}=\dfrac{1}{4}$，$3$若在$a$左边则概率为0，所以必然在右边。
+
+$\therefore P\{a<X<3\}=\dfrac{1}{4}$，$P\{<3X<4\}=1-\dfrac{1}{4}-\dfrac{1}{2}=\dfrac{1}{4}$，$\dfrac{4-3}{b-a}=\dfrac{1}{4}$。
+
+解得$a=2$，$b=6$，$X\sim U(2,6)=f(x)=\left\{\begin{array}{ll}
+    \dfrac{1}{4}, & 2<x<6 \\
+    0, & \text{其他}
+\end{array}\right.$。
+
+$P\{1<X<5\}=\dfrac{5-2}{6-2}=\dfrac{3}{4}$。
+
+\section{指数分布}
+
+\textbf{例题：}已知随机变量$X\sim E(1)$，$a$为常数且大于0，求$P\{X\leqslant a+1|X>a\}$。
+
+解：$P\{X\leqslant a+1|X>a\}=\dfrac{P\{a<X\leqslant a+1\}}{P\{X>a\}}=\dfrac{\int_a^{a+1}e^{-x}\,\textrm{d}x}{\int_a^{+\infty}e^{-x}\,\textrm{d}x}=1-\dfrac{1}{e}$。
+
+也可以根据指数分布的无记忆性：$P\{X\leqslant a+1|X>a\}=1-P\{X>a+1|X>a\}=1-P\{X>1\}=P\{X\leqslant1\}=F(1)=1-\dfrac{1}{e}$。
+
+\section{正态分布}
+
+\textbf{例题：}已知随机变量$X\sim N(0,1)$，对给定的$\alpha$（$0<\alpha>1$），数$\mu_\alpha$满足$P\{X>\mu_\alpha\}=\alpha$，若$P\{\vert X\vert<x\}=\alpha$，求$x$。
+
+解：$P\{X>\mu_\alpha\}=\alpha$即表示$\mu_\alpha$为标准正态分布的上$\alpha$分位点。
+
+又$P\{\vert X\vert<x\}=\alpha$，即$-x<X<x$的面积为$\alpha$，所以两边的面积各为$\dfrac{1-\alpha}{2}$，$P\{X<x\}=P\{X>x\}=\dfrac{1-\alpha}{2}$。
+
+$\because$面积为$\alpha$的下标为$\alpha$，$\therefore$面积为$\dfrac{1-\alpha}{2}$的下标为$\dfrac{1-\alpha}{2}$，$x=\mu_\frac{1-\alpha}{2}$。
+
 \end{document}
