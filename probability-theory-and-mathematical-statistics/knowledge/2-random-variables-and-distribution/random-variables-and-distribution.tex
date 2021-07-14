@@ -27,6 +27,8 @@
 % 超链接
 \usepackage{tikz}
 % 绘图
+\usepackage{diagbox}
+% 表格斜线表头
 \author{Didnelpsun}
 \title{随机变量及其分布}
 \date{}
@@ -415,7 +417,15 @@ $f(x)$的图形关于$x=\mu$对称，即$f(\mu-x)=f(\mu+x)$，并在$x=\mu$处�
 
 $F_X(x)=P\{X\leqslant x\}=P\{X\leqslant x,Y<+\infty\}=\lim\limits_{y\to+\infty}P\{X\leqslant x,Y\leqslant y\}=\lim\limits_{y\to+\infty}F(x,y)=F(x,+\infty)$。同理$F_Y(y)=F(+\infty,y)$。
 
-所以就可以通过联合分布函数推出边缘分布函数。
+求边缘分布函数的口诀：求谁不积谁，不积先定限，限内画条线，先交写下限，后交写上限。
+
+即若求$x$则积$y$，然后根据$f(x,y)$联合概率密度的图形求$x$的取值区间。然后在$f(x,y)$联合概率密度共同的取值区间内画一条水平的线$y=y_0$（若求$y$）或垂直的线$x=x_0$（若求$x$），则从左到右从下到上先与所画线相交的区间边缘的线就是边缘概率密度的下限，后面相交的就是上限。最后将被积函数的联合概率密度加到中间就是最后的边缘分布函数。
+
+\subsection{条件分布函数}
+
+\textcolor{violet}{\textbf{定义：}}对于二维随机变量$(X，Y)$，可以考虑在其中一个随机变量取得可能的固定值的条件下，另一随机变量的概率分布，这样得到的$X$或$Y$的概率分布叫做\textbf{条件概率分布}，\textbf{简称条件分布}。
+
+\textcolor{aqua}{\textbf{定理：}}条件概率密度=$\dfrac{\text{联合概率密度}}{\text{边缘概率密度}}$。
 
 \section{二维离散型随机变量}
 
@@ -478,26 +488,240 @@ $p_{\cdot j}=P\{Y=y_i\}=\sum\limits_{i=1}^\infty P\{X=x_i,Y=y_j\}=\sum\limits_{i
 
 若$f_X(x)>0$，$f_Y(y)>0$，则有概率密度乘法公式$f(x,y)=f_X(x)f_{Y|X}(y|x)=f_Y(y)f_{X|Y}(x|y)$。
 
-\textcolor{violet}{\textbf{定义：}}$Y$在$X=x$条件下的\textbf{条件分布函数}为$F_{Y|X}(y|x)=\int_{-\infty}^yf_{Y|X}(y|x)\,\textrm{d}y=\int_{-\infty}^y\dfrac{f(x,y)}{f_X(x)}\textrm{d}y$，同理$X$在$Y=y$条件下的条件分布函数为$F_{X|Y}(x|y)$
+\textcolor{violet}{\textbf{定义：}}$Y$在$X=x$条件下的\textbf{条件分布函数}为$F_{Y|X}(y|x)=\int_{-\infty}^yf_{Y|X}(y|x)\,\textrm{d}y=\displaystyle{\int_{-\infty}^y\dfrac{f(x,y)}{f_X(x)}\textrm{d}y}$，同理$X$在$Y=y$条件下的条件分布函数为$F_{X|Y}(x|y)=$\\$\int_{-\infty}^xf_{X|Y}(x|y)\,\textrm{d}x=\displaystyle{\int_{-\infty}^x\dfrac{f(x,y)}{f_Y(y)}}\textrm{d}x$。
 
 \subsection{二维均匀分布}
 
+\textcolor{violet}{\textbf{定义：}}若$(X,Y)$的概率密度为$f(x,y)=\left\{\begin{array}{ll}
+    \dfrac{1}{S_D}, & (x,y)\in D \\
+    0, & \text{其他}
+\end{array}\right.$，$S_D$为区域$D$的面积，则称$(X,Y)$在平面有界区域$D$上服从\textbf{均匀分布}。
+
+二维均匀分布就是几何概型的二维情况。
+
 \subsection{二维正态分布}
+
+\textcolor{violet}{\textbf{定义：}}若$(X,Y)$的概率密度为：
+
+{\fontsize{8.25pt}{10pt}$f(x,y)=\dfrac{1}{2\pi\delta_1\delta_2\sqrt{1-\rho^2}}\exp\left(-\dfrac{1}{2(1-\rho^2)}\left(\left(\dfrac{x-\mu_1}{\delta_1}\right)^2-2\rho\left(\dfrac{x-\mu_1}{\delta_1}\right)\left(\dfrac{y-\mu_2}{\delta_2}\right)+\left(\dfrac{y-\mu_2}{\delta_2}\right)^2\right)\right)$}
+
+其中$\mu_1,\mu_2\in R$，$\delta_1,\delta_2>0$，$-1<\rho<1$，则称$(X,Y)$服从参数为$\mu_1,\mu_2,\delta_1^2,\delta_2^2,\rho$的\textbf{二维正态分布}，记为$(X,Y)\sim N(\mu_1,\mu_2;\delta_1^2,\delta_2^2;\rho)$。此时：
+
+\begin{itemize}
+    \item $X\sim N(\mu_1,\delta_1^2)$，$Y\sim N(\mu_2,\delta_2^2)$，$\rho$为$X$与$Y$的相关系数，即$\rho=\dfrac{Cov(X,Y)}{\sqrt{DX}\sqrt{DY}}=\dfrac{Cov(X,Y)}{\delta_1\delta_2}$。
+    \item $X,Y$的条件分布都是正态分布。
+    \item $aX+bY$（$a\neq0$或$b\neq0$）服从正态分布。
+    \item $XY$相互独立的充要条件是$XY$不相关，即$\rho=0$。
+\end{itemize}
 
 \section{随机变量独立性}
 
 \subsection{概念}
 
+\textcolor{violet}{\textbf{定义：}}设随机变量$X,Y$的联合分布函数为$F(x,y)$，边缘分布函数为$F_X(x)$，$F_Y(y)$，若对任意实数$x$，$y$，有$P\{X\leqslant x,Y\leqslant y\}＝P\{X\leqslant x\}P\{Y\leqslant y\}$，即$F(x,y)＝F_X(x)F_Y(y)$，则称随机变量$X$和$Y$相互独立。
+
 \subsection{充要条件}
+
+若$X,Y$独立，则
+
+\begin{itemize}
+    \item 对于二维离散型随机变量，$p_{ij}=p_{i\cdot}\cdot p_{\cdot j}$。
+    \item 对于二维连续型随机变量，$f(x,y)=f_X(x)\cdot f_Y(y)$。
+    \item 对于二维随机变量，$F(x,y)=F_X(x)\cdot F_Y(y)$。（联合分布函数等于各自边缘函数乘积）
+\end{itemize}
 
 \subsection{性质}
 
+若$X,Y$独立，则$f(X)$与$g(Y)$也相互独立。
+
+若对所有$x_1,x_2,\cdots,x_n$有$F(x_1,x_2,\cdots,x_n)=F_{X_1}(x_1)F_{X_2}(x_2)\cdots F_{X_n}(x_n)$，则$X_1,X_2,\cdots,X_n$相互独立。
+
+若$X_1,X_2,\cdots,X_n$相互独立，其中任意$k$个随机变量也相互独立。
+
+若$X_1,X_2,\cdots,X_n$相互独立，则其各自的函数$g_1(X_1)g_2(X_2)\cdots g_n(X_n)$也相互独立。
+
 \section{二维随机变量函数分布}
+
+\textcolor{violet}{\textbf{定义：}}设$X,Y$为随机变量，$g(x,y)$为二元函数，则以随机变量$X,Y$作为变量的函数$U=g(X,Y)$也是随机变量，称为\textbf{随机变量$X,Y$的函数}。
 
 \subsection{离散型}
 
+对于(离散型，离散型)随机变量函数分布也是离散型。
+
+\textbf{例题：}将两封信投入3个信箱，设$X_1,X_2$分别表示第一个和第二个信箱投进的信的数量。
+
+(1)$(X_1,X_2)$的联合分布，边缘分布并判断其独立性。
+
+(2)在条件$X_2=1$下，$X_1$的条件分布。
+
+(3)随机变量$Y_1=X_1+X_2$和$Y_2=X_1-X_2$的分布。
+
+(1)解：因为该题目是二维离散型随机变量，所以分析：\medskip
+
+\begin{tabular}{c|ccc|c}
+    \diagbox{$x_1$}{$x_2$} & 0 & 1 & 2 & $X_1$边缘 \\ \hline
+    0 & 1/9 & 2/9 & 1/9 & 4/9 \\
+    1 & 2/9 & 2/9 & 0 & 4/9 \\
+    2 & 1/9 & 0 & 0 & 1/9 \\ \hline
+    $X_2$边缘 & 4/9 & 4/9 & 1/9 & 1
+\end{tabular} \medskip
+
+从而联合分布就是表格最中心的部分，边缘分布就是两边。
+
+如$p_{11}=\dfrac{1}{9}\neq p_{1\cdot}p_{\cdot1}=\dfrac{4}{9}\dfrac{4}{9}=\dfrac{16}{81}$。所以$X_1X_2$不独立。
+
+(2)解：$P\{X_1=0|X_2=1\}=\dfrac{P\{X_1=0,X_2=1\}}{P\{X_2=1\}}=\dfrac{p_{01}}{p_{\cdot1}}=\dfrac{2/9}{4/9}=\dfrac{1}{2}$。
+
+$P\{X_1=1|X_2=1\}=\dfrac{P\{X_1=1,X_2=1\}}{P\{X_2=1\}}=\dfrac{p_{11}}{p_{\cdot1}}=\dfrac{2/9}{4/9}=\dfrac{1}{2}$。
+
+$P\{X_1=2|X_2=1\}=\dfrac{P\{X_1=2,X_2=1\}}{P\{X_2=1\}}=\dfrac{p_{21}}{p_{\cdot1}}=\dfrac{0}{4/9}=0$。
+
+(3)解：根据表格，$Y_1=X_1+X_2$的可能取值为0，1，2。
+
+即$Y_1$的概率分布为$Y_1\sim\left(\begin{array}{ccc}
+    0 & 1 & 2 \\
+    \dfrac{1}{9} & \dfrac{4}{9} & \dfrac{4}{9}
+\end{array}\right)$。
+
+$Y_2=X_1-X_2$的可能取值为-2，-1，0，1，2.
+
+$Y_2$的概率分布为$Y_2\sim\left(\begin{array}{ccccc}
+    -2 & -1 & 0 & 1 & 2 \\
+    \dfrac{1}{9} & \dfrac{2}{9} & \dfrac{1}{3} & \dfrac{2}{9} & \dfrac{1}{9}
+\end{array}\right)$。
+
 \subsection{连续型}
 
+对于(连续型，连续型)随机变量函数分布也是连续型。可以采用分布函数法和卷积公式。
+
+\subsubsection{和的分布}
+
+\textcolor{aqua}{\textbf{定理：}}设$(X,Y)\sim f(x,y)$，则$Z=X+Y$的概率密度为$f_Z(z)=\int_{-\infty}^{+\infty}f(x,z-x)\,\textrm{d}x=\int_{-\infty}^{+\infty}f(z-y,y)\,\textrm{d}y$。
+
+证明：利用定义法$F_Z(z)=P\{Z\leqslant z\}=P\{X+Y\leqslant z\}=\iint\limits_Df(x,y)\,\textrm{d}x\textrm{d}y$，$D=x+y\leqslant z$。
+
+$=\int_{-\infty}^{+\infty}\textrm{d}x\int_{-\infty}^{z-x}f(x,y)\,\textrm{d}y$。又$f_Z(z)=F_Z'(z)$，$=(\int_{-\infty}^{+\infty}\textrm{d}x\int_{-\infty}^{z-x}f(x,y)\,\textrm{d}y)'_z$
+
+$=\int_{-\infty}^{+\infty}(\int_{-\infty}^{z-x}f(x,y)\,\textrm{d}y)'_z\textrm{d}x=\int_{-\infty}^{+\infty}f(x,z-x)\,\textrm{d}x$
+
+\subsubsection{差的分布}
+
+\textcolor{aqua}{\textbf{定理：}}设$(X,Y)\sim f(x,y)$，则$Z=X-Y$的概率密度为$f_Z(z)=\int_{-\infty}^{+\infty}f(x,x-z)\,\textrm{d}x=\int_{-\infty}^{+\infty}f(z+y,y)\,\textrm{d}y$。
+
+\subsubsection{积的分布}
+
+\textcolor{aqua}{\textbf{定理：}}设$(X,Y)\sim f(x,y)$，则$Z=XY$的概率密度为$f_Z(z)=\displaystyle{\int_{-\infty}^{+\infty}}\dfrac{1}{\vert x\vert}$\\$f\left(x,\dfrac{z}{x}\right)\,\textrm{d}x=\displaystyle{\int_{-\infty}^{+\infty}}\dfrac{1}{\vert y\vert}f\left(\dfrac{z}{y},y\right)\,\textrm{d}y$。
+
+\subsubsection{商的分布}
+
+\textcolor{aqua}{\textbf{定理：}}设$(X,Y)\sim f(x,y)$，则$Z=\dfrac{X}{Y}$的概率密度为$f_Z(z)=\displaystyle{\int_{-\infty}^{+\infty}}\vert y\vert f(yz,z)$\\$\,\textrm{d}y$。
+
+这里不积$y$只积$x$，因为$x=zy$，所以积分简单从而只积$x$。
+
+\subsubsection{卷积公式}
+
+积谁不换谁，换完求偏导。
+
+当$XY$相互独立时，对于联合概率密度就能变成边缘概率密度的乘积，得到卷积公式\textcolor{violet}{\textbf{定义：}}
+
+$f_Z(z)=\int_{-\infty}^{+\infty}f_X(x)f_Y(z-x)\,\textrm{d}x=\int_{-\infty}^{+\infty}f_X(z-y)f_Y(y)\,\textrm{d}y$。
+
+$f_Z(z)=\int_{-\infty}^{+\infty}f_X(x)f_Y(x-z)\,\textrm{d}y=\int_{-\infty}^{+\infty}f_X(y+z)f_Y(y)\,\textrm{d}x$。
+
+$f_Z(z)=\displaystyle{\int_{-\infty}^{+\infty}}\dfrac{1}{\vert x\vert}f_X(x)f_Y\left(\dfrac{z}{x}\right)\,\textrm{d}x=\displaystyle{\int_{-\infty}^{+\infty}}\dfrac{1}{\vert y\vert}f_X\left(\dfrac{z}{y}\right)f_Y(y)\,\textrm{d}y$。
+
+$f_Z(z)=\int_{-\infty}^{+\infty}f_X(zy)f_Y(y)\,\textrm{d}y$。
+
+\textbf{例题：}设随机变量$X,Y$相互独立，其概率密度分别为
+
+$f_X(x)=\left\{\begin{array}{ll}
+    e^{-x}, & x>0 \\
+    0, & \text{其他} 
+\end{array}\right.$，$f_Y(y)=\left\{\begin{array}{ll}
+    2y, & 0<y<1 \\
+    0, & \text{其他} 
+\end{array}\right.$，
+
+(1)求$(X,Y)$概率密度。
+
+(2)求$Z=X+Y$的概率密度。
+
+(1)解：因为$X,Y$相互独立，所以$f(X,Y)=f_X(x)\cdot f_Y(y)$。
+
+$\therefore f(X,Y)=\left\{\begin{array}{ll}
+    2e^{-x}y, & x>0\cap0<y<1 \\
+    0, & \text{其他} 
+\end{array}\right.$。
+
+(2)解：
+
+第一种方法是分布函数法，即使用定义来解决随机变量函数分布。
+
+$F_Z(z)=P\{Z\leqslant z\}=P\{X+Y\leqslant z\}$。$XY$的联合分布图形是一个高为1长无穷的长方形。利用直线$x=x_0$与定义区间与$y\leqslant -x+z$对$z$进行范围讨论。
+
+若$z<0$，$X+Y\leqslant z$不可能，即$D$与$y\leqslant-x+z$交集为空，所以$F_Z(z)=0$。
+
+若$0\leqslant z<1$，则$y\leqslant -x+z$与区间相交于$(0,z)$和$(z,0)$，利用直线$x=x_0$对区间求积分$xy$上下限，$F_Z(z)=\int_0^z\textrm{d}x\int_0^{z-x}2e^{-x}y\,\textrm{d}y=z^2-2z-2e^{-z}+2$。
+
+若$z>1$，则$y\leqslant -x+z$与区间交集是一个梯形，若先积$y$后积$x$，积分区间要分为两个部分来计算，所以改变积分顺序，先积$y$再积$x$，用$y=y_0$来计算积分上下限得到$F_Z(z)=\int_0^1\textrm{d}y\int_0^{z-y}2e^{-x}y\,\textrm{d}x=1-2e^{-z}$。
+
+$\therefore f_Z(z)=F_Z'(z)=\left\{\begin{array}{ll}
+    2z+2e^{-z}-2, & 0<z<1 \\
+    2e^{-z}, & z>1 \\
+    0, & \textbf{其他}
+\end{array}\right.$。（等号在哪里无所谓）
+
+第二种方法是卷积公式法。$f_Z(z)=\int_{-\infty}^{+\infty}f(x,z-x)\,\textrm{d}x=\int_{-\infty}^{+\infty}f_X(x)f_Y(z-x)\,\textrm{d}x$，现在已知$f_X(x)$，所以只用求$f_Y(z-x)$。
+
+$\therefore f_Y(z-x)=\left\{\begin{array}{ll}
+    2(z-x), & 0<z-x<1 \\
+    0, & \textbf{其他}
+\end{array}\right.$。
+
+$f_X(x)f_Y(z-x)=\left\{\begin{array}{ll}
+    2e^{-x}(z-x), & 0<x<z<x+1 \\
+    0, & \text{其他}
+\end{array}\right.$，所得的区域是梯形。
+
+当$z<0$，则$z=z_0$与图形区间无交集，所以$f_Z(z)=0$。
+
+当$0<z<1$时，$f_Z(z)=\int_0^z2e^{-x}(z-x)\,\textrm{d}x=2z+2e^{-z}-2$。
+
+当$z>1$时，$f_Z(z)=\int_{z-1}^z2e^{-x}(z-x)\,\textrm{d}x=2e^{-z}$。
+
+\textbf{例题：}设二维随机变量$(X,Y)$在矩形区域$D=\{(x,y)|0\leqslant x\leqslant 2,0\leqslant y\leqslant 1\}$上服从均匀分布，求边长为$X$和$Y$的矩形面积$Z$的概率密度。
+
+解：$(X,Y)$在矩形区域$D$服从均匀分布，$\therefore f(x,y)=\left\{\begin{array}{ll}
+    \dfrac{1}{2}, & (x,y)\in D \\
+    0, & \text{其他}
+\end{array}\right.$。
+
+根据区间：$0\leqslant x\leqslant2$，$0\leqslant\dfrac{z}{x}=y\leqslant1$，$0\leqslant z\leqslant x\leqslant2$，所以区域就是底2高2的下三角。
+
+又$Z=XY\sim f_Z(z)=\displaystyle{\int_{-\infty}^{+\infty}\dfrac{1}{\vert x\vert}f\left(x,\dfrac{z}{x}\right)\,\textrm{d}x}$，且$f\left(x,\dfrac{z}{x}\right)=\dfrac{1}{2}$。
+
+当$0<z<2$时，$f_Z(z)=\displaystyle{\int_z^2}\dfrac{1}{x}\dfrac{1}{2}\,\textrm{d}x=\dfrac{1}{2}(\ln2-\ln z)$。
+
+即$f_Z(z)=\left\{\begin{array}{ll}
+    \dfrac{1}{2}(\ln2-\ln z), & 0<z<2 \\
+    0, & \text{其他}
+\end{array}\right.$。
+
 \subsection{混合型}
+ 
+对于(离散型，连续型)随机变量函数分布是连续型。可以采用全概率公式。
+
+即使用全集分解思想解决，若$A$是离散型随机变量，$B$是连续型随机变量，则$P(B)=P(B\Omega)=P(BA_1\cup BA_2\cup\cdots)=P(BA_1)+P(BA_2)\cdots=P(A_1)P(B|A_1)+P(A_2)P(B|A_2)+\cdots$。这就是全概率公式。
+
+\textbf{例题：}设随机变量$X$与$Y$相互独立，其中$X$概率分布为$\left(\begin{array}{cc}
+    1 & 2 \\
+    0.3 & 0.7
+\end{array}\right)$，而$Y$的概率密度为$f(y)$，求随机变量$U=X+Y$的概率密度$g(u)$。
+
+解：$G(u)=P\{U\leqslant u\}=P\{X+Y\leqslant u\}$。
+
+$=P\{X+Y\leqslant u,\Omega\}=P\{X+Y\leqslant u,\{X=1\}\cup\{X=2\}\}=P\{(X+Y\leqslant u,X=1)\cup(X+Y\leqslant u,X=2)\}=P\{X+Y\leqslant u,X=1\}+P\{X+Y\leqslant u,X=2\}=P(X=1)P\{X+Y\leqslant u|X=1\}+P(X=2)P\{X+Y\leqslant u|X=2\}=0.3P\{Y\leqslant u-1|X=1\}+0.7P\{Y\leqslant u-2|X=2\}$，又$XY$相互独立，所以$X$的条件不影响$Y$的概率，$=P\{Y\leqslant u-1\}+P\{Y\leqslant u-2\}=0.3F_Y(u-1)+0.7F_Y(u-2)$。
+
+$g(u)=G'(u)=0.3f_Y(u-1)\cdot1+0.7f_Y(u-2)\cdot1$。
 
 \end{document}

@@ -2,6 +2,9 @@
 % UTF8编码，ctexart现实中文
 \usepackage{color}
 % 使用颜色
+\definecolor{orange}{RGB}{255,127,0}  
+\definecolor{violet}{RGB}{192,0,255}  
+\definecolor{aqua}{RGB}{0,255,255} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -23,7 +26,7 @@
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
 \author{Didnelpsun}
-\title{标题}
+\title{随机变量数字特征}
 \date{}
 \begin{document}
 \maketitle
@@ -34,5 +37,37 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{}
+
+有时候研究随机变量，其是没有具体的概率分布的，而对于这种类型我们只用研究其数学特征就可以了。
+
+\section{一维随机变量数字特征}
+
+\subsection{数学期望}
+
+设$X$是随机变量，$Y$是$X$的函数，$Y=g(X)$。
+
+\textcolor{violet}{\textbf{定义：}}若$X$是离散型随机变量，其分布列为$p_i=P\{X=x_i\}$（$i=1,2,\cdots$），若级数$\sum\limits_{i=1}^\infty x_ip_i$绝对收敛，则称随机变量$X$的数学期望存在，并将级数和$\sum\limits_{i=1}^\infty x_ip_i$称为随机变量$X$的\textbf{数学期望}，记为$E(X)$或$EX$，即$EX=\sum\limits_{i=1}^\infty x_ip_i$，否则$X$数学期望不存在。（数学期望实际上是一种加权的合理平均值）
+
+若级数$\sum\limits_{i=1}^\infty g(x_i)p_i$也绝对收敛，则称$Y=g(X)$的数学期望$E[g(X)]$存在，且$E[g(X)]=\sum\limits_{i=1}^\infty g(x_i)p_i$，否则$g(X)$的数学期望不存在。
+
+\textcolor{violet}{\textbf{定义：}}若$X$是连续型随机变量，其概率密度为$f(x)$。若积分$\int_{-\infty}^{+\infty}xf(x)\,\textrm{d}x$绝对收敛，则称$X$的数学期望存在，且$EX=\int_{-\infty}^{+\infty}xf(x)\,\textrm{d}x$，否则$X$的数学期望不存在。
+
+若积分$\int_{-\infty}^{+\infty}g(x)f(x)\,\textrm{d}x$绝对收敛，则称$g(X)$的数学期望存在，且$E[g(X)]=\int_{-\infty}^{+\infty}g(x)f(x)\,\textrm{d}x$，否则$g(X)$的数学期望不存在。
+
+\subsection{方差标准差}
+
+\subsection{切比雪夫不等式}
+
+\section{二维随机变量数字特征}
+
+\subsection{数学期望}
+
+\subsection{协方差相关系数}
+
+\section{独立性与相关性}
+
+\subsection{分布判断独立性}
+
+\subsection{数字特征判断相关性}
+
 \end{document}

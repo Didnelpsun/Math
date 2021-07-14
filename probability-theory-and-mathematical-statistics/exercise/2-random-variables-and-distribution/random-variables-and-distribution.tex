@@ -22,6 +22,10 @@
 % 数学公式
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
+\usepackage{tikz}
+% 绘图
+\usepackage{multicol}
+% 分栏
 \author{Didnelpsun}
 \title{随机变量及其分布}
 \date{}
@@ -87,6 +91,59 @@ $\therefore P\{a<X<3\}=\dfrac{1}{4}$，$P\{<3X<4\}=1-\dfrac{1}{4}-\dfrac{1}{2}=\
 \end{array}\right.$。
 
 $P\{1<X<5\}=\dfrac{5-2}{6-2}=\dfrac{3}{4}$。
+
+\textbf{例题：}已知随机变量$X$在区间$[0,1]$上服从均匀分布，在$X=x$（$0<x<1$）的条件下随机变量$Y$在区间$[0,x]$上服从均匀分布。
+
+(1)$(X,Y)$的概率密度。
+
+解：$X$在区间$[0,1]$上服从均匀分布，则$X\sim f_X(x)=\left\{\begin{array}{ll}
+    1, & 0\leqslant x\leqslant1 \\
+    0, & \text{其他}
+\end{array}\right.$。
+
+$Y$在$X=x$下均匀分布，则$f_{Y|X}(y|x)=\left\{\begin{array}{ll}
+    \dfrac{1}{x}, & 0<y<x<1 \\
+    0, & \text{其他}
+\end{array}\right.$。
+
+$(X,Y)$联合概率=条件概率×边缘概率。
+
+即$f(x,y)=f_{Y|X}(y|x)f_X(x)=\left\{\begin{array}{ll}
+    \dfrac{1}{x}, & 0<y<x<1 \\
+    0, & \text{其他}
+\end{array}\right.$。
+
+(2)$Y$的概率密度。
+
+解：首先求$Y$的边缘概率密度，就需要积$X$。然后求$y$的区间，$XY$的联合区间是横坐标$[0,1]$到纵坐标$[0,1]$的下三角形，则$y\in[0,1]$。
+
+然后求$Y$就在联合概率密度所规定的区间中画一条$y=y_0$的线，从左先交到的是$y=x$，所以下限就是$y$，后交的是$x=1$，所以上限为1。最后将$y$的联合分布函数放在中间，得到$f_Y(y)=\left\{\begin{array}{ll}
+    \displaystyle{\int_y^1\dfrac{1}{x}\textrm{d}x}=-\ln y, & 0<y<x<1 \\
+    0, & \text{其他}
+\end{array}\right.$。
+
+(3)概率$P\{X+Y>1\}$。
+
+解：求$P\{X+Y>1\}$就是求一个区间的概率值，即$P\{(X,Y)\in G\}=\iint\limits_Gf(x,y)\,\textrm{d}x\textrm{d}y$。
+
+\begin{multicols}{2}
+    
+    \begin{tikzpicture}[scale=2]
+        \draw[-latex](-0.25,0) -- (1.25,0) node[below]{$x$};
+        \draw[-latex](0,-0.25) -- (0,1.25) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black](1,0) -- (0,1) node[left]{$1$};
+        \draw[black](1,1) -- (1,0) node[below]{$1$};
+        \draw[black](0,0) -- (1,1);
+        \draw[black, densely dashed](0.5,0.5) -- (0.5,0) node[below]{$\dfrac{1}{2}$};
+        \filldraw [fill=gray!50] (0.5,0.5) -- (1,1) -- (1,0) -- (0.5,0.5);
+        \draw[black](0.8,0.5) node{$D$};
+        \draw[black, densely dashed](0.6,0) -- (0.6,1) node[above]{$y=y_0$};
+    \end{tikzpicture}
+
+    所以$P\{X+Y>1\}=\iint\limits_D\dfrac{1}{x}\textrm{d}\delta$，$D=x+y>1\cap0<y<x<1$。$\iint\limits_D\dfrac{1}{x}\,\textrm{d}\delta=\int_\frac{1}{2}^1\textrm{d}x\int_{1-x}^x\dfrac{1}{x}\textrm{d}y=1-\ln2$。
+
+\end{multicols}
 
 \section{指数分布}
 
