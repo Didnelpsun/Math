@@ -23,7 +23,7 @@
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
 \author{Didnelpsun}
-\title{标题}
+\title{随机变量数字特征}
 \date{}
 \begin{document}
 \maketitle
@@ -34,5 +34,22 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{}
+\section{一维随机变量数字特征}
+
+\subsection{数学期望}
+
+\subsubsection{离散型随机变量}
+
+\subsubsection{连续型随机变量}
+
+\textbf{例题：}连续型随机变量$X$的概率密度为$f(x)=\dfrac{1}{\pi(1+x^2)}$（$-\infty<x<+\infty$），求$EX$。
+
+解：$EX=\int_{-\infty}^{+\infty}xf(x)\,\textrm{d}x=\int_{-\infty}^{+\infty}x\dfrac{1}{\pi(1+x^2)}\textrm{d}x=\dfrac{1}{2\pi}\int_{-\infty}^{+\infty}\dfrac{\textrm{d}(1+x^2)}{1+x^2}=\dfrac{1}{2pi}\ln(^1+x^2)|_{-\infty}^{+\infty}$。发散，所以不存在。
+
+\subsubsection{连续型随机变量函数}
+
+\textbf{例题：}连续型随机变量$X$的概率密度为$f(x)=\dfrac{1}{\pi(1+x^2)}$（$-\infty<x<+\infty$），求$E(\min\{\vert X\vert,1\})$。
+
+解：$E(\min\{\vert X\vert,1\})=\displaystyle{\int_{-\infty}^{+\infty}}\min\{\vert x\vert,1\}\dfrac{1}{\pi(1+x^2)}\textrm{d}x=\dfrac{2}{\pi}\int_0^{+\infty}\min\{x,1\}$\\$\dfrac{1}{1+x^2}\textrm{d}x=\dfrac{2}{\pi}\displaystyle{\int_0^1}x\dfrac{1}{1+x^2}\textrm{d}x+\dfrac{2}{\pi}\int_1^{+\infty}1\cdot\dfrac{1}{1+x^2}\textrm{d}x=\dfrac{1}{\pi}\ln(1+x^2)|_0^1+\dfrac{2}{\pi}\arctan x|_1^{+\infty}$\\$=\dfrac{1}{\pi}\ln2+\dfrac{1}{2}$。
+
 \end{document}
