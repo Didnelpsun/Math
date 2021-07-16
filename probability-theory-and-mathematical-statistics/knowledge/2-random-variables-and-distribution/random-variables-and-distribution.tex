@@ -281,32 +281,32 @@ $=1-F(t)=1-P\{X\leqslant t\}=P\{X>t\}$。
 
 \subsubsection{正态分布}
 
-\textcolor{violet}{\textbf{定义：}}如果$X$的概率密度为$f(x)=\dfrac{1}{\sqrt{2\pi\delta}}e^{-\frac{1}{2}(\frac{x-\mu}{\delta})^2}$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\delta>0$），则称$X$服从参数为$(\mu,\delta^2)$的\textbf{正态分布}，称$X$为\textbf{正态变量}，记为$X\sim N(\mu,\delta^2)$。
+\textcolor{violet}{\textbf{定义：}}如果$X$的概率密度为$f(x)=\dfrac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），则称$X$服从参数为$(\mu,\sigma^2)$的\textbf{正态分布}，称$X$为\textbf{正态变量}，记为$X\sim N(\mu,\sigma^2)$。
 
-$f(x)$的图形关于$x=\mu$对称，即$f(\mu-x)=f(\mu+x)$，并在$x=\mu$处有唯一最大值$f(\mu)=\dfrac{1}{\sqrt{2\pi}\delta}$。$\mu-\delta$和$\mu+\delta$为拐点。
+$f(x)$的图形关于$x=\mu$对称，即$f(\mu-x)=f(\mu+x)$，并在$x=\mu$处有唯一最大值$f(\mu)=\dfrac{1}{\sqrt{2\pi}\sigma}$。$\mu-\sigma$和$\mu+\sigma$为拐点。
 
 \begin{tikzpicture}[scale=2]
     \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
     \draw[-latex](0,-0.25) -- (0,1.25) node[above]{$y$};
     \filldraw[black] (0,0) node[below]{$O$};
     \draw[black, thick, domain=-2:2] plot (\x,{pow(e,-\x*\x/2)});
-    \draw[black, densely dashed](-1,0.65) -- (-1,0) node[below]{$\mu-\delta$};
-    \draw[black, densely dashed](1,0.65) -- (1,0) node[below]{$\mu+\delta$};
-    \draw[black, densely dashed](0,1) -- (-1,1) node[left]{$\dfrac{1}{\sqrt{2\pi}\delta}$};
+    \draw[black, densely dashed](-1,0.65) -- (-1,0) node[below]{$\mu-\sigma$};
+    \draw[black, densely dashed](1,0.65) -- (1,0) node[below]{$\mu+\sigma$};
+    \draw[black, densely dashed](0,1) -- (-1,1) node[left]{$\dfrac{1}{\sqrt{2\pi}\sigma}$};
     \filldraw[black] (0.35,0.25) node{$x=\mu$};
     \filldraw[black] (1,1) node{$f(x)$};
 \end{tikzpicture}
 
-当$\mu=0$，$\delta=1$时的正态分布$N(0,1)=\dfrac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$为\textbf{标准正态分布}，记为$\phi(x)$，分布函数为$\varPhi(x)=\displaystyle{\int_{-\infty}^x\dfrac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}\,\textrm{d}t}$。$\phi(x)$为偶函数，$\varPhi(0)=\dfrac{1}{2}$，$\varPhi(-x)=1-\varPhi(x)$。
+当$\mu=0$，$\sigma=1$时的正态分布$N(0,1)=\dfrac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$为\textbf{标准正态分布}，记为$\phi(x)$，分布函数为$\varPhi(x)=\displaystyle{\int_{-\infty}^x\dfrac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}\,\textrm{d}t}$。$\phi(x)$为偶函数，$\varPhi(0)=\dfrac{1}{2}$，$\varPhi(-x)=1-\varPhi(x)$。
 
 若$X\sim N(0,1)$，$P\{X>\mu_\alpha\}=\alpha$，则称$\mu_\alpha$为标准正态分布的\textbf{上侧$\alpha$分位数/上$\alpha$分位点}。
 
-若$X\sim N(\mu,\delta^2)$，则
+若$X\sim N(\mu,\sigma^2)$，则
 
 \begin{itemize}
-    \item $F(x)=P\{X\leqslant x\}=P\left\{\dfrac{X-\mu}{\delta}\leqslant\dfrac{x-\mu}{\delta}\right\}=\varPhi\left(\dfrac{x-\mu}{\delta}\right)$。（标准化）
+    \item $F(x)=P\{X\leqslant x\}=P\left\{\dfrac{X-\mu}{\sigma}\leqslant\dfrac{x-\mu}{\sigma}\right\}=\varPhi\left(\dfrac{x-\mu}{\sigma}\right)$。（标准化）
     \item $F(\mu-x)+F(\mu+x)=1$。
-    \item $P\{a<X<b\}=\varPhi\left(\dfrac{b-\mu}{\delta}\right)-\varPhi\left(\dfrac{a-\mu}{\delta}\right)$。（标准化得到）
+    \item $P\{a<X<b\}=\varPhi\left(\dfrac{b-\mu}{\sigma}\right)-\varPhi\left(\dfrac{a-\mu}{\sigma}\right)$。（标准化得到）
     \item $aX+b\sim N(a\mu+b,a^2\theta^2)$（$a\neq0$）。
 \end{itemize}
 
@@ -503,12 +503,12 @@ $p_{\cdot j}=P\{Y=y_i\}=\sum\limits_{i=1}^\infty P\{X=x_i,Y=y_j\}=\sum\limits_{i
 
 \textcolor{violet}{\textbf{定义：}}若$(X,Y)$的概率密度为：
 
-{\fontsize{8.25pt}{10pt}$f(x,y)=\dfrac{1}{2\pi\delta_1\delta_2\sqrt{1-\rho^2}}\exp\left(-\dfrac{1}{2(1-\rho^2)}\left(\left(\dfrac{x-\mu_1}{\delta_1}\right)^2-2\rho\left(\dfrac{x-\mu_1}{\delta_1}\right)\left(\dfrac{y-\mu_2}{\delta_2}\right)+\left(\dfrac{y-\mu_2}{\delta_2}\right)^2\right)\right)$}
+{\fontsize{8.2pt}{10pt}$f(x,y)=\dfrac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left(-\dfrac{1}{2(1-\rho^2)}\left(\left(\dfrac{x-\mu_1}{\sigma_1}\right)^2-2\rho\left(\dfrac{x-\mu_1}{\sigma_1}\right)\left(\dfrac{y-\mu_2}{\sigma_2}\right)+\left(\dfrac{y-\mu_2}{\sigma_2}\right)^2\right)\right)$}
 
-其中$\mu_1,\mu_2\in R$，$\delta_1,\delta_2>0$，$-1<\rho<1$，则称$(X,Y)$服从参数为$\mu_1,\mu_2,\delta_1^2,\delta_2^2,\rho$的\textbf{二维正态分布}，记为$(X,Y)\sim N(\mu_1,\mu_2;\delta_1^2,\delta_2^2;\rho)$。此时：
+其中$\mu_1,\mu_2\in R$，$\sigma_1,\sigma_2>0$，$-1<\rho<1$，则称$(X,Y)$服从参数为$\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho$的\textbf{二维正态分布}，记为$(X,Y)\sim N(\mu_1,\mu_2;\sigma_1^2,\sigma_2^2;\rho)$。此时：
 
 \begin{itemize}
-    \item $X\sim N(\mu_1,\delta_1^2)$，$Y\sim N(\mu_2,\delta_2^2)$，$\rho$为$X$与$Y$的相关系数，即$\rho=\dfrac{Cov(X,Y)}{\sqrt{DX}\sqrt{DY}}=\dfrac{Cov(X,Y)}{\delta_1\delta_2}$。
+    \item $X\sim N(\mu_1,\sigma_1^2)$，$Y\sim N(\mu_2,\sigma_2^2)$，$\rho$为$X$与$Y$的相关系数，即$\rho=\dfrac{Cov(X,Y)}{\sqrt{DX}\sqrt{DY}}=\dfrac{Cov(X,Y)}{\sigma_1\sigma_2}$。
     \item $X,Y$的条件分布都是正态分布。
     \item $aX+bY$（$a\neq0$或$b\neq0$）服从正态分布。
     \item $XY$相互独立的充要条件是$XY$不相关，即$\rho=0$。

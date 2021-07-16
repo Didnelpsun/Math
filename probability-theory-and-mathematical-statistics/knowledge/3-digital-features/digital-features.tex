@@ -71,7 +71,7 @@
 
 \subsubsection{概念}
 
-\textcolor{violet}{\textbf{定义：}}设$X$是随机变量，若$E[(X-EX)^2]$存在，则称$E[(X-EX)^2]$为$X$的\textbf{方差}，记为$DX$，即$DX=E[(X-EX)^2]=E(X^2)-(EX)^2$。称$\sqrt{DX}$为$X$的\textbf{标准差}或\textbf{均方差}，记为$\delta(X)$，称随机变量$X^*=\dfrac{X-EX}{\sqrt{DX}}$为$X$的\textbf{标准化随机变量}，此时$EX^*=0$，$DX^*=1$。
+\textcolor{violet}{\textbf{定义：}}设$X$是随机变量，若$E[(X-EX)^2]$存在，则称$E[(X-EX)^2]$为$X$的\textbf{方差}，记为$DX$，即$DX=E[(X-EX)^2]=E(X^2)-(EX)^2$。称$\sqrt{DX}$为$X$的\textbf{标准差}或\textbf{均方差}，记为$\sigma(X)$，称随机变量$X^*=\dfrac{X-EX}{\sqrt{DX}}$为$X$的\textbf{标准化随机变量}，此时$EX^*=0$，$DX^*=1$。
 
 \subsubsection{性质}
 
@@ -105,7 +105,7 @@
         二项分布$B(n,p)$ & $P\{X=k\}=C_n^kp^k(1-p)^{n-k}$，$k=0,\cdots,n$ & $np$ & $np(1-p)$ \\ \hline
         泊松分布$P(\lambda)$ & $P\{X=k\}=\dfrac{\lambda^k}{k!}e^{-\lambda}$，$k=0,\cdots$ & $\lambda$ & $\lambda$ \\ \hline
         几何分布$G(p)$ & $P\{X=k\}=(1-p)^{k-1}$，$p,k=1,\cdots$ & $\dfrac{1}{p}$ & $\dfrac{1-p}{p^2}$ \\ \hline
-        正态分布$N(\mu,\delta^2)$ & $f(x)=\dfrac{1}{\sqrt{2\pi}\delta}\exp\left\{-\dfrac{(x-\mu)^2}{2\delta^2}\right\}$，$x\in R$ & $\mu$ & $\delta^2$ \\ \hline
+        正态分布$N(\mu,\sigma^2)$ & $f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}\exp\left\{-\dfrac{(x-\mu)^2}{2\sigma^2}\right\}$，$x\in R$ & $\mu$ & $\sigma^2$ \\ \hline
         均匀分布$U(a,b)$ & $f(x)=\dfrac{1}{b-a}$，$a<x<b$ & $\dfrac{a+b}{2}$ & $\dfrac{(b-a)^2}{12}$ \\ \hline
         指数分布$E(\lambda)$ & $f(x)=\lambda e^{-\lambda x}$，$x>0$ & $\dfrac{1}{\lambda}$ & $\dfrac{1}{\lambda^2}$ \\ \hline
     \end{tabular}
