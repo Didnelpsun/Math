@@ -315,6 +315,10 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
 
 \subsection{性质}
 
+\textcolor{aqua}{\textbf{定理：}}定积分由积分上下限与函数关系确定，与积分变量无关。$\int_a^xf(x)\,\textrm{d}x=\int_a^xf(t)\,\textrm{d}t=\varPhi(x)$。
+
+\subsubsection{计算性质}
+
 设函数$f(x)$在区间$[a,b]$上连续，则得到定积分基本计算性质：
 
 \begin{enumerate}
@@ -329,7 +333,14 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
     \item 已知$f(x)\in[m,M]$在$[a,b]$上成立，则$m(b-a)\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant M(a-b)$。
     \item 估值定理：当$M$，$m$分别为$f(x)$在$[a,b]$上的最大值和最小值，则$m(b-a)\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant M(b-a)$。
     \item 积分中值定理：$\exists\,\xi\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$。
+    \item 积分中值定理推广：设$f(x)\in[a,b]$，$\exists\,\xi\in(a,b)$，使得$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$。
 \end{enumerate}
+
+证明第八条：已知$-\vert f(x)\vert\leqslant f(x)\leqslant\vert f(x)\vert$。
+
+即得到$-\int_a^b\vert f(x)\vert\,\textrm{d}x\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant\int_a^b\vert f(x)\vert\,\textrm{d}x$。
+
+从而得证。
 
 证明第十一条积分中值定理：
 
@@ -349,7 +360,11 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
 
 对$F(x)$使用拉格朗日中值定理：$F(b)-F(a)=F'(\xi)(b-a)$，即$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$，其中$\xi\in(a,b)\subset[a,b]$。
 
-定积分的存在性性质：
+证明第十二条积分中值定理的推广。令$F(x)=\int_a^xf(t)\,\textrm{d}t$，$F'(x)=f(x)$。
+
+$\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)$（$a<\xi<b$）。
+
+\subsubsection{存在性性质}
 
 \begin{enumerate}
     \item 设函数$f(x)$在区间$[a,b]$上连续，则$f(x)$在该区间上可积。
@@ -357,7 +372,7 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
     \item 设函数$f(x)$在区间$[a,b]$上有界，且只有有限个间断点，则$f(x)$在该区间上可积。
 \end{enumerate}
 
-定积分与函数性质：
+\subsubsection{定积分与函数性质}
 
 \begin{enumerate}
     \item 若函数$f(x)$是周期函数且周期为$T$，$\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^Tf(x)\,\textrm{d}x$对于$\forall a$成立。
@@ -435,8 +450,6 @@ $\therefore\int_0^\pi x\sin^9x\,\textrm{d}x=\dfrac{\pi}{2}\int_0^\pi\sin^9x\,\te
 \subsection{变限积分}
 
 设$f(x)$在$[a,b]$上连续，且$\Phi(x)=\int_a^xf(t)\,\textrm{d}t(x\in[a,b])$，这个函数就是积分上限函数或叫积分变限函数（如果$\int_x^af(t)\,\textrm{d}t$就是变下限积分或积分下限函数）。
-
-积分值与积分变量无关，即$\int_a^xf(x)\,\textrm{d}x=\int_a^xf(t)\,\textrm{d}t$。
 
 对变限积分$\int_{a}^xf(t)\,\textrm{d}t$求导得到$f(t)$，再求导就得到$f'(t)$。
 

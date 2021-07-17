@@ -29,6 +29,8 @@
 % 设置表格行距
 \usepackage{pifont}
 % 圆圈序号
+\usetikzlibrary{arrows.meta}
+\usepackage{scalerel} %\scaleobj{1.5}{} 缩放公式大小
 \author{Didnelpsun}
 \title{考研数学准备}
 \date{}
@@ -53,74 +55,93 @@
 
 \subparagraph{常数函数} \leavevmode \medskip
 
-$y=A$，A为常数，图像平行于x轴：
-
-\begin{tikzpicture}[domain=-1:5]
-    \draw[-latex](-1,0) -- (5,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0, 1.5) node[above]{$y$};
-    \draw[black, thick](-1,1) -- (5,1) node[right]{$y=A$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \filldraw[black] (0,1) circle (2pt) node at(0.75,0.5){$(0,A)$};
-\end{tikzpicture}
+\begin{minipage}{0.35\linewidth}
+    $y=A$，A为常数，图像平行于x轴。
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\linewidth}
+    \begin{tikzpicture}[domain=-1:5]
+        \draw[-latex](-1,0) -- (5,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0, 1.5) node[above]{$y$};
+        \draw[black, thick](-1,1) -- (5,1) node[right]{$y=A$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \filldraw[black] (0,1) circle (2pt) node at(0.75,0.5){$(0,A)$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{幂函数} \leavevmode \medskip
 
-$y=x^{\mu}$，$\mu$为实数，当$x>0$，$y=x^{\mu}$都有定义：
+\begin{minipage}{0.4\linewidth}
+    $y=x^{\mu}$，$\mu$为实数，当$x>0$，$y=x^{\mu}$都有定义：
 
-\begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,4) node[above]{$y$};
-    \draw[black, thick, smooth, domain=0.3:2] plot (\x,1/\x) node[right]{$\mu =-1$};
-    \draw[black, thick, smooth, domain=-2:-0.5] plot (\x,1/\x) node[right]{$\mu =-1$};
-    \draw[black, thick, smooth, domain=0.01:2] plot (\x, {sqrt(\x)}) node[right]{$\mu =\dfrac{1}{2}$};
-    \draw[black, thick, smooth, domain=-2:2] plot (\x,\x) node[right]{$\mu =1$};
-    \draw[black, thick, smooth, domain=-2:2] plot (\x, {\x*\x}) node[right]{$\mu =2$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \filldraw[black] (1,1) circle (2pt) node at(1.25,0.5){$(1,1)$};
-\end{tikzpicture}
+    \begin{tikzpicture}[scale=0.9]
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,4) node[above]{$y$};
+        \draw[black, thick, smooth, domain=0.3:2] plot (\x,1/\x) node[right]{$\mu =-1$};
+        \draw[black, thick, smooth, domain=-2:-0.5] plot (\x,1/\x) node[right]{$\mu =-1$};
+        \draw[black, thick, smooth, domain=0.01:2] plot (\x, {sqrt(\x)});
+        \filldraw[black] (2.75,1.25) node {$\mu =\dfrac{1}{2}$};
+        \draw[black, thick, smooth, domain=-2:2] plot (\x,\x) node[right]{$\mu =1$};
+        \draw[black, thick, smooth, domain=-2:2] plot (\x, {\x*\x}) node[right]{$\mu =2$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \filldraw[black] (1,1) circle (2pt) node at(1.25,0.5){$(1,1)$};
+    \end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+    对于幂函数可以根据不同幂下相同单调性来研究最值：
 
-所以对于幂函数，可以根据不同幂下相同单调性来研究最值：
-
-\begin{enumerate}
-    \item $\sqrt{u}，\sqrt[3]{u}$可以使用$u$来研究。
-    \item $\vert u\vert$可以使用$u^2$来研究。
-    \item $\dfrac{1}{u},u>0$可以使用$u$来研究，但是最值相反。
-    \item $u_1u_2...u_n$可以使用$\sum_{i=1}^{n}\ln u_i$来研究。
-\end{enumerate}
+    \begin{enumerate}
+        \item $\sqrt{u}，\sqrt[3]{u}$可以使用$u$来研究。
+        \item $\vert u\vert$可以使用$u^2$来研究。
+        \item $\dfrac{1}{u},u>0$可以使用$u$来研究，但是最值相反。
+        \item $u_1u_2...u_n$可以使用$\sum_{i=1}^{n}\ln u_i$来研究。
+    \end{enumerate}
+\end{minipage}
 
 \subparagraph{指数函数} \leavevmode \medskip
 
-$y=a^x(a>0,a\neq 1)$：
+\begin{minipage}{0.4\linewidth}
+    $y=a^x(a>0,a\neq 1)$：
 
-\begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
-    \draw[black, thick, domain=-2:2] plot (\x,{pow(1/2,\x)}) node[right]{$0<a<1$};
-    \draw[black, thick, domain=-2:2] plot (\x,{pow(2,\x)}) node[right]{$a>1$};
-    \filldraw[black] (0,0) node[below]{$O$};
-\end{tikzpicture}
+    \begin{tikzpicture}[scale=0.9]
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
+        \draw[black, thick, domain=-2:2] plot (\x,{pow(1/2,\x)}) node[right]{$0<a<1$};
+        \draw[black, thick, domain=-2:2] plot (\x,{pow(2,\x)}) node[right]{$a>1$};
+        \filldraw[black] (0,0) node[below]{$O$};
+    \end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+    指数函数具有如下性质：
 
-指数函数具有如下性质：
-
-\begin{enumerate}
-    \item 特殊函数值：$a^0=1$。
-    \item 定义域：$(-\infty, +\infty)$，值域：$(0,+\infty)$。
-    \item 单调性：$a>1$，$y=a^x$单调增，$0<a<1$，$y=a^x$单调减。
-    \item 常用指数函数：$y=e^x$。
-    \item 极限：$\lim\limits_{x\to -\infty}e^x=0$，$\lim\limits_{x\to +\infty}e^x=+\infty$。
-\end{enumerate}
+    \begin{enumerate}
+        \item 特殊函数值：$a^0=1$。
+        \item 定义域：$(-\infty, +\infty)$，值域：$(0,+\infty)$。
+        \item 单调性：$a>1$，$y=a^x$单调增，$0<a<1$，$y=a^x$单调减。
+        \item 常用指数函数：$y=e^x$。
+        \item 极限：$\lim\limits_{x\to -\infty}e^x=0$，$\lim\limits_{x\to +\infty}e^x=+\infty$。
+    \end{enumerate}
+\end{minipage}
 
 \subparagraph{对数函数} \leavevmode \medskip
 
-$y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
+\begin{minipage}{0.45\linewidth}
+    $y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
 
-\begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-0.5,0) -- (4,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \draw[black, thick, domain=0.2:4] plot (\x,{ln(1/\x)}) node[right]{$0<a<1$};
-    \draw[black, thick, domain=0.2:4] plot (\x,{ln(\x)}) node[right]{$a>1$};
-    \filldraw[black] (0,0) node[below]{$O$};
-\end{tikzpicture}
+    常用公式：$x=e^{\ln x}$，$u^v=e^{\ln u^v}=e^{v\ln u}(x>0,u>0)$。
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{tikzpicture}[scale=0.9]
+        \draw[-latex](-0.5,0) -- (4,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \draw[black, thick, domain=0.2:4] plot (\x,{ln(1/\x)}) node[right]{$0<a<1$};
+        \draw[black, thick, domain=0.2:4] plot (\x,{ln(\x)}) node[right]{$a>1$};
+        \filldraw[black] (0,0) node[below]{$O$};
+    \end{tikzpicture}
+\end{minipage}
 
 对数函数具有如下性质：
 
@@ -130,8 +151,8 @@ $y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
     \item 单调性：$a>1$，$y=\log_ax$单调增，$0<a<1$，$y=\log_ax$单调减。
     \item 常用对数函数：$y=\ln x$，$e=2.71828...$。
     \item 极限：$\lim\limits_{x\to 0^+}\log_a x=-\infty$，$\lim\limits_{x\to +\infty}\log_ax=+\infty$。
-    \item 常用公式：$x=e^{\ln x}$，$u^v=e^{\ln u^v}=e^{v\ln u}(x>0,u>0)$
 \end{enumerate}
+
 
 \subparagraph{三角函数} \leavevmode \medskip
 
@@ -177,40 +198,44 @@ $y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
     \item 有界性：$\vert\sin x\vert\leqslant 1$，$\vert\cos x\vert\leqslant 1$。
 \end{enumerate}
 
-正切函数：
+\begin{minipage}{0.5\linewidth}
+    正切函数：
 
-\begin{tikzpicture}[scale=0.7]
-    \draw[-latex](-6,0) -- (6,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \draw[black, thick, domain=-pi/2+0.5:pi/2-0.5] plot (\x,{tan(\x r)}) node[above]{$\tan(x)$};
-    \draw[black, densely dashed](pi/2,2) -- (pi/2,-2);
-    \draw[black, densely dashed](-pi/2,2) -- (-pi/2,-2);
-    \draw[black, thick, domain=-pi/2*3+0.5:-pi/2-0.5] plot (\x,{tan(\x r)}) node[above]{$\tan(x)$};
-    \draw[black, densely dashed](pi/2*3,2) -- (pi/2*3,-2);
-    \draw[black, thick, domain=pi/2+0.5:pi/2*3-0.5] plot (\x,{tan(\x r)}) node[above]{$\tan(x)$};
-    \draw[black, densely dashed](-pi/2*3,2) -- (-pi/2*3,-2);
-    \filldraw[black] (0,0) node[below]{$O$};
-    \filldraw[black] (pi/2+0.5,-0.75) node{$\dfrac{\pi}{2}$};
-    \filldraw[black] (-pi/2-0.75,-0.75) node{$-\dfrac{\pi}{2}$};
-    \filldraw[black] (pi/2*3+0.5,-0.75) node{$\dfrac{3\pi}{2}$};
-    \filldraw[black] (-pi/2*3-0.75,-0.75) node{$-\dfrac{3\pi}{2}$};
-\end{tikzpicture}
+    \begin{tikzpicture}[scale=0.55]
+        \draw[-latex](-6,0) -- (6,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \draw[black, thick, domain=-pi/2+0.5:pi/2-0.5] plot (\x,{tan(\x r)}) node[above]{$\tan(x)$};
+        \draw[black, densely dashed](pi/2,2) -- (pi/2,-2);
+        \draw[black, densely dashed](-pi/2,2) -- (-pi/2,-2);
+        \draw[black, thick, domain=-pi/2*3+0.5:-pi/2-0.5] plot (\x,{tan(\x r)}) node[above]{$\tan(x)$};
+        \draw[black, densely dashed](pi/2*3,2) -- (pi/2*3,-2);
+        \draw[black, thick, domain=pi/2+0.5:pi/2*3-0.5] plot (\x,{tan(\x r)}) node[above]{$\tan(x)$};
+        \draw[black, densely dashed](-pi/2*3,2) -- (-pi/2*3,-2);
+        \filldraw[black] (0,0) node[below]{$O$};
+        \filldraw[black] (pi/2+0.5,-0.75) node{$\dfrac{\pi}{2}$};
+        \filldraw[black] (-pi/2-0.75,-0.75) node{$-\dfrac{\pi}{2}$};
+        \filldraw[black] (pi/2*3+0.5,-0.75) node{$\dfrac{3\pi}{2}$};
+        \filldraw[black] (-pi/2*3-0.75,-0.75) node{$-\dfrac{3\pi}{2}$};
+    \end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    余切函数：
 
-余切函数：
-
-\begin{tikzpicture}[scale=0.7]
-    \draw[-latex](-4,0) -- (4,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \draw[black, thick, domain=0.5:pi-0.5] plot (\x,{cot(\x r)}) node at(pi-1,2){$\cot(x)$};
-    \draw[black, densely dashed](pi,2) -- (pi,-2);
-    \draw[black, thick, domain=-0.5:-pi+0.5] plot (\x,{cot(\x r)}) node at(-1,2){$\cot(x)$};
-    \draw[black, densely dashed](-pi,2) -- (-pi,-2);
-    \filldraw[black] (0,0) node[below]{$O$};
-    \filldraw[black] (pi/2,0) node[below]{$\dfrac{\pi}{2}$};
-    \filldraw[black] (pi+0.5,-0.5) node{$\pi$};
-    \filldraw[black] (-pi/2-0.25,0) node[below]{$-\dfrac{\pi}{2}$};
-    \filldraw[black] (-pi-0.5,-0.5) node{$-\pi$};
-\end{tikzpicture}
+    \begin{tikzpicture}[scale=0.65]
+        \draw[-latex](-4,0) -- (4,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \draw[black, thick, domain=0.5:pi-0.5] plot (\x,{cot(\x r)}) node at(pi-1,2){$\cot(x)$};
+        \draw[black, densely dashed](pi,2) -- (pi,-2);
+        \draw[black, thick, domain=-0.5:-pi+0.5] plot (\x,{cot(\x r)}) node at(-1,2){$\cot(x)$};
+        \draw[black, densely dashed](-pi,2) -- (-pi,-2);
+        \filldraw[black] (0,0) node[below]{$O$};
+        \filldraw[black] (pi/2,0) node[below]{$\dfrac{\pi}{2}$};
+        \filldraw[black] (pi+0.5,-0.5) node{$\pi$};
+        \filldraw[black] (-pi/2-0.25,0) node[below]{$-\dfrac{\pi}{2}$};
+        \filldraw[black] (-pi-0.5,-0.5) node{$-\pi$};
+    \end{tikzpicture}
+\end{minipage}
 
 切函数有如下特征：
 
@@ -221,9 +246,7 @@ $y=log_ax(a>0,a\neq 1)$为$y=a^x$的反函数：
     \item 周期性：最小正周期为$\pi$。
 \end{enumerate}
 
-$$
-    \sec x=\dfrac{1}{\cos x},\csc x=\dfrac{1}{\sin x}
-$$
+$\sec x=\dfrac{1}{\cos x},\csc x=\dfrac{1}{\sin x}$：
 
 正割函数：
 
@@ -284,31 +307,35 @@ $$
 
 \subparagraph{反三角函数} \leavevmode \medskip
 
-反正弦函数：
+\begin{minipage}{0.45\linewidth}
+    反正弦函数：
 
-\begin{tikzpicture}
-    \draw[-latex](-1.5,0) -- (1.5,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \draw[black, thick, domain=-1:1] plot (\x,{rad(asin(\x))}) node[right]{$\arcsin(x)$};
-    \draw[black, densely dashed](1,pi/2) -- (0,pi/2) node[left]{$\dfrac{\pi}{2}$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, densely dashed](1,pi/2) -- (1,0) node[below]{$1$};
-    \draw[black, densely dashed](-1,-pi/2) -- (0,-pi/2) node[right]{$-\dfrac{\pi}{2}$};
-    \draw[black, densely dashed](-1,-pi/2) -- (-1,0) node[above]{$-1$};
-\end{tikzpicture}
+    \begin{tikzpicture}
+        \draw[-latex](-1.5,0) -- (1.5,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \draw[black, thick, domain=-1:1] plot (\x,{rad(asin(\x))}) node[right]{$\arcsin(x)$};
+        \draw[black, densely dashed](1,pi/2) -- (0,pi/2) node[left]{$\dfrac{\pi}{2}$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, densely dashed](1,pi/2) -- (1,0) node[below]{$1$};
+        \draw[black, densely dashed](-1,-pi/2) -- (0,-pi/2) node[right]{$-\dfrac{\pi}{2}$};
+        \draw[black, densely dashed](-1,-pi/2) -- (-1,0) node[above]{$-1$};
+    \end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    反余弦函数：
 
-反余弦函数：
-
-\begin{tikzpicture}
-    \draw[-latex](-1.5,0) -- (1.5,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
-    \draw[black, thick, domain=-1:1] plot (\x,{rad(acos(\x)}) node at (-2, pi){$\arccos(x)$};
-    \filldraw[black] (0,pi/2+0.5) node[right]{$\dfrac{\pi}{2}$};
-    \draw[black](1,0) -- (1,0) node[below]{$1$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, densely dashed](-1,pi) -- (0,pi) node[right]{$\pi$};
-    \draw[black, densely dashed](-1,pi) -- (-1,0) node[below]{$-1$};
-\end{tikzpicture}
+    \begin{tikzpicture}
+        \draw[-latex](-1.5,0) -- (1.5,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
+        \draw[black, thick, domain=-1:1] plot (\x,{rad(acos(\x)}) node at (-2, pi){$\arccos(x)$};
+        \filldraw[black] (0,pi/2+0.5) node[right]{$\dfrac{\pi}{2}$};
+        \draw[black](1,0) -- (1,0) node[below]{$1$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, densely dashed](-1,pi) -- (0,pi) node[right]{$\pi$};
+        \draw[black, densely dashed](-1,pi) -- (-1,0) node[below]{$-1$};
+    \end{tikzpicture}
+\end{minipage}
 
 反弦函数有如下特征：
 
@@ -327,29 +354,33 @@ $$
 
 又$f(0)=\dfrac{\pi}{2}$，所以该函数等于$\dfrac{\pi}{2}$。
 
-反正切函数：
+\begin{minipage}{0.45\linewidth}
+    反正切函数：
 
-\begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-3,0) -- (3,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \draw[black, thick, domain=-3:3] plot (\x,{rad(atan(\x))}) node[right]{$\arctan(x)$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, densely dashed](-3,pi/2) -- (3,pi/2);
-    \draw[black, densely dashed](-3,-pi/2) -- (3,-pi/2);
-    \filldraw[black] (0.5,pi/2-0.5) node{$\dfrac{\pi}{2}$};
-    \filldraw[black] (0.5,-pi/2-0.5) node{$-\dfrac{\pi}{2}$};
-\end{tikzpicture}
+    \begin{tikzpicture}[scale=0.75]
+        \draw[-latex](-3,0) -- (3,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \draw[black, thick, domain=-3:3] plot (\x,{rad(atan(\x))}) node[right]{$\arctan(x)$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, densely dashed](-3,pi/2) -- (3,pi/2);
+        \draw[black, densely dashed](-3,-pi/2) -- (3,-pi/2);
+        \filldraw[black] (0.5,pi/2-0.5) node{$\dfrac{\pi}{2}$};
+        \filldraw[black] (0.5,-pi/2-0.5) node{$-\dfrac{\pi}{2}$};
+    \end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    反余切函数：
 
-反余切函数：
-
-\begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-3,0) -- (3,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
-    \draw[black, thick, domain=-3:3] plot (\x,{pi/2-rad(atan(\x))}) node[right]{$\textrm{arccot}(x)$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, densely dashed](-3,pi) -- (3,pi);
-    \filldraw[black] (-0.5,pi/2-0.5) node{$\dfrac{\pi}{2}$};
-\end{tikzpicture}
+    \begin{tikzpicture}[scale=0.75]
+        \draw[-latex](-3,0) -- (3,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
+        \draw[black, thick, domain=-3:3] plot (\x,{pi/2-rad(atan(\x))}) node[right]{$\textrm{arccot}(x)$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, densely dashed](-3,pi) -- (3,pi);
+        \filldraw[black] (-0.5,pi/2-0.5) node{$\dfrac{\pi}{2}$};
+    \end{tikzpicture}
+\end{minipage}
 
 反切函数有如下特征：
 
@@ -388,27 +419,32 @@ x的不同范围对应不同的法则，经典形式如下：
 
 \subparagraph{绝对值函数} \leavevmode \medskip
 
-$
+\begin{minipage}{0.45\linewidth}
+    $
     y=\vert x\vert=\left\{
     \begin{array}{lcl}
         x,  &  & x\geqslant 0 \\
         -x, &  & x<0
     \end{array}
     \right.
-$
-
-\begin{tikzpicture}
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0,2.5) node[above]{$y$};
-    \draw[black, thick, domain=0:2] plot (\x,\x);
-    \draw[black, thick, domain=-2:0] plot (\x,-\x);
-    \filldraw[black] (0.5,1.5) node{$\vert x\vert$};
-    \filldraw[black] (0,0) node[below]{$O$};
-\end{tikzpicture}
+    $
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{tikzpicture}
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0,2.5) node[above]{$y$};
+        \draw[black, thick, domain=0:2] plot (\x,\x);
+        \draw[black, thick, domain=-2:0] plot (\x,-\x);
+        \filldraw[black] (0.5,1.5) node{$\vert x\vert$};
+        \filldraw[black] (0,0) node[below]{$O$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{符号函数} \leavevmode \medskip
 
-$
+\begin{minipage}{0.45\linewidth}
+    $
     y=\textrm{sgn}\,x=\left\{
     \begin{array}{lcl}
         1,  &  & x>0 \\
@@ -416,228 +452,280 @@ $
         -1, &  & x<0
     \end{array}
     \right.
-$
-
-\begin{tikzpicture}
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
-    \draw[black, thick, domain=0:2] plot (\x,1);
-    \draw[black, thick, domain=-2:0] plot (\x,-1);
-    \filldraw[black] (-1.5,1) node{$\textrm{sgn}\,x$};
-    \filldraw[black] circle (2pt) (0,0) node[below]{$O$};
-    \filldraw[white, draw=black, line width=1pt] (0,1) circle (2pt);
-    \filldraw[black] (0,1) node[left]{$1$};
-    \filldraw[white, draw=black, line width=1pt] (0,-1) circle (2pt);
-    \filldraw[black] (0,-1) node[right]{$-1$};
-\end{tikzpicture}
+    $
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{tikzpicture}
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
+        \draw[black, thick, domain=0:2] plot (\x,1);
+        \draw[black, thick, domain=-2:0] plot (\x,-1);
+        \filldraw[black] (-1.5,1) node{$\textrm{sgn}\,x$};
+        \filldraw[black] circle (2pt) (0,0) node[below]{$O$};
+        \filldraw[white, draw=black, line width=1pt] (0,1) circle (2pt);
+        \filldraw[black] (0,1) node[left]{$1$};
+        \filldraw[white, draw=black, line width=1pt] (0,-1) circle (2pt);
+        \filldraw[black] (0,-1) node[right]{$-1$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{取整函数} \leavevmode \medskip
 
 $x$为实数，不超过$x$的最大整数称为其整数部分$[x]$，其定义域为$R$，值域为$Z$。
 
-\begin{enumerate}
-    \item $x-1<[x]\leqslant x$。
-    \item $\lim\limits_{x\to 0^+}[x]=0$。
-    \item $\lim\limits_{x\to 0^-}[x]=-1$。
-\end{enumerate}
-
-\begin{tikzpicture}[scale=0.6]
-    \draw[-latex](-3.5,0) -- (4.5,0) node[below]{$x$};
-    \draw[-latex](0,-3.5) -- (0,3.5) node[above]{$y$};
-    \draw[black, thick, domain=1:2] plot (\x,1);
-    \draw[black, thick, domain=2:3] plot (\x,2);
-    \draw[black, thick, domain=3:4] plot (\x,3);
-    \draw[black, thick, domain=-1:0] plot (\x,-1);
-    \draw[black, thick, domain=-2:-1] plot (\x,-2);
-    \draw[black, thick, domain=-3:-2] plot (\x,-3);
-    \filldraw[black] (-2,2) node{$[x]$};
-    \filldraw[black] circle (2pt) (0,0) node[below]{$O$};
-    \foreach \x in {-2,...,4}
-    \filldraw[white, draw=black, line width=1pt] (\x,\x-1) circle (2pt);
-    \foreach \x in {3,...,-3}
-    \filldraw[black] (\x,\x) circle (2pt);
-    \foreach \x/\xtext in {-3,...,-1}
-    \filldraw[black] (\x,0) node[below]{\xtext} -- ++(0, 3pt);
-    \foreach \x/\xtext in {1,...,4}
-    \filldraw[black] (\x,0) node[below]{\xtext} -- ++(0, 3pt);
-    \foreach \x/\xtext in {1,...,3}
-    \filldraw[black] (0,\x) node[left]{\xtext} -- +(3pt, 0);
-    \foreach \x/\xtext in {-3,...,-1}
-    \filldraw[black] (0,\x) node[right]{\xtext} -- +(3pt, 0);
-\end{tikzpicture}
+\begin{minipage}{0.45\linewidth}
+    \begin{enumerate}
+        \item $x-1<[x]\leqslant x$。
+        \item $\lim\limits_{x\to 0^+}[x]=0$。
+        \item $\lim\limits_{x\to 0^-}[x]=-1$。
+    \end{enumerate}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{tikzpicture}[scale=0.6]
+        \draw[-latex](-3.5,0) -- (4.5,0) node[below]{$x$};
+        \draw[-latex](0,-3.5) -- (0,3.5) node[above]{$y$};
+        \draw[black, thick, domain=1:2] plot (\x,1);
+        \draw[black, thick, domain=2:3] plot (\x,2);
+        \draw[black, thick, domain=3:4] plot (\x,3);
+        \draw[black, thick, domain=-1:0] plot (\x,-1);
+        \draw[black, thick, domain=-2:-1] plot (\x,-2);
+        \draw[black, thick, domain=-3:-2] plot (\x,-3);
+        \filldraw[black] (-2,2) node{$[x]$};
+        \filldraw[black] circle (2pt) (0,0) node[below]{$O$};
+        \foreach \x in {-2,...,4}
+        \filldraw[white, draw=black, line width=1pt] (\x,\x-1) circle (2pt);
+        \foreach \x in {3,...,-3}
+        \filldraw[black] (\x,\x) circle (2pt);
+        \foreach \x/\xtext in {-3,...,-1}
+        \filldraw[black] (\x,0) node[below]{\xtext} -- ++(0, 3pt);
+        \foreach \x/\xtext in {1,...,4}
+        \filldraw[black] (\x,0) node[below]{\xtext} -- ++(0, 3pt);
+        \foreach \x/\xtext in {1,...,3}
+        \filldraw[black] (0,\x) node[left]{\xtext} -- +(3pt, 0);
+        \foreach \x/\xtext in {-3,...,-1}
+        \filldraw[black] (0,\x) node[right]{\xtext} -- +(3pt, 0);
+    \end{tikzpicture}
+\end{minipage}
 
 \subsubsection{图像变换}
 \paragraph{平移变换}
 \subparagraph{左右平移} \leavevmode \medskip
 
-$f(x)$沿$x$轴左移$x_0$个单位长度得到$f(x+x_0)$，向右移动$x_0$个单位则得到$f(x-x_0)$：
-
-\begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-4,0) -- (4,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=-1.5:1.5] plot (\x,-\x*\x+1);
-    \filldraw[black] (0,1.5) node{$-x^2+1$};
-    \draw[black, thick, domain=0.5:3.5] plot (\x,{-pow((\x-2),2)+1});
-    \filldraw[black] (2.5,1.5) node{$-(x-2)^2+1$};
-    \draw[black, thick, domain=-3.5:-0.5] plot (\x,{-pow((\x+2),2)+1});
-    \filldraw[black] (-2.5,1.5) node{$-(x+2)^2+1$};
-    \filldraw[black] (1,0.5) node{$\rightarrow$};
-    \filldraw[black] (-1,0.5) node{$\leftarrow$};
-\end{tikzpicture}
+\begin{minipage}{0.35\linewidth}
+    $f(x)$沿$x$轴左移$x_0$个单位长度得到$f(x+x_0)$，向右移动$x_0$个单位则得到$f(x-x_0)$：
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\linewidth}
+    \begin{tikzpicture}[scale=0.9]
+        \draw[-latex](-4,0) -- (4,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=-1.5:1.5] plot (\x,-\x*\x+1);
+        \filldraw[black] (0,1.5) node{$-x^2+1$};
+        \draw[black, thick, domain=0.5:3.5] plot (\x,{-pow((\x-2),2)+1});
+        \filldraw[black] (2.5,1.5) node{$-(x-2)^2+1$};
+        \draw[black, thick, domain=-3.5:-0.5] plot (\x,{-pow((\x+2),2)+1});
+        \filldraw[black] (-2.5,1.5) node{$-(x+2)^2+1$};
+        \filldraw[black] (1,0.5) node{$\rightarrow$};
+        \filldraw[black] (-1,0.5) node{$\leftarrow$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{上下平移} \leavevmode \medskip
 
-$f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个单位则得到$f(x)-y_0$：
-
-\begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-4) -- (0,4) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=-1.5:1.5] plot (\x,-\x*\x+1);
-    \filldraw[black] (0,-0.75) node{$-x^2+1$};
-    \draw[black, thick, domain=-1.5:1.5] plot (\x,{-\x*\x+3});
-    \filldraw[black] (0,1.5) node{$-x^2+3$};
-    \draw[black, thick, domain=-1.5:1.5] plot (\x,{-\x*\x+-1});
-    \filldraw[black] (0,-2.5) node{$-x^2-1$};
-    \filldraw[black] (-2,2.5) node{$\uparrow $};
-    \filldraw[black] (-2,-2.5) node{$\downarrow $};
-\end{tikzpicture}
+\begin{minipage}{0.45\linewidth}
+    $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个单位则得到$f(x)-y_0$：
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{tikzpicture}[scale=0.9]
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-4) -- (0,4) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=-1.5:1.5] plot (\x,-\x*\x+1);
+        \filldraw[black] (0,-0.75) node{$-x^2+1$};
+        \draw[black, thick, domain=-1.5:1.5] plot (\x,{-\x*\x+3});
+        \filldraw[black] (0,1.5) node{$-x^2+3$};
+        \draw[black, thick, domain=-1.5:1.5] plot (\x,{-\x*\x+-1});
+        \filldraw[black] (0,-2.5) node{$-x^2-1$};
+        \filldraw[black] (-2,2.5) node{$\uparrow $};
+        \filldraw[black] (-2,-2.5) node{$\downarrow $};
+    \end{tikzpicture}
+\end{minipage}
 
 \paragraph{对称变换}
 \subparagraph{上下对称} \leavevmode \medskip
 
-将$f(x)$关于$x$轴对称得到$-f(x)$：
-
-\begin{tikzpicture}
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=-1.5:1.5] plot (\x,-\x*\x+1);
-    \filldraw[black] (0,1.5) node{$-x^2+1$};
-    \draw[black, thick, domain=-1.5:1.5] plot (\x,\x*\x-1);
-    \filldraw[black] (0,-1.5) node{$x^2-1$};
-\end{tikzpicture}
+\begin{minipage}{0.5\linewidth}
+    将$f(x)$关于$x$轴对称得到$-f(x)$：
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    \begin{tikzpicture}
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=-1.5:1.5] plot (\x,-\x*\x+1);
+        \filldraw[black] (0,1.5) node{$-x^2+1$};
+        \draw[black, thick, domain=-1.5:1.5] plot (\x,\x*\x-1);
+        \filldraw[black] (0,-1.5) node{$x^2-1$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{左右对称} \leavevmode \medskip
 
-将$f(x)$关于$y$轴对称得到$f(-x)$：
-
-\begin{tikzpicture}[scale=0.8]
-    \draw[-latex](-4,0) -- (4,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=0.25:3.5] plot (\x,{ln(\x)});
-    \filldraw[black] (1.5,1.5) node{$\ln x$};
-    \draw[black, thick, domain=-0.25:-3.5] plot (\x,{ln(-\x)});
-    \filldraw[black] (-1.5,1.5) node{$\ln -x$};
-\end{tikzpicture}
+\begin{minipage}{0.4\linewidth}
+    将$f(x)$关于$y$轴对称得到\\$f(-x)$：
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+    \begin{tikzpicture}[scale=0.8]
+        \draw[-latex](-4,0) -- (4,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=0.25:3.5] plot (\x,{ln(\x)});
+        \filldraw[black] (1.5,1.5) node{$\ln x$};
+        \draw[black, thick, domain=-0.25:-3.5] plot (\x,{ln(-\x)});
+        \filldraw[black] (-1.5,1.5) node{$\ln -x$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{原点对称} \leavevmode \medskip
 
-将$f(x)$关于$x$轴$y$轴即关于原点对称得到$-f(-x)$：
-
-\begin{tikzpicture}[scale=0.8]
-    \draw[-latex](-4,0) -- (4,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=0.25:3.5] plot (\x,{ln(\x)});
-    \filldraw[black] (1.5,1.5) node{$\ln x$};
-    \draw[black, thick, domain=-0.25:-3.5] plot (\x,{-ln(-\x)});
-    \filldraw[black] (-1.5,-1.5) node{$-\ln -x$};
-\end{tikzpicture}
+\begin{minipage}{0.4\linewidth}
+    将$f(x)$关于$x$轴$y$轴即关于原点对称得到$-f(-x)$：
+\end{minipage}
+\hfill
+\begin{minipage}{0.5\linewidth}
+    \begin{tikzpicture}[scale=0.8]
+        \draw[-latex](-4,0) -- (4,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=0.25:3.5] plot (\x,{ln(\x)});
+        \filldraw[black] (1.5,1.5) node{$\ln x$};
+        \draw[black, thick, domain=-0.25:-3.5] plot (\x,{-ln(-\x)});
+        \filldraw[black] (-1.5,-1.5) node{$-\ln -x$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{反函数对称} \leavevmode \medskip
 
-将$f(x)$关于$y=x$轴对称得到$f^{-1}(x)$：
-
-\begin{tikzpicture}[scale=0.8]
-    \draw[-latex](-2,0) -- (e,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,e) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=0.25:e] plot (\x,{ln(\x)});
-    \filldraw[black] (1.5,-1.5) node{$\ln x$};
-    \draw[black, thick, domain=-1:1] plot (\x,{exp(\x)});
-    \filldraw[black] (-1.5,1.5) node{$e^x$};
-    \draw[black, densely dashed] (-2,-2) -- (e-0.5,e-0.5) node[above]{$y=x$};
-\end{tikzpicture}
+\begin{minipage}{0.55\linewidth}
+    将$f(x)$关于$y=x$轴对称得到$f^{-1}(x)$：
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+    \begin{tikzpicture}[scale=0.8]
+        \draw[-latex](-2,0) -- (e,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,e) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=0.25:e] plot (\x,{ln(\x)});
+        \filldraw[black] (1.5,-1.5) node{$\ln x$};
+        \draw[black, thick, domain=-1:1] plot (\x,{exp(\x)});
+        \filldraw[black] (-1.5,1.5) node{$e^x$};
+        \draw[black, densely dashed] (-2,-2) -- (e-0.5,e-0.5) node[above]{$y=x$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{函数绝对值} \leavevmode \medskip
 
-保留$f(x)$函数值在$[0,\infty]$的部分，并对$[-\infty,0]$部分进行上下对称：
-
-\begin{tikzpicture}
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=1:1.5] plot (\x,\x*\x-1);
-    \draw[black, thick, densely dashed, domain=-1:1] plot (\x,\x*\x-1);
-    \draw[black, thick, domain=-1:1] plot (\x,-\x*\x+1);
-    \draw[black, thick, domain=-1.5:-1] plot (\x,\x*\x-1);
-    \filldraw[black] (0,1.5) node{$\vert x^2-1\vert$};
-\end{tikzpicture}
+\begin{minipage}{0.5\linewidth}
+    保留$f(x)$函数值在$[0,\infty]$的部分，并对$[-\infty,0]$部分进行上下对称：
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    \begin{tikzpicture}
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=1:1.5] plot (\x,\x*\x-1);
+        \draw[black, thick, densely dashed, domain=-1:1] plot (\x,\x*\x-1);
+        \draw[black, thick, domain=-1:1] plot (\x,-\x*\x+1);
+        \draw[black, thick, domain=-1.5:-1] plot (\x,\x*\x-1);
+        \filldraw[black] (0,1.5) node{$\vert x^2-1\vert$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{自变量绝对值} \leavevmode \medskip
 
-先只保留$f(x)$定义域在$[0,\infty]$的部分，然后在$[-\infty,0]$部分使用$[0,\infty]$的部分进行左右对称：
-
-\begin{tikzpicture}
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-1) -- (0,3) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=0:1.25] plot (\x,{-pow(\x,3)+1});
-    \draw[black, thick, densely dashed, domain=-1.25:0] plot (\x,{-pow(\x,3)+1});
-    \draw[black, thick, domain=-1.25:0] plot (\x,{-pow(-\x,3)+1});
-    \filldraw[black] (1,2) node{$-\vert x\vert^3+1$};
-\end{tikzpicture}
+\begin{minipage}{0.5\linewidth}
+    先只保留$f(x)$定义域在$[0,\infty]$的部分，然后在$[-\infty,0]$部分使用$[0,\infty]$的部分进行左右对称：
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    \begin{tikzpicture}
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-1) -- (0,3) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=0:1.25] plot (\x,{-pow(\x,3)+1});
+        \draw[black, thick, densely dashed, domain=-1.25:0] plot (\x,{-pow(\x,3)+1});
+        \draw[black, thick, domain=-1.25:0] plot (\x,{-pow(-\x,3)+1});
+        \filldraw[black] (1,2) node{$-\vert x\vert^3+1$};
+    \end{tikzpicture}
+\end{minipage}
 
 \paragraph{伸缩变换}
 \subparagraph{水平伸缩} \leavevmode \medskip
 
-纵坐标不变，当$k>1$时，$y=f(kx)$是$y=f(x)$缩短k倍得到，当$0<k<1$时，$y=f(kx)$是$y=f(x)$伸长k倍得到：
-
-\begin{tikzpicture}[scale=0.8]
-    \draw[-latex](-5,0) -- (5,0) node[below]{$x$};
-    \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
-    \draw[black, thick, smooth, domain=-5:5] plot (\x,{sin(\x r)}) node[right]{$\sin(x)$};
-    \draw[blue, thick, smooth, domain=-5:5] plot (\x,{sin(\x/2 r)}) node[right]{$\sin(\dfrac{x}{2})$};
-    \draw[brown, thick, smooth, domain=-5:5] plot (\x,{sin(\x*2 r)}) node[right]{$\sin(2x)$};
-    \filldraw[black] (0,0) node[below]{$O$};
-\end{tikzpicture}
-
+\begin{minipage}{0.35\linewidth}
+    纵坐标不变，当$k>1$时，$y=f(kx)$是$y=f(x)$缩短k倍得到，当$0<k<1$时，$y=f(kx)$是$y=f(x)$伸长k倍得到：
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\linewidth}
+    \begin{tikzpicture}[scale=0.625]
+        \draw[-latex](-5,0) -- (5,0) node[below]{$x$};
+        \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
+        \draw[black, thick, smooth, domain=-5:5] plot (\x,{sin(\x r)}) node[right]{$\sin(x)$};
+        \draw[blue, thick, smooth, domain=-5:5] plot (\x,{sin(\x/2 r)}) node[right]{$\sin(\dfrac{x}{2})$};
+        \draw[brown, thick, smooth, domain=-5:5] plot (\x,{sin(\x*2 r)}) node[right]{$\sin(2x)$};
+        \filldraw[black] (0,0) node[below]{$O$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subparagraph{垂直伸缩} \leavevmode \medskip
 
-横坐标不变，$y=kf(x)$的对应纵坐标为$y=f(x)$对应纵坐标的$k$倍。
-
-\begin{tikzpicture}[scale=0.8]
-    \draw[-latex](-5,0) -- (5,0) node[below]{$x$};
-    \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
-    \draw[black, thick, smooth, domain=-5:5] plot (\x,{sin(\x r)}) node[right]{$\sin(x)$};
-    \draw[blue, thick, smooth, domain=-5:5] plot (\x,{sin(\x r)/2}) node at(5.5,1){$\dfrac{sin(x)}{2}$};
-    \filldraw[black] (0,0) node[below]{$O$};
-\end{tikzpicture}
+\begin{minipage}{0.35\linewidth}
+    横坐标不变，$y=kf(x)$的对应纵坐标为$y=f(x)$对应纵坐标的$k$倍。
+\end{minipage}
+\hfill
+\begin{minipage}{0.55\linewidth}
+    \begin{tikzpicture}[scale=0.65]
+        \draw[-latex](-5,0) -- (5,0) node[below]{$x$};
+        \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
+        \draw[black, thick, smooth, domain=-5:5] plot (\x,{sin(\x r)}) node[right]{$\sin(x)$};
+        \draw[blue, thick, smooth, domain=-5:5] plot (\x,{sin(\x r)/2}) node at(5.5,1){$\dfrac{sin(x)}{2}$};
+        \filldraw[black] (0,0) node[below]{$O$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subsection{极坐标系图像}
 \subsubsection{描点法}
 \paragraph{心形线（外摆线）} \leavevmode \medskip
 
-心形线又称为心脏线，表示是一个圆上的固定一点在它绕着与其相切且半径相同的另外一个圆周滚动时所形成的轨迹。
+\begin{minipage}{0.55\linewidth}
+    心形线又称为心脏线，表示是一个圆上的固定一点在它绕着与其相切且半径相同的另外一个圆周滚动时所形成的轨迹。
 
-表达式：水平为$r=a(1\pm\cos\theta)$，垂直为$r=a(1\pm\sin\theta)$。一般为$r=a(1-\cos\theta)$即为下图所示，如果里面的符号为＋则心尖开口向左。
+    表达式：水平为$r=a(1\pm\cos\theta)$，垂直为$r=a(1\pm\sin\theta)$。一般为$r=a(1-\cos\theta)$即为下图所示，如果里面的符号为＋则心尖开口向左。
 
-其中$r$为线的极径，$\theta$为极角，$a$为形状参数且$a>0$，周期为$2\pi$。
+    其中$r$为线的极径，$\theta$为极角，$a$为形状参数且$a>0$，周期为$2\pi$。
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+    \begin{tikzpicture}[scale=0.8]
+        \draw[-latex](-5,0) -- (1,0) node[below]{$x$};
+        \draw[-latex](0,-3) -- (0,3) node[above]{$y$};
+        \draw[black, thick, domain=0:360,smooth,variable=\t, samples=300] plot ({\t}:{2*(1-cos(\t))});
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw (-1,0) circle [radius=1];
+        \draw (-3,0) circle [radius=1];
+    \end{tikzpicture}
+\end{minipage}
 
 在直角坐标系下表达式：$x^2+y^2+a\cdot x=a\cdot\sqrt{x^2+y^2}$和$x^2+y^2-a\cdot x=a\cdot\sqrt{x^2+y^2}$。
 
-参数方程：$x=a\cdot(2\cdot\cos(t)-cos(2\cdot t))$与$y=a\cdot(2\cdot\sin(t)-sin(2\cdot t))$
-
-\begin{tikzpicture}[scale=0.8]
-    \draw[-latex](-5,0) -- (1,0) node[below]{$x$};
-    \draw[-latex](0,-3) -- (0,3) node[above]{$y$};
-    \draw[black, thick, domain=0:360,smooth,variable=\t, samples=300] plot ({\t}:{2*(1-cos(\t))});
-    \filldraw[black] (0,0) node[below]{$O$};
-\end{tikzpicture}
+参数方程：$x=a\cdot(2\cdot\cos(t)-cos(2\cdot t))$与$y=a\cdot(2\cdot\sin(t)-sin(2\cdot t))$。
 
 水平心形线对应参数： \leavevmode \medskip
 
@@ -650,18 +738,22 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
 
 \paragraph{玫瑰线} \leavevmode \medskip
 
-表达式：$r=a\sin(n\theta)$，周期为$\dfrac{2\pi}{n}$。
+\begin{minipage}{0.55\linewidth}
+    表达式：$r=a\sin(n\theta)$，周期为$\dfrac{2\pi}{n}$。
 
-当$n$为3时为三叶，2时为四叶，$\dfrac{3}{2}$为六叶。三叶时周期为$\dfrac{2\pi}{3}$。
+    当$n$为3时为三叶，2时为四叶，$\dfrac{3}{2}$为六叶。三叶时周期为$\dfrac{2\pi}{3}$。
 
-直角坐标系下表达式：$x=a\cdot\sin(n\cdot\theta)\cdot\cos(\theta)$与$y=a\cdot\sin(n\cdot)\cdot\sin(\theta)$
-
-\begin{tikzpicture}[scale=0.8]
-    \draw[-latex](-3,0) -- (3,0) node[below]{$x$};
-    \draw[-latex](0,-pi) -- (0,pi/2) node[above]{$y$};
-    \draw[domain=0:180,samples=100] plot (\x:{3*sin(\x*3)});
-    \filldraw[black] (0,0) node[below]{$O$};
-\end{tikzpicture}
+    直角坐标系下表达式：$x=a\cdot\sin(n\cdot\theta)\cdot\cos(\theta)$与$y=a\cdot\sin(n\cdot)\cdot\sin(\theta)$
+\end{minipage}
+\hfill
+\begin{minipage}{0.35\linewidth}
+    \begin{tikzpicture}[scale=0.8]
+        \draw[-latex](-3,0) -- (3,0) node[below]{$x$};
+        \draw[-latex](0,-pi) -- (0,pi/2) node[above]{$y$};
+        \draw[domain=0:180,samples=100] plot (\x:{3*sin(\x*3)});
+        \filldraw[black] (0,0) node[below]{$O$};
+    \end{tikzpicture}
+\end{minipage}
 
 三叶玫瑰线对应参数： \leavevmode \medskip
 
@@ -674,14 +766,18 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
 
 \paragraph{阿基米德螺线} \leavevmode \medskip
 
-表达式：$r=a\theta$，其中$a>0$，$\theta\geqslant 0$由0开始增大时$r$也在不断增大。
-
-\begin{tikzpicture}[scale=0.2]
-    \draw[-latex](-10,0) -- (15,0) node[below]{$x$};
-    \draw[-latex](0,-15) -- (0,10) node[above]{$y$};
-    \draw[domain=0:720,samples=100] plot (\x:{rad(\x)});
-    \filldraw[black] (0,0) node[below]{$O$};
-\end{tikzpicture}
+\begin{minipage}{0.5\linewidth}
+    表达式：$r=a\theta$，其中$a>0$，$\theta\geqslant 0$由0开始增大时$r$也在不断增大。
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    \begin{tikzpicture}[scale=0.2]
+        \draw[-latex](-10,0) -- (15,0) node[below]{$x$};
+        \draw[-latex](0,-15) -- (0,10) node[above]{$y$};
+        \draw[domain=0:720,samples=100] plot (\x:{rad(\x)});
+        \filldraw[black] (0,0) node[below]{$O$};
+    \end{tikzpicture}
+\end{minipage}
 
 \paragraph{伯努利双扭线} \leavevmode \medskip
 
@@ -711,16 +807,20 @@ $f(x)$沿$y$轴上移$y_0$个单位长度得到$f(x)+y_0$，向下移动$y_0$个
 
 \subsubsection{直角坐标系下画极坐标图像}
 
-令$\theta$为$x$，令$r$为$y$。如心形线$r=2(1-\cos\theta)$：
+\begin{minipage}{0.5\linewidth}
+    令$\theta$为$x$，令$r$为$y$。如心形线$r=2(1-\cos\theta)$：
 
-\begin{tikzpicture}[scale=0.5]
-    \draw[-latex](-5,0) -- (5,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0,5) node[above]{$y$};
-    \draw[black, thick, smooth, domain=-5:5] plot (\x,{2*(1-cos(\x r))}) node at (0,4){$2(1-\cos(\theta))$};
-    \filldraw[black] (0,0) node[below]{$O$};
-\end{tikzpicture}
-
-按直角坐标系的图就可以计算出对应的$r$从而能画出对应的图像。
+    按直角坐标系的图就可以计算出对应的$r$从而能画出对应的图像。
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    \begin{tikzpicture}[scale=0.5]
+        \draw[-latex](-5,0) -- (5,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0,5) node[above]{$y$};
+        \draw[black, thick, smooth, domain=-5:5] plot (\x,{2*(1-cos(\x r))}) node at (0,4){$2(1-\cos(\theta))$};
+        \filldraw[black] (0,0) node[below]{$O$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subsection{参数法}
 
@@ -737,33 +837,56 @@ $
 
 摆线，又称旋轮线、圆滚线，是一个圆沿一条直线滚动时，圆边界上一定点所形成的轨迹。
 
-令圆半径为$r$，摆点与圆心所成直线所转动夹角对应弧度为$t$，其中$t\in[0,2\pi]$，所对应参数方程为：
-
-$$
+令圆半径为$r$，摆点与圆心所成直线所转动夹角对应弧度为$t$，其中$t\in[0,2\pi]$，所对应参数方程为：$
     \left\{
     \begin{array}{lcl}
         x=r(t-\sin t) \\
         y=r(1-\cos t)
     \end{array}
     \right.
-$$
+$
+
+\begin{tikzpicture}[scale=1.5]
+    \draw[-latex](-1.5,0) -- (5,0) node[below]{$x$};
+    \draw[-latex](0,-0.5) -- (0,2) node[above]{$y$};
+    \filldraw[black] (0,0) node[below]{$O$};
+    \draw[black,scale=0.35, domain=-1.7:2*4.0, smooth, variable=\t ]
+    plot ( {2*(\t-sin(\t r))}, {2*(1-cos(\t r))});
+    \draw (0.7,0.7) circle [radius=0.7];
+    \draw[black](0.7,0) -- (0.7,1.4);
+    \draw[black, densely dashed](2.25,0) -- (2.25,1.4);
+    \filldraw[black] (2.5,0.625) node{$2a$};
+\end{tikzpicture}
 
 \subsubsection{星形线（内摆线）}
 
-与半径为$r$的定圆内切的半径为$\dfrac{r}{4}$的动圆沿定圆无滑动地滚动，动圆上一点的轨迹称为星形线。
+\begin{minipage}{0.5\linewidth}
+    与半径为$r$的定圆内切的半径为$\dfrac{r}{4}$的动圆沿定圆无滑动地滚动，动圆上一点的轨迹称为星形线。
 
-令$t$表示摆点与圆心的连线所构成夹角的弧度，其中$t\in[0,2\pi]$，得对应参数方程：
-
-$$
+    令$t$表示摆点与圆心的连线所构成夹角的弧度，其中$t\in[0,2\pi]$，得对应参数方程：$
     \left\{
     \begin{array}{lcl}
         x=r\cos^3t \\
         y=r\sin^3t
     \end{array}
     \right.
-$$
+    $
 
-由$\cos^2t+\sin^2t=1$得到直角坐标方程：$x^{\frac{2}{3}}+y^{\frac{2}{3}}=r^{\frac{2}{3}}$
+    由$\cos^2t+\sin^2t=1$得到直角坐标方程：$x^{\frac{2}{3}}+y^{\frac{2}{3}}=r^{\frac{2}{3}}$。
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    \begin{tikzpicture}[scale=2]
+        \draw[-latex](-1.25,0) -- (1.25,0) node[below]{$x$};
+        \draw[-latex](0,-1.25) -- (0,1.25) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black,scale=1, domain=-1.7:2*4.0, smooth, variable=\t ]
+        plot ( {(pow(cos(\t r),3))}, {(pow(sin(\t r),3))});
+        \filldraw[black] (-0.25,0.125) node{$a$};
+        \draw (0,0) circle [radius=1];
+        \draw (0.75,0) circle [radius=0.25];
+    \end{tikzpicture}
+\end{minipage}
 
 \section{常用基础知识}
 \subsection{数列}

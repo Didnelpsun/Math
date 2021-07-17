@@ -31,8 +31,6 @@
 % 圆圈序号
 \usepackage{mathtools}
 % 有字的长箭头
-\usepackage{yhmath}
-% 弧线标识
 \usetikzlibrary{decorations.pathreplacing}
 % tikz的大括号
 \usepackage{yhmath}
@@ -64,28 +62,32 @@ $\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化�
 
 罗尔定理\textcolor{violet}{\textbf{定义：}}
 
-\begin{enumerate}
-    \item $f(x)$在$[a,b]$上连续。
-    \item $f(x)$在$(a,b)$内可导。
-    \item $f(a)=f(b)$。
-\end{enumerate}
-
-则$\exists\,\xi\in(a,b)$，使得$f'(\xi)=0$。
-
-\begin{tikzpicture}[scale=0.7]
-    \draw[-latex](-0.5,0) -- (8,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0, 4) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick,domain=-0.5:8] plot (\x, {sin((\x-0.5) r)+2});
-    \filldraw[black] (6,3.5) node {$y=f(x)$};
-    \draw[densely dashed](0.5,2) -- (0.5+2*pi, 2);
-    \draw[densely dashed](0.5,2) -- (0.5, 0) node[below]{$a$};
-    \draw[densely dashed](0.5+2*pi,2) -- (0.5+2*pi, 0) node[below]{$b$};
-    \draw[densely dashed](0.5+pi/2,3) -- (0.5+pi/2, 0) node[below]{$\xi_1$};
-    \draw[densely dashed](0.5+pi/2*3,1) -- (0.5+pi/2*3, 0) node[below]{$\xi_2$};
-    \draw[black](pi/2-0.5,3) -- (1.5+pi/2,3);
-    \draw[black](pi/2*3-0.5,1) -- (1.5+pi/2*3,1);
-\end{tikzpicture}
+\begin{minipage}{0.45\linewidth}
+    \begin{enumerate}
+        \item $f(x)$在$[a,b]$上连续。
+        \item $f(x)$在$(a,b)$内可导。
+        \item $f(a)=f(b)$。
+    \end{enumerate}
+    
+    则$\exists\,\xi\in(a,b)$，使得$f'(\xi)=0$。
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{tikzpicture}[scale=0.7]
+        \draw[-latex](-0.5,0) -- (8,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0, 4) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick,domain=-0.5:8] plot (\x, {sin((\x-0.5) r)+2});
+        \filldraw[black] (6,3.5) node {$y=f(x)$};
+        \draw[densely dashed](0.5,2) -- (0.5+2*pi, 2);
+        \draw[densely dashed](0.5,2) -- (0.5, 0) node[below]{$a$};
+        \draw[densely dashed](0.5+2*pi,2) -- (0.5+2*pi, 0) node[below]{$b$};
+        \draw[densely dashed](0.5+pi/2,3) -- (0.5+pi/2, 0) node[below]{$\xi_1$};
+        \draw[densely dashed](0.5+pi/2*3,1) -- (0.5+pi/2*3, 0) node[below]{$\xi_2$};
+        \draw[black](pi/2-0.5,3) -- (1.5+pi/2,3);
+        \draw[black](pi/2*3-0.5,1) -- (1.5+pi/2*3,1);
+    \end{tikzpicture}
+\end{minipage}
 
 \subsection{拉格朗日中值定理}
 

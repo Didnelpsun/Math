@@ -830,24 +830,30 @@ $
 
 \subsection{\texorpdfstring{$\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$}{}}
 
-证明：当$x\to 0$时$x\in[0,\dfrac{\pi}{2}]$。
+证明：
 
-\begin{tikzpicture}[scale=1.5]
-    \draw (0,0) circle (1);
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black](0,0) -- (1,0) node[right]{$A$};
-    \draw[black](0,0) -- (1/2,{sqrt(3)/2}) node[above]{$B$};
-    \draw[black](1/2,{sqrt(3)/2}) -- (1/2,0) node[below]{$D$};
-    \draw[black](1,0) -- (1,{sqrt(3)}) node[above]{$C$};
-    \draw[black](1,0) -- (1/2,{sqrt(3)/2});
-    \draw[black](1,{sqrt(3)}) -- (1/2,{sqrt(3)/2});
-\end{tikzpicture}
+\begin{minipage}{0.7\linewidth}
+    当$x\to 0$时$x\in[0,\dfrac{\pi}{2}]$。
 
-设$\angle AOB$的弧度为$x$，圆$O$的半径为$1$，则$OD=\sin x$。
+    设$\angle AOB$的弧度为$x$，圆$O$的半径为$1$，则$OD=\sin x$。
 
-则$S_\vartriangle AOB=\dfrac{\sin x}{2}$。根据扇形面积公式：$S_{\text{扇形}}AOB=\dfrac{x}{2}$。
+    则$S_\vartriangle AOB=\dfrac{\sin x}{2}$。根据扇形面积公式：$S_{\text{扇形}}AOB=\dfrac{x}{2}$。
 
-又$\because CA=\tan x$，则$S_\vartriangle AOC=\dfrac{\tan x}{2}$。
+    又$\because CA=\tan x$，则$S_\vartriangle AOC=\dfrac{\tan x}{2}$。
+\end{minipage}
+\hfill
+\begin{minipage}{0.2\linewidth}
+    \begin{tikzpicture}[scale=1.125]
+        \draw (0,0) circle (1);
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black](0,0) -- (1,0) node[right]{$A$};
+        \draw[black](0,0) -- (1/2,{sqrt(3)/2}) node[above]{$B$};
+        \draw[black](1/2,{sqrt(3)/2}) -- (1/2,0) node[below]{$D$};
+        \draw[black](1,0) -- (1,{sqrt(3)}) node[above]{$C$};
+        \draw[black](1,0) -- (1/2,{sqrt(3)/2});
+        \draw[black](1,{sqrt(3)}) -- (1/2,{sqrt(3)/2});
+    \end{tikzpicture}
+\end{minipage}
 
 根据图，在$x\in[0,\dfrac{\pi}{2}]$，$\sin x<x<\tan x$。
 
@@ -957,64 +963,80 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 \subsubsection{可去间断点（可补间断点）}
 
-\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)=A\neq f(x_0)$（甚至可以没有定义）。
-
-\begin{tikzpicture}
-    \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0,3) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=-0.5:2] plot (\x,{pow(e,\x-1)});
-    \filldraw[white, draw=black, line width=1pt] (1,1) circle (2pt);
-    \draw[black, densely dashed](1,2) -- (0,2) node[left]{$B$};
-    \draw[black, densely dashed](1,1) -- (0,1) node[left]{$A$};
-    \draw[black, densely dashed](1,2) -- (1,0) node[below]{$x_0$};
-    \filldraw[black] (1,2) circle (2pt) node[above]{$f(x_0)=B$};
-    \filldraw[black] (1,1) node[right]{$\lim\limits_{x\to x_0}=A$};
-\end{tikzpicture}
+\begin{minipage}{0.6\linewidth}
+    \textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)=A\neq f(x_0)$（甚至可以没有定义）。
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+    \begin{tikzpicture}
+        \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0,3) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=-0.5:2] plot (\x,{pow(e,\x-1)});
+        \filldraw[white, draw=black, line width=1pt] (1,1) circle (2pt);
+        \draw[black, densely dashed](1,2) -- (0,2) node[left]{$B$};
+        \draw[black, densely dashed](1,1) -- (0,1) node[left]{$A$};
+        \draw[black, densely dashed](1,2) -- (1,0) node[below]{$x_0$};
+        \filldraw[black] (1,2) circle (2pt) node[above]{$f(x_0)=B$};
+        \filldraw[black] (1,1) node[right]{$\lim\limits_{x\to x_0}=A$};
+    \end{tikzpicture}
+\end{minipage}
 
 \subsubsection{跳跃间断点}
 
-\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0^-}f(x)$与$\lim\limits_{x\to x_0^+}f(x)$都存在，但是$\lim\limits_{x\to x_0^-}f(x)\neq\lim\limits_{x\to x_0^+}f(x)$。
-
-\begin{tikzpicture}
-    \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0,3) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=-0.5:1] plot (\x,{pow(e,\x-1)});
-    \draw[black, thick, domain=1:1.5] plot (\x,{pow(e,\x-1)+1});
-    \filldraw[white, draw=black, line width=1pt] (1,1) circle (2pt);
-    \draw[black, densely dashed](1,2) -- (0,2) node[left]{$B$};
-    \draw[black, densely dashed](1,1) -- (0,1) node[left]{$A$};
-    \draw[black, densely dashed](1,2) -- (1,0) node[below]{$x_0$};
-    \filldraw[black] (1,2) circle (2pt) node[above]{$f(x_0)=B$};
-    \filldraw[black] (1,1) node[right]{$\lim\limits_{x\to x_0}=A$};
-\end{tikzpicture}
+\begin{minipage}{0.6\linewidth}
+    \textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0^-}f(x)$与$\lim\limits_{x\to x_0^+}f(x)$都存在，但是$\lim\limits_{x\to x_0^-}f(x)\neq\lim\limits_{x\to x_0^+}f(x)$。
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+    \begin{tikzpicture}
+        \draw[-latex](-0.5,0) -- (3,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0,3) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=-0.5:1] plot (\x,{pow(e,\x-1)});
+        \draw[black, thick, domain=1:1.5] plot (\x,{pow(e,\x-1)+1});
+        \filldraw[white, draw=black, line width=1pt] (1,1) circle (2pt);
+        \draw[black, densely dashed](1,2) -- (0,2) node[left]{$B$};
+        \draw[black, densely dashed](1,1) -- (0,1) node[left]{$A$};
+        \draw[black, densely dashed](1,2) -- (1,0) node[below]{$x_0$};
+        \filldraw[black] (1,2) circle (2pt) node[above]{$f(x_0)=B$};
+        \filldraw[black] (1,1) node[right]{$\lim\limits_{x\to x_0}=A$};
+    \end{tikzpicture}
+\end{minipage} \medskip
 
 可去间断点与跳跃间断点的左右极限都存在的间断点都称为第一类间断点。
 
 \subsubsection{无穷间断点}
 
-\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)=\infty$，或至少一个方向为无穷大（定义分歧）。如$y=\dfrac{1}{x}$在$x=0$处为无穷间断点。
-
-\begin{tikzpicture}
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=0.5:2] plot (\x,{pow(\x,-1)});
-    \draw[black, thick, domain=-2:-0.5] plot (\x,{pow(\x,-1)});
-\end{tikzpicture}
+\begin{minipage}{0.6\linewidth}
+    \textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)=\infty$，或至少一个方向为无穷大（定义分歧）。如$y=\dfrac{1}{x}$在$x=0$处为无穷间断点。
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+    \begin{tikzpicture}
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-2) -- (0,2) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=0.5:2] plot (\x,{pow(\x,-1)});
+        \draw[black, thick, domain=-2:-0.5] plot (\x,{pow(\x,-1)});
+    \end{tikzpicture}
+\end{minipage}
 
 \subsubsection{振荡间断点}
 
-\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)$为振荡不存在。如$\lim\limits_{x\to 0}\sin\dfrac{1}{x}$的$x=0$就是振荡间断点。
-
-\begin{tikzpicture}
-    \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
-    \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, thick, domain=0.01:2] plot (\x,{sin(pow(\x,-1) r)});
-    \draw[black, thick, domain=-2:-0.01] plot (\x,{sin(pow(\x,-1) r)});
-\end{tikzpicture}
+\begin{minipage}{0.6\linewidth}
+    \textcolor{violet}{\textbf{定义：}}若$\lim\limits_{x\to x_0}f(x)$为振荡不存在。如$\lim\limits_{x\to 0}\sin\dfrac{1}{x}$的$x=0$就是振荡间断点。
+\end{minipage}
+\hfill
+\begin{minipage}{0.3\linewidth}
+    \begin{tikzpicture}
+        \draw[-latex](-2,0) -- (2,0) node[below]{$x$};
+        \draw[-latex](0,-1.5) -- (0,1.5) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick, domain=0.01:2] plot (\x,{sin(pow(\x,-1) r)});
+        \draw[black, thick, domain=-2:-0.01] plot (\x,{sin(pow(\x,-1) r)});
+    \end{tikzpicture}
+\end{minipage}
 
 无穷间断点与振荡间断点的左右极限都不存在的点都是第二类间断点。
 

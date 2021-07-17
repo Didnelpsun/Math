@@ -487,36 +487,40 @@ $\therefore \sqrt{2}$。
 
 有一个边长为$x$的正方形，变化了$\Delta x$，其面积$\Delta S=(x+\Delta x)^2-x^2=2x\Delta x+(\Delta x)^2$。
 
-当$\Delta x\to 0$时，将这个变化定义为$2x\cdot\Delta x+o(\Delta x)$，前项为线性主部，后面为误差。这个就是$S$的微分。
+\begin{minipage}{0.45\linewidth}
+    当$\Delta x\to 0$时，将这个变化定义为$2x\cdot\Delta x+o(\Delta x)$，前项为线性主部，后面为误差。这个就是$S$的微分。
 
-增量$\Delta y=f(x_0+\Delta)-f(x_0)=A\Delta x+o(\Delta x)$，这个$A\Delta x$定义为$\textrm{d}y$，叫做$y$的微分。
+    增量$\Delta y=f(x_0+\Delta)-f(x_0)=A\Delta x+o(\Delta x)$，这个$A\Delta x$定义为$\textrm{d}y$，叫做$y$的微分。
 
-$\therefore \textrm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\textrm{d}x$
+    $\therefore \textrm{d}y\vert_{x=x_0}=A\Delta x=y'(x_0)\cdot\Delta x=y'(x_0)\cdot\textrm{d}x$。
 
-由此，可导必可微，可微必可导。
-
-\begin{tikzpicture}[scale=0.9]
-    \draw[-latex](-0.5,0) -- (4.5,0) node[below]{$x$};
-    \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
-    \draw[black, thick, domain=-0.5:3] plot (\x,{pow(\x-1,2)/2+1}) node[above]{$y(x)$};
-    \filldraw[black] (0,0) node[below]{$O$};
-    \draw[black, densely dashed](1.5,1.125) -- (1.5,0) node[below]{$x_0$};
-    \draw[black, densely dashed](1.5,1.125) -- (0,1.125) node[left]{$y_0$};
-    \draw[black, densely dashed](3,3) -- (3,0) node[below]{$x_0+\Delta x$};
-    \draw[black, densely dashed](3,3) -- (0,3) node[left]{$y_0+\Delta x$};
-    \draw[black, densely dashed](3,1.875) -- (0,0.375) node[left]{$\textrm{d}y\cdot x+b$};
-    \draw[<->, black](1.5,1.125) -- (3,1.125);
-    \draw[<->, black](4,1.125) -- (4,3);
-    \draw[<->, black](3.25,1.125) -- (3.25,1.875);
-    \draw[<->, black](3.25,3) -- (3.25,1.875);
-    \draw[black](3,3) -- (4.5,3);
-    \draw[black](3,1.125) -- (4.5,1.125);
-    \draw[black](3,1.875) -- (3.75,1.875);
-    \filldraw[black] (2.25,0.75) node{$\Delta x$};
-    \filldraw[black] (4.3,2) node{$\Delta y$};
-    \filldraw[black] (3.5,1.5) node{\scriptsize{$\textrm{d}y$}};
-    \filldraw[black] (3.5,2.5) node{\scriptsize{$o(\Delta x)$}};
-\end{tikzpicture}
+    由此，可导必可微，可微必可导。
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{tikzpicture}[scale=0.9]
+        \draw[-latex](-0.5,0) -- (4.5,0) node[below]{$x$};
+        \draw[-latex](0,-0.5) -- (0,4) node[above]{$y$};
+        \draw[black, thick, domain=-0.5:3] plot (\x,{pow(\x-1,2)/2+1}) node[above]{$y(x)$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, densely dashed](1.5,1.125) -- (1.5,0) node[below]{$x_0$};
+        \draw[black, densely dashed](1.5,1.125) -- (0,1.125) node[left]{$y_0$};
+        \draw[black, densely dashed](3,3) -- (3,0) node[below]{$x_0+\Delta x$};
+        \draw[black, densely dashed](3,3) -- (0,3) node[left]{$y_0+\Delta x$};
+        \draw[black, densely dashed](3,1.875) -- (0,0.375) node[left]{$\textrm{d}y\cdot x+b$};
+        \draw[<->, black](1.5,1.125) -- (3,1.125);
+        \draw[<->, black](4,1.125) -- (4,3);
+        \draw[<->, black](3.25,1.125) -- (3.25,1.875);
+        \draw[<->, black](3.25,3) -- (3.25,1.875);
+        \draw[black](3,3) -- (4.5,3);
+        \draw[black](3,1.125) -- (4.5,1.125);
+        \draw[black](3,1.875) -- (3.75,1.875);
+        \filldraw[black] (2.25,0.75) node{$\Delta x$};
+        \filldraw[black] (4.3,2) node{$\Delta y$};
+        \filldraw[black] (3.5,1.5) node{\scriptsize{$\textrm{d}y$}};
+        \filldraw[black] (3.5,2.5) node{\scriptsize{$o(\Delta x)$}};
+    \end{tikzpicture}
+\end{minipage} \medskip
 
 所以可微就是用简单线性取代复杂线性，如图用直线取替代曲线。微分就是瞬时改变量，而导数就是瞬时改变速率。
 

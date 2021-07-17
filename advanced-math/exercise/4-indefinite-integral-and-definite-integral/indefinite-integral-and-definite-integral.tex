@@ -599,9 +599,23 @@ $=\displaystyle{\int_0^1\dfrac{1+x}{1+x^2}\textrm{d}x}=\displaystyle{\int_0^1\df
 
 $=\left[\arctan x+\dfrac{1}{2}\ln(1+x^2)\right]_0^1=\dfrac{\pi}{4}+\dfrac{1}{2}\ln2$。
 
-\subsection{变限积分}
+\subsection{变限积分与极限}
 
-\subsection{牛莱公式}
+变限积分也常与极限共同出现。
+
+\textbf{例题：}若$f(x)$连续，$f(0)=0$，$f'(0)=\pi$，求$\lim\limits_{x\to0}\dfrac{\int_0^xf(t)\,\textrm{d}t}{x^2}$。
+
+解：$=\lim\limits_{x\to0}\dfrac{f(x)}{2x}=\dfrac{1}{2}\lim\limits_{x\to0}\dfrac{f(x)-f(0)}{x-0}=\dfrac{1}{2}f'(0)=\dfrac{\pi}{2}$。
+
+\textbf{例题：}若$f(x)$连续，$F(x)=\int_0^x(x-t)f(t)\,\textrm{d}t$，求$F''(x)$。
+
+解：因为$x$与$t$混合在一起很麻烦，$x$为上限是常数，$t$为积分变量。
+
+$F(x)=\int_0^xxf(t)\,\textrm{d}t-\int_0^xtf(t)\,\textrm{d}t=x\int_0^xf(t)\,\textrm{d}t-\int_0^xtf(t)\,\textrm{d}t$
+
+$\therefore F'(x)=\int_0^xf(t)\,\textrm{d}t+xf(x)-xf(x)=\int_0^xf(t)\,\textrm{d}t$。
+
+$\therefore F''(x)=f(x)$。
 
 \subsection{换元积分}
 
