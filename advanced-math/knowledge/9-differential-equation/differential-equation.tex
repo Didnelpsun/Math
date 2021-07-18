@@ -3,6 +3,7 @@
 \usepackage{color}
 % 使用颜色
 \definecolor{orange}{RGB}{255,127,0} 
+\definecolor{violet}{RGB}{192,0,255} 
 \definecolor{aqua}{RGB}{0,255,255}
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
@@ -49,19 +50,23 @@
 
 \section{微分方程基本概念}
 
-表示未知函数、未知函数的导数与自变量之间的关系的方程，即含导数的方程就是微分方程。导数可能是一阶导数也可能是二阶以及以上阶数的导数。
+\subsection{微分方程构成}
 
-微分方程所出现的未知函数的最高阶导数的阶数就是该微分方程的\textbf{阶}。
+\textcolor{violet}{\textbf{定义：}}表示未知函数、未知函数的导数与自变量之间的关系的方程，即含导数的方程就是微分方程。导数可能是一阶导数也可能是二阶以及以上阶数的导数。
+
+\textcolor{violet}{\textbf{定义：}}微分方程所出现的未知函数的最高阶导数的阶数就是该微分方程的\textbf{阶}。
 
 $n$阶微分方程的形式是$F(x,y,y',\cdots,y^{(n)})=0$。其中最高阶导数是必须出现的。若能从中解出最高阶导数，则可得微分方程$y^{(n)}=f(x,y,y',\cdots,y^{(n-1)})$。
 
-若微分方程中的解中含有任意常数，且任意常数的个数与微分方程的阶数相同，则就是微分方程的\textbf{通解}。
+\subsection{微分方程的解}
+
+\textcolor{violet}{\textbf{定义：}}若微分方程中的解中含有任意常数，且任意常数的个数与微分方程的阶数相同，则就是微分方程的\textbf{通解}。
 
 如若$y''=3$，则$y'=3x+C_1$，$y=\dfrac{3}{2}x^2+C_1x+C_2$，此时含有两个任意常数$C_1C_2$，则微分方程的阶数也为2。
 
-确定通解中任意常数后，就得到微分方程的\textbf{特解}。
+\textcolor{violet}{\textbf{定义：}}确定通解中任意常数后，就得到微分方程的\textbf{特解}。
 
-当给出$x=x_0$时$y_0$与$y_0'$的值，那么这些条件就是\textbf{初值条件}，如上面的$y''=3$。
+\textcolor{violet}{\textbf{定义：}}当给出$x=x_0$时$y_0$与$y_0'$的值，那么这些条件就是\textbf{初值条件}，如上面的$y''=3$。
 
 求微分方程$y'=f(x,y)$满足初值条件$y\vert_{x=x_0}=y_0$的特解这样的问题，就是一阶微分方程的初值问题，记为$\left\{\begin{array}{l}
     y'=f(x,y) \\
