@@ -2,6 +2,9 @@
 % UTF8编码，ctexart现实中文
 \usepackage{color}
 % 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\definecolor{violet}{RGB}{192,0,255} 
+\definecolor{aqua}{RGB}{0,255,255} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -22,6 +25,8 @@
 % 数学公式
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
+\usepackage{pifont}
+% 圆圈序号
 \author{Didnelpsun}
 \title{无穷级数}
 \date{}
@@ -34,8 +39,159 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{}
+\section{常数项级数}
 
+\subsection{概念}
 
+级数的经典悖论为芝诺悖论。
+
+\subsubsection{基本概念}
+
+\textcolor{violet}{\textbf{定义：}}给定义一个无穷数列$u_1,u_2,\cdots,u_n,\cdots$，将其各项用加号连起来的得到的记号$\sum\limits_{n=1}^\infty u_n$，即$\sum\limits_{n=1}^\infty u_n=u_1+u_2+\cdots+u_n+\cdots$叫做\textbf{无穷级数}，简称\textbf{级数}，其中$u_n$称为该级数的\textbf{通项}。
+
+若$u_n$是常数而不是函数，则$\sum\limits_{n=1}^\infty u_n$就被称为\textbf{常数项无穷级数}，简称\textbf{常数项级数}。
+
+$S_n=u_1+u_2+\cdots+u_n$称为级数的\textbf{部分和}，$\{S_n\}$是级数的\textbf{部分和数量}。
+
+\textcolor{violet}{\textbf{定义：}}若$\lim\limits_{n\to\infty}S_n=S$，则$\sum\limits_{n=1}^\infty u_n$\textbf{收敛}，并称$S$为该收敛级数$\sum\limits_{n=1}^\infty u_n$的\textbf{和}；若$\lim\limits_{n\to\infty}S_n$不存在或为$\pm\infty$，则$\sum\limits_{n=1}^\infty u_n$\textbf{发散}。
+
+研究$\sum\limits_{n=1}^\infty u_n$收敛还是发散，就是研究级数$\sum\limits_{n=1}^\infty u_n$的敛散性。
+
+在级数$\sum\limits_{n=1}^\infty u_n$去掉前$m$项，得$\sum\limits_{n=m+1}^\infty u_n=u_{m+1}+u_{m+2}+\cdots$，称为级数$\sum\limits_{n=1}^\infty u_n$的\textbf{$m$项后余项}
+
+\subsubsection{性质}
+
+\begin{enumerate}
+    \item 线性性质：若级数$\sum\limits_{n=1}^\infty u_n$，$\sum\limits_{n=1}^\infty v_n$均收敛，且其和分别为$S$，$T$，则任给常数$a,b$，有$\sum\limits_{n=1}^\infty(au_n+bv_n)$也收敛，且其和为$aS+bT$，即$\sum\limits_{n=1}^\infty(au_n+bv_n)=a\sum\limits_{n=1}^\infty u_n+b\sum\limits_{n=1}^\infty v_n$。
+    \item 若级数$\sum\limits_{n=1}^\infty u_n$收敛，则其任意$m$项后余项$\sum\limits_{n=m+1}^\infty u_n$也收敛；若存在$m$项后余项$\sum\limits_{n=m+1}^\infty u_n$收敛，则$\sum\limits_{n=1}^\infty u_n$也收敛。
+    \item 级数收敛必要条件：若级数$\sum\limits_{n=1}^\infty u_n$首先，则$\lim\limits_{n\to\infty}u_n=0$。
+\end{enumerate}
+
+证明性质三：$u_n=S_n-S_{n-1}$，所以$\lim\limits_{n\to\infty}=\lim\limits_{n\to\infty}(S_n-S_{n-1})=\lim\limits_{n\to\infty}S_n-\lim\limits_{n\to\infty}S_{n-1}=S-S=0$。极限为0不一定收敛。
+
+\subsection{级数敛散性判别}
+
+\subsubsection{正项级数}
+
+\paragraph{概念} \leavevmode \medskip
+
+\textcolor{violet}{\textbf{定义：}}若通项$u_n\geqslant0$，$n=1,2,\cdots$，则$\sum\limits_{n=1}^\infty u_n$为\textbf{正项级数}。
+
+\paragraph{收敛原则} \leavevmode \medskip
+
+\textcolor{aqua}{\textbf{定理：}}正项级数$\sum\limits_{n=1}^\infty u_n$收敛的充要条件是其部分和数列$\{S_n\}$有界。（某一函数在固定区间内变化率是有界的，则变化范围是有界的）
+
+证明：必要性：由于$u_n\geqslant0$，$\therefore S_n=u_1+u_2+\cdots+u_n\geqslant0$，且$S_1\leqslant S_2\leqslant\cdots\leqslant S_n\leqslant\cdots$，$\{S_n\}$单调不减且下界为0。当$\sum\limits_{n=1}^\infty u_n$收敛时，$\lim\limits_{n\to\infty}S_n$存在，则$\{S_n\}$必有上界。有上界下界则$\{S_n\}$有界。（某一函数在固定区间内变化率是有界的，则变化范围是有界的）
+
+充分性：由于$\{S_n\}$单调不减，所以根据单调有界准则，$\{S_n\}$收敛，即$\lim\limits_{n\to\infty}S_n$存在，于是$\sum\limits_{n=1}^\infty u_n$收敛。
+
+基本就是使用放缩法判断是否有界。
+
+\textbf{例题：}判断级数$\sum\limits_{n=1}^\infty\dfrac{1}{\sqrt{n}}$的敛散性。
+
+解：$S_n=1+\dfrac{1}{\sqrt{2}}+\dfrac{1}{\sqrt{3}}+\cdots+\dfrac{1}{\sqrt{n}}>n\dfrac{1}{\sqrt{n}}=\sqrt{n}$，当$n\to\infty$时$\sqrt{n}\to\infty$，无上界所以发散。
+
+\paragraph{比较判别法} \leavevmode \medskip
+
+\textcolor{aqua}{\textbf{定理：}}给出两个正项级数$\sum\limits_{n=1}^\infty u_n$，$\sum\limits_{n=1}^\infty v_n$，若从某项开始有$u_n\leqslant v_n$成立，则：\ding{172}若$\sum\limits_{n=1}^\infty v_n$收敛，则$\sum\limits_{n=1}^\infty u_n$也收敛；\ding{173}若$\sum\limits_{n=1}^\infty u_n$发散，则$\sum\limits_{n=1}^\infty v_n$也发散。
+
+即大的收敛小的也收敛，小的发散大的也发散。
+
+\textbf{例题：}判断调和级数$\sum\limits_{n=1}^\infty\dfrac{1}{n}$的敛散性。
+
+解：$\because x>0$，$x>\ln(1+x)$，$\therefore\dfrac{1}{n}>\ln\left(1+\dfrac{1}{n}\right)$。
+
+又对于$\ln\left(1+\dfrac{1}{n}\right)=\ln\dfrac{n+1}{n}=\ln(n+1)-\ln n$。
+
+$S_n=\ln\dfrac{2}{1}+\ln\dfrac{3}{2}+\cdots+\ln\dfrac{n+1}{n}=\ln2-\ln1+\ln3-\ln2+\cdots+\ln(n+1)-\ln n=\ln(n+1)$。当$\ln(n+1)$在$n\to\infty$时，$S_n\to\infty$。
+
+所以$\sum\limits_{n=1}^\infty\ln\left(1+\dfrac{1}{n}\right)$发散，则$\sum\limits_{n=1}^\infty\dfrac{1}{n}$也发散。
+
+\textcolor{aqua}{\textbf{定理：}}$p$级数：$\sum\limits_{n=1}^\infty\dfrac{1}{n^p}\left\{\begin{array}{l}
+    p>1, \text{收敛} \\
+    p\leqslant1, \text{发散}
+\end{array}\right.$。
+
+\paragraph{比较判别法极限性质} \leavevmode \medskip
+
+是比较判别法的推论，利用极限的阶数来比较。
+
+给出两个正项级数$\sum\limits_{n=1}^\infty u_n$，$\sum\limits_{n=1}^\infty v_n$，$v_n\neq0$，且$\lim\limits_{n\to\infty}\dfrac{u_n}{v_n}=A$：
+
+\begin{enumerate}
+    \item 若$A=0$，则当$\sum\limits_{n=1}^\infty v_n$收敛时，$\sum\limits_{n=1}^\infty u_n$也收敛。
+    \item 当$A=+\infty$，当$\sum\limits_{n=1}^\infty v_n$发散时，$\sum\limits_{n=1}^\infty u_n$也发散。
+    \item 若$0<A<+\infty$，则$\sum\limits_{n=1}^\infty v_n$与$\sum\limits_{n=1}^\infty u_n$具有相同敛散性。
+\end{enumerate}
+
+\textbf{例题：}判断$\sum\limits_{n=1}^\infty\left(\dfrac{1}{n}-\sin\dfrac{1}{n}\right)$敛散性。
+
+解：令$\dfrac{1}{n}=x$，$n\to\infty$所以$x\to0^+$。当$x\to0^+$，$x-\sin x\sim\dfrac{1}{6}x^3$。
+
+$\therefore\lim\limits_{n\to\infty}\dfrac{\dfrac{1}{n}-\sin\dfrac{1}{n}}{\dfrac{1}{n^3}}=\dfrac{1}{6}\neq0$，所以$\dfrac{1}{n}-\sin\dfrac{1}{n}$与$\dfrac{1}{n^3}$具有相同敛散性。
+
+根据$p$级数定理，$p=3>1$，所以$\sum\limits_{n=1}^\infty\left(\dfrac{1}{n}-\sin\dfrac{1}{n}\right)$收敛。
+
+\paragraph{比值判别法} \leavevmode \medskip
+
+也称为达朗贝尔判别法。
+
+\textcolor{aqua}{\textbf{定理：}}给出一正项级数$\sum\limits_{n=1}^\infty u_n$，若$\lim\limits_{n\to\infty}\dfrac{u_{n+1}}{u_n}=\rho$，则：\ding{172}若$\rho<1$，则$\sum\limits_{n=1}^\infty u_n$收敛；\ding{173}若$\rho>1$，则$\sum\limits_{n=1}^\infty u_n$发散。
+
+\textcolor{orange}{注意：}$\rho=1$时无法根据此判断$\sum\limits_{n=1}^\infty u_n$敛散性，如$\sum\limits_{n=1}^\infty\dfrac{1}{n}$发散，但$\sum\limits_{n=1}^\infty\dfrac{1}{n^2}$收敛。
+
+适用于含有$a^n$，$n!$，$n^n$的通项。
+
+\textbf{例题：}判断级数$\sum\limits_{n=1}^\infty\dfrac{\vert a\vert^nn!}{n^n}$的敛散性，其中$a$为非零常数。
+
+解：
+
+\paragraph{根值判别法} \leavevmode \medskip
+
+也称为柯西判别法。
+
+\textcolor{aqua}{\textbf{定理：}}$\sum\limits_{n=1}^\infty u_n$
+
+\subsubsection{交错级数}
+
+\paragraph{概念} \leavevmode \medskip
+
+\paragraph{莱布尼兹判别法} \leavevmode \medskip
+
+\subsubsection{任意项级数}
+
+\paragraph{绝对收敛} \leavevmode \medskip
+
+\paragraph{条件收敛} \leavevmode \medskip
+
+\section{幂级数}
+
+\subsection{概念与收敛域}
+
+\subsubsection{概念}
+
+\subsubsection{阿贝尔定理}
+
+\subsubsection{收敛域}
+
+\subsection{幂级数求和函数}
+
+\subsubsection{概念}
+
+\subsubsection{运算法则}
+
+\subsubsection{性质}
+
+\subsubsection{重要展开式}
+
+\subsection{函数展开为幂级数}
+
+\subsubsection{概念}
+
+\subsubsection{求法}
+
+\paragraph{直接法} \leavevmode \medskip
+
+\paragraph{间接法} \leavevmode \medskip
 
 \end{document}
