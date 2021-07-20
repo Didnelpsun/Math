@@ -1,0 +1,381 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{函数}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{函数连续性}
+
+\subsection{连续}
+
+连续则极限值等于函数值。
+
+\subsubsection{求连续区间}
+
+若要考察一个函数的连续区间，必须要了解函数的所有部分，一般会给出分段函数，所以要了解分段函数的每段函数的性质。
+
+对于函数$f(x)$是个极限表达形式，我们要简化这个极限，最好得到一个$x$的表达式，从而才能判断其连续区间。\medskip
+
+\textbf{例题：}$f(x)=\lim\limits_{n\to\infty}\dfrac{x+x^2e^{nx}}{1+e^{nx}}$，求函数连续区间。\medskip
+
+解：注意到函数的形式为一个极限值，其极限趋向的变量为$n$（$n\to\infty$指$n\to+\infty$）。所以在该极限式子中将$x$当作类似$t$的常数。
+
+需要先求出极限形式的$f(x)$，而$x$变量的取值会影响到极限，且求的就是$x$的取值范围。所以将其分为三段：
+
+当$x<0$时，$nx\to-\infty$，$\therefore e^{nx}\to 0$，$x^2$在这个极限式子为一个常数，$\therefore x^2e^{nx}\to 0$，$f(x)=\lim\limits_{n\to\infty}\dfrac{x+x^2e^{nx}}{1+e^{nx}}=\dfrac{x+0}{1+0}=x$。\medskip
+
+当$x=0$时，$f(x)=\lim\limits_{n\to\infty}\dfrac{x+x^2e^{nx}}{1+e^{nx}}=\dfrac{0}{2}=0$。\medskip
+
+当$x>0$时，$e^{nx}$在$n\to\infty$时为$\infty$，上下都有这个无穷大的因子，所以上下都除以$e^{nx}$，$f(x)=\lim\limits_{n\to\infty}\dfrac{x+x^2e^{nx}}{1+e^{nx}}=f(x)=\lim\limits_{n\to\infty}\dfrac{xe^{-nx}+x^2}{1+e^{-nx}}=\dfrac{0+x^2}{1}=x^2$。\medskip
+
+从而得到了$f(x)$关于$x$的表达式：\medskip
+
+$f(x)=\left\{\begin{array}{lcl}
+        x,   &  & x<0 \\
+        0,   &  & x=0 \\
+        x^2, &  & x>0
+    \end{array}
+    \right.$\medskip
+
+又$\lim\limits_{x\to 0^-}f(x)=\lim\limits_{x\to 0^-}x=\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^-}x^2=f(0)=0$。
+
+$f(x)$在$R$上连续。
+
+\subsubsection{已知连续区间求参数}
+
+一般会给出带有参数的分段函数，要计算参数就必须了解连续区间与函数之间的关系。
+
+\textbf{例题：}$f(x)=\left\{\begin{array}{lcl}
+        6,                               &  & x\leqslant 0 \\
+    \dfrac{e^{ax^3}-1}{x-\arcsin x}, &  & x>0
+    \end{array}
+    \right.$，$g(x)=\left\{\begin{array}{lcl}
+        \dfrac{3\sin(x-1)}{x-1}, &  & x<1          \\
+        e^{bx}+1,                &  & x\geqslant 1
+    \end{array}
+    \right.$，\smallskip \\ 若$f(x)+g(x)$在$R$上连续，则求$a,b$。
+
+解：已知$f(x)+g(x)$在$R$上连续，但是不能判断$f(x)$与$g(x)$的连续性。
+
+所以分开讨论。
+
+对于$f(x)$因为左侧为常数函数，所以若是$f(x)$连续，则必然：\medskip
+
+$\lim\limits_{x\to 0^+}\dfrac{e^{ax^3}-1}{x-\arcsin x}=6$\medskip
+
+$\therefore\lim\limits_{x\to 0^+}\dfrac{e^{ax^3}-1}{x-\arcsin x}=\lim\limits_{x\to 0^+}\dfrac{ax^3}{x-\arcsin x}$\medskip
+
+$\text{令}t=\arcsin x\Rightarrow=\lim\limits_{x\to 0^+}\dfrac{a\sin^3t}{\sin t-t}=a\lim\limits_{x\to 0^+}\dfrac{t^3}{\sin t-t}=a\lim\limits_{x\to 0^+}\dfrac{3t^2}{\cos t-1}$
+
+$=-6a=6$。
+
+$\therefore a=-1$时$f(x)$在$R$上连续。\medskip
+
+对于$g(x)$，当$x<1$时，$\lim\limits_{x\to 1^-}\dfrac{3\sin(x-1)}{x-1}=\lim\limits_{t\to 0^-}\dfrac{3\sin t}{t}=3$。\medskip
+
+$\therefore\lim\limits_{x\to 1^+}e^{bx}+1=e^b+1=3$。\medskip
+
+$\therefore b=\ln 2$时$g(x)$在$R$上连续。\medskip
+
+$\therefore a=-1,b=\ln 2$时$f(x)+g(x)$在$R$上连续。而$a\neq -1$时$f(x)+g(x)$在$x=0$时不连续，$b\neq\ln 2$时$f(x)+g(x)$在$x=1$时不连续。
+
+\subsection{间断}
+
+\subsubsection{求间断点}
+
+求间断点需要首先分析函数的表达形式。
+
+\textbf{例题：}设$f(x)=\lim\limits_{n\to\infty}\dfrac{1+x}{1+x^{2n}}$，求其间断点并分析其类型。
+
+解：根据函数形式，我们需要首先回顾一下幂函数的性质，幂函数的变化趋势取决于底数。
+
+当$x=1$时，$x^n\equiv 1$，当$x\in(-\infty,-1)\cup(1,+\infty)$时，当$n\to\infty$时，$x^n\to\infty$，而$x\in(-1,1)$时，当$n\to\infty$时，$x^n\to 0$。
+
+$\therefore\lim\limits_{n\to\infty}\dfrac{1+x}{1+x^{2n}}=\left\{\begin{array}{lcl}
+        0,   &  & x\in(-\infty,-1]\cup(1,+\infty) \\
+        1,   &  & x=1                                        \\
+        x+1, &  & x\in(-1,1)
+    \end{array}
+    \right.$
+
+所以分段点为$x=\pm 1$。
+
+当$x=-1$时，$f(-1^+)=f(-1^-)=f(-1)=0$，所以在此处连续。
+
+当$x=1$时，$f(1^+)=0\neq f(1^-)=2$，所以在此处简短，为跳跃间断点。
+
+\subsubsection{已知间断点求参数}
+
+这种题目已知间断点，而未知式子中的参数，只用将间断点代入式子并利用极限计算间断点的类型就可以了。
+
+\textbf{例题：}$f(x)=\dfrac{e^x-b}{(x-a)(x-b)}$有无穷间断点$x=e$，可去间断点$x=1$，求$ab$的值。
+
+解：已知有两个间断点$x=a,x=b$，其中无穷间断点指极限值为无穷的点，可去间断点表示极限值存在且两侧相等，但是与函数值不相等的点。
+
+已经给出两个间断点的值为$x=1$和$x=e$，所以$ab$必然对应其中一个，但是不清楚到底谁是谁。
+
+当$a=1,b=e$时，$f(x)=\dfrac{e^x-e}{(x-1)(x-e)}$。\medskip
+
+当$x\to 1$时，$\lim\limits_{x\to 1}\dfrac{e^x-e}{(x-1)(x-e)}$$=\dfrac{1}{1-e}\lim\limits_{x\to 1}\dfrac{e^x-e}{x-1}$$=\dfrac{e}{1-e}\lim\limits_{x\to 1}\dfrac{e^{x-1}-1}{x-1}$$=\dfrac{e}{1-e}\lim\limits_{x\to 1}\dfrac{x-1}{x-1}$$=\dfrac{e}{1-e}$。\medskip
+
+$\therefore x=1$为可去间断点。\medskip
+
+    当$x\to e$时，$\lim\limits_{x\to e}\dfrac{e^x-e}{(x-1)(x-e)}$$=\dfrac{1}{e-1}\lim\limits_{x\to e}\dfrac{e^x-e}{x-e}$$=\dfrac{e}{e-1}\lim\limits_{x\to e}\dfrac{e^{x-1}-1}{x-e}$\medskip$=\dfrac{e}{e-1}\lim\limits_{x\to e}\dfrac{x-1}{x-e}$$=\dfrac{e(e-1)}{e-1}\lim\limits_{x\to e}\dfrac{1}{x-e}=\infty$。\medskip
+
+$\therefore x=e$为无穷间断点。\medskip
+
+    当$a=e,b=1$时，$f(x)=\dfrac{e^x-1}{(x-e)(x-1)}$。\medskip
+
+    而作为分子的$e^x-1$必然为一个常数，当式子趋向$1$或$e$的时候分母两个不等式中的一个不等式必然为一个常数，从而另一个不等式则变为了无穷小，所以$\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to e}f(x)=\infty$。
+
+$\therefore a=1,b=e$。
+
+\section{中值定理}
+
+中值定理一般用于判断不等式。
+
+\subsection{罗尔定理}
+
+罗尔定理在判断不等式时一般用于零点的状况。
+
+\subsubsection{直接式子}
+
+需要证明所给式子的导数是否在该区间为0即可。
+
+\textbf{例题：}证明多项式$f(x)=x^3-3x+a$在$[0,1]$上不可能有两个零点。
+
+证明：假设$f(x)=x^3-3x+a$在$[0,1]$有两个零点$x_1$和$x_2$，其中$x_1<x_2$。
+
+因为$f(x)=x^3-3x+a$在$[0,1]$内连续，所以$f(x)=x^3-3x+a$在$[0,1]$内可导。
+
+由罗尔定理得知$\exists\xi\in(x_1,x_2)\subset(0,1)$，使得$f'(\xi)=0$，但是$f'(x)=3x^2-3$在$(0,1)$上不超过0，所以$\xi$不存在，从而多项式$f(x)=x^3-3x+a$在$[0,1]$上不可能有两个零点。
+
+\subsubsection{含参数式子}
+
+若所求式子是一个含参数，那么其一定还有另一个式子约束参数，此时我们就需要构建一个新的式子来利用所给的条件，然后将新式子转换为旧式子。
+
+\textbf{例题：}设$a_0+\dfrac{a_1}{2}+\cdots+\dfrac{a_n}{n+1}=0$，证明多项式$f(x)=a_0+a_1x+\cdots+a_nx^n$在$(0,1)$中至少有一个零点。
+
+证明：因为所要证明零点，所以一定使用罗尔定理。所给出的约束参数式子$a_0+\dfrac{a_1}{2}+\cdots+\dfrac{a_n}{n+1}=0$与所求$f(x)$之间存在一个关系。
+
+设$F(x)=a_0x+a_1\dfrac{x^2}{2}+\cdots+a_n\dfrac{x^{n+1}}{n+1}$，$F'(x)=a_0+a_1x+\cdots+a_nx^n=f(x)$。
+
+又$F(0)=0$,$F(1)=a_0+\dfrac{a_1}{2}+\cdots+\dfrac{a_n}{n+1}=0$，又罗尔定理一定存在一个$\xi\in(0,1)$，使得$F'(\xi)=f(\xi)=0$。
+
+从而$f(x)=a_0+a_1x+\cdots+a_nx^n$在$(0,1)$中至少有一个零点。
+
+\subsection{拉格朗日中值定理}
+
+证明不等式最重要的还是找到$f(x)$，有时候不等式不存在$f(a)-f(b)$这种式子，就需要我们转换。
+
+\subsubsection{对数函数特性}
+
+对于对数函数，要记住其特定的性质：$\log_n(\dfrac{a}{b})=\log_na-\log_nb$。
+
+\textbf{例题：}设$a>b>0$，证明：$\dfrac{a-b}{a}<\ln\dfrac{a}{b}<\dfrac{a-b}{b}$。
+
+证明：因为$\ln\dfrac{a}{b}=\ln a-\ln b$，所以令$f(x)=\ln x$。
+
+所以根据拉格朗日中值定理：$\ln a-\ln b=f'(\xi)(a-b)$（$\xi\in(b,a)$）。
+
+又$f'(\xi)=\dfrac{1}{\xi}$，所以$\ln a-\ln b=\dfrac{a-b}{\xi}$。
+
+又$\xi\in(b,a)$，所以$\dfrac{1}{\xi}\in(\dfrac{1}{a},\dfrac{1}{b})$。
+
+所以$\dfrac{a-b}{a}<\dfrac{a-b}{\xi}<\dfrac{a-b}{b}$，从而$\dfrac{a-b}{a}<\ln\dfrac{a}{b}<\dfrac{a-b}{b}$，得证。
+
+\subsubsection{查找特定值}
+
+对于证明一种不等式，如果里面没有差式，也无法转换为差式，那么就可以考虑制造差式，对于$f(x)$一般选择更高阶的，$a$选择$x$，$b$要根据题目和不等式设置一个常数。
+
+一般是0或1。可以先尝试1。
+
+\textbf{例题：}当$x>1$时，证明$e^x>ex$。
+
+证明：题目中没有差式，所以需要选择一个函数作为基准函数，里面有一个指数函数和一个幂函数，所以选择$e^x$作为基准函数。
+
+然后选择一个常数作为$b$值，可以先选一个1作为$b$值：$f(x)-f(1)=f'(\xi)(x-1)$。
+
+从而$e^x-e=e^\xi(x-1)$，$\xi\in(1,x)$，所以$e^x-e>e(x-1)$，即$e^x>ex$，得证。
+
+\subsection{柯西中值定理}
+
+需要找到两个函数，使得$\dfrac{f(b)-f(a)}{F(b)-F(a)}=\dfrac{f'(\xi)}{F'(\xi)}$。
+
+\textbf{例题：}设$0<a<b$，函数$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明存在一点$\xi\in(a,b)$使得$f(b)-f(a)=\xi f'(\xi)\ln\dfrac{b}{a}$。
+
+证明：由对数函数的特性可以知道$\dfrac{b}{a}=\ln b-\ln a$，所以可以令$F(x)=\ln x$，所以$F'(x)=\dfrac{1}{x}$。
+
+$f(b)-f(a)=\xi f'(\xi)\ln\dfrac{b}{a}=\dfrac{f(b)-f(a)}{\ln b-\ln a}=\dfrac{f'(\xi)}{\dfrac{1}{\xi}}\dfrac{f(b)-f(a)}{F(b)-F(a)}=\dfrac{f'(\xi)}{F'(\xi)}$。
+
+根据柯西中值定理得证。
+
+\section{导数应用}
+
+\subsection{单调性}
+
+\textbf{例题：}求$y=x+\vert\sin 2x\vert$的单调区间。
+
+解：因为函数的定义域为$R$。
+
+又$y=\left\{\begin{array}{lcl}
+    x+\sin 2x, & & n\pi\leqslant x\leqslant n\pi+\dfrac{\pi}{2} \\
+    x-\sin 2x, & &n\pi+\dfrac{\pi}{2}\leqslant x\leqslant (n+1)\pi
+\end{array}\right.$（$n=0,\pm 1,\pm2,\cdots$）。
+
+$\therefore y'=\left\{\begin{array}{lcl}
+    1+2\cos 2x, & & n\pi\leqslant x\leqslant n\pi+\dfrac{\pi}{2} \\
+    1-2\cos 2x, & &n\pi+\dfrac{\pi}{2}\leqslant x\leqslant (n+1)\pi
+\end{array}\right.$（$n=0,\pm 1,\pm2,\cdots$）。
+
+令$y'=0$，所以得到驻点为$x=n\pi+\dfrac{\pi}{3}$和$x=n\pi+\dfrac{5\pi}{6}$。
+
+分割区间：$\left[n\pi,n\pi+\dfrac{\pi}{3}\right]$，$\left[n\pi+\dfrac{\pi}{3},n\pi+\dfrac{\pi}{2}\right]$，$\left[n\pi+\dfrac{\pi}{2},x=n\pi+\dfrac{5\pi}{6}\right]$，
+
+$\left[x=n\pi+\dfrac{5\pi}{6},(n+1)\pi\right]$（$n=0,\pm 1,\pm2,\cdots$）。
+
+当$x\in\left[n\pi,n\pi+\dfrac{\pi}{3}\right]$，$y'>0$，所以函数在区间上单调递增。
+
+当$x\in\left[n\pi+\dfrac{\pi}{3},n\pi+\dfrac{\pi}{2}\right]$，$y'<0$，所以函数在区间上单调递减。
+
+当$x\in\left[n\pi+\dfrac{\pi}{2},x=n\pi+\dfrac{5\pi}{6}\right]$，$y'>0$，所以函数在区间上单调递增。
+
+当$x\in\left[x=n\pi+\dfrac{5\pi}{6},(n+1)\pi\right]$，$y'<0$，所以函数在区间上单调递减。
+
+从而函数在$\left[\dfrac{k\pi}{2},\dfrac{k\pi}{2}+\dfrac{\pi}{3}\right]$时单调增加，在$\left[\dfrac{k\pi}{2}+\dfrac{\pi}{3},\dfrac{k\pi}{2}+\dfrac{\pi}{2}\right]$上单调减少（$k=0,\pm 1,\pm2,\cdots$）。
+
+\subsection{凹凸性}
+
+二阶导数为0处就是拐点。
+
+\textbf{例题：}决定曲线$y=ax^3+bx^2+cx+d$中参数，使得$x=-2$处曲线有水平切线，$(1,-10)$为拐点，且点$(-2,44)$在曲线上。
+
+解：$y'=3ax^2+2bx+c$，$y''=6ax+2b$。
+
+因为$x=-2$处曲线有水平切线，即$y'\vert_{x=-2}=12a-4b+c=0$。
+
+$(1,-10)$为拐点，代入：$y''\vert_{x=1}=6a+2b=0$，$y\vert_{x=1}=a+b+c+d=-10$。
+
+又点$(-2,44)$在曲线上，所以$y\vert_{x=-2}=-8a+4b-2c+d=44$。
+
+解得四个方程：$a=1$，$b=-3$，$c=-24$，$d=16$。
+
+\subsection{极值与最值}
+
+求极值需要考虑$y'$与点两边正负号，如果$y''$存在则可以考虑，$y''<0$则取极大值，$y''>0$则取极小值。
+
+对于最值需要考虑极值和闭区间端点两个部分。
+
+\subsection{函数图像}
+
+\subsection{零点问题}
+
+\subsubsection{零点定理}
+
+若$f(x)$在$[a,b]$上连续，且$f(a)f(b)<0$，则$f(x)=0$在$(a,b)$内至少有一个根。其中$ab$是具体数也可以是无穷大。
+
+用于证明存在某一个零点。
+
+\subsubsection{单调性}
+
+若$f(x)$在$(a,b)$内单调（$f'(x)$存在且不恒等于0），则$f(x)=0$在$(a,b)$内至多有一个根。
+
+用于证明只有一个零点。
+
+\subsubsection{罗尔原话}
+
+若$f^{(n)}(x)=0$至多有$k$个根，则$f(x)=0$至多有$k+n$个根。是罗尔定理的推论。
+
+即若$f(x)=0$至少有两个根，则$f'(x)$至少有一个根。
+
+\textbf{例题：}证明方程$2^x-x^2=1$有且仅有3个实根。
+
+解：令$f(x)=2^x-x^2-1$，则$f'(x)=\ln22^x-2x$，$f''(x)=(\ln2)^22^x-2$，$f'''(x)=(\ln2)^32^x\neq 0$。
+
+所以$f'''(x)=0$至多0个根。所以根据罗尔原话$f(x)=0$至多三个根。
+
+又观察法$f(0)=0$，$f(1)=0$得到两个实根。
+
+$f(4)=-1$，$f(5)=6$，所以$(4,5)$内存在一个实根，从而一共与三个根。
+
+\subsubsection{实系数奇次方程}
+
+实系数奇次方程至少与一个实根。即$x^{2n+1}+a_1x^{2n}+\cdots+a_{2n}x+a_{2n+1}=0$至少与一个实根。
+
+\textbf{例题：}若$3a^2-5b<0$，则方程$x^5+2ax^3+3bx+4c=0$()。
+
+$A.\text{无实根}$\qquad$B.\text{有唯一实根}$\qquad$C.\text{有三个不同实根}$\qquad$D.\text{与五个不同实根}$
+
+解：令$f(x)=x^5+2ax^3+3bx+4c$，该实系数奇次方程至少有一个根。
+
+$f'(x)=5x^4+6ax^2+3b$，令$t=x^2$，$5t^2+6at+3b=0$。
+
+$\Delta=36a^2-4\cdot5\cdot3b=36a^2-60b=12(3a^2-5b)<0$。
+
+$\therefore f'(x)$无实根，所以$t=x^2$解不出来，所以$f'(x)\neq0$。
+
+$f'(x)=0$至多0个根。所以根据罗尔原话$f(x)=0$至多一个根，又由上面至少一个根，所以只有一个根，选择$B$。
+
+\subsubsection{函数含参导数不含参}
+
+参数是一个加在式子上的常数，函数求导后参数就被消掉了，所以可以在计算过程中不考虑参数，等到了最后的结果再讨论参数。
+
+\textbf{例题：}设常数$k>0$，函数$f(x)=\ln x-\dfrac{x}{e}+k$在$(0,+\infty)$内的零点个数为()。
+
+$A.3$\qquad$B.2$\qquad$C.1$\qquad$D.0$
+
+解：$f'(x)=\dfrac{1}{x}-\dfrac{1}{e}$，令其为0，则$x=e$。
+
+$x\in(0,e)$，$f'(x)>0$，$f(x)\nearrow$，$x\in(e,+\infty)$，$f'(x)<0$，$f(x)\searrow$。
+
+又$f(e)=k>0$，$\lim\limits_{x\to0^+}f(x)=\lim\limits_{x\to0^+}(\ln x-\dfrac{x}{e}+k)=-\infty$，所以左边有一个根，$\lim\limits_{x\to+\infty}f(x)=\lim\limits_{x\to+\infty}(\ln x-\dfrac{x}{e}+k)=-\infty$，所以一共有两个根。
+
+\subsubsection{函数导数含参}
+
+参数与自变量进行运算，从而求导后参数仍在式子中，计算时需要携带参数来思考。
+
+\textbf{例题：}求方程$k\arctan x-x=0$的不同实根的个数，其中$k$为参数。
+
+解：令$f(x)=k\arctan x-x$$，\because f(-x)=-f(x)$，所以$f(x)$是一个奇函数，所以可以只要考虑一边的情况。$x=0$是函数的一个根。
+
+$f'(x)=\dfrac{k}{1+x^2}-1=\dfrac{k-1-x^2}{1+x^2}$。
+
+若$k-1\leqslant0$即$k<1$则$f'(x)\leqslant0$，所以$f(x)$单调减少，从而只有一个根。
+
+若$k-1>0$即$k>1$，令$f'(x)=0$，即$k-1-x^2=0$，$x=\sqrt{k-1}$。
+
+$x\in(0,\sqrt{k-1})$，$f'(x)>0$，$f(x)\nearrow$。$x\in(\sqrt{k-1},+\infty)$，$f'(x)<0$，$f(x)\searrow$。
+
+$\lim\limits_{x\to+\infty}(k\arctan x-x)=-\infty$，所以在0的右侧一定存在一个零点，同理左边也因为奇函数对称存在一个零点，所以一共有三个根。
+
+\end{document}

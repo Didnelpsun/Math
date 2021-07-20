@@ -334,4 +334,16 @@ $f(x)-f(x)=0$，所以得证。
     \end{array}\right.$。
 \end{enumerate}
 
+\section{欧拉方程}
+
+\subsection{概念}
+
+\textcolor{violet}{\textbf{定义：}}形如$x^2\dfrac{\textrm{d}^2y}{\textrm{d}x^2}+px\dfrac{\textrm{d}y}{\textrm{d}x}+qy=f(x)$的方程称为\textbf{欧拉方程}，其中$pq$为常数，$f(x)$为已知函数。
+
+\subsection{解法}
+
+当$x>0$时，令$x=e^t$，则$t=\ln x$，$\dfrac{\textrm{d}t}{\textrm{d}x}=\dfrac{1}{x}$，$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\textrm{d}y}{\textrm{d}t}\dfrac{\textrm{d}t}{\textrm{d}x}=\dfrac{1}{x}\dfrac{\textrm{d}y}{\textrm{d}t}$，$\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}}{\textrm{d}x}\left(\dfrac{1}{x}\dfrac{\textrm{d}y}{\textrm{d}t}\right)=-\dfrac{1}{x^2}\dfrac{\textrm{d}y}{\textrm{d}t}+\dfrac{1}{x}\dfrac{\textrm{d}}{\textrm{d}x}\left(\dfrac{\textrm{d}y}{\textrm{d}t}\right)=-\dfrac{1}{x^2}\dfrac{\textrm{d}y}{\textrm{d}t}+\dfrac{1}{x^2}\dfrac{\textrm{d}^2y}{\textrm{d}t^2}$，方程化为$\dfrac{\textrm{d}^2y}{\textrm{d}t^2}+(p-1)\dfrac{\textrm{d}y}{\textrm{d}t}+qy=f(e^t)$，解出结果，组后用$t=\ln x$回代。
+
+当$x<0$是，令$x=-e^t$，同理可得。
+
 \end{document}

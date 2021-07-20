@@ -28,7 +28,7 @@
 \usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
 % 超链接
 \author{Didnelpsun}
-\title{函数与极限}
+\title{极限}
 \date{}
 \begin{document}
 \maketitle
@@ -39,99 +39,15 @@
 \pagestyle{plain}
 \setcounter{page}{1}
 
-\section{函数}
-
-\subsection{中值定理}
-
-中值定理一般用于判断不等式。
-
-\subsubsection{罗尔定理}
-
-罗尔定理在判断不等式时一般用于零点的状况。
-
-\paragraph{直接式子} \leavevmode \medskip
-
-需要证明所给式子的导数是否在该区间为0即可。
-
-\textbf{例题：}证明多项式$f(x)=x^3-3x+a$在$[0,1]$上不可能有两个零点。
-
-证明：假设$f(x)=x^3-3x+a$在$[0,1]$有两个零点$x_1$和$x_2$，其中$x_1<x_2$。
-
-因为$f(x)=x^3-3x+a$在$[0,1]$内连续，所以$f(x)=x^3-3x+a$在$[0,1]$内可导。
-
-由罗尔定理得知$\exists\xi\in(x_1,x_2)\subset(0,1)$，使得$f'(\xi)=0$，但是$f'(x)=3x^2-3$在$(0,1)$上不超过0，所以$\xi$不存在，从而多项式$f(x)=x^3-3x+a$在$[0,1]$上不可能有两个零点。
-
-\paragraph{含参数式子} \leavevmode \medskip
-
-若所求式子是一个含参数，那么其一定还有另一个式子约束参数，此时我们就需要构建一个新的式子来利用所给的条件，然后将新式子转换为旧式子。
-
-\textbf{例题：}设$a_0+\dfrac{a_1}{2}+\cdots+\dfrac{a_n}{n+1}=0$，证明多项式$f(x)=a_0+a_1x+\cdots+a_nx^n$在$(0,1)$中至少有一个零点。
-
-证明：因为所要证明零点，所以一定使用罗尔定理。所给出的约束参数式子$a_0+\dfrac{a_1}{2}+\cdots+\dfrac{a_n}{n+1}=0$与所求$f(x)$之间存在一个关系。
-
-设$F(x)=a_0x+a_1\dfrac{x^2}{2}+\cdots+a_n\dfrac{x^{n+1}}{n+1}$，$F'(x)=a_0+a_1x+\cdots+a_nx^n=f(x)$。
-
-又$F(0)=0$,$F(1)=a_0+\dfrac{a_1}{2}+\cdots+\dfrac{a_n}{n+1}=0$，又罗尔定理一定存在一个$\xi\in(0,1)$，使得$F'(\xi)=f(\xi)=0$。
-
-从而$f(x)=a_0+a_1x+\cdots+a_nx^n$在$(0,1)$中至少有一个零点。
-
-\subsubsection{拉格朗日中值定理}
-
-证明不等式最重要的还是找到$f(x)$，有时候不等式不存在$f(a)-f(b)$这种式子，就需要我们转换。
-
-\paragraph{对数函数特性} \leavevmode \medskip
-
-对于对数函数，要记住其特定的性质：$\log_n(\dfrac{a}{b})=\log_na-\log_nb$。
-
-\textbf{例题：}设$a>b>0$，证明：$\dfrac{a-b}{a}<\ln\dfrac{a}{b}<\dfrac{a-b}{b}$。
-
-证明：因为$\ln\dfrac{a}{b}=\ln a-\ln b$，所以令$f(x)=\ln x$。
-
-所以根据拉格朗日中值定理：$\ln a-\ln b=f'(\xi)(a-b)$（$\xi\in(b,a)$）。
-
-又$f'(\xi)=\dfrac{1}{\xi}$，所以$\ln a-\ln b=\dfrac{a-b}{\xi}$。
-
-又$\xi\in(b,a)$，所以$\dfrac{1}{\xi}\in(\dfrac{1}{a},\dfrac{1}{b})$。
-
-所以$\dfrac{a-b}{a}<\dfrac{a-b}{\xi}<\dfrac{a-b}{b}$，从而$\dfrac{a-b}{a}<\ln\dfrac{a}{b}<\dfrac{a-b}{b}$，得证。
-
-\paragraph{查找特定值} \leavevmode \medskip
-
-对于证明一种不等式，如果里面没有差式，也无法转换为差式，那么就可以考虑制造差式，对于$f(x)$一般选择更高阶的，$a$选择$x$，$b$要根据题目和不等式设置一个常数。
-
-一般是0或1。可以先尝试1。
-
-\textbf{例题：}当$x>1$时，证明$e^x>ex$。
-
-证明：题目中没有差式，所以需要选择一个函数作为基准函数，里面有一个指数函数和一个幂函数，所以选择$e^x$作为基准函数。
-
-然后选择一个常数作为$b$值，可以先选一个1作为$b$值：$f(x)-f(1)=f'(\xi)(x-1)$。
-
-从而$e^x-e=e^\xi(x-1)$，$\xi\in(1,x)$，所以$e^x-e>e(x-1)$，即$e^x>ex$，得证。
-
-\subsubsection{柯西中值定理}
-
-需要找到两个函数，使得$\dfrac{f(b)-f(a)}{F(b)-F(a)}=\dfrac{f'(\xi)}{F'(\xi)}$。
-
-\textbf{例题：}设$0<a<b$，函数$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，证明存在一点$\xi\in(a,b)$使得$f(b)-f(a)=\xi f'(\xi)\ln\dfrac{b}{a}$。
-
-证明：由对数函数的特性可以知道$\dfrac{b}{a}=\ln b-\ln a$，所以可以令$F(x)=\ln x$，所以$F'(x)=\dfrac{1}{x}$。
-
-$f(b)-f(a)=\xi f'(\xi)\ln\dfrac{b}{a}=\dfrac{f(b)-f(a)}{\ln b-\ln a}=\dfrac{f'(\xi)}{\dfrac{1}{\xi}}\dfrac{f(b)-f(a)}{F(b)-F(a)}=\dfrac{f'(\xi)}{F'(\xi)}$。
-
-根据柯西中值定理得证。
-
-\section{极限}
-
-\subsection{基本计算方式}
+\section{基本计算方式}
 
 课本上极限计算可以使用的主要计算方式：
 
-\subsubsection{基础四则运算}
+\subsection{基础四则运算}
 
 只有式子的极限各自存在才能使用四则运算，使用的频率较少。
 
-\subsubsection{重要极限}
+\subsection{重要极限}
 
 重要极限有两个，但是$\lim\limits_{x\to 0}\dfrac{\sin x}{x}=1$这个很少用，因为往往用等价无穷小替代了，而$\lim\limits_{x\to\infty}\left(1+\dfrac{1}{x}\right)^x=e$则用的较多，当出现分数幂的幂指函数时，不要先去取对数，而是使用重要极限看看能不能转换。\medskip
 
@@ -147,11 +63,11 @@ $=\lim\limits_{x\to\infty}\left(\dfrac{1+\dfrac{3}{2x}}{1+\dfrac{1}{2x}}\right)^
 
 $=\lim\limits_{x\to\infty}\dfrac{\left[\left(1+\dfrac{3}{2x}\right)^{\frac{2x}{3}}\right]^{\frac{3}{2}}}{\left[\left(1+\dfrac{1}{2x}\right)^{2x}\right]^{\frac{1}{2}}}=\dfrac{e^{\frac{3}{2}}}{e^{\frac{1}{2}}}=e$。
 
-\subsubsection{导数定义}
+\subsection{导数定义}
 
 极限转换以及连续性的时候会用到，但是使用的频率也较小。
 
-\subsubsection{等价无穷小替换}
+\subsection{等价无穷小替换}
 
 当看到复杂的式子，且不论要求的极限值的趋向，而只要替换的式子是$\Delta\to 0$时的无穷小，就使用等价无穷小进行替换。
 
@@ -159,7 +75,7 @@ $=\lim\limits_{x\to\infty}\dfrac{\left[\left(1+\dfrac{3}{2x}\right)^{\frac{2x}{3
 
 对于无法直接得出变换式子的，可以对对应参数进行凑，以达到目标的可替换的等价无穷小。
 
-\subsubsection{夹逼准则}
+\subsection{夹逼准则}
 
 夹逼准则可以用来证明不等式也可以用来计算极限。但是最重要的是找到能夹住目标式子的两个式子。\medskip
 
@@ -173,7 +89,7 @@ $=\lim\limits_{x\to\infty}\dfrac{\left[\left(1+\dfrac{3}{2x}\right)^{\frac{2x}{3
 
 $\therefore \lim\limits_{x\to 0}x\left[\dfrac{10}{x}\right]=10$。
 
-\subsubsection{拉格朗日中值定理}
+\subsection{拉格朗日中值定理}
 
 对于形如$f(a)-f(b)$的极限式子就可以使用拉格朗日中值定理，这个$f(x)$为任意的函数。使用拉格朗日中值定理最重要的还是找到这个$f(x)$。
 
@@ -191,7 +107,7 @@ $\therefore\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\sim\dfrac{2}{n}-\dfrac{2}{n
 
 $\therefore\lim\limits_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}{n+1}\right)=\lim\limits_{n\to\infty}n^2\cdot\dfrac{2}{n(n+1)}=2$。
 
-\subsubsection{洛必达法则}
+\subsection{洛必达法则}
 
 洛必达法则的本质是降低商形式的极限式子的幂次。
 
@@ -207,7 +123,7 @@ $\therefore\lim\limits_{n\to\infty}n^2\left(\arctan\dfrac{2}{n}-\arctan\dfrac{2}
 
 解：$=\lim\limits_{x\to 1}\dfrac{1}{(x-1)^2}=\infty$。
 
-\subsubsection{泰勒公式}
+\subsection{泰勒公式}
 
 泰勒公式一般会使用趋向0的麦克劳林公式，且一般只作为极限计算的一个小部分，用来替代一个部分。
 
@@ -224,9 +140,9 @@ $\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac
 $\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
 
 
-\subsection{常用化简技巧}
+\section{常用化简技巧}
 
-\subsubsection{对数法则}
+\subsection{对数法则}
 
 如$\log_n(a\cdot b)=\log_n a+\log_n b$，$\log_n\dfrac{a}{b}=\log_na-\log_nb$。
 
@@ -238,7 +154,7 @@ $\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)
 
 解：这时可以尝试变形，如对数函数相加等于对数函数内部式子相乘：$\ln(1-x)+\ln(1+x)=\ln(1-x^2)\sim-x^2$。
 
-\subsubsection{指数法则}
+\subsection{指数法则}
 
 当出现$f(x)^{g(x)}$的类似幂函数与指数函数类型的式子，需要使用$u^v=e^{v\ln u}$。
 
@@ -272,7 +188,7 @@ $=\lim\limits_{n\to\infty}n\left[e^{\frac{1}{2}}\cdot\left(e^{\frac{n}{2}\ln(1+\
 
 $=\dfrac{e^{\frac{1}{2}}}{2}\lim\limits_{n\to\infty}\dfrac{\dfrac{1}{n}-\dfrac{1}{2n^2}-\dfrac{1}{n}}{\dfrac{1}{n^2}}=\dfrac{e^{\frac{1}{2}}}{2}\cdot\left(-\dfrac{1}{2}\right)=-\dfrac{\sqrt{e}}{4}$
 
-\subsubsection{三角函数关系式}
+\subsection{三角函数关系式}
 
 \textbf{例题：}求极限$\lim\limits_{x\to 0}\left(\dfrac{1}{\sin^2x}-\dfrac{\cos^2x}{x^2}\right)$。\medskip
 
@@ -284,11 +200,11 @@ $=\lim\limits_{x\to 0}\dfrac{2x-\dfrac{1}{4}\cdot 2\sin 2x\cdot\cos 2x\cdot 2}{4
 
 $=\lim\limits_{x\to 0}\dfrac{2-\dfrac{1}{2}\cos 4x\cdot 4}{12x^2}=\dfrac{1}{6}\lim\limits_{x\to 0}\dfrac{1-\cos 4x}{x^2} (1-\cos x\sim \dfrac{1}{2}x^2)=\dfrac{4}{3}$
 
-\subsubsection{提取常数因子}
+\subsection{提取常数因子}
 
 提取常数因子就是提取出能转换为常数的整个极限式子的因子。这个因子必然在自变量的趋向时会变为非0的常数，那么这个式子就可以作为常数提出。
 
-\subsubsection{提取公因子}
+\subsection{提取公因子}
 
 当作为商的极限式子上下都具有公因子时可以提取公因子然后相除，从而让未知数集中在分子或分母上。
 
@@ -318,7 +234,7 @@ $=\lim\limits_{t\to 0^-}\dfrac{\sqrt{t+4}\ln\left(2+\dfrac{1}{x}\right)-2\ln 2}{
 
 $=\lim\limits_{t\to 0^-}\left(\dfrac{1}{2}\cdot\dfrac{\ln(2+t)}{\sqrt{t+4}}+\dfrac{\sqrt{t+4}}{2+t}\right)=-\left(\dfrac{1}{2}\cdot\dfrac{\ln 2}{2}+\dfrac{2}{2}\right)=-\dfrac{\ln 2}{4}-1$。
 
-\subsubsection{有理化}
+\subsection{有理化}
 
 当遇到带有根号的式子可以使用等价无穷小，但是只针对形似$(1+x)a-1\sim ax$的式子，而针对$x^a\pm x^b$的式子则无法替换，必须使用有理化来将单个式子变为商的形式。
 
@@ -350,7 +266,7 @@ $=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{2}\cdot\lim\limits_{x\to 0}\dfrac{2}
 
 $=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{x\sin^2x}=\lim\limits_{x\to 0}\dfrac{1-\cos x}{x\cos x\sin x}=\lim\limits_{x\to 0}\dfrac{\dfrac{1}{2}x^2}{x^2}=\dfrac{1}{2}$。
 
-\subsubsection{换元法}
+\subsection{换元法}
 
 换元法本身没什么技巧性，主要是更方便计算。最重要的是获取到共有的最大因子进行替换。
 
@@ -364,9 +280,9 @@ $\lim\limits_{x\to 1^-}\ln x\ln(1-x)=\lim\limits_{x\to 1^-}(x-1)\ln(1-x)\xRighta
 
 $=-\lim\limits_{t\to 0^+}\dfrac{\ln t}{\dfrac{1}{t}}=-\lim\limits_{t\to 0^+}\dfrac{\dfrac{1}{t}}{-\dfrac{1}{t^2}}=\lim\limits_{t\to 0^+}t=0$
 
-\subsubsection{倒代换}
+\subsection{倒代换}
 
-\paragraph{含有分式} \leavevmode \medskip
+\subsubsection{含有分式}
 
 当极限式子中含有分式中一般都需要用其倒数，把分式换成整式方便计算。
 
@@ -394,15 +310,15 @@ $\lim\limits_{x\to+\infty}[x^2(e^{\frac{1}{x}}-1)-x]\xRightarrow{\text{令}x=\fr
 
 $\xRightarrow{\text{泰勒展开}e^t}\lim\limits_{t\to 0^+}\dfrac{\dfrac{1}{2}t^2}{t^2}=\dfrac{1}{2}$
 
-\paragraph{\texorpdfstring{$\infty-\infty$}\ 型} \leavevmode \medskip
+\subsubsection{\texorpdfstring{$\infty-\infty$}\ 型}
 
-\paragraph{\texorpdfstring{$\infty\cdot\infty$}\ 型} \leavevmode \medskip
+\subsubsection{\texorpdfstring{$\infty\cdot\infty$}\ 型}
 
-\subsubsection{拆项}
+\subsection{拆项}
 
 拆项需要根据式子形式进行，所以很难找到普遍规律。
 
-\paragraph{积拆项} \leavevmode \medskip
+\subsubsection{积拆项}
 
 \textbf{例题：}求$\lim\limits_{n\to\infty}\dfrac{(n+1)(n+2)(n+3)\cdots(n+6)}{6n^6}$。
 
@@ -412,7 +328,7 @@ $=\dfrac{1}{6}\lim\limits_{n\to\infty}\dfrac{n+1}{n}\times\dfrac{n+2}{n}\times\c
 
 当极限式子中出现不知道项数的$n$时，一般需要使用拆项，把项重新组合。一般的组合是根据等价无穷小。
 
-\paragraph{和拆项} \leavevmode \medskip
+\subsubsection{和拆项}
 
 而对于复杂的具有同一结构的和的式子也可以考虑拆项。
 
@@ -442,7 +358,7 @@ $=-1+\lim\limits_{x\to 0}\dfrac{-\dfrac{1}{2}(\cos 2x-1)+\sqrt{\cos 2x}(1-\sqrt[
 
 $=-1+\lim\limits_{x\to 0}\dfrac{-\dfrac{1}{2}(-\dfrac{4x^2}{2})+\left(-\dfrac{1}{3}\right)\left(-\dfrac{9x^2}{2}\right)}{-\dfrac{x^2}{2}}=-6$
 
-\subsection{极限计算形式}
+\section{极限计算形式}
 
 极限相关计算形式主要分为下面六种：
 
@@ -457,7 +373,7 @@ $=-1+\lim\limits_{x\to 0}\dfrac{-\dfrac{1}{2}(-\dfrac{4x^2}{2})+\left(-\dfrac{1}
     \item 变限积分：根据变限积分计算极限值。
 \end{enumerate}
 
-\subsubsection{极限不定式类型}
+\subsection{极限不定式类型}
 
 七种：$\dfrac{0}{0},\dfrac{\infty}{\infty},0\cdot\infty,\infty-\infty,\infty^0,0^0,1^\infty$。
 
@@ -490,9 +406,9 @@ $\therefore \lim u^v=e^{\lim v\cdot\ln u}=e^{\lim v(u-1)}$
 
 综上，无论什么样的四则形式，都必须最后转换为商的形式。
 
-\subsubsection{极限转换}
+\subsection{极限转换}
 
-\paragraph{整体换元} \leavevmode \medskip
+\subsubsection{整体换元}
 
 最常用的方式就是将目标值作为一个部分，然后对已知的式子进行替换。
 
@@ -506,7 +422,7 @@ $=\lim\limits_{x\to 0}\dfrac{-x-\dfrac{x^2}{2}+tx^2+x}{x^2}=\lim\limits_{x\to 0}
 
 $\therefore\lim\limits_{x\to 0}t=\lim\limits_{x\to 0}\dfrac{f(x)-1}{x}=\dfrac{1}{2}$。
 
-\paragraph{关系转换} \leavevmode \medskip
+\subsubsection{关系转换}
 
 \textbf{例题：}如果$\lim\limits_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim\limits_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
 
@@ -524,7 +440,7 @@ $\lim\limits_{x\to 0}\dfrac{f(x)}{x^3}=-\dfrac{1}{6}$
 
 $\lim\limits_{x\to 0}\dfrac{x^3}{f(x)}=-6$
 
-\paragraph{脱帽法} \leavevmode \medskip
+\subsubsection{脱帽法}
 
 $\lim\limits_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim\limits_{x\to x_0}\alpha(x)=0$。
 
@@ -538,7 +454,7 @@ $\lim\limits_{x\to x_0}f(x)\Leftrightarrow f(x)=A+\alpha(x),\lim\limits_{x\to x_
 
 $\therefore \lim\limits_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
 
-\subsubsection{求参数}
+\subsection{求参数}
 
 因为求参数类型的题目中式子是未知的，所以求导后也是未知的，所以一般不要使用洛必达法则，而使用泰勒展开。
 
@@ -546,7 +462,7 @@ $\therefore \lim\limits_{x\to 0}\dfrac{x^3}{f(x)}=-6$。
 
 在求参数的时候要注意与0的关系。
 
-\paragraph{常数} \leavevmode \medskip
+\subsubsection{常数}
 
 \textbf{例题：}设$\lim\limits_{x\to 0}\dfrac{\ln(1+x)-(ax+bx^2)}{x^2}=2$，求常数a，b。
 
@@ -560,7 +476,7 @@ $1-a=0;-\left(\dfrac{1}{2}+b\right)=2$\medskip
 
 $\therefore a=1;b=-\dfrac{5}{2}$。
 
-\paragraph{无穷小} \leavevmode \medskip
+\subsubsection{无穷小}
 
 若是求某个式子与另一个式子的某阶无穷小，则同右边等于常数一样，也需要使用泰勒展开。
 
@@ -580,7 +496,7 @@ $=(1-a-b)x+\left(\dfrac{a}{6}+\dfrac{2b}{3}\right)x^3-\left(\dfrac{a}{120}+\dfra
 
 解得$a=\dfrac{4}{3}$，$b=-\dfrac{1}{3}$。
 
-\subsubsection{极限存在性}
+\subsection{极限存在性}
 
 一般会给出带有参数的例子，并给定一个点指明在该点极限存在，求参数。
 
@@ -610,7 +526,7 @@ $=\lim\limits_{x\to 0^+}b\cos x-1=b-1=\dfrac{1}{3}$\medskip
 
 $\therefore a=-1,b=\dfrac{4}{3}$。
 
-\subsubsection{极限唯一性}
+\subsection{极限唯一性}
 
 若极限存在则必然唯一。
 
@@ -632,11 +548,11 @@ $\lim\limits_{x\to 0^-}\left(\dfrac{e^{\frac{1}{x}}-\pi}{e^{\frac{2}{x}}+1}+a\cd
 
 因为极限值具有唯一性，所以$-\pi-\dfrac{\pi}{2}a=\dfrac{\pi}{2}a$，所以$a=-1$，极限值为$-\dfrac{\pi}{2}$。
 
-\subsubsection{函数连续性}
+\subsection{函数连续性}
 
 函数的连续性代表：极限值=函数值。所以函数的连续性需要靠极限完成。
 
-\paragraph{极限判连续性} \leavevmode \medskip
+\subsubsection{极限判连续性}
 
 题目给出函数，往往是分段函数，然后判断分段点的连续性。\medskip
 
@@ -657,7 +573,7 @@ $\therefore\lim\limits_{x\to 0^+}f(x)=e^{-\frac{1}{2}}$。
 
 从而$\lim\limits_{x\to 0^+}f(x)=\lim\limits_{x\to 0^-}f(x)=f(0)$，所以$f(x)$在$x=0$处连续。
 
-\paragraph{连续性求极限} \leavevmode \medskip
+\subsubsection{连续性求极限}
 
 \textbf{例题：}函数在$f(x)$在$x=1$处连续，且$f(1)=1$，求$\lim\limits_{x\to+\infty}\ln\left[2+f\left(x^{\frac{1}{x}}\right)\right]$。
 
@@ -669,9 +585,9 @@ $\lim\limits_{x\to+\infty}x^{\frac{1}{x}}=e^{\lim\limits_{x\to+\infty}\frac{\ln 
 
 $\therefore\lim\limits_{x\to+\infty}f(x^{\frac{1}{x}})=f(1)=1$。
 
-\subsubsection{迭代式数列}
+\subsection{迭代式数列}
 
-\paragraph{数列表达式} \leavevmode \medskip
+\subsubsection{数列表达式}
 
 最重要的是将迭代式进行变形。
 
@@ -695,7 +611,7 @@ $=\dfrac{1\cdot\left(1-\left(-\dfrac{1}{2}\right)^n\right)}{1-\left(-\dfrac{1}{2
 
 $\therefore\lim\limits_{n\to\infty}a_n=\dfrac{2}{3}$
 
-\paragraph{单调有界准则} \leavevmode \medskip
+\subsubsection{单调有界准则}
 
 对于无法将关系式通过变形归纳为一般式的关系式，对于其极限就必须使用单调有界准则来求出。
 
@@ -748,9 +664,5 @@ $x_{n+1}-x_n=\sqrt{2+x_n}-x_n=\dfrac{2+x_n-x_n^2}{\sqrt{2+x_n}+x_n}=\dfrac{-(x_n
 将递推式两边平方并取极限：$\lim\limits_{n\to\infty}x^2_{n+1}=\lim\limits_{n\to\infty}(2+x_n)$。
 
 从而$a^2=2+a$，得出$a=2$（根据极限的保号性$-1$被舍去）。
-
-\subsubsection{变限积分极限}
-
-已知更改区间限制的积分$s(x)=\int_{\varphi_1(x)}^{\varphi_2(x)}g(t)\,\textrm{d}x$，$s'(x)=g[\varphi_2(x)]\cdot\varphi_2'(x)-g[\varphi_1(x)]\cdot\varphi_1'(x)$。
 
 \end{document}
