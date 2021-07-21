@@ -427,4 +427,40 @@ $x$的取值指其幂指数的收敛域。第七个幂函数问题较复杂，�
 
 \section{傅里叶级数}
 
+\subsection{* 三角级数}
+
+\textcolor{violet}{\textbf{定义：}}将正弦函数$A_n\sin(n\omega t+\varphi_n)$按三角公式变形得到$A_n\sin\varphi_n\cos n\omega t+A_n\cos\varphi_n\sin n\omega t$，令$\dfrac{a_0}{2}=A_0$，$a_n=A\sin\varphi_n$，$b_n=A_n\cos\varphi_n$，$\omega=\dfrac{\pi}{l}$，则$\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty\left(a_n\cos\dfrac{n\pi t}{l}+b_n\sin\dfrac{n\pi t}{l}\right)$。这个级数就是\textbf{三角级数}。
+
+\subsection{函数展开为傅里叶级数}
+
+\textcolor{violet}{\textbf{定义：}}设$f(x)$在$[-l,l]$上连续或只有有限个第一类间断点，且至多只有有限个真正的极值点，则$f(x)$的傅里叶级数处处收敛，记起和函数为$S(x)$，有$S(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty\left(a_n\cos\dfrac{n\pi}{l}x+b_n\sin\dfrac{n\pi}{l}x\right)$。
+
+$\displaystyle{a_n=\dfrac{1}{l}\int_{-l}^lf(x)\cos\dfrac{n\pi}{l}x\,\textrm{d}x}$，$\displaystyle{b_n=\dfrac{1}{l}\int_{-l}^lf(x)\sin\dfrac{n\pi}{l}x\,\textrm{d}x}$，$n=1,2,\cdots$。
+
+其中三角函数也可以展开为幂级数，所以最后都能通过幂级数展开。
+
+\textbf{例题：}将$f(x)=1-x^2$（$-\pi\leqslant x\leqslant\pi$）展开为傅里叶级数。
+
+解：$S(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty\left(a_n\cos\dfrac{n\pi}{l}x+b_n\sin\dfrac{n\pi}{l}x\right)$。
+
+其中$a_0=\dfrac{1}{\pi}\int\limits_{-\pi}^\pi(1-x^2)\,\textrm{d}x=\dfrac{2}{\pi}\int\limits_0^\pi(1-x^2)\,\textrm{d}x=2-\dfrac{2}{3}\pi^2$。
+
+$a_n=\dfrac{1}{\pi}\int\limits_{-\pi}^\pi(1-x^2)\cos nx\,\textrm{d}x=\dfrac{2}{\pi}(\int\limits_0^\pi\cos nx\,\textrm{d}x-\int\limits_0^\pi x^2\cos nx\,\textrm{d}x)=\dfrac{4}{n^2}(-1)^{n+1}$。
+
+$b_n=\dfrac{1}{\pi}\int\limits_{-\pi}^\pi(1-x^2)\sin nx\,\textrm{d}x=0$（奇函数乘偶函数为奇函数，且上下限对称）
+
+$f(x)\sim S(x)=1-\dfrac{\pi^2}{3}+\sum\limits_{n=1}^\infty\dfrac{4}{n^2}(-1)^{n+1}\cos nx$。
+
+\textcolor{violet}{\textbf{定义：}}当$f(x)$是偶函数，则$\sin$被消去，$f(x)\sim S(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty a_n\cos\dfrac{n\pi}{l}x$，称为\textbf{余弦级数}。
+
+\textcolor{violet}{\textbf{定义：}}当$f(x)$是奇函数，则$\cos$被消去，$f(x)\sim S(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty b_n\sin\dfrac{n\pi}{l}x$，称为\textbf{正弦级数}。
+
+若$f(x)$因为定义区间不对称导致无奇偶性，则补充定义域，使其称为奇偶函数。
+
+迪利克雷定理\textcolor{violet}{\textbf{定义：}}$f(x)\sim S(x)=\left\{\begin{array}{ll}
+    f(x), & x\text{为连续点} \\
+    \dfrac{f(x-0)+f(x+0)}{2}, & x\text{为间断点} \\
+    \dfrac{f(-l+0)+f(l-0)}{2}, & x=\pm l
+\end{array}\right.$
+
 \end{document}

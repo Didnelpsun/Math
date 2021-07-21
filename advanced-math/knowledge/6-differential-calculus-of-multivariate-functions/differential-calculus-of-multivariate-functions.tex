@@ -355,4 +355,86 @@ $P2:A_2=-2,B_2=-2,C_2=-2,\Delta_2=B_2^2-A_2C_2=0$。该方法失效。
 
 % \subsubsection{闭区域上最值}
 
+\section{多元函数微分应用}
+
+\subsection{空间曲线的切线与法平面}
+
+\subsubsection{参数方程}
+
+设空间曲线$\varGamma$由参数方程$\left\{\begin{array}{l}
+    x=\phi(t) \\
+    y=\psi(t) \\
+    z=\omega(t)
+\end{array}\right.$给出，其中$\phi(t),\psi(t),\omega(t)$均可导，$P_0(x_0,y_0,z_0)$为$\varOmega$上的点，且当$t=t_0$时，$\phi'(t_0)$，$\psi'(t_0)$，$\omega'(t_0)$均不为0，则：
+
+\begin{itemize}
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的切向量为$\vec{\tau}=(\phi'(t_0),\psi'(t_0),\omega'(t_0))$。
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的切线方程为$\dfrac{x-x_0}{\phi'(t_0)}=\dfrac{y-y_0}{\psi'(t_0)}=\dfrac{z-z_0}{\omega'(t_0)}$。
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的法平面（过$P_0$且与切线垂直的平面）方程为$\phi'(t_0)(x-x_0)+\psi'(t_0)(y-y_0)+\omega'(t_0)(z-z_0)=0$。
+\end{itemize}
+
+\subsubsection{交面式方程}
+
+设空间曲线$\varGamma$由交面方程$\left\{\begin{array}{l}
+    F(x,y,z)=0 \\
+    G(x,y,z)=0
+\end{array}\right.$给出，则：
+
+\begin{itemize}
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的切向量为\\$\vec{\tau}=\left(\left\vert\begin{array}{cc}
+        F_y' & F_z' \\
+        G_y' & G_z'
+    \end{array}\right\vert_{P_0},\left\vert\begin{array}{ll}
+        F_z' & F_x' \\
+        G_z' & G_x'
+    \end{array}\right\vert_{P_0},\left\vert\begin{array}{ll}
+        F_x' & F_y' \\
+        G_x' & G_y'
+    \end{array}\right\vert_{P_0}\right)$。
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的切线方程为\\$\dfrac{x-x_0}{\left\vert\begin{array}{cc}
+        F_y' & F_z' \\
+        G_y' & G_z'
+    \end{array}\right\vert_{P_0}},\dfrac{y-y_0}{\left\vert\begin{array}{ll}
+        F_z' & F_x' \\
+        G_z' & G_x'
+    \end{array}\right\vert_{P_0}},\dfrac{z-z_0}{\left\vert\begin{array}{ll}
+        F_x' & F_y' \\
+        G_x' & G_y'
+    \end{array}\right\vert_{P_0}}$。
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的法平面方程为\\$\left\vert\begin{array}{cc}
+        F_y' & F_z' \\
+        G_y' & G_z'
+    \end{array}\right\vert_{P_0}(x-x_0)+\left\vert\begin{array}{ll}
+        F_z' & F_x' \\
+        G_z' & G_x'
+    \end{array}\right\vert_{P_0}(y-y_0)+\left\vert\begin{array}{ll}
+        F_x' & F_y' \\
+        G_x' & G_y'
+    \end{array}\right\vert_{P_0}(z-z_0)=0$。
+\end{itemize}
+
+\subsection{空间曲面的切平面与法线}
+
+\subsubsection{隐式}
+
+设空间曲面$\varSigma$由方程$F(x,y,z)=0$给出，$P_0(x_0,y_0,z_0)$是$\varSigma$上的点，则：
+
+\begin{itemize}
+    \item 曲面$\varSigma$在点$P_0(x_0,y_0,z_0)$处的法向量为$\vec{n}=(F_x'(x_0,y_0,z_0),F_y'(x_0,y_0,z_0),$\\$F_z'(x_0,y_0,z_0))$且法线方程为$\dfrac{x-x_0}{F_x'(x_0,y_0,z_0)}=\dfrac{y-y_0}{F_y'(x_0,y_0,z_0)}=\dfrac{z-z_0}{F_z'(x_0,y_0,z_0}$。
+    \item 曲面$\varSigma$在点$P_0(x_0,y_0,z_0)$处的切平面方程为$F_x'(x_0,y_0,z_0)(x-x_0)+F_y'$\\$(x_0,y_0,z_0)(y-y_0)+F_z'(x_0,y_0,z_0)(z-z_0)=0$。
+\end{itemize}
+
+\subsubsection{显式}
+
+设空间曲面$\varSigma$由方程$z=f(x,y)$给出，令$F(x,y,z)=f(x,y)-z$，假定法向量的方向向下，即其余$z$轴正向所成的角为钝角，即$z$为-1，则：
+
+\begin{itemize}
+    \item 曲面$\varSigma$在点$P_0(x_0,y_0,z_0)$处的法向量为$\vec{n}=(f_x'(x_0,y_0),f_y'(x_0,y_0),-1)$，且法线方程为$\dfrac{x-x_0}{f_x'(x_0,y_0)}=\dfrac{y-y_0}{f_y'(x_0,y_0)}=\dfrac{z-z_0}{-1}$。
+    \item 曲面$\varSigma$在点$P_0(x_0,y_0,z_0)$处的切平面方程为$f_x'(x_0,y_0)(x-x_0)+f_y'(x_0,y_0)$\\$(y-y_0)-(z-z_0)=0$。
+\end{itemize}
+
+若是反之成锐角，则将里面所有的-1都换成1。
+
+若用$\alpha$，$\beta$，$\gamma$表示曲面$z=f(x,y)$在点$(x_0,y_0,z_0)$处的法向量的方向角，并这里假定法向量的方向是向上的，即其余$z$轴正向所成的角$\gamma$为锐角，则法向量\textbf{方向余弦}为$\cos\alpha=\dfrac{-f_x}{\sqrt{1+f_x^2+f_y^2}}$，$\cos\beta=\dfrac{-f_y}{\sqrt{1+f_x^2+f_y^2}}$，$\cos\gamma=\dfrac{1}{\sqrt{1+f_x^2+f_y^2}}$，其中$f_x=f_x'(x_0,y_0)$，$f_y=f_y'(x_0,y_0)$。
+
 \end{document}

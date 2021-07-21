@@ -342,8 +342,18 @@ $f(x)-f(x)=0$，所以得证。
 
 \subsection{解法}
 
+使用换元法。
+
 当$x>0$时，令$x=e^t$，则$t=\ln x$，$\dfrac{\textrm{d}t}{\textrm{d}x}=\dfrac{1}{x}$，$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\textrm{d}y}{\textrm{d}t}\dfrac{\textrm{d}t}{\textrm{d}x}=\dfrac{1}{x}\dfrac{\textrm{d}y}{\textrm{d}t}$，$\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}}{\textrm{d}x}\left(\dfrac{1}{x}\dfrac{\textrm{d}y}{\textrm{d}t}\right)=-\dfrac{1}{x^2}\dfrac{\textrm{d}y}{\textrm{d}t}+\dfrac{1}{x}\dfrac{\textrm{d}}{\textrm{d}x}\left(\dfrac{\textrm{d}y}{\textrm{d}t}\right)=-\dfrac{1}{x^2}\dfrac{\textrm{d}y}{\textrm{d}t}+\dfrac{1}{x^2}\dfrac{\textrm{d}^2y}{\textrm{d}t^2}$，方程化为$\dfrac{\textrm{d}^2y}{\textrm{d}t^2}+(p-1)\dfrac{\textrm{d}y}{\textrm{d}t}+qy=f(e^t)$，解出结果，组后用$t=\ln x$回代。
 
 当$x<0$是，令$x=-e^t$，同理可得。
+
+\textbf{例题：}求欧拉方程$x^2\dfrac{\textrm{d}^2y}{\textrm{d}x^2}+4x\dfrac{\textrm{d}y}{\textrm{d}x}+2y=0$（$x>0$）的通解。
+
+解：可以直接利用公式，变为$\dfrac{\textrm{d}^2y}{\textrm{d}t^2}+3\dfrac{\textrm{d}y}{\textrm{d}t}+2y=0$
+
+即$y''+3y'+2y=0$，特征方程$\lambda^2+3\lambda+2=0$，$\lambda_1=-1$，$\lambda_2=-2$。
+
+$\therefore y=C_1e^{-x}+C_2e^{-2x}$。代入$x=e^t$，$y=\dfrac{C_1}{x}+\dfrac{C_2}{x^2}$。
 
 \end{document}
