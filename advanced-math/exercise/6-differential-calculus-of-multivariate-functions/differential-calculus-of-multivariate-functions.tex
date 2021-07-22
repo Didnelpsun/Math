@@ -1,0 +1,141 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{xcolor}
+% 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\definecolor{violet}{RGB}{192,0,255} 
+\definecolor{aqua}{RGB}{0,255,255} 
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\usepackage{pifont}
+% 圆圈序号
+\usepackage{tikz}
+% 绘图
+\author{Didnelpsun}
+\title{多元函数微分学}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{多元函数微分应用}
+
+\subsection{空间曲线的切线与法平面}
+
+\subsubsection{参数方程}
+
+设空间曲线$\varGamma$由参数方程$\left\{\begin{array}{l}
+    x=\phi(t) \\
+    y=\psi(t) \\
+    z=\omega(t)
+\end{array}\right.$给出，其中$\phi(t),\psi(t),\omega(t)$均可导，$P_0(x_0,y_0,z_0)$为$\varOmega$上的点，且当$t=t_0$时，$\phi'(t_0)$，$\psi'(t_0)$，$\omega'(t_0)$均不为0，则：
+
+\begin{itemize}
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的切向量为$\vec{\tau}=(\phi'(t_0),\psi'(t_0),\omega'(t_0))$。
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的切线方程为$\dfrac{x-x_0}{\phi'(t_0)}=\dfrac{y-y_0}{\psi'(t_0)}=\dfrac{z-z_0}{\omega'(t_0)}$。
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的法平面（过$P_0$且与切线垂直的平面）方程为$\phi'(t_0)(x-x_0)+\psi'(t_0)(y-y_0)+\omega'(t_0)(z-z_0)=0$。
+\end{itemize}
+
+\subsubsection{交面式方程}
+
+设空间曲线$\varGamma$由交面方程$\left\{\begin{array}{l}
+    F(x,y,z)=0 \\
+    G(x,y,z)=0
+\end{array}\right.$给出，则：
+
+\begin{itemize}
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的切向量为\\$\vec{\tau}=\left(\left\vert\begin{array}{cc}
+        F_y' & F_z' \\
+        G_y' & G_z'
+    \end{array}\right\vert_{P_0},\left\vert\begin{array}{ll}
+        F_z' & F_x' \\
+        G_z' & G_x'
+    \end{array}\right\vert_{P_0},\left\vert\begin{array}{ll}
+        F_x' & F_y' \\
+        G_x' & G_y'
+    \end{array}\right\vert_{P_0}\right)$。
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的切线方程为\\$\dfrac{x-x_0}{\left\vert\begin{array}{cc}
+        F_y' & F_z' \\
+        G_y' & G_z'
+    \end{array}\right\vert_{P_0}},\dfrac{y-y_0}{\left\vert\begin{array}{ll}
+        F_z' & F_x' \\
+        G_z' & G_x'
+    \end{array}\right\vert_{P_0}},\dfrac{z-z_0}{\left\vert\begin{array}{ll}
+        F_x' & F_y' \\
+        G_x' & G_y'
+    \end{array}\right\vert_{P_0}}$。
+    \item 曲线$\varGamma$在点$P_0(x_0,y_0,z_0)$处的法平面方程为\\$\left\vert\begin{array}{cc}
+        F_y' & F_z' \\
+        G_y' & G_z'
+    \end{array}\right\vert_{P_0}(x-x_0)+\left\vert\begin{array}{ll}
+        F_z' & F_x' \\
+        G_z' & G_x'
+    \end{array}\right\vert_{P_0}(y-y_0)+\left\vert\begin{array}{ll}
+        F_x' & F_y' \\
+        G_x' & G_y'
+    \end{array}\right\vert_{P_0}(z-z_0)=0$。
+\end{itemize}
+
+\subsection{空间曲面的切平面与法线}
+
+\subsubsection{隐式}
+
+设空间曲面$\varSigma$由方程$F(x,y,z)=0$给出，$P_0(x_0,y_0,z_0)$是$\varSigma$上的点，则：
+
+\begin{itemize}
+    \item 曲面$\varSigma$在点$P_0(x_0,y_0,z_0)$处的法向量为$\vec{n}=(F_x'(x_0,y_0,z_0),F_y'(x_0,y_0,z_0),$\\$F_z'(x_0,y_0,z_0))$且法线方程为$\dfrac{x-x_0}{F_x'(x_0,y_0,z_0)}=\dfrac{y-y_0}{F_y'(x_0,y_0,z_0)}=\dfrac{z-z_0}{F_z'(x_0,y_0,z_0}$。
+    \item 曲面$\varSigma$在点$P_0(x_0,y_0,z_0)$处的切平面方程为$F_x'(x_0,y_0,z_0)(x-x_0)+F_y'$\\$(x_0,y_0,z_0)(y-y_0)+F_z'(x_0,y_0,z_0)(z-z_0)=0$。
+\end{itemize}
+
+\subsubsection{显式}
+
+设空间曲面$\varSigma$由方程$z=f(x,y)$给出，令$F(x,y,z)=f(x,y)-z$，假定法向量的方向向下，即其余$z$轴正向所成的角为钝角，即$z$为-1，则：
+
+\begin{itemize}
+    \item 曲面$\varSigma$在点$P_0(x_0,y_0,z_0)$处的法向量为$\vec{n}=(f_x'(x_0,y_0),f_y'(x_0,y_0),-1)$，且法线方程为$\dfrac{x-x_0}{f_x'(x_0,y_0)}=\dfrac{y-y_0}{f_y'(x_0,y_0)}=\dfrac{z-z_0}{-1}$。
+    \item 曲面$\varSigma$在点$P_0(x_0,y_0,z_0)$处的切平面方程为$f_x'(x_0,y_0)(x-x_0)+f_y'(x_0,y_0)$\\$(y-y_0)-(z-z_0)=0$。
+\end{itemize}
+
+若是反之成锐角，则将里面所有的-1都换成1。
+
+若用$\alpha$，$\beta$，$\gamma$表示曲面$z=f(x,y)$在点$(x_0,y_0,z_0)$处的法向量的方向角，并这里假定法向量的方向是向上的，即其余$z$轴正向所成的角$\gamma$为锐角，则法向量\textbf{方向余弦}为$\cos\alpha=\dfrac{-f_x}{\sqrt{1+f_x^2+f_y^2}}$，$\cos\beta=\dfrac{-f_y}{\sqrt{1+f_x^2+f_y^2}}$，$\cos\gamma=\dfrac{1}{\sqrt{1+f_x^2+f_y^2}}$，其中$f_x=f_x'(x_0,y_0)$，$f_y=f_y'(x_0,y_0)$。
+
+\textbf{例题：}设直线$L\left\{\begin{array}{l}
+    x+y+b=0 \\
+    x+ay-z-3=0
+\end{array}\right.$在平面$\pi$上，而平面$\pi$与曲面$z=x^2+y^2$相切于$(1,-2,5)$，求$ab$的值。
+
+解：$L$在$\pi$上且与曲面相切，则$\pi$为$L$的切平面。设曲面方程$F(x,y,z)=x^2+y^2-z$。
+
+曲面法向量为$\vec{n}=\{F_x',F_y',F_z'\}=\{2x,2y,-1\}$，代入$(1,-2,5)$，则法向量为$\{2,-4,-1\}$。
+
+又点法式：$\pi:2(x-1)-4(y+2)-(z-5)=0$，即$2x-4y-z-5=0$。
+
+联立直线方程，得到：$(5+a)x+4b+ab-2=0$，又$x$是任意的。
+
+解得$a=-5,b=-2$。
+
+\end{document}

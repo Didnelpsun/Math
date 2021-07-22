@@ -270,12 +270,46 @@
 
 \subsection{方向导数}
 
+偏导数就是一个函数在坐标轴方向上的变化率，而方向导数就是函数在某点沿其他特定方向上的变化率。
+
+\textcolor{violet}{\textbf{定义：}}设三元函数$u=u(x,y,z)$在点$P_0(x_0,y_0,z_0)$的某空间领域$U\in R^3$内有定义，$l$从点$P_0$出发的射线，$P(x,y,z)$为$l$上切在$U$内的任一点，则$\left\{\begin{array}{l}
+    x-x_0=\Delta x=t\cos\alpha \\
+    y-y_0=\Delta y=t\cos\beta \\
+    z-z_0=\Delta z=t\cos\gamma
+\end{array}\right.$进行在坐标轴上投影。
+
+以$t=\sqrt{(\Delta x)^2+(\Delta y)^2+(\Delta z)^2}$表示$P$与$P_0$之间的距离。若极限$\lim\limits_{t\to0^+}$\\$\dfrac{u(P)-u(P_0)}{t}=\lim\limits_{t\to0^+}\dfrac{u(x_0+t\cos\alpha,y_0+t\cos\beta,z_0+t\cos\gamma)-u(x_0,y_0,z_0)}{t}$存在，则称此极限为函数$u=u(x,y,z)$在点$P_0$沿方向$l$的\textbf{方向导数}，记为$\dfrac{\partial u}{\partial l}\bigg|_{P_0}$。
+
+方向导数计算公式\textcolor{aqua}{\textbf{定理：}}设三元函数$u=u(x,y,z)$在点$P_0(x_0,y_0,z_0)$处可微分，则$u=u(x,y,z)$在点$P_0$处沿任一方向$l$的方向导数都存在，且$\dfrac{\partial u}{\partial l}\bigg|_{P_0}=u_x'(P_0)\cos\alpha+u_y'(P_0)\cos\beta+u_z'(P_0)\cos\gamma$，其中$\cos\alpha$，$\cos\beta$，$\cos\gamma$为方向$l$的方向余弦。
+
+\textbf{例题：}求函数$z=xe^{2y}$在点$P(1,0)$处沿点$P(1,0)$指向$Q(2,-1)$方向的方向导数。
+
+解：这是一个隐式的三元函数，所以基本上解决方法类似。不过需要将$z$对$xy$求偏导。
+
+$\dfrac{\partial z}{\partial x}=e^{2y}$，$\dfrac{\partial z}{\partial y}=2xe^{2y}$，代入$P(1,0)$，得到$\{1,2\}$。
+
+然后求方向余弦，对于$\overrightarrow{PQ}={1,-1}$方向余弦就是除它的模$\left\{\dfrac{1}{\sqrt{2}},-\dfrac{1}{\sqrt{2}}\right\}$。
+
+方向导数就是相乘：$\dfrac{1}{\sqrt{2}}-\dfrac{2}{\sqrt{2}}=-\dfrac{\sqrt{2}}{2}$。
+
 \subsection{梯度}
+
+在一个数量场中中，函数在给定点处沿不同的方向，其方向导数一般是不相同的。为研究哪个方向的方向导数最大，最大值为多少，增加速度最快，就引入了梯度。
+
+\textcolor{violet}{\textbf{定义：}}设三元函数$u=u(x,y,z)$在点$P_0(x_0,y_0,z_0)$处具有一阶偏导数，定义$\text{grad}\,u|_{P_0}=(u'_x(P_0),u_y'(P_0),u_z'(P_0))$为函数$u=u(x,y,z)$在点$P_0$处的\textbf{梯度}。
 
 \subsection{方向导数与梯度关系}
 
-\subsection{散度}
+方向导数为梯度×梯度方向余弦。
 
-\subsection{旋度}
+函数在某点的梯度是一个向量，其方向与取得最大方向导数的方向是一致的，其模就是方向导数最大值。
+
+\subsection{散度与旋度}
+
+\textcolor{violet}{\textbf{定义：}}设向量场$\vec{A}(x,y,z)=(P(x,y,z),Q(x,y,z),R(x,y,z))$，则\textbf{散度}$\textrm{div}\,\vec{A}=\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}$，\textbf{旋度}$\overrightarrow{\textrm{rot}}\,\vec{A}=\left\vert\begin{array}{ccc}
+    \vec{i} & \vec{j} & \vec{k} \\
+    \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\
+    P & Q & R
+\end{array}\right\vert$。
 
 \end{document}
