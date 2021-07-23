@@ -551,6 +551,34 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
 
 \textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，函数$x=\varphi(t)$满足\ding{172}$\varphi(\alpha)=a,\varphi(\beta)=b$，\ding{173}$\varphi(t)$在$[\alpha,\beta]$上具有连续导数，且其值域$R_\varphi=[a,b]$（值域超出而其他条件满足时也成立），则有$\int_a^bf(x)\,\textrm{d}x=\int_\alpha^\beta f[\varphi(t)]\varphi'(t)\,\textrm{d}t$。
 
+定积分的换元和不定积分的换元方法类似，其中重点就是$a$到$\alpha$，$b$到$\beta$的区间变化，从$x$的区间到$\varphi(t)$的区间，需要代入方程使其与原区间相等，从而得到$t$的区间。
+
+\textbf{例题：}计算$\int_0^\pi\sqrt{\sin^3x-\sin^5x}\,\textrm{d}x$。
+
+解：由于$\sqrt{\sin^3x-\sin^5x}=\sqrt{\sin^3(1-\sin^2x)}=\sin^\frac{3}{2}x\cdot\vert\cos x\vert$。
+
+注意保留绝对值，若是不保存就会发现后面计算会得到上下限为同样的值从而导致错误。
+
+利用积分的区间可加性将$\vert\cos x\vert$进行拆分。
+
+$=\int_0^\frac{\pi}{2}\sin^\frac{3}{2}x\cos x\,\textrm{d}x+\int_\frac{\pi}{2}^\pi\sin^\frac{3}{2}x(-\cos x)\,\textrm{d}x=\int_0^\frac{\pi}{2}\sin^\frac{3}{2}x\,\textrm{d}(\sin x)-$\\$\int_\frac{\pi}{2}^\pi\sin^\frac{3}{2}x\,\textrm{d}(\sin x)=\dfrac{2}{5}\sin^\frac{5}{2}x|_0^\frac{\pi}{2}-\dfrac{2}{5}\sin^\frac{5}{2}x|_\frac{\pi}{2}^\pi=\dfrac{4}{5}$。
+
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[0,1]$上连续：
+
+(1)$\int_0^\frac{\pi}{2}f(\sin x)\,\textrm{d}x=\int_0^\frac{\pi}{2}f(\cos x)\,\textrm{d}x$。
+
+(2)$\int_0^\frac{\pi}{2}xf(\sin x)\,\textrm{d}x=\dfrac{\pi}{2}\int_0^\pi f(\sin x)\,\textrm{d}x$。
+
+(1)证明：这个证明式子很像华莱士公式。不过华莱士给定函数$f(x)=x^n$。
+
+这个式子需要将$f(\sin x)$变为$f(\cos x)$，即使用诱导公式变化。
+
+$\sin\left(\dfrac{\pi}{2}-x\right)=\cos x$，所以令$x=\dfrac{\pi}{2}-t$，$t=\dfrac{\pi}{2}-x$，当$x=0$，$t=\dfrac{\pi}{2}$，当$x=\dfrac{\pi}{2}$，$t=0$，$\textrm{d}x=-\textrm{d}t$。
+
+$\int_0^\frac{\pi}{2}f(\sin x)\,\textrm{d}x=-\displaystyle{\int_\frac{\pi}{2}^0f\left(\sin\dfrac{\pi}{2}-t\right)\,\textrm{d}t}=$$-\int_\frac{\pi}{2}^0f(\cos t)\,\textrm{d}t=\int^\frac{\pi}{2}_0f(\cos x)\,\textrm{d}x$。
+
+(2)证明：
+
 \subsubsection{分部积分法}
 
 \textcolor{aqua}{\textbf{定理：}}$\int_a^bu\,\textrm{d}v=[uv]_a^b-\int_a^bv\,\textrm{d}u$。

@@ -424,11 +424,11 @@ $\therefore I=\dfrac{1}{3}\iiint\limits_\Omega(x^2+y^2+z^2)\,\textrm{d}x\textrm{
 
 \paragraph{平面} \leavevmode \medskip
 
-\textbf{例题：}计算$\oint_\Gamma\vert y\vert\,\textrm{d}s$，其中$Gamma$为球面$x^2+y^2+z^2=2$与平面$x=y$的交线。
+\textbf{例题：}计算$\oint\limits_\Gamma\vert y\vert\,\textrm{d}s$，其中$Gamma$为球面$x^2+y^2+z^2=2$与平面$x=y$的交线。
 
 解：根据普通对称性，对于$\vert y\vert$而言，其他象限的函数值都与第一象限区域的函数相等。令第一象限区域为$\Gamma_1$：
 
-$\therefore\oint_\Gamma\vert y\vert\,\textrm{d}s=4\oint_{\Gamma_1}y\,\textrm{d}s$
+$\therefore\oint\limits_\Gamma\vert y\vert\,\textrm{d}s=4\oint\limits_{\Gamma_1}y\,\textrm{d}s$
 
 根据交线方程进行联立，得到$x=\cos t$，$y=\cos t$，$z=\sqrt{2}\sin t$。
 
@@ -577,6 +577,23 @@ $\therefore8\iint\limits_{\Sigma_1}y\,\textrm{d}S=\dfrac{8}{3}\iint\limits_{\Sig
 \subsubsection{格林公式}
 
 是考试的重点，基本上都会考到。非常重要。
+
+\textbf{例题：}计算曲线积分$\oint\limits_L\dfrac{x\textrm{d}y-y\textrm{d}x}{4^x2+y^2}$，其中$L$是以点$(1,0)$为圆心，$R\geqslant1$为半径的圆，取逆时针方向。
+
+解：由于是逆时针在$L$上，所以是正向：$=\displaystyle{\oint\limits_{L^+}\left(\dfrac{-y}{4x^2+y^2}\textrm{d}x+\dfrac{x}{4x^2+y^2}\textrm{d}y\right)}$。
+
+又对于$L$所围成的圆面$D$，因为$4x^2+y^2\neq0$，所以$(0,0)$应该被挖去。
+
+因为逆时针的方向下挖去这个点做的运动顺时针是负方向的，所以令其为$C^-$。
+
+又因为格林公式$\oint\limits_{L^++C^-}P\,\textrm{d}x+Q\,\textrm{d}y=\displaystyle{\iint\limits_D\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\textrm{d}\sigma}=$\\$\displaystyle{\iint\limits_D\left(\dfrac{4x^2+y^2-3x^2}{(4x^2+y^2)^2}-\dfrac{-(4x^2+y^2)+2y^2}{(4x^2+y^2)^2}\right)\textrm{d}\sigma}=0$。旋度为0。
+
+$=\oint\limits_{L^++C^-}-\oint\limits_{C^-}=0-\oint\limits_{C^-}=\oint\limits_{C^+}$。取$C:4x^2+y^2=\delta^2$，$\delta$为一个足够小的常数。（分母取$\delta^2$）
+
+$=\displaystyle{\oint\limits_{C^+}\left(\dfrac{-y}{4x^2+y^2}\textrm{d}x+\dfrac{x}{4x^2+y^2}\textrm{d}y\right)}=\displaystyle{\oint\limits_{C^+}\left(\dfrac{-y}{\delta^2}\textrm{d}x+\dfrac{x}{\delta^2}\textrm{d}y\right)}$
+
+$=\dfrac{1}{\delta^2}\oint\limits_{C^+}-y\,\textrm{d}x+x\,\textrm{d}y$，利用格林公式，$C^+$所成区域为$D'$：$\dfrac{1}{\delta^2}\oint\limits_{D'}(1-(-1))\,\textrm{d}\sigma=\dfrac{2}{\delta^2}D'=\dfrac{2}{\delta^2}\pi\dfrac{\delta}{2}\delta=\pi$。
+
 
 \section{第二型曲面积分}
 
