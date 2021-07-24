@@ -375,7 +375,7 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)$（$a<\xi<b$）。
 \subsubsection{定积分与函数性质}
 
 \begin{enumerate}
-    \item 若函数$f(x)$是周期函数且周期为$T$，$\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^Tf(x)\,\textrm{d}x$对于$\forall a$成立。
+    \item 若函数$f(x)$是周期函数且周期为$T$，$\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^Tf(x)\,\textrm{d}x$，\\$\int_\alpha^{\alpha+nT}f(x)\,\textrm{d}x=n\int_0^Tf(x)\,\textrm{d}x$（$n\in N$）对于$\forall a$成立。
     \item 若函数$f(x)$是连续的偶函数，则$\int_{-a}^af(x)\,\textrm{d}x=2\int_0^af(x)\,\textrm{d}x$。
     \item 若函数$f(x)$是连续的奇函数，则$\int_{-a}^af(x)\,\textrm{d}x=0$。
     \item 区间再现公式：若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-a)\,\textrm{d}x$。
@@ -395,7 +395,7 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)$（$a<\xi<b$）。
     \end{array}\right.$。
 \end{enumerate}
 
-证明定理第一条：根据积分区间可拆性：
+证明定理第一条的第一个式子：根据积分区间可拆性：
 
 $\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^af(x)\,\textrm{d}x+\int_0^Tf(x)\,\textrm{d}x+\int_T^{a+T}f(x)\,\textrm{d}x$
 
@@ -417,9 +417,9 @@ $\int_a^bf(x)\,\textrm{d}x=\int_b^af(a+b-t)(-\textrm{d}t)=\int_a^bf(a+b-t)\,\tex
 
 $=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin(\dfrac{\pi}{2}-x)}{\sin(\dfrac{\pi}{2}-x)+\cos(\dfrac{\pi}{2}-x)}\textrm{d}x=\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x}$
 
-又$\int_0^\frac{\pi}{2}\dfrac{\sin x}{\sin x+\cos x}\textrm{d}x+\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x=\int_0^\frac{\pi}{2}\textrm{d}x=\dfrac{\pi}{2}$。
+又$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\sin x+\cos x}\textrm{d}x+\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x}$$=\int_0^\frac{\pi}{2}\textrm{d}x=\dfrac{\pi}{2}$。
 
-$\therefore\int_0^\frac{\pi}{2}\dfrac{\sin x}{\cos x+\sin x}\textrm{d}x=\dfrac{\pi}{4}$。
+$\therefore\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\cos x+\sin x}\textrm{d}x}=\dfrac{\pi}{4}$。
 
 \textbf{例题：}(1)已知$f(x)$为一个周期为$T$的偶函数，证明$\int_0^{nT}xf(x)\,\textrm{d}x=\dfrac{n^2T}{2}\int_0^Tf(x)\,\textrm{d}x$。
 
@@ -567,7 +567,7 @@ $=\int_0^\frac{\pi}{2}\sin^\frac{3}{2}x\cos x\,\textrm{d}x+\int_\frac{\pi}{2}^\p
 
 (1)$\int_0^\frac{\pi}{2}f(\sin x)\,\textrm{d}x=\int_0^\frac{\pi}{2}f(\cos x)\,\textrm{d}x$。
 
-(2)$\int_0^\frac{\pi}{2}xf(\sin x)\,\textrm{d}x=\dfrac{\pi}{2}\int_0^\pi f(\sin x)\,\textrm{d}x$。
+(2)$\int_0^\pi xf(\sin x)\,\textrm{d}x=\dfrac{\pi}{2}\int_0^\pi f(\sin x)\,\textrm{d}x$。
 
 (1)证明：这个证明式子很像华莱士公式。不过华莱士给定函数$f(x)=x^n$。
 
@@ -577,11 +577,19 @@ $\sin\left(\dfrac{\pi}{2}-x\right)=\cos x$，所以令$x=\dfrac{\pi}{2}-t$，$t=
 
 $\int_0^\frac{\pi}{2}f(\sin x)\,\textrm{d}x=-\displaystyle{\int_\frac{\pi}{2}^0f\left(\sin\dfrac{\pi}{2}-t\right)\,\textrm{d}t}=$$-\int_\frac{\pi}{2}^0f(\cos t)\,\textrm{d}t=\int^\frac{\pi}{2}_0f(\cos x)\,\textrm{d}x$。
 
-(2)证明：
+(2)证明：首先需要证明的函数是$xf(\sin x)$，所以想在函数外面也凑出一个$\dfrac{\pi}{2}$。这里也肯定需要诱导公式，但是因为最后还是$\sin x$，所以添加的是偶的。
+
+令$x=\pi-t$，当$x=0$时，$t=\pi$，当$x=\pi$时，$t=0$，且$\textrm{d}x=-\textrm{d}t$。
+
+$\int_0^\pi xf(\sin x)\,\textrm{d}x=-\int_\pi^0(\pi-t)f(\sin(\pi-t))\,\textrm{d}t=\int_0^\pi(\pi-t)f(\sin t)\,\textrm{d}t=$\\$\pi\int_0^\pi f(\sin t)\,\textrm{d}t-\int_0^\pi tf(\sin t)\,\textrm{d}t=\pi\int_0^\pi f(\sin x)\,\textrm{d}x-\int_0^\pi xf(\sin x)\,\textrm{d}x$。
+
+即$\int_0^\pi xf(\sin x)\,\textrm{d}x=\dfrac{\pi}{2}\int_0^\pi f(\sin x)\,\textrm{d}x$。
 
 \subsubsection{分部积分法}
 
 \textcolor{aqua}{\textbf{定理：}}$\int_a^bu\,\textrm{d}v=[uv]_a^b-\int_a^bv\,\textrm{d}u$。
+
+其他计算方法与不定积分的方法一样。
 
 \subsection{反常积分}
 
