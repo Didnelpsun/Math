@@ -79,13 +79,21 @@ $=-\dfrac{10^{2\arccos x}}{2\ln10}+C$。
 
 \paragraph{积化和差} \leavevmode \medskip
 
-对于两个三角函数的乘积可以使用积化和差简单计算。
+对于两个三角函数的乘积可以使用积化和差简单计算。特别是携带$\sin2x$、$\cos2x$、$\sin3x$等的。
 
 \textbf{例题：}求$\displaystyle{\int\sin2x\cos3x\,\textrm{d}x}$。
 
 解：$=\displaystyle{\int\cos3x\sin2x\,\textrm{d}x=\dfrac{1}{2}\int(\sin5x-\sin x)\,\textrm{d}x}$
 
 $=\dfrac{1}{2}\int\sin5x\,\textrm{d}x-\dfrac{1}{2}\int\sin x\,\textrm{d}x=-\dfrac{1}{10}\cos5x+\dfrac{1}{2}\cos x+C$。
+
+\textbf{例题：}求$\int\sin x\sin2x\sin3x\,\textrm{d}x$。
+
+解：这时候需要利用积化和差。
+
+$=\displaystyle{\int\dfrac{1}{2}(\cos x-\cos3x)\sin3x\,\textrm{d}x=\dfrac{1}{2}\int\cos x\sin3x\,\textrm{d}x-\dfrac{1}{2}\int\cos3x\sin3x\,\textrm{d}x}$
+
+$=\dfrac{1}{4}\int(\sin2x+\sin4x)\textrm{d}x-\dfrac{1}{12}\sin^23x=-\dfrac{1}{16}\cos4x-\dfrac{1}{8}\cos2x-\dfrac{1}{12}\sin^23x+C$。
 
 \paragraph{三角拆分} \leavevmode \medskip
 
@@ -124,7 +132,13 @@ $\therefore=t^2\sin t-2t\cos t-\sin t+C=(\arcsin x)^2x+2\arcsin x\sqrt{1-x^2}-2x
 
 \paragraph{倒数换元} \leavevmode \medskip
 
-当被积函数的分母的幂次要比分子高两次以及以上时，令$x=\dfrac{1}{t}$。
+当被积函数的分母的幂次要比分子高两次以及以上时，令$x=\dfrac{1}{u}$。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x^2\sqrt{x^2-1}}}$。
+
+解：因为所有的变量都在分母，所以先进行倒代换：
+
+$-\displaystyle{\int\dfrac{u\,\textrm{d}u}{\sqrt{1-u^2}}}=\sqrt{1-u^2}+C=\dfrac{x^2-1}{x}+C$。
 
 \paragraph{有理换元} \leavevmode \medskip
 
@@ -134,6 +148,8 @@ $\therefore=t^2\sin t-2t\cos t-\sin t+C=(\arcsin x)^2x+2\arcsin x\sqrt{1-x^2}-2x
 
 若式子是一个因式的整数次幂，则可以直接令这个因式为中间变量。
 
+当无理式子是一个分式或其他复杂形式，既可以令其整个都是中间变量，也可以先化简，但是不能将无理式子拆开，否则有理换元就无用了。
+
 \textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{1+\sqrt[3]{x+1}}}$。
 
 解：令$u=\sqrt[3]{x+1}$，从而$x=u^3-1$，$\textrm{d}x=3u^2\,\textrm{d}u$。
@@ -141,6 +157,8 @@ $\therefore=t^2\sin t-2t\cos t-\sin t+C=(\arcsin x)^2x+2\arcsin x\sqrt{1-x^2}-2x
 $=\displaystyle{\int\dfrac{3u^2}{1+u}\textrm{d}u=\int\dfrac{3u^2+3u-3u-3+3}{1+u}\textrm{d}u=\int\left(3u-3+\dfrac{3}{1+u}\right)\textrm{d}u}$
 
 $=\dfrac{3}{2}u^2-3u+3\ln\vert1+u\vert+C=\dfrac{3}{2}\sqrt[3]{(x+1)^2}-3\sqrt[3]{x+1}+3\ln\vert1+\sqrt[3]{x+1}\vert+C$。
+
+可以和有理积分一同使用：
 
 \textbf{例题：}求$\displaystyle{\int\sqrt{\dfrac{1-x}{1+x}}\dfrac{\textrm{d}x}{x}}$。\medskip
 
@@ -165,6 +183,26 @@ $\therefore A=B=-1$，$C=0$，$D=2$。
 $=2\arctan u+\ln\vert1-u\vert-\ln\vert1+u\vert+C$
 
 $=2\arctan\sqrt{\dfrac{1-x}{1+x}}+\ln\left\vert\dfrac{\sqrt{1+x}-\sqrt{1-x}}{\sqrt{1+x}+\sqrt{1-x}}\right\vert+C$。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{\sqrt[3]{(x+1)^2(x-1)^4}}}$。
+
+解：由最开始分析的，有理换元需要让换元里的式子是一个一阶的，而现在里面最高四阶，所以必须想办法把这个式子转换为一阶的，这个也是本题目的难点。由于是三次根，所以可以尝试将里面的$(x+1)^2(x-1)^4$都提出三次方：
+
+$=\displaystyle{\int\dfrac{1}{x^2-1}\sqrt[3]{\dfrac{x+1}{x-1}}\textrm{d}x}$，令$\sqrt[3]{\dfrac{x+1}{x-1}}=u$，所以$x=\dfrac{u^3+1}{u^3-1}$：
+
+$=\displaystyle{\int\dfrac{u}{\left(\dfrac{u^3+1}{u^3-1}\right)^2-1}\cdot\dfrac{-6u^2}{(u^3-1)^2}\textrm{d}u=-\dfrac{3}{2}\int\textrm{d}u}=-\dfrac{3}{2}u+C=-\dfrac{3}{2}\sqrt[3]{\dfrac{x+1}{x-1}}+C $。
+
+因为有理换元将一个复杂的式子设为$u$，所以有时可以使用分部积分法：\medskip
+
+\textbf{例题：}求$\displaystyle{\int\sqrt{\dfrac{a+x}{a-x}}\textrm{d}x}$。\medskip
+
+解：令$\sqrt{\dfrac{a+x}{a-x}}=u$，解得$x=a\dfrac{u^2-1}{u^2+1}$，$\textrm{d}x=4a\dfrac{u\,\textrm{d}u}{(u^2+1)^2}$。
+
+$=\displaystyle{4a\int\dfrac{u^2\,\textrm{d}u}{(u^2+1)^2}=-2a\int u\,\textrm{d}\left(\dfrac{1}{1+u^2}\right)=-\dfrac{2au}{1+u^2}+\int\dfrac{2a}{1+u^2}\textrm{d}u}$
+
+$=-\dfrac{2au}{1+u^2}+2a\arctan u+C=(x-a)\sqrt{\dfrac{a+x}{a-x}}+2a\arctan\sqrt{\dfrac{a+x}{a-x}}+C$
+
+$=-\sqrt{a^2-x^2}+2a\arctan\sqrt{\dfrac{a+x}{a-x}}+C$。
 
 \paragraph{万能公式} \leavevmode \medskip
 
@@ -571,7 +609,9 @@ $=-\dfrac{4x+3}{2(x^2+x+1)}-\dfrac{6}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}+C$�
 
 \section{定积分}
 
-\subsection{定限积分与极限}
+\subsection{定限积分}
+
+\subsubsection{极限}
 
 若极限中有$n$这种变量，也可以通过定积分的定义来做，$\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf\left(\dfrac{i}{n}\right)\dfrac{1}{n}=\int_1^0f(x)\,\textrm{d}x$。
 
@@ -601,7 +641,29 @@ $=\displaystyle{\int_0^1\dfrac{1+x}{1+x^2}\textrm{d}x}=\displaystyle{\int_0^1\df
 
 $=\left[\arctan x+\dfrac{1}{2}\ln(1+x^2)\right]_0^1=\dfrac{\pi}{4}+\dfrac{1}{2}\ln2$。
 
-\subsection{变限积分与极限}
+\subsubsection{区间再现}
+
+若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-x)\,\textrm{d}x$。
+
+\textbf{例题：}求$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\sin x+\cos x}\textrm{d}x}$。
+
+解：
+
+% 可以使用万能公式来计算，但是这里我们使用区间再现换元法来计算。
+
+$=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin(\dfrac{\pi}{2}-x)}{\sin(\dfrac{\pi}{2}-x)+\cos(\dfrac{\pi}{2}-x)}\textrm{d}x=\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x}$
+
+又$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\sin x+\cos x}\textrm{d}x+\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x}$$=\int_0^\frac{\pi}{2}\textrm{d}x=\dfrac{\pi}{2}$。
+
+$\therefore\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\cos x+\sin x}\textrm{d}x}=\dfrac{\pi}{4}$。
+
+\subsubsection{换元积分}
+
+\subsubsection{分部积分}
+
+\subsection{变限积分}
+
+\subsubsection{极限}
 
 变限积分也常与极限共同出现。
 
@@ -619,9 +681,21 @@ $\therefore F'(x)=\int_0^xf(t)\,\textrm{d}t+xf(x)-xf(x)=\int_0^xf(t)\,\textrm{d}
 
 $\therefore F''(x)=f(x)$。
 
-\subsection{换元积分}
+\subsubsection{连续}
 
-\subsection{分部积分}
+\textbf{例题：}设$f(x)=\left\{\begin{array}{ll}
+    x^2, & x\in[0,1) \\
+    x, & x\in[1,2]
+\end{array}\right.$，求$\varPhi(x)=\int_0^xf(t)\,\textrm{d}t$在$[0,2]$上的表达式，并讨论$\varPhi(x)$在$(0,2)$内的连续性。
+
+解：当$x\in[0,1)$时，$\varPhi(x)=\int_0^xt^2\,\textrm{d}t=\dfrac{x^3}{3}$，注意的是$x\in[1,2]$时，$\varPhi(x)=\int_0^1f(t)\,\textrm{d}t+\int_1^xf(t)\,\textrm{d}t=\int_0^1t^2\,\textrm{d}t+\int_1^xt\,\textrm{d}t=\left[\dfrac{t^3}{3}\right]_0^1+\left[\dfrac{t^2}{2}\right]_1^x=\dfrac{x^2}{2}+\dfrac{1}{3}-\dfrac{1}{2}=\dfrac{x^2}{2}-\dfrac{1}{6}$。
+
+$\therefore\varPhi(x)=\left\{\begin{array}{ll}
+    \dfrac{x^3}{3}, & x\in[0,1) \medskip \\
+    \dfrac{x^2}{2}-\dfrac{1}{6}, & x\in[1,2]
+\end{array}\right.$。
+
+由于$x\to1^-$时，$\lim\limits_{x\to1^-}\varPhi(x)=\lim\limits_{x\to1^-}\dfrac{x^3}{3}=\dfrac{1}{3}$。$x=1$时，$\varPhi(1)=\dfrac{1}{2}-\dfrac{1}{6}=\dfrac{1}{3}$，所以$\varPhi(x)$在$x=1$处连续，而在其他定义域都是函数，所以也连续，从而$\varPhi(x)$在$(0,2)$上连续。
 
 \subsection{反常积分}
 

@@ -378,7 +378,7 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)$（$a<\xi<b$）。
     \item 若函数$f(x)$是周期函数且周期为$T$，$\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^Tf(x)\,\textrm{d}x$，\\$\int_\alpha^{\alpha+nT}f(x)\,\textrm{d}x=n\int_0^Tf(x)\,\textrm{d}x$（$n\in N$）对于$\forall a$成立。
     \item 若函数$f(x)$是连续的偶函数，则$\int_{-a}^af(x)\,\textrm{d}x=2\int_0^af(x)\,\textrm{d}x$。
     \item 若函数$f(x)$是连续的奇函数，则$\int_{-a}^af(x)\,\textrm{d}x=0$。
-    \item 区间再现公式：若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-a)\,\textrm{d}x$。
+    \item 区间再现公式：若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-x)\,\textrm{d}x$。
     \item 华里士公式（根据区间再现公式可知$\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x=\int_0^\frac{\pi}{2}\cos^nx\,\textrm{d}x$）：
     $$\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x=\int_0^\frac{\pi}{2}\cos^nx\,\textrm{d}x=\left\{\begin{array}{ll}
         \dfrac{n-1}{n}\cdot\dfrac{n-3}{n-2}\cdot\cdots\cdot\dfrac{2}{3}\cdot1, & n\text{为非}1\text{奇数} \\ \medskip
@@ -410,16 +410,6 @@ $\therefore\int_a^{a+T}f(x)\,\textrm{d}x=\int_0^af(x)\,\textrm{d}x+\int_0^Tf(x)\
 $\int_a^bf(x)\,\textrm{d}x=\int_b^af(a+b-t)(-\textrm{d}t)=\int_a^bf(a+b-t)\,\textrm{d}t=\int_a^bf(a+b-x)\,\textrm{d}x$。
 
 如何使用区间再现换元法来进行计算呢？可能$\int_a^bf(x)\,\textrm{d}x$和$\int_a^bf(a+b-x)\,\textrm{d}x$解不出来，但是可能$\int_a^bf(x)\,\textrm{d}x+\int_a^bf(a+b-x)\,\textrm{d}x$能解出，所以就能解出原来的结果。
-
-\textbf{例题：}求$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\sin x+\cos x}\textrm{d}x}$。
-
-解：可以使用万能公式来计算，但是这里我们使用区间再现换元法来计算。
-
-$=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin(\dfrac{\pi}{2}-x)}{\sin(\dfrac{\pi}{2}-x)+\cos(\dfrac{\pi}{2}-x)}\textrm{d}x=\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x}$
-
-又$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\sin x+\cos x}\textrm{d}x+\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x}$$=\int_0^\frac{\pi}{2}\textrm{d}x=\dfrac{\pi}{2}$。
-
-$\therefore\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\cos x+\sin x}\textrm{d}x}=\dfrac{\pi}{4}$。
 
 \textbf{例题：}(1)已知$f(x)$为一个周期为$T$的偶函数，证明$\int_0^{nT}xf(x)\,\textrm{d}x=\dfrac{n^2T}{2}\int_0^Tf(x)\,\textrm{d}x$。
 
