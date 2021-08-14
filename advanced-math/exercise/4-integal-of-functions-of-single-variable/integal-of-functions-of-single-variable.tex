@@ -95,7 +95,7 @@ $=\displaystyle{\int\dfrac{1}{2}(\cos x-\cos3x)\sin3x\,\textrm{d}x=\dfrac{1}{2}\
 
 $=\dfrac{1}{4}\int(\sin2x+\sin4x)\textrm{d}x-\dfrac{1}{12}\sin^23x=-\dfrac{1}{16}\cos4x-\dfrac{1}{8}\cos2x-\dfrac{1}{12}\sin^23x+C$。
 
-\paragraph{三角拆分} \leavevmode \medskip
+\paragraph{三角等式} \leavevmode \medskip
 
 主要用于$\sec^2-1=\tan^2x$，当出现$\tan^2$、$\tan^3$等与$\sec x$在一起作为乘积时可以考虑拆分换元。
 
@@ -106,6 +106,24 @@ $=\dfrac{1}{4}\int(\sin2x+\sin4x)\textrm{d}x-\dfrac{1}{12}\sin^23x=-\dfrac{1}{16
 $=\dfrac{1}{3}\sec^3x-\sec x+C$。
 
 需要利用到有理积分的高阶多项式分配与低阶多项式因式分解。
+
+有时还可以用二倍角公式。\medskip
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{\sqrt{1+\cos x}}{\sin x}\textrm{d}x}$。
+
+解：看到根号就会很自然想到使用有理换元的方式，令$\sqrt{1+\cos x}=u$，从而$\sin x=\sqrt{2u^2-u^4}$，原式$=\displaystyle{\int\dfrac{u}{\sqrt{2u^2-u^4}}\textrm{d}u}$，这时会发现根本解不出来。
+
+这里自然会想到把根号去掉，那么还有什么方法？将$1+\cos x$变为一个平方的形式，可以使用二倍角公式$1+\cos x=\cos^2\dfrac{x}{2}$，同理分母$\sin x=2\sin\dfrac{x}{2}\cos\dfrac{x}{2}$。
+
+$=\displaystyle{\int\dfrac{\sqrt{2}\left\vert\cos\dfrac{x}{2}\right\vert}{2\sin\dfrac{x}{2}\cos\dfrac{x}{2}}\textrm{d}x=\pm\sqrt{2}\int\csc\dfrac{x}{2}\textrm{d}\left(\dfrac{x}{2}\right)=\pm\sqrt{2}\ln\left\vert\csc\dfrac{x}{2}-\cot\dfrac{x}{2}\right\vert+C}$。
+
+且$\cos\dfrac{x}{2}>0$为正，否则为负。
+
+又$\ln\left\vert\csc\dfrac{x}{2}-\cot\dfrac{x}{2}\right\vert=\ln\dfrac{\left\vert1-\cos\dfrac{x}{2}\right\vert}{\left\vert\sin\dfrac{x}{2}\right\vert}=\ln\left(\dfrac{1}{\left\vert\sin\dfrac{x}{2}\right\vert}-\dfrac{\cos\dfrac{x}{2}}{\left\vert\sin\dfrac{x}{2}\right\vert}\right)$。\medskip
+
+所以当$\cos\dfrac{x}{2}>0$时乘积正负号不变，$=\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert-\left\vert\cot\dfrac{x}{2}\right\vert\right)$。
+
+当$\cos\dfrac{x}{2}<0$时乘积正负号相反，$=\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert+\left\vert\cot\dfrac{x}{2}\right\vert\right)$。
 
 \paragraph{反三角换元} \leavevmode \medskip
 
@@ -134,11 +152,11 @@ $\therefore=t^2\sin t-2t\cos t-\sin t+C=(\arcsin x)^2x+2\arcsin x\sqrt{1-x^2}-2x
 
 当被积函数的分母的幂次要比分子高两次以及以上时，令$x=\dfrac{1}{u}$。
 
-\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x^2\sqrt{x^2-1}}}$。
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x^2\sqrt{x^2-1}}}$。\medskip
 
 解：因为所有的变量都在分母，所以先进行倒代换：
 
-$-\displaystyle{\int\dfrac{u\,\textrm{d}u}{\sqrt{1-u^2}}}=\sqrt{1-u^2}+C=\dfrac{x^2-1}{x}+C$。
+$=-\displaystyle{\int\dfrac{u\,\textrm{d}u}{\sqrt{1-u^2}}}=\sqrt{1-u^2}+C=\dfrac{\sqrt{x^2-1}}{x}+C$。
 
 \paragraph{有理换元} \leavevmode \medskip
 
@@ -158,7 +176,7 @@ $=\displaystyle{\int\dfrac{3u^2}{1+u}\textrm{d}u=\int\dfrac{3u^2+3u-3u-3+3}{1+u}
 
 $=\dfrac{3}{2}u^2-3u+3\ln\vert1+u\vert+C=\dfrac{3}{2}\sqrt[3]{(x+1)^2}-3\sqrt[3]{x+1}+3\ln\vert1+\sqrt[3]{x+1}\vert+C$。
 
-可以和有理积分一同使用：
+可以和有理积分一同使用：\medskip
 
 \textbf{例题：}求$\displaystyle{\int\sqrt{\dfrac{1-x}{1+x}}\dfrac{\textrm{d}x}{x}}$。\medskip
 
