@@ -97,7 +97,7 @@ $=\dfrac{1}{4}\int(\sin2x+\sin4x)\textrm{d}x-\dfrac{1}{12}\sin^23x=-\dfrac{1}{16
 
 \paragraph{三角等式} \leavevmode \medskip
 
-主要用于$\sec^2-1=\tan^2x$，当出现$\tan^2$、$\tan^3$等与$\sec x$在一起作为乘积时可以考虑拆分换元。
+主要用于$\sec^2-1=\tan^2x$，当出现$\tan^2$、$\tan^3$等与$\sec x$在一起作为乘积时可以考虑拆分换元。同时$\sin^2x+\cos^2=1$，$\csc^2x-\cos^2x=1$。
 
 \textbf{例题：}$\displaystyle{\int\tan^3x\sec x\,\textrm{d}x}$。
 
@@ -105,9 +105,19 @@ $=\dfrac{1}{4}\int(\sin2x+\sin4x)\textrm{d}x-\dfrac{1}{12}\sin^23x=-\dfrac{1}{16
 
 $=\dfrac{1}{3}\sec^3x-\sec x+C$。
 
-需要利用到有理积分的高阶多项式分配与低阶多项式因式分解。
+有时需要利用到有理积分的高阶多项式分配与低阶多项式因式分解。
 
-有时还可以用二倍角公式。\medskip
+\textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{(2+\cos x)\sin x}}$。\medskip
+
+解：将所有的$\sin x$都变成$\cos x$。所以分子分母都乘上$\sin x$。
+
+$=\displaystyle{\int\dfrac{\textrm{d}(\cos x)}{(2+\cos x)(\cos^2x-1)}}$，令$\cos x=u$：$=\displaystyle{\int\dfrac{\textrm{d}u}{(2+u)(u^2-1)}}$。
+
+利用低阶多项式因式分解：$=\displaystyle{\int\left[\dfrac{1}{6(u-1)}-\dfrac{1}{2(u+1)}+\dfrac{1}{3(u+2)}\right]\textrm{d}u}$
+
+$=\dfrac{1}{6}\vert u-1\vert-\dfrac{1}{2}\ln\vert u+1\vert+\dfrac{1}{3}\ln\vert u+2\vert+C=\dfrac{1}{6}\ln(1-\cos x)-\dfrac{1}{2}\ln(1+\cos x)+\dfrac{1}{3}\ln(2+\cos x)+C$。
+
+有时还可以用二倍角公式。特别是遇到$1+\cos x$等。\medskip
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\sqrt{1+\cos x}}{\sin x}\textrm{d}x}$。
 
@@ -123,7 +133,15 @@ $=\displaystyle{\int\dfrac{\sqrt{2}\left\vert\cos\dfrac{x}{2}\right\vert}{2\sin\
 
 所以当$\cos\dfrac{x}{2}>0$时乘积正负号不变，$=\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert-\left\vert\cot\dfrac{x}{2}\right\vert\right)$。
 
-当$\cos\dfrac{x}{2}<0$时乘积正负号相反，$=\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert+\left\vert\cot\dfrac{x}{2}\right\vert\right)$。
+当$\cos\dfrac{x}{2}<0$时乘积正负号相反，提出负号，$=\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert+\left\vert\cot\dfrac{x}{2}\right\vert\right)$。
+
+又$\csc^2\dfrac{x}{2}-\cot^2\dfrac{x}{2}=1$，$\therefore\ln\left(\left(\left\vert\csc\dfrac{x}{2}\right\vert+\left\vert\cot\dfrac{x}{2}\right\vert\right)\cdot\left(\left\vert\csc\dfrac{x}{2}\right\vert-\left\vert\cot\dfrac{x}{2}\right\vert\right)\right)=\ln\left(\csc^2\dfrac{x}{2}-\cot^2\dfrac{x}{2}\right)=\ln1=0$，$\therefore\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert+\left\vert\cot\dfrac{x}{2}\right\vert\right)+\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert-\left\vert\cot\dfrac{x}{2}\right\vert\right)=0$，$\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert+\left\vert\cot\dfrac{x}{2}\right\vert\right)=-\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert-\left\vert\cot\dfrac{x}{2}\right\vert\right)$。
+
+当$\cos\dfrac{x}{2}>0$，$=\sqrt{2}\ln\left\vert\csc\dfrac{x}{2}-\cot\dfrac{x}{2}\right\vert+C=\sqrt{2}\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert-\left\vert\cot\dfrac{x}{2}\right\vert\right)+C$。
+
+当$\cos\dfrac{x}{2}<0$，$=-\sqrt{2}\ln\left\vert\csc\dfrac{x}{2}-\cot\dfrac{x}{2}\right\vert+C=\sqrt{2}\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert-\left\vert\cot\dfrac{x}{2}\right\vert\right)+C$。
+
+综上，$\displaystyle{\int\dfrac{\sqrt{1+\cos x}}{\sin x}\textrm{d}x}=\sqrt{2}\ln\left(\left\vert\csc\dfrac{x}{2}\right\vert-\left\vert\cot\dfrac{x}{2}\right\vert\right)+C$。
 
 \paragraph{反三角换元} \leavevmode \medskip
 
@@ -677,7 +695,19 @@ $\therefore\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\cos x+\sin x}\textr
 
 \subsubsection{换元积分}
 
+换元积分法基本上跟不定积分一样。
+
+\textbf{例题：}求$\displaystyle{\int_0^2\dfrac{x\,\textrm{d}x}{(x^2-2x+2)^2}}$。\medskip
+
+解：从题目来看都需要使用换元积分法，因为分母比较复杂。一种思路直接令$x^2-2x+2=u$，但是这样$\textrm{d}x$就解不出来。所以尝试将分母配方：$x^2-2x+2=(x-1)^2+1$，看到$x^2+1$的形式就想到了$\tan^2u+1=\sec^2u$，所以令$x-1=\tan u$，即$x=\tan u+1$，$\textrm{d}x=\sec^2u\,\textrm{d}u$，$(x^2-2x+2)^2=\sec^4u$。当$x=0$，$u=-\dfrac{\pi}{4}$，当$x=2$，$u=\dfrac{\pi}{4}$。解得$=\displaystyle{\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\dfrac{(1+\tan u)\textrm{d}u}{\sec^2u}}$
+
+$=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\tan u\,\textrm{d}u=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\sin u\cos u\,\textrm{d}u=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u=2\int_0^\frac{\pi}{4}\cos^2u\,\textrm{d}u=2\int_0^\frac{\pi}{4}(1+\cos2u)\,\textrm{d}u=\dfrac{\pi}{4}+\dfrac{1}{2}$。
+
 \subsubsection{分部积分}
+
+可以使用普通的分部积分方式，也可以使用分部积分推广公式。
+
+
 
 \subsection{变限积分}
 
