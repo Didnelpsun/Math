@@ -709,6 +709,19 @@ $=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^
 
 \textbf{例题：}求$\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x$。
 
+解：令$e^{2x}=u$，$\cos x=v$，$\therefore$根据积分推广公式：\medskip
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    $e^{2x}$ & $2e^{2x}$ & $4e^{2x}$ \\ \hline
+    $\cos x$ & $\sin x$ & $-\cos x$ \\
+    \hline
+\end{tabular} \medskip
+
+$\therefore\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=[e^{2x}\sin x+2e^{2x}\cos x]_0^\frac{\pi}{2}-4\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x$。
+
+$\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=\dfrac{1}{5}[e^{2x}(\sin x+2\cos x)]_0^\frac{\pi}{2}=\dfrac{1}{5}(e^\pi-2)$。
+
 \subsection{变限积分}
 
 \subsubsection{极限}
@@ -746,6 +759,32 @@ $\therefore\varPhi(x)=\left\{\begin{array}{ll}
 由于$x\to1^-$时，$\lim\limits_{x\to1^-}\varPhi(x)=\lim\limits_{x\to1^-}\dfrac{x^3}{3}=\dfrac{1}{3}$。$x=1$时，$\varPhi(1)=\dfrac{1}{2}-\dfrac{1}{6}=\dfrac{1}{3}$，所以$\varPhi(x)$在$x=1$处连续，而在其他定义域都是函数，所以也连续，从而$\varPhi(x)$在$(0,2)$上连续。
 
 \subsection{反常积分}
+
+反常积分就是取极限，基本计算方法一样。
+
+\subsubsection{基本反常积分}
+
+\textbf{例题：}求$\displaystyle{\int_0^{+\infty}\dfrac{\textrm{d}x}{(1+x)(1+x^2)}}$。\medskip
+
+解：这是无穷区间的反常积分，看到一个$1+x^2$因式，所以尝试使用换元积分法，令$x=\tan u$，$1+x^2=\sec^2u$，$\textrm{d}x=\sec^2u\,\textrm{d}u$。
+
+当$x=0$，$\tan u=0$，$u=0$，当$x=+\infty$，$u=+\dfrac{\pi}{2}$。
+
+$\therefore=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{1}{1+\tan u}\textrm{d}u=\int_0^\frac{\pi}{2}\dfrac{\cos u}{\cos u+\sin u}\textrm{d}u=\dfrac{\pi}{4}}$。
+
+根据区间再现公式，$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin u}{\cos u+\sin u}\textrm{d}u=\int_0^\frac{\pi}{2}\dfrac{\cos u}{\cos u+\sin u}\textrm{d}u=\dfrac{\pi}{4}}$。
+
+\subsubsection{递推公式}
+
+\textbf{例题：}利用递推公式计算反常积分$I_n=\int_0^{+\infty}x^ne^{-x}\,\textrm{d}x$（$n\in N$）。
+
+解：看到这个公式，虽然不知道如何利用递推公式得到这个反常积分的值，但是看到这个式子是由两个部分的乘积构成，所以尝试使用分部积分来计算看看：
+
+$I_n=-\int_0^{+\infty}x^n\,\textrm{d}(e^{-x})=[-x^ne^{-x}]_0^{+\infty}+\int_0^{+\infty}nx^{n-1}e^{-x}\,\textrm{d}x=-\lim\limits_{x\to+\infty}x^ne^{-x}+n\int_0^{+\infty}x^{n-1}e^{-x}\,\textrm{d}x=n\int_0^{+\infty}x^{n-1}e^{-x}\,\textrm{d}x=nI_{n-1}$。
+
+且$I_0=\int_0^{+\infty}e^{-x}\,\textrm{d}x=[-e^{-x}]_0^{+\infty}=1$。
+
+$\therefore I_n=n!$。
 
 \section{一元函数积分应用}
 
