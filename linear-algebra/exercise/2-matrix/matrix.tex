@@ -36,7 +36,7 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{矩阵的幂}
+\section{矩阵幂}
 
 \subsection{对应成比例}
 
@@ -351,6 +351,27 @@ $A=\left(\begin{array}{ccc}
     & \begin{turn}{80}$\ddots$\end{turn} \\
    A_1^{-1}
 \end{array}\right)$。
+
+\section{方阵行列式}
+
+\subsection{两项积商}
+
+\begin{itemize}
+    \item $\vert A^T\vert=\vert A\vert$。
+    \item $\vert A^{-1}\vert=\dfrac{1}{\vert A\vert}$。
+    \item $\vert\lambda A\vert=\lambda^n\vert A\vert$。
+    \item $\vert AB\vert=\vert A\vert\cdot\vert B\vert=\vert BA\vert$。
+\end{itemize}
+
+因为两项积商比较简单，所以基本上会变换$A$和$B$，让其变为转置或逆矩阵。
+
+\subsection{两项和差}
+
+两项和差需要将方阵拆分为向量组的形式，然后根据矩阵与行列式的运算法则进行运算。（注意其中的差别）
+
+\textbf{例题：}设四阶方阵$A=[\alpha,\gamma_2,\gamma_3,\gamma_4]$，$B=[\beta,\gamma_2,\gamma_3,\gamma_4]$，其中$\alpha$、$\beta$、$\gamma_i$均为四维向量，且$\vert A\vert=5$，$\vert B\vert=-\dfrac{1}{2}$，求$\vert A+2B\vert$。
+
+解：$=\vert[\alpha,\gamma_2,\gamma_3,\gamma_4]+2[\beta,\gamma_2,\gamma_3,\gamma_4]\vert=\vert[\alpha+2\beta,3\gamma_2,3\gamma_3,3\gamma_4]\vert=27\vert[\alpha+2\beta,\gamma_2,\gamma_3,\gamma_4]\vert=27\vert[\alpha,\gamma_2,\gamma_3,\gamma_4]\vert+54\vert[\beta,\gamma_2,\gamma_3,\gamma_4]\vert=27(\vert A\vert+2\vert B\vert)=108$。
 
 \section{矩阵方程}
 

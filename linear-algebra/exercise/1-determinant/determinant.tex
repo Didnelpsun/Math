@@ -138,9 +138,30 @@ $\left|\begin{array}{cccc}
     a_1^{n-1} & a_2^{n-1} & \cdots & a_n^{n-1} \\
 \end{array}\right|=\prod\limits_{1\leqslant j<i\leqslant n}(a_i-a_j)$
 
+\textbf{例题：}求$\left|\begin{array}{cccc} 
+    1 & 2 & 3 & 4 \\
+    1 & 2^2  & 3^2 & 4^2 \\
+    1 & 2^3  & 3^3 & 4^3 \\
+    9 & 8 & 7 & 6
+\end{array}\right|$。
+
+解：这个式子非常像范德蒙德行列式，但是差一行1。所以我们要把最后一行变为同样值。可以观察得到第四行加最后一行为10，所以
+
+$=\left|\begin{array}{cccc} 
+    1 & 2 & 3 & 4 \\
+    1 & 2^2  & 3^2 & 4^2 \\
+    1 & 2^3  & 3^3 & 4^3 \\
+    10 & 10 & 10 & 10
+\end{array}\right|=10\times(-1)^3\left|\begin{array}{cccc} 
+    1 & 1 & 1 & 1 \\
+    1 & 2 & 3 & 4 \\
+    1 & 2^2  & 3^2 & 4^2 \\
+    1 & 2^3  & 3^3 & 4^3
+\end{array}\right|=-10\times2\times3\times2=-120$。
+
 \subsubsection{分块行列式}
 
-也称为拉普拉斯展开式，设$A$为$m$阶矩阵，$B$为$n$阶矩阵：
+也称为拉普拉斯展开式，设$A$为$m$阶矩阵，$B$为$n$阶矩阵：\medskip
 
 $\left|\begin{array}{cc}
     A & O \\
