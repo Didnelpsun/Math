@@ -76,6 +76,14 @@ $\therefore A^n=\left\{\begin{array}{lcl}
     4^kA, & & n=2k+1
 \end{array}\right.$。
 
+\subsection{行列结合}
+
+将一个矩阵拆成$\alpha\beta^T$的形式，其中都是列向量，从而进行幂运算可以进行结合$\beta^T\alpha$为一个常数。
+
+\textbf{例题：}设$\alpha=(1,3,-2)^T$，$\beta=(2,0,0)^T$，$A=\alpha\beta^T$，求$A^3$。
+
+解：$\because\beta^T\alpha=[2,0,0][1,3,-2]^T=2$，$\therefore A^3=(\alpha\beta^T)(\alpha\beta^T)(\alpha\beta^T)=\alpha(\beta^T\alpha)$\\$(\beta^T\alpha)\beta^T=4\alpha\beta^T=4A$。
+
 \subsection{拆分矩阵}
 
 将$A^n$拆分为两个矩阵$A^n=(B+C)^n$，其中$BC$应该是可逆的，即$BC=CB$，所以一般有一个是$E$。\medskip
@@ -143,6 +151,16 @@ $=\left(\begin{array}{ccc}
     0 & 0 & 0 \\
     0 & 0 & 0
 \end{array}\right)$
+
+\subsection{分块矩阵}
+
+$\left[\begin{array}{cc}
+    A & O \\
+    O & B
+\end{array}\right]^n=\left[\begin{array}{cc}
+    A^n & O \\
+    O & B^n
+\end{array}\right]$。
 
 \section{初等变换}
 
@@ -228,7 +246,7 @@ $AB-A=B$，所以提出$A(B-E)=B$，即$A(B-E)=B-E+E$，$(A-E)(B-E)=E$，所以$
 
 \subsection{分解乘积}
 
-将$A$分解为若干个可逆矩阵的乘积。若$A=BC$，$B$，$C$可逆，则$A$可逆，且$A^{-1}=C^{-1}B^{-1}$。
+将$A$分解为若干个可逆矩阵的乘积。若$A=BC$，$B$，$C$可逆，则$A$可逆，且$A^{-1}=C^{-1}B^{-1}$。同理$(ABC)^{-1}=C^{-1}B^{-1}A^{-1}$。
 
 \textbf{例题：}设$A$，$B$为同阶可逆方阵，且$A^{-1}+B^{-1}$可逆，求$(A+B)^{-1}$。
 
@@ -352,6 +370,31 @@ $A=\left(\begin{array}{ccc}
    A_1^{-1}
 \end{array}\right)$。
 
+\textbf{例题：}已知矩阵$A$的伴随矩阵$A^*=\left[\begin{array}{cccc}
+    4 & -2 & 0 & 0 \\
+    -3 & 1 & 0 & 0 \\
+    0 & 0 & -4 & 0 \\
+    0 & 0 & 0 & -1
+\end{array}\right]$，求$A$。
+
+解：由于$A^{-1}=\dfrac{A^*}{\vert A\vert}$，所以$A=\vert A\vert(A^*)^{-1}$。已知$A^*$可知$(A^*)^{-1}$，所以重点就是求$\vert A\vert$。
+
+又$\vert A^*\vert=\vert A\vert^{n-1}$，$\vert A^*\vert=-8$，$\vert A\vert=-2$。
+
+所以根据分块矩阵的逆运算，可以得到$(A^*)^{-1}=\left[\begin{array}{cccc}
+    -\dfrac{1}{2} & -1 & 0 & 0 \\
+    -\dfrac{3}{2} & -2 & 0 & 0 \\
+    0 & 0 & -\dfrac{1}{4} & 0 \\
+    0 & 0 & 0 & -1
+\end{array}\right]$。
+
+所以$A=\left[\begin{array}{cccc}
+    1 & 2 & 0 & 0 \\
+    3 & 4 & 0 & 0 \\
+    0 & 0 & \dfrac{1}{2} & 0 \\
+    0 & 0 & 0 & 2
+\end{array}\right]$。
+
 \section{方阵行列式}
 
 \subsection{两项积商}
@@ -361,6 +404,7 @@ $A=\left(\begin{array}{ccc}
     \item $\vert A^{-1}\vert=\dfrac{1}{\vert A\vert}$。
     \item $\vert\lambda A\vert=\lambda^n\vert A\vert$。
     \item $\vert AB\vert=\vert A\vert\cdot\vert B\vert=\vert BA\vert$。
+    \item $\vert A^*\vert=\vert A\vert^{n-1}$。
 \end{itemize}
 
 因为两项积商比较简单，所以基本上会变换$A$和$B$，让其变为转置或逆矩阵。
@@ -379,6 +423,8 @@ $A=\left(\begin{array}{ccc}
 
 若$A$、$B$可逆，且可以分别得到$X=A^{-1}B$，$X=BA^{-1}$，$X=A^{-1}CB^{-1}$。
 
+\subsection{直接化简}
+
 \textbf{例题：}设3阶方阵$A$，$B$满足$A^{-1}BA=6A+BA$，且$A=\left(\begin{array}{ccc}
     \dfrac{1}{3} & 0 & 0 \\
     0 & \dfrac{1}{4} & 0 \\
@@ -388,5 +434,33 @@ $A=\left(\begin{array}{ccc}
 解：$A^{-1}BA=(6E+B)A$，$A^{-1}B=6E+B$，$A^{-1}B-B=6E$，$(A^{-1}-E)B=6E$。
 
 $\therefore B=6(A^{-1}-E)^{-1}$。
+
+\subsection{凑目标式}
+
+有时候直接化简非常麻烦，因为所求的式子很复杂，甚至出现结果不能得到的情况。
+
+\textbf{例题：}已知$AB=A+B$，其中$B=\left[\begin{array}{ccc}
+    1 & 1 & 0 \\
+    1 & 1 & 0 \\
+    0 & 0 & 2
+\end{array}\right]$，求$(A-E)^{-1}$。
+
+解：已知$AB=A+B$，求$A-E$，则向目标计算。
+
+$AB-B=A$，即$(A-E)B=A$，$(A-E)^{-1}=BA^{-1}$。因为$A$未知，所以要消去$A$。
+
+根据$AB=A+B$，得到$AB-A=B$，即$A(B-E)=B$，$A^{-1}=(B-E)B^{-1}$。
+
+$(A-E)^{-1}=BA^{-1}=B(B-E)B^{-1}$，然后就不知道接下来怎么办了。
+
+我们很希望$BB^{-1}$在一起消掉，但是无论如何操作都无法完成。但是也可以通过此得到解题的启示，按$(A-E)(B-E)$去凑。
+
+回到$(A-E)B=A$，去凑$B-E$，先尝试两边减去$E$，得到$(A-E)B-E=A-E$，正好左移右项$(A-E)(B-E)=E$，解得$(A-E)^{-1}=B-E$。
+
+即$=\left[\begin{array}{ccc}
+    0 & 1 & 0 \\
+    1 & 0 & 0 \\
+    0 & 0 & 1
+\end{array}\right]$。
 
 \end{document}
