@@ -240,6 +240,20 @@ $=-\dfrac{2au}{1+u^2}+2a\arctan u+C=(x-a)\sqrt{\dfrac{a+x}{a-x}}+2a\arctan\sqrt{
 
 $=-\sqrt{a^2-x^2}+2a\arctan\sqrt{\dfrac{a+x}{a-x}}+C$。
 
+特别是根式下是比较古怪的表达式，不能直接通过有理换元计算，可以尝试先部分积分再换元。
+
+\textbf{例题：}求$\displaystyle{\int\dfrac{xe^x}{\sqrt{1+e^x}}\textrm{d}x}$。
+
+解：若首先进行换元积分法，令$\sqrt{1+e^x}=t$，则$I=2\int\ln(t^2-1)\,\textrm{d}t$。
+
+所以先尝试换元：$\int xe^x(1+e^x)^{-\frac{1}{2}}\,\textrm{d}x=2\int x\,\textrm{d}(\sqrt{1+e^x})=2x\sqrt{1+e^x}-2\int\sqrt{1+e^x}\,\textrm{d}x$，再令$\sqrt{1+e^x}=t$。
+
+则$x=\ln(t^2-1)$，$\textrm{d}x=\dfrac{2t}{t^2-1}\textrm{d}t$。
+
+则$\displaystyle{\int\sqrt{1+e^x}\,\textrm{d}x=\int\dfrac{2t^2}{t^2-1}\textrm{d}t=2\int\dfrac{t^2-1+1}{t^2-1}\textrm{d}t}=2\left(t+\dfrac{1}{2}\ln\left\vert\dfrac{t-1}{t+1}\right\vert\right)+C=2\sqrt{1+e^x}+\ln\dfrac{\sqrt{1+e^x}-1}{\sqrt{1+e^x}+1}+C$。
+
+$\therefore=2x\sqrt{1+e^x}-4\sqrt{1+e^x}-2\ln\dfrac{\sqrt{1+e^x}-1}{\sqrt{1+e^x}+1}+C$。
+
 \paragraph{万能公式} \leavevmode \medskip
 
 同样属于有理积分的内容，但是本质还是属于三角函数的部分。
@@ -643,6 +657,16 @@ $=-\dfrac{1}{2(x^2+x+1)}-\dfrac{2}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}-\dfrac
 
 $=-\dfrac{4x+3}{2(x^2+x+1)}-\dfrac{6}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}+C$。
 
+\subsection{不定积分等式}
+
+积分求导就得到微分，题目会给出微分和积分之间的关系式，以求相关的函数表达式。
+
+\textbf{例题：}已知$\int f'(x^3)\,\textrm{d}x=x^3+C$，求$f(x)$表达式。
+
+解：两边求导：$f'(x^3)=3x^2$，令$x^3=t$，则$x=t^\frac{1}{3}$，即$f'(t)=3t^\frac{2}{3}$。
+
+所以$f(x)=\dfrac{9}{5}x^\frac{5}{3}+C$。
+
 \section{定积分}
 
 \subsection{定限积分}
@@ -679,19 +703,25 @@ $=\left[\arctan x+\dfrac{1}{2}\ln(1+x^2)\right]_0^1=\dfrac{\pi}{4}+\dfrac{1}{2}\
 
 \subsubsection{区间再现}
 
-若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-x)\,\textrm{d}x$。
+若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-x)\,\textrm{d}x$。区间再现本质是一种换元法，但是实际上是本显式的根据函数周期移动$x$的范围，求出另一种形式，再结合一起解出。
+
+基本上三角函数相关的式子可以用区间再现。
 
 \textbf{例题：}求$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\sin x+\cos x}\textrm{d}x}$。
 
-解：
-
-% 可以使用万能公式来计算，但是这里我们使用区间再现换元法来计算。
-
-$=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin(\dfrac{\pi}{2}-x)}{\sin(\dfrac{\pi}{2}-x)+\cos(\dfrac{\pi}{2}-x)}\textrm{d}x=\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x}$
+解：$=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin(\dfrac{\pi}{2}-x)}{\sin(\dfrac{\pi}{2}-x)+\cos(\dfrac{\pi}{2}-x)}\textrm{d}x=\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x}$
 
 又$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\sin x+\cos x}\textrm{d}x+\int_0^\frac{\pi}{2}\dfrac{\cos x}{\cos x+\sin x}\textrm{d}x}$$=\int_0^\frac{\pi}{2}\textrm{d}x=\dfrac{\pi}{2}$。
 
 $\therefore\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\cos x+\sin x}\textrm{d}x}=\dfrac{\pi}{4}$。
+
+\textbf{例题：}求$\displaystyle{\int_0^\pi}\dfrac{x\sin x}{1+\cos^2x}\textrm{d}x$。
+
+解：首先看题目，貌似分部积分无法进行，因为式子结构不是两个部分，换元法一般的也换不了，
+
+根据区间再现公式，令$x=\pi-t$，则$=-\displaystyle{\int_\pi^0\dfrac{(\pi-t)\sin(\pi-t)}{1+\cos^2(\pi-t)}\textrm{d}t}=$\\$\displaystyle{\int_0^\pi\dfrac{(\pi-t)\sin t}{1+\cos^2t}\textrm{d}t}=\pi\displaystyle{\int_0^\pi\dfrac{\sin t}{1+\cos^2t}\textrm{t}-I}$。
+
+$\therefore=\dfrac{1}{2}\pi\displaystyle{\int_0^\pi\dfrac{\sin t}{1+\cos^2t}\textrm{d}t}=-\dfrac{1}{2}\pi\int_0^\pi\dfrac{\textrm{d}\cos t}{1+\cos^2t}=-\dfrac{1}{2}\pi\arctan\cos t\bigg|_0^\pi=\dfrac{1}{4}\pi^2$。
 
 \subsubsection{换元积分}
 
@@ -721,6 +751,34 @@ $=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^
 $\therefore\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=[e^{2x}\sin x+2e^{2x}\cos x]_0^\frac{\pi}{2}-4\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x$。
 
 $\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=\dfrac{1}{5}[e^{2x}(\sin x+2\cos x)]_0^\frac{\pi}{2}=\dfrac{1}{5}(e^\pi-2)$。
+
+\subsubsection{几何意义}
+
+定积分与不定积分不同的就是定积分具有几何意义，可以在计算时简化操作。
+
+\textbf{例题：}计算$\int_0^1\sqrt{2x-x^2}\,\textrm{d}x$。
+
+解：首先看到这个题目可能会使用换元积分法，但是尝试$t=\sqrt{2x-x^2}$，则$x$无法用$t$表示。
+
+对$\sqrt{2x-x^2}$进行变形，$=\sqrt{1-(x-1)^2}$，令$x-1=t$，则$=\int_0^1\sqrt{1-t^2}\,\textrm{d}t$，根据定积分的几何意义，这是一个单位圆的四分之一，所以结果等于$\dfrac{1}{4}\pi$。
+
+\subsubsection{定限积分等式}
+
+与不定积分等式一样，存在一些问题给出带有不定积分的等式，需要求里面的包含的函数。其中不同的是定限积分的值都是常数，所以解题时可以令其为一个参数求。
+
+\textbf{例题：}设$f(x)=x^2-x\int_0^2f(x)\,\textrm{d}x+2\int_0^1f(x)\,\textrm{d}x$，求$f(x)$。
+
+解：令$\int_0^2f(x)\,\textrm{d}x=a$，$\int_0^1f(x)\,\textrm{d}x=b$。
+
+则等式变为$f(x)=x^2-ax+2b$，所以等式就可以回代到两个参数的定积分中。
+
+$\int_0^2(x^2-ax+2b)\,\textrm{d}x=a$，$\int_0^1(x^2-ax+2b)\,\textrm{d}x=b$。
+
+$\left[\dfrac{x^3}{3}-\dfrac{ax^2}{2}+2bx\right]_0^2=\dfrac{8}{3}-2a+4b=a$，$\left[\dfrac{x^3}{3}-\dfrac{ax^2}{2}+2bx\right]_0^1=\dfrac{1}{3}-\dfrac{a}{2}+2b=b$。
+
+即$b-\dfrac{1}{2}a=-\dfrac{1}{3}$，$4b-3a==\dfrac{8}{3}$，解得$a=\dfrac{4}{3}$，$b=\dfrac{1}{3}$。
+
+则$f(x)=x^2-\dfrac{4}{3}x+\dfrac{2}{3}$。
 
 \subsection{变限积分}
 
@@ -758,6 +816,24 @@ $\therefore\varPhi(x)=\left\{\begin{array}{ll}
 
 由于$x\to1^-$时，$\lim\limits_{x\to1^-}\varPhi(x)=\lim\limits_{x\to1^-}\dfrac{x^3}{3}=\dfrac{1}{3}$。$x=1$时，$\varPhi(1)=\dfrac{1}{2}-\dfrac{1}{6}=\dfrac{1}{3}$，所以$\varPhi(x)$在$x=1$处连续，而在其他定义域都是函数，所以也连续，从而$\varPhi(x)$在$(0,2)$上连续。
 
+\subsubsection{极值}
+
+\textbf{例题：}设$f(x)$是定义于$x\geqslant1$的正值连续函数，则求其相关函数$F(x)=\displaystyle{\int_1^x\left[\left(\dfrac{2}{x}+\ln x\right)-\left(\dfrac{2}{t}+\ln t\right)\right]f(t)\,\textrm{d}t}$（$x\geqslant1$）的极小值点。\medskip
+
+解：按照一般函数一样求极值就是求导，注意的是$t$和$x$含义不同，若对$t$求导，则$x$作为积分上限是看作常数的，所以可以提出去：
+
+$F(x)=\left(\dfrac{2}{x}+\ln x\right)\displaystyle{\int_1^xf(t)\,\textrm{d}t-\int_1^x\left(\dfrac{2}{t}+\ln t\right)f(t)\,\textrm{d}t}$。
+
+$x$求导：$F'(x)=\left(-\dfrac{2}{x^2}+\dfrac{1}{x}\right)\int_1^xf(t)\,\textrm{d}t+\left(\dfrac{2}{x}+\ln x\right)f(x)-\left(\dfrac{2}{x}+\ln x\right)f(x)$
+
+$\because f(x)$为连续正值函数，$\therefore=\dfrac{x-2}{x^2}\int_1^xf(t)\,\textrm{d}t=\left\{\begin{array}{lcl}
+    < 0, & & 1<x<2 \\
+    =0, & & x=2 \\
+    >0, & & x>2
+\end{array}\right.$。
+
+所以极小值为$2$。
+
 \subsection{反常积分}
 
 反常积分就是取极限，基本计算方法一样。
@@ -773,6 +849,14 @@ $\therefore\varPhi(x)=\left\{\begin{array}{ll}
 $\therefore=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{1}{1+\tan u}\textrm{d}u=\int_0^\frac{\pi}{2}\dfrac{\cos u}{\cos u+\sin u}\textrm{d}u=\dfrac{\pi}{4}}$。
 
 根据区间再现公式，$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin u}{\cos u+\sin u}\textrm{d}u=\int_0^\frac{\pi}{2}\dfrac{\cos u}{\cos u+\sin u}\textrm{d}u=\dfrac{\pi}{4}}$。
+
+\subsubsection{求参数}
+
+题目会给出一个含参的式子，并给出对应的极限值，要求对应的参数值。首先必须知道对应的式子什么时候才会收敛。
+
+\textbf{例题：}已知$\displaystyle{\int_1^{+\infty}\left[\dfrac{2x^2+bx+a}{x(2x+a)}-1\right]}$，求参数。
+
+解：首先将式子化简$=\displaystyle{\int_1^{+\infty}\dfrac{(b-a)x+a}{x(2x+a)}\textrm{d}x=(b-a)\int_1^{+\infty}\dfrac{1}{2x+a}\textrm{d}x}+$\\$\displaystyle{a\int_1^{+\infty}\dfrac{1}{x(2x+a)}\textrm{d}x}=(b-a)\int_1^{+\infty}\dfrac{1}{2x+a}\textrm{d}x+\int_1^{+\infty}\dfrac{1}{x}\textrm{d}x-2\int_1^{+\infty}\dfrac{1}{2x+a}\textrm{d}x$
 
 \subsubsection{递推公式}
 

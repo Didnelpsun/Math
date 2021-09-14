@@ -136,8 +136,8 @@
     \item 集合对应法：\begin{enumerate}
         \item 加法原理：完成一件事有$n$类方法，第一类方法中有$m_1$类方法，第二类办法有$m_2$中方法，$\cdots$，第$n$类方法中有$m_n$类方法，所以完成此事共有$\sum\limits_{i=1}^nm_i$种方法。 
         \item 乘法原理：完成一件事情有$n$个步骤，第一步有$m_1$种方法，第二步有$m_2$种方法，$\cdots$，第$n$步有$m_n$种方法，则完成此事共有$\prod\limits_{i=1}^nm_i$种方法。   
-        \item 排列：从$n$种不同的元素种取出$m\leqslant n$个元素，并按照一定顺序排成一列，称为排列，所有排列的个数称为排列数，记为$P_n^m=n(n-1)(n-2)\cdots(n-m+1)=\dfrac{n!}{(n-m)!}$，当$m=n$时，$P_m^n=n!$称为\textbf{全排列}。
-        \item 组合：从$n$种不同的元素种取出$m\leqslant n$个元素，并组成一组，称为组合，所有组合的个数称为组合数，记为$C_n^m=\dfrac{P_n^m}{m!}=\dfrac{n!}{(n-m)!m!}$。
+        \item 排列：从$n$种不同的元素种取出$m\leqslant n$个元素，并按照一定顺序排成一列，称为排列，所有排列的个数称为排列数，记为$A_n^m=n(n-1)(n-2)\cdots(n-m+1)=\dfrac{n!}{(n-m)!}$，当$m=n$时，$A_m^n=n!$称为\textbf{全排列}。
+        \item 组合：从$n$种不同的元素种取出$m\leqslant n$个元素，并组成一组，称为组合，所有组合的个数称为组合数，记为$C_n^m=\dfrac{A_n^m}{m!}=\dfrac{n!}{(n-m)!m!}$。
     \end{enumerate}
     \item 逆数法：先求$\overline{A}$中的基本事件数$n_{\overline{A}}$，将基本事件总数$n$减去$n_{\overline{A}}$得$A$中的基本事件数。常用于计算含有“至少”字样的事件的概率。
 \end{enumerate}
@@ -256,7 +256,7 @@ $\therefore =\dfrac{0.2}{0.7+0.6-0.5}=0.25$。\medskip
 \subsection{事件独立性}
 
 \begin{itemize}
-    \item 描述性定义（直观性定义）：设$AB$为两个事件，如果其中任何一个事件发生的概率不受零位一个事件发生与否的影响，则称事件$A$与$B$\textbf{相互独立}。设$A_1,A_2,\cdots,A_n$是$n\geqslant2$个事件，如果其中任何一个或几个事件发生的概率都不受其余的某一个或几个事件发生与否的影响，则称事件$A_1,A_2,\cdots,A_n$\textbf{相互独立}。
+    \item 描述性定义（直观性定义）：设$AB$为两个事件，如果其中任何一个事件发生的概率不受另外一个事件发生与否的影响，则称事件$A$与$B$\textbf{相互独立}。设$A_1,A_2,\cdots,A_n$是$n\geqslant2$个事件，如果其中任何一个或几个事件发生的概率都不受其余的某一个或几个事件发生与否的影响，则称事件$A_1,A_2,\cdots,A_n$\textbf{相互独立}。
     \item 数学定义：设$AB$为两个事件，如果$P(AB)=P(A)P(B)$，则称事件$A$与事件$B$\textbf{相互独立}，简称$A$与$B$\textbf{独立}。如$P(A|B)=\dfrac{P(AB)}{P(B)}=\dfrac{P(A)P(B)}{P(B)}=P(A)$。
 \end{itemize}
 
@@ -293,5 +293,7 @@ $C.A_1,A_2,A_3$两两独立\qquad$D.A_2,A_3,A_4$两两独立
 独立重复试验\textcolor{violet}{\textbf{定义：}}独立表示与各试验相联系的事件之间相互独立，其中重复表示每个事件在各次试验中出现的概率不便。
 
 伯努利试验\textcolor{violet}{\textbf{定义：}}只针对失败、成功两种对立结果的试验，将伯努利试验重复进行$n$次，就是\textbf{$n$重伯努利试验}。
+
+在计算伯努利试验概率的时候不仅要考虑每一类情况（出现几次）的次数，还有考虑其组合情况，即将多个情况的$C_n^mp^j$相加。
 
 \end{document}
