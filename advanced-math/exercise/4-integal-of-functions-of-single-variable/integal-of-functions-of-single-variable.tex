@@ -850,13 +850,29 @@ $\therefore=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{1}{1+\tan u}\textrm{d}u=\in
 
 根据区间再现公式，$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin u}{\cos u+\sin u}\textrm{d}u=\int_0^\frac{\pi}{2}\dfrac{\cos u}{\cos u+\sin u}\textrm{d}u=\dfrac{\pi}{4}}$。
 
+\textbf{例题：}求$\displaystyle{\int_0^{+\infty}\dfrac{xe^{-x}}{(1+e^{-x})^2}\textrm{d}x}$。
+
+解：看到本题中没有可以换元的元素，尝试使用分部积分将分母移到积分变量中。
+
+$=\displaystyle{\int_0^{+\infty}x\textrm{d}\left(\dfrac{1}{1+e^{-x}}\right)}=\left[\dfrac{x}{1+e^{-x}}\right]_0^{+\infty}-\int_0^{+\infty}\dfrac{\textrm{d}x}{1+e^{-x}}=\lim\limits_{x\to+\infty}\dfrac{x}{1+e^{-x}}-\int_0^{+\infty}\dfrac{\textrm{d}e^x}{1+e^x}=\lim\limits_{x\to+\infty}\left[\dfrac{x}{1+e^{-x}}-\ln(1+e^x)\right]+\ln2=\lim\limits_{x\to+\infty}\dfrac{1}{1+e^{-x}}[x-\ln(1+e^x)(1+e^{-x})]+\ln2=\lim\limits_{x\to+\infty}[x-\ln(1+e^x)(1+e^{-x})]+\ln2=\lim\limits_{x\to+\infty}[\ln e^x-\ln(1+e^x)(1+e^{-x})]+\ln2=\lim\limits_{x\to+\infty}\left[\ln e^x-(1+e^x)\dfrac{\ln(1+e^x)}{e^x}\right]+\ln2=\lim\limits_{x\to+\infty}\\\left[\ln\dfrac{e^x}{1+e^x}-\dfrac{\ln(1+e^x)}{e^x}\right]+\ln2=\ln1-0+\ln2=\ln2$。
+
 \subsubsection{求参数}
 
 题目会给出一个含参的式子，并给出对应的极限值，要求对应的参数值。首先必须知道对应的式子什么时候才会收敛。
 
 \textbf{例题：}已知$\displaystyle{\int_1^{+\infty}\left[\dfrac{2x^2+bx+a}{x(2x+a)}-1\right]}$，求参数。
 
-解：首先将式子化简$=\displaystyle{\int_1^{+\infty}\dfrac{(b-a)x+a}{x(2x+a)}\textrm{d}x=(b-a)\int_1^{+\infty}\dfrac{1}{2x+a}\textrm{d}x}+$\\$\displaystyle{a\int_1^{+\infty}\dfrac{1}{x(2x+a)}\textrm{d}x}=(b-a)\int_1^{+\infty}\dfrac{1}{2x+a}\textrm{d}x+\int_1^{+\infty}\dfrac{1}{x}\textrm{d}x-2\int_1^{+\infty}\dfrac{1}{2x+a}\textrm{d}x$
+解：首先将式子化简$=\displaystyle{\int_1^{+\infty}\dfrac{(b-a)x+a}{x(2x+a)}\textrm{d}x=\int_1^{+\infty}\dfrac{b-a}{2x+a}+\dfrac{a}{x(2x+a)}\textrm{d}x}$。
+
+此时可以知道后面的$\dfrac{a}{x(2x)+a}\to\dfrac{1}{2x^2}\to x^{-2}$，积分结果为$\dfrac{1}{x}$，所以这个部分的反常积分在$x\to+\infty$是收敛的。
+
+而前面的部分$\dfrac{b-a}{2x+a}\to\dfrac{1}{x}$，积分结果为$\ln x$，当$x\to+\infty$时不收敛，所以就需要把这个部分消掉，即$b-a=0$，$b=a$。
+
+所以结果变为$\displaystyle{\int_1^{+\infty}\dfrac{a}{x(2x+a)}\textrm{d}x=\int_1^{+\infty}\left[\dfrac{1}{x}-\dfrac{2}{2x+a}\right]\textrm{d}x}=\ln\dfrac{x}{2x+a}\bigg\vert_1^{+\infty}$\\$=\ln\dfrac{1}{2}-\ln\dfrac{1}{2+a}=\ln(2+a)-\ln2=\ln\left(1+\dfrac{a}{2}\right)=1$，$\therefore a=b=2(e-1)$。
+
+可能会奇怪，为什么最开始不把式子化成最简单的式子：
+
+$=\displaystyle{\int_1^{+\infty}\dfrac{b-a}{2x+a}+\dfrac{1}{x}-\dfrac{2}{2x+a}\textrm{d}x=\int_1^{+\infty}\dfrac{b-a-2}{2x+a}+\dfrac{1}{x}\textrm{d}x}$。此时前后两个式子都是发散的，所以不能求出收敛的参数。
 
 \subsubsection{递推公式}
 
