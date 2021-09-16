@@ -739,7 +739,13 @@ $\sim\left(\begin{array}{ccccc}
 
 \section{矩阵秩}
 
+\subsection{定义}
+
 秩的本质就是组成矩阵的线性无关的向量个数。
+
+若秩等于矩阵行数就是满秩，否则就是降秩。
+
+\subsection{性质}
 
 $r(kA)=r(A)$。
 
@@ -758,5 +764,25 @@ $AB=O$，$r(A)+r(B)\leqslant A$的列数。
 % 证明：$\because B=(\beta_1,\cdots,\beta_s)$，$\therefore(A\beta_1,\cdots,A\beta_s)=0$，$\therefore A\beta_i=0$，$i=1,2,\cdots,s$。
 
 % 从而每个$\beta_i$都是$Ax=0$的解。
+
+\section{等价矩阵}
+
+\subsection{定义}
+
+\textcolor{violet}{\textbf{定义：}}若有两个同型的$m\times n$的矩阵$AB$，满足$B=QAP$（$Q$为$m\times m$阶可逆矩阵，$P$为$n\times n$阶可逆矩阵），则$AB$等价。
+
+\subsection{性质}
+
+\begin{itemize}
+    \item 矩阵$A$和$A$等价（反身性）。
+    \item 矩阵$A$和$B$等价，那么$B$和$A$也等价（等价性）。
+    \item 矩阵$A$和$B$等价，矩阵$B$和$C$等价,那么$A$和$C$等价（传递性）。
+    \item 矩阵$A$和$B$等价，那么$\vert A\vert=k\vert B\vert$。（$k$为非零常数）。
+    \item 具有行等价关系的矩阵所对应的线性方程组有相同的解。
+\end{itemize}
+
+\subsection{判定}
+
+\textcolor{aqua}{\textbf{定理：}}若$AB$同型且秩相等，则其等价。
 
 \end{document}

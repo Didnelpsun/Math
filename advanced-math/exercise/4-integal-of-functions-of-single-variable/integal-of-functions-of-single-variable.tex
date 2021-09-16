@@ -894,37 +894,153 @@ $\therefore I_n=n!$。
 
 \subsubsection{面积}
 
+\paragraph{直角坐标系} \leavevmode \medskip
+
+\textbf{例题：}求曲线$y^2=x$与$y=x^2$所围成面积。
+
+解：首先确定$x$的范围，是$x\in[0,1]$。
+
+第二步确立微元，即切割的微小元素，是$\textrm{d}S=[\sqrt{x}-x^2]\textrm{d}x$（也可以对$y$积分：$S=\int_0^1(\sqrt{y}-y^2)\,\textrm{d}y$）。
+
+最后一步对其积分：$S=\int_0^1(\sqrt{x}-x^2)\,\textrm{d}x=\dfrac{2}{3}-\dfrac{1}{3}=\dfrac{1}{3}$。
+
+\textbf{例题：}求曲线$y^2=2x$与$y=x-4$围成面积。
+
+解：首先确定范围，将$y=x-4$代入$y^2=2x$，从而得到$x\in[0,8]$，$y\in[-2,4]$。
+
+若是对$x$确立微元，则对于不同的区间，面积有不同的表达式：
+
+$S=\int_0^22\sqrt{2x}\,\textrm{d}x+\int_2^8(\sqrt{2x}-x+4)\,\textrm{d}x$。
+
+这显然很麻烦，然而如果对$y$确立微元，那么$y^2=2x$在$y\in[-2,4]$上总是在$y=x-4$下面，所以这个面积只要一个表达式就能表达出来：
+
+$\textrm{d}S=\left[(y+4)-\dfrac{y^2}{2}\right]\textrm{d}y$。
+
+所以$S=\displaystyle{\int_{-2}^4\left[(y+4)-\dfrac{y^2}{2}\right]\textrm{d}y}$。
+
+\paragraph{参数方程} \leavevmode \medskip
+
+\textbf{例题：}求摆线一拱$\left\{\begin{array}{l}
+    x=a(t-\sin t) \\
+    y=a(1-\cos t)
+\end{array}
+\right.$$(0\leqslant t\leqslant 2\pi)$与$x$轴所围成的面积。\medskip
+
+解：首先计算范围，代入$2\pi$，得到$x\in[0,2a\pi]$。
+
+然后是找微元，这里是对$x$确立：$\textrm{d}S=y(x)\,\textrm{d}x$。
+
+从而$S=\int_0^{2a\pi}y(x)\,\textrm{d}x$。
+
+因为无法计算对于$x$的表达式，所以使用参数方程代入，并改变上下限$S$：
+
+$=\int_0^{2\pi}a(1-\cos t)\,\textrm{d}[a(t-\sin t)]=\int_0^{2\pi}a^2(1-\cos t)^2\,\textrm{d}t$
+
+$=a^2\displaystyle{\int_0^{2\pi}\left(2\sin^2\dfrac{t}{2}\right)^2\textrm{d}t}\,\text{（消去里面的1）}=4a^2\displaystyle{\int_0^{2\pi}\sin^4\dfrac{t}{2}\,\textrm{d}t}$
+
+令$u=\dfrac{t}{2}$，从而$\textrm{d}t=2\textrm{d}u$，从而$u\in[0,\pi]$。
+
+$=8a^2\int_0^\pi\sin^4u\,\textrm{d}u=16a^2\int_0^{\frac{\pi}{2}}\sin^4u\,\textrm{d}u$（积分可加性拆分为两个相同限的项）
+
+$=16a^2\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=3a^2\pi$（点火公式）。
+
+\paragraph{极坐标} \leavevmode \medskip
+
+\textbf{例题：}求心形线$\rho=a(1+\cos\theta)(a>0)$所围成面积。
+
+解：极角发生变化时，可以计算到心形线必然会穿过$(2a,0),(0,a),(0,0)$这三个点，而$\cos x$是一个偶函数，所以心形线图形是上下对称的。如果要求心形线的面积，可以只用求上半部分就可以了。
+
+所以可以根据公式$S=2\dfrac{1}{2}\int_0^\pi a^2(1+\cos\theta)^2\,\textrm{d}\theta$。
+
+$=a^2\displaystyle{\int_0^\pi\left(2\cos^2\dfrac{\theta}{2}\right)^2\textrm{d}\theta}=4a^2\displaystyle{\int_0^\pi\cos^4\dfrac{\theta}{2}\,\textrm{d}\theta}$
+
+令$\dfrac{\theta}{2}=t$，所以$\textrm{d}\theta=2\textrm{d}t$，同时上下限缩小一半：$=8a^2\int_0^{\frac{\pi}{2}}\cos^4t\,\textrm{d}t$
+
+根据华理士公式：$=8a^2\cdot\dfrac{3}{4}\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}=\dfrac{3}{2}a^2\pi$。
+
+\paragraph{旋转体侧面积} \leavevmode \medskip
+
 \subsubsection{体积}
+
+\paragraph{旋转体} \leavevmode \medskip
+
+\textbf{例题：}计算由椭圆$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}=1$所围成的图形绕$x$轴旋转一周而成的体积。
+
+解：由式子得到$y^2=b^2\left(1-\dfrac{x^2}{b^2}\right)$。
+
+所以旋转体体积就是两倍的第一象限的旋转体积，直接计算第一象限部分就可以了。
+
+$V_x=2\pi\displaystyle{\int_0^ab^2\left(1-\dfrac{x^2}{a^2}\right)\,\textrm{d}x}=2\pi b^2\left(a-\dfrac{a}{3}\right)=\dfrac{4\pi ab^2}{3}$。
+
+\textbf{例题：}计算摆线$\left\{\begin{array}{l}
+    x=a(t-\sin t) \\
+    y=a(1-\cos t)
+\end{array}
+\right.$$(0\leqslant t\leqslant 2\pi)$与$x$轴，$y$轴所旋转得到的体积。
+
+解：$\because t\in[0,2\pi]$，$\therefore x\in[0,2a\pi]$。
+
+$V_x=\pi\int_0^{2a\pi}y^2\,\textrm{d}x$
+
+代入参数方程并改变上下限：
+
+$=\pi\int_0^{2\pi}a^2(1-\cos t)^2\,\textrm{d}[a(t-\sin t)]=a^3\pi\int_0^{2\pi}(1-\cos t)^3\,\textrm{d}t$
+
+$=a^3\pi\displaystyle{\int_0^{2\pi}\left(2\sin^2\dfrac{t}{2}\right)^3\textrm{d}t}=8a^3\pi\displaystyle{\int_0^{2\pi}\sin^6\dfrac{t}{2}\textrm{d}t}$
+
+令$\dfrac{\theta}{2}=t$，所以$\textrm{d}\theta=2\textrm{d}t$，同时上下限缩小一半：
+
+$=16a^3\pi\int_0^\pi\sin^6u\,\textrm{d}u=32a^3\pi\int_0^{\frac{\pi}{2}}\sin^6u\,\textrm{d}u$
+
+华理士公式得到最后$=5a^3\pi^2$。
+
+同理可得$y$轴旋转体积为$V_y=2\pi\int_0^{2\pi}xy(x)\,\textrm{d}x$
+
+$=2\pi\int_0^{2\pi}a(t-\sin t)a^2(1-\cos t)^2\,\textrm{d}t=2a^3\pi\int_0^{2\pi}(t-\sin t)\cdot 4\sin^4\dfrac{t}{2}\,\textrm{d}t$
+
+然后拆开分别进行凑微分法，得到$6a^3\pi^3$。
+
+\paragraph{平行截面已知的立体体积} \leavevmode \medskip
+
+\textbf{例题：}计算由$\dfrac{x^2}{a^2}+\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1$所围成的椭球体的体积。
+
+解：已知$\dfrac{y^2}{b^2}+\dfrac{z^2}{c^2}=1-\dfrac{x^2}{a^2}$.
+
+$S(x)=\pi bc\left(1-\dfrac{x^2}{a^2}\right)$
+
+$V=2\int_0^a\pi bc\left(1-\dfrac{x^2}{a^2}\right)\,\textrm{d}x$。
+
+解得$V=\dfrac{4}{3}\pi abc$。
 
 \subsubsection{平均值}
 
+\textbf{例题：}求函数$y=\dfrac{x^2}{\sqrt{1-x^2}}$在区间$\left[\dfrac{1}{2},\dfrac{\sqrt{3}}{2}\right]$上的平均值。
+
+解：$\bar{y}=\dfrac{1}{\dfrac{\sqrt{3}}{2}-\dfrac{1}{2}}\displaystyle{\int_\frac{1}{2}^\frac{\sqrt{3}}{2}\dfrac{x^2}{\sqrt{1-x^2}}\textrm{d}x}$，令$x=\sin t$：$=\dfrac{2}{\sqrt{3}-1}\displaystyle{\int_\frac{\pi}{6}^\frac{\pi}{3}\dfrac{\sin^2t}{\cos t}\cos t\,\textrm{d}t}$ \medskip
+
+$=\dfrac{2}{\sqrt{3}-1}\int_\frac{\pi}{6}^\frac{\pi}{3}\sin^2t\,\textrm{d}t=\dfrac{1}{\sqrt{3}-1}\int_\frac{\pi}{6}^\frac{\pi}{3}(1-\cos2t)\,\textrm{d}t=\dfrac{\sqrt{3}+1}{12}\pi$。
+
 \subsubsection{弧长}
 
-利用勾股定理求弧长。
+% 利用勾股定理求弧长。
 
-若平面光滑曲线表达式为：
+% 若平面光滑曲线表达式为：
 
-\begin{itemize}
-    \item 直角坐标系$y=y(x)$（$a\leqslant x\leqslant b)$，则$s=\int_a^b\sqrt{1+[y'(x)]^2}\,\textrm{d}x$。
-    \item 参数方程$x=x(t),y=y(t)$（$\alpha\leqslant t\leqslant\beta)$，则$s=\int_\alpha^\beta\sqrt{[x'(x)]^2+[y'(t)]^2}\,\textrm{d}t$。
-    \item 极坐标系$r=r(\theta)$（$\alpha\leqslant\theta\leqslant\beta)$给出，则$s=\int_a^b\sqrt{[r(\theta)]^2+[r'(\theta)]^2}\,\textrm{d}\theta$。
-\end{itemize}
+% \begin{itemize}
+%     \item 直角坐标系$y=y(x)$（$a\leqslant x\leqslant b)$，则$s=\int_a^b\sqrt{1+[y'(x)]^2}\,\textrm{d}x$。
+%     \item 参数方程$x=x(t),y=y(t)$（$\alpha\leqslant t\leqslant\beta)$，则$s=\int_\alpha^\beta\sqrt{[x'(x)]^2+[y'(t)]^2}\,\textrm{d}t$。
+%     \item 极坐标系$r=r(\theta)$（$\alpha\leqslant\theta\leqslant\beta)$给出，则$s=\int_a^b\sqrt{[r(\theta)]^2+[r'(\theta)]^2}\,\textrm{d}\theta$。
+% \end{itemize}
 
 \subsubsection{旋转曲面表面积}
 
-使用弧长而不是$\textrm{d}x$来计算。
-
-曲线$y=y(x)$在区间$[a,b]$上的曲线弧段绕$x$轴旋转一周所得的旋转曲面的表面积$S=2\pi\int_a^b\vert y(x)\vert\sqrt{1+[y'(x)]^2}\,\textrm{d}x$。
-
-曲线$x=x(t)$，$y=y(t)$（$\alpha\leqslant t\leqslant\beta$，$x'(t)\neq0$）在区间$[\alpha,\beta]$上的曲线弧段绕$x$轴旋转一周所得到的旋转曲面的表面积$S=2\pi\int_\alpha^\beta\vert y(t)\vert\sqrt{[x'(t)]^2+[y'(t)]^2}\,\textrm{d}t$。
-
 \subsubsection{形心坐标公式}
 
-设曲边梯形平面区域$D=\{(x,y)|0\leqslant y\leqslant f(x),a\leqslant x\leqslant b\}$，$f(x)$在$[a,b]$上连续，则$D$的形心坐标计算公式为：
+% 设曲边梯形平面区域$D=\{(x,y)|0\leqslant y\leqslant f(x),a\leqslant x\leqslant b\}$，$f(x)$在$[a,b]$上连续，则$D$的形心坐标计算公式为：
 
-$\overline{x}=\dfrac{\iint\limits_Dx\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_0^{f(x)}x\textrm{d}y}{\int_a^b\textrm{d}x\int_0^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bxf(x)\,\textrm{d}x}{\int_a^bf(x)\,\textrm{d}x}$。
+% $\overline{x}=\dfrac{\iint\limits_Dx\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_0^{f(x)}x\textrm{d}y}{\int_a^b\textrm{d}x\int_0^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bxf(x)\,\textrm{d}x}{\int_a^bf(x)\,\textrm{d}x}$。
 
-$\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_0^{f(x)}y\textrm{d}y}{\int_a^b\textrm{d}x\int_0^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bf^2(x)\,\textrm{d}x}{2\int_a^bf(x)\,\textrm{d}x}$。
+% $\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_0^{f(x)}y\textrm{d}y}{\int_a^b\textrm{d}x\int_0^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bf^2(x)\,\textrm{d}x}{2\int_a^bf(x)\,\textrm{d}x}$。
 
 \textbf{例题：}设曲线$L$的方程为$y=\dfrac{1}{4}x^2-\dfrac{1}{2}\ln x$，$1\leqslant x\leqslant e$，$D$是由曲线$L$，直线$x=1$，$x=e$及$x$轴围成的平面图形，求$D$的形心横坐标。
 
@@ -936,13 +1052,7 @@ $\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}
 
 \subsubsection{变力沿直线做功}
 
-设方向沿$x$轴正向的力函数为$F(x)$（$a\leqslant x\leqslant b$），则物体沿$x$轴从点$a$移动到点$b$时，变力$F(x)$所做的功为$W=\int_a^bF(x)\,\textrm{d}x$，功的元素$\textrm{d}W=F(x)\,\textrm{d}x$。
-
 \subsubsection{抽水做功}
-
-将容器中的水全部抽出所做的功为$W=\rho g\int_a^bxA(x)\,\textrm{d}x$，其中$\rho$为水的密度，$g$为重力加速度。
-
-功的元素$\textrm{d}W=\rho gxA(x)\,\textrm{d}x$为位于$x$处厚度为$\textrm{d}x$，水平截面面积为$A(x)$的一层水被抽出（路径为$x$）所做的功。
 
 \textbf{例题：}有一个半径为$4m$的半球形水池蓄满了水，现在要将水全部抽取到距水池原水面$6m$高的水箱中，求需要做多少功。（水的密度为$1000kg/m^3$，重力加速度$g=9.8m/s^2$）
 
@@ -957,10 +1067,6 @@ $\rho gA(y)\,\textrm{d}y=\rho g\pi(16-y^2)\,\textrm{d}y$
 又$y$从最开始的0到抽干的-4，所以得到$w=\int_{-4}^0\rho g\pi(16-y^2)(6-y)\,\textrm{d}y$。
 
 \subsubsection{水压力}
-
-垂直浸没于水中的平板$ABCD$的一侧收到的水压力为$P=\rho g\int_a^bx[f(x)-h(x)]\,\textrm{d}x$，其中$\rho$为水的密度，$g$为重力加速度。
-
-压力元素$\textrm{d}P=\rho gx[f(x)-h(x)]\,\textrm{d}x$是受到的压力，$x$表示水深，$f(x)-h(x)$是矩形的宽度，$\textrm{d}x$是矩形的高度，总高度为$\vert a-b\vert$。
 
 \section{积分等式}
 
