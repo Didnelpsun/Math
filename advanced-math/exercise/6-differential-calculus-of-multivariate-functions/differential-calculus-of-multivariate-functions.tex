@@ -41,6 +41,55 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
+
+\section{基本概念}
+
+\subsection{复合函数}
+
+函数以复合函数形式$f(g(x,y))$出现，函数的变量是一个整体。
+
+\subsubsection{链式法则}
+
+若是给出相应的不等式可以通过链式法则求出对应的表达式。
+
+\textbf{例题：}设$u=u(\sqrt{x^2+y^2})$（$r=\sqrt{x^2+y^2}>0$）有二阶连续的偏导数，且满足$\dfrac{\partial^2u}{\partial x^2}+\dfrac{\partial^2u}{\partial y^2}-\dfrac{1}{x}\dfrac{\partial u}{\partial x}+u=x^2+y^2$，则求$u(\sqrt{x^2+y^2})$。
+
+解：这个函数是复合函数$u=u(r)$和$r=\sqrt{x^2+y^2}$而成。根据复合函数求导法则：
+
+$\dfrac{\partial u}{\partial x}=\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{\partial r}{\partial x}=\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{x}{\sqrt{x^2+y^2}}=\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{x}{r}$。
+
+$\dfrac{\partial^2u}{\partial x^2}=\dfrac{\partial}{\partial x}\left(\dfrac{\partial u}{\partial x}\right)=\dfrac{\partial}{\partial x}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{x}{r}\right)=\dfrac{x}{r}\cdot\dfrac{\partial}{\partial x}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\right)+\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{\partial}{\partial x}\left(\dfrac{x}{r}\right)=$。
+
+\subsubsection{特殊值反代}
+
+若是给出的不等式后还给出对应的特殊值，可以直接代入然后反代求出函数，而不用链式法则。
+
+\textbf{例题：}设$z=e^x+y^2+f(x+y)$，且当$y=0$时，$z=x^3$，则求$\dfrac{\partial z}{\partial x}$。
+
+解：已知$y=0$时，$z=e^x+f(x)=x^3$，$\therefore f(x)=x^3-e^x$，$f(x+y)=(x+y)^3-e^{x+y}$，$z=e^x+y^2+(x+y)^3-e^{x+y}$。
+
+$\therefore\dfrac{\partial z}{\partial x}=e^x+3(x+y)^2-e^{x+y}$。
+
+\section{二元函数}
+
+函数以$f(u,v)$的形式来出现，需要分别对其求偏导。
+
+\subsection{链式法则}
+
+\textbf{例题：}设$z=e^{xy}+f(x+y,xy)$，$f(u,v)$有二阶连续偏导数，求$\dfrac{\partial^2z}{\partial x\partial y}$。
+
+解：令$x+y$为$u$，$xy$为$v$，$f(u,v)$对$u$求导就是$f_1'$，对$v$求导就是$f_2'$，求$uv$依次求导就是$f_{12}''$，以此类推。
+
+首先求一次偏导：$\dfrac{\partial z}{\partial x}=ye^{xy}+\dfrac{\partial f(u,v)}{\partial u}\dfrac{\partial u}{\partial x}+\dfrac{\partial f(u,v)}{\partial v}\dfrac{\partial v}{\partial x}=ye^{xy}+f_1'+f_2'y$。
+
+接着对$y$求偏导：$\dfrac{\partial^2z}{\partial x\partial y}=e^{xy}+xye^{xy}+\dfrac{\partial f_1'}{\partial y}+\dfrac{\partial f_2'y}{\partial y}$。
+
+$=e^{xy}+xye^{xy}+\dfrac{\partial f_1'}{\partial y}+\dfrac{\partial f_2'}{\partial y}y+f_2'\dfrac{\partial y}{\partial y}=e^{xy}+xye^{xy}+\dfrac{\partial f_1'}{\partial u}\dfrac{\partial u}{\partial y}+\dfrac{\partial f_1'}{\partial v}\dfrac{\partial v}{\partial y}+\dfrac{\partial f_2'}{\partial u}\dfrac{\partial u}{\partial y}y+\dfrac{\partial f_2'}{\partial v}\dfrac{\partial v}{\partial y}y+f_2'=e^{xy}+xye^{xy}+f_{11}''+f_{12}''x+f_{21}''y+f_{22}''xy+f_2'$。\medskip
+
+又$f(u,v)$具有两阶连续偏导数，所以$f_{12}''=f_{21}''$。
+
+即$=e^{xy}+xye^{xy}+f_{11}''+(x+y)f_{12}''+xyf_{22}''+f_2'$。
+
 \section{多元函数微分应用}
 
 \subsection{空间曲线的切线与法平面}

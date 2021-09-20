@@ -88,6 +88,8 @@ $\therefore\ln(u+\sqrt{1+u^2})=-\ln x+\ln C$，$u+\sqrt{1+u^2}=\dfrac{C}{x}$。
 
 \subsection{一阶线性方程}
 
+形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)$。
+
 \textbf{例题：}求微分方程$y'+1=e^{-y}\sin x$的通解。
 
 解：已知对$e^{-y}\sin x$无法处理，所以必然需要对其转换，$e^yy'+e^y=\sin x$。
@@ -97,6 +99,8 @@ $\therefore(e^y)'+e^y=\sin x$，令$e^y=u$，$u'+u=\sin x$，$P(x)=1$，$Q(x)=\s
 $e^y=u=e^{-\int\textrm{d}x}(\int e^{\int\textrm{d}x}\sin x\,\textrm{d}x+C)=e^{-x}(\int e^x\sin x\,\textrm{d}x+C)$，积分再现表格解出$\int e^x\sin x\,\textrm{d}x$：$=e^{-x}\left(\dfrac{1}{2}e^x(\sin x-\cos x)+C\right)$。
 
 \subsection{伯努利方程}
+
+形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)y^n$。
 
 \textbf{例题：}求$y\,\textrm{d}x=(1+x\ln y)x\,\textrm{d}y$（$y>0$）的通解。
 
@@ -131,8 +135,6 @@ $y'=C(1+x^2)$，$\therefore y=C_2\left(x+\dfrac{x^3}{3}+x\right)+C$。
 \section{高阶线性微分方程}
 
 \subsection{常系数齐次线性微分方程}
-
-
 
 \subsection{常系数非齐次线性微分方程}
 
