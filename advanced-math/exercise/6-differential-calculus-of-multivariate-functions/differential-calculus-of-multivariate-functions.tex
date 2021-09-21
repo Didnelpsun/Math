@@ -56,9 +56,19 @@
 
 解：这个函数是复合函数$u=u(r)$和$r=\sqrt{x^2+y^2}$而成。根据复合函数求导法则：
 
-$\dfrac{\partial u}{\partial x}=\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{\partial r}{\partial x}=\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{x}{\sqrt{x^2+y^2}}=\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{x}{r}$。
+$\dfrac{\partial u}{\partial x}=\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{\partial r}{\partial x}=\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{x}{\sqrt{x^2+y^2}}=\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{x}{r}$，$\dfrac{1}{x}\cdot\dfrac{\partial u}{\partial x}=\dfrac{1}{r}\cdot\dfrac{\textrm{d}u}{\textrm{d}r}$。
 
-$\dfrac{\partial^2u}{\partial x^2}=\dfrac{\partial}{\partial x}\left(\dfrac{\partial u}{\partial x}\right)=\dfrac{\partial}{\partial x}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\dfrac{x}{r}\right)=\dfrac{x}{r}\cdot\dfrac{\partial}{\partial x}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\right)+\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{\partial}{\partial x}\left(\dfrac{x}{r}\right)=$。
+$\dfrac{\partial^2u}{\partial x^2}=\dfrac{\partial}{\partial x}\left(\dfrac{\partial u}{\partial x}\right)=\dfrac{\partial}{\partial x}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{x}{r}\right)=\dfrac{x}{r}\cdot\dfrac{\partial}{\partial x}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\right)+\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{\partial}{\partial x}\left(\dfrac{x}{r}\right)=\dfrac{x}{r}\cdot\dfrac{\partial}{\partial r}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\right)\dfrac{\partial r}{\partial x}+\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{r-x\cdot(\partial r/\partial x)}{r^2}=\dfrac{x^2}{r^2}\cdot\dfrac{\textrm{d}^2u}{\textrm{d}r^2}+\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{r^2-x^2}{r^3}$。
+
+$\dfrac{\partial^2u}{\partial y^2}=\dfrac{\partial}{\partial y}\left(\dfrac{\partial u}{\partial y}\right)=\dfrac{\partial}{\partial y}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{y}{r}\right)=\dfrac{y}{r}\cdot\dfrac{\partial}{\partial y}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\right)+\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{\partial}{\partial y}\left(\dfrac{y}{r}\right)=\dfrac{y}{r}\cdot\dfrac{\partial}{\partial r}\left(\dfrac{\textrm{d}u}{\textrm{d}r}\right)\dfrac{\partial r}{\partial y}+\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{r-y\cdot(\partial r/\partial y)}{r^2}=\dfrac{y^2}{r^2}\cdot\dfrac{\textrm{d}^2u}{\textrm{d}r^2}+\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{r^2-x^2}{r^3}$
+
+代入不等式：$\dfrac{x^2+y^2}{r^2}\cdot\dfrac{\textrm{d}u^2}{\textrm{d}r^2}+\dfrac{\textrm{d}u}{\textrm{d}r}\cdot\dfrac{2r^2-x^2-y^2}{r^3}-\dfrac{1}{r}\cdot\dfrac{\textrm{d}u}{\textrm{d}r}+u=x^2+y^2$。
+
+代入$x^2+y^2=r^2$：$\dfrac{\textrm{d}^2u}{\textrm{d}r^2}+u=r^2$，为二阶线性常系数微分方程。
+
+通解为$u=C_1\cos r+C_2\sin r+r^2-2$。
+
+即$u(\sqrt{x^2+y^2})=C_1\cos\sqrt{x^2+y^2}+C_2\sin\sqrt{x^2+y^2}+x^2+y^2-2$。
 
 \subsubsection{特殊值反代}
 
