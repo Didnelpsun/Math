@@ -120,7 +120,79 @@ $z_{xx}''=y^2f(xy)+y^2f(xy)=2y^2f(xy)$，同理根据变量对称性$z_{yy}''=2x
 
 \textbf{例题：}设$z=f(x,y)$满足$\dfrac{\partial^2z}{\partial x\partial y}=x+y$，且$f(x,0)=x$，$f(0,y)=y^2$，求$f(x,y)$。
 
-解：
+解：根据$\partial x\partial y$的求导顺序反向积分：
+
+$\dfrac{\partial z}{\partial x}=\int(x+y)\,\textrm{d}y=xy+\dfrac{1}{2}y^2+C_1(x)$。（$x$看作常数）
+
+再次积分$z=\displaystyle{\int\left(xy+\dfrac{1}{2}y^2+C_1(x)\right)\,\textrm{d}x}=\dfrac{1}{2}x^2y+\dfrac{1}{2}xy^2+\int C_1(x)\,\textrm{d}x+C_2(y)$。（$y$看作常数）
+
+又$f(x,0)=x$，代入$\int C_1(x)\,\textrm{d}x+C_2(0)=x$，两边求导$C_1(x)=1$，即$\int C_1(x)\,\textrm{d}x=\int\textrm{d}x=x$，$z=\dfrac{1}{2}x^2y+\dfrac{1}{2}xy^2+x+C_2(y)$。
+
+又$f(0,y)=y^2$，代入$C_2(y)=y^2$。
+
+$\therefore z=\dfrac{1}{2}x^2y+\dfrac{1}{2}xy^2+x+y^2$。
+
+% \subsection{极限}
+
+\subsection{全微分}
+
+\subsubsection{含参数}
+
+基本上是用含参数的全微分来求参数。有多种方法。
+
+\textbf{例题：}设$(ax^2y^2-2xy^2)\textrm{d}x+(2x^3y+bx^2y+1)\textrm{d}y$是函数$f(x,y)$的全微分，求参数。
+
+解：由全微分定义可知，$f_x'=ax^2y^2-2xy^2$，$f_y'=2x^3y+bx^2y+1$。
+
+分别对其积分：$f(x,y)=\int(ax^2y^2-2xy^2)\textrm{d}x=\int(2x^3y+bx^2y+1)\textrm{d}y$。
+
+从而$\dfrac{a}{3}x^3y^2-x^2y^2+C(y)=x^3y^2+\dfrac{b}{2}x^2y^2+y+C(x)$，解得$a=3$，$b=-2$，$f(x)=x^3y^2-x^2y^2+y$。
+
+\subsubsection{极限定义}
+
+全微分形式：$\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{\Delta z-(A\Delta x+B\Delta y)}{\sqrt{(\Delta x)^2+(\Delta y)^2}}$。
+
+要求$\textrm{d}z|_{(a,b)}$，就要求$\lim\limits_{(x,y)\to(a,b)}f(x,y)-f(a,b)=cx+dy+o(\rho)$，$c$和$d$就是$\textrm{d}x\textrm{d}y$的参数。
+
+\textbf{例题：}连续函数$z=f(x,y)$满足$\lim\limits_{\substack{x\to0\\ y\to1}}\dfrac{f(x,y)-2x+y-2}{\sqrt{x^2+(y-1)^2}}=0$，求$\textrm{d}z|_{(0,1)}$。
+
+解：当$x\to0$，$y\to1$时$\sqrt{x^2+(y-1)^2}\to0$，又$\lim\limits_{\substack{x\to0\\ y\to1}}\dfrac{f(x,y)-2x+y-2}{\sqrt{x^2+(y-1)^2}}=0$，$\therefore\lim\limits_{\substack{x\to0\\ y\to1}}f(x,y)-2x+y-2=0$。
+
+又$f(x,y)$连续，则$f(0,1)+1-2=0$，$f(0,1)=1$。将值代入，并按分子配方：
+
+$\lim\limits_{\substack{x\to0\\ y\to1}}\dfrac{f(x,y)-f(0,1)-2x+(y-1)}{\sqrt{x^2+(y-1)^2}}=0$，即$f(x,y)-f(0,1)=2x-(y-1)+o(\rho)$。
+
+根据全微分的定义偏导数就是其系数，$f_x'(0,1)=2$，$f_y'(0,1)=-1$。
+
+$\therefore\textrm{d}z|_{(0,1)}=2\textrm{d}x-\textrm{d}y$。
+
+\textbf{例题：}设$f(x,y)$在$(0,0)$处连续，且$\lim\limits_{(x,y)\to(0,0)}\dfrac{f(x,y)-a-bx-cy}{\ln(1+x^2+y^2)}=1$，其中$a,b,c$为常数，求$\textrm{d}f(x,y)|_{(0,0)}$。
+
+解：根据全微分的定义，分母应该是根号的形式，所以对于极限使用等价无穷小替换$\ln(x+1)\sim x$，$\ln(1+x^2+y^2)=x^2+y^2$，$\lim\limits_{(x,y)\to(0,0)}\dfrac{f(x,y)-a-bx-cy}{x^2+y^2}=1$。
+
+又$(x,y)\to0$时$x^2+y^2\to0$，$\therefore f(x,y)-a-bx-cy\to0$。
+
+又$f(x,y)$在$(0,0)$处连续，$f(0,0)=a$。根据极限和无穷小的关系将其代回：
+
+$\lim\limits_{(x,y)\to(0,0)}\dfrac{f(x,y)-f(0,0)-bx-cy}{x^2+y^2}=1+o(1)$。
+
+$\therefore\lim\limits_{(x,y)\to(0,0)}f(x,y)-f(0,0)-bx-cy=x^2+y^2+o(1)\cdot(x^2+y^2)=o(\rho)$。
+
+$\therefore\lim\limits_{(x,y)\to(0,0)}f(x,y)-f(0,0)=bx+cy+o(\rho)$。
+
+即$f_x'(0,0)=b$，$f_y'(0,0)=c$。$\textrm{d}f(x,y)|_{(0,0)}=b\textrm{d}x+c\textrm{d}y$。
+
+\subsubsection{隐函数}
+
+二元隐函数求导公式：$\dfrac{\textrm{d}y}{\textrm{d}x}=-\dfrac{F_x'}{F_y'}$。
+
+三元隐函数求导公式：$\dfrac{\partial z}{\partial x}=-\dfrac{F_x'}{F_z'}$，$\dfrac{\partial z}{\partial y}=-\dfrac{F_y'}{F_z'}$。
+
+\textbf{例题：}设$f(x,y,z)=e^x+y^2z$，其中$z=z(x,y)$由$x+y+z+xyz=0$确定，求$f_x'(0,1,-1)$。
+
+解：$f_x'(x,y,z)=e^x+y^2z_x'$。
+
+又$x+y+z+xyz=0$对$x$求导：$1+z_x'+yz+xyz_x'=0$，代入$(0,1,-1)$，$1+z_x'-1=0$，$z_x'=0$。代入$f_x'(x,y,z)=e^0=1$。
 
 \section{多元函数微分应用}
 
