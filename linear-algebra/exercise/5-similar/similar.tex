@@ -37,7 +37,9 @@
 
 特征值往往与前面的内容进行混合考察。
 
-\section{特征值与迹}
+\section{特征值与特征向量}
+
+\subsection{迹}
 
 \textbf{例题：}已知$A$是3阶方阵，特征值为1，2，3，求$\vert A\vert$的元素$a_{11},a_{22},a_{33}$的代数余子式$A_{11},A_{22},A_{33}$的和$\sum\limits_{i=1}^3A_{ii}$。
 
@@ -49,7 +51,55 @@
 
 $=\sum\limits_{i=1}^3\dfrac{\vert A\vert}{\lambda_i}=\sum\limits_{i=1}^3\dfrac{\lambda_1\lambda_2\lambda_3}{\lambda_i}=\lambda_2\lambda_3+\lambda_1\lambda_3+\lambda_1\lambda_2=2+3+6=11$。
 
-\section{相似对角化}
+\subsection{逆矩阵}
+
+通过相关式子将逆矩阵转换为原矩阵。同一个向量的逆矩阵的特征值是原矩阵的特征值的倒数。
+
+\textbf{例题：}已知$\overrightarrow{\alpha}=(a,1,1)^T$是矩阵$A=\left[\begin{array}{ccc}
+    -1 & 2 & 2 \\
+    2 & a & -2 \\
+    2 & -2 & -1
+\end{array}\right]$的逆矩阵的特征向量，则求$\overrightarrow{\alpha}$在矩阵$A$中对应的特征值。
+
+解：由于$\overrightarrow{\alpha}$是$A^{-1}$的特征向量，所以令此时的特征值为$\lambda_0$，则定义$\lambda_0\overrightarrow{\alpha}=A^{-1}\overrightarrow{\alpha}$，$\lambda_0A\overrightarrow{\alpha}=\overrightarrow{\alpha}$。
+
+即$\lambda_0\left[\begin{array}{ccc}
+    -1 & 2 & 2 \\
+    2 & a & -2 \\
+    2 & -2 & -1
+\end{array}\right]\left[\begin{array}{c}
+    a \\
+    1 \\
+    1 \\
+\end{array}\right]=\left[\begin{array}{c}
+    a \\
+    1 \\
+    1 \\
+\end{array}\right]$，即$\lambda_0\left[\begin{array}{ccc}
+    -a & 2 & 2 \\
+    2a & a & -2 \\
+    2a & -2 & -1
+\end{array}\right]=\left[\begin{array}{c}
+    a \\
+    1 \\
+    1 \\
+\end{array}\right]$。\medskip
+
+即根据矩阵代表的是方程组，得到$\lambda_0(4-a)=a$，$\lambda_0(3a-2)=1$，$\lambda_0(2a-3)=1$。
+
+又$\lambda_0\neq0$，$3a-2=2a-3$，$a=-1$，则$\lambda_0=-\dfrac{1}{5}$。
+
+所以矩阵$A$对应的特征值为$-5$。
+
+\subsection{抽象型}
+
+题目只会给对应的式子，来求对应的特征向量或特征值。需要记住特征值的关系式然后与给出的式子上靠拢，不会很复杂。
+
+\textbf{例题：}已知$A$为三阶矩阵，且矩阵$A$各行元素之和均为5，则求$A$必然存在的特征向量。
+
+解：由于是抽象型，所以没有实际的数据，就不能求出固定的特征值，$\lambda\xi=A\xi$。
+
+\section{相似理论}
 
 \section{判断相似对角化}
 

@@ -1,0 +1,68 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{线性方程组}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{基础解系}
+
+\section{反求参数}
+
+基本上都是给出方程组有无穷多解：
+
+\begin{itemize}
+    \item 齐次方程组：系数矩阵是降秩的；行列式值为0。
+    \item 非齐次方程组：系数矩阵与增广矩阵秩相同且降秩。
+\end{itemize}
+
+\textbf{例题：}已知齐次线性方程组$\left\{\begin{array}{l}
+    ax_1-3x_2+3x_3=0 \\
+    x_1+(a+2)x_2+3x_3=0 \\
+    2x_1+x_2-x_3=0
+\end{array}\right.$有无穷多解，求参数$a$。
+
+解：使用矩阵比较麻烦，三阶的系数矩阵可以使用行列式。
+
+$\vert A\vert=\left\vert\begin{array}{ccc}
+    a & -3 & 3 \\
+    1 & a+2 & 3 \\
+    2 & 1 & -1 \\
+\end{array}\right\vert=\left\vert\begin{array}{ccc}
+    a & 0 & 3 \\
+    1 & a+5 & 3 \\
+    2 & 0 & -1 \\
+\end{array}\right\vert=(a+5)(a+6)=0$。
+
+解得$a=-5$或$a=-6$。
+
+\end{document}
