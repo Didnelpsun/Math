@@ -99,6 +99,46 @@ $=\sum\limits_{i=1}^3\dfrac{\vert A\vert}{\lambda_i}=\sum\limits_{i=1}^3\dfrac{\
 
 解：由于是抽象型，所以没有实际的数据，就不能求出固定的特征值，$\lambda\xi=A\xi$。
 
+又矩阵$A$各行元素之和均为5，所以转换为方程组：\medskip
+
+$\left\{\begin{array}{l}
+    A_{11}+A_{12}+A_{13}=5 \\
+    A_{21}+A_{22}+A_{23}=5 \\
+    A_{31}+A_{32}+A_{33}=5
+\end{array}\right.$，转为矩阵：$\left[\begin{array}{ccc}
+    A_{11} & A_{12} & A_{13} \\
+    A_{21} & A_{22} & A_{23} \\
+    A_{31} & A_{32} & A_{33}
+\end{array}\right]\left[\begin{array}{c}
+    1 \\
+    1 \\
+    1 \\
+\end{array}\right]=5\left[\begin{array}{c}
+    1 \\
+    1 \\
+    1 \\
+\end{array}\right]$。\medskip
+
+即$\xi=(1,1,1)^T$。
+
+\subsection{可逆矩阵}
+
+使用可逆矩阵相似对角化的性质。若$A\sim B$，则$P^{-1}AP=B$。$B$为纯量阵。且$B$的迹为$A$的特征值。$P$为特征向量。\medskip
+
+\textbf{例题：}已知$P^{-1}AP=\left[\begin{array}{ccc}
+    1 \\
+     & 1 \\
+     & & -1
+\end{array}\right]$，$P=(\alpha_1,\alpha_2,\alpha_3)$可逆，求$A$关于特征值$\lambda=1$的特征向量。
+
+解：根据$P^{-1}AP=\Lambda$，所以$P$为特征向量，$1,1,-1$为特征值。
+
+\subsection{实对称矩阵}
+
+实对称矩阵的不同特征值的特征向量相互正交（$A^TA=0$）。
+
+\textbf{例题：}已知$A$为三阶实对称矩阵，特征值为$1,3，-2$，其中$\alpha_1=(1,2,-2)^T$，$\alpha_2=(4,-1,a)^T$分别属于特征值$\lambda=1$，$\lambda=3$的特征向量。求$A$属于特征值$\lambda=-2$的特征向量。
+
 \section{相似理论}
 
 \section{判断相似对角化}
