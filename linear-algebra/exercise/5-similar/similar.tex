@@ -133,16 +133,136 @@ $\left\{\begin{array}{l}
 
 解：根据$P^{-1}AP=\Lambda$，所以$P$为特征向量，$1,1,-1$为特征值。
 
+所以$A$关于$\lambda=1$的特征向量为$\alpha_1$或$\alpha_2$。而某一特征值的全部特征向量构成特征向量子空间，所以$\lambda=1$的特征向量为$k_1\alpha_1+k_2\alpha_2$。
+
 \subsection{实对称矩阵}
 
-实对称矩阵的不同特征值的特征向量相互正交（$A^TA=0$）。
+实对称矩阵的不同特征值的特征向量相互正交（$B^TA=0$）。
 
 \textbf{例题：}已知$A$为三阶实对称矩阵，特征值为$1,3，-2$，其中$\alpha_1=(1,2,-2)^T$，$\alpha_2=(4,-1,a)^T$分别属于特征值$\lambda=1$，$\lambda=3$的特征向量。求$A$属于特征值$\lambda=-2$的特征向量。
 
+解：令$A$属于特征值$\lambda=-2$的特征向量为$(x_1,x_2,x_3)^T$。
+
+根据实对称矩阵的正交性质。
+
+$\alpha_1^T\alpha_2=4-2-2a=0$，$\alpha_2^T\alpha_3=4x_1-x_2+ax_3=0$，$\alpha_3^T\alpha_1=x_1+2x_2-2x_3=0$。
+
+$a=1$，$4x_1-x_2+x_3=0$，$x_1+2x_2-2x_3=0$，解得基础解系$(0,1,1)^T$,$\alpha_3=(0,k,k)^T$（$k\neq0$）。
+
 \section{相似理论}
 
-\section{判断相似对角化}
+\subsection{判断相似对角化}
 
 可以使用相似对角化的四个条件，但是最基本的使用还是$A$有$n$个无关的特征向量$\xi$。
+
+\subsection{反求参数}
+
+常用方法：
+
+\begin{itemize}
+    \item 若$A\sim B$，则$\vert A\vert=\vert B\vert$，$r(A)=r(B)$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B$，通过等式计算参数。
+    \item 若$\xi$是$A$属于特征值$\lambda$的特征向量，则有$A\xi=\lambda\xi$，建立若干等式或方程组来计算参数。
+    \item 若$\lambda$是$A$的特征值，则与$\vert\lambda E-A\vert=0$，通过该等式计算参数。
+\end{itemize}
+
+\textbf{例题：}已知$A=\left(\begin{array}{ccc}
+    2 & 0 & 0 \\
+    0 & 0 & 1 \\
+    0 & 1 & x
+\end{array}\right)$，$B=\left(\begin{array}{ccc}
+    2 \\
+     & y \\
+     & & -1
+\end{array}\right)$，且$A\sim B$，求参数。\medskip
+
+首先可以利用迹相等，则$2+0+x=2+y-1$，行列式值相等，则$-2=-2y$，解得$x=0$，$y=1$。
+
+\subsection{反求矩阵}
+
+若有可逆矩阵$P$，使得$P^{-1}AP=\Lambda$，则：
+
+\begin{itemize}
+    \item $A=P\Lambda P^{-1}$。
+    \item $A^k=P\Lambda^kP^{-1}$。
+    \item $f(A)=Pf(\Lambda)P^{-1}$。
+\end{itemize}
+
+\textbf{例题：}已知$A=\left(\begin{array}{ccc}
+    2 & x & 1 \\
+    0 & 3 & 0 \\
+    3 & -6 & 0
+\end{array}\right)$相似于对角矩阵，求$A^{100}$。\medskip
+
+解：首先$A\sim\Lambda$，所以$A$能相似对角化。
+
+$\vert\lambda E-A\lambda=\left|\begin{array}{ccc}
+    \lambda-2 & -x & -1 \\
+    0 & \lambda-3 & 0 \\
+    -3 & 6 & \lambda
+\end{array}\right|=(\lambda-3)^2(\lambda+1)=0$。$\lambda_1=\lambda_2=3$，$\lambda_3=-1$。
+
+所以对于$\lambda_1=\lambda_2=3$时，需要$s=2$，从而$r(A)=1$，对应成比例。
+
+代入3：$(3E-A)x=0$，$\left(\begin{array}{ccc}
+    1 & -x & -1 \\
+    0 & 0 & 0 \\
+    -3 & 6 & 3
+\end{array}\right)=0$，所以$\dfrac{-1}{3}=\dfrac{-x}{6}$，$x=2$。
+
+解得$\xi_1=(1,0,1)^T$，$\xi_2=(2,1,0)^T$，$\xi_3=(1,0,-3)^T$。
+
+令$P=(\xi_1,\xi_2,\xi_3)$，所以$A=P\Lambda P^{-1}$，$A^{100}=P\Lambda^{100}P^{-1}$。
+
+\subsection{相似性}
+
+\begin{itemize}
+    \item 定义法：若存在可逆矩阵$P$，使得$P^{-1}AP=B$，则$A\sim B$。
+    \item 性质：若$A\sim B$，则$r(A)=r(B)$，$\vert A\vert=\vert B\vert$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B$。
+    \item 传递性：$A\sim\Lambda$，$\Lambda\sim B$，则$A\sim B$。
+\end{itemize}
+
+\textbf{例题：}已知矩阵$A=\left[\begin{array}{ccc}
+    3 & 1 & 2 \\
+    0 & 2 & a \\
+    0 & 0 & 3
+\end{array}\right]$和对角矩阵相似，求$a$。\medskip
+
+解：由于$A$是对角矩阵，所以特征值为其迹$\lambda=(3,2,3)$。特征值有二重根。
+
+已知$A\sim\Lambda$，$\lambda=3$有两个线性无关的特征向量。即$(3E-A)x=0$有两个线性无关的解。即$r(3E-A)=1$。
+
+$3E-A=\left[\begin{array}{ccc}
+    0 & -1 & -2 \\
+    0 & 1 & -a \\
+    0 & 0 & 0
+\end{array}\right]=\left[\begin{array}{ccc}
+    0 & -1 & -2 \\
+    0 & 0 & -a-2 \\
+    0 & 0 & 0
+\end{array}\right]$，$\therefore a=-2$。
+
+\subsection{抽象型}
+
+\textbf{例题：}设$A$是三阶矩阵，$\alpha_1,\alpha_2,\alpha_3$是三维线性无关的列向量，且$A\alpha_1=\alpha_2+\alpha_3$，$A\alpha_2=\alpha_1+\alpha_3$，$A\alpha_3=\alpha_1+\alpha_2$，求$A$相似的矩阵。
+
+解：$A\sim\Lambda$，则$P^{-1}AP=\Lambda$。
+
+$A(\alpha_1,\alpha_2,\alpha_3)=(\alpha_2+\alpha_3,\alpha_1+\alpha_3,\alpha_1+\alpha_2)=(\alpha_1,\alpha_2,\alpha_3)\left[\begin{array}{ccc}
+    0 & 1 & 1 \\
+    1 & 0 & 1 \\
+    1 & 1 & 0
+\end{array}\right]$。
+
+记$P=(\alpha_1,\alpha_2,\alpha_3)$，$B=\left[\begin{array}{ccc}
+    0 & 1 & 1 \\
+    1 & 0 & 1 \\
+    1 & 1 & 0
+\end{array}\right]$。\medskip
+
+又$\alpha_1,\alpha_2,\alpha_3$是三维线性无关的列向量，$\therefore\vert\alpha_1,\alpha_2,\alpha_3\vert\neq0$，所以$P$可逆。
+
+$\therefore AP=PB$，$P^{-1}AP=B$，$A\sim B$。
+
+\subsection{正交相似}
 
 \end{document}

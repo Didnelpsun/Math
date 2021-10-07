@@ -280,6 +280,12 @@ $\therefore\lambda_1=\lambda_2=1$，$\lambda_3=10$。
 
 由相似对角化的充分条件可知，实对称矩阵必然可以相似对角化。
 
+\subsubsection{正交}
+
+\textcolor{violet}{\textbf{定义：}}若$\alpha=(a_1,a_2,\cdots,a_n)$，$\beta=(b_1,b_2,\cdots,b_n)$，则内积$(\alpha,\beta)=a_1b_1+a_2b_2+\cdots+a_nb_n$。
+
+所以内积是一个数值。
+
 \subsubsection{定义}
 
 \textcolor{violet}{\textbf{定义：}}$A^T=A$则$A$就是对称矩阵，若$A$的元素都是实数，则$A$是实对称矩阵。
@@ -300,11 +306,9 @@ $(\lambda_2x_2)^Tx_1=\lambda_1x_2^Tx_1$，$\lambda_2x_2^Tx_1=\lambda_1x_2^Tx_1$�
 
 即$(x_2,x_1)=0$，从而$x_1$与$x_2$正交。
 
-如果不记得正交化可以等到二次型结束后再回头复习。
-
 \subsubsection{步骤}
 
-对于实对称矩阵，一定存在$P$，所以一般而言还会考求$Q$，步骤如下：
+对于实对称矩阵，一定存在$P$，所以一般而言还会考求正交单位化的$Q$，步骤如下：
 
 \begin{enumerate}
     \item 求出$A$的所有特征值$\lambda$。
@@ -334,73 +338,5 @@ $\therefore\eta_2=\left(\dfrac{2}{5},\dfrac{4}{5},1\right)^T$，取$\eta_2=(2,4,
 单位化$\eta_1'=\dfrac{\sqrt{5}}{5}(-2,1,0)^T$，$\eta_2'=\dfrac{\sqrt{5}}{15}(2,4,5)^T$，$\eta_3'=\dfrac{1}{3}(1,2,-2)^T$。
 
 令$Q=(\eta_1',\eta_2',\eta_3')$，使得$Q^{-1}AQ=Q^TAQ=\Lambda$。
-
-\subsection{应用}
-
-\subsubsection{反求参数}
-
-常用方法：
-
-\begin{itemize}
-    \item 若$A\sim B$，则$\vert A\vert=\vert B\vert$，$r(A)=r(B)$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B$，通过等式计算参数。
-    \item 若$\xi$是$A$属于特征值$\lambda$的特征向量，则有$A\xi=\lambda\xi$，建立若干等式或方程组来计算参数。
-    \item 若$\lambda$是$A$的特征值，则与$\lambda E-A\vert=0$，通过该等式计算参数。
-\end{itemize}
-
-\textbf{例题：}已知$A=\left(\begin{array}{ccc}
-    2 & 0 & 0 \\
-    0 & 0 & 1 \\
-    0 & 1 & x
-\end{array}\right)$，$B=\left(\begin{array}{ccc}
-    2 \\
-     & y \\
-     & & -1
-\end{array}\right)$，且$A\sim B$，求参数。\medskip
-
-首先可以利用迹相等，则$2+0+x=2+y-1$，行列式值相等，则$-2=-2y$，解得$x=0$，$y=1$。
-
-\subsubsection{反求矩阵}
-
-若有可逆矩阵$P$，使得$P^{-1}AP=\Lambda$，则：
-
-\begin{itemize}
-    \item $A=P\Lambda P^{-1}$。
-    \item $A^k=P\Lambda^kP^{-1}$。
-    \item $f(A)=Pf(\Lambda)P^{-1}$。
-\end{itemize}
-
-\textbf{例题：}已知$A=\left(\begin{array}{ccc}
-    2 & x & 1 \\
-    0 & 3 & 0 \\
-    3 & -6 & 0
-\end{array}\right)$相似于对角矩阵，求$A^{100}$。\medskip
-
-解：首先$A\sim\Lambda$，所以$A$能相似对角化。
-
-$\vert\lambda E-A\lambda=\left|\begin{array}{ccc}
-    \lambda-2 & -x & -1 \\
-    0 & \lambda-3 & 0 \\
-    -3 & 6 & \lambda
-\end{array}\right|=(\lambda-3)^2(\lambda+1)=0$。$\lambda_1=\lambda_2=3$，$\lambda_3=-1$。
-
-所以对于$\lambda_1=\lambda_2=3$时，需要$s=2$，从而$r(A)=1$，对应成比例。
-
-代入3：$(3E-A)x=0$，$\left(\begin{array}{ccc}
-    1 & -x & -1 \\
-    0 & 0 & 0 \\
-    -3 & 6 & 3
-\end{array}\right)=0$，所以$\dfrac{-1}{3}=\dfrac{-x}{6}$，$x=2$。
-
-解得$\xi_1=(1,0,1)^T$，$\xi_2=(2,1,0)^T$，$\xi_3=(1,0,-3)^T$。
-
-令$P=(\xi_1,\xi_2,\xi_3)$，所以$A=P\Lambda P^{-1}$，$A^{100}=P\Lambda^{100}P^{-1}$。
-
-\subsubsection{相似性}
-
-\begin{itemize}
-    \item 定义法：若存在可逆矩阵$P$，使得$P^{-1}AP=B$，则$A\sim B$。
-    \item 性质：若$A\sim B$，则$r(A)=r(B)$，$\vert A\vert=\vert B\vert$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B$。
-    \item 传递性：$A\sim\Lambda$，$\Lambda\sim B$，则$A\sim B$。
-\end{itemize}
 
 \end{document}
