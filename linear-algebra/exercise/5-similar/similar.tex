@@ -265,4 +265,24 @@ $\therefore AP=PB$，$P^{-1}AP=B$，$A\sim B$。
 
 \subsection{正交相似}
 
+\textbf{例题：}已知$A$是三阶实对称矩阵，若正交矩阵$Q$使得$Q^{-1}AQ=\left[\begin{array}{ccc}
+    3 & 0 & 0 \\
+    0 & 3 & 0 \\
+    0 & 0 & 6
+\end{array}\right]$，如果$\alpha_1=(1,0,-1)^T$和$\alpha_2=(0,1,1)^T$是矩阵$A$属于特征值$\lambda=3$的特征向量，求$Q$。
+
+解：首先由正交矩阵就可以知道各特征值正交。令$\alpha_3=(x_1,x_2,x_3)^T$。对应的$\lambda_3=6$。
+
+$\alpha_3^T\alpha_1=x_1-x_3=0$，$\alpha_3^T\alpha_2=x_2+x_3=0$，求$\lambda_3$的特征值，则不如令$x_3=1$，则解得$\alpha_3=(1,-1,1)^T$。
+
+这样$Q=\left[\begin{array}{ccc}
+    1 & 0 & 1 \\
+    0 & 1 & -1 \\
+    -1 & 1 & 1
+\end{array}\right]$，还需要将$Q$正交单位化。可知$\alpha_3$根据正交规律求出来，一定是正交的，而$\alpha_1^T\alpha_2=-1\neq0$所以需要正交。
+
+令$\beta_1=\alpha_1=(1,0,-1)^T$，$\beta_2=\alpha_2-\dfrac{<\alpha_2,\beta_1>}{<\beta_1,\beta_1>}\beta_1=(0,1,1)^T+\dfrac{1}{2}(1,0,-1)^T=(\dfrac{1}{2},1,\dfrac{1}{2})^T$。
+
+最后对整个$Q$进行单位化：$\gamma_1=\dfrac{1}{\sqrt{2}}(1,0,-1)^T$，$\gamma_2=\dfrac{1}{\sqrt{6}}(1,2,1)^T$，$\gamma_3=\dfrac{1}{\sqrt{3}}(1,-1,1)^T$。
+
 \end{document}

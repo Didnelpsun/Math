@@ -286,6 +286,18 @@ $\therefore\lambda_1=\lambda_2=1$，$\lambda_3=10$。
 
 所以内积是一个数值。
 
+单位化是保持向量方向不变，将其长度化为1。
+
+正交化是指将线性无关向量系转化为正交系的过程。
+
+\subsubsection{施密特正交化}
+
+将一个线性无关向量组变为一个标准正交向量组。
+
+对于线性无关向量组$\alpha_1,\alpha_2,\cdots,\alpha_n$，令$\beta_1=\alpha_1$，$\beta_2=\alpha_2-\dfrac{<\alpha_2,\beta_1>}{<\beta_1,\beta_1>}\beta_1$，$\beta_3=\alpha_3-\dfrac{<\alpha_3,\beta_1>}{<\beta_1,\beta_1}\beta_1-\dfrac{<\alpha_3,\beta_2>}{<\beta_2,\beta_2>}\beta_2$，$\cdots$，$\beta_n=\alpha_n-\dfrac{<\alpha_n,\beta_1>}{<\beta_1,\beta_1>}\beta_1-\dfrac{<\alpha_n,\beta_2>}{<\beta_2,\beta_2>}\beta_2-\cdots-\dfrac{<\alpha_n,\beta_{n-1}}{<\beta_{n-1},\beta_{n-1}>}\beta_{n-1}$。其中$<n,n>$代表$n,n$的内积。
+
+最后单位化：$\gamma_i=\dfrac{\beta_i}{\Vert\beta_i\Vert}$。
+
 \subsubsection{定义}
 
 \textcolor{violet}{\textbf{定义：}}$A^T=A$则$A$就是对称矩阵，若$A$的元素都是实数，则$A$是实对称矩阵。
