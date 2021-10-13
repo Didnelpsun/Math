@@ -96,9 +96,13 @@ $\therefore2I=\displaystyle{\iint\limits_D\dfrac{a\sqrt{f(x)}+b\sqrt{f(y)}}{\sqr
 
 后积先定限，先内画条线，先交写下限，后交写上限。
 
+二重积分要将其变为累次积分，由一个区域的积分变为分别对$xy$的积分，要将$f(x,y)$拆开，重要的就是求上下限。
+
 \paragraph{\texorpdfstring{$X$}型区域} \leavevmode \medskip
 
 \begin{minipage}{0.6\linewidth}
+    $\sigma=\{(x,y)|a\leqslant x\leqslant b,\psi(x)\leqslant y\leqslant\phi(x)\}$。
+    
     也称为上下型区域。
 
     $\iint\limits_Df(x,y)\,\textrm{d}\sigma=\int_a^b\textrm{d}x\int_{\psi(x)}^{\phi(x)}f(x,y)\,\textrm{d}y$。
@@ -118,6 +122,8 @@ $\therefore2I=\displaystyle{\iint\limits_D\dfrac{a\sqrt{f(x)}+b\sqrt{f(y)}}{\sqr
     \end{tikzpicture}
 \end{minipage}
 
+二重积分$X$型即求底部为如图的图形的面包状物体体积。求体积的做法就是已知截面面积求体积。其中横截面的一边在底面$\phi(x)-\psi(x)$，高为函数$f(x,y)$，则横截面面积$S(x)=\int^{\phi(x)}_{\psi(x)}f(x,y)\,\textrm{d}y$，得到了横截面之后再对$x$轴的所有横截面进行积分：$V=\int_a^bS(x)\,\textrm{d}x$就得到体积。
+
 \paragraph{\texorpdfstring{$Y$}型区域} \leavevmode \medskip
 
 \begin{minipage}{0.3\linewidth}
@@ -135,6 +141,8 @@ $\therefore2I=\displaystyle{\iint\limits_D\dfrac{a\sqrt{f(x)}+b\sqrt{f(y)}}{\sqr
 \end{minipage}
 \hfill
 \begin{minipage}{0.5\linewidth}
+    $\sigma=\{(x,y)|c\leqslant x\leqslant d,\psi(y)\leqslant x\leqslant\phi(y)\}$。
+
     也称为左右型区域。
 
     $\iint\limits_Df(x,y)\,\textrm{d}\sigma=\int_c^d\textrm{d}y\int_{\psi(y)}^{\phi(y)}f(x,y)\,\textrm{d}x$。
