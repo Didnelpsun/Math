@@ -83,7 +83,7 @@ $\sigma_1$的$r\in[0,\sqrt{2}]$，$\sigma_2$的$r\in[\sqrt{2},2]$。
 
 $\sigma_1$的$\theta$下限是$y=-x$这条边，即$\theta=-\dfrac{\pi}{4}$，上限是$r=2\cos\theta$这个圆，则$\theta=\arccos\dfrac{r}{2}$。
 
-$\sigma_2$的$\theta$界限都是是$r=2\cos\theta$这个圆，但是上限是上半部分，此时$y>0$，而下限是下半部分，此时$y<0$，即上限$r\cos$，所以下限为$\theta=-\arccos\dfrac{r}{2}$。
+$\sigma_2$的$\theta$界限都是是$r=2\cos\theta$这个圆，此时$r>0$恒成立，但是上限是上半部分$\theta>0$，而下限是下半部分$\theta<0$，即上限$\theta=\arccos\dfrac{r}{2}$，所以下限为$\theta=-\arccos\dfrac{r}{2}$。
 
 综上交换积分次序结果为：
 
@@ -101,12 +101,44 @@ $\int_0^{\sqrt{2}}r\,\textrm{d}r\int_{-\frac{\pi}{4}}^{\arccos\frac{r}{2}}f(r\co
 
 $\therefore I=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\textrm{d}\theta\int_0^Re^{-r^2}r\,\textrm{d}r$。
 
-\subsection{累次积分计算}
+\subsection{二重积分计算}
 
 二重积分若是累次积分形式出现，则计算可以使用上面两种方法简便运算。
 
 \subsubsection{交换积分次序}
 
-\textbf{例题：}
+当按照当前的积分次序无法算出时需要更换积分次序。主要是看$f(x,y)$是对$x$先积分更简单还是对$y$先积分更简单。
+
+\textbf{例题：}求$\int_0^1\textrm{d}y\int_{\arcsin y}^{\pi-\arcsin y}\cos^2x\,\textrm{d}x$。
+
+解：首先直接对这个式子直接计算，$\cos^2x=\dfrac{1}{2}(1+\cos2x)$，原式$=\dfrac{1}{2}\int_0^1(\pi-2y-\arcsin y)\textrm{d}y$。根本无法解出。
+
+考虑交换积分次序，首先求$\sigma$，$y\in[0,1]$，$x\in[\arcsin y,\pi-\arcsin y]$，则$\sin x=y$，$y=\sin(\pi-x)=\sin x$即$x\in[0,\sin x]$。
+
+将积分区域换成$X$型：$x\in[0,\pi]$，$y\in[0,\sin x]$。
+
+$\int_0^\pi\cos^2x\,\textrm{d}x\int_0^{\sin x}\textrm{d}y=\int_0^\pi\cos^2x\sin x\,\textrm{d}x=-\int_0^\pi\cos^2x\,\textrm{d}(\cos x)=-\dfrac{\cos^3x}{3}\bigg|_0^\pi\\=\dfrac{2}{3}$。
+
+\subsubsection{积分性质}
+
+若积分区域$\sigma$关于$x=k_1$或$y=k_2$对称，则当$f(x,y)$含有$x-k_1$或$y-k_2$因式时重积分值为0。
+
+\textbf{例题：}设$D:x^2+y^2\leqslant2x+2y$，求$\iint\limits_Dxy\,\textrm{d}x\textrm{d}y$。
+
+解：本题目使用直角坐标系和极坐标系都不好做。所以需要利用积分性质，对$D$进行平移等操作。
+
+利用平移，由于$D:(x-1)^2+(y-1)^2=2$，令$x=1+r\cos\theta$，$y=1+r\sin\theta$，则利用极坐标，$r\in[0,\sqrt{2}]$，$\theta\in[0,2\pi]$，$=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}((1+r\cos\theta)(1+r\sin\theta)r)\textrm{d}r=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}(1+r\sin\theta+r\cos\theta+r^2\sin\theta\cos\theta)r\,\textrm{d}r$，又将$\sin\theta$和$\cos\theta$对$\theta$在$[0,2\pi]$进行积分全部为0，所以直接把后面的全消掉，变为$\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}r\,\textrm{d}r=2\pi$。
+
+\subsubsection{切分区域}
+
+\textbf{例题：}设$D=\{(x,y)|0\leqslant x\leqslant1,0\leqslant y\leqslant1\}$，求$\displaystyle{\iint\limits_D\dfrac{\textrm{d}x\textrm{d}y}{\sqrt{x^2+y^2}}}$。
+
+解：由$f(x,y)=\dfrac{1}{\sqrt{x^2+y^2}}$，知道可以使用极坐标系来表示，但是$D$是一个正方形，无法用圆来简单表示。
+
+又$D$可以从$y=x$切割为两个部分，所以令下三角形为$D_1$，$\displaystyle{\iint\limits_D\dfrac{\textrm{d}x\textrm{d}y}{\sqrt{x^2+y^2}}}=2\displaystyle{\iint\limits_{D_1}\dfrac{\textrm{d}x\textrm{d}y}{\sqrt{x^2+y^2}}}$。
+
+所以$0\leqslant y$和$y=x$可以确定$\theta\in\left[0,\dfrac{\pi}{4}\right]$，$0\leqslant x\leqslant1$可以确定$r$上界为$x=1$，即$r\cos\theta=1$，即$r=\dfrac{1}{\cos\theta}$，确定$r\in\left[0,\dfrac{1}{\cos\theta}\right]$。
+
+所以$=2\int_0^{\frac{\pi}{4}}\textrm{d}\theta\int_0^{\frac{1}{\cos\theta}}\textrm{d}r=2\int_0^{\frac{\pi}{4}}\dfrac{\textrm{d}\theta}{\cos\theta}=2\ln(\sec\theta+\tan\theta)|_0^{\frac{\pi}{4}}=2\ln(1+\sqrt{2})$。
 
 \end{document}
