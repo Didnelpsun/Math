@@ -41,10 +41,12 @@
 
 \section{二项分布}
 
+$P\{X=k\}=C_n^kp^k(1-p)^{n-k}$（$k=0,1,\cdots,n$，$0<p<1$），$X\sim B(n,p)$。
+
 \textbf{例题：}已知随机变量$X$的概率密度为$f(x)=\left\{\begin{array}{ll}
     2x, & 0<x<1 \\
     0, \text{其他}
-\end{array}\right.$，$Y$表示对$X$进行3次独立重复试验中事件$\left\{X\leqslant\dfrac{1}{2}\right\}$，求$P\{Y=2\}$。\medskip
+\end{array}\right.$，$Y$表示对$X$进行3次独立重复试验中出现事件$\left\{X\leqslant\dfrac{1}{2}\right\}$，求$P\{Y=2\}$。\medskip
 
 解：已知对$X$进行独立重复试验，表示这个进行的是伯努利试验，从而$Y\sim B(n,p)$。又是3次，所以$Y\sim B(3,p)$。
 
@@ -54,6 +56,8 @@ $\therefore p=\left\{X\leqslant\dfrac{1}{2}\right\}=\int_0^\frac{1}{2}2x\,\textr
 
 \section{泊松分布}
 
+$P\{X=k\}=\dfrac{\lambda^k}{k!}e^{-\lambda}$（$k=0,1,\cdots,n$，$\lambda>0$），$X\sim P(\lambda)$。
+
 \textbf{例题：}设一本书的各页印刷错误的个数$X$服从泊松分布。已知只有一个和只有两个印刷错误的页数相同，则随机抽查的4页中无印刷错误的概率$p$为？
 
 解：$\because P\{X=1\}=P\{X=2\}$，$\therefore\dfrac{\lambda^1}{1!}e^{-\lambda}=\dfrac{\lambda^2}{2!}e^{-\lambda}$，$\lambda=2$。
@@ -61,6 +65,16 @@ $\therefore p=\left\{X\leqslant\dfrac{1}{2}\right\}=\int_0^\frac{1}{2}2x\,\textr
 由于随机抽四页类似于伯努利试验是相互独立的，所以随机抽4页都无错误的概率为$[P\{X=0\}]^4=e^{-8}$。
 
 \section{几何分布}
+
+$P\{X=k\}=(1-p)^{k-1}p$（$k=0,1,\cdots,n$，$0<p<1$），$X\sim G(p)$。
+
+\textbf{例题：}袋中有8个球，其中3个白球5个黑球，现在任意从中取出4个球，若四个球中有2个黑球和2个白球则试验停止，否则将其放回袋中重新抽取直到满足条件，用$X$表示试验次数，则求$P\{X=k\}$。
+
+解：由题目的停止，则说明这个题目的概率是服从几何分布的，最重要的就是求出单次满足事件概率$p$。
+
+根据组合和乘法原理，$p=\dfrac{C_3^2C_5^2}{C_8^4}=\dfrac{3}{7}$。
+
+则$P\{X=k\}=\left(\dfrac{4}{7}\right)^{k-1}\cdot\dfrac{3}{7}$。
 
 \textbf{例题：}已知随机变量$X$的概率密度为$f(x)=\left\{\begin{array}{ll}
     2^{-x}\ln2, & x>0 \\
@@ -76,6 +90,15 @@ $\therefore p=\left\{X\leqslant\dfrac{1}{2}\right\}=\int_0^\frac{1}{2}2x\,\textr
 $\therefore P\{Y=k\}=(k-1)\left(\dfrac{1}{8}\right)^2\cdot\left(\dfrac{7}{8}\right)^{k-2}$。
 
 \section{均匀分布}
+
+$f(x)=\left\{\begin{array}{ll}
+    \dfrac{1}{b-a}, & a<x<b \\
+    0, & \text{其他}
+\end{array}\right.$，$F(x)=\left\{\begin{array}{ll}
+    0, & x<a \\
+    \dfrac{x-a}{b-a}, & a\leqslant x<b \\
+    1, & x\geqslant b
+\end{array}\right.$，$X\sim U(a,b)$。
 
 \textbf{例题：}已知随机变量$X\sim U(a,b)$（$a>0$）且$P\{0<X<3\}=\dfrac{1}{4}$，$P\{X>4\}=\dfrac{1}{2}$，求$X$的概率密度以及$P\{1<X<5\}$。
 
@@ -147,13 +170,29 @@ $(X,Y)$联合概率=条件概率×边缘概率。
 
 \section{指数分布}
 
+$f(x)=\left\{\begin{array}{ll}
+    \lambda e^{-\lambda x}, & x>0 \\
+    0, & \text{其他}
+\end{array}\right.$，$F(x)=\left\{\begin{array}{ll}
+    1-e^{-\lambda x}, & x\geqslant0 \\
+    0, & x<0 \\
+\end{array}\right.$，$X\sim E(\lambda)$。
+
 \textbf{例题：}已知随机变量$X\sim E(1)$，$a$为常数且大于0，求$P\{X\leqslant a+1|X>a\}$。
 
 解：$P\{X\leqslant a+1|X>a\}=\dfrac{P\{a<X\leqslant a+1\}}{P\{X>a\}}=\dfrac{\int_a^{a+1}e^{-x}\,\textrm{d}x}{\int_a^{+\infty}e^{-x}\,\textrm{d}x}=1-\dfrac{1}{e}$。
 
 也可以根据指数分布的无记忆性：$P\{X\leqslant a+1|X>a\}=1-P\{X>a+1|X>a\}=1-P\{X>1\}=P\{X\leqslant1\}=F(1)=1-\dfrac{1}{e}$。
 
+\textbf{例题：}随机变量$X$服从参数为1的指数分布，求$P\{3>X>2|X>1\}$。
+
+已知$F(X<x)=1-e^{-\lambda x}$，则$F(X>x)=e^{-\lambda x}$。且$2<X<3\cap 1<X=2<X<3$。
+
+则$P\{3>X>2|X>1\}=\dfrac{P\{3>X>2\}}{P\{X>1\}}=\dfrac{P\{X>2\}-P\{X>3\}}{P\{X>1\}}=\dfrac{e^{-2}-e^{-3}}{e^{-1}}=e^{-1}-e^{-2}$。
+
 \section{正态分布}
+
+$f(x)=\dfrac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），$X\sim N(\mu,\sigma^2)$。
 
 \textbf{例题：}已知随机变量$X\sim N(0,1)$，对给定的$\alpha$（$0<\alpha>1$），数$\mu_\alpha$满足$P\{X>\mu_\alpha\}=\alpha$，若$P\{\vert X\vert<x\}=\alpha$，求$x$。
 
