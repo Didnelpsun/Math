@@ -101,21 +101,6 @@ $P\{X=x_i\}=P\{X\leqslant x_i\}-P\{X<x_i\}=F(x_i)-F(x_i-0)$，即某点的概率
 
 对实数轴上的任一集合$B$有$P\{X\in B\}=\sum\limits_{x_i\in B}P\{X=x_i\}$，特别地$P\{a<X\leqslant b\}=P\{X\leqslant b\}-P\{X\leqslant a\}=F(b)-F(a)$。
 
-\subsection{应用}
-
-\textbf{例题：}已知随机变量$X$的概率分布为：\medskip
-
-\begin{tabular}{c|ccc}
-    \hline
-    $X$ & 1 & 2 & 3 \\ \hline
-    $P\{X=k\}$ & $\theta^2$ & $2\theta(1-\theta)$ & $(1-\theta)^2$ \\
-    \hline
-\end{tabular} \medskip
-
-且$P\{X\geqslant2\}=\dfrac{3}{4}$，求未知参数$\theta$与$X$的分布函数$F(x)$。
-
-解：$\because P\{X\geqslant2\}=\dfrac{3}{4}$，$\therefore 2\theta(1-\theta)+(1-\theta)^2=\dfrac{3}{4}$，解得$\theta=\dfrac{1}{2}$，$-\dfrac{1}{2}$舍。
-
 \subsection{分布}
 
 \subsubsection{0-1分布}
@@ -141,6 +126,12 @@ $P\{X=x_i\}=P\{X\leqslant x_i\}-P\{X<x_i\}=F(x_i)-F(x_i-0)$，即某点的概率
 
 泊松分布基于某场合某单位时间内源源不断的质点来流的个数$X=k$，$\lambda$代表质点流动到来的强度。也可以代表稀有事件发生的概率。
 
+\subsubsection{泊松定理}
+
+\textcolor{aqua}{\textbf{定理：}}设$X\sim B(n,p)$，当$n$较大，$p$较小时，近似$X\sim P(np)$。
+
+即$P\{X=k\}=C_n^kp^k(1-p)^{n-k}\approx\dfrac{(np)^ke^{-np}}{k!}$。
+
 \subsubsection{几何分布}
 
 \textcolor{violet}{\textbf{定义：}}如果$X$的概率分布为$P\{X=k\}=(1-p)^{k-1}p$（$k=0,1,\cdots,n$，$0<p<1$），则称$X$服从参数为$p$的\textbf{几何分布}，记为$X\sim G(p)$。
@@ -157,48 +148,51 @@ $P\{X=x_i\}=P\{X\leqslant x_i\}-P\{X<x_i\}=F(x_i)-F(x_i-0)$，即某点的概率
 
 如有$N$件产品，其中$M$件正品，从而$N-M$件次品，任取$n$个，则取出$k$件正品的概率就是超几何分布。
 
+\subsection{分布函数}
+
+设$X$为随机变量，$x$为任意实数，函数$F(x)=P\{X\leqslant x\}$，$(-\infty<x<+\infty)$称为$X$的离散随机变量分布函数。
+
+\begin{enumerate}
+    \item $F(x)$是一个不减函数，随着$x$增大逐渐累积。
+    \item $P\{a<X\leqslant b\}=F(b)-F(a)$。（$a$处被减掉了所以是空心的）
+    \item $0\leqslant F(x)\leqslant1$，$F(-\infty)=0$，$F(+\infty)=1$。
+    \item $P(X=k)=P(X\leqslant k)-P(X<k)$。
+    \item $F(x)$是右连续。
+\end{enumerate}
+
+通过性质四可有由离散型变量的分布函数推出离散型随机变量的分布律。
+
+\subsection{应用}
+
+\textbf{例题：}已知随机变量$X$的概率分布为：\medskip
+
+\begin{tabular}{c|ccc}
+    \hline
+    $X$ & 1 & 2 & 3 \\ \hline
+    $P\{X=k\}$ & $\theta^2$ & $2\theta(1-\theta)$ & $(1-\theta)^2$ \\
+    \hline
+\end{tabular} \medskip
+
+且$P\{X\geqslant2\}=\dfrac{3}{4}$，求未知参数$\theta$与$X$的分布函数$F(x)$。
+
+解：$\because P\{X\geqslant2\}=\dfrac{3}{4}$，$\therefore 2\theta(1-\theta)+(1-\theta)^2=\dfrac{3}{4}$，解得$\theta=\dfrac{1}{2}$，$-\dfrac{1}{2}$舍。
+
 \section{一维连续型随机变量}
 
 \textcolor{violet}{\textbf{定义：}}若随机变量$X$的分布函数可以表示为$F(x)=\int_{-\infty}^xf(t)\,\textrm{d}t$（$x\in R$且取遍所有实数），其中$f(x)$是非负可积函数，则$X$为\textbf{连续型随机变量}。
 
 \subsection{概率密度}
 
-\textcolor{violet}{\textbf{定义：}}$f(x)$称为$X$的\textbf{概率密度函数}，简称\textbf{概率密度}，记为$X\sim f(x)$。
+\textcolor{violet}{\textbf{定义：}}若对于随机变量$X$的分布函数$F(x)$存在非负可积函数$f(x)$使得对于任意实数$x$都有$F(x)=\int_{-\infty}^xf(t)\,\textrm{d}t$，则$f(x)$称为$X$的\textbf{概率密度函数}，简称\textbf{概率密度}，记为$X\sim f(x)$。
 
 \subsection{性质}
 
-改变$f(x)$有限各点的值$f(x)$仍是概率密度（因为单个点没有面积），$f(x)$为某一随机变量$X$的概率密度的充分必要条件：$f(x)\geqslant0$，且$\int_{-\infty}^{+\infty}f(x)\,\textrm{d}x=1$。
-
-若$X$为连续型随机变量，$X\sim f(x)$，则对任意实数$c$有$P\{X=c\}=0$。
-
-对实数轴上的任一集合$B$有$P\{X\in B\}=\int_Bf(x)\,\textrm{d}x$，特别地$P\{a<X<b\}=P\{a\leqslant X<b\}=P\{a<X\leqslant b\}=P\{a\leqslant X\leqslant b\}=\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)$。
-
-\subsection{应用}
-
-\textbf{例题：}已知随机变量$X$的概率密度为$\left\{\begin{array}{ll}
-    Ax, & 1<x<2 \\
-    B, & 2\leqslant x<3 \\
-    0, & \text{其他}
-\end{array}\right.$，且$P\{1<X<2\}=P\{2<X<3\}$，求常数$AB$，分布函数$F(x)$以及概率$P\{2<X<4\}$。
-
-解：由于归一性$\int_{-\infty}^{+\infty}f(x)\,\textrm{d}x=1$，$\therefore\int_1^2Ax\,\textrm{d}x+\int_2^2B\,\textrm{d}x=1$。
-
-$\therefore\dfrac{3}{2}A+B=1$。又$P\{1<X<2\}=P\{2<X<3\}$。
-
-$\therefore\int_1^2Ax\,\textrm{d}x=\int_2^3B\,\textrm{d}x$，即$\therefore\int_1^2Ax\,\textrm{d}x=\int_2^2B\,\textrm{d}x=\dfrac{1}{2}$，$A=\dfrac{1}{3}$，$B=\dfrac{1}{2}$。
-
-$f(x)=\left\{\begin{array}{ll}
-    \dfrac{1}{3}x, & 1<x<2 \medskip \\
-    \dfrac{1}{2}, & 2\leqslant x<3 \\
-    0, & \text{其他}
-\end{array}\right.$，$\because F(x)=\int_{-\infty}^xf(t)\,\textrm{d}t$。
-
-$\therefore F(x)=\left\{\begin{array}{ll}
-    0, & x<1 \\
-    \int_1^x\dfrac{1}{3}t\,\textrm{d}t=\dfrac{x^2}{6}-\dfrac{1}{6}, & 1\leqslant x<2 \medskip \\
-    \int_1^2\dfrac{1}{3}x\,\textrm{d}x+\int_2^x\dfrac{1}{2}\,\textrm{d}x=\dfrac{1}{2}x-\dfrac{1}{2}, & 2\leqslant x<3 \\
-    1, & x\geqslant3
-\end{array}\right.$
+\begin{enumerate}
+    \item 改变$f(x)$有限各点的值$f(x)$仍是概率密度（因为单个点没有面积）。且$P(X=a)=0$。
+    \item $f(x)$为某一随机变量$X$的概率密度的充分必要条件：$f(x)\geqslant0$，且\\$\int_{-\infty}^{+\infty}f(x)\,\textrm{d}x=1$。
+    \item 若$X$为连续型随机变量，$X\sim f(x)$，则对任意实数$c$有$P\{X=c\}=0$。
+    \item 对实数轴上的任一集合$B$有$P\{X\in B\}=\int\limits_Bf(x)\,\textrm{d}x$，特别地$P\{a<X<b\}=P\{a\leqslant X<b\}=P\{a<X\leqslant b\}=P\{a\leqslant X\leqslant b\}=\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)$。
+\end{enumerate}
 
 \subsection{分布}
 
@@ -309,6 +303,33 @@ $f(x)$的图形关于$x=\mu$对称，即$f(\mu-x)=f(\mu+x)$，并在$x=\mu$处�
     \item $P\{a<X<b\}=\varPhi\left(\dfrac{b-\mu}{\sigma}\right)-\varPhi\left(\dfrac{a-\mu}{\sigma}\right)$。（标准化得到）
     \item $aX+b\sim N(a\mu+b,a^2\theta^2)$（$a\neq0$）。
 \end{itemize}
+
+\subsection{应用}
+
+\textbf{例题：}已知随机变量$X$的概率密度为$\left\{\begin{array}{ll}
+    Ax, & 1<x<2 \\
+    B, & 2\leqslant x<3 \\
+    0, & \text{其他}
+\end{array}\right.$，且$P\{1<X<2\}=P\{2<X<3\}$，求常数$AB$，分布函数$F(x)$以及概率$P\{2<X<4\}$。
+
+解：由于归一性$\int_{-\infty}^{+\infty}f(x)\,\textrm{d}x=1$，$\therefore\int_1^2Ax\,\textrm{d}x+\int_2^2B\,\textrm{d}x=1$。
+
+$\therefore\dfrac{3}{2}A+B=1$。又$P\{1<X<2\}=P\{2<X<3\}$。
+
+$\therefore\int_1^2Ax\,\textrm{d}x=\int_2^3B\,\textrm{d}x$，即$\therefore\int_1^2Ax\,\textrm{d}x=\int_2^2B\,\textrm{d}x=\dfrac{1}{2}$，$A=\dfrac{1}{3}$，$B=\dfrac{1}{2}$。
+
+$f(x)=\left\{\begin{array}{ll}
+    \dfrac{1}{3}x, & 1<x<2 \medskip \\
+    \dfrac{1}{2}, & 2\leqslant x<3 \\
+    0, & \text{其他}
+\end{array}\right.$，$\because F(x)=\int_{-\infty}^xf(t)\,\textrm{d}t$。
+
+$\therefore F(x)=\left\{\begin{array}{ll}
+    0, & x<1 \\
+    \int_1^x\dfrac{1}{3}t\,\textrm{d}t=\dfrac{x^2}{6}-\dfrac{1}{6}, & 1\leqslant x<2 \medskip \\
+    \int_1^2\dfrac{1}{3}x\,\textrm{d}x+\int_2^x\dfrac{1}{2}\,\textrm{d}x=\dfrac{1}{2}x-\dfrac{1}{2}, & 2\leqslant x<3 \\
+    1, & x\geqslant3
+\end{array}\right.$
 
 \section{一维随机变量函数分布}
 
