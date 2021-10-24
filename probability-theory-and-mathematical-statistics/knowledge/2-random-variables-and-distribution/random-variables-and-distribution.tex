@@ -501,7 +501,7 @@ $p_{\cdot j}=P\{Y=y_i\}=\sum\limits_{i=1}^\infty P\{X=x_i,Y=y_j\}=\sum\limits_{i
 
 \subsection{边缘概率密度}
 
-\textcolor{violet}{\textbf{定义：}}设$(X,Y)\sim f(x,y)$，则$X$的边缘分布函数为$F_X(x)=F(x,+\infty)=\int_{-\infty}^x\left[\int_{-\infty}^{+\infty}f(u,v)\,\textrm{d}v\right]\textrm{d}u$，所以$X$为连续型随机变量，其概率密度$f_X(x)=$\\$\int_{-\infty}^{+\infty}f(x,y)\,\textrm{d}y$，称$f_X(x)$为$(X,Y)$关于$X$的\textbf{边缘概率密度}。同理$Y$也为连续型随机变量，其概率密度为$f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)\,\textrm{d}x$。
+\textcolor{violet}{\textbf{定义：}}设$(X,Y)\sim f(x,y)$，则$X$的边缘分布函数为$P\{X\leqslant x\}=F_X(x)=F(-\infty,x)=\int_{-\infty}^x\left[\int_{-\infty}^{+\infty}f(u,v)\,\textrm{d}v\right]\textrm{d}u$，所以$X$为连续型随机变量，其概率密度$f_X(x)=\int_{-\infty}^{+\infty}f(x,y)\,\textrm{d}y$，称$f_X(x)$为$(X,Y)$关于$X$的\textbf{边缘概率密度}。同理$Y$也为连续型随机变量，关于$Y$的边缘分布函数为$P\{Y\leqslant y\}=F_Y(y)=\int_{-\infty}^y[\int_{-\infty}^{+\infty}f(x,y)\,\textrm{d}x]\textrm{d}y$，其概率密度为$f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)\,\textrm{d}x$。
 
 \subsection{条件概率密度}
 
@@ -539,7 +539,7 @@ $p_{\cdot j}=P\{Y=y_i\}=\sum\limits_{i=1}^\infty P\{X=x_i,Y=y_j\}=\sum\limits_{i
 
 \subsection{概念}
 
-\textcolor{violet}{\textbf{定义：}}设随机变量$X,Y$的联合分布函数为$F(x,y)$，边缘分布函数为$F_X(x)$，$F_Y(y)$，若对任意实数$x$，$y$，有$P\{X\leqslant x,Y\leqslant y\}＝P\{X\leqslant x\}P\{Y\leqslant y\}$，即$F(x,y)＝F_X(x)F_Y(y)$，则称随机变量$X$和$Y$相互独立。
+\textcolor{violet}{\textbf{定义：}}设随机变量$X,Y$的联合分布函数为$F(x,y)$，边缘分布函数为$F_X(x)$，$F_Y(y)$，若对任意实数$x$，$y$，有$P\{X\leqslant x,Y\leqslant y\}=P\{X\leqslant x\}P\{Y\leqslant y\}$，即$F(x,y)=F_X(x)F_Y(y)$，则称随机变量$X$和$Y$相互独立。即对于离散型随机变量$P\{X=x_i,Y=y_j\}=P\{X=x_i\}P\{Y=y_j\}$。对于连续型随机变量$f(x,y)=f_X(x)f_Y(y)$。
 
 \subsection{充要条件}
 
