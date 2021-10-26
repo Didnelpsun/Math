@@ -39,7 +39,13 @@
 \pagestyle{plain}
 \setcounter{page}{1}
 
-\section{二项分布}
+分布函数变量区域左闭右开，概率密度则不要求。
+
+\section{一维随机变量}
+
+\subsection{一维随机变量分布}
+
+\subsubsection{二项分布}
 
 $P\{X=k\}=C_n^kp^k(1-p)^{n-k}$（$k=0,1,\cdots,n$，$0<p<1$），$X\sim B(n,p)$。
 
@@ -54,7 +60,7 @@ $P\{X=k\}=C_n^kp^k(1-p)^{n-k}$（$k=0,1,\cdots,n$，$0<p<1$），$X\sim B(n,p)$�
 
 $\therefore p=\left\{X\leqslant\dfrac{1}{2}\right\}=\int_0^\frac{1}{2}2x\,\textrm{d}x=\dfrac{1}{4}$。$\therefore P\{Y=2\}=B\left(3,\dfrac{1}{4}\right)=\dfrac{9}{64}$。
 
-\section{泊松分布}
+\subsubsection{泊松分布}
 
 $P\{X=k\}=\dfrac{\lambda^k}{k!}e^{-\lambda}$（$k=0,1,\cdots,n$，$\lambda>0$），$X\sim P(\lambda)$。
 
@@ -64,7 +70,7 @@ $P\{X=k\}=\dfrac{\lambda^k}{k!}e^{-\lambda}$（$k=0,1,\cdots,n$，$\lambda>0$）
 
 由于随机抽四页类似于伯努利试验是相互独立的，所以随机抽4页都无错误的概率为$[P\{X=0\}]^4=e^{-8}$。
 
-\section{几何分布}
+\subsubsection{几何分布}
 
 $P\{X=k\}=(1-p)^{k-1}p$（$k=0,1,\cdots,n$，$0<p<1$），$X\sim G(p)$。
 
@@ -89,7 +95,7 @@ $P\{X=k\}=(1-p)^{k-1}p$（$k=0,1,\cdots,n$，$0<p<1$），$X\sim G(p)$。
 
 $\therefore P\{Y=k\}=(k-1)\left(\dfrac{1}{8}\right)^2\cdot\left(\dfrac{7}{8}\right)^{k-2}$。
 
-\section{均匀分布}
+\subsubsection{均匀分布}
 
 $f(x)=\left\{\begin{array}{ll}
     \dfrac{1}{b-a}, & a<x<b \\
@@ -168,7 +174,7 @@ $(X,Y)$联合概率=条件概率×边缘概率。
 
 \end{multicols}
 
-\section{指数分布}
+\subsubsection{指数分布}
 
 $f(x)=\left\{\begin{array}{ll}
     \lambda e^{-\lambda x}, & x>0 \\
@@ -190,9 +196,9 @@ $f(x)=\left\{\begin{array}{ll}
 
 则$P\{3>X>2|X>1\}=\dfrac{P\{3>X>2\}}{P\{X>1\}}=\dfrac{P\{X>2\}-P\{X>3\}}{P\{X>1\}}=\dfrac{e^{-2}-e^{-3}}{e^{-1}}=e^{-1}-e^{-2}$。
 
-\section{正态分布}
+\subsubsection{正态分布}
 
-$f(x)=\dfrac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），$X\sim N(\mu,\sigma^2)$。
+$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}\exp\left(-\dfrac{(x-\mu)^2}{2\sigma^2}\right)$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），$X\sim N(\mu,\sigma^2)$。
 
 \textbf{例题：}已知随机变量$X\sim N(0,1)$，对给定的$\alpha$（$0<\alpha>1$），数$\mu_\alpha$满足$P\{X>\mu_\alpha\}=\alpha$，若$P\{\vert X\vert<x\}=\alpha$，求$x$。
 
@@ -201,5 +207,102 @@ $f(x)=\dfrac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$（$-
 又$P\{\vert X\vert<x\}=\alpha$，即$-x<X<x$的面积为$\alpha$，所以两边的面积各为$\dfrac{1-\alpha}{2}$，$P\{X<x\}=P\{X>x\}=\dfrac{1-\alpha}{2}$。
 
 $\because$面积为$\alpha$的下标为$\alpha$，$\therefore$面积为$\dfrac{1-\alpha}{2}$的下标为$\dfrac{1-\alpha}{2}$，$x=\mu_\frac{1-\alpha}{2}$。
+
+\subsection{一维随机变量函数分布}
+
+\textbf{例题：}随机变量$X$服从$U(0,2)$，求随机变量$Y=X^2$在$(0,4)$内的概率分布密度$f_Y(y)$。
+
+解：求概率分布密度函数，可以求出其积分概率分布函数，$F_Y(y)=P\{Y\leqslant y\}=P\{X^2\leqslant y\}=P\{-\sqrt{y}\leqslant X\leqslant\sqrt{y}\}$，又$X\sim U(0,2)$，所以$f(x)=\dfrac{1}{2}$。
+
+则概率分布函数就是概率密度的积分，此时已经将$Y$变为了关于$X$的积分，$=\int_{-\sqrt{y}}^{\sqrt{y}}f(x)\,\textrm{d}x=$$\displaystyle{2\int_0^{\sqrt{y}}\dfrac{1}{2}\,\textrm{d}x}=\dfrac{\sqrt{y}}{2}$。即$F_Y(y)=\dfrac{\sqrt{y}}{2}$。
+
+则$f_Y(y)=F'_Y(y)=\dfrac{1}{4\sqrt{y}}$。
+
+\section{二维随机变量}
+
+使用定义法则直接用二重积分的分布函数来求，使用卷积公式则使用概率密度。
+
+\subsection{二维随机变量分布}
+
+\subsubsection{二维正态分布}
+
+概率密度为：
+
+{\fontsize{8.2pt}{10pt}$f(x,y)=\dfrac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left(-\dfrac{1}{2(1-\rho^2)}\left(\left(\dfrac{x-\mu_1}{\sigma_1}\right)^2-2\rho\left(\dfrac{x-\mu_1}{\sigma_1}\right)\left(\dfrac{y-\mu_2}{\sigma_2}\right)+\left(\dfrac{y-\mu_2}{\sigma_2}\right)^2\right)\right)$}
+
+其中$\mu_1,\mu_2\in R$，$\sigma_1,\sigma_2>0$，$-1<\rho<1$。
+
+\paragraph{正态分布性质} \leavevmode \medskip
+
+\textbf{例题：}$(X,Y)\sim N(\mu_1,\mu_2;\sigma_1^2,\sigma_2^2;0)$，分布函数为$F(x,y)$，已知$F(\mu_1,y)=\dfrac{1}{4}$，求$y$。
+
+解：当$\rho=0$时，$F(X,Y)=\dfrac{1}{2\pi\sigma_1\sigma_2}\exp\left(-\dfrac{1}{2}\left(\left(\dfrac{x-\mu_1}{\sigma_1}\right)^2+\left(\dfrac{y-\mu_2}{\sigma_2}\right)^2\right)\right)\\=F_X(x)F_Y(y)$，即$XY$相互独立。
+
+$X\sim N(\mu_1,\sigma_1)$，$Y\sim N(\mu_2,\sigma_2)$，$F_X(\mu_1)=P\{X\leqslant\mu_1\}=\dfrac{1}{2}$。
+
+$F(\mu_1,y)=F_X(\mu_1)F_Y(y)=\dfrac{1}{2}F_Y(y)=\dfrac{1}{4}$，则$F_Y(y)=\dfrac{1}{2}$，即根据性质$y=\mu_2$。
+
+\paragraph{标准正态化} \leavevmode \medskip
+
+$F(x)=P\{X\leqslant x\}=P\left\{\dfrac{X-\mu}{\sigma}\leqslant\dfrac{x-\mu}{\sigma}\right\}=\varPhi\left(\dfrac{x-\mu}{\sigma}\right)$。
+
+即将$XY$的相关系数消去。
+
+\textbf{例题：}设随机变量$(X,Y)$的分布函数为$\varPhi(2x+1)\cdot\varPhi(2y-1)$，其中$\varPhi(x)$为标准正态分布函数，求$(X,Y)$的分布函数。
+
+解：由分布函数为$\varPhi(2x+1)\varPhi(2y-1)$是$X$的分布函数和$Y$的分布函数的乘积，所以可知$XY$相互独立。
+
+所以根据标准化公式：$\varPhi(2x+1)\cdot\varPhi(2y-1)=\varPhi\left(\dfrac{x+\dfrac{1}{2}}{\dfrac{1}{2}}\right)\varPhi\left(\dfrac{y-\dfrac{1}{2}}{\dfrac{1}{2}}\right)$。
+
+$\therefore(X,Y)\sim N\left(-\dfrac{1}{2},\dfrac{1}{2};\dfrac{1}{4},\dfrac{1}{4};0\right)$。
+
+\subsection{二维随机变量函数分布}
+
+\subsubsection{和的分布}
+
+\textbf{例题：}随机变量$(X,Y)$的概率密度函数$f(x,y)=\left\{\begin{array}{ll}
+    e^{-y}, & 0<x<y \\
+    0, \text{其他}
+\end{array}\right.$，求$P\{X+Y\leqslant1\}$。
+
+解：根据$X+Y\leqslant1$和$0<x<y$划分区域：
+
+\begin{multicols}{2}
+    
+    \begin{tikzpicture}[scale=2]
+        \draw[-latex](-0.25,0) -- (1.25,0) node[below]{$x$};
+        \draw[-latex](0,-0.25) -- (0,1.25) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black](1,-0.15) node{$1$};
+        \draw[black](1,0) -- (0,1) node[left]{$1$};
+        \draw[black](0,0) -- (1,1);
+        \draw[black, densely dashed](0.5,0.5) -- (0.5,0) node[below]{$\dfrac{1}{2}$};
+        \filldraw [fill=gray!20] (0.5,0.5) -- (0,1) -- (0,0) -- (0.5,0.5);
+        \draw[black](0.2,0.5) node{$D$};
+    \end{tikzpicture}
+
+    其中积分区域$D$如图所示，所以$P\{X+Y\leqslant1\}=\iint\limits_De^{-y}\,\textrm{d}x\textrm{d}y=\int_0^{\frac{1}{2}}\textrm{d}x\int_x^{1-x}e^{-y}\,\textrm{d}y=\int_0^{\frac{1}{2}}(e^{-x}-e^{x-1})\textrm{d}x=1+e^{-1}-2e^{-\frac{1}{2}}$。
+
+\end{multicols}
+
+\subsubsection{差的分布}
+
+\textbf{例题：}设$X\sim N(\mu,\sigma_1^2)$，$Y\sim N(2\mu,\sigma_2^2)$，$XY$相互独立，已知$P\{X-Y\geqslant1\}=\dfrac{1}{2}$，求$\mu$。
+
+解：若$X\sim N(\mu,\sigma_1^2)$，$Y\sim N(2\mu,\sigma_2^2)$，则$X-Y\sim(-\mu,\sigma_1^2-\sigma_2^2)$。则$X-Y$的均值为$-\mu$，即其图像的对称轴为$-\mu$。
+
+又$P\{X-Y\geqslant1\}=\dfrac{1}{2}$，则$X-Y$在$1$这里均分，则对称轴为$1$，即$\mu=-1$。
+
+\subsubsection{混合型}
+
+\textbf{例题：}设随机变量$X_1$和$X_2$相互独立，已知$X_1\sim B\left(1,\dfrac{3}{4}\right)$，$X_2$的分布函数为$F(x)$，求$Y=X_1+X_2$的分布函数$F_Y(y)$。
+
+解：已知$X_1\sim B\left(1,\dfrac{3}{4}\right)$，$X_2$的分布函数为$F(x)$，则$Y$为混合型。
+
+则$P\{X_1=0\}=C_1^0\dfrac{3}{4}^0\dfrac{1}{4}^1=\dfrac{1}{4}$，$P\{X_1=1\}=C_1^1\dfrac{3}{4}^1\dfrac{1}{4}^0=\dfrac{3}{4}$。
+
+$F_Y(y)=P\{X_1+X_2\leqslant y\}=P\{X_1+X_2\leqslant y|X_1=0\}P\{X_1=0\}+P\{X_1+X_2\leqslant y|X_1=1\}P\{X_1=1\}=P\{X_2\leqslant y|X_1=0\}P\{X_1=0\}+P\{1+X_2\leqslant y|X_1=1\}P\{X_1=1\}$，由相互独立性$=\dfrac{1}{4}\cdot P\{X_2\leqslant y\}+\dfrac{3}{4}\cdot P\{X_2\leqslant y-1\}$。
+
+根据分布函数定义，则$F_Y(y)=\dfrac{1}{4}\cdot F(y)+\dfrac{3}{4}\cdot F(y-1)$。
 
 \end{document}

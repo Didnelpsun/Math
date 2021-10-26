@@ -275,7 +275,7 @@ $=1-F(t)=1-P\{X\leqslant t\}=P\{X>t\}$。
 
 \subsubsection{正态分布}
 
-\textcolor{violet}{\textbf{定义：}}如果$X$的概率密度为$f(x)=\dfrac{1}{\sqrt{2\pi\sigma}}e^{-\frac{1}{2}(\frac{x-\mu}{\sigma})^2}$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），则称$X$服从参数为$(\mu,\sigma^2)$的\textbf{正态分布}，称$X$为\textbf{正态变量}，记为$X\sim N(\mu,\sigma^2)$。
+\textcolor{violet}{\textbf{定义：}}如果$X$的概率密度为$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}\exp\left(-\dfrac{(x-\mu)^2}{2\sigma^2}\right)$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），则称$X$服从参数为$(\mu,\sigma^2)$的\textbf{正态分布}，称$X$为\textbf{正态变量}，记为$X\sim N(\mu,\sigma^2)$。
 
 $f(x)$的图形关于$x=\mu$对称，即$f(\mu-x)=f(\mu+x)$，并在$x=\mu$处有唯一最大值$f(\mu)=\dfrac{1}{\sqrt{2\pi}\sigma}$。$\mu-\sigma$和$\mu+\sigma$为拐点。
 
@@ -291,7 +291,7 @@ $f(x)$的图形关于$x=\mu$对称，即$f(\mu-x)=f(\mu+x)$，并在$x=\mu$处�
     \filldraw[black] (1,1) node{$f(x)$};
 \end{tikzpicture}
 
-当$\mu=0$，$\sigma=1$时的正态分布$N(0,1)=\dfrac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$为\textbf{标准正态分布}，记为$\phi(x)$，分布函数为$\varPhi(x)=\displaystyle{\int_{-\infty}^x\dfrac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}\,\textrm{d}t}$。$\phi(x)$为偶函数，$\varPhi(0)=\dfrac{1}{2}$，$\varPhi(-x)=1-\varPhi(x)$。
+当$\mu=0$，$\sigma=1$时的正态分布$N(0,1)=\dfrac{1}{\sqrt{2\pi}}\exp\left(-\dfrac{x^2}{2}\right)$为\textbf{标准正态分布}，记为$\varPhi(x)$，$\varPhi(x)$为偶函数，$\varPhi(0)=\dfrac{1}{2}$，$\varPhi(-x)=1-\varPhi(x)$。
 
 若$X\sim N(0,1)$，$P\{X>\mu_\alpha\}=\alpha$，则称$\mu_\alpha$为标准正态分布的\textbf{上侧$\alpha$分位数/上$\alpha$分位点}。
 
@@ -561,6 +561,16 @@ $p_{\cdot j}=P\{Y=y_i\}=\sum\limits_{i=1}^\infty P\{X=x_i,Y=y_j\}=\sum\limits_{i
 
 若$X_1,X_2,\cdots,X_n$相互独立，则其各自的函数$g_1(X_1)g_2(X_2)\cdots g_n(X_n)$也相互独立。
 
+\subsection{独立同分布运算}
+
+若$XY$相互独立，则：
+
+\begin{enumerate}
+    \item 若$X\sim B(n,p)$，$Y\sim B(m,p)$，则$X+Y\sim B(n+m,p)$。
+    \item 若$X\sim P(\lambda_1)$，$Y\sim P(\lambda_2)$，则$X+Y\sim P(\lambda_1+\lambda_2)$。
+    \item 若$X\sim N(\mu_1,\sigma_1^2)$，$Y\sim N(\mu_2,\sigma_2^2)$，则$X+Y\sim N(\mu_1+\mu_2,\sigma_1^2+\sigma_2^2)$，$X-Y\sim N(\mu_1-\mu_2,\sigma_1^2+\sigma_2^2)$。
+\end{enumerate}
+
 \section{二维随机变量函数分布}
 
 \textcolor{violet}{\textbf{定义：}}设$X,Y$为随机变量，$g(x,y)$为二元函数，则以随机变量$X,Y$作为变量的函数$U=g(X,Y)$也是随机变量，称为\textbf{随机变量$X,Y$的函数}。
@@ -615,13 +625,15 @@ $Y_2$的概率分布为$Y_2\sim\left(\begin{array}{ccccc}
 
 对于(连续型，连续型)随机变量函数分布也是连续型。可以采用分布函数法和卷积公式。
 
+设$(X,Y)$的概率密度为$f(x,y)$，$Z=g(x,y)$，则$Z$的分布函数为$F_Z(z)=P(Z\leqslant z)=P(g(X,Y)\leqslant z)=\iint\limits_{g(x,y)\leqslant z}f(x,y)\,\textrm{d}x\textrm{d}y$，若$Z$仍然为联系型随机变量，则$Z$的概率密度为$f_Z(z)=F_Z'(z)$。
+
 \subsubsection{和的分布}
 
 \textcolor{aqua}{\textbf{定理：}}设$(X,Y)\sim f(x,y)$，则$Z=X+Y$的概率密度为$f_Z(z)=\int_{-\infty}^{+\infty}f(x,z-x)\,\textrm{d}x=\int_{-\infty}^{+\infty}f(z-y,y)\,\textrm{d}y$。
 
 证明：利用定义法$F_Z(z)=P\{Z\leqslant z\}=P\{X+Y\leqslant z\}=\iint\limits_Df(x,y)\,\textrm{d}x\textrm{d}y$，$D=x+y\leqslant z$。
 
-$=\int_{-\infty}^{+\infty}\textrm{d}x\int_{-\infty}^{z-x}f(x,y)\,\textrm{d}y$。又$f_Z(z)=F_Z'(z)$，$=(\int_{-\infty}^{+\infty}\textrm{d}x\int_{-\infty}^{z-x}f(x,y)\,\textrm{d}y)'_z$
+$=\int_{-\infty}^{+\infty}\textrm{d}x\int_{-\infty}^{z-x}f(x,y)\,\textrm{d}y$。又$f_Z(z)=F_Z'(z)$，$=(\int_{-\infty}^{+\infty}\textrm{d}x\int_{-\infty}^{z-x}f(x,y)\,\textrm{d}y)'_z$。
 
 $=\int_{-\infty}^{+\infty}(\int_{-\infty}^{z-x}f(x,y)\,\textrm{d}y)'_z\textrm{d}x=\int_{-\infty}^{+\infty}f(x,z-x)\,\textrm{d}x$
 
@@ -638,6 +650,12 @@ $=\int_{-\infty}^{+\infty}(\int_{-\infty}^{z-x}f(x,y)\,\textrm{d}y)'_z\textrm{d}
 \textcolor{aqua}{\textbf{定理：}}设$(X,Y)\sim f(x,y)$，则$Z=\dfrac{X}{Y}$的概率密度为$f_Z(z)=\displaystyle{\int_{-\infty}^{+\infty}}\vert y\vert f(yz,z)$\\$\,\textrm{d}y$。
 
 这里不积$y$只积$x$，因为$x=zy$，所以积分简单从而只积$x$。
+
+\subsubsection{最值的分布}
+
+需要根据最值的定义得到$XY$的概率分布。设$(X,Y)$的联合分布函数为$F(x,y)$，$XY$的分布函数分别为$F_X(x)$和$F_Y(y)$，则$Z=\max(X,Y)$的分布函数为$F_{max}(z)=P\{\max(X,Y)\leqslant z\}=P\{X\leqslant z,Y\leqslant z\}=F(z,z)$，$Z=\min(X,Y)$的分布函数为$F_{min}(z)=P\{\min(X,Y)\leqslant z\}=P\{(X\leqslant z)\cup(Y\leqslant z)\}=P\{X\leqslant z\}+P\{Y\leqslant z\}-P\{X\leqslant z,Y\leqslant z\}=F_X(z)+F_Y(z)-F(z,z)$。
+
+如$P\{\min(X,Y)\geqslant 1\}=P\{X\geqslant1,Y\geqslant1\}=P\{X\geqslant1\}P\{Y\geqslant1\}$。
 
 \subsubsection{卷积公式}
 
@@ -733,6 +751,8 @@ $f_X(x)f_Y(z-x)=\left\{\begin{array}{ll}
 对于(离散型，连续型)随机变量函数分布是连续型。可以采用全概率公式。
 
 即使用全集分解思想解决，若$A$是离散型随机变量，$B$是连续型随机变量，则$P(B)=P(B\Omega)=P(BA_1\cup BA_2\cup\cdots)=P(BA_1)+P(BA_2)\cdots=P(A_1)P(B|A_1)+P(A_2)P(B|A_2)+\cdots$。这就是全概率公式。
+
+设$X$的分布律为$P\{X=x_i\}=P_i$，$Y$为连续型随机变量，$Z=g(X,Y)$，则$Z$的分布函数为$F_Z(z)=P\{Z\leqslant z\}=P\{g(X,Y)\leqslant z\}=\sum\limits_iP\{X=x_i\}P\{g(X,Y)\leqslant z|X=x_i\}=\sum\limits_iP_iP\{g(x_i,Y)\leqslant z\}$。
 
 \textbf{例题：}设随机变量$X$与$Y$相互独立，其中$X$概率分布为$\left(\begin{array}{cc}
     1 & 2 \\
