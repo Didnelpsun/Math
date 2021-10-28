@@ -198,7 +198,7 @@ $f(x)=\left\{\begin{array}{ll}
 
 \subsubsection{正态分布}
 
-$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}\exp\left(-\dfrac{(x-\mu)^2}{2\sigma^2}\right)$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），$X\sim N(\mu,\sigma^2)$。
+$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），$X\sim N(\mu,\sigma^2)$。
 
 \textbf{例题：}已知随机变量$X\sim N(0,1)$，对给定的$\alpha$（$0<\alpha>1$），数$\mu_\alpha$满足$P\{X>\mu_\alpha\}=\alpha$，若$P\{\vert X\vert<x\}=\alpha$，求$x$。
 
@@ -228,7 +228,7 @@ $\because$面积为$\alpha$的下标为$\alpha$，$\therefore$面积为$\dfrac{1
 
 概率密度为：
 
-{\fontsize{8.2pt}{10pt}$f(x,y)=\dfrac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left(-\dfrac{1}{2(1-\rho^2)}\left(\left(\dfrac{x-\mu_1}{\sigma_1}\right)^2-2\rho\left(\dfrac{x-\mu_1}{\sigma_1}\right)\left(\dfrac{y-\mu_2}{\sigma_2}\right)+\left(\dfrac{y-\mu_2}{\sigma_2}\right)^2\right)\right)$}
+{\fontsize{8.2pt}{10pt}$f(x,y)=\dfrac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left\{-\dfrac{1}{2(1-\rho^2)}\left[\left(\dfrac{x-\mu_1}{\sigma_1}\right)^2-2\rho\left(\dfrac{x-\mu_1}{\sigma_1}\right)\left(\dfrac{y-\mu_2}{\sigma_2}\right)+\left(\dfrac{y-\mu_2}{\sigma_2}\right)^2\right]\right\}$}
 
 其中$\mu_1,\mu_2\in R$，$\sigma_1,\sigma_2>0$，$-1<\rho<1$。
 
@@ -236,7 +236,7 @@ $\because$面积为$\alpha$的下标为$\alpha$，$\therefore$面积为$\dfrac{1
 
 \textbf{例题：}$(X,Y)\sim N(\mu_1,\mu_2;\sigma_1^2,\sigma_2^2;0)$，分布函数为$F(x,y)$，已知$F(\mu_1,y)=\dfrac{1}{4}$，求$y$。
 
-解：当$\rho=0$时，$F(X,Y)=\dfrac{1}{2\pi\sigma_1\sigma_2}\exp\left(-\dfrac{1}{2}\left(\left(\dfrac{x-\mu_1}{\sigma_1}\right)^2+\left(\dfrac{y-\mu_2}{\sigma_2}\right)^2\right)\right)\\=F_X(x)F_Y(y)$，即$XY$相互独立。
+解：当$\rho=0$时，$F(X,Y)=\dfrac{1}{2\pi\sigma_1\sigma_2}e^{-\frac{1}{2}\left[\left(\frac{x-\mu_1}{\sigma_1}\right)^2+\left(\frac{y-\mu_2}{\sigma_2}\right)^2\right]}\\=F_X(x)F_Y(y)$，即$XY$相互独立。
 
 $X\sim N(\mu_1,\sigma_1)$，$Y\sim N(\mu_2,\sigma_2)$，$F_X(\mu_1)=P\{X\leqslant\mu_1\}=\dfrac{1}{2}$。
 

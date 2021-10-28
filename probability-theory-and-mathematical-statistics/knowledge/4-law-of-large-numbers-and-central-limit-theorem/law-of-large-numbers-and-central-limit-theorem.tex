@@ -44,9 +44,15 @@
 
 \textcolor{violet}{\textbf{定义：}}设随机变量$X$与随机变量序列$\{X_n\}$（$n=1,2,3\cdots$），如果对任意的$\epsilon>0$，有$\lim\limits_{n\to\infty}P\{\vert X_n-X\vert\geqslant\epsilon\}=0$或$\lim\limits_{n\to\infty}P\{\vert X_n-X\vert<\epsilon\}=1$，则称随机变量序列$\{X_n\}$\textbf{依概率收敛于随机变量$X$}，记为$\lim\limits_{n\to\infty}X_n=X(P)$或$X_n\overset{P}{\rightarrow}X(n\to\infty)$。
 
+即在某项后面的全部项全部落在区域内的概率为1。（不是严格的极限，可能存在超过范围的点，但是不影响后面的点在区域内）
+
+通常使用伯努利试验类似的频率来估计概率，从而来极限逼近真实概率，但是进行试验时很可能不凑巧出现了概率很小的情况从而破坏了试验的概率随着频率变大而逼近真实概率，所以这种就是依概率收敛。比如抛硬币试验概率：$\dfrac{6}{10}$，$\dfrac{16}{20}$，$\dfrac{21}{40}$，其中$\dfrac{15}{20}$就是一个特殊的情况，但是不影响后面的收敛。
+
 \section{大数定律}
 
 在满足一定的条件下，大数定律均为$\dfrac{1}{n}\sum\limits_{i=1}^nX_i\overset{P}{\rightarrow}E\left(\dfrac{1}{n}\sum\limits_{i=1}^nX_i\right)$。
+
+\textcolor{violet}{\textbf{定义：}}假设随机变量序列$\{X_n\}$（$n=1,2,3\cdots$）是\textbf{相互独立}的，若方差$DX_i$（$i\geqslant1$）\textbf{存在且一致有上界}，即存在常数$C$，使得$DX_i\leqslant C$对一切$i\geqslant1$均成立，则$\{X_n\}$服从大数定律：$\dfrac{1}{n}\sum\limits_{i=1}^nX_i\overset{P}{\longrightarrow}\dfrac{1}{n}\sum\limits_{i=1}^nEX_i$。即$\overline{X}\overset{P}{\rightarrow}E\overline{X}$。
 
 所以大数定律一般是考定律成立条件与结论正确性。
 
@@ -72,9 +78,17 @@ $\because X_n\sim E(n)$，$\therefore EX_n=\dfrac{1}{n}$，$DX_n=\dfrac{1}{n^2}$
 
 \subsection{伯努利大数定律}
 
-\textcolor{violet}{\textbf{定义：}}假设$\mu_n$是$n$重伯努利试验中事件$A$发生的次数，在每次试验中事件$A$发生的概率为$p$（$0<p<1$），则$\dfrac{\mu_n}{n}\overset{P}{\longrightarrow}p$，即对任意的$\epsilon>0$，有$\lim\limits_{x\to\infty}P\left\{\left\vert\dfrac{\mu_n}{n}-p\right\vert<\epsilon\right\}=1$。
+\textcolor{violet}{\textbf{定义：}}假设$\mu_n$是$n$重伯努利试验中事件$A$发生的次数，在每次试验中事件$A$发生的概率为$p$（$0<p<1$），则$\dfrac{\mu_n}{n}\overset{P}{\longrightarrow}p$，即对任意的$\epsilon>0$，有$\lim\limits_{n\to\infty}P\left\{\left\vert\dfrac{\mu_n}{n}-p\right\vert<\epsilon\right\}=1$。
 
-可以看作通过$n$重伯努利试验，一个事件的概率会逼近一个固定的值。
+可以看作通过$n$重伯努利试验，一个事件的试验概率$\dfrac{\mu_n}{n}$会逼近一个固定的事件概率$p$。
+
+证明：$n$重伯努利试验，则$\mu_n\sim B(n,p)$，$E_{\mu_n}=np$，$D_{\mu_n}=np(1-p)$。
+
+则$E\left(\dfrac{\mu_n}{n}\right)=p$，$D\left(\dfrac{\mu_n}{n}\right)=\dfrac{p(1-p)}{n}$。
+
+切比雪夫不等式：$\forall\epsilon>0$，$1\geqslant P\{\vert\dfrac{\mu_n}{n}-p\vert<\epsilon\}\geqslant1-\dfrac{p(1-p)}{n\epsilon^2}\xrightarrow{n\to+\infty}1$。
+
+根据夹逼定理$\lim\limits_{n\to\infty}P\left\{\left\vert\dfrac{\mu_n}{n}-p\right\vert<\epsilon\right\}=1$。
 
 \subsection{辛钦大数定律}
 
@@ -112,9 +126,23 @@ $C.$服从同一泊松分布\qquad$D.$服从同一连续型分布
 
 定理要求：独立、同分布、期望方差存在。
 
+$\dfrac{\sum\limits_{i=1}^nX_i-n\mu}{\sqrt{n}\sigma}\sim N(0,1)$，$\sum\limits_{i=1}^nX_i\sim N(n\mu,n\sigma^2)$。
+
+\textbf{例题：}已知手套是使用寿命服从指数分布，单位为小时，且平均寿命为20小时。若一个人需要带手套进行工作，发现手套坏了就立刻换新继续工作，为保证该工人有95\%的把握能工作2000小时，求应该为其准备手套的副数。
+
+解：题目中需要为其准备手套，且所有使用寿命加在一起大于2000的概率为95\%。这个问题是概率分布的和的问题，所以使用列维-林德伯格定理。
+
+假设第$i$副手套的使用寿命为$X_i$，则$X_i\sim E(\lambda)$，又平均寿命为$20$小时，则$E(X_i)=\dfrac{1}{\lambda}=20$，即$\lambda=\dfrac{1}{20}$，$D(X_i)=\dfrac{1}{\lambda^2}=400$。
+
+又根据中心极限定理，$\sum\limits_{i=1}^nX_i\sim N(n\mu,n\sigma^2)=N(20n,400n)$，
+
+保证该工人有95\%的把握能工作2000小时，则$P\{\sum\limits_{i=1}^nX_i\geqslant2000\}\approx0.95$，则标准化$P\left\{\dfrac{\sum X_i-20n}{20\sqrt{n}}\geqslant\dfrac{2000-20n}{\sqrt{20\sqrt{n}}}\right\}\approx0.95$，$1-P\left\{Z<\dfrac{100-n}{\sqrt{n}}\right\}\approx0.95$，$Z=\dfrac{\sum X_i-20n}{20\sqrt{n}}\sim N(0,1)$，即$\varPhi(\dfrac{100-n}{\sqrt{n}})\approx0.05$，查表，$\dfrac{n-100}{\sqrt{n}}\approx1.64$，$n\approx118$。
+
 \subsection{棣莫弗-拉普拉斯定理}
 
 \textcolor{violet}{\textbf{定义：}}假设随机变量$Y_n\sim B(n,p)$（$0<p<1$，$n\geqslant1$），则对任意实数$x$，有$\lim\limits_{n\to\infty}P\left\{\dfrac{Y_n-np}{\sqrt{np(1-p)}}\leqslant x\right\}=\dfrac{1}{\sqrt{pi}}\int_{-\infty}^xe^{-\frac{t^2}{2}}\,\textrm{d}t=\varPhi(x)$。\medskip
+
+$\dfrac{Y_n-np}{\sqrt{np(1-p)}}\sim N(0,1)$，$X\sim N[np,np(1-p)]$。即二项分布的极限分布是正态分布。其中正态分布的期望和方差就是二项分布的期望和方差。
 
 \textbf{例题：}生产线生产的产品成箱包装，每箱质量是随机的。假设每箱平均钟50千克，标准差为5，若用载重为5吨的汽车承运，试用中心极限定理说明每辆汽车最多可以装多少箱才能保证不超载的概率大于0.977。（$\varPhi(2)=0.977$）
 

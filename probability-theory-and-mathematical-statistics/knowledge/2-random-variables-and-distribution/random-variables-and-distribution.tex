@@ -275,7 +275,7 @@ $=1-F(t)=1-P\{X\leqslant t\}=P\{X>t\}$。
 
 \subsubsection{正态分布}
 
-\textcolor{violet}{\textbf{定义：}}如果$X$的概率密度为$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}\exp\left(-\dfrac{(x-\mu)^2}{2\sigma^2}\right)$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），则称$X$服从参数为$(\mu,\sigma^2)$的\textbf{正态分布}，称$X$为\textbf{正态变量}，记为$X\sim N(\mu,\sigma^2)$。
+\textcolor{violet}{\textbf{定义：}}如果$X$的概率密度为$f(x)=\dfrac{1}{\sqrt{2\pi}\sigma}e^{-\frac{(x-\mu)^2}{2\sigma^2}}$（$-\infty<x<+\infty$，$-\infty<\mu<+\infty$，$\sigma>0$），则称$X$服从参数为$(\mu,\sigma^2)$的\textbf{正态分布}，称$X$为\textbf{正态变量}，记为$X\sim N(\mu,\sigma^2)$。
 
 $f(x)$的图形关于$x=\mu$对称，即$f(\mu-x)=f(\mu+x)$，并在$x=\mu$处有唯一最大值$f(\mu)=\dfrac{1}{\sqrt{2\pi}\sigma}$。$\mu-\sigma$和$\mu+\sigma$为拐点。
 
@@ -291,7 +291,7 @@ $f(x)$的图形关于$x=\mu$对称，即$f(\mu-x)=f(\mu+x)$，并在$x=\mu$处�
     \filldraw[black] (1,1) node{$f(x)$};
 \end{tikzpicture}
 
-当$\mu=0$，$\sigma=1$时的正态分布$N(0,1)=\dfrac{1}{\sqrt{2\pi}}\exp\left(-\dfrac{x^2}{2}\right)$为\textbf{标准正态分布}，记为$\varPhi(x)$，$\varPhi(x)$为偶函数，$\varPhi(0)=\dfrac{1}{2}$，$\varPhi(-x)=1-\varPhi(x)$。
+当$\mu=0$，$\sigma=1$时的正态分布$N(0,1)=\dfrac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}$为\textbf{标准正态分布}，记为$\varPhi(x)$，$\varPhi(x)$为偶函数，$\varPhi(0)=\dfrac{1}{2}$，$\varPhi(-x)=1-\varPhi(x)$。
 
 若$X\sim N(0,1)$，$P\{X>\mu_\alpha\}=\alpha$，则称$\mu_\alpha$为标准正态分布的\textbf{上侧$\alpha$分位数/上$\alpha$分位点}。
 
@@ -524,7 +524,7 @@ $p_{\cdot j}=P\{Y=y_i\}=\sum\limits_{i=1}^\infty P\{X=x_i,Y=y_j\}=\sum\limits_{i
 
 \textcolor{violet}{\textbf{定义：}}若$(X,Y)$的概率密度为：
 
-{\fontsize{8.2pt}{10pt}$f(x,y)=\dfrac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left(-\dfrac{1}{2(1-\rho^2)}\left(\left(\dfrac{x-\mu_1}{\sigma_1}\right)^2-2\rho\left(\dfrac{x-\mu_1}{\sigma_1}\right)\left(\dfrac{y-\mu_2}{\sigma_2}\right)+\left(\dfrac{y-\mu_2}{\sigma_2}\right)^2\right)\right)$}
+{\fontsize{8.2pt}{10pt}$f(x,y)=\dfrac{1}{2\pi\sigma_1\sigma_2\sqrt{1-\rho^2}}\exp\left\{-\dfrac{1}{2(1-\rho^2)}\left[\left(\dfrac{x-\mu_1}{\sigma_1}\right)^2-2\rho\left(\dfrac{x-\mu_1}{\sigma_1}\right)\left(\dfrac{y-\mu_2}{\sigma_2}\right)+\left(\dfrac{y-\mu_2}{\sigma_2}\right)^2\right]\right\}$}
 
 其中$\mu_1,\mu_2\in R$，$\sigma_1,\sigma_2>0$，$-1<\rho<1$，则称$(X,Y)$服从参数为$\mu_1,\mu_2,\sigma_1^2,\sigma_2^2,\rho$的\textbf{二维正态分布}，记为$(X,Y)\sim N(\mu_1,\mu_2;\sigma_1^2,\sigma_2^2;\rho)$。此时：
 
