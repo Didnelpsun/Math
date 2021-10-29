@@ -52,13 +52,21 @@
 
 在满足一定的条件下，大数定律均为$\dfrac{1}{n}\sum\limits_{i=1}^nX_i\overset{P}{\rightarrow}E\left(\dfrac{1}{n}\sum\limits_{i=1}^nX_i\right)$。
 
-\textcolor{violet}{\textbf{定义：}}假设随机变量序列$\{X_n\}$（$n=1,2,3\cdots$）是\textbf{相互独立}的，若方差$DX_i$（$i\geqslant1$）\textbf{存在且一致有上界}，即存在常数$C$，使得$DX_i\leqslant C$对一切$i\geqslant1$均成立，则$\{X_n\}$服从大数定律：$\dfrac{1}{n}\sum\limits_{i=1}^nX_i\overset{P}{\longrightarrow}\dfrac{1}{n}\sum\limits_{i=1}^nEX_i$。即$\overline{X}\overset{P}{\rightarrow}E\overline{X}$。
-
 所以大数定律一般是考定律成立条件与结论正确性。
 
 \subsection{切比雪夫大数定律}
 
-\textcolor{violet}{\textbf{定义：}}假设随机变量序列$\{X_n\}$（$n=1,2,3\cdots$）是\textbf{相互独立}的，若方差$DX_i$（$i\geqslant1$）\textbf{存在且一致有上界}，即存在常数$C$，使得$DX_i\leqslant C$对一切$i\geqslant1$均成立，则$\{X_n\}$服从大数定律：$\dfrac{1}{n}\sum\limits_{i=1}^nX_i\overset{P}{\longrightarrow}\dfrac{1}{n}\sum\limits_{i=1}^nEX_i$。即$\overline{X}\overset{P}{\rightarrow}E\overline{X}$。
+\textcolor{violet}{\textbf{定义：}}假设随机变量序列$\{X_n\}$（$n=1,2,3\cdots$）是\textbf{相互独立}的（不一定同分布），若期望$EX$存在，且方差$DX_i$（$i\geqslant1$）\textbf{存在且一致有上界}，即存在常数$C$，使得$DX_i\leqslant C$对一切$i\geqslant1$均成立，则$\forall\epsilon>0$，$\lim\limits_{n\to\infty}P\left\{\left\vert\dfrac{1}{n}\sum\limits_{i=1}^nX_i-\dfrac{1}{n}\sum\limits_{i=1}^nEX_i\right\vert<\epsilon\right\}=1$，$\{X_n\}$服从大数定律：$\dfrac{1}{n}\sum\limits_{i=1}^nX_i\overset{P}{\longrightarrow}\dfrac{1}{n}\sum\limits_{i=1}^nEX_i$。即$\overline{X}\overset{P}{\rightarrow}E\overline{X}$。
+
+即均值收敛于期望的均值。
+
+证明：$E\left(\dfrac{1}{n}\sum\limits_{i=1}^nX_i\right)=\dfrac{1}{n}\sum\limits_{i=1}^nEX_i$，又$X_i$不相关，则$Cov(X_i,X_j)=0$。
+
+则$D\left(\dfrac{1}{n}\sum\limits_{i=1}^nX_i\right)=\dfrac{1}{n^2}\sum\limits_{i=1}^nDX_i\leqslant\dfrac{nC}{n^2}=\dfrac{C}{n}$。
+
+又根据切比雪夫不等式$1\geqslant\lim\limits_{n\to\infty}P\left\{\left\vert\dfrac{1}{n}\sum\limits_{i=1}^nX_i-\dfrac{1}{n}\sum\limits_{i=1}^nEX_i\right\vert<\epsilon\right\}\geqslant1-\dfrac{D\left(\dfrac{1}{n}\sum_{i=1}^nX_i\right)}{\epsilon^2}\geqslant1-\dfrac{C}{n\epsilon^2}\xrightarrow{n\to+\infty}1$。
+
+根据夹逼定理$\lim\limits_{n\to\infty}P\left\{\left\vert\dfrac{1}{n}\sum\limits_{i=1}^nX_i-\dfrac{1}{n}\sum\limits_{i=1}^nEX_i\right\vert<\epsilon\right\}$=1。
 
 \textbf{例题：}设$X_1,X_2,\cdots,X_n,\cdots$为相互独立的随机变量序列，$X_n$服从参数为$n$的指数分布（$n\leqslant1$），则下列随机变量序列中不服从切比雪夫大数定律的是()。
 
@@ -78,7 +86,7 @@ $\because X_n\sim E(n)$，$\therefore EX_n=\dfrac{1}{n}$，$DX_n=\dfrac{1}{n^2}$
 
 \subsection{伯努利大数定律}
 
-\textcolor{violet}{\textbf{定义：}}假设$\mu_n$是$n$重伯努利试验中事件$A$发生的次数，在每次试验中事件$A$发生的概率为$p$（$0<p<1$），则$\dfrac{\mu_n}{n}\overset{P}{\longrightarrow}p$，即对任意的$\epsilon>0$，有$\lim\limits_{n\to\infty}P\left\{\left\vert\dfrac{\mu_n}{n}-p\right\vert<\epsilon\right\}=1$。
+\textcolor{violet}{\textbf{定义：}}假设$\mu_n$是$n$重伯努利试验中事件$A$发生的次数，在每次试验中事件$A$发生的概率为$p$（$0<p<1$），则$\dfrac{\mu_n}{n}\overset{P}{\longrightarrow}p$，即对任意的$\epsilon>0$，有$\lim\limits_{n\to\infty}P\left\{\left\vert\dfrac{\mu_n}{n}-p\right\vert<\epsilon\right\}=\lim\limits_{n\to\infty}P\left\{\left\vert\dfrac{1}{n}\sum\limits_{i=1}^nX_i-\dfrac{1}{n}\sum\limits_{i=1}^nEX_i\right\vert<\epsilon\right\}=\lim\limits_{n\to\infty}P\\\left\{\left\vert\dfrac{1}{n}\sum\limits_{i=1}^nX_i-\dfrac{1}{n}\sum\limits_{i=1}^nEX_i\right\vert<\epsilon\right\}=1$。
 
 可以看作通过$n$重伯努利试验，一个事件的试验概率$\dfrac{\mu_n}{n}$会逼近一个固定的事件概率$p$。
 
@@ -92,7 +100,11 @@ $\because X_n\sim E(n)$，$\therefore EX_n=\dfrac{1}{n}$，$DX_n=\dfrac{1}{n^2}$
 
 \subsection{辛钦大数定律}
 
+辛钦大数定律类似切比雪夫大数定律的特殊化，将序列约束为同分布。（但是对方差没有要求，所以不能按切比雪夫定律的证明来做）
+
 \textcolor{violet}{\textbf{定义：}}假设随机变量序列$\{X_n\}$（$n=1,2,3\cdots$）是\textbf{相互独立}的\textbf{同分布}的，如果$EX_i=\mu$（$i=1,2,\cdots$）\textbf{存在}，则$\dfrac{1}{n}\sum\limits_{i=1}^nX_i\overset{P}{\longrightarrow}\mu$，即对任意的$\epsilon>0$有$\lim\limits_{n\to\infty}P\left\{\left\vert\dfrac{1}{n}\sum\limits_{i=1}^nX_i-\mu\right\vert<\epsilon\right\}=1$。也可以转换为即$\overline{X}\overset{P}{\rightarrow}E\overline{X}$。\medskip
+
+即能用平均数可以来逼近期望。
 
 \textbf{例题：}假设随机变量序列$X_1,X_2,\cdots,X_n,\cdots$相互独立，根据辛钦大数定律，当$n\to\infty$时，$\dfrac{1}{n}\sum\limits_{i=1}^nX_i$依概率收敛于数学期望，只要$\{X_n\}$()。
 

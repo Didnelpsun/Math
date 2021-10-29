@@ -217,7 +217,7 @@ $\therefore P\{F>F_\alpha(n_2,n_1)\}=\alpha$，$P\{F\leqslant F_\alpha(n_2,n_1)\
 
 \begin{enumerate}
     \item $\overline{X}\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，即$\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}=\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma}\sim N(0,1)$。
-    \item $\dfrac{1}{\sigma^2}\sum\limits_{i=1}^n(X_i-\mu)^2\sim\chi^2(n)$。
+    \item $\dfrac{1}{\sigma^2}\sum\limits_{i=1}^n(X_i-\mu)^2\sim\chi^2(n)$。$\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)$。
     \item $\dfrac{(n-1)S^2}{\sigma^2}=\sum\limits_{i=1}^n\left(\dfrac{X_i-\overline{X}}{\sigma}\right)^2\sim\chi^2(n-1)$（$\mu$未知时，在2中用$\overline{X}$代替$\mu$）。
     \item $\overline{X}$与$S^2$相互独立，$\dfrac{\sqrt{n}(\overline{X}-\mu)}{S}\sim t(n-1)$（$\sigma$未知时在1中用$S$代替$\sigma$）。进一步有$\dfrac{n(\overline{X}-\mu)^2}{S^2}\sim F(1,n-1)$。
 \end{enumerate}
@@ -235,6 +235,14 @@ $\therefore P\{F>F_\alpha(n_2,n_1)\}=\alpha$，$P\{F\leqslant F_\alpha(n_2,n_1)\
 \subsection{方法}
 
 \subsubsection{矩估计法}
+
+使用替换思想，用样本距来估计总体距。
+
+\begin{enumerate}
+    \item 写出总体$k$阶矩$\mu_k=E(X^k)$，其中$\mu$含有参数$\theta$。
+    \item 写出样本$k$阶矩$A_k=\dfrac{1}{n}\sum\limits_{i=1}^nX^k$，$A_k$只与样本有关。
+    \item 令总体$k$阶矩=样本$k$阶矩，即$E(X^k)=\dfrac{1}{n}\sum\limits_{i=1}^nX^k$，就得到了$\theta$的方程。
+\end{enumerate}
 
 \textbf{例题：}来自总体的$X$的简单随机样本$X_1,X_2,\cdots,X_n$，总体$X$的概率分布为$X\sim\left(\begin{array}{ccc}
     -1 & 0 & 2 \\
@@ -329,7 +337,7 @@ $ED=\sigma^2=kE(\sum\lim\limits_{i=1}^{n-1}(X_{i+1}-X_i)^2)=kE(\sum\limits_{i=1}
 
 \subsubsection{有效性}
 
-也称为最小方差性。
+也称为最小方差性。只有同样的无偏性才能比较有效性。
 
 \textcolor{violet}{\textbf{定义：}}设$\hat{\theta_1}=\hat{\theta_1}(X_1,X_2,\cdots,X_n)$与$\hat{\theta_2}=\hat{\theta_2}(X_1,X_2,\cdots,X_n)$都是$\theta$的无偏估计量，若$D(\hat{\theta_1})<D(\hat{\theta_2})$，则$\hat{\theta_1}$比$\hat{\theta_2}$\textbf{有效}。
 
@@ -347,11 +355,13 @@ $EX_i^2=EX_{i+1}^2=(EX_{i+1})^2+DX_{i+1}=\mu^2+\sigma^2$，$2EX_iE_{i+1}=2(EX_i)
 
 \subsection{区间估计}
 
-区间估计是根据样本估计总体期望$\mu$所在的区间。
+区间估计是根据样本估计总体期望$\mu$所在的区间。有两个参数，一个是区间长度，一个是落入概率。
 
 \subsubsection{概念}
 
 \textcolor{violet}{\textbf{定义：}}已知从总体$X$中取出一部分样本$X_n$，则这些样本的平均值$\overline{X}$不一定等于$X$的期望即应该的平均值$\mu$，但是其之间的差距应该不大，即差距较小的概率较大，从而表示为$P(\vert\overline{X}-\mu\vert<\Delta)=1-\alpha$，$\alpha$为\textbf{显著性水平}，其一般是一个较小的正数。而$1-\alpha$称为\textbf{置信度}或\textbf{置信水平}。
+
+\textcolor{violet}{\textbf{定义：}}$I=I(T,\theta)$，$T$为已知常量，$\theta$为未知参数，其分布$F$已知且与$\theta$无关，则$I$为\textbf{枢轴变量}。给定$1-\alpha$，确定$F$上的上$\dfrac{\alpha}{2}$分位数$Z-{\frac{\alpha}{2}}$，上$1-\dfrac{\alpha}{2}$分位数$Z_{1-\frac{\alpha}{2}}$，则$P\{Z_{1-\frac{\alpha}{2}}\leqslant I(T,\theta)\leqslant Z_{\frac{\alpha}{2}}=1-\alpha$。
 
 \subsubsection{正态总体均值的置信空间}
 

@@ -64,7 +64,7 @@ $S_n=u_1+u_2+\cdots+u_n$称为级数的\textbf{部分和}，$\{S_n\}$是级数�
 \begin{enumerate}
     \item 线性性质：若级数$\sum\limits_{n=1}^\infty u_n$，$\sum\limits_{n=1}^\infty v_n$均收敛，且其和分别为$S$，$T$，则任给常数$a,b$，有$\sum\limits_{n=1}^\infty(au_n+bv_n)$也收敛，且其和为$aS+bT$，即$\sum\limits_{n=1}^\infty(au_n+bv_n)=a\sum\limits_{n=1}^\infty u_n+b\sum\limits_{n=1}^\infty v_n$。
     \item 若级数$\sum\limits_{n=1}^\infty u_n$收敛，则其任意$m$项后余项$\sum\limits_{n=m+1}^\infty u_n$也收敛；若存在$m$项后余项$\sum\limits_{n=m+1}^\infty u_n$收敛，则$\sum\limits_{n=1}^\infty u_n$也收敛。
-    \item 级数收敛必要条件：若级数$\sum\limits_{n=1}^\infty u_n$首先，则$\lim\limits_{n\to\infty}u_n=0$。
+    \item 级数收敛必要条件：若级数$\sum\limits_{n=1}^\infty u_n$收敛，则$\lim\limits_{n\to\infty}u_n=0$。
 \end{enumerate}
 
 证明性质三：$u_n=S_n-S_{n-1}$，所以$\lim\limits_{n\to\infty}=\lim\limits_{n\to\infty}(S_n-S_{n-1})=\lim\limits_{n\to\infty}S_n-\lim\limits_{n\to\infty}S_{n-1}=S-S=0$。极限为0不一定收敛。
@@ -87,7 +87,7 @@ $S_n=u_1+u_2+\cdots+u_n$称为级数的\textbf{部分和}，$\{S_n\}$是级数�
 
 基本就是使用放缩法判断是否有界。
 
-\textcolor{aqua}{\textbf{定理：}}等比级数（几何级数）：$\sum\limits_{n=21}^\infty\dfrac{1}aq^{n-1}\left\{\begin{array}{l}
+\textcolor{aqua}{\textbf{定理：}}等比级数（几何级数）：$\sum\limits_{n=1}^\infty\dfrac{1}aq^{n-1}\left\{\begin{array}{l}
     \vert q\vert<1, \text{收敛} \\
     \vert q\vert\geqslant 1, \text{发散}
 \end{array}\right.$。
