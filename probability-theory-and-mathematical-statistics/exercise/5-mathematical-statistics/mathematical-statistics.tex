@@ -84,6 +84,26 @@ $\therefore\dfrac{X_1^2+X_2^2+\cdots+X_{10}^2}{9}\sim\chi^2(10)$，$\dfrac{X_{11
 
 $\therefore\dfrac{\dfrac{X_1^2+X_2^2+\cdots+X_{10}^2}{9}/10}{\dfrac{X_{11}^2+X_{12}^2+\cdots+X_{15}^2}{9}/5}=\dfrac{X_1^2+X_2^2+\cdots+X_{10}^2}{2X_{11}^2+X_{12}^2+\cdots+X_{15}^2}=Y\sim F(10,5)$。
 
+\textbf{例题：}已知$(X,Y)$的概率分布函数为$f(x,y)=\dfrac{1}{2\pi}e^{-\frac{1}{2}(x^2+y^2-2y+1)}$，$x,y\in R$，求$\dfrac{X^2}{(Y-1)^2}$的分布。
+
+解：$f(x,y)=\dfrac{1}{2\pi}e^{-\frac{1}{2}(x^2+y^2-2y+1)}=\dfrac{1}{2\pi}e^{-\frac{1}{2}(x^2+(y-1)^2)}$，所以根据二维正态分布的形式，得到$(X,Y)\sim(0,1;1,1;0)$。
+
+即$X\sim\varPhi(x)$，$Y-1\sim\varPhi(x)$，$\therefore X^2\sim\chi^2(1)$，$(Y-1)^2\sim\chi^2(1)$，$\therefore\dfrac{X^2}{(Y-1)^2}\sim F(1,1)$。
+
+\subsection{函数分布}
+
+\textbf{例题：}设随机变量$X\sim t(n)$，$Y\sim F(1,n)$，常数$C$使得$P\{X>C\}=0.6$，求$P\{Y>C^2\}$。
+
+解：$X\sim t(n)$，则$X=\dfrac{X_1}{\sqrt{Y_1/n}}\sim t(n)$，其中$X_1\sim N(0,1)$，$Y_1\sim\chi^2(n)$。
+
+$\therefore X^2=\dfrac{X_1^2}{Y_1/n}=\dfrac{X_1^2/1}{Y_1/n}\sim\dfrac{\chi^2(1)/1}{\chi^2(n)/n}=F(1,n)$。
+
+又$P\{Y>C^2\}=1-P\{Y\leqslant C^2\}$。$P\{X^2>C^2\}=1-P\{X^2\leqslant C^2\}$。
+
+又$P\{X^2\leqslant C^2\}=P\{-C\leqslant X\leqslant C\}$，根据偶函数性质$=0.2$。
+
+$\therefore P\{X^2>C^2\}=0.8$。
+
 \section{参数估计}
 
 \subsection{矩估计}
