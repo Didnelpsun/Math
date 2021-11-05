@@ -36,6 +36,8 @@
 \setcounter{page}{1}
 \section{统计量}
 
+利用期望和方差等数学特征之间的关系进行计算统计量，往往以$\sum\limits_{i=1}^nX_i$或类似的形式。
+
 \textbf{例题：}已知总体$X$的期望为$EX=0$，方差$DX=\sigma^2$。从总体抽取容量为$n$的简单随机样本，其均值和方差分别为$\overline{X}$，$S^2$。记$S_k^2=\dfrac{n}{k}\overline{X}^2+\dfrac{1}{k}S^2$（$k=1,2,3,4$），则()。
 
 $A.E(S_1^2)=\sigma^2$\qquad$B.E(S_2^2)=\sigma^2$
@@ -43,6 +45,12 @@ $A.E(S_1^2)=\sigma^2$\qquad$B.E(S_2^2)=\sigma^2$
 $C.E(S_3^2)=\sigma^2$\qquad$D.E(S_4^2)=\sigma^2$
 
 解：$E(S_k^2)=E\left(\dfrac{n}{k}\overline{X}^2+\dfrac{1}{k}S^2\right)=\dfrac{n}{k}E\overline{X}^2+\dfrac{1}{k}E(S^2)=\dfrac{n}{k}((E\overline{X})^2+D\overline{X})+\dfrac{1}{k}E(S^2)=\dfrac{n}{k}\left(0+\dfrac{\sigma^2}{n}\right)+\dfrac{1}{k}\sigma^2=\dfrac{2\sigma^2}{k}$，$\therefore k=2$。
+
+\textbf{例题：}设$X_i$为来自总体$E(\lambda)$（$\lambda>0$）的简单随机样本，记统计量$T=\dfrac{1}{n}\sum\limits_{i=1}^nX_i^2$，求$ET$。
+
+解：$ET=E\dfrac{1}{n}\sum\limits_{i=1}^nX_i^2=\dfrac{1}{n}\sum\limits_{i=1}^nEX_i^2=\dfrac{1}{n}\sum\limits_{i=1}^n(DX_i+E^2X_i)=\dfrac{1}{n}\sum\limits_{i=1}^n\left(\dfrac{1}{\lambda^2}+\dfrac{1}{\lambda^2}\right)\\=\dfrac{1}{n}\cdot\dfrac{2n}{\lambda^2}=\dfrac{2}{\lambda^2}$。
+
+\textbf{例题：}设$X_i$为来自总体$X$的简单随机样本，而$X\sim B\left(1,\dfrac{1}{2}\right)$。记$\overline{X}=\dfrac{1}{n}\sum\limits_{i=1}^nX_i$，求$P\left\{\overline{X}=\dfrac{k}{n}\right\}$。（$0\leqslant k\leqslant n$）
 
 \section{三大分布}
 
