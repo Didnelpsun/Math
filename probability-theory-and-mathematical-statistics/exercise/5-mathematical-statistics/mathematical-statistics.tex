@@ -52,6 +52,10 @@ $C.E(S_3^2)=\sigma^2$\qquad$D.E(S_4^2)=\sigma^2$
 
 \textbf{例题：}设$X_i$为来自总体$X$的简单随机样本，而$X\sim B\left(1,\dfrac{1}{2}\right)$。记$\overline{X}=\dfrac{1}{n}\sum\limits_{i=1}^nX_i$，求$P\left\{\overline{X}=\dfrac{k}{n}\right\}$。（$0\leqslant k\leqslant n$）
 
+解：$\because X\sim B\left(1,\dfrac{1}{2}\right)$，$\therefore\sum\limits_{i=1}^nX_i\sim B\left(n,\dfrac{1}{2}\right)$。
+
+$P\left\{\overline{X}=\dfrac{k}{n}\right\}=P\left\{\dfrac{1}{n}\sum\limits_{i=1}^nX_i=\dfrac{k}{n}\right\}=P\left\{\sum\limits_{i=1}^nX_i=k\right\}=C_n^k\left(\dfrac{1}{2}\right)^k\left(\dfrac{1}{2}\right)^{n-k}\\=C_n^k\cdot\left(\dfrac{1}{2}\right)^n$。
+
 \section{三大分布}
 
 \subsection{\texorpdfstring{$\chi^2$分布}{}}
@@ -115,6 +119,52 @@ $\therefore P\{X^2>C^2\}=0.8$。
 \section{参数估计}
 
 \subsection{矩估计}
+
+基本方法就是$EX=\dfrac{1}{n}\sum\limits_{i=1}^nX_i$。
+
+\subsubsection{一阶矩}
+
+\subsubsection{二阶矩}
+
+\textbf{例题：}设$X_i$为来自区间$[-a,a]$上均匀分布的总体$X$的简单随机样本，求$a$的矩估计量。
+
+解：首先矩估计就是$E(X^k)=\dfrac{1}{n}\sum\limits_{i=1}^nX_i^k$。
+
+又对于均匀分布$X_i\sim U(-a,a)$，$EX=\dfrac{a+b}{2}=0$，$DX=\dfrac{(b-a)^2}{12}=\dfrac{a^2}{3}$。
+
+所以$EX$不含有$a$，使用二阶矩$EX^2=DX+E^2X=\dfrac{a^2}{3}=\dfrac{1}{n}\sum\limits_{i=1}^nX_i^2$。
+
+解得$a=\sqrt{\dfrac{3}{n}\sum\limits_{i=1}^nX_i^2}$。
+
+\subsection{最大似然估计}
+
+步骤：写出概率函数或密度函数；写出似然函数（代入观测值$x_i$并连乘）；两边取对数；求导数并令为0。
+
+\textbf{例题：}设随机变量$X$在区间$[0,\theta]$上服从均匀分布，$X_1,X_2,\cdots,X_n$是来自$X$的简单随机样本，求$\theta$的最大似然估计量$\hat{\theta}$
+
+解：$X\sim U(0,\theta)$，$f(x)=\left\{\begin{array}{ll}
+    \dfrac{1}{\theta}, & 0<x<\theta \\
+    0, & \text{其他}
+\end{array}\right.$，$L(\theta)=\left\{\begin{array}{ll}
+    \dfrac{1}{\theta^n}, & 0<x_i<\theta \\
+    0, & \text{其他}
+\end{array}\right.$。
+
+求$\hat{\theta}$即求$L(\theta)$的最大值，$\theta$的最小值。又必然$0<x_i<\theta$。
+
+所以$\hat{\theta}=\max x_i$，即$\theta$的最大似然估计为$\max\limits_{1\leqslant i\leqslant n}X_i$。
+
+（取最大值而不是最小值是因为为保证所有$x_i$都在定义域上，$0<x_i<\theta$，所以要求$\theta>\max x_i$）
+
+\textbf{例题：}设$X_1,X_2,\cdots X_n$是来自总体$X$的简单随机样本，$X$的概率密度函数$f(x)=\dfrac{1}{2\lambda}e^{-\frac{\vert x\vert}{\lambda}}$，$x\in R$，$\lambda>0$，求$\lambda$的最大似然估计量$\hat{\lambda}$。
+
+解：$\because f(x)=\dfrac{1}{2\lambda}e^{-\frac{\vert x\vert}{\lambda}}$，$\therefore L(\lambda)=\prod\limits_{i=1}^n\dfrac{1}{2\lambda}e^{-\frac{\vert x\vert}{\lambda}}=\left(\dfrac{1}{2\lambda}\right)^ne^{-\frac{1}{\lambda}\sum\limits_{i=1}^n\vert x_i\vert}$。
+
+$\ln L(\lambda)=-n\ln2-n\ln\lambda-\dfrac{1}{\lambda}\sum\limits_{i=1}^n\vert x_i\vert$，$\dfrac{\textrm{d}\ln L(\lambda)}{\textrm{d}\lambda}=-\dfrac{n}{\lambda}+\dfrac{1}{\lambda^2}\sum\limits_{i=1}^n\vert x_i\vert$。
+
+令$\dfrac{\textrm{d}\ln L(\lambda)}{\textrm{d}\lambda}=0$，则$\dfrac{n}{\lambda}=\dfrac{1}{\lambda^2}\sum\limits_{i=1}^n\vert x_i\vert$，解得$\lambda=\dfrac{1}{n}\sum\limits_{i=1}^n\vert x_i\vert$。
+
+即$\hat{\lambda}=\dfrac{1}{n}\sum\limits_{i=1}^n\vert X_i\vert$。
 
 \section{置信区间}
 
