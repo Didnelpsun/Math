@@ -27,6 +27,14 @@
 % 超链接
 \usepackage{tikz}
 % 绘图
+\usepackage{multirow}
+% 合并单元格
+\newcommand{\tabincell}[2]{
+\begin{tabular}{@{}#1@{}}#2\end{tabular}
+}
+% 空格内换行
+\usepackage{graphicx}
+% 缩小表格
 \author{Didnelpsun}
 \title{标题}
 \date{}
@@ -335,6 +343,14 @@ $0<\theta<\dfrac{1}{2}$，舍去正值，得到$\hat{\theta}=\dfrac{7-\sqrt{13}}
 
 $ED=\sigma^2=kE(\sum\lim\limits_{i=1}^{n-1}(X_{i+1}-X_i)^2)=kE(\sum\limits_{i=1}^{n-1}(X_{i+1}^2-2X_iX_{i+1}+X_i^2))$。
 
+已知样本方差$S^2=\dfrac{1}{n-1}\sum\limits_{i=1}^n(X_i-\overline{X})^2=\dfrac{1}{n-1}\left(\sum\limits_{i=1}^nX_i^2-n\overline{X}^2\right)$。所以为什么样本方差要除以$n-1$而不是$n$？可以利用无偏性来证明。
+
+证明：根据方差$DX_i=EX_i^2-E^2X_i$，从而$EX_i^2=DX_i+E^2X_i=\sigma^2+\mu^2$，类似$D\overline{X}=E(\overline{X}^2)-(E\overline{X})^2$，$D\overline{X}=D\left(\dfrac{1}{n}\sum\limits_{i=1}^nX_i\right)=\dfrac{1}{n^2}\sum\limits_{i=1}^nDX_i=\dfrac{1}{n^2}n\sigma^2=\dfrac{\sigma^2}{n}$。
+
+$\therefore E(\overline{X}^2)=D\overline{X}+(E\overline{X})^2=\dfrac{\sigma^2}{n}+\mu^2$。
+
+所以对样本方差求期望：$ES^2=E\left(\dfrac{1}{n-1}\left(\sum\limits_{i=1}^nX_i^2-n\overline{X}^2\right)\right)=\dfrac{1}{n-1}\\\left(\sum\limits_{i=1}^nE(X_i^2)-nE(\overline{X}^2)\right)=\dfrac{1}{n-1}\left(n(\sigma^2+\mu^2)-n\left(\dfrac{\sigma^2}{n}+\mu^2\right)\right)=\sigma^2$。
+
 \subsubsection{有效性}
 
 也称为最小方差性。只有同样的无偏性才能比较有效性。
@@ -353,6 +369,16 @@ $EX_i^2=EX_{i+1}^2=(EX_{i+1})^2+DX_{i+1}=\mu^2+\sigma^2$，$2EX_iE_{i+1}=2(EX_i)
 
 \section{参数区间估计与假设检验}
 
+% 正态分布的统计量分布（$X\sim N(\mu,\sigma^2)$）：
+
+% \begin{enumerate}
+%     \item $\overline{X}=\dfrac{1}{n}\sum\limits_{i=1}^nX_i\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，$\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\sim N(0,1)$。
+%     \item $\dfrac{\overline{X}-\mu}{S/\sqrt{n}}\sim t(n-1)$。
+%     \item $\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)$。
+% \end{enumerate}
+
+区间估计和假设检验都是基于小概率事件基本上不可能发生的情况。
+
 \subsection{区间估计}
 
 区间估计是根据样本估计总体期望$\mu$所在的区间。有两个参数，一个是区间长度，一个是落入概率。
@@ -363,9 +389,15 @@ $EX_i^2=EX_{i+1}^2=(EX_{i+1})^2+DX_{i+1}=\mu^2+\sigma^2$，$2EX_iE_{i+1}=2(EX_i)
 
 \textcolor{violet}{\textbf{定义：}}$I=I(T,\theta)$，$T$为已知常量，$\theta$为未知参数，其分布$F$已知且与$\theta$无关，则$I$为\textbf{枢轴变量}。给定$1-\alpha$，确定$F$上的上$\dfrac{\alpha}{2}$分位数$Z-{\frac{\alpha}{2}}$，上$1-\dfrac{\alpha}{2}$分位数$Z_{1-\frac{\alpha}{2}}$，则$P\{Z_{1-\frac{\alpha}{2}}\leqslant I(T,\theta)\leqslant Z_{\frac{\alpha}{2}}=1-\alpha$。
 
+即$(\underline{\theta},\overline{\theta})$是参数$\theta$的置信度为$1-\alpha$的区间估计，则区间$(\underline{\theta},\overline{\theta})$包含参数$\theta$的概率为$1-\alpha$。
+
 \subsubsection{正态总体均值的置信空间}
 
-假设$X\sim N(\mu,\sigma^2)$（若不服从正态分布就用中心极限定理来解决），则$\overline{X}\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，$P\left(\left\vert\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\right\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$。记$\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}=Z$，则$Z\sim N(0,1)$。
+\paragraph{\texorpdfstring{估计$\mu$而$\sigma$已知}{}} \leavevmode \medskip
+
+假设$X\sim N(\mu,\sigma^2)$（若不服从正态分布就用中心极限定理来解决）。则$\overline{X}\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，$P\left(\left\vert\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\right\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$。记$\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}=Z$，则$Z\sim N(0,1)$。
+
+其中置信区间为$(\mu-\Delta,\mu+\Delta)$。
 
 $\therefore P\left(\vert Z\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$，从而中间面积为$1-\alpha$，得到两端面积$\dfrac{\alpha}{2}$。
 
@@ -375,6 +407,8 @@ $\therefore P\left(\vert Z\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$
 
 这个$\mu$所处的区间就是\textbf{置信区间}，区间上限就是\textbf{置信上限}，区间下限就是\textbf{置信下限}。
 
+\paragraph{\texorpdfstring{估计$\mu$而$\sigma$未知}{}} \leavevmode \medskip
+
 当$\sigma$未知的时候就无法求出置信区间了，所以根据正态总体下的结论，用样本方差$S$代替方差$\sigma$，且$\dfrac{\sqrt{n}(\overline{X}-\mu)}{S}\sim t(n-1)$。
 
 所以$P\left(\left\vert\dfrac{\overline{X}-\mu}{S/\sqrt{n}}\right\vert<\dfrac{\Delta}{S/\sqrt{n}}\right)=1-\alpha$，令$\dfrac{\overline{X}-\mu}{S/\sqrt{n}}=t$，所以$t\sim t(n-1)$。
@@ -383,12 +417,15 @@ $\therefore P\left(\vert Z\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$
 
 代入：解得$\mu\in(\overline{X}-\Delta,\overline{X}+\Delta)=\mu\in(\overline{X}-t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}},\overline{X}+t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}})$。
 
-综上：求置信空间的关键是求$\Delta$：
+综上：求置信空间的关键是求$\Delta$：\medskip
 
-\begin{itemize}
-    \item 当$\sigma$已知时，$\Delta=Z_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}}$。
-    \item 当$\sigma$未知时，$\Delta=t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}}$。
-\end{itemize}
+\begin{tabular}{|c|c|c|}
+    \hline
+    参数 & 条件 & 置信区间 \\ \hline
+    \multirow{2}{*}{$\mu$} & $\sigma$已知 & $\left(\overline{X}-\dfrac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}},\overline{X}+\dfrac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}}\right)$ \\ \cline{2-3}
+    & $\sigma$未知 & $\left(\overline{X}-\dfrac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1),\overline{X}+\dfrac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1)\right)$ \\ \hline
+    $\sigma$ & $\mu$未知 &  $\left(\dfrac{(n-1)S^2}{\chi^2_{\frac{\alpha}{2}}(n-1)},\dfrac{(n-1)S^2}{\chi^2_{1-\frac{\alpha}{2}}(n-1)}\right)$ \\ \hline
+\end{tabular}
 
 \subsection{假设检验}
 
@@ -402,12 +439,51 @@ $\therefore P\left(\vert Z\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$
 
 若$\sigma$未知，则$\Delta=t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}}$，拒绝域一样。
 
+设$\theta$为总体位置参数，$\theta_0$为已知常数，则假设检验类型：\medskip
+
+\begin{tabular}{|c|c|c|c|}
+    \hline
+    \multicolumn{2}{|c|}{类型} & $H_0$ & $H_1$ \\ \hline
+    \multicolumn{2}{|c|}{双边检验} & $\theta=\theta_0$ & $\theta\neq\theta_0$ \\ \hline
+    \multirow{2}{*}{单边检验} & 右边 & $\theta\leqslant\theta_0$ & $\theta>\theta_0$ \\ \cline{2-4}
+    & 左边 & $\theta\geqslant\theta_0$ & $\theta<\theta_0$ \\ \hline
+\end{tabular}
+
 \subsubsection{正态总体下的六大检验与拒绝域}
 
 \subsection{两类错误}
 
-第一类错误（弃真）：若$H_0$为真，按检验法则否定$H_0$。发生概率为$\alpha=P\{\text{拒绝}H_0|H_0\text{为真}\}$。
+显著性水平$\alpha$实际上是犯第一类错误的概率的上界。\medskip
 
-第二类错误（存伪）：若$H_0$为假，按检验法则接受$H_0$。发生概率为$\beta=P\{\text{接受}H_0|H_0\text{为假}\}=P\{\text{接受}H_0|H_1\text{为真}\}$。
+\begin{center}{
+    \begin{tabular}{|c|c|c|}
+        \hline
+        类型 & 第一类错误 & 第二类错误 \\ \hline
+        含义 & 若$H_0$为真，否定$H_0$（弃真）& 若$H_0$为假，接受$H_0$（存伪）\\ \hline
+        发生概率 & $\alpha=P\{\text{拒绝}H_0|H_0\text{为真}\}$ & \tabincell{c}{$\beta=P\{\text{接受}H_0|H_0\text{为假}\}$\\$=P\{\text{接受}H_0|H_1\text{为真}\}$} \\ \hline
+        说明 & \tabincell{c}{仅控制犯第一类错误的概率\\的检验称为显著性检验，\\概率为显著性水平} & \tabincell{c}{当样本容量固定，\\则$\alpha$和$\beta$中任意一个减少，\\则另一个必然增大，\\若要同时增大，\\则只能增大样本容量} \\ \hline
+    \end{tabular}
+}\end{center} \medskip
+
+\begin{center}
+    \scalebox{0.8}{
+    \begin{tabular}{|c|c|c|c|c|c|}
+        \hline
+        检验参数 & 条件 & 原假设$H_0$ & 备择假设$H_1$ & 检验法与统计量 & 拒绝域 \\ \hline
+        \multirow{6}{*}{$\mu$} & \multirow{3}{*}{$\sigma=\sigma_0$} & $\mu=\mu_0$ & $\mu\neq\mu_0$ & \multirow{3}{*}{\tabincell{c}{$U$检验\\$U=\dfrac{\overline{X}-\mu_0}{\sigma_0/\sqrt{n}}\sim N(0,1)$}} & $\vert u\vert\geqslant u_{\frac{\alpha}{2}}$ \\ \cline{3-4} \cline{6-6}
+        & & $\mu\leqslant\mu_0$ & $\mu>\mu_0$ & & $u\geqslant u_\alpha$ \\ \cline{3-4} \cline{6-6}
+        & & $\mu\geqslant\mu_0$ & $\mu<\mu_0$ & & $u\leqslant u_\alpha$ \\ \cline{2-6}
+        & \multirow{3}{*}{$\sigma$未知} & $\mu=\mu_0$ & $\mu\neq\mu_0$ & \multirow{3}{*}{\tabincell{c}{$T$检验\\$U=\dfrac{\overline{X}-\mu_0}{S/\sqrt{n}}\sim t(n-1)$}} & $\vert t\vert\geqslant t_{\frac{\alpha}{2}}(n-1)$ \\ \cline{3-4} \cline{6-6}
+        & & $\mu\leqslant\mu_0$ & $\mu>\mu_0$ & & $t\geqslant t_\alpha(n-1)$ \\ \cline{3-4} \cline{6-6}
+        & & $\mu\geqslant\mu_0$ & $\mu<\mu_0$ & & $t\leqslant t_\alpha(n-1)$ \\ \hline
+        \multirow{6}{*}{$\mu$} & \multirow{3}{*}{$\mu$已知} & $\sigma^2=\sigma^2_0$ & $\sigma^2\neq\sigma^2_0$ & \multirow{3}{*}{\tabincell{c}{$\chi^2$检验\\$\chi^2=\dfrac{1}{\sigma^2_0}\sum\limits_{i=1}^n(X_i-\mu)^2$\\$\sim\chi^2(n)$}} & \tabincell{c}{$\chi^2\leqslant\chi^2_{1-\frac{\alpha}{2}}(n)$\\$\chi^2\geqslant\chi^2_{\frac{\alpha}{2}}(n)$} \\ \cline{3-4} \cline{6-6}
+        & & $\sigma^2\leqslant\sigma^2_0$ & $\sigma^2>\sigma^2_0$ & & $\chi^2\geqslant\chi^2_\alpha(n)$ \\ \cline{3-4} \cline{6-6}
+        & & $\sigma^2\geqslant\sigma^2_0$ & $\sigma^2<\sigma^2_0$ & & $\chi^2\leqslant\chi^2_{1-\alpha}(n)$ \\ \cline{2-6}
+        & \multirow{3}{*}{$\mu$未知} & $\sigma^2=\sigma^2_0$ & $\sigma^2\neq\sigma^2_0$ & \multirow{3}{*}{\tabincell{c}{$\chi^2$检验\\$\chi^2=\dfrac{(n-1)S^2}{\sigma_0^2}$\\$\sim\chi^2(n-1)$}} & \tabincell{c}{$\chi^2\leqslant\chi^2_{1-\frac{\alpha}{2}}(n-1)$\\$\chi^2\geqslant\chi^2_{\frac{\alpha}{2}}(n-1)$} \\ \cline{3-4} \cline{6-6}
+        & & $\sigma^2\leqslant\sigma^2_0$ & $\sigma^2>\sigma^2_0$ & & $\chi^2\geqslant\chi^2_\alpha(n-1)$ \\ \cline{3-4} \cline{6-6}
+        & & $\sigma^2\geqslant\sigma^2_0$ & $\sigma^2<\sigma^2_0$ & & $\chi^2\leqslant\chi^2_{1-\alpha}(n-1)$ \\ \hline
+    \end{tabular}
+    }
+\end{center}
 
 \end{document}

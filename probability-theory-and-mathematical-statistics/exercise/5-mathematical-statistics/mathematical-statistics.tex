@@ -168,6 +168,8 @@ $\ln L(\lambda)=-n\ln2-n\ln\lambda-\dfrac{1}{\lambda}\sum\limits_{i=1}^n\vert x_
 
 \section{置信区间}
 
+\subsection{方差已知}
+
 \textbf{例题：}一批零件的长度服从正态分布$N(\mu,\sigma^2)$，其中$\mu,\sigma^2$均未知。现从中随机抽取16个零件，测得样本均值$\overline{x}=20cm$，样本标准差为$s=1cm$，求$\mu$的置信水平为0.90的置信区间。
 
 解：$\sigma$未知，所以使用$s$来求置信空间。
@@ -178,7 +180,33 @@ $\ln L(\lambda)=-n\ln2-n\ln\lambda-\dfrac{1}{\lambda}\sum\limits_{i=1}^n\vert x_
 
 所以置信空间为$\left(20-\dfrac{1}{4}t_{0.05}(15),20+\dfrac{1}{4}t_{0.05}(15)\right)$。
 
+\subsection{方差未知}
+
+\textbf{例题：}设某群人的年龄$X\sim N(\mu,\sigma^2)$，随机了解到五个人的年龄：39，54，61，72，59，求均值$\mu$的置信度为$0.95$的置信区间。
+
+解：由于$\sigma$未知，所以使用样本方差，$\dfrac{\overline{X}-\mu}{S/\sqrt{n}}\sim t(n-1)$。
+
+其中置信区间为$\left(\overline{X}-\dfrac{S}{\sqrt{n}}t_{0.025}(n-1),\overline{X}+\dfrac{S}{\sqrt{n}}t_{0.025}(n-1)\right)$。
+
+又$\overline{x}=\dfrac{1}{5}(39+54+61+72+59)=57$，$S=\sqrt{\dfrac{1}{n-1}\sum\limits_{i=1}^5(x_i-\overline{x})}=12$。
+
+其中$t_{0.025}(n-1)=t_{0.025}(4)=2.7764$，所以代入得到$(42.13,71,87)$。
+
 \section{假设检验}
+
+\textbf{例题：}设考试成绩服从正态分布，随机抽取36位考生成绩，平均分为66.5分，标准差为15分。在显著性水平0.05下是否可以认为这次考试的平均水平为70分。
+
+解：首先提出假设$H_0:\mu=70$，$H_1:\mu\neq70$。
+
+将$X$使用样本标准差进行标准化：$T=\dfrac{\overline{X}-\mu}{S/\sqrt{n}}\sim t(n-1)$。
+
+给定显著性水平$0.05$，写出拒绝域$T<-t_{\frac{\alpha}{2}}(n-1)$或$T>t_{\frac{\alpha}{2}}(n-1)$。
+
+代入计算统计量，$\vert T\vert=\left\vert\dfrac{\overline{X}-\mu}{S/\sqrt{n}}\right\vert=\left\vert\dfrac{66.5-70}{15/6}\right\vert=1.4$。
+
+又$t_{\frac{\alpha}{2}}(n-1)=t_{0.05}(35)=2.0301>1.4$不在拒绝域内，所以接受原假设。
+
+即可以认为平均水平为70分。
 
 \textbf{例题：}已知某机器生产出来的零件长度$X$（单位：$cm$）服从正态分布$N(\mu,\delta^2)$，现从中随意抽取容量为16的一个样本，测得样本均值$\overline{x}=10$，样本方差$s^2=0.16$，$t_{0.025}(15)=2.132$。
 
