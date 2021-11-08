@@ -208,6 +208,14 @@ $\ln L(\lambda)=-n\ln2-n\ln\lambda-\dfrac{1}{\lambda}\sum\limits_{i=1}^n\vert x_
 
 即可以认为平均水平为70分。
 
+\textbf{例题：}设$X_1,X_2,\cdots,X_{36}$是取自正态总体$N(\mu,0.04)$的简单随机样本，其中$\mu$为未知参数，即$\overline{X}=\dfrac{1}{36}\sum\limits_{i=1}^{36}X_i$，若对于检验问题$H_0:\mu\leqslant0.5$，$H_1:\mu>0.5$在显著性水平$\alpha=0.05$，取得检验拒绝域$D=\{(x_1,x_2,\cdots,x_{36}):\overline{x}>C\}$，求$C$。
+
+解：当$H_0$成立，则$X\sim N(0.5,0.04)$，$\overline{X}\sim N(0.5,0.04\div36)=N\left(\dfrac{1}{2},\dfrac{1}{900}\right)$。
+
+$\alpha=0.05=P\{$拒绝$H_0|H_0$成立$\}=P\{\overline{X}>C\}=1-P\{\overline{X}\leqslant C\}=1-\varPhi((C-0.5)\times30)=1-\varPhi(30C-15)$。
+
+$\therefore\varPhi(30C-15)=0.95=\varPhi(1.645)$，即$30C-15=1.645$，$C=0.5548$。
+
 \textbf{例题：}已知某机器生产出来的零件长度$X$（单位：$cm$）服从正态分布$N(\mu,\delta^2)$，现从中随意抽取容量为16的一个样本，测得样本均值$\overline{x}=10$，样本方差$s^2=0.16$，$t_{0.025}(15)=2.132$。
 
 (1)求总体均值$\mu$置信水平为0.95的置信区间。
