@@ -238,6 +238,8 @@ $=\lim\limits_{t\to 0^-}\left(\dfrac{1}{2}\cdot\dfrac{\ln(2+t)}{\sqrt{t+4}}+\dfr
 
 当遇到带有根号的式子可以使用等价无穷小，但是只针对形似$(1+x)a-1\sim ax$的式子，而针对$x^a\pm x^b$的式子则无法替换，必须使用有理化来将单个式子变为商的形式。
 
+\subsubsection{和差形式}
+
 如$\sqrt{a}\pm\sqrt{b}=\dfrac{a+b}{\sqrt{a}\mp\sqrt{b}}$。\medskip
 
 \textbf{例题：}求极限$\lim\limits_{x\to-\infty}x(\sqrt{x^2+100}+x)$。
@@ -265,6 +267,16 @@ $=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{\sqrt{1+\tan x}+\sqrt{1+\sin x}}\cdo
 $=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{2}\cdot\lim\limits_{x\to 0}\dfrac{2}{x\sin^2x}$
 
 $=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{x\sin^2x}=\lim\limits_{x\to 0}\dfrac{1-\cos x}{x\cos x\sin x}=\lim\limits_{x\to 0}\dfrac{\dfrac{1}{2}x^2}{x^2}=\dfrac{1}{2}$。
+
+\subsection{乘积形式}
+
+此时带有根号的式子只有单个没有加上或减去另一个式子，所以就需要将其转换为和差形式，如三角函数中$x\pm n\pi$结果不变。
+
+\textbf{例题：}求极限$\lim\limits_{n\to\infty}\sin^2(\pi\sqrt{n^2+n})$。
+
+解：由于$\sin(x+n\pi)=\pm\sin x$，而$\sin^2(x+n\pi)=\sin^2x$。
+
+原式$=\lim\limits_{n\to\infty}\sin^2[\pi(\sqrt{n^2+n}-n)]=\lim\limits_{n\to\infty}\sin^2\dfrac{n\pi}{\sqrt{n^2+n}+n}=\lim\limits_{n\to\infty}\\\sin^2\dfrac{\pi}{\sqrt{1+1/n}+1}=\lim\limits_{n\to\infty}\sin^2\dfrac{\pi}{2}=1$。
 
 \subsection{换元法}
 
@@ -477,6 +489,20 @@ $1-a=0;-\left(\dfrac{1}{2}+b\right)=2$\medskip
 $\therefore a=1;b=-\dfrac{5}{2}$。
 
 \subsubsection{无穷小}
+
+\paragraph{等价无穷小} \leavevmode \medskip
+
+等价无穷小一般不会使用$\lim\dfrac{f(x)}{g(x)}=1$的方式来求参数，而是直接求没有参数的极限，然后对比求出参数。
+
+\textbf{例题：}当$n\to\infty$时，$e-\left(1+\dfrac{1}{n}\right)^n$与$An^{-p}$为等价无穷小，求$A$与$p$。
+
+解：$\left(1+\dfrac{1}{n}\right)^n$由于是一个幂函数，所以对其取对数简化，$e-\left(1+\dfrac{1}{n}\right)^n=e-e^{n\ln(1+\frac{1}{n})}$，又$An^{-p}$是以积的形式，所以$e-e^{n\ln(1+\frac{1}{n})}$的极限应该也是积的形式，提出一个$e$：$e(1-e^{n\ln(1+\frac{1}{n})-1})=-e(e^{n\ln(1+\frac{1}{n})-1}-1)$。
+
+又使用等价无穷小$e^x-1\sim x$，$-e(e^{n\ln(1+\frac{1}{n})}-1)\sim-e\left[n\ln\left(1+\dfrac{1}{n}\right)-1\right]$。
+
+又$n\to\infty$，$-e\left[n\ln\left(1+\dfrac{1}{n}\right)-1\right]\sim\dfrac{e}{2n}$。
+
+\paragraph{某阶无穷小} \leavevmode \medskip
 
 若是求某个式子与另一个式子的某阶无穷小，则同右边等于常数一样，也需要使用泰勒展开。
 
