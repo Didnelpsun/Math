@@ -111,11 +111,17 @@ $\because A^{k-1}\alpha\neq0$，$\therefore\lambda_2=0$，消去$\lambda_2$：$\
 
 \subsubsection{线性相关性}
 
-当谈到多个向量是否线性相关时可以将向量组组成矩阵，判断其秩。
+当谈到多个向量是否线性相关时可以将向量组组成矩阵，判断其秩。满秩就是线性无关，降秩就是线性相关。
 
 \subsubsection{线性表出}
 
 当谈到一个向量是否能被其他向量线性表出时，要将这些向量全部组成一起，判断能否被其他向量表出的向量放在最右边，然后判断增广矩阵的秩。
+
+\begin{enumerate}
+    \item 若$r(\alpha_1,\alpha_2,\cdots)\neq r(\alpha_1,\alpha_2,\cdots,\beta)$，则$\beta$无法被$\alpha$线性表出。
+    \item 若$r(\alpha_1,\alpha_2,\cdots)=r(\alpha_1,\alpha_2,\cdots,\beta)<r$，则$\beta$可以被$\alpha$无穷线性表出。表达式为基础解系。
+    \item 若$r(\alpha_1,\alpha_2,\cdots)=r(\alpha_1,\alpha_2,\cdots,\beta)=r$，则$\beta$可以被$\alpha$惟一线性表出。表达式为将矩阵化为单位矩阵后$\beta$所在就是$\alpha$的系数。
+\end{enumerate}
 
 \textbf{例题：}已知$\alpha_1=(1,2,1)^T$，$\alpha_2(2,3,a)^T$，$\alpha_3=(1,a+2,-2)^T$，$\beta=(1,3,0)^T$，若$\beta$可以由$\alpha_1$、$\alpha_2$，$\alpha_3$线性表示，且表示法不唯一，求$a$。
 
