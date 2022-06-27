@@ -53,6 +53,60 @@
 
 基本初等函数包括：常数函数、幂函数、指数函数、对数函数、三角函数、反三角函数。
 
+\subparagraph{反函数} \leavevmode \medskip
+
+反函数的求法：
+
+\begin{enumerate}
+    \item 求值域。
+    \item 求解。（用$y$表示$x$）
+    \item 互换$xy$。
+\end{enumerate}
+
+已知$f(f^{-1}(x))=x$，$f^{-1}(f(x))=x$。为什么是这样？可以验算一下。
+
+已知$y=e^x$和$y=\ln x$是一对反函数，$y=\ln e^x=f^{-1}(f(x))=x$。
+
+\textbf{例题：}若函数$y=f(x)$的反函数为$y=f^{-1}(x)$，则求$y=f(2x-1)+1$的反函数的解析式。
+
+解：整理$y=f(2x-1)+1$，得到$f(2x-1)=y-1$，所以求反函数就是交换$xy$。
+
+这里将$2x-1$当作$x$，$y-1$当作$y$，所以得到反函数$2x-1=f^{-1}(y-1)$。
+
+所以得到$x=\dfrac{f^{-1}(y-1)+1}{2}$。
+
+所以交换表示方法其反函数就是$y=\dfrac{f^{-1}(x-1)+1}{2}$。
+
+\textbf{例题：}已知$f(x)=\dfrac{1}{1-x^2}$（$x<-1$），求$f^{-1}(-\dfrac{1}{3})$。
+
+解：由于是反函数，所以$x$对应$y$，$y$对应$x$。
+
+求$f^{-1}(-\dfrac{1}{3})$的值，对应反函数的$x=-\dfrac{1}{3}$，$y=f^{-1}(-\dfrac{1}{3})$的值。
+
+即求原函数的$y=-\dfrac{1}{3}$，$x=f(-\dfrac{1}{3})$的值。
+
+所以$\dfrac{1}{1-x^2}=-\dfrac{1}{3}$求$x$的值。
+
+即$1-x^2=-3$，$x=\pm2$，又$x<-1$，则$x=-2$。
+
+\textbf{例题：}已知$f(x)=\dfrac{1-2x}{1+x}$，函数$g(x)$的图像与函数$y=f^{-1}(x+1)$的图像关于$y=x$对称，求$g(5)$。
+
+解：由于函数$g(x)$的图像与函数$y=f^{-1}(x+1)$的图像关于$y=x$对称，所以$g(x)$与$f^{-1}(x+1)$也是反函数。
+
+所以要求$g(x)$，就要求$f^{-1}(x+1)$。
+
+$\because y=f^{-1}(x+1)$，$\therefore x+1=f(y)$，$x=f(y)-1$，即$y=f(x)-1$。
+
+$\therefore g(x)=y=f(x)-1$，$g(5)=f(5)-1=-\dfrac{5}{2}$。
+
+\textbf{例题：}已知$f(x)=\dfrac{1}{2}(x^2+\sqrt{x+1})$（$x\geqslant0$）的反函数为$f^{-1}(x)$，求不等式$f^{-1}(x+1)>3$的解集。
+
+解：当$x\geqslant0$时，$f(x)$明显是一个单调递增函数，所以根据反函数性质，其反函数在这个区间上增减性不变也是递增的。
+
+$f(0)=\dfrac{1}{2}$，即$f^{-1}(x)$在定义域$[\dfrac{1}{2},+\infty)$上也是递增函数。
+
+又$f^{-1}(x+1)>3$，对其求反函数：$f(f^{-1}(x+1))>f(3)$，即$x+1>f(3)$，且$x+1\geqslant\dfrac{1}{2}$，得出$x>\dfrac{9}{2}$。
+
 \subparagraph{常数函数} \leavevmode \medskip
 
 \begin{minipage}{0.35\linewidth}
@@ -307,6 +361,8 @@ $\sec x=\dfrac{1}{\cos x},\csc x=\dfrac{1}{\sin x}$：
 
 \subparagraph{反三角函数} \leavevmode \medskip
 
+类似是三角函数的反函数，但是由于是个多值函数所以不是严格的函数。所以为了限制反三角函数为单值函数，将反三角函数的值限定在一个区间内，将其作为反三角函数的主值。
+
 \begin{minipage}{0.45\linewidth}
     反正弦函数：
 
@@ -390,7 +446,7 @@ $\sec x=\dfrac{1}{\cos x},\csc x=\dfrac{1}{\sin x}$：
     \item 单调性：$y=\arctan x$单调增，$y=\textrm{arccot}\,x$单调减。
     \item 奇偶性：$y=\arctan x$为奇函数。
     \item 有界性：$\vert\arctan x\vert\leqslant\dfrac{\pi}{2}$，$0\leqslant\textrm{arccot}\,x\leqslant\pi$。
-    \item 性质：$\arctan x+\textrm{arccot}\,x=\dfrac{\pi}{2}(-\infty<x<+\infty)$
+    \item 性质：$\arctan x+\textrm{arccot}\,x=\dfrac{\pi}{2}(-\infty<x<+\infty)$；$\arctan x=\textrm{arccot}\,x\dfrac{1}{x}=\dfrac{\pi}{2}-\arctan x$。
 \end{enumerate}
 
 \subparagraph{初等函数} \leavevmode \medskip
@@ -701,6 +757,57 @@ $x$为实数，不超过$x$的最大整数称为其整数部分$[x]$，其定义
 \end{minipage}
 
 \subsection{极坐标系图像}
+\subsubsection{极坐标系}
+
+\paragraph{极坐标定义} \leavevmode \medskip
+
+\begin{itemize}
+    \item 极点：平面内的一个定点$O$。
+    \item 极轴：自极点引出的射线$Ox$。
+    \item 极坐标系：选定长度单位、角度单位与正方向（通常为逆时针）建立的坐标系。
+    \item 极径：设$M$为屏幕一点，极点$O$与$M$的距离$\vert OM\vert$，记为$\rho$。
+    \item 极角：以极轴$Ox$为始边，射线$OM$为终边的角$xOM$为$M$的极角，记为$\theta$。
+    \item 极坐标：有序数对$\rho$、$\theta$为$M$的极坐标，记为$M(\rho,\theta)$。
+\end{itemize}
+
+\paragraph{极坐标系转换} \leavevmode \medskip
+
+设$M$为平面一点，直角坐标为$(x,y)$，极坐标$(\rho,\theta)$，其关系是：\medskip
+
+$\left\{\begin{array}{l}
+    x=\rho\cos\theta \\
+    y=\rho\sin\theta
+\end{array}\right.$，$\left\{\begin{array}{l}
+    \rho^2=x^2+y^2 \\
+    \tan\theta=\dfrac{y}{x}(x\neq0)
+\end{array}\right.$\medskip
+
+\paragraph{常用极坐标方程} \leavevmode \medskip
+
+直线的极坐标方程：
+
+\begin{itemize}
+    \item 从极点$O$发出的一条射线：$\tan\theta=k$（由于$k$不知道符号所以不能直接转换为反三角函数）。
+    \item 过点$(a,0)$且垂直于极轴的直线的极坐标方程：$\rho=a\sec\theta=\dfrac{a}{\cos\theta}$。
+    \item 过点$\left(a,\dfrac{\pi}{2}\right)$且平行于极轴的直线的极坐标方程：$\rho=a\csc\theta=\dfrac{a}{\sin\theta}$。
+\end{itemize}
+
+圆的极坐标方程：
+
+\begin{itemize}
+    \item 圆心为极点，半径为$r$的圆的极坐标方程：$\rho=r$。
+    \item 圆心$O'(r,0)$，半径为$r$的圆的极坐标方程：$\rho=2r\cos\theta$。
+    \item 圆心$O'\left(r,\dfrac{\pi}{2}\right)$，半径为$r$的圆的极坐标方程：$\rho=2r\sin\theta$。
+    % \item 圆心$O'(\rho_0,0)$，半径为$r$的圆的极坐标方程：
+\end{itemize}
+
+抛物线的极坐标方程：
+
+\begin{itemize}
+    \item $y=ax^2$的极坐标方程：$\rho=\dfrac{1}{a}\tan\theta\sec\theta$。
+    \item $y^2=ax$的极坐标方程：$\rho=a\cot\theta\csc\theta$。
+\end{itemize}
+
 \subsubsection{描点法}
 \paragraph{心形线（外摆线）} \leavevmode \medskip
 
@@ -932,6 +1039,8 @@ $\csc\alpha=\dfrac{1}{\sin\alpha},\sec\alpha=\dfrac{1}{\cos\alpha},\cot\alpha=\d
 
 $\sin^2\alpha+\cos^2\alpha=1,1+\tan^2\alpha=\sec^2\alpha,1+\cot^2\alpha=\csc^2\alpha$。
 
+$\cos^2\alpha=1-\sin^2\alpha=(1+\sin\alpha)(1-\sin\alpha)$，$\sin^2\alpha=1-\cos^2\alpha=(1+\cos\alpha)(1-\cos\alpha)$。
+
 \subsubsection{诱导公式}
 
 奇变偶不变，符号看象限。奇指前面添加的常数项是否为$\pi$的整数倍，是就需要改变函数，看象限指添加了常数后整体的符号看函数所在象限的符号。
@@ -945,7 +1054,9 @@ $\sin^2\alpha+\cos^2\alpha=1,1+\tan^2\alpha=\sec^2\alpha,1+\cot^2\alpha=\csc^2\a
 
 \subsubsection{倍角公式}
 
-$\sin 2\alpha=2\sin\alpha\cos\alpha,\cos 2\alpha=\cos^2\alpha-\sin^2\alpha=1-2\sin^2\alpha=2\cos^2\alpha-1$。
+$\sin 2\alpha=2\sin\alpha\cos\alpha$，$\cos 2\alpha=\cos^2\alpha-\sin^2\alpha=(\sin\alpha+\cos\alpha)(\cos\alpha-\sin\alpha)=1-2\sin^2\alpha=2\cos^2\alpha-1$。
+
+$1+\sin2\alpha=(\sin\alpha+\cos\alpha)^2$，$1-\sin2\alpha=(\sin\alpha-\cos\alpha)^2$。
 
 $\sin 3\alpha=-4\sin^3\alpha_3\sin\alpha,\cos 3\alpha=4\cos^3\alpha-3\cos\alpha$。
 
@@ -981,7 +1092,11 @@ $\sin\alpha+\sin\beta=2\sin\dfrac{\alpha+\beta}{2}\cos\dfrac{\alpha-\beta}{2},\s
 
 $\cos\alpha+\cos\beta=2\cos\dfrac{\alpha+\beta}{2}\cos\dfrac{\alpha-\beta}{2},\cos\alpha-\cos\beta=-2\sin\dfrac{\alpha+\beta}{2}\sin\dfrac{\alpha-\beta}{2}$。
 
+推理和差化积公式：
+
 \subsubsection{万能公式}
+
+可以视为特殊的倍角公式，将单角变为半角。
 
 若$u=\tan\dfrac{x}{2}(-\pi<x<\pi)$，则$\sin x=\dfrac{2u}{1+u^2},\cos x=\dfrac{1-u^2}{1+u^2}$。
 
@@ -1035,6 +1150,18 @@ $\arcsin x+\arccos x=\dfrac{\pi}{2}$。证明需要分三种情况。
 
 当$x\in(-\infty,+\infty)$时，$\tan(\arctan x)=x$。
 
+\textbf{例题：}求$\arctan\dfrac{1}{2}+\arctan\dfrac{1}{3}$的值。
+
+解：由于求反正切函数不方便，所以转换为正切函数来求。
+
+令$\arctan\dfrac{1}{2}=\alpha$，$\arctan\dfrac{1}{3}=\beta$，所以$\tan\alpha=\dfrac{1}{2}$，$\tan\beta=\dfrac{1}{3}$。
+
+又由反正切函数的定义，$\alpha,\beta\in\left(-\dfrac{\pi}{2},\dfrac{\pi}{2}\right)$，$\alpha+\beta\in(-\pi,\pi)$。
+
+想求出$\alpha+\beta$就要利用和差公式：$\therefore\tan(\alpha+\beta)=\dfrac{\tan\alpha+\tan\beta}{1-\tan\alpha\tan\beta}=1$。
+
+即$\alpha+\beta=\dfrac{\pi}{4}=\arctan\dfrac{1}{2}+\arctan\dfrac{1}{3}$。
+
 \subsubsection{反余切函数}
 
 余切函数$y=\cot x$在主值区间$[0,\pi]$上的反函数就是反余切函数，记为$y=\textrm{arccot}\,x$或$y=\cot^{-1}x$。表示其区间上余切值等于$x$的一个角。
@@ -1068,7 +1195,7 @@ $a^\alpha\cdot a^\beta=a^{\alpha+\beta},\dfrac{a^\alpha}{a^\beta}=a^{\alpha-\bet
     \item $\log_a\sqrt[n]{M}=\dfrac{1}{n}\log_aM$。
 \end{enumerate}
 
-所以以后多项相乘相除乘方开放都\textcolor{orange}{取对数}进行化简。
+所以以后多项相乘相除乘方开方都\textcolor{orange}{取对数}进行化简。
 
 对于分数相减的对数先\textcolor{orange}{通分}再进行对数减法。
 
