@@ -53,7 +53,7 @@
 
 \textbf{例题：}求$\lim\limits_{x\to\infty}\left(\dfrac{3+x}{6+x}\right)^{\frac{x-1}{2}}$。\medskip
 
-解：$=\lim\limits_{x\to\infty}\left(1-\dfrac{3}{6+3}\right)^{\frac{6+x}{-3}\cdot\frac{-3}{6+x}\cdot\frac{x-1}{2}}=\lim\limits_{x\to\infty}e^{\frac{-3}{6+x}\cdot\frac{x-1}{2}}=\lim\limits_{x\to\infty}e^{-\frac{3}{2}\cdot\frac{x-1}{x+6}}=e^{-\frac{3}{2}}$。\medskip
+解：$=\lim\limits_{x\to\infty}\left(1-\dfrac{3}{6+x}\right)^{\frac{6+x}{-3}\cdot\frac{-3}{6+x}\cdot\frac{x-1}{2}}=\lim\limits_{x\to\infty}e^{\frac{-3}{6+x}\cdot\frac{x-1}{2}}=\lim\limits_{x\to\infty}e^{-\frac{3}{2}\cdot\frac{x-1}{x+6}}=e^{-\frac{3}{2}}$。\medskip
 
 \textbf{例题：}求$\lim\limits_{x\to\infty}\left(\dfrac{2x+3}{2x+1}\right)^{x+1}$。\medskip
 
@@ -434,6 +434,20 @@ $=\lim\limits_{x\to 0}\dfrac{-x-\dfrac{x^2}{2}+tx^2+x}{x^2}=\lim\limits_{x\to 0}
 
 $\therefore\lim\limits_{x\to 0}t=\lim\limits_{x\to 0}\dfrac{f(x)-1}{x}=\dfrac{1}{2}$。
 
+如果是已知值中含有目标值的关系式，可以将已知值作为一个整体来换算为目标值。
+
+\textbf{例题：}已知$\lim\limits_{n\to\infty}(a_n+b_n)=1$，$\lim\limits_{n\to\infty}(a_n-b_n)=3$，求出$\{a_n\}$，$\{b_n\}$的极限值。
+
+解：设$u_n=a_n+b_n$，$v_n=a_n-b_n$，则$\lim\limits_{n\to\infty}u_n=1$，$\lim\limits_{n\to\infty}v_n=3$。
+
+根据极限运算规则，若$u_n$、$v_n$存在极限，则$u_n+v_n$、$u_n-v_n$也存在极限。
+
+且$\lim\limits_{n\to\infty}(u_n+v_n)=\lim\limits_{n\to\infty}u_n+\lim\limits_{n\to\infty}v_n=1+3=4$，$\lim\limits_{n\to\infty}(u_n-v_n)=\lim\limits_{n\to\infty}u_n-\lim\limits_{n\to\infty}v_n=1-3=-2$。
+
+且$a_n=\dfrac{1}{2}(u_n+v_n)$，$b_n=\dfrac{1}{2}(u_n-v_n)$，所以$\{a_n\}$、$\{b_n\}$极限存在。
+
+$\lim\limits_{n\to\inf}a_n=\dfrac{1}{2}\times4=2$，$\lim\limits_{n\to\infty}b_n=\dfrac{1}{2}\times(-2)=-1$。
+
 \subsubsection{关系转换}
 
 \textbf{例题：}如果$\lim\limits_{x\to 0}\dfrac{x-\sin x+f(x)}{x^4}$存在，则$\lim\limits_{x\to 0}\dfrac{x^3}{f(x)}$为常数多少？
@@ -613,9 +627,9 @@ $\therefore\lim\limits_{x\to+\infty}f(x^{\frac{1}{x}})=f(1)=1$。
 
 \subsection{迭代式数列}
 
-\subsubsection{数列表达式}
+\subsubsection{简单递推表达式}
 
-最重要的是将迭代式进行变形。
+最重要的是将递推式进行变形。这种递推式都是比较简单的，$a_n$和$a_{n+1}$都是一次的。
 
 \textbf{例题：}数列$\{a_n\}$满足$a_0=0,a_1=1,2a_{n+1}=a_n+a_{n-1},n=1,2,\cdots$。计算$\lim\limits_{n\to\infty}a_n$。
 
@@ -643,6 +657,8 @@ $\therefore\lim\limits_{n\to\infty}a_n=\dfrac{2}{3}$
 
 单调有界的数列必有极限。需要证明单调性和有界性，然后对式子求极限就能求出目标极限。
 
+\paragraph{通项公式} \leavevmode \medskip
+
 \textbf{例题：}$x_0=0$，$x_n=\dfrac{1+2x_{n-1}}{1+x_{n-1}}(n\in N*)$，求$\lim\limits_{n\to\infty}x_n$。\medskip
 
 解：首先应该知道数列的趋向都是趋向正无穷。
@@ -669,7 +685,9 @@ $\lim\limits_{n\to\infty}x_n=\lim\limits_{n\to\infty}\dfrac{1+2x_{n-1}}{1+x_{n-1
 
 $\therefore\lim\limits_{n\to\infty}x_n=\dfrac{1+\sqrt{5}}{2}$。
 
-而许多题目只给出样子，连通项公式都不会给出。\medskip
+\paragraph{复杂递推公式} \leavevmode \medskip
+
+许多题目只给出样子，连通项公式都不会给出，只会给出一个复杂递推公式，其中包括开根号，倒数，甚至只是举例。这种题目就必须使用单调有界准则来完成，甚至还需要其他的技巧。\medskip
 
 \textbf{例题：}求出数列$\sqrt{2}$，$\sqrt{2+\sqrt{2}}$，$\sqrt{2+\sqrt{2+\sqrt{2}}}$$\cdots$的极限。
 
@@ -690,5 +708,21 @@ $x_{n+1}-x_n=\sqrt{2+x_n}-x_n=\dfrac{2+x_n-x_n^2}{\sqrt{2+x_n}+x_n}=\dfrac{-(x_n
 将递推式两边平方并取极限：$\lim\limits_{n\to\infty}x^2_{n+1}=\lim\limits_{n\to\infty}(2+x_n)$。
 
 从而$a^2=2+a$，得出$a=2$（根据极限的保号性$-1$被舍去）。
+
+\textbf{例题：}已知数列$\{a_n\}$满足$a_1=a$（$a>0$），$a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{2}{a_n}\right)$，证明极限$\lim\limits_{n\to\infty}a_n$存在，并求其值。
+
+证明：由于$a>0$，根据$a_{n+1}$表达式所以$a_n>0$，看到递推表达式的乘积为常数的形式可以想到使用不等式$\dfrac{a+b}{2}\geqslant\sqrt{ab}$来转换：$a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{2}{a_n}\right)\geqslant\sqrt{2}$。
+
+即$\{a_n\}$有下界$\sqrt{2}$。
+
+又将通项相减得到相邻两项关系：$a_{n+1}-a_n=\dfrac{1}{a_n}-\dfrac{a_n}{2}=\dfrac{2-a_n^2}{2a_n}\leqslant0$（$n\geqslant2$）。
+
+所$\{a_n\}$单调递减。
+
+由单调有界准则，${a_n}$存在极限$A$，且$A\geqslant\sqrt{2}$。
+
+对于关系式两边取极限$a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{2}{a_n}\right)$，则$A=\dfrac{1}{2}\left(A+\dfrac{2}{A}\right)$。
+
+解得$A=\sqrt{2}$，即$\lim\limits_{n\to\infty}a_n=\sqrt{2}$。
 
 \end{document}

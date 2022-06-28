@@ -53,64 +53,10 @@
 
 基本初等函数包括：常数函数、幂函数、指数函数、对数函数、三角函数、反三角函数。
 
-\subparagraph{反函数} \leavevmode \medskip
-
-反函数的求法：
-
-\begin{enumerate}
-    \item 求值域。
-    \item 求解。（用$y$表示$x$）
-    \item 互换$xy$。
-\end{enumerate}
-
-已知$f(f^{-1}(x))=x$，$f^{-1}(f(x))=x$。为什么是这样？可以验算一下。
-
-已知$y=e^x$和$y=\ln x$是一对反函数，$y=\ln e^x=f^{-1}(f(x))=x$。
-
-\textbf{例题：}若函数$y=f(x)$的反函数为$y=f^{-1}(x)$，则求$y=f(2x-1)+1$的反函数的解析式。
-
-解：整理$y=f(2x-1)+1$，得到$f(2x-1)=y-1$，所以求反函数就是交换$xy$。
-
-这里将$2x-1$当作$x$，$y-1$当作$y$，所以得到反函数$2x-1=f^{-1}(y-1)$。
-
-所以得到$x=\dfrac{f^{-1}(y-1)+1}{2}$。
-
-所以交换表示方法其反函数就是$y=\dfrac{f^{-1}(x-1)+1}{2}$。
-
-\textbf{例题：}已知$f(x)=\dfrac{1}{1-x^2}$（$x<-1$），求$f^{-1}(-\dfrac{1}{3})$。
-
-解：由于是反函数，所以$x$对应$y$，$y$对应$x$。
-
-求$f^{-1}(-\dfrac{1}{3})$的值，对应反函数的$x=-\dfrac{1}{3}$，$y=f^{-1}(-\dfrac{1}{3})$的值。
-
-即求原函数的$y=-\dfrac{1}{3}$，$x=f(-\dfrac{1}{3})$的值。
-
-所以$\dfrac{1}{1-x^2}=-\dfrac{1}{3}$求$x$的值。
-
-即$1-x^2=-3$，$x=\pm2$，又$x<-1$，则$x=-2$。
-
-\textbf{例题：}已知$f(x)=\dfrac{1-2x}{1+x}$，函数$g(x)$的图像与函数$y=f^{-1}(x+1)$的图像关于$y=x$对称，求$g(5)$。
-
-解：由于函数$g(x)$的图像与函数$y=f^{-1}(x+1)$的图像关于$y=x$对称，所以$g(x)$与$f^{-1}(x+1)$也是反函数。
-
-所以要求$g(x)$，就要求$f^{-1}(x+1)$。
-
-$\because y=f^{-1}(x+1)$，$\therefore x+1=f(y)$，$x=f(y)-1$，即$y=f(x)-1$。
-
-$\therefore g(x)=y=f(x)-1$，$g(5)=f(5)-1=-\dfrac{5}{2}$。
-
-\textbf{例题：}已知$f(x)=\dfrac{1}{2}(x^2+\sqrt{x+1})$（$x\geqslant0$）的反函数为$f^{-1}(x)$，求不等式$f^{-1}(x+1)>3$的解集。
-
-解：当$x\geqslant0$时，$f(x)$明显是一个单调递增函数，所以根据反函数性质，其反函数在这个区间上增减性不变也是递增的。
-
-$f(0)=\dfrac{1}{2}$，即$f^{-1}(x)$在定义域$[\dfrac{1}{2},+\infty)$上也是递增函数。
-
-又$f^{-1}(x+1)>3$，对其求反函数：$f(f^{-1}(x+1))>f(3)$，即$x+1>f(3)$，且$x+1\geqslant\dfrac{1}{2}$，得出$x>\dfrac{9}{2}$。
-
 \subparagraph{常数函数} \leavevmode \medskip
 
 \begin{minipage}{0.35\linewidth}
-    $y=A$，A为常数，图像平行于x轴。
+    $y=A$，$A$为常数，图像平行于$x$轴。
 \end{minipage}
 \hfill
 \begin{minipage}{0.55\linewidth}
@@ -1080,7 +1026,7 @@ $\tan(\alpha\pm\beta)=\dfrac{\tan\alpha\pm\tan\beta}{1\mp\tan\alpha\tan\beta},\c
 
 \subsubsection{积化和差公式}
 
-和差化积与积化和差不需要背。
+和差化积与积化和差不需要背，都是和差公式的推导。
 
 $\sin\alpha\cos\beta=\dfrac{1}{2}[\sin(\alpha+\beta)+\sin(\alpha-\beta)],\cos\alpha\sin\beta=\dfrac{1}{2}[\sin(\alpha+\beta)-\sin(\alpha-\beta)]$。
 
@@ -1092,13 +1038,39 @@ $\sin\alpha+\sin\beta=2\sin\dfrac{\alpha+\beta}{2}\cos\dfrac{\alpha-\beta}{2},\s
 
 $\cos\alpha+\cos\beta=2\cos\dfrac{\alpha+\beta}{2}\cos\dfrac{\alpha-\beta}{2},\cos\alpha-\cos\beta=-2\sin\dfrac{\alpha+\beta}{2}\sin\dfrac{\alpha-\beta}{2}$。
 
-推理和差化积公式：
+推理和差化积公式，如第一个：
+
+$\sin\alpha+\sin\beta=\sin\left(\dfrac{\alpha+\beta}{2}+\dfrac{\alpha-\beta}{2}\right)+\sin\left(\dfrac{\alpha+\beta}{2}-\dfrac{\alpha-\beta}{2}\right)=$
+
+$\sin\dfrac{\alpha+\beta}{2}\cos\dfrac{\alpha-\beta}{2}+\cos\dfrac{\alpha+\beta}{2}\sin\dfrac{\alpha-\beta}{2}+\sin\dfrac{\alpha+\beta}{2}\cos\dfrac{\alpha-\beta}{2}$
+
+$-\cos\dfrac{\alpha+\beta}{2}\sin\dfrac{\alpha-\beta}{2}=2\sin\dfrac{\alpha+\beta}{2}\cos\dfrac{\alpha-\beta}{2}$
 
 \subsubsection{万能公式}
 
 可以视为特殊的倍角公式，将单角变为半角。
 
 若$u=\tan\dfrac{x}{2}(-\pi<x<\pi)$，则$\sin x=\dfrac{2u}{1+u^2},\cos x=\dfrac{1-u^2}{1+u^2}$。
+
+\subsubsection{辅助角公式}
+
+$a\sin x+b\cos x=\sqrt{a^2+b^2}\sin(x+\phi)$，$\sin\phi=\dfrac{b}{\sqrt{a^2+b^2}}$，$\cos\phi=\dfrac{a}{\sqrt{a^2+b^2}}$。
+
+\subsubsection{正弦定理}
+
+$\dfrac{a}{\sin A}=\dfrac{b}{\sin B}=\dfrac{c}{\sin C}$。
+
+\subsubsection{余弦定理}
+
+$a^2=b^2+c^2-2bc\cos A$，$b^2=a^2+c^2-2ac\cos B$，$c^2=a^2+b^2-2ab\cos C$。
+
+\subsubsection{三角形面积公式}
+
+$S_{\vartriangle ABC}=\dfrac{1}{2}bc\sin A=\dfrac{1}{2}ac\sin B=\dfrac{1}{2}ab\sin C$。
+
+\subsubsection{海伦公式}
+
+$S_{\vartriangle ABC}=\sqrt{p(p-a)(p-b)(p-c)}$，$p=\dfrac{a+b+c}{2}$。
 
 \subsection{反三角函数}
 
