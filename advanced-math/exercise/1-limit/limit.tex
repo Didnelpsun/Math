@@ -139,7 +139,6 @@ $\therefore \sin x-\tan x=-\dfrac{1}{2}x^3+o(x^3)$，$\arcsin x-\arctan x=\dfrac
 
 $\therefore \text{原式}=\dfrac{\dfrac{1}{x}x^3+o(x^3)}{-\dfrac{1}{2}x^3+o(x^3)}=-1$。
 
-
 \section{常用化简技巧}
 
 \subsection{对数法则}
@@ -629,7 +628,7 @@ $\therefore\lim\limits_{x\to+\infty}f(x^{\frac{1}{x}})=f(1)=1$。
 
 \subsubsection{简单递推表达式}
 
-最重要的是将递推式进行变形。这种递推式都是比较简单的，$a_n$和$a_{n+1}$都是一次的。
+最重要的是将递推式进行变形。这种递推式都是比较简单的，$a_n$和$a_{n+1}$都是一次的，可以裂项相消等将$a_n$消去。
 
 \textbf{例题：}数列$\{a_n\}$满足$a_0=0,a_1=1,2a_{n+1}=a_n+a_{n-1},n=1,2,\cdots$。计算$\lim\limits_{n\to\infty}a_n$。
 
@@ -656,6 +655,8 @@ $\therefore\lim\limits_{n\to\infty}a_n=\dfrac{2}{3}$
 对于无法将关系式通过变形归纳为一般式的关系式，对于其极限就必须使用单调有界准则来求出。
 
 单调有界的数列必有极限。需要证明单调性和有界性，然后对式子求极限就能求出目标极限。
+
+单调性可以通过求导来得到，有界性可以结合式子和单调性来得到，或者使用裂项相消法和放缩法来得到一个类似夹逼定理的上下界。
 
 \paragraph{通项公式} \leavevmode \medskip
 

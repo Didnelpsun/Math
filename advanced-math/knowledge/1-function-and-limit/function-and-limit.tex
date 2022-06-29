@@ -645,28 +645,6 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
     \item $\lim\limits_{x\to 0}[x]$不存在，因为$\lim\limits_{x\to 0^+}[x]=0$，$\lim\limits_{x\to 0^-}[x]=-1$
 \end{enumerate}
 
-\section{无穷大与无穷小}
-
-\subsection{无穷定义}
-
-无穷小\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$f(x)$极限为0，就称$f(x)$为当$x\to x_0(\infty)$时的无穷小，记为：$\lim\limits_{x\to x_0(\infty)}f(x)=0$。
-
-以0为极限的数列称为$n\to\infty$时的无穷小。
-
-无穷小是变量，不能与很小的数相等。
-
-零可以作为无穷小的唯一的数。
-
-\textcolor{aqua}{\textbf{定理：}}$\lim f(x)=A\Leftrightarrow f(x)=A+o(x)$，其中$\lim o(x)=0$。
-
-无穷大\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$\vert f(x)\vert$无限增大，就称$f(x)$为当$x\to x_0(\infty)$时的无穷大，记为：$\lim\limits_{x\to x_0(\infty)}f(x)=\infty$。
-
-若$\lim\limits_{x\to x_0}f(x)=\infty$则$x=x_0$为$y=f(x)$的垂直渐进线。
-
-若$\lim\limits_{x\to\infty}f(x)=a$则$y=a$为$y=f(x)$的水平渐进线。
-
-\textcolor{aqua}{\textbf{定理：}}若同一极限过程中，$f(x)$为无穷大，则$\dfrac{1}{f(x)}$为无穷小，反之若$f(x)$为无穷小且不为0，则$\dfrac{1}{f(x)}$为无穷大。
-
 \section{极限运算法则}
 
 \begin{enumerate}
@@ -930,7 +908,27 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 从而$\lim\limits_{\Delta\to\infty}\left(1+\dfrac{1}{\Delta}\right)^\Delta=e$与$\lim\limits_{\Delta\to 0}\left(1+\Delta\right)^{\frac{1}{\Delta}}=e(\Delta\neq 0)$。
 
-\section{无穷小的比较}
+\section{无穷大与无穷小}
+
+\subsection{无穷定义}
+
+无穷小\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$f(x)$极限为0，就称$f(x)$为当$x\to x_0(\infty)$时的无穷小，记为：$\lim\limits_{x\to x_0(\infty)}f(x)=0$。
+
+以0为极限的数列称为$n\to\infty$时的无穷小。
+
+无穷小是变量，不能与很小的数相等。
+
+零可以作为无穷小的唯一的数。
+
+\textcolor{aqua}{\textbf{定理：}}$\lim f(x)=A\Leftrightarrow f(x)=A+o(x)$，其中$\lim o(x)=0$。
+
+无穷大\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$\vert f(x)\vert$无限增大，就称$f(x)$为当$x\to x_0(\infty)$时的无穷大，记为：$\lim\limits_{x\to x_0(\infty)}f(x)=\infty$。
+
+若$\lim\limits_{x\to x_0}f(x)=\infty$则$x=x_0$为$y=f(x)$的垂直渐进线。
+
+若$\lim\limits_{x\to\infty}f(x)=a$则$y=a$为$y=f(x)$的水平渐进线。
+
+\textcolor{aqua}{\textbf{定理：}}若同一极限过程中，$f(x)$为无穷大，则$\dfrac{1}{f(x)}$为无穷小，反之若$f(x)$为无穷小且不为0，则$\dfrac{1}{f(x)}$为无穷大。
 
 \subsection{无穷小的比较}
 
@@ -966,11 +964,41 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
     \item $o(x^m)=o(k\cdot x^m)=k\cdot o(x^m)$，$k\neq 0$且为常数（非零常数相乘不影响阶数）。
 \end{enumerate}
 
+\subsection{洛必达法则}
+
+洛必达法则用于计算无穷的比值的极限，如$\dfrac{0}{0}$型和$\dfrac{\infty}{\infty}$型，如果趋向不同则不能使用。
+
+\textcolor{aqua}{\textbf{定理：}}当$x\to a$或$x\to\infty$时，函数$f(x)$以及$F(x)$都趋于零，$f'(x)$、$F'(x)$在点$a$的某去心邻域内（或当$\vert x\vert>X$，$X$为充分大的正数）存在，且$F'(x)\neq0$，$\lim\limits_{x\to a}\dfrac{f'(x)}{F'(x)}$或$\lim\limits_{x\to\infty}\dfrac{f'(x)}{F'(x)}$存在或无穷大时，则$\lim\limits_{x\to a}\dfrac{f(x)}{F(x)}=\lim\limits_{x\to a}\dfrac{f'(x)}{F'(x)}$或$\lim\limits_{x\to\infty}\dfrac{f(x)}{F(x)}=\lim\limits_{x\to\infty}\dfrac{f'(x)}{F'(x)}$。
+
+\textcolor{aqua}{\textbf{定理：}}当$x\to a$或$x\to\infty$时，函数$f(x)$以及$F(x)$都趋于无穷，$f'(x)$、$F'(x)$在点$a$的某去心邻域内（或当$\vert x\vert>X$，$X$为充分大的正数）存在，且$F'(x)\neq0$，$\lim\limits_{x\to a}\dfrac{f'(x)}{F'(x)}$或$\lim\limits_{x\to\infty}\dfrac{f'(x)}{F'(x)}$存在或无穷大时，则$\lim\limits_{x\to a}\dfrac{f(x)}{F(x)}=\lim\limits_{x\to a}\dfrac{f'(x)}{F'(x)}$或$\lim\limits_{x\to\infty}\dfrac{f(x)}{F(x)}=\lim\limits_{x\to\infty}\dfrac{f'(x)}{F'(x)}$。
+
+同理如果导数存在也可以不断求导：$\lim\limits_{x\to a}\dfrac{f(x)}{F(x)}=\lim\limits_{x\to a}\dfrac{f(x)'}{F(x)'}=\lim\limits_{x\to a}\dfrac{f(x)''}{F(x)''}$。
+
+\textcolor{orange}{注意：}洛必达法则求不出值也不能说其左边的值不存在。如$\lim\limits_{x\to0}\dfrac{x^2\sin\dfrac{1}{x}}{x}=\lim\limits_{x\to0}\sin\dfrac{1}{x}=0$，通过洛必达就求不出值。
+
+\subsection{泰勒公式}
+
+与洛必达法则不同，适用于$\dfrac{A}{B}$上下同阶型和$A-B$幂次最低型。如$\dfrac{x-\sin x}{x^3}$和$\cos x-e^{-\frac{x^2}{2}}$。
+
+是一个用函数在某点的信息描述其附近取值的公式。如果函数满足一定的条件，泰勒公式可以用函数在某一点的各阶导数值做系数构建一个多项式来近似表达这个函数，即用多项式拟合不规则曲线。
+
+\begin{enumerate}
+    \item $e^x=\sum\limits_{i=0}^n\dfrac{1}{i!}x^i$，$=1+\dfrac{1}{1!}x+\dfrac{1}{2!}x^2+\dfrac{1}{3!}x^3+o(x^3)$。
+    \item $\ln(1+x)=\sum\limits_{i=1}^n(-1)^{i+1}\dfrac{1}{i}x^i$，$=x-\dfrac{1}{2}x^2+\dfrac{1}{3}x^3+o(x^3)$。
+    \item $\sin x=\sum\limits_{i=1}^{2i-1}(-1)^{2i-1}\dfrac{1}{(2i-1)!}x^{2i-1}$，$=x-\dfrac{1}{3!}x^3+\dfrac{1}{5!}x^5+o(x^5)$。
+    \item $\cos x=\sum\limits_{i=1}^{2i}(-1)^{2i-1}\dfrac{1}{(2i-2)!}x^{2i-2}$，$=x-\dfrac{1}{2!}x^2+\dfrac{1}{4!}x^4+o(x^4)$。
+    \item $\arcsin x=\sum\limits_{i=1}^{2i-1}\dfrac{(2i-3)!!}{(2i-2)!!}\dfrac{x^{2i-1}}{2i-1}$，$=x+\dfrac{1}{2}\dfrac{x^3}{3}+\dfrac{1\times3}{2\times4}\dfrac{x^5}{5}+\dfrac{1\times3\time5}{2\times4\times6}\dfrac{x^7}{7}+o(x^7)$。（假定$-1!=0!$）
+    \item $\dfrac{1}{1-x}=\sum\limits_{i=0}^nx^i$，$=1+x+x^2+x^3+o(x^3)$。
+    \item $(1+x)^a=1+\sum\limits_{i=1}^n\dfrac{\prod_{j=1}^i(a-j+1)}{i!}x^i$，$=1+\dfrac{a}{1!}x+\dfrac{a(a-1)}{2!}x^2\\+\dfrac{a(a-1)(a-2)}{3!}x^3+o(x^3)$。
+\end{enumerate}
+
 \subsection{常用等价无穷小}
 
 \textcolor{aqua}{\textbf{定理：}}若$\alpha\sim\alpha_1$，$\beta\sim\beta_1$，则$\lim\dfrac{\alpha}{\beta}=\lim\dfrac{\alpha_1}{\beta}=\lim\dfrac{\alpha}{\beta_1}=\lim\dfrac{\alpha_1}{\beta_1}$。
 
-所以可以使用等价无穷小替换对应式子，这些等价无穷小都是使用泰勒展开得到的。
+所以可以使用等价无穷小替换对应式子，这些等价无穷小都是使用泰勒展开得到的。等价无穷小只是泰勒公式在某个固定阶数上（通常为一阶）的特例。
+
+泰勒一般用于替换整体，等价无穷小一般用于替换部分式子。
 
 \textcolor{red}{警告：}一般只有所替换的式子为乘除的整个因子才能替换，加减一般都不能替换，如$x-\sin x\sim\dfrac{1}{6}x^3$。
 
