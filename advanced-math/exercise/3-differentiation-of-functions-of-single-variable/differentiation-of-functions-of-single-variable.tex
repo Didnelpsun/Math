@@ -34,52 +34,7 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{一阶导数}
-\subsection{幂指函数导数}
-
-形如$f(x)^{g(x)}$的幂指函数求导也可以类似幂指函数的求极限方法。既可以取$e$为底的指数也可以取对数。
-
-\textbf{例题：}求$f(x)=x^{\sin x}(x>0)$的导数。
-
-解：取对数：
-
-$\therefore\ln y=\sin x\ln x$
-
-求导：
-
-$\dfrac{y'}{y}=\cos\ln x+\dfrac{\sin x}{x}$
-
-$\therefore y'=x^{\sin x}\left(\cos\ln x+\dfrac{\sin x}{x}\right)$。
-
-取指数：
-
-$x^{\sin x}=e^{\sin x\cdot\ln x}$
-
-求导：
-
-$e^{\sin x\cdot\ln x}(\sin x\cdot\ln x)'=x^{\sin x}\left(\cos\ln x+\dfrac{\sin x}{x}\right)$。
-
-\subsection{分段函数导数}
-
-当给出一个分段函数，要求求出该函数的导数时，最重要的就是分段点是否可导，计算分段点的导数，如果两边的导数不相等，则需要挖去该点。\medskip
-
-\textbf{例题：}设$f(x)=\left\{\begin{array}{lcl}
-    \arctan x, & & x\leqslant 1 \\
-解：    \dfrac{1}{2}(e^{x^2-1}-x)+\dfrac{\pi}{4}, & & x>1
-\end{array}
-\right.$，求$f'(x)$。
-
-当$x\leqslant 1$时，$f'(x)=\dfrac{1}{1+x^2}$，当$x>1$时，$f'(x)=xe^{x^2-1}-\dfrac{1}{2}$。
-
-然后需要查看分段点两边的导数是否一样：$f'_-(1)=\dfrac{1}{1+x^2}\,\bigg\vert_{x=1}=\dfrac{1}{1+1}=\dfrac{1}{2}$，$f'_+(1)=xe^{x^2-1}-\dfrac{1}{2}\,\bigg\vert_{x=1}=1\cdot e^{1-1}-\dfrac{1}{2}=\dfrac{1}{2}$。\medskip
-
-$\therefore f'_-(1)=f'_+(1)$，所以该点可导。\medskip
-
-$f(x)=\left\{\begin{array}{lcl}
-    \dfrac{1}{1+x^2}, & & x\leqslant 1 \\
-    xe^{x^2-1}-\dfrac{1}{2}, & & x>1
-\end{array}
-\right.$。
+\section{导数性质}
 
 \subsection{导数存在性}
 
@@ -139,6 +94,12 @@ $\because f(x)$在$x=0$处连续，$\therefore x=0$的空心邻域上可导。�
 
 $\therefore f'(0)=\lim\limits_{x\to 0}f'(x)$。计算过程类似。
 
+\textbf{例题：}设函数$f(x)$在$x=0$处连续，且$\lim\limits_{x\to0}\dfrac{f(x^2)}{x^2}=1$，则判断$f(0)$的值与$f'(0)$的导数存在性。
+
+解：$\because\lim\limits_{x\to0}\dfrac{f(x^2)}{x^2}=1$，$\lim\limits_{x\to0}x^2=0$，$\therefore\lim\limits_{x\to0}f(x^2)=0$，即$f(0)=0$。
+
+由$\lim\limits_{x\to0}\dfrac{f(x^2)}{x^2}=1$形式，所以$\lim\limits_{x\to0}\dfrac{f(x^2)-0}{x^2-0}=1$，令$t=x^2>0$，$=\lim\limits_{t\to0^+}\dfrac{f(t)-0}{t-0}=1$，所以$f'_+(0)=1$。
+
 \subsection{导数连续性}
 
 导数具有连续性与之前的函数连续性类似，不过要对函数求导数罢了。
@@ -165,11 +126,101 @@ $\therefore\lim\limits_{x\to 0^+}x^{\alpha-2}=0$。
 
 $\therefore\alpha-2>0$，从而$\alpha>2$。
 
-\section{极限与导数}
+\section{导数运算}
+
+\subsection{一阶导数}
+
+\subsubsection{幂指函数导数}
+
+形如$f(x)^{g(x)}$的幂指函数求导也可以类似幂指函数的求极限方法。既可以取$e$为底的指数也可以取对数。
+
+\textbf{例题：}求$f(x)=x^{\sin x}(x>0)$的导数。
+
+解：取对数：
+
+$\therefore\ln y=\sin x\ln x$
+
+求导：
+
+$\dfrac{y'}{y}=\cos\ln x+\dfrac{\sin x}{x}$
+
+$\therefore y'=x^{\sin x}\left(\cos\ln x+\dfrac{\sin x}{x}\right)$。
+
+取指数：
+
+$x^{\sin x}=e^{\sin x\cdot\ln x}$
+
+求导：
+
+$e^{\sin x\cdot\ln x}(\sin x\cdot\ln x)'=x^{\sin x}\left(\cos\ln x+\dfrac{\sin x}{x}\right)$。
+
+\subsubsection{分段函数导数}
+
+当给出一个分段函数，要求求出该函数的导数时，最重要的就是分段点是否可导，计算分段点的导数，如果两边的导数不相等，则需要挖去该点。\medskip
+
+\textbf{例题：}设$f(x)=\left\{\begin{array}{lcl}
+    \arctan x, & & x\leqslant 1 \\
+解：    \dfrac{1}{2}(e^{x^2-1}-x)+\dfrac{\pi}{4}, & & x>1
+\end{array}
+\right.$，求$f'(x)$。
+
+当$x\leqslant 1$时，$f'(x)=\dfrac{1}{1+x^2}$，当$x>1$时，$f'(x)=xe^{x^2-1}-\dfrac{1}{2}$。
+
+然后需要查看分段点两边的导数是否一样：$f'_-(1)=\dfrac{1}{1+x^2}\,\bigg\vert_{x=1}=\dfrac{1}{1+1}=\dfrac{1}{2}$，$f'_+(1)=xe^{x^2-1}-\dfrac{1}{2}\,\bigg\vert_{x=1}=1\cdot e^{1-1}-\dfrac{1}{2}=\dfrac{1}{2}$。\medskip
+
+$\therefore f'_-(1)=f'_+(1)$，所以该点可导。\medskip
+
+$f(x)=\left\{\begin{array}{lcl}
+    \dfrac{1}{1+x^2}, & & x\leqslant 1 \\
+    xe^{x^2-1}-\dfrac{1}{2}, & & x>1
+\end{array}
+\right.$。
+
+\subsubsection{复合函数导数}
+
+如果题目中让直接求复合函数在某点的导数，那么可以直接变形式子求，如果要先判断是否在该点存在导数，则最好使用定义来求。\medskip
+
+\textbf{例题：}设函数$f(x)=\left\{\begin{array}{ll}
+    \ln\sqrt{x}, & x\geqslant1\\
+    2x-1, &x<1
+\end{array}\right.$，$y=f[f(x)]$。
+
+1）求$\dfrac{\textrm{d}y}{\textrm{d}x}\bigg\vert_{x=e}$。
+
+2）判断$\dfrac{\textrm{d}y}{\textrm{d}x}$在$x=e^2$是否存在，若存在则求。
+
+解：
+
+1）题目问法不同，则所指明的意思不同。第一问是直接让你求，表示这个导数是存在的，所以可以直接变形式子来求。
+
+$y'=f'[f(x)]\cdot f'(x)$。$f(e)=\ln\sqrt{e}=\dfrac{1}{2}$，$f'[f(e)]=f'\left(\dfrac{1}{2}\right)=(2x-1)'\vert_{x=\frac{1}{2}}=2$，$f'(e)=(\ln\sqrt{x})'\vert_{x=e}=\dfrac{1}{2e}$，$\therefore y'=2\cdot\dfrac{1}{2e}=\dfrac{1}{e}$。
+
+2）此时要判断该点的导数是否存在，就需要使用定义的极限形式来计算。
+
+首先要把复合函数表达式写出：\medskip
+
+$f(f(x))=\left\{\begin{array}{lll}
+    \ln\sqrt{f(x)}, & f(x)\geqslant1, & x\in[e^2,+\infty) \\
+    2f(x)-1, & f(x)<1, & x\in(-\infty,1)\cup[1,e^2)
+\end{array}\right.$，得出表达式：
+
+$f(f(x))=\left\{\begin{array}{ll}
+    \dfrac{1}{2}\ln\ln\sqrt{x}, & x\geqslant e^2  \\
+    \ln x-1 & x\in[1,e^2) \\
+    4x-3, & x\in(-\infty,1)
+\end{array}\right.$
+
+当$x\to e^{2+}$，$\lim\limits_{x\to e^{2+}}\dfrac{\dfrac{1}{2}\ln\ln\sqrt{x}-0}{x-e^2}=\lim\limits_{x\to e^{2+}}\dfrac{\dfrac{1}{2}\dfrac{1}{\ln\sqrt{x}}\dfrac{1}{\sqrt{x}}\dfrac{1}{2}\dfrac{1}{\sqrt{x}}}{1}=\\\dfrac{1}{4}\lim\limits_{x\to e^{2+}}\dfrac{1}{\ln\sqrt{x}\cdot x}=\dfrac{1}{4e^2}$。
+
+当$x\to e^{2-}$，$\lim\limits_{x\to e^{2-}}\dfrac{2\ln x-1-0}{x-e^2}=\lim\limits_{x\to e^{2-}}\dfrac{1}{x}=\dfrac{1}{e^2}$。
+
+$\therefore x=e^2$处导数不存在。
+
+\subsection{导数与极限}
 
 导数的定义由极限产生，所以其之间是可以互相转换的，当求一个导数时可以寻找是否能求出其极限。
 
-\subsection{极限求导数}
+\subsubsection{极限求导数}
 
 在导数这一章中的极限不会直接给出极限，而是会给出导数或函数的相关定义，来求极限，再根据导数定义转换为导数。同时要注意这里不止会有导数定义，还会有函数等性质。
 
@@ -193,25 +244,11 @@ $=\lim\limits_{t\to 0}\dfrac{f(1+t)-3f(1-t)}{t}=\lim\limits_{t\to 0}\dfrac{f(1+t
 
 由$f(x)$的周期为5，所以$f(6)=f(1)=0$，$f'(6)=f'(1)=2$，所以曲线$y=f(x)$在$(6,f(6))$即$(6,0)$处的切线方程为$y-0=2(x-6)$即$2x-y-12=0$。
 
-15.当正在高度H水平飞行的飞机开始向机场跑道下降时，如图2-16所示从飞机到北场的水平地面距离为L.假设飞机下降的路径为三次函
-
-数y=ax' +bx2 +cx+d的图形,其中yl..=H.y1..o=0.试
-
-确定飞机的降落路径.
-
-16.甲船以6 km/h的速率向东行驶,乙船以8 km/h
-
-的速事向南行驶在中午十二点整,乙船位于甲船之北
-
-L01
-
-16 km处问下午一点整两船相离的速率为多少?
-
-\subsection{导数求极限}
+\subsubsection{导数求极限}
 
 题目会给出对应的导数以及相关条件，并要求求一个极限，这个极限式子并不是个随机的式子，而一个是与导数定义相关的极限式子，所需要的就是将极限式子转换为导数定义的相关式子。
 
-\subsubsection{导数定义式子}
+\paragraph{导数定义式子} \leavevmode \medskip
 
 有时极限式子可以直接转换为导数定义式子，先稍微变换就可以代入导数。
 
@@ -227,7 +264,7 @@ $=-2f'(5)=-2\times 1=-2$
 
 $\therefore\lim\limits_{h\to 0}\dfrac{h}{f(5-2\sin h)-f(5)}=-\dfrac{1}{2}$。
 
-\subsubsection{定义近似式子}
+\paragraph{定义近似式子} \leavevmode \medskip
 
 有时候极限式子不为导数定义的近似式子，这时候就需要先根据求极限的计算方式简化目标极限式子。
 
@@ -239,7 +276,7 @@ $=\lim\limits_{x\to 0}(f(x))^{\frac{x}{1-\cos x}}=e^{\lim\limits_{x\to 0}\frac{x
 
 $=e^{2\lim\limits_{x\to 0}\frac{f(x)-f(0)}{x-0}}=e^{2f'(0)}=e^6$。
 
-\section{高阶导数}
+\subsection{高阶导数}
 
 求高阶导数基本上使用归纳法或莱布尼茨公式。
 
@@ -256,9 +293,9 @@ $=e^{2\lim\limits_{x\to 0}\frac{f(x)-f(0)}{x-0}}=e^{2f'(0)}=e^6$。
     \item $\{f(ax+b)\}^{(n)}=a^nf^{(n)}(ax+b)$。
 \end{enumerate}
 
-\subsection{高阶导数存在性}
+\subsubsection{高阶导数存在性}
 
-\subsection{携带未知数的多项式求高阶导}
+\subsubsection{携带未知数的多项式求高阶导}
 
 当所需要的求导的式子为一个多项式的时候，这个求导必然是有规律的。
 
@@ -294,7 +331,7 @@ $\quad\quad\quad+x^2(x+1)^2(x+2)^2\cdots 2(x+n)$
 
 所以求$f''(0)$时，只有对一阶导数的第一项的第一个$x$求导所得到的导数项不为0，其他都是0，所以最后$f''(0)=2(x+1)^2(x+2)^2\cdots(x+n)^2=2(n!)^2$。
 
-\subsection{反函数高阶导数}
+\subsubsection{反函数高阶导数}
 
 已知一阶导数的时候，反函数的导数为原函数导数的倒数（$g'(x)=\dfrac{1}{f'(x)}$）。
 
@@ -315,6 +352,56 @@ $\quad\quad\quad+x^2(x+1)^2(x+2)^2\cdots 2(x+n)$
 $\dfrac{\textrm{d}^2x}{\textrm{d}y^2}=\dfrac{\textrm{d}\dfrac{\textrm{d}x}{\textrm{d}y}}{\textrm{d}y}=\dfrac{\dfrac{\textrm{d}\dfrac{\textrm{d}x}{\textrm{d}y}}{\textrm{d}x}}{\dfrac{\textrm{d}y}{\textrm{d}x}}=\dfrac{-\dfrac{y''}{(y')^2}}{y'}=-\dfrac{y''}{(y')^3}$。\medskip
 
 $\dfrac{\textrm{d}^3x}{\textrm{d}y^3}=\dfrac{\textrm{d}\dfrac{\textrm{d}^2x}{\textrm{d}^2y}}{\textrm{d}y}=\dfrac{\dfrac{\textrm{d}\dfrac{\textrm{d}^2x}{\textrm{d}^2y}}{\textrm{d}x}}{\dfrac{\textrm{d}y}{\textrm{d}x}}=\dfrac{-\dfrac{y'''y'-3(y'')^2}{(y')^4}}{y'}=\dfrac{3(y'')^2-y'y'''}{(y')^5}$。
+
+\subsection{隐函数与参数方程}
+
+隐函数与参数方程求导基本上只用记住：\medskip
+
+$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\textrm{d}y/\textrm{d}t}{\textrm{d}x/\textrm{d}t}$。
+
+\subsubsection{隐函数应用}
+
+对于隐函数的应用题，最重要的是找到等价于$\textrm{d}x$和$\textrm{d}y$的两个相关变量。最简单的就是根据题目最后面的所求问题所涉及的变量设置其为变量和因变量。
+
+\textbf{例题：}落在平静水面上的石头，产生同心波纹。若最外一圈波半径的增大速率总是6m/s，问在2s末扰动水面面积增大的速率为多少？
+
+解：首先根据题目最后的要求的是面积，所以肯定要设一个面积变量，随时间变动而改变，所以也一定会设一个时间变量，同时还给出一个条件是半径增大速度，所以也会有一个半径的变量。同时要求的是面积增大速率，正好跟另外两个变量相关，时间跟半径和面积都相关，所以时间就是中间变量。
+
+从而设最外一圈波的半径为$r=r(t)$，圆的面积$S=S(t)$。根据$S$和$r$的公式$S=\pi r^2$，因为求的是随时间变化的速率，所以其两端分别对$t$求导，得：
+
+$\dfrac{\textrm{d}S}{\textrm{d}t}=2\pi r\dfrac{\textrm{d}r}{\textrm{d}t}$。当$t=2$时，$r=6\times2=12$，代入上式得：\medskip
+
+$\dfrac{\textrm{d}S}{\textrm{d}t}\bigg|_{t=2}=2\pi\cdot12\cdot6=144\pi$。
+
+\subsubsection{分段参数方程}
+
+\textbf{例题：}已知$y=y(x)$由参数方程$\left\{\begin{array}{lcl}
+    x=\dfrac{1}{2}\ln(1+t^2) \\
+    y=\arctan t
+\end{array}
+\right.$确定，求其一阶导数与二阶导数。
+
+解：$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\dfrac{\textrm{d}y}{\textrm{d}t}}{\dfrac{\textrm{d}x}{\textrm{d}t}}=\dfrac{\dfrac{1}{2}\cdot\dfrac{2t}{1+t^2}}{\dfrac{1}{1+t^2}}=\dfrac{1}{t}$。
+
+$\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}{\textrm{d}x}\right)}{\textrm{d}x}=\dfrac{\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}{\textrm{d}x}\right)}{\textrm{d}t}}{\dfrac{\textrm{d}x}{\textrm{d}t}}=\dfrac{-\dfrac{1}{t^2}}{\dfrac{t}{1+t^2}}=-\dfrac{1+t^2}{t^3}$。
+
+\subsection{导数与积分}
+
+由于对积分求导可以直接由公式得出，所以放在导数的一章。
+
+对有积分上下限函数的求导的公式：
+
+$F(x)=\int_{g(x)}^{h(x)}f(t)\,\textrm{d}t$，则$F'(x)=h'(x)f[h(x)]-g'(x)f[g(x)]$。
+
+\textbf{例题：}已知$y=f(x)$的反函数为$x=\varphi(y)$，且$f(x)=\int_1^{2x}e^{t^2}\,\textrm{d}t+1$，求$\varphi''(1)$。
+
+解：由于反函数的性质，$\varphi'(y)=\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{1}{f'(x)}$。
+
+$\varphi''(y)=\dfrac{\textrm{d}}{\textrm{d}x}\left[\dfrac{1}{f'(x)}\right]\cdot\dfrac{\textrm{d}x}{\textrm{d}y}=-\dfrac{f''(x)}{[f'(x)]^2}\cdot\dfrac{1}{f'(x)}=-\dfrac{f''(x)}{[f'(x)]^3}$。
+
+由公式可对积分$f(x)$求导$f'(x)=2e^{4x^2}$，$f''(x)=16xe^{4x^2}$。
+
+若$y=1$，则$x=\dfrac{1}{2}$，则$\varphi''(1)=-\dfrac{f''\left(\dfrac{1}{2}\right)}{\left[f'\left(\dfrac{1}{2}\right)\right]^3}=-\dfrac{8e}{8e^3}=-\dfrac{1}{e^2}$。
 
 \section{微分}
 
@@ -363,38 +450,6 @@ $f(a)-f(0)=f'(\xi_1)(a-0)$，$f(a+b)-f(b)=f'(\xi_2)(a+b-b)$。
 又$f'(x)$单调减少，所以$f'(\xi_1)>f'(\xi_2)$。
 
 $f(a)\geqslant f(a+b)-f(b)$，所以$f(a+b)\leqslant f(a)+f(b)$。
-
-\section{隐函数与参数方程}
-
-隐函数与参数方程求导基本上只用记住：\medskip
-
-$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\textrm{d}y/\textrm{d}t}{\textrm{d}x/\textrm{d}t}$。
-
-\subsection{隐函数应用}
-
-对于隐函数的应用题，最重要的是找到等价于$\textrm{d}x$和$\textrm{d}y$的两个相关变量。最简单的就是根据题目最后面的所求问题所涉及的变量设置其为变量和因变量。
-
-\textbf{例题：}落在平静水面上的石头，产生同心波纹。若最外一圈波半径的增大速率总是6m/s，问在2s末扰动水面面积增大的速率为多少？
-
-解：首先根据题目最后的要求的是面积，所以肯定要设一个面积变量，随时间变动而改变，所以也一定会设一个时间变量，同时还给出一个条件是半径增大速度，所以也会有一个半径的变量。同时要求的是面积增大速率，正好跟另外两个变量相关，时间跟半径和面积都相关，所以时间就是中间变量。
-
-从而设最外一圈波的半径为$r=r(t)$，圆的面积$S=S(t)$。根据$S$和$r$的公式$S=\pi r^2$，因为求的是随时间变化的速率，所以其两端分别对$t$求导，得：
-
-$\dfrac{\textrm{d}S}{\textrm{d}t}=2\pi r\dfrac{\textrm{d}r}{\textrm{d}t}$。当$t=2$时，$r=6\times2=12$，代入上式得：\medskip
-
-$\dfrac{\textrm{d}S}{\textrm{d}t}\bigg|_{t=2}=2\pi\cdot12\cdot6=144\pi$。
-
-\subsection{分段参数方程}
-
-\textbf{例题：}已知$y=y(x)$由参数方程$\left\{\begin{array}{lcl}
-    x=\dfrac{1}{2}\ln(1+t^2) \\
-    y=\arctan t
-\end{array}
-\right.$确定，求其一阶导数与二阶导数。
-
-解：$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\dfrac{\textrm{d}y}{\textrm{d}t}}{\dfrac{\textrm{d}x}{\textrm{d}t}}=\dfrac{\dfrac{1}{2}\cdot\dfrac{2t}{1+t^2}}{\dfrac{1}{1+t^2}}=\dfrac{1}{t}$。
-
-$\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}{\textrm{d}x}\right)}{\textrm{d}x}=\dfrac{\dfrac{\textrm{d}\left(\dfrac{\textrm{d}y}{\textrm{d}x}\right)}{\textrm{d}t}}{\dfrac{\textrm{d}x}{\textrm{d}t}}=\dfrac{-\dfrac{1}{t^2}}{\dfrac{t}{1+t^2}}=-\dfrac{1+t^2}{t^3}$。
 
 \section{一元函数微分应用}
 
