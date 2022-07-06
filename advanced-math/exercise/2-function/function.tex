@@ -166,9 +166,17 @@ $\therefore a=1,b=e$。
 
 \subsection{罗尔定理}
 
-罗尔定理在判断不等式时一般用于零点的状况。
+\subsubsection{寻找原函数}
 
-\subsubsection{直接式子}
+通过乘积求导公式$(uv)'=u'v+uv'$的逆运算来构造辅助函数。
+
+如$f(x)f'(x)$，作$F(x)=f^2(x)$，$[f'(x)]^2+f(x)f''(x)$，作$F(x)=f(x)f'(x)$，$f'(x)+f(x)\varphi'(x)$，作$F(x)=f(x)e^{\varphi(x)}$。
+
+即证明什么就构造他的原函数为函数式子。
+
+\subsubsection{零点情况}
+
+\paragraph{直接式子} \leavevmode \medskip
 
 需要证明所给式子的导数是否在该区间为0即可。
 
@@ -180,7 +188,7 @@ $\therefore a=1,b=e$。
 
 由罗尔定理得知$\exists\xi\in(x_1,x_2)\subset(0,1)$，使得$f'(\xi)=0$，但是$f'(x)=3x^2-3$在$(0,1)$上不超过0，所以$\xi$不存在，从而多项式$f(x)=x^3-3x+a$在$[0,1]$上不可能有两个零点。
 
-\subsubsection{含参数式子}
+\paragraph{含参数式子} \leavevmode \medskip
 
 若所求式子是一个含参数，那么其一定还有另一个式子约束参数，此时我们就需要构建一个新的式子来利用所给的条件，然后将新式子转换为旧式子。
 
@@ -196,7 +204,37 @@ $\therefore a=1,b=e$。
 
 \subsection{拉格朗日中值定理}
 
-证明不等式最重要的还是找到$f(x)$，有时候不等式不存在$f(a)-f(b)$这种式子，就需要我们转换。
+证明不等式最重要的还是找到$f(x)$，即出现差值$f(a)-f(b)$，那么$f(x)$就是我们的目标函数，有时候不等式不存在$f(a)-f(b)$这种式子，就需要我们转换。
+
+\subsubsection{式子转换}
+
+使用初等运算将目标式子转换减式。
+
+\textbf{例题：}设$f(x)$在闭区间$[0,c]$上连续，其导数$f'(x)$在开区间$(0,c)$内存在且单调减少，又$f(0)=0$，证明$f(a+b)\leqslant f(a)+f(b)$，$0\leqslant a\leqslant b\leqslant a+b\leqslant c$。
+
+解：不存在两端点相等的条件，所以使用拉格朗日中值定理。
+
+因为所要证明的式子中含有$a$、$b$、$a+b$，$f(0)=0$，所以对这几个区间进行拉格朗日中值定理。
+
+证明式子中没有减的形式只有和的形式，所以需要对其转换。
+
+$f(a)-f(0)=f'(\xi_1)(a-0)$，$f(a+b)-f(b)=f'(\xi_2)(a+b-b)$。
+
+从而$f(a)=f'(\xi_1)a$，$f(a+b)-f(b)=f'(\xi_2)a$。
+
+又$f'(x)$单调减少，所以$f'(\xi_1)>f'(\xi_2)$。
+
+$f(a)\geqslant f(a+b)-f(b)$，所以$f(a+b)\leqslant f(a)+f(b)$。
+
+\subsubsection{求原函数}
+
+这种题目就是证明某个式子成立，式子一边是常数一边是导数式子，要证明，就要将导数式子转换为原函数，方法跟罗尔定理使用的转换原函数的技巧一样。
+
+\textbf{例题：}设$f(x)$在$[0,1]$上连续且可导，证明存在一点$\varepsilon\in(0,1)$，使得$f(1)=3\varepsilon^2f(\varepsilon)+\varepsilon^3f'(\epsilon)$。
+
+证明：由$3\varepsilon^2f(\varepsilon)+\varepsilon^3f'(\epsilon)$，可推出原函数为$x^3f(x)$，令$F(x)=x^3f(x)$，则其在$(0,1)$也可导。
+
+即使用拉格朗日中值定理，$F(1)-F(0)=F'(\varepsilon)$，$\varepsilon\in(0,1)$。即$f(1)=3\varepsilon^2f(\varepsilon)+\varepsilon^3f'(\epsilon)$。
 
 \subsubsection{对数函数特性}
 
@@ -214,11 +252,25 @@ $\therefore a=1,b=e$。
 
 所以$\dfrac{a-b}{a}<\dfrac{a-b}{\xi}<\dfrac{a-b}{b}$，从而$\dfrac{a-b}{a}<\ln\dfrac{a}{b}<\dfrac{a-b}{b}$，得证。
 
+\subsubsection{划分区间}
+
+证明存在两个不同的点在同一个区间满足一个不等式。如果两个点彼此存在一定关系，如上面式子转换的例子$a+b$，$a$，$b$，那么我们可以使用转换，如果两个完全独立的变量，则这种方式没用，我们可以考虑划分区间，假定这两个点在不同的区间，中间以一个区间变量分隔，由于拉格朗日中值定理中两个变量只会出现一次，而间隔变量会出现多次，所以对其分别拉格朗日中值定理，就可以把两个变量换成以间隔变量表示的形式，将两个无关变量的式子变成一个变量的式子。
+
+\textbf{例题：}设函数$f(x)$在$[0,1]$上连续，在$(0,1)$内可导，且$f(0)=0$，$f(1)=1$，证明存在不同的$\varepsilon_1$、$\varepsilon_2$，使得$\dfrac{1}{f'(\varepsilon_1)}+\dfrac{1}{f'(\varepsilon_2)}=2$。
+
+证明：使用$\varepsilon$将$[0,1]$划分为$[0,\varepsilon]$和$[\varepsilon,1]$两个区间，假定$\varepsilon_1$、$\varepsilon_2$分别在这两个区间上。
+
+分别对其进行拉格朗日：$f(\varepsilon)-f(0)=f'(\varepsilon_1)(\varepsilon-0)$，即$\dfrac{1}{f'(\varepsilon_1)}=\dfrac{\varepsilon}{f(\varepsilon)}$，$f(1)-f(\varepsilon)=f'(\varepsilon_2)(1-\varepsilon)$，即$\dfrac{1}{f'(\varepsilon_2)}=\dfrac{1-\varepsilon}{1-f(\varepsilon)}$。
+
+即$\dfrac{1}{f'(\varepsilon_1)}+\dfrac{1}{f'(\varepsilon_2)}=\dfrac{\varepsilon}{f(\varepsilon)}+\dfrac{1-\varepsilon}{1-f(\varepsilon)}$，任取$f(\varepsilon)=\dfrac{1}{2}$，原式等于2，得证。
+
 \subsubsection{查找特定值}
 
-对于证明一种不等式，如果里面没有差式，也无法转换为差式，那么就可以考虑制造差式，对于$f(x)$一般选择更高阶的，$a$选择$x$，$b$要根据题目和不等式设置一个常数。
+对于证明一种不等式，如果里面没有差式，也无法转换为差式（没有相同的$f(x)$），那么就可以考虑制造差式，对于$f(x)$一般选择更高阶的，$a$选择$x$，$b$要根据题目和不等式设置一个常数。
 
 一般是0或1。可以先尝试1。
+
+对于这种不等式子看上去一般不会想到拉格朗日中值定理。
 
 \textbf{例题：}当$x>1$时，证明$e^x>ex$。
 
