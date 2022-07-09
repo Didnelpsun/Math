@@ -39,6 +39,8 @@
 \pagestyle{plain}
 \setcounter{page}{1}
 
+极限运算分为函数极限和数列极限，数列极限和函数极限可以相互转化，这里主要以函数极限作为示例。
+
 \section{基本计算方式}
 
 课本上极限计算可以使用的主要计算方式：
@@ -267,7 +269,7 @@ $=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{2}\cdot\lim\limits_{x\to 0}\dfrac{2}
 
 $=\lim\limits_{x\to 0}\dfrac{\tan x-\sin x}{x\sin^2x}=\lim\limits_{x\to 0}\dfrac{1-\cos x}{x\cos x\sin x}=\lim\limits_{x\to 0}\dfrac{\dfrac{1}{2}x^2}{x^2}=\dfrac{1}{2}$。
 
-\subsection{乘积形式}
+\subsubsection{乘积形式}
 
 此时带有根号的式子只有单个没有加上或减去另一个式子，所以就需要将其转换为和差形式，如三角函数中$x\pm n\pi$结果不变。
 
@@ -725,5 +727,9 @@ $x_{n+1}-x_n=\sqrt{2+x_n}-x_n=\dfrac{2+x_n-x_n^2}{\sqrt{2+x_n}+x_n}=\dfrac{-(x_n
 对于关系式两边取极限$a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{2}{a_n}\right)$，则$A=\dfrac{1}{2}\left(A+\dfrac{2}{A}\right)$。
 
 解得$A=\sqrt{2}$，即$\lim\limits_{n\to\infty}a_n=\sqrt{2}$。
+
+\subsection{数列和}
+
+使用定积分的精确定义$\displaystyle\int_a^bf(x)\,\textrm{d}x=\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf\left(a+\dfrac{b-a}{n}\cdot i\right)\dfrac{b-a}{n}$。
 
 \end{document}

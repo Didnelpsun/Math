@@ -63,9 +63,9 @@
 
 \subsubsection{第一类换元}
 
-\paragraph{聚集因式} \leavevmode \medskip
+\paragraph{凑微分法} \leavevmode \medskip
 
-将复杂的式子转换为简单的一个因式放到$\textrm{d}$后面看作一个整体，然后利用基本积分公式计算。
+将复杂的式子转换为简单的一个因式放到$\textrm{d}$后面看作一个整体，然后利用基本积分公式计算。适用于式子近于基本公式的情况。
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x\ln x\ln\ln x}}$。 \medskip
 
@@ -166,13 +166,15 @@ $\therefore=t^2\sin t-2t\cos t-\sin t+C=(\arcsin x)^2x+2\arcsin x\sqrt{1-x^2}-2x
 
 当积分式子存在指数函数$e^x$或对数函数$\ln x$时，可以考虑令其为$t$，从而$x$分别为$\ln t$和$e^t$。
 
+但是如果$\ln x$、$\arctan x$、$\arcsin x$与$x$多项式或$e^x$做乘法时要考虑分布积分法。
+
 \paragraph{倒数换元} \leavevmode \medskip
 
 当被积函数的分母的幂次要比分子高两次以及以上时，令$x=\dfrac{1}{u}$。
 
 \textbf{例题：}求$\displaystyle{\int\dfrac{\textrm{d}x}{x^2\sqrt{x^2-1}}}$。\medskip
 
-解：因为所有的变量都在分母，所以先进行倒代换：
+解：因为所有的变量都在分母，所以先进行倒代换：\medskip
 
 $=-\displaystyle{\int\dfrac{u\,\textrm{d}u}{\sqrt{1-u^2}}}=\sqrt{1-u^2}+C=\dfrac{\sqrt{x^2-1}}{x}+C$。
 
@@ -256,7 +258,7 @@ $\therefore=2x\sqrt{1+e^x}-4\sqrt{1+e^x}-2\ln\dfrac{\sqrt{1+e^x}-1}{\sqrt{1+e^x}
 
 \paragraph{万能公式} \leavevmode \medskip
 
-同样属于有理积分的内容，但是本质还是属于三角函数的部分。
+同样属于有理积分的内容，但是本质还是属于三角函数的部分。如果出现一个三角函数跟着常数的式子就使用万能公式。
 
 令$u=\tan\dfrac{x}{2}$，$\sin x=\dfrac{2u}{1+u^2}$，$\cos x=\dfrac{1-u^2}{1+u^2}$，$\textrm{d}x=\dfrac{2}{1+u^2}\textrm{d}u$。
 
@@ -466,6 +468,8 @@ $\therefore\int uv'''\,\textrm{d}x=uv''-u'v'+u''v-\int u'''v\,\textrm{d}x$。
 
 以$u$为起点左上右下错位相乘，各项符号正负交错，直到$uv$的导阶数相同，最后一项是$(-1)^{n+1}\int u^{(n+1)}v\,\textrm{d}x$，只要这最后一项可以解出来就可以停止了，即上下是同一类的函数或幂函数求导成0。
 
+$u$定为求导能被消去的函数，$v$定微分形式不变的函数。
+
 \textbf{例题：}求$\int(x^3+2x+6)e^{2x}\,\textrm{d}x$。
 
 解：如果要一般求，则需要拆分：
@@ -481,7 +485,7 @@ $\int(x^3+2x+6)e^{2x}\,\textrm{d}x=\int x^3e^{2x}\,\textrm{d}x+2\int xe^{2x}\,\t
     \hline
 \end{tabular}\medskip
 
-$\therefore=(x^3+2x+6)\left(\dfrac{1}{2}e^{2x}\right)-(3x^2+2)\left(\dfrac{1}{4}e^{2x}\right)+6x\left(\dfrac{1}{8}e^{2x}\right)-6\left(\dfrac{1}{16}e^{2x}\right)+\displaystyle{\int0\cdot(\dfrac{1}{16}e^{2x})\,\textrm{d}x}=\left(\dfrac{1}{2}x^3-\dfrac{3}{4}x^2+\dfrac{7}{4}x+\dfrac{17}{8}\right)e^{2x}+C$。
+$\therefore=(x^3+2x+6)\left(\dfrac{1}{2}e^{2x}\right)-(3x^2+2)\left(\dfrac{1}{4}e^{2x}\right)+6x\left(\dfrac{1}{8}e^{2x}\right)-6\left(\dfrac{1}{16}e^{2x}\right)+\displaystyle{(-1)^{3+1}\cdot\int0\cdot(\dfrac{1}{16}e^{2x})\,\textrm{d}x}=\left(\dfrac{1}{2}x^3-\dfrac{3}{4}x^2+\dfrac{7}{4}x+\dfrac{17}{8}\right)e^{2x}+C$。
 
 \textbf{例题：}求$\int x^2\ln x\,\textrm{d}x$。\medskip
 
@@ -520,7 +524,7 @@ $=\dfrac{2}{3}e^{\sqrt{3x+9}}(\sqrt{3x+9}-1)+C$。
 
 \subsection{有理积分}
 
-针对于多项式分式，需要将分母和分子拆解。
+针对于多项式分式，需要将分母和分子拆解。首先需要对式子进行化简。
 
 \subsubsection{高阶多项式分配}
 
@@ -669,9 +673,9 @@ $=-\dfrac{4x+3}{2(x^2+x+1)}-\dfrac{6}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}+C$�
 
 \section{定积分}
 
-\subsection{定限积分}
+定积分计算以牛莱公式为基础。
 
-\subsubsection{极限}
+\subsection{极限}
 
 若极限中有$n$这种变量，也可以通过定积分的定义来做，$\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf\left(\dfrac{i}{n}\right)\dfrac{1}{n}=\int_1^0f(x)\,\textrm{d}x$。
 
@@ -701,7 +705,7 @@ $=\displaystyle{\int_0^1\dfrac{1+x}{1+x^2}\textrm{d}x}=\displaystyle{\int_0^1\df
 
 $=\left[\arctan x+\dfrac{1}{2}\ln(1+x^2)\right]_0^1=\dfrac{\pi}{4}+\dfrac{1}{2}\ln2$。
 
-\subsubsection{区间再现}
+\subsection{区间再现}
 
 若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-x)\,\textrm{d}x$。区间再现本质是一种换元法，但是实际上是本显式的根据函数周期移动$x$的范围，求出另一种形式，再结合一起解出。
 
@@ -723,7 +727,7 @@ $\therefore\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\cos x+\sin x}\textr
 
 $\therefore=\dfrac{1}{2}\pi\displaystyle{\int_0^\pi\dfrac{\sin t}{1+\cos^2t}\textrm{d}t}=-\dfrac{1}{2}\pi\int_0^\pi\dfrac{\textrm{d}\cos t}{1+\cos^2t}=-\dfrac{1}{2}\pi\arctan\cos t\bigg|_0^\pi=\dfrac{1}{4}\pi^2$。
 
-\subsubsection{换元积分}
+\subsection{换元积分}
 
 换元积分法基本上跟不定积分一样。
 
@@ -733,7 +737,7 @@ $\therefore=\dfrac{1}{2}\pi\displaystyle{\int_0^\pi\dfrac{\sin t}{1+\cos^2t}\tex
 
 $=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\tan u\,\textrm{d}u=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\sin u\cos u\,\textrm{d}u=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u=2\int_0^\frac{\pi}{4}\cos^2u\,\textrm{d}u=2\int_0^\frac{\pi}{4}(1+\cos2u)\,\textrm{d}u=\dfrac{\pi}{4}+\dfrac{1}{2}$。
 
-\subsubsection{分部积分}
+\subsection{分部积分}
 
 可以使用普通的分部积分方式，也可以使用分部积分推广公式。
 
@@ -752,7 +756,7 @@ $\therefore\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=[e^{2x}\sin x+2e^{2x}\c
 
 $\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=\dfrac{1}{5}[e^{2x}(\sin x+2\cos x)]_0^\frac{\pi}{2}=\dfrac{1}{5}(e^\pi-2)$。
 
-\subsubsection{几何意义}
+\subsection{几何意义}
 
 定积分与不定积分不同的就是定积分具有几何意义，可以在计算时简化操作。
 
@@ -762,7 +766,7 @@ $\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=\dfrac{1}{5}[e^{2x}(\sin x+2\cos 
 
 对$\sqrt{2x-x^2}$进行变形，$=\sqrt{1-(x-1)^2}$，令$x-1=t$，则$=\int_0^1\sqrt{1-t^2}\,\textrm{d}t$，根据定积分的几何意义，这是一个单位圆的四分之一，所以结果等于$\dfrac{1}{4}\pi$。
 
-\subsubsection{定限积分等式}
+\subsection{定限积分等式}
 
 与不定积分等式一样，存在一些问题给出带有不定积分的等式，需要求里面的包含的函数。其中不同的是定限积分的值都是常数，所以解题时可以令其为一个参数求。
 
@@ -780,15 +784,19 @@ $\left[\dfrac{x^3}{3}-\dfrac{ax^2}{2}+2bx\right]_0^2=\dfrac{8}{3}-2a+4b=a$，$\l
 
 则$f(x)=x^2-\dfrac{4}{3}x+\dfrac{2}{3}$。
 
-\subsubsection{中值定理}
+\subsection{中值定理}
 
 中值定理一般是在微分中使用，积分中也可能考到，但是重点是将定限积分化为两个常数的差的形式，所以基本上使用拉格朗日中值定理。
 
-或者使用积分中值定理：若$f(x)$在$[a,b]$上连续，则存在$\varepsilon\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\varepsilon)(b-a)$。
+或者使用积分中值定理：
+
+若$f(x)$在$[a,b]$上连续，则存在$\xi\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$。
+
+若$f(x)$、$g(x)$在$[a,b]$上连续，$g(x)$不变号，则存在$\xi\in[a,b]$，使得$\int_a^bf(x)g(x)\,\\\textrm{d}x=f(\xi)\int_a^bg(x)\,\textrm{d}x$。
 
 \textbf{例题：}设函数$f(x)$在$[0,3]$上连续，在$(0,3)$内有二阶导数，且$2f(0)=\int_0^2f(x)\,\textrm{d}x=f(2)+f(3)$。
 
-证明：（1）存在$\eta\in(0,2)$，使得$f(\eta)=f(0)$；（2）存在$\varepsilon\in(0,3)$，使得$f''(\varepsilon)=0$。
+证明：（1）存在$\eta\in(0,2)$，使得$f(\eta)=f(0)$；（2）存在$\xi\in(0,3)$，使得$f''(\xi)=0$。
 
 证明：
 
@@ -800,9 +808,9 @@ $\left[\dfrac{x^3}{3}-\dfrac{ax^2}{2}+2bx\right]_0^2=\dfrac{8}{3}-2a+4b=a$，$\l
 
 （2）还剩下等式右边的条件没有使用，且数字为2和3。如何使用？
 
-由函数导数$f''(\varepsilon)$为0很显然知道要使用罗尔定理，但是这是二阶导数，就要求得到$f'(0)=f'(3)$两端相等的条件。
+由函数导数$f''(\xi)$为0很显然知道要使用罗尔定理，但是这是二阶导数，就要求得到$f'(0)=f'(3)$两端相等的条件。
 
-请注意这里是存在$\varepsilon\in(0,3)$使得条件成立，则相等的两端不一定就等于0和3，在区间范围$(0,3)$内都成立。
+请注意这里是存在$\xi\in(0,3)$使得条件成立，则相等的两端不一定就等于0和3，在区间范围$(0,3)$内都成立。
 
 往往第二问的条件基于第一问的结论，看到第一问，出现了两端相等且区域$\eta$为$(0,3)$子区间，两端相等所以得到这里有一个值的$f'(?)=0$。
 
@@ -818,11 +826,11 @@ $\left[\dfrac{x^3}{3}-\dfrac{ax^2}{2}+2bx\right]_0^2=\dfrac{8}{3}-2a+4b=a$，$\l
 
 由（1）$f(0)=f(\eta)=f(\tau)$，其中$0<\eta<2\leqslant\tau\leqslant3$。
 
-根据罗尔定理，必然存在$\varepsilon_1\in(0,\eta)$，$\varepsilon_2\in(\eta,\tau)$，使得$f'(\varepsilon_1)=f'(\varepsilon_2)=0$，再根据罗尔定理存在$\varepsilon\in(\epsilon_1,\epsilon_2)\subset(0,3)$使得$f''(\varepsilon)=0$。
+根据罗尔定理，必然存在$\xi_1\in(0,\eta)$，$\xi_2\in(\eta,\tau)$，使得$f'(\xi_1)=f'(\xi_2)=0$，再根据罗尔定理存在$\xi\in(\epsilon_1,\epsilon_2)\subset(0,3)$使得$f''(\xi)=0$。
 
-\subsection{变限积分}
+\section{变限积分}
 
-\subsubsection{极限}
+\subsection{极限}
 
 变限积分也常与极限共同出现。
 
@@ -840,24 +848,6 @@ $\therefore F'(x)=\int_0^xf(t)\,\textrm{d}t+xf(x)-xf(x)=\int_0^xf(t)\,\textrm{d}
 
 $\therefore F''(x)=f(x)$。
 
-\subsubsection{连续}
-
-\textbf{例题：}设$f(x)=\left\{\begin{array}{ll}
-    x^2, & x\in[0,1) \\
-    x, & x\in[1,2]
-\end{array}\right.$，求$\varPhi(x)=\int_0^xf(t)\,\textrm{d}t$在$[0,2]$上的表达式，并讨论$\varPhi(x)$在$(0,2)$内的连续性。
-
-解：当$x\in[0,1)$时，$\varPhi(x)=\int_0^xt^2\,\textrm{d}t=\dfrac{x^3}{3}$，注意的是$x\in[1,2]$时，$\varPhi(x)=\int_0^1f(t)\,\textrm{d}t+\int_1^xf(t)\,\textrm{d}t=\int_0^1t^2\,\textrm{d}t+\int_1^xt\,\textrm{d}t=\left[\dfrac{t^3}{3}\right]_0^1+\left[\dfrac{t^2}{2}\right]_1^x=\dfrac{x^2}{2}+\dfrac{1}{3}-\dfrac{1}{2}=\dfrac{x^2}{2}-\dfrac{1}{6}$。
-
-$\therefore\varPhi(x)=\left\{\begin{array}{ll}
-    \dfrac{x^3}{3}, & x\in[0,1) \medskip \\
-    \dfrac{x^2}{2}-\dfrac{1}{6}, & x\in[1,2]
-\end{array}\right.$。
-
-由于$x\to1^-$时，$\lim\limits_{x\to1^-}\varPhi(x)=\lim\limits_{x\to1^-}\dfrac{x^3}{3}=\dfrac{1}{3}$。$x=1$时，$\varPhi(1)=\dfrac{1}{2}-\dfrac{1}{6}=\dfrac{1}{3}$，所以$\varPhi(x)$在$x=1$处连续，而在其他定义域都是函数，所以也连续，从而$\varPhi(x)$在$(0,2)$上连续。
-
-\subsubsection{极值}
-
 \textbf{例题：}设$f(x)$是定义于$x\geqslant1$的正值连续函数，则求其相关函数$F(x)=\displaystyle{\int_1^x\left[\left(\dfrac{2}{x}+\ln x\right)-\left(\dfrac{2}{t}+\ln t\right)\right]f(t)\,\textrm{d}t}$（$x\geqslant1$）的极小值点。\medskip
 
 解：按照一般函数一样求极值就是求导，注意的是$t$和$x$含义不同，若对$t$求导，则$x$作为积分上限是看作常数的，所以可以提出去：
@@ -874,11 +864,27 @@ $\because f(x)$为连续正值函数，$\therefore=\dfrac{x-2}{x^2}\int_1^xf(t)\
 
 所以极小值为$2$。
 
-\subsection{反常积分}
+\subsection{连续}
+
+\textbf{例题：}设$f(x)=\left\{\begin{array}{ll}
+    x^2, & x\in[0,1) \\
+    x, & x\in[1,2]
+\end{array}\right.$，求$\varPhi(x)=\int_0^xf(t)\,\textrm{d}t$在$[0,2]$上的表达式，并讨论$\varPhi(x)$在$(0,2)$内的连续性。
+
+解：当$x\in[0,1)$时，$\varPhi(x)=\int_0^xt^2\,\textrm{d}t=\dfrac{x^3}{3}$，注意的是$x\in[1,2]$时，$\varPhi(x)=\int_0^1f(t)\,\textrm{d}t+\int_1^xf(t)\,\textrm{d}t=\int_0^1t^2\,\textrm{d}t+\int_1^xt\,\textrm{d}t=\left[\dfrac{t^3}{3}\right]_0^1+\left[\dfrac{t^2}{2}\right]_1^x=\dfrac{x^2}{2}+\dfrac{1}{3}-\dfrac{1}{2}=\dfrac{x^2}{2}-\dfrac{1}{6}$。
+
+$\therefore\varPhi(x)=\left\{\begin{array}{ll}
+    \dfrac{x^3}{3}, & x\in[0,1) \medskip \\
+    \dfrac{x^2}{2}-\dfrac{1}{6}, & x\in[1,2]
+\end{array}\right.$。
+
+由于$x\to1^-$时，$\lim\limits_{x\to1^-}\varPhi(x)=\lim\limits_{x\to1^-}\dfrac{x^3}{3}=\dfrac{1}{3}$。$x=1$时，$\varPhi(1)=\dfrac{1}{2}-\dfrac{1}{6}=\dfrac{1}{3}$，所以$\varPhi(x)$在$x=1$处连续，而在其他定义域都是函数，所以也连续，从而$\varPhi(x)$在$(0,2)$上连续。
+
+\section{反常积分}
 
 反常积分就是取极限，基本计算方法一样。
 
-\subsubsection{基本反常积分}
+\subsection{求值}
 
 \textbf{例题：}求$\displaystyle{\int_0^{+\infty}\dfrac{\textrm{d}x}{(1+x)(1+x^2)}}$。\medskip
 
@@ -896,7 +902,7 @@ $\therefore=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{1}{1+\tan u}\textrm{d}u=\in
 
 $=\displaystyle{\int_0^{+\infty}x\textrm{d}\left(\dfrac{1}{1+e^{-x}}\right)}=\left[\dfrac{x}{1+e^{-x}}\right]_0^{+\infty}-\int_0^{+\infty}\dfrac{\textrm{d}x}{1+e^{-x}}=\lim\limits_{x\to+\infty}\dfrac{x}{1+e^{-x}}-\int_0^{+\infty}\dfrac{\textrm{d}e^x}{1+e^x}=\lim\limits_{x\to+\infty}\left[\dfrac{x}{1+e^{-x}}-\ln(1+e^x)\right]+\ln2=\lim\limits_{x\to+\infty}\dfrac{1}{1+e^{-x}}[x-\ln(1+e^x)(1+e^{-x})]+\ln2=\lim\limits_{x\to+\infty}[x-\ln(1+e^x)(1+e^{-x})]+\ln2=\lim\limits_{x\to+\infty}[\ln e^x-\ln(1+e^x)(1+e^{-x})]+\ln2=\lim\limits_{x\to+\infty}\left[\ln e^x-(1+e^x)\dfrac{\ln(1+e^x)}{e^x}\right]+\ln2=\lim\limits_{x\to+\infty}\\\left[\ln\dfrac{e^x}{1+e^x}-\dfrac{\ln(1+e^x)}{e^x}\right]+\ln2=\ln1-0+\ln2=\ln2$。
 
-\subsubsection{求参数}
+\subsection{求参数}
 
 题目会给出一个含参的式子，并给出对应的极限值，要求对应的参数值。首先必须知道对应的式子什么时候才会收敛。
 
@@ -914,7 +920,7 @@ $=\displaystyle{\int_0^{+\infty}x\textrm{d}\left(\dfrac{1}{1+e^{-x}}\right)}=\le
 
 $=\displaystyle{\int_1^{+\infty}\dfrac{b-a}{2x+a}+\dfrac{1}{x}-\dfrac{2}{2x+a}\textrm{d}x=\int_1^{+\infty}\dfrac{b-a-2}{2x+a}+\dfrac{1}{x}\textrm{d}x}$。此时前后两个式子都是发散的，所以不能求出收敛的参数。
 
-\subsubsection{递推公式}
+\subsection{递推公式}
 
 \textbf{例题：}利用递推公式计算反常积分$I_n=\int_0^{+\infty}x^ne^{-x}\,\textrm{d}x$（$n\in N$）。
 
@@ -1108,11 +1114,13 @@ $\rho gA(y)\,\textrm{d}y=\rho g\pi(16-y^2)\,\textrm{d}y$
 
 \subsubsection{水压力}
 
-\section{积分等式}
+\section{积分关系式}
+
+\subsection{积分等式}
 
 包括证明带有积分的等式、方程根、积分中值定理等。
 
-\subsection{中值定理}
+\subsubsection{中值定理}
 
 \textbf{例题：}设$f(x)$、$g(x)$在$[a,b]$上连续且$g(x)$不变号，证明至少存在一点$\xi\in[a,b]$使得$\int_a^bf(x)g(x)\,\textrm{d}x=f(\xi)\int_a^bg(x)\,\textrm{d}x$。（推广中值定理）
 
@@ -1128,15 +1136,15 @@ $\therefore\int_a^bf(x)g(x)\,\textrm{d}x=f(\xi)\int_a^bg(x)\,\textrm{d}x$，$\xi
 
 同理$g(x)<0$也如此。
 
-\subsection{夹逼准则}
+\subsubsection{夹逼准则}
 
 夹逼准则一般用于求数列极限，若极限号后面有积分号可以考虑使用夹逼准则。
 
-\section{积分不等式}
+\subsection{积分不等式}
 
 带积分号的不等问题。
 
-\subsection{函数单调性}
+\subsubsection{函数单调性}
 
 将某一限一般是上限变量化，然后移项构造辅助函数，由辅助函数的单调性来证明不等式，多用于所给条件为“$f(x)$在$[a,b]$上连续”的情况，因为函数连续必然可积分与求导。
 
@@ -1168,7 +1176,7 @@ $\therefore=\dfrac{f(x)x-f(\xi)x}{x^2}=\dfrac{f(x)-f(\xi)}{x}$，因为$f(x)$在
 
 所以$F'(x)<0$，所以$F(x)$单调递减，从而$F(\lambda)\geqslant F(1)$，所以得证。
 
-\subsection{拉格朗日中值定理}
+\subsubsection{拉格朗日中值定理}
 
 多用于所给条件为“$f(x)$一阶可导”且某一端点值较简单甚至为0的题目。
 
@@ -1198,7 +1206,7 @@ $=M\left(\dfrac{1}{2}x^2+\dfrac{1}{2}(1-x)^2\right)=M\left(\left(x-\dfrac{1}{2}\
 
 $\therefore\vert\int_0^1f(x)\,\textrm{d}x\vert\leqslant\dfrac{1}{4}M=\dfrac{1}{4}\max\limits_{x\in[0,1]}\{\vert f'(x)\vert\}$
 
-\subsection{泰勒公式}
+\subsubsection{泰勒公式}
 
 多用于所给条件为“$f(x)$二阶可导”且某一端点值较简单甚至为0的题目。
 

@@ -318,7 +318,7 @@ $f(x+T)=f(x)$，其中$T$为周期。 \medskip
 
 极限就是一个无限逼近某个值的过程。如$\dfrac{n}{n+1}$这个分式在$n$无限增大的时候会无限逼近1，这个1叫做极限值，所以写成$\lim\limits_{n\to\infty}\dfrac{n}{n+1}=1$。
 
-所以从另一个方面更精确的指出一个数$N>0$，使得数列下标大于$N$的项与极限值之间的距离始终保持在$(0,\varepsilon)$之间，即$\dfrac{1}{n+1}<\varepsilon$，即$n>\dfrac{1}{\varepsilon}-1$，所以任意正数都能得到从$N>\dfrac{1}{\varepsilon}-1$项开始之后都有$\left\vert\dfrac{n}{n+1}-1\right\vert<\varepsilon$。
+所以从另一个方面更精确的指出一个数$N>0$，使得数列下标大于$N$的项与极限值之间的距离始终保持在$(0,\xi)$之间，即$\dfrac{1}{n+1}<\xi$，即$n>\dfrac{1}{\xi}-1$，所以任意正数都能得到从$N>\dfrac{1}{\xi}-1$项开始之后都有$\left\vert\dfrac{n}{n+1}-1\right\vert<\xi$。
 
 \subsection{定义}
 
@@ -326,45 +326,45 @@ $f(x+T)=f(x)$，其中$T$为周期。 \medskip
 
 \subsubsection{数列极限定义}
 
-\textcolor{violet}{\textbf{定义：}}设$\{x_n\}$为一数列，若存在常数$a$，对于不论任意小的$\varepsilon>0$，总存在正整数$N$，使$n>N$时，$\vert x_n-a\vert<\varepsilon$恒成立，则常数$a$为数列$\{x_n\}$的极限，或$\{x_n\}$收敛于$a$，记为：$\lim\limits_{x\to\infty}x_n=a$或$x_n\to a(n\to\infty)$。
+\textcolor{violet}{\textbf{定义：}}设$\{x_n\}$为一数列，若存在常数$a$，对于不论任意小的$\xi>0$，总存在正整数$N$，使$n>N$时，$\vert x_n-a\vert<\xi$恒成立，则常数$a$为数列$\{x_n\}$的极限，或$\{x_n\}$收敛于$a$，记为：$\lim\limits_{x\to\infty}x_n=a$或$x_n\to a(n\to\infty)$。
 
-常用语言（$\varepsilon-N$语言）：$\lim\limits_{x\to\infty}x_n=a\Leftrightarrow\forall\varepsilon>0,\exists N\in N_+$，当$n>N$时，恒有$\vert x_n-a\vert<\varepsilon$。
+常用语言（$\xi-N$语言）：$\lim\limits_{x\to\infty}x_n=a\Leftrightarrow\forall\xi>0,\exists N\in N_+$，当$n>N$时，恒有$\vert x_n-a\vert<\xi$。
 
 如果不存在该数$a$，则称数列$x_n$发散。
 
-即无论给出多么小的$\varepsilon$，总可以找到一项从该项之后函数值与极限值之间的差小于$\varepsilon$，即更接近这个极限值而不是其他任何值，所以该数列趋向于极限值。
+即无论给出多么小的$\xi$，总可以找到一项从该项之后函数值与极限值之间的差小于$\xi$，即更接近这个极限值而不是其他任何值，所以该数列趋向于极限值。
 
 \subsubsection{极限证明}
 
-令$x_n$为通项，$a$为极限值，$\varepsilon$为任意正数。
+令$x_n$为通项，$a$为极限值，$\xi$为任意正数。
 
 \begin{enumerate}
-    \item 写出$\vert x_n-a|<\varepsilon$。
-    \item 反解出项数$n<g(\varepsilon)$。
-    \item 取$N=[g(\varepsilon)]+1$，所以令$n>N$就可以证明。
+    \item 写出$\vert x_n-a|<\xi$。
+    \item 反解出项数$n<g(\xi)$。
+    \item 取$N=[g(\xi)]+1$，所以令$n>N$就可以证明。
 \end{enumerate}
 
 \textbf{例题：}用定义证明$\lim\limits_{x\to\infty}\left[1+\dfrac{(-1)^n}{n}\right]=1$
 
-证明：\ding{172}计算距离：$\left\vert 1+\dfrac{(-1)^n}{n}-1\right\vert=\left\vert\dfrac{(-1)^n}{n}\right\vert<\varepsilon$。
+证明：\ding{172}计算距离：$\left\vert 1+\dfrac{(-1)^n}{n}-1\right\vert=\left\vert\dfrac{(-1)^n}{n}\right\vert<\xi$。
 
-\ding{173}解得到：$\dfrac{1}{n}<\varepsilon$，反解为$n>\dfrac{1}{\varepsilon}$。
+\ding{173}解得到：$\dfrac{1}{n}<\xi$，反解为$n>\dfrac{1}{\xi}$。
 
-\ding{174}取整：$N=\left[\dfrac{1}{\varepsilon}\right]+1$。
+\ding{174}取整：$N=\left[\dfrac{1}{\xi}\right]+1$。
 
-$\therefore\forall\varepsilon>0$，当$n>N$时，就有$n>\dfrac{1}{\varepsilon}$，使得$\left\vert 1+\dfrac{(-1)^n}{n}-1\right\vert=\left\vert\dfrac{(-1)^n}{n}\right\vert<\varepsilon$。
+$\therefore\forall\xi>0$，当$n>N$时，就有$n>\dfrac{1}{\xi}$，使得$\left\vert 1+\dfrac{(-1)^n}{n}-1\right\vert=\left\vert\dfrac{(-1)^n}{n}\right\vert<\xi$。
 
 $\therefore$证明完毕。
 
 \textbf{例题：}用定义证明$\lim\limits_{n\to\infty}q^n=0$（$q$为常数且$\vert q\vert<1$）。
 
-证明：\ding{172}$\vert q^n-0\vert<\varepsilon$。
+证明：\ding{172}$\vert q^n-0\vert<\xi$。
 
-\ding{173}$\vert q^n\vert<\varepsilon$，取对数进行反解$n\ln\vert q\vert<\ln\varepsilon$，又因为$\vert q\vert<1$，所以$\ln\vert q\vert<0$，所以得到$n>\dfrac{\ln\varepsilon}{\ln\vert q\vert}$。（若$\varepsilon>1$则$n$就是负数，这样条件必然成立）
+\ding{173}$\vert q^n\vert<\xi$，取对数进行反解$n\ln\vert q\vert<\ln\xi$，又因为$\vert q\vert<1$，所以$\ln\vert q\vert<0$，所以得到$n>\dfrac{\ln\xi}{\ln\vert q\vert}$。（若$\xi>1$则$n$就是负数，这样条件必然成立）
 
-\ding{174}取$N=\left[\dfrac{\ln\varepsilon}{\ln\vert q\vert}\right]+1$。
+\ding{174}取$N=\left[\dfrac{\ln\xi}{\ln\vert q\vert}\right]+1$。
 
-$\therefore$当$n>N$时，必然$n>\dfrac{\ln\varepsilon}{\ln\vert q\vert}$，有$\vert q^n-0\vert<\varepsilon$。
+$\therefore$当$n>N$时，必然$n>\dfrac{\ln\xi}{\ln\vert q\vert}$，有$\vert q^n-0\vert<\xi$。
 
 故$\lim\limits_{n\to\infty}q^n=0$。
 
@@ -372,9 +372,9 @@ $\therefore$当$n>N$时，必然$n>\dfrac{\ln\varepsilon}{\ln\vert q\vert}$，�
 
 \textcolor{aqua}{\textbf{定理：}}若$\lim\limits_{x\to\infty}a_n=A$，则$\lim\limits_{x\to\infty}\vert a_n\vert=\vert A\vert$。
 
-证明：$\because\lim\limits_{n\to\infty}a_n=A\Leftrightarrow\forall\varepsilon>0,\exists N>0,\text{当}n>N$，恒有$\vert a_n-A\vert<\varepsilon$。
+证明：$\because\lim\limits_{n\to\infty}a_n=A\Leftrightarrow\forall\xi>0,\exists N>0,\text{当}n>N$，恒有$\vert a_n-A\vert<\xi$。
 
-又由重要不等式$\vert\vert a\vert-\vert b\vert\vert\leqslant\vert a-b\vert$，所以$\vert\vert a_n\vert-\vert A\vert\vert\leqslant\varepsilon$。
+又由重要不等式$\vert\vert a\vert-\vert b\vert\vert\leqslant\vert a-b\vert$，所以$\vert\vert a_n\vert-\vert A\vert\vert\leqslant\xi$。
 
 所以恒成立，证明完毕。
 
@@ -405,7 +405,7 @@ $\therefore$当$n>N$时，必然$n>\dfrac{\ln\varepsilon}{\ln\vert q\vert}$，�
 
 证明：设$\lim\limits_{n\to\infty}a_n=A$且$\lim\limits_{n\to\infty}a_n=B$且$A\neq B$。
 
-不如设$A>B$。任意取$\varepsilon=\dfrac{A-B}{2}>0$。
+不如设$A>B$。任意取$\xi=\dfrac{A-B}{2}>0$。
 
 $\because\lim\limits_{n\to\infty}a_n=A$
 
@@ -429,7 +429,7 @@ $\therefore\exists N_2>0$，当$n>N_2$时，$\vert a_n-B\vert<\dfrac{A-B}{2}$。
 
 即$\lim\limits_{n\to\infty}a_n=A$，则存在$M>0$，使得$\vert a_n\vert\leqslant M$。
 
-证明：由极限定义，取$\varepsilon=1$。
+证明：由极限定义，取$\xi=1$。
 
 $\because\lim\limits_{n\to\infty}a_n=A$
 
@@ -457,7 +457,7 @@ $\forall n$，有$\vert a_n\vert\leqslant M$
 
 推论，戴帽法：若数列$\{a_n\}$从某项开始$a_n\geqslant b$，且$\lim\limits_{n\to\infty}a_n=a$，则$a\geqslant b$。这里一定要带等号。
 
-证明：设$A>0$，取$\varepsilon=\dfrac{A}{2}>0$。
+证明：设$A>0$，取$\xi=\dfrac{A}{2}>0$。
 
 $\because\lim\limits_{n\to\infty}a_n=A$
 
@@ -497,11 +497,11 @@ $\therefore e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}=e^{\lim\lim
 
 \subsubsection{极限定义}
 
-\textcolor{violet}{\textbf{定义：}}设函数$f(x)$在点$x_0$的某一个去心邻域有定义，若存在常数$A$，对于任意给定的$\varepsilon>0$，总存在正数$\delta$，使得当$0<\vert x-x_0\vert<\delta$式，对应的函数值$f(x)$都满足不等式$\vert f(x)-A\vert <\varepsilon$，则$A$就是函数$f(x)$当$x\to x_0$时的极限，记作$\lim\limits_{x\to x_0}f(x)=A$或$f(x)\rightarrow A(x\rightarrow x_0)$。
+\textcolor{violet}{\textbf{定义：}}设函数$f(x)$在点$x_0$的某一个去心邻域有定义，若存在常数$A$，对于任意给定的$\xi>0$，总存在正数$\delta$，使得当$0<\vert x-x_0\vert<\delta$式，对应的函数值$f(x)$都满足不等式$\vert f(x)-A\vert <\xi$，则$A$就是函数$f(x)$当$x\to x_0$时的极限，记作$\lim\limits_{x\to x_0}f(x)=A$或$f(x)\rightarrow A(x\rightarrow x_0)$。
 
-写成$\varepsilon-\delta$语言：$\lim\limits_{x\to x_0}f(x)=A\Leftrightarrow\forall\varepsilon>0,\exists\delta>0,\text{当}0<\vert x-x_0\vert<\delta$时，有$\vert f(x)-A\vert<\varepsilon$。
+写成$\xi-\delta$语言：$\lim\limits_{x\to x_0}f(x)=A\Leftrightarrow\forall\xi>0,\exists\delta>0,\text{当}0<\vert x-x_0\vert<\delta$时，有$\vert f(x)-A\vert<\xi$。
 
-而对于趋向无穷时，写成$\varepsilon-X$语言：$\lim\limits_{x\to\infty}f(x)=A\Leftrightarrow\forall\varepsilon>0,\exists X>0,\text{当}\vert x\vert>X$时，有$\vert f(x)-A\vert<\varepsilon$。
+而对于趋向无穷时，写成$\xi-X$语言：$\lim\limits_{x\to\infty}f(x)=A\Leftrightarrow\forall\xi>0,\exists X>0,\text{当}\vert x\vert>X$时，有$\vert f(x)-A\vert<\xi$。
 
 \textcolor{orange}{注意：}这里的趋向分为六种：$x\to x_0$、$x\to x_0^+$、$x\to x_0^-$、$x\to\infty$、$x\to\infty^+$、$x\to\infty^-$。
 
@@ -526,7 +526,7 @@ $\therefore e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}=e^{\lim\lim
         过程 & $n\to\infty$ & $x\to\infty$ & $x\to+\infty$ & $x\to-\infty$ \\ \hline
         时刻 & \multicolumn{4}{c|}{$N$} \\ \hline
         从此时刻以后 & $n>N$ & $\vert x\vert>N$ & $x>N$ & $x<-N$ \\ \hline
-        $f(x)$ & \multicolumn{4}{c|}{$\vert f(x)-A\vert<\varepsilon$} \\ 
+        $f(x)$ & \multicolumn{4}{c|}{$\vert f(x)-A\vert<\xi$} \\ 
         \hline
     \end{tabular}
 \end{center}
@@ -537,7 +537,7 @@ $\therefore e^{\lim\limits_{x\to 0}\frac{1}{x^2}\ln\frac{\tan x}{x}}=e^{\lim\lim
         过程 & $x\to x_0$ & $x\to x_0^+$ & $x\to x_0^-$ \\ \hline
         时刻 & \multicolumn{3}{c|}{$\delta$} \\ \hline
         从此时刻以后 & $0<\vert x-x_0\vert<\delta$ & $0<x-x_0<\delta$ & $-\delta<x-x_0<0$\\ \hline
-        $f(x)$ & \multicolumn{3}{c|}{$\vert f(x)-A\vert<\varepsilon$} \\ 
+        $f(x)$ & \multicolumn{3}{c|}{$\vert f(x)-A\vert<\xi$} \\ 
         \hline
     \end{tabular}
 \end{center}
@@ -620,17 +620,17 @@ $\lim\limits_{x\to -1}\dfrac{\vert x\vert\sin(x-2)}{x(x-1)(x-2)^2}=-\dfrac{\sin 
 
 简单来说，函数值在$x\to x_0$时函数值与极限值同号。
 
-证明：首先根据极限存在定义：$\forall\varepsilon>0,\exists\delta>0,0<\vert x-x_0\vert<\delta$时，恒有$\vert f(x)-A\vert<\varepsilon$。
+证明：首先根据极限存在定义：$\forall\xi>0,\exists\delta>0,0<\vert x-x_0\vert<\delta$时，恒有$\vert f(x)-A\vert<\xi$。
 
-$\Rightarrow -\varepsilon<f(x)-A<\varepsilon$。
+$\Rightarrow -\xi<f(x)-A<\xi$。
 
-$\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
+$\Rightarrow A-\xi<f(x)<A+\xi$。
 
-任意取$\varepsilon=\dfrac{A}{2}>0\Rightarrow f(x)>A-\dfrac{A}{2}=\dfrac{A}{2}>0$。
+任意取$\xi=\dfrac{A}{2}>0\Rightarrow f(x)>A-\dfrac{A}{2}=\dfrac{A}{2}>0$。
 
 证明完毕。
 
-关于$\varepsilon$的取值问题，为什么不能取到令结果为负的值，因为请注意这个取值得到的区间并不是$f(x)$的范围，而是对$f(x)$所在区间的陈述，其是无尽逼近$A$的，所以取多大的区间都无所谓。
+关于$\xi$的取值问题，为什么不能取到令结果为负的值，因为请注意这个取值得到的区间并不是$f(x)$的范围，而是对$f(x)$所在区间的陈述，其是无尽逼近$A$的，所以取多大的区间都无所谓。
 
 推论：若函数值在$x\to x_0$时都非负或非正，极限值为$A$，那么$A$与此时函数值同号。不能去除等号。
 
@@ -733,13 +733,13 @@ $\Rightarrow A-\varepsilon<f(x)<A+\varepsilon$。
 
 证明：由于$\lim\limits_{n\to\infty}y_n=a,\lim\limits_{n\to\infty}z_n=a$。
 
-则$\forall\varepsilon>0$，$\exists N$，当$n>N$时，$\vert y_n<\varepsilon$，$\vert z_n<\varepsilon$。
+则$\forall\xi>0$，$\exists N$，当$n>N$时，$\vert y_n<\xi$，$\vert z_n<\xi$。
 
-$\therefore a-\varepsilon<y_n<a+\varepsilon$，$a-\varepsilon<z_n<a+\varepsilon$。
+$\therefore a-\xi<y_n<a+\xi$，$a-\xi<z_n<a+\xi$。
 
-$\therefore a-\varepsilon<y_n\leqslant x_n\leqslant z_n<a+\varepsilon$。
+$\therefore a-\xi<y_n\leqslant x_n\leqslant z_n<a+\xi$。
 
-$\therefore\vert x_n-a\vert<\varepsilon$。
+$\therefore\vert x_n-a\vert<\xi$。
 
 \textbf{例题：}求极限$\lim\limits_{n\to\infty}\left(\dfrac{n}{n^2+1}+\dfrac{n}{n^2+2}+\cdots+\dfrac{n}{n^2+n}\right)$。
 
@@ -849,9 +849,9 @@ $
 
 由函数的单调有界准则可以看出这个准则只能规范左邻域部分，而很多时候收敛的数列都不一定为单调的可以是波动逼近的。所以单调有界准则是充分条件而非必要条件，而柯西极限存在准则则（柯西审敛原理）是数列收敛性的充要准则。
 
-\textcolor{violet}{\textbf{定义：}}数列$\{x_n\}$收敛的充要条件是：对于任意给定的正数$\varepsilon$，都存在正整数$N$，使得当$m>N$，$n>N$时有$\vert x_n-x_m\vert<\varepsilon$。
+\textcolor{violet}{\textbf{定义：}}数列$\{x_n\}$收敛的充要条件是：对于任意给定的正数$\xi$，都存在正整数$N$，使得当$m>N$，$n>N$时有$\vert x_n-x_m\vert<\xi$。
 
-其几何意义是数列收敛的充要条件是对于任意给定的正数$\varepsilon$在数轴上都可以找到一个点后的任意两个项的值小于$\varepsilon$。
+其几何意义是数列收敛的充要条件是对于任意给定的正数$\xi$在数轴上都可以找到一个点后的任意两个项的值小于$\xi$。
 
 \subsubsection{函数单调有界准则}
 
@@ -1201,17 +1201,17 @@ $\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim\li
 
 \subsection{*一致连续性}
 
-\textcolor{violet}{\textbf{定义：}}设函数$f(x)$在区间$I$上有定义，若对于任意给定的正数$\varepsilon$，总存在正数$\delta$，使得对于区间$I$上的任意两点$x_1x_2$，当$\vert x_1-x_2\vert<\delta$时，有$\vert f(x_1)-f(x_2)\vert<\varepsilon$，则函数$f(x)$在区间$I$上一致连续。
+\textcolor{violet}{\textbf{定义：}}设函数$f(x)$在区间$I$上有定义，若对于任意给定的正数$\xi$，总存在正数$\delta$，使得对于区间$I$上的任意两点$x_1x_2$，当$\vert x_1-x_2\vert<\delta$时，有$\vert f(x_1)-f(x_2)\vert<\xi$，则函数$f(x)$在区间$I$上一致连续。
 
-对于连续性的定义：设函数$f(x)$在区间$I$上有定义，若对于任意给定的正数$\varepsilon$，总存在正数$\delta$，使得对于区间$I$上的任意一点$x$，当$\vert x-x_0\vert<\delta$时，有$\vert f(x)-f(x_0)\vert<\varepsilon$，则称函数$f(x)$在区间$I$上连续。
+对于连续性的定义：设函数$f(x)$在区间$I$上有定义，若对于任意给定的正数$\xi$，总存在正数$\delta$，使得对于区间$I$上的任意一点$x$，当$\vert x-x_0\vert<\delta$时，有$\vert f(x)-f(x_0)\vert<\xi$，则称函数$f(x)$在区间$I$上连续。
 
 对比连续性与一致连续性，可以知道定义上就只有一个差别，连续性只有一个动点$x$($x_0$会相对于$x$而变化)，而一致连续性有两个动点$x_1x_2$。但是就是这种小变化会带来很大不同的定义结果。
 
-可以利用几何图形来分析，对于图像上的任意一点，连续性与一致连续性都是在一个过程中固定一个$\varepsilon$，来求对应的$\delta$。所导致的就是函数差值是固定的。
+可以利用几何图形来分析，对于图像上的任意一点，连续性与一致连续性都是在一个过程中固定一个$\xi$，来求对应的$\delta$。所导致的就是函数差值是固定的。
 
-根据连续定义，函数上任意取一个$x$，再在$x$的左边或右边取一个$x_0$，使得$\vert f(x)-f(x_0)\vert<\varepsilon$，现在需要求一个$\delta$，使得$\delta$，使得$\vert x-x_0\vert<\delta$，所以我们可以根据这个条件，作一个竖直距离为$\varepsilon$，水平距离为$\delta$的长方形，长方形内部的所有点的$x$坐标代表的$\delta$都满足条件，其中一个正对角点坐标为$(x,f(x))$，另一个则为$(x_0,f(x_0))$。$\varepsilon$是固定的，要根据不同的$x$找到不同的$\delta$，即不同的$x+\delta=x_0$。
+根据连续定义，函数上任意取一个$x$，再在$x$的左边或右边取一个$x_0$，使得$\vert f(x)-f(x_0)\vert<\xi$，现在需要求一个$\delta$，使得$\delta$，使得$\vert x-x_0\vert<\delta$，所以我们可以根据这个条件，作一个竖直距离为$\xi$，水平距离为$\delta$的长方形，长方形内部的所有点的$x$坐标代表的$\delta$都满足条件，其中一个正对角点坐标为$(x,f(x))$，另一个则为$(x_0,f(x_0))$。$\xi$是固定的，要根据不同的$x$找到不同的$\delta$，即不同的$x+\delta=x_0$。
 
-假定函数为$y=\dfrac{1}{x}$，$\varepsilon=1$，任意取一点$x$，求出对应的$\delta$，将会得到下面第一张图。其中虚线里的所有点都是满足要求的点。而随着$x$上移，长方形水平长度会无限接近于0，而向下，长方形水平长度会无限接近于$+\infty$。
+假定函数为$y=\dfrac{1}{x}$，$\xi=1$，任意取一点$x$，求出对应的$\delta$，将会得到下面第一张图。其中虚线里的所有点都是满足要求的点。而随着$x$上移，长方形水平长度会无限接近于0，而向下，长方形水平长度会无限接近于$+\infty$。
 
 \begin{tikzpicture}[scale=1]
     \draw[-latex](-0.5,0) -- (5,0) node[below]{$x$};
@@ -1234,10 +1234,10 @@ $\lim\limits_{x\to 0}f(x)=\lim\limits_{x\to 0}\ln\vert x\vert\cdot\sin x=\lim\li
     \draw[black, thick, smooth, domain=0.25:5] plot (\x,{pow(\x,-1)+1});
     \draw[black, thick, smooth, domain=0.175:1] plot (\x,{pow(\x,-1)-1});
     \filldraw[white, draw=black, line width=1pt] (1,0) circle (2pt) ;
-    \filldraw[black] (1.25,0.5) node{$\dfrac{1}{\varepsilon}$};
+    \filldraw[black] (1.25,0.5) node{$\dfrac{1}{\xi}$};
 \end{tikzpicture}
 
-所以长方形的两对角点变动轨迹如图二所示，当$x$无限接近$+\infty$时，$x_0$无限接近$\dfrac{1}{\varepsilon}$，因为$\lim\limits_{x\to+\infty}\dfrac{1}{\dfrac{1}{x}+\varepsilon}=\dfrac{1}{\varepsilon}$。
+所以长方形的两对角点变动轨迹如图二所示，当$x$无限接近$+\infty$时，$x_0$无限接近$\dfrac{1}{\xi}$，因为$\lim\limits_{x\to+\infty}\dfrac{1}{\dfrac{1}{x}+\xi}=\dfrac{1}{\xi}$。
 
 所以连续性下总能找到一个$\delta$使得虚线长方形存在，从而函数$\dfrac{1}{x}$是具有连续性的。
 

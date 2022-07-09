@@ -45,9 +45,34 @@
 
 设$f(x)$定义在区间$I$上，若存在可导函数$F(x)$，使得$F'(x)=f(x)$对于任意$x\in I$都成立，则称$F(x)$为$f(x)$在区间$I$上的一个\textbf{原函数}。
 
-\textcolor{aqua}{\textbf{定理：}}连续函数必有原函数。而反之有原函数不一定是连续函数。
-
 \textcolor{aqua}{\textbf{定理：}}任意的两个原函数只相差一个常数。
+
+在区间$I$上，函数$f(x)$带有任意常数项的原函数$F(x)+C$称为$f(x)/f(x)\,\textrm{d}x$在该区间上的不定积分，记为$\int f(x)\,\textrm{d}x$，其中$\int$为\textbf{积分号}，$f(x)$为\textbf{被积函数}，$f(x)\,\textrm{d}x$为\textbf{被积表达式}，$x$为\textbf{积分变量}。
+
+积分就是导数的逆运算。$\int f(x)\,\textrm{d}x=F(x)+C$，$F'(x)=f(x)$。 
+
+\subsection{性质}
+
+\subsubsection{计算性质}
+
+积分运算就可以将原来求导的方式进行逆运算。其中隐函数求导法与参数方程求导法都可以看作复合函数求导法则的变式。
+
+积分运算具有两个性质：
+
+\begin{enumerate}
+    \item $\int[f(x)+g(x)]\textrm{d}x=\int f(x)\textrm{d}x+\int g(x)\textrm{d}x$，就是分项积分法。
+    \item $\int kf(x)\textrm{d}x=k\int f(x)\textrm{d}x$（$k\neq 0$）。
+\end{enumerate}
+
+复合函数的求导法则的逆运算，就是换元积分法。
+
+函数乘积的求导法则的逆运算，就是分部积分法。
+
+\subsubsection{存在性性质}
+
+即一元函数的常义（区间有限，函数有界）可积性。
+
+\textcolor{aqua}{\textbf{定理：}}连续函数必有原函数。而反之有原函数不一定是连续函数，可能有第二类间断点。
 
 \textcolor{aqua}{\textbf{定理：}}含有第一类间断点、无穷间断点的函数$f(x)$在包含其间断点的区间内必没有原函数$F(x)$。（可以用导数介值定理反证，一个函数的导数不可能导出不可导的点）
 
@@ -62,25 +87,6 @@
 \end{array}\right.$。
 
 这个函数$F(x)$是连续函数，而$f(x)$在靠近0时的极限为$\lim\limits_{x\to 0}(2x\sin\dfrac{1}{x}-\cos\dfrac{1}{x})=-\lim\limits_{x\to 0}\cos\dfrac{1}{x}$是一个振荡间断点。
-
-在区间$I$上，函数$f(x)$带有任意常数项的原函数$F(x)+C$称为$f(x)/f(x)\,\textrm{d}x$在该区间上的不定积分，记为$\int f(x)\,\textrm{d}x$，其中$\int$为\textbf{积分号}，$f(x)$为\textbf{被积函数}，$f(x)\,\textrm{d}x$为\textbf{被积表达式}，$x$为\textbf{积分变量}。
-
-积分就是导数的逆运算。$\int f(x)\,\textrm{d}x=F(x)+C$，$F'(x)=f(x)$。 
-
-\subsection{性质与积分运算}
-
-积分运算就可以将原来求导的方式进行逆运算。其中隐函数求导法与参数方程求导法都可以看作复合函数求导法则的变式。
-
-积分运算具有两个性质：
-
-\begin{enumerate}
-    \item $\int[f(x)+g(x)]\textrm{d}x=\int f(x)\textrm{d}x+\int g(x)\textrm{d}x$，就是分项积分法。
-    \item $\int kf(x)\textrm{d}x=k\int f(x)\textrm{d}x$（$k\neq 0$）。
-\end{enumerate}
-
-复合函数的求导法则的逆运算，就是换元积分法。
-
-函数乘积的求导法则的逆运算，就是分部积分法。
 
 \subsection{换元积分法}
 
@@ -311,7 +317,9 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
 
 设$\lambda=\max{\Delta x_1,\Delta x_2,\cdots,\Delta x_n}$，从而$\lambda$为最大的区间长度，若$\lambda\to 0$时积分和极限$\lim\limits_{\lambda\to 0}\sum\limits_{i=1}^nf(\xi_i)\Delta x_i$存在，则这个极限就是函数在区间$[a,b]$的定积分，记为$\int_a^bf(x)\,\textrm{d}x$，并称函数$f(x)$在区间$[a,b]$上可积。
 
-其中$a$为积分下限，$b$为积分上限，区间$[a,b]$为积分区间，函数$f(x)$为被积函数，$x$是积分变量，$f(x)\,\textrm{d}x$为被积表达式，$\int$为积分号。
+其中$a$为积分下限，$b$为积分上限，区间$[a,b]$为积分区间，函数$f(x)$为被积函数，$x$是积分变量，$f(x)\,\textrm{d}x$为被积表达式，$\int$为积分号。\medskip
+
+通过数列极限可以计算积分：$\displaystyle{\int_a^bf(x)\,\textrm{d}x=\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf\left(a+\dfrac{b-a}{n}\cdot i\right)\dfrac{b-a}{n}}$。
 
 \subsection{性质}
 
@@ -350,9 +358,9 @@ $\dfrac{P}{x^n}=\dfrac{A}{x}+\dfrac{B_0x+B_1}{x^2}+\cdots+\dfrac{N_0x^{n-1}+\cdo
 
 同时除以$b-a$得到：$m\leqslant\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x\leqslant M$。
 
-由连续函数的介值定理，必然存在一个$\varepsilon$，使得$f(\varepsilon)=\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x$。
+由连续函数的介值定理，必然存在一个$\xi$，使得$f(\xi)=\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x$。
 
-从而得到$\exists\,\varepsilon\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\varepsilon)(b-a)$。
+从而得到$\exists\,\xi\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$。
 
 也可以使用下面的变限积分来证明：
 
@@ -366,11 +374,15 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)$（$a<\xi<b$）。
 
 \subsubsection{存在性性质}
 
+充分条件：
+
 \begin{enumerate}
     \item 设函数$f(x)$在区间$[a,b]$上连续，则$f(x)$在该区间上可积。
     \item 设函数$f(x)$在区间$[a,b]$上单调，则$f(x)$在该区间上可积。
     \item 设函数$f(x)$在区间$[a,b]$上有界，且只有有限个间断点，则$f(x)$在该区间上可积。
 \end{enumerate}
+
+必要条件：可积函数必然有界。
 
 \subsubsection{定积分与函数性质}
 
@@ -437,90 +449,6 @@ $=\int_0^\pi(\pi-x)\sin^9(\pi-x)\,\textrm{d}x=\int_0^\pi\pi\sin^9x\,\textrm{d}x-
 
 $\therefore\int_0^\pi x\sin^9x\,\textrm{d}x=\dfrac{\pi}{2}\int_0^\pi\sin^9x\,\textrm{d}x=\pi\dfrac{8}{9}\dfrac{6}{7}\dfrac{4}{5}\dfrac{2}{3}=\dfrac{128}{315}\pi$。
 
-\subsection{变限积分}
-
-设$f(x)$在$[a,b]$上连续，且$\Phi(x)=\int_a^xf(t)\,\textrm{d}t(x\in[a,b])$，这个函数就是积分上限函数或叫积分变限函数（如果$\int_x^af(t)\,\textrm{d}t$就是变下限积分或积分下限函数）。
-
-对变限积分$\int_{a}^xf(t)\,\textrm{d}t$求导得到$f(t)$，再求导就得到$f'(t)$。
-
-定限积分是一个数值，而变限积分是一个函数。
-
-\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$在$[a,b]$上$(\int_a^xf(t)\,\textrm{d}t)'=f(x)$。
-
-证明：设$x\in(a,b)$。
-
-则$\dfrac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x}=\dfrac{\int_a^{x+\Delta x}f(t)\,\textrm{d}t-\int_a^xf(t)\,\textrm{d}t}{\Delta x}=\dfrac{\int_x^{x+\Delta x}f(t)\,\textrm{d}t}{\Delta x}$。
-
-由积分中值定理存在$\xi$使得原式$=\dfrac{\Delta x\,f(\xi)}{\Delta x}=f(\xi)$。
-
-从而$\Phi'(x)=\lim\limits_{\Delta x\to 0}\dfrac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x}=f(x)$。
-
-同理当$x=a,\Delta x>0$与$x=b,\Delta x<0$时也同样成立。
-
-固定的上限或下限都不会影响到最后的变限积分结果，因为他们之间只差了一个常数。所以一般会将$a$取为0，这样更方便计算。
-
-\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$是$f(x)$在$[a,b]$上的一个原函数。
-
-\textcolor{aqua}{\textbf{定理：}}$\int_a^{\varphi(x)}f(t)\,\textrm{d}t=\int_a^xf(\varphi(x))\,\textrm{d}(\varphi(x))=\int_a^xf(\varphi(x))\varphi'(x)\,\textrm{d}x$，
-
-所以$(\int_a^{\varphi(x)}f(t)\,\textrm{d}t)'=f(\varphi(x))\varphi'(x)$。
-
-\textbf{例题：}求$F(x)=\int_0^{x^2}e^{-t^2}\,\textrm{d}t$的导数。
-
-解：由定理，可以将式子看作复合函数求导（注意定理中积分上限为$x$，而这里不是$x$，但是对$x$求导，所以必须看作为一个复合函数求导）。
-
-$F(x)=\int_0^ue^{-t^2}\,\textrm{d}t$，$u=x^2$。
-
-$\therefore F'_x(x)=F'_u(x)\cdot u'_x=e^{-u^2}\cdot 2x=2xe^{-x^4}$。
-
-同理，如果是变下限的变限积分，则可以看作负的变上限积分进行运算，本质是一样的。
-
-也同理，如果上限下限都在变化，则可以利用积分区间的可加性，将这个积分的区间插入一个常数（一般为0），将一个积分式子变为两个积分式子，再分别进行运算。
-
-所以变限为函数的积分求导\textcolor{aqua}{\textbf{定理：}}若$\phi(x)$与$\psi(x)$都可导，$f(x)$连续，则$\dfrac{\textrm{d}\int_{\psi(x)}^{\phi(x)}f(t)\,\textrm{d}t}{\textrm{d}x}=f(\psi(x))\psi'(x)-f(\phi(x))\phi'(x)$。
-
-\textbf{例题：}求极限$\lim\limits_{x\to 0}\dfrac{\int_0^{\sin^2x}\ln(1+t)\,\textrm{d}t}{x(\sqrt{1+x^3}-1)}$。
-
-解：原式$=\lim\limits_{x\to 0}\dfrac{\ln(1+\sin^2x)2\sin x\cos x}{x(\sqrt{1+x^3}-1)}=\lim\limits_{x\to 0}\dfrac{x^2\cdot 2x\cdot 1}{\dfrac{4}{3}x^3}=\dfrac{3}{2}$。\smallskip
-
-\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是连续的偶函数，则其积分只有一个$\int^x_0f(t)\,\textrm{d}t$是奇函数。
-
-证明：令$F(x)=\int_0^xf(t)\,\textrm{d}t$，需要证明$F(-x)=-F(x)$。
-
-$F(-x)=\int_0^{-x}f(t)\,\textrm{d}t$，令$t=-u$，所以得到$\int_0^xf(-u)\,\textrm{d}(-u)$。
-
-又$f(x)$偶函数，所以$f(-x)=f(x)$，从而$=\int_0^xf(-u)\,\textrm{d}(-u)=-\int_0^xf(u)\,\textrm{d}u$
-
-$=-\int_0^xf(t)\,\textrm{d}t=-F(x)$。这就是个奇函数。若加上一个常数就不是个奇函数了。
-
-\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是连续的奇函数，则其所有积分$\int^x_af(t)\,\textrm{d}t$都是偶函数。
-
-证明：令$F(x)=\int_0^xf(t)\,\textrm{d}t$，需要证明$F(-x)=F(x)$。
-
-$F(-x)=\int_0^{-x}f(t)\,\textrm{d}t$，令$t=-u$，所以得到$\int_0^xf(-u)\,\textrm{d}(-u)$。
-
-又$f(x)$奇函数，所以$f(-x)=-f(x)$。
-
-从而$=\int_0^x-f(u)(-\textrm{d}u)=\int_0^xf(u)\,\textrm{d}u=\int_0^xf(t)\,\textrm{d}t=F(x)$。
-
-而$\int_a^xf(t)\,\textrm{d}t=\int_a^0f(t)\,\textrm{d}t+\int_0^xf(t)\,\textrm{d}t$也为偶函数。
-
-\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是周期函数且周期为$T$，虽然其导数也为周期函数且周期，但是其变限积分不一定为周期函数。若$\int_0^Tf(x)\,\textrm{d}x=0$即一个周期上的定积分值为0，则这个函数为周期函数，且周期为$T$。
-
-证明：若需要证明其为周期函数，所以要证明$F(x)=\int_0^xf(t)\,\textrm{d}t=F(x+T)$。
-
-$F(x+T)=\int_0^{x+T}f(t)\,\textrm{d}t=\int_0^xf(t)\,\textrm{d}t+\int_x^{x+T}f(t)\,\textrm{d}t$
-
-又根据定积分的周期性质$\int_x^{x+T}f(t)\,\textrm{d}t=\int_0^Tf(x)\,\textrm{d}x$：
-
-$=\int_0^xf(t)\,\textrm{d}t+\int_0^Tf(x)\,\textrm{d}x=\int_0^xf(t)\,\textrm{d}t=F(x)$。（下限值为$a$也可以）
-
-\textbf{例题：}若$f(x)$是一个有周期的奇函数，则其积分$\int_a^xf(t)\,\textrm{d}t$是否为周期函数。
-
-解：考察积分是否为周期函数，已知其原式周期函数，只需要考察$\int_0^Tf(x)\,\textrm{d}x$是否为0。
-
-$\int_0^Tf(x)\,\textrm{d}x=\int_a^{a+T}f(x)\,\textrm{d}x=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}f(x)\,\textrm{d}x=0$，所以是周期函数。
-
 \subsection{牛顿-莱布尼茨公式}
 
 \textcolor{aqua}{\textbf{定理：}}（微积分基本定理/牛顿-莱布尼茨公式）若函数$F(x)$是连续函数$f(x)$在区间$[a,b]$上的一个原函数，则$\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)$。
@@ -533,7 +461,23 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)(a<\xi b)$。
 
 牛-莱公式连接了微分学和积分学之间的关系。
 
-\subsection{换元积分法与分部积分法}
+\subsection{不定积分与定积分的区别与联系}
+
+区别：
+
+不定积分最后结果是一类函数的集合；定积分的结果是一个数，或是关于积分上下限的二元函数或运算。
+
+不定积分概念建立于原函数上，定积分的概念建立于求曲边图形面积上。
+
+一个函数，可以存在不定积分，而不存在定积分，也可以存在定积分，而没有不定积分。连续函数，一定存在定积分和不定积分；若在有限区间$[a,b]$上只有有限个间断点且函数有界，则定积分存在；若有跳跃、可去、无穷间断点，则原函数一定不存在，即不定积分一定不存在。
+
+联系：
+
+定积分的计算建立于不定积分。且方法都是类似的。
+
+可以通过牛-莱公式转换定积分与不定积分。
+
+\subsection{积分法}
 
 定积分的换元积分法与分部积分法就是在定积分的换元积分法与分部积分法上代入了牛-莱公式。定积分的积分法和不定积分的积分法的使用基本上类似。
 
@@ -581,7 +525,97 @@ $\int_0^\pi xf(\sin x)\,\textrm{d}x=-\int_\pi^0(\pi-t)f(\sin(\pi-t))\,\textrm{d}
 
 其他计算方法与不定积分的方法一样。
 
-\subsection{反常积分}
+\section{变限积分}
+
+\subsection{定义}
+
+设$f(x)$在$[a,b]$上连续，且$\Phi(x)=\int_a^xf(t)\,\textrm{d}t(x\in[a,b])$，这个函数就是积分上限函数或叫积分变限函数（如果$\int_x^af(t)\,\textrm{d}t$就是变下限积分或积分下限函数）。
+
+对变限积分$\int_{a}^xf(t)\,\textrm{d}t$求导得到$f(x)$，再求导就得到$f'(x)$。
+
+定限积分是一个数值，而变限积分是一个函数。
+
+\subsection{性质}
+
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上可积，则$\int_a^xf(t)\,\textrm{d}t$在$[a,b]$上的一个原函数连续（连续则连续）
+
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$在$[a,b]$上连续，则$\int_a^xf(t)\,\textrm{d}t$在$[a,b]$上的一个原函数可导（连续则可导）$(\int_a^xf(t)\,\textrm{d}t)'=f(x)$。
+
+证明：设$x\in(a,b)$。
+
+则$\dfrac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x}=\dfrac{\int_a^{x+\Delta x}f(t)\,\textrm{d}t-\int_a^xf(t)\,\textrm{d}t}{\Delta x}=\dfrac{\int_x^{x+\Delta x}f(t)\,\textrm{d}t}{\Delta x}$。
+
+由积分中值定理存在$\xi$使得原式$=\dfrac{\Delta x\,f(\xi)}{\Delta x}=f(\xi)$。
+
+从而$\Phi'(x)=\lim\limits_{\Delta x\to 0}\dfrac{\Phi(x+\Delta x)-\Phi(x)}{\Delta x}=f(x)$。
+
+同理当$x=a,\Delta x>0$与$x=b,\Delta x<0$时也同样成立。
+
+固定的上限或下限都不会影响到最后的变限积分结果，因为他们之间只差了一个常数。所以一般会将$a$取为0，这样更方便计算。
+
+变限积分运算\textcolor{aqua}{\textbf{定理：}}$\int_a^{\varphi(x)}f(t)\,\textrm{d}t=\int_a^xf(\varphi(x))\,\textrm{d}(\varphi(x))=\int_a^xf(\varphi(x))\varphi'(x)\,\textrm{d}x$，
+
+所以$(\int_a^{\varphi(x)}f(t)\,\textrm{d}t)'=f(\varphi(x))\varphi'(x)$。
+
+\textbf{例题：}求$F(x)=\int_0^{x^2}e^{-t^2}\,\textrm{d}t$的导数。
+
+解：由定理，可以将式子看作复合函数求导（注意定理中积分上限为$x$，而这里不是$x$，但是对$x$求导，所以必须看作为一个复合函数求导）。
+
+$F(x)=\int_0^ue^{-t^2}\,\textrm{d}t$，$u=x^2$。
+
+$\therefore F'_x(x)=F'_u(x)\cdot u'_x=e^{-u^2}\cdot 2x=2xe^{-x^4}$。
+
+同理，如果是变下限的变限积分，则可以看作负的变上限积分进行运算，本质是一样的。
+
+也同理，如果上限下限都在变化，则可以利用积分区间的可加性，将这个积分的区间插入一个常数（一般为0），将一个积分式子变为两个积分式子，再分别进行运算。
+
+所以变限为函数的积分求导\textcolor{aqua}{\textbf{定理：}}若$\phi(x)$与$\psi(x)$都可导，$f(x)$连续，则$\dfrac{\textrm{d}\int_{\phi(x)}^{\psi(x)}f(t)\,\textrm{d}t}{\textrm{d}x}=f(\psi(x))\psi'(x)-f(\phi(x))\phi'(x)$。
+
+其中$x$为求导变量，$t$为积分变量。
+
+\textbf{例题：}求极限$\lim\limits_{x\to 0}\dfrac{\int_0^{\sin^2x}\ln(1+t)\,\textrm{d}t}{x(\sqrt{1+x^3}-1)}$。
+
+解：原式$=\lim\limits_{x\to 0}\dfrac{\ln(1+\sin^2x)2\sin x\cos x}{x(\sqrt{1+x^3}-1)}=\lim\limits_{x\to 0}\dfrac{x^2\cdot 2x\cdot 1}{\dfrac{4}{3}x^3}=\dfrac{3}{2}$。\smallskip
+
+\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是连续的偶函数，则其积分只有一个$\int^x_0f(t)\,\textrm{d}t$是奇函数。
+
+证明：令$F(x)=\int_0^xf(t)\,\textrm{d}t$，需要证明$F(-x)=-F(x)$。
+
+$F(-x)=\int_0^{-x}f(t)\,\textrm{d}t$，令$t=-u$，所以得到$\int_0^xf(-u)\,\textrm{d}(-u)$。
+
+又$f(x)$偶函数，所以$f(-x)=f(x)$，从而$=\int_0^xf(-u)\,\textrm{d}(-u)=-\int_0^xf(u)\,\textrm{d}u$
+
+$=-\int_0^xf(t)\,\textrm{d}t=-F(x)$。这就是个奇函数。若加上一个常数就不是个奇函数了。
+
+\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是连续的奇函数，则其所有积分$\int^x_af(t)\,\textrm{d}t$都是偶函数。
+
+证明：令$F(x)=\int_0^xf(t)\,\textrm{d}t$，需要证明$F(-x)=F(x)$。
+
+$F(-x)=\int_0^{-x}f(t)\,\textrm{d}t$，令$t=-u$，所以得到$\int_0^xf(-u)\,\textrm{d}(-u)$。
+
+又$f(x)$奇函数，所以$f(-x)=-f(x)$。
+
+从而$=\int_0^x-f(u)(-\textrm{d}u)=\int_0^xf(u)\,\textrm{d}u=\int_0^xf(t)\,\textrm{d}t=F(x)$。
+
+而$\int_a^xf(t)\,\textrm{d}t=\int_a^0f(t)\,\textrm{d}t+\int_0^xf(t)\,\textrm{d}t$也为偶函数。
+
+\textcolor{aqua}{\textbf{定理：}}若函数$f(x)$是周期函数且周期为$T$，虽然其导数也为周期函数且周期，但是其变限积分不一定为周期函数。若$\int_0^Tf(x)\,\textrm{d}x=0$即一个周期上的定积分值为0，则这个函数为周期函数，且周期为$T$。
+
+证明：若需要证明其为周期函数，所以要证明$F(x)=\int_0^xf(t)\,\textrm{d}t=F(x+T)$。
+
+$F(x+T)=\int_0^{x+T}f(t)\,\textrm{d}t=\int_0^xf(t)\,\textrm{d}t+\int_x^{x+T}f(t)\,\textrm{d}t$
+
+又根据定积分的周期性质$\int_x^{x+T}f(t)\,\textrm{d}t=\int_0^Tf(x)\,\textrm{d}x$：
+
+$=\int_0^xf(t)\,\textrm{d}t+\int_0^Tf(x)\,\textrm{d}x=\int_0^xf(t)\,\textrm{d}t=F(x)$。（下限值为$a$也可以）
+
+\textbf{例题：}若$f(x)$是一个有周期的奇函数，则其积分$\int_a^xf(t)\,\textrm{d}t$是否为周期函数。
+
+解：考察积分是否为周期函数，已知其原式周期函数，只需要考察$\int_0^Tf(x)\,\textrm{d}x$是否为0。
+
+$\int_0^Tf(x)\,\textrm{d}x=\int_a^{a+T}f(x)\,\textrm{d}x=\int_{-\frac{\pi}{2}}^{\frac{\pi}{2}}f(x)\,\textrm{d}x=0$，所以是周期函数。
+
+\section{反常积分}
 
 无论是定限积分还是变限积分，有一部分的区间是固定不变的。
 
@@ -589,7 +623,7 @@ $\int_0^\pi xf(\sin x)\,\textrm{d}x=-\int_\pi^0(\pi-t)f(\sin(\pi-t))\,\textrm{d}
 
 对于无穷区间的反常积分首先求出原函数，然后代入上下限。
 
-\subsubsection{无穷区间}
+\subsection{无穷区间}
 
 设函数$f(x)$在区间$[a,+\infty)$上连续，任取$t>a$，做定积分$\int_a^tf(x)\,\textrm{d}x$，对这种变上限积分的极限$\lim\limits_{t\to+\infty}\int_a^tf(x)\,\textrm{d}x$就是$f(x)$在无穷区间$[a,+\infty)$上的反常积分，记为$\int_a^{+\infty}f(x)\,\textrm{d}x$。
 
@@ -601,7 +635,7 @@ $\int_0^\pi xf(\sin x)\,\textrm{d}x=-\int_\pi^0(\pi-t)f(\sin(\pi-t))\,\textrm{d}
 
 对于无穷区间的反常积分要求的就是$\lim\limits_{x\to\infty}f(x)$。
 
-\subsubsection{无界函数}
+\subsection{无界函数}
 
 若$f(x)$在点$a$的任意一个邻域内都无界，则$a$就是$f(x)$的瑕点（无穷间断点），无界函数的反常积分又称为瑕积分。
 
@@ -616,22 +650,6 @@ $\int_0^\pi xf(\sin x)\,\textrm{d}x=-\int_\pi^0(\pi-t)f(\sin(\pi-t))\,\textrm{d}
 对于无界函数的反常积分要求的就是$\lim\limits_{x\to a}f(x)$。
 
 % \subsection{* 反常积分的判敛}
-
-\subsection{不定积分与定积分的区别与联系}
-
-区别：
-
-不定积分最后结果是一类函数的集合；定积分的结果是一个数，或是关于积分上下限的二元函数或运算。
-
-不定积分概念建立于原函数上，定积分的概念建立于求曲边图形面积上。
-
-一个函数，可以存在不定积分，而不存在定积分，也可以存在定积分，而没有不定积分。连续函数，一定存在定积分和不定积分；若在有限区间$[a,b]$上只有有限个间断点且函数有界，则定积分存在；若有跳跃、可去、无穷间断点，则原函数一定不存在，即不定积分一定不存在。
-
-联系：
-
-定积分的计算建立于不定积分。且方法都是类似的。
-
-可以通过牛-莱公式转换定积分与不定积分。
 
 \section{定积分应用}
 
@@ -677,7 +695,9 @@ $\int_0^\pi xf(\sin x)\,\textrm{d}x=-\int_\pi^0(\pi-t)f(\sin(\pi-t))\,\textrm{d}
 
 曲线$y=y(x)$在区间$[a,b]$上的曲线弧段绕$x$轴旋转一周所得的旋转曲面的表面积$S=2\pi\int_a^b\vert y(x)\vert\sqrt{1+[y'(x)]^2}\,\textrm{d}x$。
 
-曲线$x=x(t)$，$y=y(t)$（$\alpha\leqslant t\leqslant\beta$，$x'(t)\neq0$）在区间$[\alpha,\beta]$上的曲线弧段绕$x$轴旋转一周所得到的旋转曲面的表面积$S=2\pi\int_\alpha^\beta\vert y(t)\vert\sqrt{[x'(t)]^2+[y'(t)]^2}\,\textrm{d}t$。（所以参数方程这里就没有把$x(t)$代入$\textrm{d}x$求$x'(t)\textrm{d}t$）
+曲线$x=x(t)$，$y=y(t)$（$\alpha\leqslant t\leqslant\beta$，$x'(t)\neq0$）在区间$[\alpha,\beta]$上的曲线弧段绕$x$轴旋转一周所得到的旋转曲面的表面积：
+
+$S=2\pi\int_\alpha^\beta\vert y(t)\vert\sqrt{[x'(t)]^2+[y'(t)]^2}\,\textrm{d}t$。（所以参数方程这里就没有把$x(t)$代入$\textrm{d}x$求$x'(t)\textrm{d}t$）
 
 \subsubsection{体积}
 

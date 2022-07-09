@@ -58,11 +58,11 @@
 
 \subsection{介值定理}
 
-\textcolor{aqua}{\textbf{定理：}}当$m\leqslant\mu\leqslant M$，存在$\varepsilon\in[a,b]$，使得$f(\varepsilon)=\mu$。
+\textcolor{aqua}{\textbf{定理：}}当$m\leqslant\mu\leqslant M$，存在$\xi\in[a,b]$，使得$f(\xi)=\mu$。
 
 \subsection{平均值定理}
 
-\textcolor{aqua}{\textbf{定理：}}当$a<x_1<x_2<\cdots<x_n<b$时，在$[x_1,x_n]$内至少存在一点$\varepsilon$，使得$f(\varepsilon)=\dfrac{f(x_1)+f(x_2)+\cdots+f(x_n)}{n}$。
+\textcolor{aqua}{\textbf{定理：}}当$a<x_1<x_2<\cdots<x_n<b$时，在$[x_1,x_n]$内至少存在一点$\xi$，使得$f(\xi)=\dfrac{f(x_1)+f(x_2)+\cdots+f(x_n)}{n}$。
 
 证明：已知$f(x)$在$[x_1,x_n]$上连续，根据有界与最值定理，$m\leqslant f(x)\leqslant M$。
 
@@ -72,11 +72,11 @@
 
 所以$m\leqslant\dfrac{f(x_1)+f(x_2)+\cdots+f(x_n)}{n}\leqslant m$。
 
-由介值定理，可知存在$\varepsilon\in[a,b]$使得$f(\varepsilon)=\dfrac{f(x_1)+f(x_2)+\cdots+f(x_n)}{n}$。
+由介值定理，可知存在$\xi\in[a,b]$使得$f(\xi)=\dfrac{f(x_1)+f(x_2)+\cdots+f(x_n)}{n}$。
 
 \subsection{零点定理}
 
-\textcolor{aqua}{\textbf{定理：}}当$f(a)\cdot f(b)<0$时，存在$\varepsilon\in(a,b)$，使得$f(\varepsilon)=0$。
+\textcolor{aqua}{\textbf{定理：}}当$f(a)\cdot f(b)<0$时，存在$\xi\in(a,b)$，使得$f(\xi)=0$。
 
 \section{微分中值定理}
 
@@ -124,10 +124,10 @@ $\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化�
 \subsubsection{推广}
 
 \begin{itemize}
-    \item 设$f(x)$在$(a,b)$内可导，$\lim\limits_{x\to a^+}f(x)=\lim\limits_{x\to b^-}f(x)=A$，则在$(a,b)$内至少存在一点$\varepsilon$，使得$f'(\varepsilon)=0$。
-    \item 设$f(x)$在$(a,b)$内可导，$\lim\limits_{x\to a^+}f(x)=\lim\limits_{x\to b^-}f(x)=\pm\infty$，则在$(a,b)$内至少存在一点$\varepsilon$，使得$f'(\varepsilon)=0$。
-    \item 设$f(x)$在$(a,+\infty)$内可导，$\lim\limits_{x\to a^+}f(x)=\lim\limits_{x\to+\infty}f(x)=A$，则在$(a,+\infty)$内至少存在一点$\varepsilon$，使得$f'(\varepsilon)=0$。
-    \item 设$f(x)$在$(\infty,+\infty)$内可导，$\lim\limits_{x\to-\infty}f(x)=\lim\limits_{x\to+\infty}f(x)=A$，则在$(-\infty,+\infty)$内至少存在一点$\varepsilon$，使得$f'(\varepsilon)=0$。
+    \item 设$f(x)$在$(a,b)$内可导，$\lim\limits_{x\to a^+}f(x)=\lim\limits_{x\to b^-}f(x)=A$，则在$(a,b)$内至少存在一点$\xi$，使得$f'(\xi)=0$。
+    \item 设$f(x)$在$(a,b)$内可导，$\lim\limits_{x\to a^+}f(x)=\lim\limits_{x\to b^-}f(x)=\pm\infty$，则在$(a,b)$内至少存在一点$\xi$，使得$f'(\xi)=0$。
+    \item 设$f(x)$在$(a,+\infty)$内可导，$\lim\limits_{x\to a^+}f(x)=\lim\limits_{x\to+\infty}f(x)=A$，则在$(a,+\infty)$内至少存在一点$\xi$，使得$f'(\xi)=0$。
+    \item 设$f(x)$在$(\infty,+\infty)$内可导，$\lim\limits_{x\to-\infty}f(x)=\lim\limits_{x\to+\infty}f(x)=A$，则在$(-\infty,+\infty)$内至少存在一点$\xi$，使得$f'(\xi)=0$。
 \end{itemize}
 
 \subsection{拉格朗日中值定理}
@@ -170,13 +170,13 @@ $\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化�
 
 \subsection{定理}
 
-\textcolor{aqua}{\textbf{定理：}}若$f(x)$在$[a,b]$上连续，则存在$\varepsilon\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\varepsilon)(b-a)$。
+\textcolor{aqua}{\textbf{定理：}}若$f(x)$在$[a,b]$上连续，则存在$\xi\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$。
 
 \subsection{证明}
 
 已知$f(x)$在$[a,b]$上连续，根据有界与最值定理，$m\leqslant f(x)\leqslant M$，$m(b-a)\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant M(b-a)$，所以$m\leqslant\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}\leqslant M$。
 
-由介值定理可知$\varepsilon\in[a,b]$，使得$f(\varepsilon)=\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x$。
+由介值定理可知$\xi\in[a,b]$，使得$f(\xi)=\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x$。
 
 \section{洛必达法则}
 
