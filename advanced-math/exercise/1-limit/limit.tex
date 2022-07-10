@@ -730,6 +730,18 @@ $x_{n+1}-x_n=\sqrt{2+x_n}-x_n=\dfrac{2+x_n-x_n^2}{\sqrt{2+x_n}+x_n}=\dfrac{-(x_n
 
 \subsection{数列和}
 
+使用放缩法进行夹逼定理失败时可以使用定积分定义。
+
 使用定积分的精确定义$\displaystyle\int_a^bf(x)\,\textrm{d}x=\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf\left(a+\dfrac{b-a}{n}\cdot i\right)\dfrac{b-a}{n}$。
+
+将$a$、$b$设为$0$和$1$可以得出普通形式$\displaystyle\int_0^1f(x)\,\textrm{d}x=\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf\left(\dfrac{i}{n}\right)\dfrac{1}{n}$。
+
+\begin{enumerate}
+    \item 提出$\dfrac{1}{n}$。
+    \item 凑出$\dfrac{i}{n}$。
+    \item 由于$\dfrac{i}{n}=0=\dfrac{1-0}{n}i$，所以$\dfrac{i}{n}$可以读作0到1上的$x$，且$\dfrac{1}{n}=\dfrac{1-0}{n}$读作0到1上的$\textrm{d}x$。
+\end{enumerate}
+
+\textbf{例题：}计算$\lim\limits_{n\to\infty}\left(\dfrac{n+1}{n^2+1}+\cdots+\dfrac{n+n}{n^2+n^2}\right)$。
 
 \end{document}

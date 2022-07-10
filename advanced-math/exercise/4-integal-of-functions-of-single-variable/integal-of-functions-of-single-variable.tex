@@ -707,9 +707,9 @@ $=\left[\arctan x+\dfrac{1}{2}\ln(1+x^2)\right]_0^1=\dfrac{\pi}{4}+\dfrac{1}{2}\
 
 \subsection{区间再现}
 
-若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-x)\,\textrm{d}x$。区间再现本质是一种换元法，但是实际上是本显式的根据函数周期移动$x$的范围，求出另一种形式，再结合一起解出。
+若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-x)\,\textrm{d}x$。区间再现本质是一种换元法，但是实际上是显式地根据函数周期移动$x$的范围，求出另一种形式，再结合一起解出。这种方法类似多次分部积分求出两边同一个形式的不定积分然后相减的方法。
 
-基本上三角函数相关的式子可以用区间再现。
+基本上三角函数相关的式子可以用区间再现。如果直接求不出来就可以考虑区间再现。一般积分区间为$[0,a]$，令$x=a-t$。
 
 \textbf{例题：}求$\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\sin x+\cos x}\textrm{d}x}$。
 
@@ -830,6 +830,32 @@ $\left[\dfrac{x^3}{3}-\dfrac{ax^2}{2}+2bx\right]_0^2=\dfrac{8}{3}-2a+4b=a$，$\l
 
 \section{变限积分}
 
+\subsection{求导公式}
+
+对定限积分求导公式：$(\int_a^xf(t)\,\textrm{d}t)'=f(x)$。
+
+\textbf{例题：}求$\dfrac{\textrm{d}}{\textrm{d}x}[\int_0^xtf(x^2-t^2)\,\textrm{d}t]$。
+
+解：按照公式，$f(t)$里面应该只有积分变量$t$，但是此时存在求导变量$x$，所以必须将$x$移出积分函数中。
+
+使用换元法令$x^2-t^2=u$，即$-2t\textrm{d}t=\textrm{d}u$，当$t=0$，$u=x^2$，当$t=x$，$u=0$。
+
+所以原式$=\dfrac{1}{2}\dfrac{\textrm{d}}{\textrm{d}x}[\int_0^{x^2}f(u)\,\textrm{d}u]=xf(x^2)$。
+
+\subsection{积分性质}
+
+可以使用积分性质来对积分进行简化，如奇偶性（奇函数积分为0，偶函数积分为双倍；原函数为偶函数，积分$C=0$时为奇函数，原函数为奇函数，积分为偶函数）、周期性（区间减去周期积分值不变）。
+
+\subsection{周期性}
+
+当积分为变限积分时，若函数为周期函数，区间长度为周期，可以直接把区间的变量$x$减掉，变成定积分。
+
+\textbf{例题：}求$f(x)=\int_x^{x+2\pi}e^{\sin t}\sin t\,\textrm{d}t$是否为常量，并判断其正负性。
+
+解：由于$\sin x$为周期函数，$e^x$为单调函数，所以$f(x)$为周期函数，周期为$\sin x$的周期$2\pi$。
+
+$\therefore f(x)=\int_0^{2\pi}e^{\sin t}\sin t\,\textrm{d}t=\int_0^{2\pi}e^{\sin t}\cos^2t\,\textrm{d}t\geqslant0$。
+
 \subsection{极限}
 
 变限积分也常与极限共同出现。
@@ -884,6 +910,8 @@ $\therefore\varPhi(x)=\left\{\begin{array}{ll}
 
 反常积分就是取极限，基本计算方法一样。
 
+反常积分的瑕点可能在积分区间内，此时需要根据瑕点分隔积分区间。
+
 \subsection{求值}
 
 \textbf{例题：}求$\displaystyle{\int_0^{+\infty}\dfrac{\textrm{d}x}{(1+x)(1+x^2)}}$。\medskip
@@ -931,6 +959,28 @@ $I_n=-\int_0^{+\infty}x^n\,\textrm{d}(e^{-x})=[-x^ne^{-x}]_0^{+\infty}+\int_0^{+
 且$I_0=\int_0^{+\infty}e^{-x}\,\textrm{d}x=[-e^{-x}]_0^{+\infty}=1$。
 
 $\therefore I_n=n!$。
+
+\subsection{判敛}
+
+\subsubsection{结论}
+
+无穷区间的反常积分$\int_1^{+\infty}\dfrac{\textrm{d}x}{x^p}$在$p>1$时收敛，在$p\leqslant1$时发散。
+
+无界函数的反常积分$\int_0^1\dfrac{\textrm{d}x}{x^p}$（$p>1$，奇点$x=0$）在$0<p<1$时收敛，在$p\geqslant1$时发散。
+
+面对判敛的式子就需要将反常积分转换为$\dfrac{1}{x}$的形式，通常使用等价无穷小。
+
+\textbf{例题：}已知$\alpha,\beta>0$，判断反常积分$\displaystyle{\int_1^{+\infty}\dfrac{\left(\arctan\dfrac{1}{x}\right)^a}{\left[\ln\left(1+\dfrac{1}{x}\right)\right]^{2\beta}}\textrm{d}x}$的敛散性。
+
+解：积分存在唯一奇点$+\infty$，当$x\to+\infty$时，$\arctan\dfrac{1}{x}\sim\dfrac{1}{x}$，$\ln\left(1+\dfrac{1}{x}\right)\sim\dfrac{1}{x}$。
+
+$\dfrac{\left(\arctan\dfrac{1}{x}\right)^a}{\left[\ln\left(1+\dfrac{1}{x}\right)\right]^{2\beta}}=\dfrac{1}{x^{\alpha-2\beta}}$。
+
+当$\alpha-2\beta>1$时收敛，$\alpha-2\beta\leqslant1$时发散。
+
+\subsubsection{计算}
+
+可以直接通过计算反常积分判断收敛或发散。
 
 \section{一元函数积分应用}
 
@@ -1119,6 +1169,22 @@ $\rho gA(y)\,\textrm{d}y=\rho g\pi(16-y^2)\,\textrm{d}y$
 \subsection{积分等式}
 
 包括证明带有积分的等式、方程根、积分中值定理等。
+
+对于这种等式要求其值，往往是给出部分式子的条件，所以必须想办法进行转换。
+
+一种是已知$f(x)$，式子中含有未知的$f'(x)$，一种是已知$f'(x)$（多以$f(x)=\int f'(x)\,\textrm{d}x$的形式给出），式子中含有未知的$f(x)$。
+
+\subsubsection{分部积分}
+
+分部积分法用于消除未知的式子的导数或者积分。
+
+\textbf{例题：}设$f''(u)$在区间$[0,2]$上连续，$f(2)=a$，$f'(2)=b$，$\int_0^2f(u)\,\textrm{d}u=c$，求$\int_0^1x^2f''(2x)\,\textrm{d}x$。
+
+解：已知条件是多个导数和一个积分的值，要将这些值换成目标积分的样式。所以要考虑换元积分或分部积分。
+
+这里目标积分的值是乘积形式且变量无法换元，且存在一个未知的$f''(2x)$，所以使用分部积分将$f''(2x)$换到$\textrm{d}x$中降低求导幂次。
+
+$\int_0^1x^2f''(2x)\,\textrm{d}x=\dfrac{1}{2}\int_0^1x^2\,\textrm{d}[f'(2x)]=\dfrac{1}{2}[x^2f'(2x)]\bigg\vert_0^1-\int_0^1xf'(2x)\,\textrm{d}x=\dfrac{1}{2}f'(2)-\dfrac{1}{2}\int_0^1x\,\textrm{d}[f(2x)]=\dfrac{b}{2}-\dfrac{1}{2}[xf(2x)]\bigg\vert_0^1+\dfrac{1}{2}\int_0^1f(2x)\,\textrm{d}x=\dfrac{b}{2}-\dfrac{a}{2}+\dfrac{1}{4}\int_0^2f(u)\,\textrm{d}(u)=-\dfrac{a}{2}+\dfrac{b}{2}+\dfrac{c}{4}$。
 
 \subsubsection{中值定理}
 
