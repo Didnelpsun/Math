@@ -2,6 +2,7 @@
 % UTF8编码，ctexart现实中文
 \usepackage{color}
 % 使用颜色
+\definecolor{aqua}{RGB}{0,255,255} 
 \usepackage{geometry}
 \setcounter{tocdepth}{4}
 \setcounter{secnumdepth}{4}
@@ -905,6 +906,24 @@ $\therefore\varPhi(x)=\left\{\begin{array}{ll}
 \end{array}\right.$。
 
 由于$x\to1^-$时，$\lim\limits_{x\to1^-}\varPhi(x)=\lim\limits_{x\to1^-}\dfrac{x^3}{3}=\dfrac{1}{3}$。$x=1$时，$\varPhi(1)=\dfrac{1}{2}-\dfrac{1}{6}=\dfrac{1}{3}$，所以$\varPhi(x)$在$x=1$处连续，而在其他定义域都是函数，所以也连续，从而$\varPhi(x)$在$(0,2)$上连续。
+
+\subsection{无穷小比较}
+
+当对变限积分进行无穷小进行比较时有这样的结论：
+
+\textcolor{aqua}{\textbf{定理：}}若$f(x)$在$x=0$的某邻域内连续，且$x\to0$时，$f(x)$是$x$的$m$阶无穷小，$\varphi(x)$是$x$的$n$阶无穷小，则当$x\to0$时$F(x)=\int_0^{\varphi(x)}f(t)\,\textrm{d}t$是$x$的$n(m+1)$阶无穷小。
+
+\textbf{例题：}当$x\to0^+$时，哪个无穷小量阶数最高()。
+
+$A.\int_0^x(e^{t^2}-1)\,\textrm{d}t$
+
+$B.\int_0^x\ln(1+\sqrt{t^3})\,\textrm{d}t$
+
+$C.\int_0^{\sin x}\sin t^2\,\textrm{d}t$
+
+$D.\int_0^{1-\cos x}\sqrt{\sin^3t}\,\textrm{d}t$
+
+解：根据结论，$A$阶数为$1(2+1)=3$，$B$阶数为$1\times\left(1+\dfrac{3}{2}\right)=\dfrac{5}{2}$，$C$的阶数为$1(2+1)=3$，$D$的上限为$1-\cos x\sim\dfrac{x^2}{2}$，阶数为$2\times\left(1+\dfrac{3}{2}\right)=5$。所以$D$。
 
 \section{反常积分}
 
