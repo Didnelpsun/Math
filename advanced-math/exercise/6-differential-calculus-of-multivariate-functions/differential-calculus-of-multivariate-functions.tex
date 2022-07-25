@@ -44,7 +44,9 @@
 
 \section{基本概念}
 
-\subsection{二元函数}
+\subsection{偏导}
+
+\subsubsection{二元函数}
 
 函数以$f(u,v)$的形式来出现，需要分别对其求偏导。
 
@@ -62,11 +64,11 @@ $=e^{xy}+xye^{xy}+\dfrac{\partial f_1'}{\partial y}+\dfrac{\partial f_2'}{\parti
 
 即$=e^{xy}+xye^{xy}+f_{11}''+(x+y)f_{12}''+xyf_{22}''+f_2'$。
 
-\subsection{复合函数}
+\subsubsection{复合函数}
 
 函数以复合函数形式$f(g(x,y))$出现，函数的变量是一个整体。
 
-\subsubsection{链式法则}
+\paragraph{链式法则} \leavevmode \medskip
 
 若是给出相应的不等式可以通过链式法则求出对应的表达式。
 
@@ -88,7 +90,7 @@ $\dfrac{\partial^2u}{\partial y^2}=\dfrac{\partial}{\partial y}\left(\dfrac{\par
 
 即$u(\sqrt{x^2+y^2})=C_1\cos\sqrt{x^2+y^2}+C_2\sin\sqrt{x^2+y^2}+x^2+y^2-2$。
 
-\subsubsection{特殊值反代}
+\paragraph{特殊值反代} \leavevmode \medskip
 
 若是给出的不等式后还给出对应的特殊值，可以直接代入然后反代求出函数，而不用链式法则。
 
@@ -98,13 +100,13 @@ $\dfrac{\partial^2u}{\partial y^2}=\dfrac{\partial}{\partial y}\left(\dfrac{\par
 
 $\therefore\dfrac{\partial z}{\partial x}=e^x+3(x+y)^2-e^{x+y}$。
 
-\subsection{积分与微分}
+\subsubsection{积分}
 
-\subsubsection{积分到微分}
+\paragraph{积分到偏导} \leavevmode \medskip
 
-可能一个函数是积分的形式，又包含多个变量，要求其多元微分值。
+可能一个函数是积分的形式，又包含多个变量，要求其多元偏导值。
 
-$\dfrac{\textrm{d}}{\textrm{d}x}\int_{a(x)}^{b(x)}f(t)\,\textrm{d}t=b'(x)f[b(x)]-a'(x)f[a(x)]$。
+$\dfrac{\textrm{d}}{\textrm{d}x}\int_{a(x)}^{b(x)}f(t)\,\textrm{d}t=b'(x)f[b(x)]-a'(x)f[a(x)]$。\medskip
 
 \textbf{例题：}设$z=\int_0^1\vert xy-t\vert f(t)\,\textrm{d}t$，$0\leqslant x\leqslant1$，$0\leqslant y\leqslant1$，其中$f(x)$为连续函数，求$z_{xx}''+z_{yy}''$。
 
@@ -114,7 +116,9 @@ $z_x'=y\int_0^{xy}f(t)\,\textrm{d}t+xy^2f(xy)-xy^2f(xy)-xy^2f(xy)-y\int_{xy}^1f(
 
 $z_{xx}''=y^2f(xy)+y^2f(xy)=2y^2f(xy)$，同理根据变量对称性$z_{yy}''=2x^2f(xy)$，$z_{xx}''+z_{yy}''=2(x^2+y^2)f(xy)$。
 
-\subsubsection{微分到积分}
+\paragraph{偏导到积分} \leavevmode \medskip
+
+是偏导问题的逆问题。
 
 注意多元函数进行积分的适合多出来的常数$C$不再是常数，而是与积分变量相关的$C(x)$，$C(y)$，因为对其中一个变量积分时，另一个变量是看作常数的。
 
@@ -132,11 +136,41 @@ $\dfrac{\partial z}{\partial x}=\int(x+y)\,\textrm{d}y=xy+\dfrac{1}{2}y^2+C_1(x)
 
 $\therefore z=\dfrac{1}{2}x^2y+\dfrac{1}{2}xy^2+x+y^2$。
 
+\subsubsection{性质}
+
+\paragraph{存在性} \leavevmode \medskip
+
+即偏导数的存在性。
+
+\textbf{例题：}求函数$f(x,y)=\sqrt{\vert xy\vert}$在点$(0,0)$处偏导数是否存在，是否可微。
+
+解：对其求偏导：$f_x'(0,0)=\lim\limits_{\Delta x\to0}\dfrac{f(0+\Delta x,0)-f(0,0)}{\Delta x}=\lim\limits_{\Delta x\to0}\dfrac{\sqrt{\vert\Delta x\cdot0\vert}-0}{\Delta x}\\=0=A$，同理$f_y'(0,0)=0=B$，所以$f(x,y)$在$(0,0)$处偏导数存在。
+
+又$\Delta z=f(0+\Delta x,0+\Delta y)-f(0,0)=\sqrt{\vert\Delta x\cdot\Delta y\vert}$。
+
+所以$\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{\Delta z-A\Delta x-B\Delta y}{\sqrt{(\Delta x)^2+(\Delta y)^2}}=\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{\sqrt{\vert\Delta x\cdot\Delta y\vert}}{\sqrt{\Delta^2x+\Delta^2y}}$不存在，所以此点不可微。
+
+\paragraph{连续性} \leavevmode \medskip
+
+即偏导数的连续性。也会考察原函数的连续性。
+
+通过微分定义和极限即可证明。
+
 % \subsection{极限}
 
-\subsection{全微分}
+\subsection{微分}
 
-\subsubsection{含参数}
+\subsubsection{微分值}
+
+\paragraph{偏导法} \leavevmode \medskip
+
+\paragraph{全微分法} \leavevmode \medskip
+
+\paragraph{公式法} \leavevmode \medskip
+
+\subsubsection{全微分}
+
+\paragraph{含参数} \leavevmode \medskip
 
 基本上是用含参数的全微分来求参数。有多种方法。
 
@@ -148,7 +182,7 @@ $\therefore z=\dfrac{1}{2}x^2y+\dfrac{1}{2}xy^2+x+y^2$。
 
 从而$\dfrac{a}{3}x^3y^2-x^2y^2+C(y)=x^3y^2+\dfrac{b}{2}x^2y^2+y+C(x)$，解得$a=3$，$b=-2$，$f(x)=x^3y^2-x^2y^2+y$。
 
-\subsubsection{极限定义}
+\paragraph{极限定义} \leavevmode \medskip
 
 全微分形式：$\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{\Delta z-(A\Delta x+B\Delta y)}{\sqrt{(\Delta x)^2+(\Delta y)^2}}$。
 
@@ -182,7 +216,7 @@ $\therefore\lim\limits_{(x,y)\to(0,0)}f(x,y)-f(0,0)=bx+cy+o(\rho)$。
 
 即$f_x'(0,0)=b$，$f_y'(0,0)=c$。$\textrm{d}f(x,y)|_{(0,0)}=b\textrm{d}x+c\textrm{d}y$。
 
-\subsubsection{隐函数}
+\paragraph{隐函数} \leavevmode \medskip
 
 二元隐函数求导公式：$\dfrac{\textrm{d}y}{\textrm{d}x}=-\dfrac{F_x'}{F_y'}$。
 
@@ -194,9 +228,46 @@ $\therefore\lim\limits_{(x,y)\to(0,0)}f(x,y)-f(0,0)=bx+cy+o(\rho)$。
 
 又$x+y+z+xyz=0$对$x$求导：$1+z_x'+yz+xyz_x'=0$，代入$(0,1,-1)$，$1+z_x'-1=0$，$z_x'=0$。代入$f_x'(x,y,z)=e^0=1$。
 
+\paragraph{原函数} \leavevmode \medskip
+
+即根据全微分计算出原函数。跟之前的偏导求积分类似。
+
+\textbf{例题：}已知函数$z=f(x,y)$的全微分$\textrm{d}z=2x\textrm{d}x+\sin y\textrm{d}y$，$f(1,0)=2$，求$f(x,y)$。
+
+解：由全微分定义，可得$\dfrac{\partial f}{\partial x}=2x$，$\dfrac{\partial f}{\partial y}=\sin y$。
+
+各自积分得到$f(x,y)=x^2-\cos y+C$，代入$f(1,0)=1-1+C=2$，所以$C=2$，即$f(x,y)=x^2-\cos y+2$。
+
 \section{多元函数极值最值}
 
 \subsection{无条件极值}
+
+\subsubsection{显函数}
+
+首先对原式分别对$xy$求导令其为0，得到极值点。计算二阶微分判断点是否为极值点和为哪种极值点，最后得到极值。
+
+\subsubsection{隐函数}
+
+首先对原式分别对$xy$求导，然后令$z_x'$、$z_y'$全部为0得到关系式，再把关系式带回原式得到可疑点。计算二阶微分判断点是否为极值点和为哪种极值点，最后得到极值。
+
+\subsection{有条件极值}
+
+与无条件极值一样，在边界就是显函数可以直接求，在区域内就是隐函数需要求出可疑点再计算可疑点的二阶导数值判断。
+
+\subsubsection{闭区域边界}
+
+即使用拉格朗日乘数法。
+
+\subsubsection{闭区域内}
+
+\begin{enumerate}
+    \item 对原式$f(x,y)$分别对$x,y$求导并令为0得到可疑点$(xi_i,yi_i)$。
+    \item 求出$f(x,y)$在$D$内所有可疑点的函数值$Pi_i$。
+    \item 找出所有区域$D$的边界函数$L_i$。
+    \item 根据区域边界函数$L_i$转换$y$并带入原式$f(x,\varphi(x))$求导令为0得到边界上的极值点$(xb_i,yb_i)$。
+    \item 求出边界上的极值点$Pb_i$。
+    \item 比较区域内极值点$Pi_i$和边界上极值点$Pb_i$，得到总的极值点。
+\end{enumerate}
 
 \section{多元函数微分应用}
 
