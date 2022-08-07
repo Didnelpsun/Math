@@ -62,8 +62,9 @@ $S_n=u_1+u_2+\cdots+u_n$称为级数的\textbf{部分和}，$\{S_n\}$是级数�
 \subsubsection{性质}
 
 \begin{enumerate}
-    \item 线性性质：若级数$\sum\limits_{n=1}^\infty u_n$，$\sum\limits_{n=1}^\infty v_n$均收敛，且其和分别为$S$，$T$，则任给常数$a,b$，有$\sum\limits_{n=1}^\infty(au_n+bv_n)$也收敛，且其和为$aS+bT$，即$\sum\limits_{n=1}^\infty(au_n+bv_n)=a\sum\limits_{n=1}^\infty u_n+b\sum\limits_{n=1}^\infty v_n$。
+    \item 线性性质：若级数$\sum\limits_{n=1}^\infty u_n$，$\sum\limits_{n=1}^\infty v_n$均收敛，且其和分别为$S$，$T$，则任给常数$a,b$，有$\sum\limits_{n=1}^\infty(au_n+bv_n)$也收敛，且其和为$aS+bT$，即$\sum\limits_{n=1}^\infty(au_n+bv_n)=a\sum\limits_{n=1}^\infty u_n+b\sum\limits_{n=1}^\infty v_n$。（收敛±发散=发散，发散±发散=不确定）
     \item 若级数$\sum\limits_{n=1}^\infty u_n$收敛，则其任意$m$项后余项$\sum\limits_{n=m+1}^\infty u_n$也收敛；若存在$m$项后余项$\sum\limits_{n=m+1}^\infty u_n$收敛，则$\sum\limits_{n=1}^\infty u_n$也收敛。
+    \item 对收敛级数加括号仍然收敛，但是加括号收敛原级数不一定收敛。如果原级数加括号发散，则原级数发散。
     \item 级数收敛必要条件：若级数$\sum\limits_{n=1}^\infty u_n$收敛，则$\lim\limits_{n\to\infty}u_n=0$。
 \end{enumerate}
 
@@ -77,6 +78,8 @@ $S_n=u_1+u_2+\cdots+u_n$称为级数的\textbf{部分和}，$\{S_n\}$是级数�
 
 \textcolor{violet}{\textbf{定义：}}若通项$u_n\geqslant0$，$n=1,2,\cdots$，则$\sum\limits_{n=1}^\infty u_n$为\textbf{正项级数}。
 
+所以和项一定是递增的，由数列极限的单调有界准则如果和有上界则极限存在。
+
 \paragraph{收敛原则} \leavevmode \medskip
 
 \textcolor{aqua}{\textbf{定理：}}正项级数$\sum\limits_{n=1}^\infty u_n$收敛的充要条件是其部分和数列$\{S_n\}$有界。（某一函数在固定区间内变化率是有界的，则变化范围是有界的）
@@ -87,14 +90,11 @@ $S_n=u_1+u_2+\cdots+u_n$称为级数的\textbf{部分和}，$\{S_n\}$是级数�
 
 基本就是使用放缩法判断是否有界。
 
-\textcolor{aqua}{\textbf{定理：}}等比级数（几何级数）：$\sum\limits_{n=1}^\infty\dfrac{1}aq^{n-1}\left\{\begin{array}{l}
-    \vert q\vert<1, \text{收敛} \\
-    \vert q\vert\geqslant 1, \text{发散}
-\end{array}\right.$。
-
 \textbf{例题：}判断级数$\sum\limits_{n=1}^\infty\dfrac{1}{\sqrt{n}}$的敛散性。
 
 解：$S_n=1+\dfrac{1}{\sqrt{2}}+\dfrac{1}{\sqrt{3}}+\cdots+\dfrac{1}{\sqrt{n}}>n\dfrac{1}{\sqrt{n}}=\sqrt{n}$，当$n\to\infty$时$\sqrt{n}\to\infty$，无上界所以发散。
+
+由于收敛原则很多时候都不能方便使用，所以出现了以下几种解决方法。
 
 \paragraph{比较判别法} \leavevmode \medskip
 
@@ -111,11 +111,6 @@ $S_n=u_1+u_2+\cdots+u_n$称为级数的\textbf{部分和}，$\{S_n\}$是级数�
 $S_n=\ln\dfrac{2}{1}+\ln\dfrac{3}{2}+\cdots+\ln\dfrac{n+1}{n}=\ln2-\ln1+\ln3-\ln2+\cdots+\ln(n+1)-\ln n=\ln(n+1)$。当$\ln(n+1)$在$n\to\infty$时，$S_n\to\infty$。
 
 所以$\sum\limits_{n=1}^\infty\ln\left(1+\dfrac{1}{n}\right)$发散，则$\sum\limits_{n=1}^\infty\dfrac{1}{n}$也发散。
-
-\textcolor{aqua}{\textbf{定理：}}$p$级数：$\sum\limits_{n=1}^\infty\dfrac{1}{n^p}\left\{\begin{array}{l}
-    p>1, \text{收敛} \\
-    p\leqslant1, \text{发散}
-\end{array}\right.$。
 
 \paragraph{比较判别法极限性质} \leavevmode \medskip
 
@@ -139,13 +134,11 @@ $\therefore\lim\limits_{n\to\infty}\dfrac{\dfrac{1}{n}-\sin\dfrac{1}{n}}{\dfrac{
 
 \paragraph{比值判别法} \leavevmode \medskip
 
-也称为达朗贝尔判别法。根据自己的通项的商进行比较。
+也称为达朗贝尔判别法。由等比级数推断出部分级数的敛散性只与自己的参数有关，根据自己的通项的商进行比较。
 
 \textcolor{aqua}{\textbf{定理：}}给出一正项级数$\sum\limits_{n=1}^\infty u_n$，若$\lim\limits_{n\to\infty}\dfrac{u_{n+1}}{u_n}=\rho$，则：\ding{172}若$\rho<1$，则$\sum\limits_{n=1}^\infty u_n$收敛；\ding{173}若$\rho>1$，则$\sum\limits_{n=1}^\infty u_n$发散。
 
 \textcolor{orange}{注意：}$\rho=1$时无法根据此判断$\sum\limits_{n=1}^\infty u_n$敛散性，如$\sum\limits_{n=1}^\infty\dfrac{1}{n}$发散，但$\sum\limits_{n=1}^\infty\dfrac{1}{n^2}$收敛。
-
-适用于含有$a^n$，$n!$，$n^n$的通项。
 
 \textbf{例题：}判断级数$\sum\limits_{n=1}^\infty\dfrac{\vert a\vert^nn!}{n^n}$的敛散性，其中$a$为非零常数。
 
@@ -155,17 +148,23 @@ $\therefore\lim\limits_{n\to\infty}\dfrac{\dfrac{1}{n}-\sin\dfrac{1}{n}}{\dfrac{
 
 \paragraph{根值判别法} \leavevmode \medskip
 
-也称为柯西判别法。
+也称为柯西判别法。由比值判别法类比而来。
 
 \textcolor{aqua}{\textbf{定理：}}给出正项级数$\sum\limits_{n=1}^\infty u_n$，若$\lim\limits_{n\to\infty}\sqrt[n]{u_n}=\rho$，则\ding{172}若$\rho<1$，则$\sum\limits_{n=1}^\infty u_n$收敛；若$\rho>1$，则$\sum\limits_{n=1}^\infty u_n$发散。
-
-适用于含有$a^n$，$n^n$的通项。
 
 同理$\rho=1$也会失效。
 
 \textbf{例题：}判断级数$\sum\limits_{n=1}^\infty\left(n\sin\dfrac{1}{n}\right)^{n^3}$的敛散性。
 
 解：记$u=\left(n\sin\dfrac{1}{n}\right)^{n^3}$，则$\lim\limits_{n\to\infty}\sqrt[n]{u_n}=\lim\limits_{n\to\infty}\left(n\sin\dfrac{1}{n}\right)^{n^2}=e^{\lim\limits_{n\to\infty}n^(n\sin\frac{1}{n}-1)}=e^{\lim\limits_{n\to\infty}\dfrac{\sin\frac{1}{n}-\frac{1}{n}}{\frac{1}{n^3}}}=e^{-\frac{1}{6}}<1$，所以收敛。
+
+\paragraph{积分判别法} \leavevmode \medskip
+
+\textcolor{aqua}{\textbf{定理：}}设$f(x)$是在$[1,+\infty)$上单调递减且非负的连续函数，$a_n=f(n)$，则$\sum\limits_{n=1}^\infty a_n$与$\int_1^{+\infty}f(x)\,\textrm{d}x$同敛散。
+
+\textbf{例题：}证明$p$级数$\sum\limits_{n=1}^\infty\dfrac{1}{n^p}$当$p>1$的敛散性。
+
+证明：令$f(x)=\dfrac{1}{x^p}$，又$\int_1^{+\infty}\dfrac{\textrm{d}x}{x^p}$在$p>1$收敛，在$p\leqslant1$发散，所以得到原级数敛散性。
 
 \subsubsection{交错级数}
 
@@ -175,7 +174,9 @@ $\therefore\lim\limits_{n\to\infty}\dfrac{\dfrac{1}{n}-\sin\dfrac{1}{n}}{\dfrac{
 
 \paragraph{莱布尼兹判别法} \leavevmode \medskip
 
-\textcolor{violet}{\textbf{定义：}}给出一交错级数$\sum\limits_{n=1}^\infty(-1)^{n-1}u_n$，$u_n>0$，$n=1,2,\cdots$，若$\{u_n\}$\textbf{单调不增}$u_n\geqslant u_{n+1}$且$\lim\limits_{n\to\infty}=0$，则该级数收敛。
+\textcolor{violet}{\textbf{定义：}}给出一交错级数$\sum\limits_{n=1}^\infty(-1)^{n-1}u_n$，$u_n>0$，$n=1,2,\cdots$，若$\{u_n\}$\textbf{单调不增}$u_n\geqslant u_{n+1}$且$\lim\limits_{n\to\infty}=0$，则该级数收敛。反过来则不行。
+
+如$\sum\limits_{n=1}^\infty\dfrac{(-1)^{n-1}}{2^{n+(-1)^n}}$收敛，但是里面的$u_n$并不递减，由根值判别法加绝对值可知$u_n$为不递减。
 
 \textbf{例题：}判断交错调和级数$\sum\limits_{n=1}^\infty(-1)^{n-1}\dfrac{1}{n}$的敛散性。
 
@@ -222,6 +223,10 @@ $f'(x)=\dfrac{1-\ln(1+x)}{(1+x)^2}$，当$x\to+\infty$时，$f'(x)<0$，$\{u_n\}
 \textcolor{aqua}{\textbf{定理：}}收敛级数的项任意加括号后所得的新级数仍收敛，且其和不变。
 
 \textcolor{aqua}{\textbf{定理：}}若原级数绝对收敛，不论将其项如何排列，则所得的新级数也收敛，且其和不变。（绝对收敛的级数具有可交换性）
+
+\textcolor{aqua}{\textbf{定理：}}条件收敛的级数的所有正项（或负项）构成的级数一定发散。
+
+\textcolor{aqua}{\textbf{定理：}}$\sum\limits_{n=1}^\infty\vert b_n\vert$收敛，则$\sum\limits_{n=1}^\infty b_n^2$收敛。（$b_n$收敛则不能得到）
 
 \textbf{例题：}若级数$\sum\limits_{n=1}^\infty u_n$收敛，则下面级数必收敛的是()。
 
@@ -277,7 +282,7 @@ $A.\sum\limits_{n=1}^\infty(-1)\dfrac{u_n}{n}$\qquad$B.\sum\limits_{n=1}^\infty 
 收敛域的求法：
 
 \begin{enumerate}
-    \item 若$\lim\limits_{n\to\infty}\left\vert\dfrac{a_{n+1}}{a_n}\right\vert=\rho$，则$\sum\limits_{n=0}^\infty a_nx^n$收敛半径$R$的表达式为$\left\{\begin{array}{ll}
+    \item 若$\lim\limits_{n\to\infty}\left\vert\dfrac{a_{n+1}}{a_n}\right\vert$或$\lim\limits_{n\to\infty}\sqrt[n]{\vert a_n\vert}=\rho$，则收敛半径$R=\left\{\begin{array}{ll}
         \dfrac{1}{\rho}, & \rho\neq0 \\
         +\infty, & \rho=0 \\
         0, & \rho=+\infty
@@ -295,6 +300,8 @@ $A.\sum\limits_{n=1}^\infty(-1)\dfrac{u_n}{n}$\qquad$B.\sum\limits_{n=1}^\infty 
     \item 根据比值判别法或根值判别法，求$\lim\limits_{n\to\infty}\dfrac{\vert u_{n+1}(x)\vert}{\vert u_n(x)\vert}=\rho$或$\lim\limits_{n\to\infty}\sqrt[n]{\vert u_n(x)\vert}=\rho$，令其小于1，得到收敛区间$x\in(a,b)$。
     \item 单独讨论$x=a$，$x=b$处的敛散性，得到收敛域。
 \end{enumerate}
+
+\textcolor{aqua}{\textbf{定理：}}若幂级数$\sum\limits_{n=0}^\infty a_nx^n$在点$x=x_0$处条件收敛，则点$x_0$在幂级数收敛区间的端点上。
 
 \textbf{例题：}求幂级数$\sum\limits_{n=1}^\infty\dfrac{x^n}{n}$的收敛域。
 
@@ -344,40 +351,17 @@ $\sum\limits_{n=1}^\infty a_n(x+1)^n$要转换为$\sum\limits_{n=1}^\infty na_n(
 
 而在$x=2$在收敛区间内，必然绝对收敛，所以选$A$。
 
-\subsection{幂级数求和函数}
+\subsection{函数展开为幂级数}
 
 \subsubsection{概念}
 
-\textcolor{violet}{\textbf{定义：}}在收敛域上，记$S(x)=\sum\limits_{n=1}^\infty u_n(x)$，并称$S(x)$为$\sum\limits_{n=1}^\infty u_n(x)$的\textbf{和函数}。
+\textcolor{violet}{\textbf{定义：}}若函数$f(x)$在$x=x_0$处存在任意阶导数，则称$f(x_0)+f'(x_0)(x-x_0)+\dfrac{f''(x_0)}{2!}(x-x_0)^2+\cdots+\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\cdots$为函数$f(x)$在$x_0$处的\textbf{泰勒级数}，则$f(x)=\sum\limits_{n=0}^\infty\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n$。
 
-\subsubsection{运算法则}
+当$x_0=0$时，称$f(0)+f'(0)x+\dfrac{f''(0)}{2!}x^2+\cdots+\dfrac{f^{(n)}(0)}{n!}x^n+\cdots$为函数$f(x)$的\textbf{麦克劳林级数}，若收敛，则$f(x)=\sum\limits_{n=0}^\infty\dfrac{f^{(n)}(0)}{n!}x^n$。
 
-若幂级数$\sum\limits_{n=0}^\infty a_nx^n$与$\sum\limits_{n=0}^\infty b_nx^n$的收敛半径分别为$R_a$和$R_b$（$R_a\neq R_b$），则：
+都是函数展开成幂级数。
 
-\begin{itemize}
-    \item $k\sum\limits_{n=0}^\infty a_nx^n=\sum\limits_{n=0}^\infty ka_nx^n$，$\vert x\vert<R$，$k$为常数。
-    \item $\sum\limits_{n=0}^\infty a_nx^n\pm\sum\limits_{n=0}^\infty b_nx^n=\sum\limits_{n=0}^\infty (a_n\pm b_n)x^n$，$\vert x\vert<R=\min\{R_a,R_b\}$。
-\end{itemize}
-
-实际运算中，可能运算法则要求的起始$n$值不同，$a_nb_n$不为不包含$x$的常数，$x^n$的幂次不同，恒等变形方法如下：
-
-\begin{enumerate}
-    \item 通项，下标一起变化：$\sum\limits_{n=k}^\infty a_nx^n=\sum\limits_{n=k+l}^\infty a_{n-l}x^{n-l}$，其中$l$为整数。
-    \item 只变下标，只变通项：$\sum\limits_{n=0}^\infty a_nx^n=a_kx^k+a_{k+1}x^{k+1}+\cdots+a_{k+l-1}x^{k+l-1}+\sum\limits_{n=k+l}^\infty a_nx^n$。
-    \item 只变通项，不变下标：$\sum\limits_{n=0}^\infty a_nx^n=x^l\sum\limits_{n=0}^\infty a_nx^{n-l}$。
-\end{enumerate}
-
-如$\sum\limits_{n=0}^\infty a_nx^{2n}+\sum\limits_{n=0}^\infty b_{n+1}x^{2n+2}=\sum\limits_{n=0}^\infty a_nx^{2n}+\sum\limits_{n=1}^\infty b_nx^{2n}=a_0+\sum\limits_{n=1}^\infty a_nx^{2n}+\sum\limits_{n=1}^\infty b_nx^{2n}=a_0+\sum\limits_{n=0}^\infty(a_n+b_n)x^{2n}$。
-
-\subsubsection{性质}
-
-收敛域的扩大和缩小在于其端点是否通过求导或积分变得可取了。
-
-\begin{itemize}
-    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(n)$在其收敛区间$I$上连续，且如果幂级数在收敛区间的端点$x=\pm R$处收敛，则和函数$S(x)$在$(-R,R]$或$[-R,R)$上连续。
-    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(x)$在其收敛域$I$上可积，且有逐项积分公式$\int_0^xS(t)\,\textrm{d}t=\int_0^x(\sum\limits_{n=0}^\infty a_nt^n)\,\textrm{d}t=\sum\limits_{n=0}^\infty a_n\int_0^xt^n\,\textrm{d}t=\sum\limits_{n=0}^\infty\dfrac{a_n}{n+1}x^{n+1}$（$x\in I$），逐项积分后得到的幂级数和原级数有相同收敛半径，但是收敛域可能扩大。
-    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(x)$在其收敛区间$(-R,R)$内可到，且有逐项求导公式$S'(x)=(\sum\limits_{n=0}^\infty a_nx^n)'=\sum\limits_{n=0}^\infty(a_nx^n)'=\sum\limits_{n=1}^\infty na_nx^{n-1}$（$\vert x\vert<R$），逐项求导后得到的幂级数和原级数有相同收敛半径，但是收敛域可能缩小。
-\end{itemize}
+\textcolor{aqua}{\textbf{定理：}}已知$f(x)$在$x=x_0$处任意阶可导，则$\sum\limits_{n=0}^\infty\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n$在$(x_0-R,x_0+R)$上收敛于$f(x)$与$\lim\limits_{n\to\infty}R_n(x)=0$等价。其中$R_n(x)=\dfrac{f^{(n+1)}(\xi)}{(n+1)!}(x-x_0)^{n+1}$在$f(x)$在$x_0$处的泰勒公式$f(x)=\sum\limits_{k=0}^n\dfrac{f^{(n)}(x_0)}{k!}(x-x_0)^k+R_n(x)$中的余项。
 
 \subsubsection{重要展开式}
 
@@ -397,15 +381,7 @@ $x$的取值指其幂指数的收敛域。第七个幂函数问题较复杂，�
     \end{array}\right.$。
 \end{enumerate}
 
-\subsection{函数展开为幂级数}
-
-\subsubsection{概念}
-
-\textcolor{violet}{\textbf{定义：}}若函数$f(x)$在$x=x_0$处存在任意阶导数，则称$f(x_0)+f'(x_0)(x-x_0)+\dfrac{f''(x_0)}{2!}(x-x_0)^2+\cdots+\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n+\cdots$为函数$f(x)$在$x_0$处的\textbf{泰勒级数}，则$f(x)=\sum\limits_{n=0}^\infty\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n$。
-
-当$x_0=0$时，称$f(0)+f'(0)x+\dfrac{f''(0)}{2!}x^2+\cdots+\dfrac{f^{(n)}(0)}{n!}x^n+\cdots$为函数$f(x)$的\textbf{麦克劳林级数}，若收敛，则$f(x)=\sum\limits_{n=0}^\infty\dfrac{f^{(n)}(0)}{n!}x^n$。
-
-都是函数展开成幂级数。
+其中第1、3、5都是直接的公式，其他公式是根据其推出的。
 
 \subsubsection{求法}
 
@@ -424,6 +400,42 @@ $x$的取值指其幂指数的收敛域。第七个幂函数问题较复杂，�
 已经求得求导后的函数的幂级数展开，所以求原函数的幂级数展开只需要积分，利用先导后积公式：$f(x)=f(0)+\int_0^xf'(t)\,\textrm{d}t=\int_0^x\sum\limits_{n=0}^\infty(-1)^nt^{2n}\,\textrm{d}t=\sum\limits_{n=0}^\infty(-1)^n\dfrac{t^{2n+1}}{2n+1}\bigg|_0^x=\sum\limits_{n=0}^\infty(-1)^n\dfrac{x^{2n+1}}{2n+1}$。
 
 求导的级数要求$\vert x\vert<1$，代入$x=\pm1$到最后结果得到两个交错级数，所以收敛域其实为$[-1,1]$（可以不写）。
+
+\subsection{幂级数求和函数}
+
+\subsubsection{概念}
+
+\textcolor{violet}{\textbf{定义：}}在收敛域上，记$S(x)=\sum\limits_{n=1}^\infty u_n(x)$，并称$S(x)$为$\sum\limits_{n=1}^\infty u_n(x)$的\textbf{和函数}。
+
+\subsubsection{运算法则}
+
+若幂级数$\sum\limits_{n=0}^\infty a_nx^n$与$\sum\limits_{n=0}^\infty b_nx^n$的收敛半径分别为$R_a$和$R_b$（$R_a\neq R_b$），则：
+
+\begin{itemize}
+    \item $k\sum\limits_{n=0}^\infty a_nx^n=\sum\limits_{n=0}^\infty ka_nx^n$，$\vert x\vert<R$，$k$为常数。
+    \item $\sum\limits_{n=0}^\infty a_nx^n\pm\sum\limits_{n=0}^\infty b_nx^n=\sum\limits_{n=0}^\infty (a_n\pm b_n)x^n$，$\vert x\vert<R=\min\{R_a,R_b\}$。
+    \item $(\sum\limits_{n=0}^\infty a_nx^n)\cdot(\sum\limits_{n=0}^\infty b_nx^n)=\sum\limits_{n=0}^\infty(a_0b_n+a_1b_{n-1}+\cdots+a_nb)x^n$。
+\end{itemize}
+
+实际运算中，可能运算法则要求的起始$n$值不同，$a_nb_n$不为不包含$x$的常数，$x^n$的幂次不同，恒等变形方法如下：
+
+\begin{enumerate}
+    \item 通项，下标一起变化：$\sum\limits_{n=k}^\infty a_nx^n=\sum\limits_{n=k+l}^\infty a_{n-l}x^{n-l}$，其中$l$为整数。
+    \item 只变下标，只变通项：$\sum\limits_{n=0}^\infty a_nx^n=a_kx^k+a_{k+1}x^{k+1}+\cdots+a_{k+l-1}x^{k+l-1}+\sum\limits_{n=k+l}^\infty a_nx^n$。
+    \item 只变通项，不变下标：$\sum\limits_{n=0}^\infty a_nx^n=x^l\sum\limits_{n=0}^\infty a_nx^{n-l}$。
+\end{enumerate}
+
+如$\sum\limits_{n=0}^\infty a_nx^{2n}+\sum\limits_{n=0}^\infty b_{n+1}x^{2n+2}=\sum\limits_{n=0}^\infty a_nx^{2n}+\sum\limits_{n=1}^\infty b_nx^{2n}=a_0+\sum\limits_{n=1}^\infty a_nx^{2n}+\sum\limits_{n=1}^\infty b_nx^{2n}=a_0+\sum\limits_{n=0}^\infty(a_n+b_n)x^{2n}$。
+
+\subsubsection{性质}
+
+收敛域的扩大和缩小在于其端点是否通过求导或积分变得可取了。
+
+\begin{itemize}
+    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(n)$在其收敛区间$I$上连续，且如果幂级数在收敛区间的端点$x=\pm R$处收敛，则和函数$S(x)$在$(-R,R]$或$[-R,R)$上连续。
+    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(x)$在其收敛域$I$上可积，且有逐项积分公式$\int_0^xS(t)\,\textrm{d}t=\int_0^x(\sum\limits_{n=0}^\infty a_nt^n)\,\textrm{d}t=\sum\limits_{n=0}^\infty a_n\int_0^xt^n\,\textrm{d}t=\sum\limits_{n=0}^\infty\dfrac{a_n}{n+1}x^{n+1}$（$x\in I$），逐项积分后得到的幂级数和原级数有相同收敛半径，但是收敛域可能扩大。
+    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(x)$在其收敛区间$(-R,R)$内可导，且有逐项求导公式$S'(x)=(\sum\limits_{n=0}^\infty a_nx^n)'=\sum\limits_{n=0}^\infty(a_nx^n)'=\sum\limits_{n=1}^\infty na_nx^{n-1}$（$\vert x\vert<R$），逐项求导后得到的幂级数和原级数有相同收敛半径，但是收敛域可能缩小。
+\end{itemize}
 
 \section{傅里叶级数}
 

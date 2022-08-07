@@ -34,11 +34,132 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{求和函数}
+\section{常数项级数}
+
+\subsection{正项级数}
+
+\subsubsection{放缩法}
+
+即根据收敛准则来进行判断。如果要判断原级数收敛，则辅助级数应该是对其放大，判断原级数发散，则辅助级数应该是对其缩小。
+
+\subsubsection{比较判别法}
+
+都需要找到一个好的级数进行比较。常用的只有两个：
+
+$p$级数：$\sum\limits_{n=1}^\infty\dfrac{1}{n^p}\left\{\begin{array}{l}
+    p>1, \text{收敛} \\
+    p\leqslant1, \text{发散}
+\end{array}\right.$。
+
+等比级数（几何级数）：$\sum\limits_{n=1}^\infty\dfrac{1}aq^{n-1}\left\{\begin{array}{l}
+    \vert q\vert<1, \text{收敛} \\
+    \vert q\vert\geqslant 1, \text{发散}
+\end{array}\right.$。
+
+\subsubsection{比值判别法}
+
+适用于含有$a^n$，$n!$，$n^n$的通项。主要是$n!$。
+
+\textbf{例题：}判断$\sum\limits_{n=1}^\infty\dfrac{n!}{n^n}$。
+
+解：利用比值判别法，令$a_n=\dfrac{n!}{n^n}$，$\lim\limits_{n\to\infty}\dfrac{a_{n+1}}{a_n}=\lim\limits_{n\to\infty}\dfrac{(n+1)!}{(n+1)^{n+1}}\dfrac{n^n}{n!}=\lim\limits_{n\to\infty}\dfrac{n^n}{(n+1)^n}$，注意这里幂也为变量，不是等于1而是上下同时除以$n^n$，$=\lim\limits_{n\to\infty}\dfrac{1}{(1+\frac{1}{n})^n}$，根据两个重要极限得到$=\dfrac{1}{e}<1$，所以收敛。
+
+\subsubsection{根值判别法}
+
+适用于含有$a^n$，$n^n$的通项。
+
+$\lim\limits_{n\to\infty}\sqrt[n]{n}=1$。
+
+\subsubsection{积分判别法}
+
+\textbf{例题：}判断级数$\sum\limits_{n=2}^\infty\dfrac{1}{n\ln n}$的敛散性。
+
+解：因为$\dfrac{1}{n\ln n}<\dfrac{1}{n}$，调和级数发散，所以比较判别法找不到一个较好的辅助级数。同理根据级数形式比值和根值判别法都无法使用。
+
+令$f(x)=\dfrac{1}{x\ln x}$，$a_n=f(n)$，在$[2,+\infty)$上$\dfrac{1}{n\ln n}$单调减且非负。
+
+级数$\sum\limits_{n=2}^\infty\dfrac{1}{n\ln n}$与$\int_2^{+\infty}\dfrac{\textrm{d}x}{x\ln x}$同敛散。
+
+$=\ln\ln x\vert_2^{+\infty}=+\infty$，所以原级数发散。
+
+\subsection{交错级数}
+
+\section{幂级数}
+
+\subsection{收敛域}
+
+\subsubsection{基本方法}
+
+使用比值或根值法进行求解。
+
+\textbf{例题：}求幂级数$\sum\limits_{n=1}^\infty\dfrac{e^n-(-1)^n}{n^2}x^n$的收敛半径。
+
+解：
+
+比值法：
+
+$\lim\limits_{n\to\infty}\left\vert\dfrac{a_{n+1}}{a_n}\right\vert=\lim\limits_{n\to\infty}\dfrac{e^{n+1}-(-1)^{n+1}}{(n+1)^2}\dfrac{n^2}{e^n-(-1)^n}=\lim\limits_{n\to\infty}\dfrac{e+(\frac{-1}{e})^n}{1-(\frac{-1}{e})^n}$。
+
+又$\lim\limits_{n\to\infty}x^n=\left\{\begin{array}{ll}
+    0 & \vert x\vert<1 \\
+    \infty & \vert x\vert\geqslant1
+\end{array}\right.$，$\lim\limits_{n\to\infty}\left(\dfrac{-1}{e}\right)^n=0$，原式$=e$。$R=\dfrac{1}{e}$。
+
+根值法：
+
+$\lim\limits_{n\to\infty}\sqrt[n]{\vert a_n\vert}=\lim\limits_{n\to\infty}\sqrt[n]{\dfrac{e^n-(-1)^n}{n^2}}=\lim\limits_{n\to\infty}\dfrac{e\sqrt[n]{1-(-\frac{-1}{e})^n}}{\sqrt[n]{n}\sqrt[n]{n}}$，又$\lim\limits_{n\to\infty}\sqrt[n]{n}=1$。
+
+$=\lim\limits_{n\to\infty}\dfrac{e\sqrt[n]{1-0}}{1\cdot1}=e$，所以$R=\dfrac{1}{e}$。
+
+\subsubsection{缺项变换}
+
+\textbf{例题：}求幂级数$\sum\limits_{n=1}^\infty\dfrac{n}{2^n+(-3)^n}x^{2n-1}$的收敛半径。
+
+解：由于分母都是幂函数，所以使用根值法：$=\lim\limits_{n=1}^\infty\sqrt[n]{\vert a_n\vert}=\lim\limits_{n=1}^\infty\dfrac{\sqrt[n]{n}}{\sqrt[n]{3^n+(-2)^n}}\\=\lim\limits_{n=1}^\infty\dfrac{1}{\sqrt[n]{1+(-\frac{2}{3})^n}}=\dfrac{1}{3}$。
+
+所以$R=3$。注意这里是错误的，因为之前求收敛域时都是$x^n$，而这里是$x^{2n-1}$，只有奇数次项，所以幂级数的一半都没有了。
+
+$\sum\limits_{n=1}^\infty a_nx^{2n}\approx\sum\limits_{n=1}^\infty a_nx^{2n-1}=\sum\limits_{n=1}^\infty a_n(x^2)^n$，当前已知收敛半径为$3$，即$\vert x^2\vert<3$，即$\vert x\vert<\sqrt{3}$。
+
+\subsubsection{收敛域变换}
+
+\textbf{例题：}已知幂级数$\sum\limits_{n=0}^\infty a_n(x+2)^n$在$x=0$处收敛，在$x=-4$处发散，求$\sum\limits_{n=0}^\infty a_n(x-3)^n$的收敛域。
+
+解：根据阿贝尔定理，已知在$x=0$处收敛，且中心点在$x=-2$，则收敛区间为$(-4,0)$，在$x=-4$处发散，则$x<-4$，$x>0$处发散。
+
+然后确定两端端点敛散性，$x=0$处收敛则收敛域包括$x=0$，$x=-4$处发散则收敛域不包括$x=-4$，得到收敛域$(-4,0]$。
+
+对于$\sum\limits_{n=0}^\infty a_n(x-3)^n$的中心点为$x=3$，则根据相对位置收敛域为$(1,5]$。
+
+\subsubsection{常数项级数变换}
+
+可以代入特殊点确定收敛点，将幂级数转换为常数项级数。
+
+\textbf{例题：}若级数$\sum\limits_{n=0}^\infty a_n$条件收敛，求幂级数$\sum\limits_{n=0}^\infty na_n(x-1)^n$的收敛区间。
+
+解：已知$\sum\limits_{n=0}^\infty a_n$条件收敛，则对于幂级数$\sum\limits_{n=0}^\infty na_n(x-1)^n$而言在$x=2$处条件收敛，即得到以中心点$x=1$的收敛区间$(0,2)$。
+
+\subsection{函数展开}
+
+\subsubsection{因式分解}
+
+\textbf{例题：}将函数$f(x)=\dfrac{1}{x^2-3x-4}$展开为$x-1$的幂级数并指出收敛区间。
+
+解：$\dfrac{1}{x^2-3x-4}=\dfrac{1}{5}\left(\dfrac{1}{x-4}-\dfrac{1}{x+1}\right)$。
+
+$\dfrac{1}{x-4}=\dfrac{1}{(x-1)-3}=-\dfrac{1}{3}\dfrac{1}{1-\frac{x-1}{3}}=-\dfrac{1}{3}\sum\limits_{n=0}^\infty\left(\dfrac{x-1}{3}\right)^n$，$\left\vert\dfrac{x-1}{3}\right\vert<1$，$x\in(-2,4)$。
+
+$\dfrac{1}{x+1}=\dfrac{1}{(x-1)+2}=\dfrac{1}{2}\dfrac{1}{1+\frac{x-1}{2}}=\dfrac{1}{2}\sum\limits_{n=0}^\infty\left(-\dfrac{x-1}{2}\right)^n$，$\left\vert-\dfrac{x-1}{2}\right\vert<1$，$x\in(-1,3)$。
+
+所以其幂级数就是其加和，收敛区间为$(-2,4)\cap(-1,3)=(-1,3)$。
+
+\subsection{级数求和}
+
+即对展开式进行逆运算，根据幂级数展开式反推原幂级数。
 
 可以利用展开式求和函数，但是很多展开式的通项都不是公式中的，就需要对通项进行变形。
 
-\subsection{先导后积}
+\subsubsection{先导后积}
 
 $n$在分母上，先导后积。使用变限积分：$\int_{x_0}^xS'(t)\,\textrm{d}t=S(x)-S(x_0)$，即$S(x)=S(x_0)+\int_{x_0}^xS'(t)\,\textrm{d}t$。一般选择$x_0$为展开点。
 
@@ -50,15 +171,20 @@ $n$在分母上，先导后积。使用变限积分：$\int_{x_0}^xS'(t)\,\textr
 
 记$S(x)=\sum\limits_{n=1}^\infty\dfrac{x^n}{n}$，则$x^n=(x-0)^n$，取$x_0=0$。
 
-$\therefore S(x)=S(0)+\displaystyle{\int_0^x\left(\sum\limits_{n=1}^\infty\dfrac{t^n}{n}\right)_t'\,\textrm{d}t}=0+\int_0^x(\sum\limits_{n=1}^\infty t^{n-1})\,\textrm{d}t=\displaystyle{\int_0^x\dfrac{1}{1-t}\textrm{d}t}=-\ln(1-x)$。收敛域为$(-1,1)$。
+$\therefore S(x)=S(0)+\displaystyle{\int_0^x\left(\sum\limits_{n=1}^\infty\dfrac{t^n}{n}\right)_t'\,\textrm{d}t}=0+\int_0^x(\sum\limits_{n=1}^\infty t^{n-1})\,\textrm{d}t=\displaystyle{\int_0^x\dfrac{1}{1-t}\textrm{d}t}=-\ln(1-x)$。收敛域为$[-1,1)$。
 
-
-\subsection{先积后导}
+\subsubsection{先积后导}
 
 $n$在分子上，先积后导。$(\int S(x)\,\textrm{d}x)'=S(x)$。
 
 \textbf{例题：}求级数$\sum\limits_{n=1}^\infty nx^n$的和函数。
 
 解：记$S(x)=\sum\limits_{n=1}^\infty nx^n=x\sum\limits_{n=1}^\infty x^{n-1}=x(\int\sum\limits_{n=1}^\infty nx^{n-1}\,\textrm{d}x)'=x(\sum\limits_{n=1}^\infty x^n)'=x\left(\dfrac{x}{1-x}\right)'=\dfrac{x}{(1-x)^2}$。收敛域为$[-1,1]$。
+
+\textbf{例题：}求级数$\sum\limits_{n=0}^\infty(n+1)(n+3)x^n$的和函数。
+
+解：$(n+1)(n+3)$的形式可以推出$(n+1)(n+2)$是求两次导的结果，而这里是$(n+1)(n+3)$，所以拆开：$\sum\limits_{n=0}^\infty(n+1)(n+2)x^n+\sum\limits_{n=0}^\infty(n+1)x^n=\left(\sum\limits_{n=0}^\infty x^{n+2}\right)''+\left(\sum\limits_{n=0}^\infty x^{n+1}\right)=\left(\dfrac{x^2}{1-x}\right)''+\left(\dfrac{x}{1-x}\right)'=\dfrac{3-x}{(1-x)^3}$，$x\in(-1,1)$。
+
+\section{傅里叶级数}
 
 \end{document}
