@@ -210,6 +210,8 @@ $f'(x)=\dfrac{1-\ln(1+x)}{(1+x)^2}$，当$x\to+\infty$时，$f'(x)<0$，$\{u_n\}
 
 给任意项级数每一项加上绝对值$\sum\limits_{n=1}^\infty(-1)^{n-1}\vert u_n\vert$，就得到了正项级数，称为原级数的\textbf{绝对值级数}。
 
+添加绝对值会提高发散性，因为不改变逼近0的速度，而让各项之间不能抵消为0。
+
 \paragraph{绝对收敛} \leavevmode \medskip
 
 \textcolor{violet}{\textbf{定义：}}设$\sum\limits_{n=1}^\infty(-1)^{n-1}u_n$为任意项级数，若$\sum\limits_{n=1}^\infty(-1)^{n-1}\vert u_n\vert$收敛，则称$\sum\limits_{n=1}^\infty$\\$(-1)^{n-1}u_n$\textbf{绝对收敛}。
@@ -226,7 +228,7 @@ $f'(x)=\dfrac{1-\ln(1+x)}{(1+x)^2}$，当$x\to+\infty$时，$f'(x)<0$，$\{u_n\}
 
 \textcolor{aqua}{\textbf{定理：}}条件收敛的级数的所有正项（或负项）构成的级数一定发散。
 
-\textcolor{aqua}{\textbf{定理：}}$\sum\limits_{n=1}^\infty\vert b_n\vert$收敛，则$\sum\limits_{n=1}^\infty b_n^2$收敛。（$b_n$收敛则不能得到）
+\textcolor{aqua}{\textbf{定理：}}$\sum\limits_{n=1}^\infty\vert a_n\vert$收敛，则$\sum\limits_{n=1}^\infty a_n^2$收敛。（$b_n$收敛则不能得到）
 
 \textbf{例题：}若级数$\sum\limits_{n=1}^\infty u_n$收敛，则下面级数必收敛的是()。
 
@@ -337,6 +339,8 @@ $\therefore\lim\limits_{n\to\infty}\dfrac{\vert u_{n+1}(x)\vert}{\vert u_n(x)\ve
     \end{enumerate}
 \end{enumerate}
 
+收敛域的扩大和缩小在于其端点是否通过求导或积分变得可取了。
+
 \textbf{例题：}设$\sum\limits_{n=1}^\infty a_n(x+1)^n$在点$x=1$处条件收敛，则幂级数$\sum\limits_{n=1}^\infty na_n(x-1)^n$在点$x=2$处()。
 
 $A.$绝对收敛\qquad$B.$条件收敛\qquad$C.$发散\qquad$D.$敛散性不确定
@@ -403,6 +407,8 @@ $x$的取值指其幂指数的收敛域。第七个幂函数问题较复杂，�
 
 \subsection{幂级数求和函数}
 
+即函数展开的逆操作。
+
 \subsubsection{概念}
 
 \textcolor{violet}{\textbf{定义：}}在收敛域上，记$S(x)=\sum\limits_{n=1}^\infty u_n(x)$，并称$S(x)$为$\sum\limits_{n=1}^\infty u_n(x)$的\textbf{和函数}。
@@ -429,23 +435,125 @@ $x$的取值指其幂指数的收敛域。第七个幂函数问题较复杂，�
 
 \subsubsection{性质}
 
-收敛域的扩大和缩小在于其端点是否通过求导或积分变得可取了。
-
 \begin{itemize}
     \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(n)$在其收敛区间$I$上连续，且如果幂级数在收敛区间的端点$x=\pm R$处收敛，则和函数$S(x)$在$(-R,R]$或$[-R,R)$上连续。
-    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(x)$在其收敛域$I$上可积，且有逐项积分公式$\int_0^xS(t)\,\textrm{d}t=\int_0^x(\sum\limits_{n=0}^\infty a_nt^n)\,\textrm{d}t=\sum\limits_{n=0}^\infty a_n\int_0^xt^n\,\textrm{d}t=\sum\limits_{n=0}^\infty\dfrac{a_n}{n+1}x^{n+1}$（$x\in I$），逐项积分后得到的幂级数和原级数有相同收敛半径，但是收敛域可能扩大。
-    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(x)$在其收敛区间$(-R,R)$内可导，且有逐项求导公式$S'(x)=(\sum\limits_{n=0}^\infty a_nx^n)'=\sum\limits_{n=0}^\infty(a_nx^n)'=\sum\limits_{n=1}^\infty na_nx^{n-1}$（$\vert x\vert<R$），逐项求导后得到的幂级数和原级数有相同收敛半径，但是收敛域可能缩小。
+    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(x)$在其收敛域$I$上可积，且有逐项积分公式$\int_0^xS(t)\,\textrm{d}t=\int_0^x(\sum\limits_{n=0}^\infty a_nt^n)\,\textrm{d}t=\sum\limits_{n=0}^\infty a_n\int_0^xt^n\,\textrm{d}t=\sum\limits_{n=0}^\infty\dfrac{a_n}{n+1}x^{n+1}$（$x\in I$），逐项积分后得到的幂级数和原级数有相同收敛半径，但是收敛域可能扩大。（逐项可积性）
+    \item 幂级数$\sum\limits_{n=0}^\infty a_nx^n$的和函数$S(x)$在其收敛区间$(-R,R)$内可导，且有逐项求导公式$S'(x)=(\sum\limits_{n=0}^\infty a_nx^n)'=\sum\limits_{n=0}^\infty(a_nx^n)'=\sum\limits_{n=1}^\infty na_nx^{n-1}$（$\vert x\vert<R$），逐项求导后得到的幂级数和原级数有相同收敛半径，但是收敛域可能缩小。（逐项可导性）（为什么求和函数后从$n=1$开始？因为0开始的是常数，求导为0）
 \end{itemize}
 
 \section{傅里叶级数}
 
-\subsection{* 三角级数}
+\subsection{概念}
 
-\textcolor{violet}{\textbf{定义：}}将正弦函数$A_n\sin(n\omega t+\varphi_n)$按三角公式变形得到$A_n\sin\varphi_n\cos n\omega t+A_n\cos\varphi_n\sin n\omega t$，令$\dfrac{a_0}{2}=A_0$，$a_n=A\sin\varphi_n$，$b_n=A_n\cos\varphi_n$，$\omega=\dfrac{\pi}{l}$，则$\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty\left(a_n\cos\dfrac{n\pi t}{l}+b_n\sin\dfrac{n\pi t}{l}\right)$。这个级数就是\textbf{三角级数}。
+\subsubsection{* 三角级数}
 
-\subsection{函数展开为傅里叶级数}
+周期函数可以由一个序列的正弦型函数叠加得到，即周期函数图形可以由一个序列的正弦型曲线合成。
 
-\textcolor{violet}{\textbf{定义：}}设$f(x)$在$[-l,l]$上连续或只有有限个第一类间断点，且至多只有有限个真正的极值点，则$f(x)$的傅里叶级数处处收敛，记起和函数为$S(x)$，有$S(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty\left(a_n\cos\dfrac{n\pi}{l}x+b_n\sin\dfrac{n\pi}{l}x\right)$。
+即$f(x)=A_0+\sum\limits_{n=1}^\infty A_n\sin(n\omega t+\varphi_n)$，这个级数就是\textbf{三角级数}。
+
+\subsubsection{三角函数族}
+
+$\{1,\sin nx,\cos nx\}$（$n\in N*$）称为三角函数族，在$[-\pi,\pi]$区间上积分具有\textbf{正交性}：
+
+\begin{itemize}
+    \item $\displaystyle{\int_{-\pi}^\pi1\cdot\cos nx\,\textrm{d}x}=\dfrac{\sin nx}{n}\bigg\vert_{-\pi}^\pi=0$。
+    \item $\displaystyle{\int_{-\pi}^\pi1\cdot\sin nx\,\textrm{d}x}=\dfrac{\cos nx}{n}\bigg\vert_{-\pi}^\pi=0$。
+    \item $\displaystyle{\int_{-\pi}^\pi\cos nx\cdot\sin nx\,\textrm{d}x=\dfrac{1}{2}\int_{-\pi}^\pi[\sin(m+n)x+\sin(m-n)x]\textrm{d}x}=0$。
+    \item $\displaystyle{\int_{-\pi}^\pi\cos nx\cdot\cos nx\,\textrm{d}x=\dfrac{1}{2}\int_{-\pi}^\pi[\cos(m+n)x+\cos(n-m)x]\textrm{d}x}=0$（$m\neq n$）。
+    \item $\displaystyle{\int_{-\pi}^\pi\sin nx\cdot\sin nx\,\textrm{d}x=\dfrac{1}{2}\int_{-\pi}^\pi[\cos(n-m)x-\cos(m+n)x]\textrm{d}x}=0$（$m\neq n$）。
+    \item $\displaystyle{\int_{-\pi}^\pi1^2\,\textrm{d}x=2\pi}$。
+    \item $\displaystyle{\int_{-\pi}^\pi\cos^2nx\textrm{d}x=\pi}$。
+    \item $\displaystyle{\int_{-\pi}^\pi\sin^2nx\textrm{d}x=\pi}$。
+\end{itemize}
+
+\subsection{周期傅里叶级数}
+
+对于周期为$2\pi$的函数$f(x)$，是否可以被展开为$S(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty(a_n\cos nx+b\sin nx)$三角级数的形式？其系数为多少？定义域是多少？
+
+迪利克雷充分条件（迪利克雷收敛定理）\textcolor{violet}{\textbf{定义：}}设$f(x)$是以$2\pi$为周期的周期函数，若满足：
+
+\begin{enumerate}
+    \item  $f(x)$在$[-\pi,\pi]$上连续或只有有限个第一类间断点。
+    \item $f(x)$在$[-\pi,\pi]$上至多只有有限个真正的极值点。
+\end{enumerate}
+
+则$f(x)$可以被展开成$f(x)\sim S(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty(a_n\cos nx+b_n\sin nx)$，即$f(x)$在$[-\pi,\pi]$上的傅里叶级数。
+
+利用积分和三角函数族计算得到系数，$a_n$、$b_n$称为傅里叶系数：
+
+$a_0=\dfrac{1}{\pi}\int_{-\pi}^\pi f(x)\,\textrm{d}x$，$a_n=\dfrac{1}{\pi}\int_{-\pi}^\pi f(x)\cos nx\,\textrm{d}x$，$b_n=\dfrac{1}{\pi}\int_{-\pi}^\pi f(x)\sin nx\,\textrm{d}x$。
+
+当$x$为连续点时，傅里叶级数$S(x)=f(x)$，当$x$为第一类间断点时，傅里叶级数$S(x)=\dfrac{f(x-0)+f(x+0)}{2}$，即两端左右极限的平均值。
+
+所以要注意原函数和其傅里叶级数并不是处处相等。
+
+\textbf{例题：}设以$2\pi$为周期的$f(x)$在$[-\pi,\pi]$上的表达式为$\left\{\begin{array}{ll}
+    0, & -\pi\leqslant x<0 \\
+    x, & 0\leqslant x<\pi
+\end{array}\right.$，对其傅里叶展开。
+
+解：首先作图，可以看出$(2k+1)\pi$为$f(x)$间断点，$k\in z$。
+
+然后计算系数，$a_0=\dfrac{1}{\pi}\int_{-\pi}^\pi f(x)\,\textrm{d}x=\dfrac{1}{\pi}\int_0^\pi x\,\textrm{d}x=\dfrac{\pi}{2}$。
+
+$a_n=\dfrac{1}{\pi}\int_{-\pi}^\pi f(x)\cos nx\,\textrm{d}x=\dfrac{1}{\pi}\int_0^\pi x\cos nx\,\textrm{d}x=\dfrac{1}{n\pi}x\sin nx\vert_0^\pi-\dfrac{1}{n^2\pi}\cos nx\vert_0^\pi\\=\dfrac{(-1)^n-1}{n^2\pi}$，当$n=2k-1$时，等于$-\dfrac{2}{n^2\pi}$，当$n=2k$时，等于0，$k\in z$。
+
+同理$b_n=\dfrac{1}{\pi}\int_{-\pi}^\pi f(x)\sin nx\,\textrm{d}x=\dfrac{(-1)^{n+1}}{n}$。
+
+所以带入傅里叶系数：
+
+$f(x)\sim\dfrac{\pi}{4}+\left(-\dfrac{2}{\pi}\cdot\cos x+\sin x\right)-\dfrac{1}{2}\sin2x+\left(-\dfrac{2}{\pi}\cdot\dfrac{1}{9}\cos3x+\dfrac{1}{3}\sin3x\right)+\cdots$。
+
+$x\in R$且$x\neq(2k+1)\pi$，$k\in z$。
+
+$x=(2k+1)\pi$，$k\in z$时，$S(x)=\dfrac{\pi}{2}$。
+
+\subsection{非周期傅里叶级数}
+
+\subsubsection{\texorpdfstring{$[-\pi,\pi]$}n}
+
+假使$f(x)$只定义于$[-\pi,\pi]$，则首先画图$f(x)$的图像，然后将$f(x)$拓展为周期函数$F(x)$，将$F(x)$展开为傅里叶级数，然后判断两端端点是否包含，如果$F(x)$中两端端点连接起来就包括$f(x)$区间端点，否则不包括。
+
+\textbf{例题：}将$f(x)=\vert x\vert$（$-\pi\leqslant x\leqslant\pi$）展开为傅里叶级数。
+
+第一步周期延拓为$F(x)$，画出$F(x)$的图像。
+
+计算傅里叶系数，$a_0=\pi$；$a_n=\dfrac{2}{n^2\pi}[(-1)^n-1]$，当$n$为偶数，$a_n=0$，当$n$为奇数，$a_n=-\dfrac{4}{n^2\pi}$；$b_n=0$。
+
+所以$\vert x\vert=\dfrac{\pi}{2}-\dfrac{4}{\pi}(\cos x+\dfrac{1}{9}\cos3x+\dfrac{1}{25}\cos5x+\cdots)$（$-\pi\leqslant x\leqslant\pi$，因为拓展后两端连接在一起）
+
+\textcolor{orange}{注意：}根据最后的答案可以得出$\sum\limits_{n=0}^\infty\dfrac{1}{(2n+1)^2}=\dfrac{\pi^2}{8}$、$\sum\limits_{n=0}^\infty\dfrac{1}{n^2}=\dfrac{\pi^2}{6}$。
+
+\subsubsection{\texorpdfstring{$[0,\pi]$}n}
+
+\begin{enumerate}
+    \item 区间延拓（在原区域的$y$轴对称区间上进行延拓，延拓方式有奇延拓和偶延拓两种方式），周期延拓。
+    \item 求傅里叶系数。
+    \item 奇延拓：$a_0=a_n=0$，$b_n=\dfrac{2}{\pi}\int_0^\pi f(x)\sin nx\,\textrm{d}x$，$f(x)=\sum\limits_{n=1}^\infty b_n\sin nx$。（正弦级数）
+    \item 偶延拓：$a_0=\dfrac{2}{\pi}\int_0^\pi f(x)\,\textrm{d}x$，$a_n=\dfrac{2}{\pi}\int_0^\pi f(x)\cos nx\,\textrm{d}x$，$b_n=0$，$f(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty a_n\cos nx$。（余弦级数）
+\end{enumerate}
+
+\textbf{例题：}将$f(x)=x$（$0\leqslant x\leqslant\pi$）进行傅里叶展开。
+
+解：
+
+对$f(x)$进行偶延拓变为余弦级数：
+
+画出图像，然后计算系数：$a_0=\dfrac{2}{\pi}\int_0^\pi x\,\textrm{d}x=\pi$，$a_n=\dfrac{2}{\pi}\int_0^\pi x\cos nx\,\textrm{d}x=\dfrac{2}{n^2\pi}[(-1)^n-1]$，当$n$为偶数为0，为奇数则$=-\dfrac{4}{n^2\pi}$。
+
+$x=\dfrac{\pi}{2}-\dfrac{4}{\pi}\left(\cos x+\dfrac{1}{9}\cos3x+\dfrac{1}{25}\cos5x\cdots\right)$，$0\leqslant x\leqslant\pi$。（两端都连接上）
+
+对$f(x)$进行奇延拓变为余弦级数：
+
+画出图像，然后计算系数：$a_0=a_n=0$，$b_n=\dfrac{2}{\pi}\int_0^\pi x\sin nx\,\textrm{d}x=\dfrac{2(-1)^{n+1}}{n}$。
+
+$x=\dfrac{2(-1)^{n+1}}{n}\sin nx$。（$0\leqslant x<\pi$）（$\pi$没有连接上）
+
+\subsection{任意区间傅里叶级数}
+
+\textcolor{violet}{\textbf{定义：}}将正弦函数$A_n\sin(n\omega t+\varphi_n)$按三角公式变形得到$A_n\sin\varphi_n\cos n\omega t+A_n\cos\varphi_n\sin n\omega t$，令$\dfrac{a_0}{2}=A_0$，$a_n=A\sin\varphi_n$，$b_n=A_n\cos\varphi_n$，$\omega=\dfrac{\pi}{l}$，则$\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty\left(a_n\cos\dfrac{n\pi t}{l}+b_n\sin\dfrac{n\pi t}{l}\right)$。
+
+则$f(x)$的傅里叶级数处处收敛，记起和函数为$S(x)$，有$S(x)=\dfrac{a_0}{2}+\sum\limits_{n=1}^\infty\left(a_n\cos\dfrac{n\pi}{l}x+b_n\sin\dfrac{n\pi}{l}x\right)$。
 
 $\displaystyle{a_n=\dfrac{1}{l}\int_{-l}^lf(x)\cos\dfrac{n\pi}{l}x\,\textrm{d}x}$，$\displaystyle{b_n=\dfrac{1}{l}\int_{-l}^lf(x)\sin\dfrac{n\pi}{l}x\,\textrm{d}x}$，$n=1,2,\cdots$。
 
@@ -469,10 +577,10 @@ $f(x)\sim S(x)=1-\dfrac{\pi^2}{3}+\sum\limits_{n=1}^\infty\dfrac{4}{n^2}(-1)^{n+
 
 若$f(x)$因为定义区间不对称导致无奇偶性，则补充定义域，使其称为奇偶函数。
 
-迪利克雷定理\textcolor{violet}{\textbf{定义：}}$f(x)\sim S(x)=\left\{\begin{array}{ll}
-    f(x), & x\text{为连续点} \\
-    \dfrac{f(x-0)+f(x+0)}{2}, & x\text{为间断点} \\
-    \dfrac{f(-l+0)+f(l-0)}{2}, & x=\pm l
-\end{array}\right.$
+% 迪利克雷定理\textcolor{violet}{\textbf{定义：}}$f(x)\sim S(x)=\left\{\begin{array}{ll}
+%     f(x), & x\text{为连续点} \\
+%     \dfrac{f(x-0)+f(x+0)}{2}, & x\text{为间断点} \\
+%     \dfrac{f(-l+0)+f(l-0)}{2}, & x=\pm l
+% \end{array}\right.$
 
 \end{document}
