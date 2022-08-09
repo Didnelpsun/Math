@@ -68,7 +68,9 @@ $k\alpha=[ka_1,ka_2,\cdots,ka_3]$。
 
 两个非零向量，不成比例向量的向量必然线性无关。
 
-\subsection{线性相关性}
+\section{线性相关性}
+
+\subsection{线性相关判定}
 
 \begin{enumerate}
     \item 向量组$\alpha_1,\alpha_2,\cdots,\alpha_n$（$n\geqslant2$）线性相关的充要条件是向量组中至少有一个向量可由其他$n-1$个向量线性表出。若$\alpha_1,\alpha_2,\cdots,\alpha_n$线性无关的充要条件是向量组的任何一个向量都不能被其他$n-1$个向量线性表出。
@@ -80,9 +82,9 @@ $k\alpha=[ka_1,ka_2,\cdots,ka_3]$。
     \item 设$m$个$n$维向量$\alpha_1,\alpha_2,\cdots,\alpha_m$线性无关，则把这些向量中每个各任意添加$s$个分量所得到的新向量组（$n+s$维）$\alpha_1^*,\alpha_2^*,\cdots,\alpha_m^*$也是线性无关的；如果$\alpha_1,\alpha_2,\cdots,\alpha_m$线性相关，则每个各去掉相同的若干分量得到的新向量组也线性相关。（原来无关延长无关，原来相关缩短相关）
 \end{enumerate}
 
-\section{极大线性无关组}
+\subsection{极大线性无关组}
 
-\subsection{概念}
+\subsubsection{概念}
 
 极大线性无关组\textcolor{violet}{\textbf{定义：}}在向量组$\alpha_1,\alpha_2,\cdots,\alpha_n$中，若存在部分$a_i,a_j,\cdots,a_k$满足：\ding{172}$a_i,a_j,\cdots,a_k$线性无关；\ding{173}向量组中任一向量$a_s$（$i=1,2,\cdots,n$）均可由$a_i,a_j,\cdots,a_k$线性表出，则称向量组$a_i,a_j,\cdots,a_k$为原向量组的极大线性无关组。
 
@@ -120,11 +122,17 @@ $k\alpha=[ka_1,ka_2,\cdots,ka_3]$。
 
 若$r(A)=r(B)=r(A|B)$，则向量组等价。
 
+$r(A)=r(B)$，$A$可以由$B$表出（只需要一个方向的表出），则向量组等价。
+
+$PAQ=B$（$PQ$为可逆矩阵），通过初等行列变换$A$能转换为$B$。
+
 \subsection{与等价矩阵区别}
 
 对于矩阵而言，若$A\cong B$，则$AB$同型且$r(A)=r(B)$。
 
 对于向量组而言，若$A\cong B$，则$AB$同维（行数相同）且$r(A)=r(B)=r(A|B)$。
+
+记住等价向量组跟等价矩阵不同，等价矩阵必然完全一致，而等价向量组只要其极大线性无关组一致，可以多一些其他线性相关向量。
 
 \section{向量空间}
 

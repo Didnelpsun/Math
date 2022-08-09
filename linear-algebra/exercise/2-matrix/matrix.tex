@@ -256,9 +256,9 @@ $\therefore (A+B)^{-1}=B^{-1}(B^{-1}+A^{-1})^{-1}A^{-1}$。
 
 \subsection{初等变换}
 
-$\left[A\vdots B\right]\overset{r}{\sim}\left[E\vdots A^{-1}\right]$，$\left[\begin{array}{c}
+$\left[A\vdots E\right]\overset{r}{\sim}\left[E\vdots A^{-1}\right]$，$\left[\begin{array}{c}
     A \\
-    B
+    E
 \end{array}\right]\overset{c}{\sim}\left[\begin{array}{c}
     E \\
     A^{-1}
@@ -393,17 +393,35 @@ $A=\left(\begin{array}{ccc}
     0 & 0 & 0 & 2
 \end{array}\right]$。
 
+\section{伴随矩阵}
+
+伴随矩阵一般只会计算三阶以及以下。
+
+伴随矩阵和逆矩阵往往共同参与运算，并有许多公式。
+
+\begin{enumerate}
+    \item $(A^*)^{-1}=\dfrac{A}{\vert A\vert}$。
+    \item $\vert A^*\vert=\vert A\vert^{n-1}$。
+    \item $(A^*)^*=\vert A\vert^{n-2}A$。
+\end{enumerate}
+
+证明关系式一，由于$A^*=\vert A\vert A^{-1}$，$(A^*)^{-1}=(\vert A\vert A^{-1})^{-1}=\dfrac{1}{\vert A\vert}(A^{-1})^{-1}=\dfrac{1}{\vert A\vert}A$。
+
+证明关系式二，对$A^*=\vert A\vert A^{-1}$两边取行列式，得到$\vert A^*\vert=\vert\vert A\vert A^{-1}\vert=\vert A\vert^n\vert A^{-1}\vert=\dfrac{\vert A\vert^n}{\vert A\vert}=\vert A\vert^{n-1}=\dfrac{1}{\vert A^{-1}\vert^{n-1}}$。
+
+证明关系式三，对$(A^*)^*=(A^*)^{-1}\vert A^*\vert=(\vert A\vert A^{-1})^{-1}\vert A\vert^{n-1}=\vert A\vert^{-1}A\vert A\vert^{n-1}=\vert A\vert^{n-2}A$。
+
 \section{方阵行列式}
 
 \subsection{两项积商}
 
-\begin{itemize}
+\begin{enumerate}
     \item $\vert A^T\vert=\vert A\vert$。
     \item $\vert A^{-1}\vert=\dfrac{1}{\vert A\vert}$。
     \item $\vert\lambda A\vert=\lambda^n\vert A\vert$。
     \item $\vert AB\vert=\vert A\vert\cdot\vert B\vert=\vert BA\vert$。
     \item $\vert A^*\vert=\vert A\vert^{n-1}$。
-\end{itemize}
+\end{enumerate}
 
 因为两项积商比较简单，所以基本上会变换$A$和$B$，让其变为转置或逆矩阵。
 
