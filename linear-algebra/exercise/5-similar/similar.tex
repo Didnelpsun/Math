@@ -155,6 +155,12 @@ $a=1$，$4x_1-x_2+x_3=0$，$x_1+2x_2-2x_3=0$，解得基础解系$(0,1,1)^T$,$\a
 
 可以使用相似对角化的四个条件，但是最基本的使用还是$A$有$n$个无关的特征向量$\xi$。
 
+\begin{enumerate}
+    \item 判断是否为实对称矩阵，实对称矩阵必然相似于对角矩阵。
+    \item 特征值是否都是实单根，相似于对角矩阵。
+    \item 特征值为$n$重根，对应$n$个线性无关的特征向量，则相似于对角矩阵。如果小于则不相似。
+\end{enumerate}
+
 \subsection{反求参数}
 
 常用方法：
@@ -164,6 +170,8 @@ $a=1$，$4x_1-x_2+x_3=0$，$x_1+2x_2-2x_3=0$，解得基础解系$(0,1,1)^T$,$\a
     \item 若$\xi$是$A$属于特征值$\lambda$的特征向量，则有$A\xi=\lambda\xi$，建立若干等式或方程组来计算参数。
     \item 若$\lambda$是$A$的特征值，则与$\vert\lambda E-A\vert=0$，通过该等式计算参数。
 \end{itemize}
+
+\subsubsection{具体矩阵}
 
 \textbf{例题：}已知$A=\left(\begin{array}{ccc}
     2 & 0 & 0 \\
@@ -177,9 +185,43 @@ $a=1$，$4x_1-x_2+x_3=0$，$x_1+2x_2-2x_3=0$，解得基础解系$(0,1,1)^T$,$\a
 
 首先可以利用迹相等，则$2+0+x=2+y-1$，行列式值相等，则$-2=-2y$，解得$x=0$，$y=1$。
 
+\subsubsection{对角矩阵}
+
+首先要计算其特征值，再根据特征值反代特征方程，根据向量的构成判定秩的大小。
+
+\textbf{例题：}已知$A=\left(\begin{array}{ccc}
+    0 & 0 & 1 \\
+    x & 1 & y \\
+    1 & 0 & 0
+\end{array}\right)$相似于对角矩阵，求$xy$关系式。
+
+解：已知相似，即$P^{-1}AP=\Lambda$，则需要求$A$的特征值和特征向量。
+
+根据特征关系式$\vert E\lambda-A\vert=0$，即$\left\vert\begin{array}{ccc}
+    \lambda & 0 & -1 \\
+    -x & \lambda-1 & -y \\
+    -1 & 0 & \lambda
+\end{array}\right\vert=(\lambda-1)(\lambda^2-1)=(\lambda-1)^2(\lambda+1)=0$，即有特征值$\lambda_1=\lambda_2=1$，$\lambda_3=1$。
+
+此时有二重特征值，所以应该有两个线性无关的特征向量，即对于$(E-A)x=0$有两个线性无关的解向量，所以该矩阵的秩为$3-2=1$。
+
+$E-A=\left(\begin{array}{ccc}
+    1 & 0 & -1 \\
+    -x & 1 & -y \\
+    -1 & 0 & 1
+\end{array}\right)=\left(\begin{array}{ccc}
+    1 & 0 & -1 \\
+    0 & 0 & -x-y \\
+    0 & 0 & 0
+\end{array}\right)$。
+
+所以当$r(E-A)=1$时$x+y=0$。
+
 \subsection{反求矩阵}
 
 若有可逆矩阵$P$，使得$P^{-1}AP=\Lambda$，则：
+
+$P$即是$A$特征向量的拼合。
 
 \begin{itemize}
     \item $A=P\Lambda P^{-1}$。
