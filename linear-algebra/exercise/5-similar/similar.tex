@@ -257,11 +257,16 @@ $\vert\lambda E-A\lambda=\left|\begin{array}{ccc}
 
 \subsection{相似性}
 
-\begin{itemize}
-    \item 定义法：若存在可逆矩阵$P$，使得$P^{-1}AP=B$，则$A\sim B$。
-    \item 性质：若$A\sim B$，则$r(A)=r(B)$，$\vert A\vert=\vert B\vert$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B$。
-    \item 传递性：$A\sim\Lambda$，$\Lambda\sim B$，则$A\sim B$。
-\end{itemize}
+% \begin{itemize}
+%     \item 定义法：若存在可逆矩阵$P$，使得$P^{-1}AP=B$，则$A\sim B$。
+%     \item 性质：若$A\sim B$，则$r(A)=r(B)$，$\vert A\vert=\vert B\vert$，$tr(A)=tr(B)$，$\lambda_A=\lambda_B$。
+%     \item 传递性：$A\sim\Lambda$，$\Lambda\sim B$，则$A\sim B$。
+% \end{itemize}
+
+\begin{enumerate}
+    \item 首先要判断特征值是否相等（利用$\vert\lambda E-A\vert$）。
+    \item 判断矩阵是否可以相似对角化（先根据特征值拼出$\Lambda$，然后求矩阵的秩是否也有同样数量的特征向量）。
+\end{enumerate}
 
 \textbf{例题：}已知矩阵$A=\left[\begin{array}{ccc}
     3 & 1 & 2 \\
