@@ -222,7 +222,118 @@ $\because$面积为$\alpha$的下标为$\alpha$，$\therefore$面积为$\dfrac{1
 
 使用定义法则直接用二重积分的分布函数来求，使用卷积公式则使用概率密度。
 
-\subsection{二维随机变量分布}
+\subsection{二维离散型随机变量}
+
+\subsection{二维连续型随机变量}
+
+\subsubsection{联合概率}
+
+\paragraph{概率函数} \leavevmode \medskip
+
+已知联合概率密度，可以求概率函数，通过二重积分的方式，图像面积即是概率。
+
+\textbf{例题：}已知概率密度为$f(x,y)=\left\{\begin{array}{ll}
+    6, & 0<x^2<y<x<1 \\
+    0, & \text{其他}
+\end{array}\right.$，\\求$P\left\{X>\dfrac{1}{2}\right\}$，$P\left\{Y<\dfrac{1}{2}\right\}$。
+
+解：
+
+\begin{minipage}{0.45\linewidth}
+    \begin{tikzpicture}[scale=3]
+        \begin{scope}
+            \clip(0.5,0)rectangle(1,1);
+            \draw[black, thick, smooth, domain=0:1,fill=gray!20] plot (\x, {\x*\x});
+        \end{scope}
+        \draw[black, thick, smooth, domain=0:1] plot (\x, {\x*\x});
+        \draw[black, thick, smooth, domain=0:1] plot (\x, {\x});
+        \draw[black, thick](1/2,1) -- (1/2,0) node[below]{$\frac{1}{2}$};
+        \draw[-latex](0,0) -- (1.25,0) node[below]{$x$};
+        \draw[-latex](0,-0.25) -- (0,1.25) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick](1,1) -- (0,1) node[left]{$1$};
+        \draw[black, thick](1,1) -- (1,0) node[below]{$1$};
+        \filldraw[black] (0.25,0.75) node{$y=x$};
+        \filldraw[black] (0.75,0.25) node{$y=x^2$};
+    \end{tikzpicture}
+\end{minipage}
+\hfill
+\begin{minipage}{0.45\linewidth}
+    \begin{tikzpicture}[scale=3]
+        \begin{scope}
+            \clip(0,0)rectangle(1,0.5);
+            \draw[black, thick, smooth, domain=0:1,fill=gray!20] plot (\x, {\x*\x});
+        \end{scope}
+        \draw[black, thick, smooth, domain=0:1] plot (\x, {\x*\x});
+        \draw[black, thick, smooth, domain=0:1] plot (\x, {\x});
+        \draw[black, thick](1,1/2) -- (0,1/2) node[left]{$\frac{1}{2}$};
+        \draw[-latex](0,0) -- (1.25,0) node[below]{$x$};
+        \draw[-latex](0,-0.25) -- (0,1.25) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black, thick](1,1) -- (0,1) node[left]{$1$};
+        \draw[black, thick](1,1) -- (1,0) node[below]{$1$};
+        \filldraw[black] (0.25,0.75) node{$y=x$};
+        \filldraw[black] (0.75,0.25) node{$y=x^2$};
+    \end{tikzpicture}
+\end{minipage}
+
+$P\left\{X>\dfrac{1}{2}\right\}=\displaystyle{6\int_{\frac{1}{2}}^1\textrm{d}x\int_{x^2}^x\textrm{d}y=6\int_{\frac{1}{2}}^1(x-x^2)\textrm{d}x=6\left(\dfrac{1}{2}x^2-\dfrac{1}{3}x^3\right)\bigg\vert_{\frac{1}{2}}^1=\dfrac{1}{2}}$。
+
+$P\left\{Y<\dfrac{1}{2}\right\}=\displaystyle{6\int^{\frac{1}{2}}_0\textrm{d}y\int_y^{\sqrt{y}}\textrm{d}x=6\int^{\frac{1}{2}}_0(\sqrt{y}-y)\textrm{d}y=\sqrt{2}-\dfrac{3}{4}}$。
+
+\subsubsection{边缘概率}
+
+\paragraph{边缘概率函数} \leavevmode \medskip
+
+往往是已知联合概率函数$F(x,y)$求边缘概率函数$F_X(x)$、$F_Y(y)$，需要将联合概率函数中的$x/y\to+\infty$，然后求这个函数的极限值。
+
+\textbf{例题：}如果二维随机变量$(X,Y)$的分布函数为$F(x,y)=\\\left\{\begin{array}{ll}
+    1-e^{-\lambda_1x}-e^{-\lambda_2y}+e^{-\lambda_1x-\lambda_2y-\lambda12\max\{x,y\}}, & \lambda_1,\lambda_2,\lambda_{12}>0,x>0,y>0 \\
+    0, & \text{其他}
+\end{array}\right.$，\\求$XY$各自的边缘分布函数。
+
+解：$\lim\limits_{x\to+\infty}\max\{x,y\}=x=+\infty$，$\lim\limits_{y\to+\infty}\max\{x,y\}=y=+\infty$。
+
+$F_X(x)=F(x,+\infty)=1-e^{-\lambda_1x}-0+0=1-e^{-\lambda_1x}$，$x>0$，当其他时$=0$。
+
+$F_Y(y)=F(+\infty,y)=1-0-e^{-\lambda_2y}+0=1-e^{-\lambda_2x}$，$y>0$，当其他时$=0$。
+
+\paragraph{边缘概率密度} \leavevmode \medskip
+
+往往是已知联合概率密度$f(x,y)$求边缘概率密度$f_X(x)$、$f_Y(y)$，需要将联合概率密度对另一个变量进行上下限无穷的一重积分，如果$xy$有上下限的定义域则需要画出图像取交集。
+
+确定上下限时要注意，如果求$x$的边缘分布对$y$积分，表示$x$不动，求$y$的范围，求$y$的则反之。
+
+\textbf{例题：}求$f(x,y)=\left\{\begin{array}{ll}
+    \dfrac{5}{4}(x^2+y), & 0<y<1-x^2 \\
+    0, \text{其他}
+\end{array}\right.$的边缘概率密度。
+
+\begin{minipage}{0.5\linewidth}
+    
+    如果求$x$的边缘概率密度，则$y$的取值范围为最底部的0到函数$1-x^2$。如果求$y$的边缘密度，则发现$D$为对称函数，所以可以拆为左右两个部分，$x$的范围是$0$到函数$\sqrt{1-y}$。
+
+\end{minipage}
+\hfill
+\begin{minipage}{0.4\linewidth}
+    \begin{tikzpicture}[scale=2]
+        \draw[black, thick, smooth, domain=-1:1,fill=gray!20] plot (\x, {-\x*\x+1});
+        \draw[-latex](-1.25,0) -- (1.25,0) node[below]{$x$};
+        \draw[-latex](0,-0.25) -- (0,1.25) node[above]{$y$};
+        \filldraw[black] (0,0) node[below]{$O$};
+        \draw[black](1,-0.15) node{$1$};
+        \draw[black](-1,-0.15) node{$-1$};
+        \draw[black](0,1.15) node{$1$};
+        \draw[black, thick, smooth, domain=-1.1:1.1] plot (\x, {-\x*\x+1});
+        \draw[black](0.2,0.5) node{$D$};
+    \end{tikzpicture}
+\end{minipage}
+
+$f_X(x)=\dfrac{5}{4}\int_0^{1-x^2}x^2+y\,\textrm{d}y=\dfrac{5}{4}\left(x^2y+\dfrac{y^2}{2}\right)\bigg\vert_0^{1-x^2}=-\dfrac{5}{8}x^4+\dfrac{5}{8}$。
+
+$f_Y(y)=2\dfrac{5}{4}\int_0^{\sqrt{1-y}}x^2+y\,\textrm{d}x=\dfrac{5}{2}\left(\dfrac{x^3}{3}+yx\right)\bigg\vert_0^{\sqrt{1-y}}=\dfrac{5}{6}(1-y)\sqrt{1-y}+\dfrac{5}{2}y\sqrt{1-y}$。
+
+\subsubsection{二维均匀分布}
 
 \subsubsection{二维正态分布}
 
@@ -258,7 +369,13 @@ $\therefore(X,Y)\sim N\left(-\dfrac{1}{2},\dfrac{1}{2};\dfrac{1}{4},\dfrac{1}{4}
 
 \subsection{二维随机变量函数分布}
 
-\subsubsection{和的分布}
+\subsubsection{离散型}
+
+\subsubsection{连续型}
+
+可以使用卷积公式法和分布函数法两种。
+
+\paragraph{和的分布} \leavevmode \medskip
 
 \textbf{例题：}随机变量$(X,Y)$的概率密度函数$f(x,y)=\left\{\begin{array}{ll}
     e^{-y}, & 0<x<y \\
@@ -285,7 +402,7 @@ $\therefore(X,Y)\sim N\left(-\dfrac{1}{2},\dfrac{1}{2};\dfrac{1}{4},\dfrac{1}{4}
 
 \end{multicols}
 
-\subsubsection{差的分布}
+\paragraph{差的分布} \leavevmode \medskip
 
 \textbf{例题：}设$X\sim N(\mu,\sigma_1^2)$，$Y\sim N(2\mu,\sigma_2^2)$，$XY$相互独立，已知$P\{X-Y\geqslant1\}=\dfrac{1}{2}$，求$\mu$。
 
@@ -294,6 +411,8 @@ $\therefore(X,Y)\sim N\left(-\dfrac{1}{2},\dfrac{1}{2};\dfrac{1}{4},\dfrac{1}{4}
 又$P\{X-Y\geqslant1\}=\dfrac{1}{2}$，则$X-Y$在$1$这里均分，则对称轴为$1$，即$\mu=-1$。
 
 \subsubsection{混合型}
+
+使用全概率公式根据离散变量进行概率拆分。
 
 \textbf{例题：}设随机变量$X_1$和$X_2$相互独立，已知$X_1\sim B\left(1,\dfrac{3}{4}\right)$，$X_2$的分布函数为$F(x)$，求$Y=X_1+X_2$的分布函数$F_Y(y)$。
 
