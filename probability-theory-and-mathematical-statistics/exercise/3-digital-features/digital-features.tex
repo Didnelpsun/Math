@@ -100,4 +100,42 @@ $Cov(X,Y)=E(XY)-E(X)E(Y)$。
 
 解：$\because Y_1=\sum\limits_{i=2}^nX_i$，$Y_2=\sum\limits_{j=1}^{n-1}X_j$，$DX_i=\sigma^2$。
 
+\section{独立性与相关性}
+
+独立范围小于不相关范围。所以我们一般先用数字特征判断相关性再用分布判断独立性。
+
+$Cov(X,Y)=E(XY)-EXEY\left\{\begin{array}{l}
+    \neq0\Leftrightarrow XY\text{相关}\Rightarrow X\text{与}Y\text{不独立} \\
+    =0\Leftrightarrow XY\text{不相关，分布}\left\{\begin{array}{l}
+        XY\text{独立} \\
+        XY\text{不独立} \\
+    \end{array}\right.
+\end{array}\right.$
+
+且如果服从二维正态分布，则$XY$独立与不相关等价。
+
+\subsection{独立性}
+
+通过分布来确定独立性。如独立条件是$f(x,y)=f_X(x)f_Y(y)$，$P\{X=x_i,Y=y_j\}=P\{X=x_i\}P\{Y=y_j\}$。
+
+\subsection{相关性}
+
+通过数字特征来判断相关性。如不相关性条件是$\rho_{XY}=0$、$Cov(X,Y)=0$、$E(XY)=EXEY$、$D(X\pm Y)=DX+DY$。
+
+\section{切比雪夫不等式}
+
+切比雪夫不等式用于估算随机变量在区间的概率，证明收敛性问题。
+
+\subsection{区间概率}
+
+常用变式$P\{\vert Z-EZ\vert\geqslant\epsilon\}\leqslant\dfrac{DZ}{\epsilon^2}$或$P\{\vert Z-EZ\vert<\epsilon\}\geqslant1-\dfrac{DZ}{\epsilon^2}$，$Z=f(X)$。
+
+\textbf{例题：}已知随机变量$XY$，$EX=EY=2$、$DX=1$、$DY=4$，$\rho_{XY}=0.5$，估计概率$P\{\vert X-Y\vert\geqslant6\}$。
+
+解：已知$\rho_{XY}=0.5=\dfrac{Cov(X,Y)}{\sqrt{DX}\sqrt{DY}}=\dfrac{Cov(X,Y)}{2}$，$Cov(X,Y)=1=E(XY)-EXEY$，$E(XY)=5$。
+
+令$X-Y=Z$，$EZ=EX-EY=0$，$DZ=DX+DY-2Cov(X,Y)=1+4-2=3$。
+
+取$\epsilon=6$，由切比雪夫不等式得$P\{\vert X-Y\vert\geqslant6\}=P\{\vert Z-0\vert\geqslant6\}\leqslant\dfrac{DZ}{\epsilon^2}=\dfrac{3}{6^2}=\dfrac{1}{12}$。
+
 \end{document}

@@ -64,7 +64,7 @@
 \subsubsection{特征向量性质}
 
 \begin{itemize}
-    \item $k$重特征值$\lambda$至多只有$k$个线性无关的特征向量。
+    \item $k$重特征值$\lambda$至多只有$k$个线性无关的特征向量。一共有$k$个特征向量。
     \item 若$\xi_1$和$\xi_2$是$A$的属于不同特征值$\lambda_1$和$\lambda_2$的特征向量，则$\xi_1$和$\xi_2$线性无关。
     \item 若$\xi_1$和$\xi_2$是$A$的属于同特征值$\lambda$的特征向量，则$k_1\xi_1+k_2\xi_2$（$k_1k_2$不同时为0）仍是$A$的属于特征值$\lambda$的特征向量。
 \end{itemize}
@@ -88,15 +88,23 @@ $Ak_1\xi_1+Ak_2\xi_2=k_1\lambda_1\xi_1+k_2\lambda_1\xi_2=0$。又$k_1\xi_1+k_2\x
 
 性质一是因为特征向量的性质而来。从几何来理解，特征向量表示的是矩阵变换中只有伸缩变换没有旋转变换的方向向量，特征值是这个方向的伸缩系数，一个方向当然只有一个伸缩系数。
 
-\subsection{运算}
+\subsubsection{运算性质}
 
 $\because\lambda\xi-A\xi=0$，$\therefore(\lambda E-A)\xi=0$，又$\xi\neq0$，$\therefore(\lambda E-A)x=0$有非零解。
 
 从而$\lambda E-A$所表示的方阵线性相关，为降秩，从而$\vert\lambda E-A\vert=0$。
 
+其中$n-r(\lambda E-A)$的值就是特征向量中自由变量的个数。
+
 $\vert\lambda E-A\vert=0$也称为特征方程或是特征多项式，解出的$\lambda_i$就是特征值。
 
-将$\lambda_i$代回原方程，根据极大线性无关组解出通解就是$\xi$。
+将$\lambda_i$代回原方程求解。即$(\lambda E-A)x=0$有非零解，齐次方程只有唯一零解和无穷非零解两种结果，所以这里求出来的就是无穷非零解，所以只用求出解的基础解系即可。
+
+根据极大线性无关组解出通解就是$\xi$，非线性无关组的变量设为自由变量（不能被约束的）用来表示其他变量。
+
+如果没有行阶梯型，则对于一列全是0的变量就是自由变量。
+
+\subsection{运算}
 
 \subsubsection{具体型}
 

@@ -40,6 +40,10 @@
 
 这些定理与定律是针对极大量数据的概率分析，是概率论向数理统计的过渡。
 
+大数定律与中心定理成立的首要条件都是独立同分布且数学期望存在。
+
+大数定律用于表示实验均值逼近期望，中心极限定理表示独立同分布的变量逼近正态分布。
+
 \section{依概率收敛}
 
 \textcolor{violet}{\textbf{定义：}}设随机变量$X$与随机变量序列$\{X_n\}$（$n=1,2,3\cdots$），如果对任意的$\epsilon>0$，有$\lim\limits_{n\to\infty}P\{\vert X_n-X\vert\geqslant\epsilon\}=0$或$\lim\limits_{n\to\infty}P\{\vert X_n-X\vert<\epsilon\}=1$，则称随机变量序列$\{X_n\}$\textbf{依概率收敛于随机变量$X$}，记为$\lim\limits_{n\to\infty}X_n=X(P)$或$X_n\overset{P}{\rightarrow}X(n\to\infty)$。
@@ -132,6 +136,10 @@ $C.$服从同一泊松分布\qquad$D.$服从同一连续型分布
 
 中心极限定理总结来看均为：若$X_i$独立同分布于某一分布$F$，则$\sum\limits_{i=1}^nX_i\overset{n\to\infty}{\sim}N(n\mu,n\sigma^2)$。
 
+即无论什么分布的事件在次数无限大的情况下近乎正态分布。
+
+$n$一般大于10以上即可使用中心极限定理。
+
 \subsection{列维-林德伯格定理}
 
 \textcolor{violet}{\textbf{定义：}}假设$\{X_n\}$是独立分布的随机变量序列，若$EX_i=\mu$，$DX_i=\sigma^2>0$（$i=1,2,\cdots$）存在，则对任意的实数$x$，有$\lim\limits_{n\to\infty}P\left\{\dfrac{\sum\limits_{i=1}^nX_i-n\mu}{\sqrt{n}\sigma}\leqslant x\right\}=\dfrac{1}{\sqrt{2}\pi}\int_{-\infty}^xe^{-\frac{t^2}{2}}\,\textrm{d}t=\varPhi(x)$。（正态分布标准化）
@@ -151,6 +159,8 @@ $\dfrac{\sum\limits_{i=1}^nX_i-n\mu}{\sqrt{n}\sigma}\sim N(0,1)$，$\sum\limits_
 保证该工人有95\%的把握能工作2000小时，则$P\{\sum\limits_{i=1}^nX_i\geqslant2000\}\approx0.95$，则标准化$P\left\{\dfrac{\sum X_i-20n}{20\sqrt{n}}\geqslant\dfrac{2000-20n}{\sqrt{20\sqrt{n}}}\right\}\approx0.95$，$1-P\left\{Z<\dfrac{100-n}{\sqrt{n}}\right\}\approx0.95$，$Z=\dfrac{\sum X_i-20n}{20\sqrt{n}}\sim N(0,1)$，即$\varPhi(\dfrac{100-n}{\sqrt{n}})\approx0.05$，查表，$\dfrac{n-100}{\sqrt{n}}\approx1.64$，$n\approx118$。
 
 \subsection{棣莫弗-拉普拉斯定理}
+
+或简称拉普拉斯中心极限定理。是列维-林德伯格定理的特殊情况。
 
 \textcolor{violet}{\textbf{定义：}}假设随机变量$Y_n\sim B(n,p)$（$0<p<1$，$n\geqslant1$），则对任意实数$x$，有$\lim\limits_{n\to\infty}P\left\{\dfrac{Y_n-np}{\sqrt{np(1-p)}}\leqslant x\right\}=\dfrac{1}{\sqrt{pi}}\int_{-\infty}^xe^{-\frac{t^2}{2}}\,\textrm{d}t=\varPhi(x)$。\medskip
 
