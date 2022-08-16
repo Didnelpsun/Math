@@ -73,7 +73,7 @@ $=\lim\limits_{x\to\infty}\dfrac{\left[\left(1+\dfrac{3}{2x}\right)^{\frac{2x}{3
 
 当看到复杂的式子，且不论要求的极限值的趋向，而只要替换的式子是$\Delta\to 0$时的无穷小，就使用等价无穷小进行替换。
 
-\textcolor{orange}{注意：}替换的必然是整个求极限的乘或除的因子，一般加减法与部分的因子不能进行等价无穷小替换。
+\textcolor{orange}{注意：}替换的必然是整个求极限的乘或除的因子，一般加减法与部分的因子不能进行等价无穷小替换。如果是判断等价无穷小的阶数则可以，因为只会相差一个更高阶的无穷小，不影响整体。
 
 对于无法直接得出变换式子的，可以对对应参数进行凑，以达到目标的可替换的等价无穷小。
 
@@ -371,6 +371,10 @@ $=-1+\lim\limits_{x\to 0}\dfrac{-\dfrac{1}{2}(\cos 2x-1)+\sqrt{\cos 2x}(1-\sqrt[
 
 $=-1+\lim\limits_{x\to 0}\dfrac{-\dfrac{1}{2}(-\dfrac{4x^2}{2})+\left(-\dfrac{1}{3}\right)\left(-\dfrac{9x^2}{2}\right)}{-\dfrac{x^2}{2}}=-6$
 
+\subsection{脱帽法}
+
+即函数中有$f(x)$，且$f(x)$无法转换出常数项。则将$f(x)$利用已知的极限值转换为一个函数加上高阶无穷小的形式。
+
 \section{极限计算形式}
 
 极限相关计算形式主要分为下面六种：
@@ -504,6 +508,8 @@ $1-a=0;-\left(\dfrac{1}{2}+b\right)=2$\medskip
 $\therefore a=1;b=-\dfrac{5}{2}$。
 
 \subsubsection{无穷小}
+
+求无穷小阶数时，注意低阶吸收高阶，即面对多项式的无穷小，其阶数为幂次最低的那个，逼近0速度最慢的那个的阶数。
 
 \paragraph{等价无穷小} \leavevmode \medskip
 
