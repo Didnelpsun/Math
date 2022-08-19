@@ -244,11 +244,29 @@ $\therefore\lim\limits_{(x,y)\to(0,0)}f(x,y)-f(0,0)=bx+cy+o(\rho)$。
 
 \subsubsection{显函数}
 
-首先对原式分别对$xy$求导令其为0，得到极值点。计算二阶微分判断点是否为极值点和为哪种极值点，最后得到极值。
+首先对原式分别对$xy$求导令其为0，得到极值点。利用根的规则计算二阶微分判断点是否为极值点和为哪种极值点，最后得到极值。
 
 \subsubsection{隐函数}
 
 首先对原式分别对$xy$求导，然后令$z_x'$、$z_y'$全部为0得到关系式，再把关系式带回原式得到可疑点。计算二阶微分判断点是否为极值点和为哪种极值点，最后得到极值。
+
+\textbf{例题：}已知对于$z=z(x,y)>0$由$x^2+y^2+z^2-2x-2y-4z-10=0$确定，求其极值。
+
+解：由于$x,y$具有对称性，所以分别求偏导得到：$\dfrac{\partial z}{\partial x}=\dfrac{1-x}{z-2}$，$\dfrac{\partial z}{\partial y}=\dfrac{1-y}{z-2}$。
+
+令偏导数等于0，则得到唯一驻点$(1,1)$。
+
+带入方程解的$(z-6)(z+2)=0$，解得$z(1,1)=6$（$z>0$）。
+
+为判断极值点，需要求二阶偏导。
+
+$\dfrac{\partial^2z}{\partial x^2}=\dfrac{-(z-2)-(1-x)\dfrac{\partial z}{\partial x}}{(z-2)^2}$，所以带入$(1,1)$和$\dfrac{\partial z}{\partial x}=0$，得到$A=-\dfrac{1}{4}$。
+
+$\dfrac{\partial^2z}{\partial x\partial y}=\dfrac{(x-1)\dfrac{\partial z}{\partial y}}{(z-2)^2}$，同理得$B=0$。
+
+$\dfrac{\partial^2z}{\partial y^2}=\dfrac{-(z-2)-(1-y)\dfrac{\partial z}{\partial y}}{(z-2)^2}$，同理得$C=-\dfrac{1}{4}$。
+
+$\Delta<0$且$A>0$，所以得到极大值6。
 
 \subsection{有条件极值}
 
