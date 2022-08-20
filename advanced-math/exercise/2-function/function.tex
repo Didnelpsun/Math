@@ -34,7 +34,7 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
-\section{函数连续性}
+\section{函数性质}
 
 \subsection{连续}
 
@@ -159,6 +159,14 @@ $\therefore x=e$为无穷间断点。\medskip
     而作为分子的$e^x-1$必然为一个常数，当式子趋向$1$或$e$的时候分母两个不等式中的一个不等式必然为一个常数，从而另一个不等式则变为了无穷小，所以$\lim\limits_{x\to 1}f(x)=\lim\limits_{x\to e}f(x)=\infty$。
 
 $\therefore a=1,b=e$。
+
+\subsection{有界性}
+
+对于一个函数和其导函数，其函数有界性和其导函数有界性不存在必然关系。
+
+对于有限区间，导函数有界是原函数有界的充分必要条件。如$f(x)=\sqrt{x}$在$[0,a]$上有界，$f'(x)=\dfrac{1}{2\sqrt{x}}$在靠近0的一侧无界。如果导函数有界，则在有限区间内增加的增量必然是有界的，所以原函数必然有界。
+
+对于无限区间，导函数有界和原函数有界既非充分也非必要。如$f(x)=x$在$R$上无界，但是$f'(x)=1$有界；$f(x)=\sin x^2$在$R$上有界，而$f'(x)=2x\cos x^2$在$R$上无界。
 
 \section{中值定理}
 
@@ -372,7 +380,28 @@ $(1,-10)$为拐点，代入：$y''\vert_{x=1}=6a+2b=0$，$y\vert_{x=1}=a+b+c+d=-
 
 \subsection{渐近线}
 
-\subsection{零点问题}
+\subsection{拐点}
+
+\subsubsection{已知二阶导函数}
+
+不仅要关注$f''(x)$函数，还要关注$f''(x)$未定义的点。
+
+\begin{itemize}
+    \item $f''(x_0)=0$，且左右两边正负号发生改变。
+    \item $f''(x_0)$在$x_0$处无定义，但是左右两边正负号发生改变。
+\end{itemize}
+
+\subsubsection{已知导函数}
+
+要求原函数的拐点（求二阶导），就要求导函数（一阶导）的驻点（一阶导），即关心导函数的极值点。
+
+如果驻点两端的单调性相反，即是极值点，则代表这里就是拐点。
+
+\subsubsection{已知原函数}
+
+要关注的是函数图像凹凸性发生变化的点。
+
+\subsection{零点}
 
 \subsubsection{零点定理}
 
