@@ -6,8 +6,8 @@
 \definecolor{violet}{RGB}{192,0,255} 
 \definecolor{aqua}{RGB}{0,255,255} 
 \usepackage{geometry}
-\setcounter{tocdepth}{4}
-\setcounter{secnumdepth}{4}
+\setcounter{tocdepth}{5}
+\setcounter{secnumdepth}{5}
 % 设置四级目录与标题
 \geometry{papersize={21cm,29.7cm}}
 % 默认大小为A4
@@ -142,6 +142,16 @@ $\therefore z=\dfrac{1}{2}x^2y+\dfrac{1}{2}xy^2+x+y^2$。
 
 即偏导数的存在性。
 
+可微则偏导数存在，但是偏导数存在不一定可微。
+
+偏导数存在则任意一侧极限存在，但是两侧极限不一定存在。
+
+即$\lim\limits_{x\to x_0}f(x,y_0)=\lim\limits_{y\to y_0}f(x_0,y)=f(x_0,y_0)$，而$\lim\limits_{(x,y)\to(0,0)}f(x,y)$不一定存在。
+
+而偏导数存在和函数连续性无关。
+
+偏导数在该点连续是函数在该点可微的充分非必要条件。
+
 \textbf{例题：}求函数$f(x,y)=\sqrt{\vert xy\vert}$在点$(0,0)$处偏导数是否存在，是否可微。
 
 解：对其求偏导：$f_x'(0,0)=\lim\limits_{\Delta x\to0}\dfrac{f(0+\Delta x,0)-f(0,0)}{\Delta x}=\lim\limits_{\Delta x\to0}\dfrac{\sqrt{\vert\Delta x\cdot0\vert}-0}{\Delta x}\\=0=A$，同理$f_y'(0,0)=0=B$，所以$f(x,y)$在$(0,0)$处偏导数存在。
@@ -170,9 +180,17 @@ $\therefore z=\dfrac{1}{2}x^2y+\dfrac{1}{2}xy^2+x+y^2$。
 
 \subsubsection{全微分}
 
-\paragraph{含参数} \leavevmode \medskip
+\paragraph{积分法} \leavevmode \medskip
 
-基本上是用含参数的全微分来求参数。有多种方法。
+即根据全微分计算出原函数。对偏导求积分还原$f(x)$。
+
+求原函数或求微分参数可以使用。
+
+\textbf{例题：}已知函数$z=f(x,y)$的全微分$\textrm{d}z=2x\textrm{d}x+\sin y\textrm{d}y$，$f(1,0)=2$，求$f(x,y)$。
+
+解：由全微分定义，可得$\dfrac{\partial f}{\partial x}=2x$，$\dfrac{\partial f}{\partial y}=\sin y$。
+
+各自积分得到$f(x,y)=x^2-\cos y+C$，代入$f(1,0)=1-1+C=2$，所以$C=2$，即$f(x,y)=x^2-\cos y+2$。
 
 \textbf{例题：}设$(ax^2y^2-2xy^2)\textrm{d}x+(2x^3y+bx^2y+1)\textrm{d}y$是函数$f(x,y)$的全微分，求参数。
 
@@ -181,6 +199,22 @@ $\therefore z=\dfrac{1}{2}x^2y+\dfrac{1}{2}xy^2+x+y^2$。
 分别对其积分：$f(x,y)=\int(ax^2y^2-2xy^2)\textrm{d}x=\int(2x^3y+bx^2y+1)\textrm{d}y$。
 
 从而$\dfrac{a}{3}x^3y^2-x^2y^2+C(y)=x^3y^2+\dfrac{b}{2}x^2y^2+y+C(x)$，解得$a=3$，$b=-2$，$f(x)=x^3y^2-x^2y^2+y$。
+
+\paragraph{偏导法} \leavevmode \medskip
+
+若函数连续，则利用偏导不变性$\dfrac{\partial f}{\partial x\partial y}=\dfrac{\partial f}{\partial y\partial x}$。
+
+可以求出参数。
+
+\textbf{例题：}已知$\dfrac{(x+ay)\textrm{d}x+y\textrm{d}y}{(x+y)^2}$为全微分，求$a$。
+
+解：如果使用上面的积分法很难求出参数，采用积分法。
+
+设原函数$u(x,y)$，则$\dfrac{\partial u}{\partial x}=\dfrac{x+ay}{(x+y)^2}$，$\dfrac{\partial u}{\partial y}=\dfrac{y}{(x+y)^2}$。
+
+分别对其求偏导：$\dfrac{\partial^2u}{\partial x\partial y}=\dfrac{a(x+y)^2-(x+ay)2(x+y)}{(x+y)^4}=\dfrac{(a-2)x-ay}{(x+y)^3}$，$\dfrac{\partial u}{\partial y}=\dfrac{-2y}{(x+y)^3}$。
+
+所以两者相等，即$(a-2)x\equiv(a-2)y$，所以$a=2$。
 
 \paragraph{极限定义} \leavevmode \medskip
 
@@ -222,21 +256,103 @@ $\therefore\lim\limits_{(x,y)\to(0,0)}f(x,y)-f(0,0)=bx+cy+o(\rho)$。
 
 三元隐函数求导公式：$\dfrac{\partial z}{\partial x}=-\dfrac{F_x'}{F_z'}$，$\dfrac{\partial z}{\partial y}=-\dfrac{F_y'}{F_z'}$。
 
+\subparagraph{给定表达式} \leavevmode \medskip
+
+表达式直接给出，所以直接对表达式进行偏导。
+
 \textbf{例题：}设$f(x,y,z)=e^x+y^2z$，其中$z=z(x,y)$由$x+y+z+xyz=0$确定，求$f_x'(0,1,-1)$。
 
 解：$f_x'(x,y,z)=e^x+y^2z_x'$。
 
 又$x+y+z+xyz=0$对$x$求导：$1+z_x'+yz+xyz_x'=0$，代入$(0,1,-1)$，$1+z_x'-1=0$，$z_x'=0$。代入$f_x'(x,y,z)=e^0=1$。
 
-\paragraph{原函数} \leavevmode \medskip
+\subparagraph{未定表达式} \leavevmode \medskip
 
-即根据全微分计算出原函数。跟之前的偏导求积分类似。
+表达式未直接给出，而是以$f(u,v)$的形式，此时求导要使用链式法则和隐函数法则。
 
-\textbf{例题：}已知函数$z=f(x,y)$的全微分$\textrm{d}z=2x\textrm{d}x+\sin y\textrm{d}y$，$f(1,0)=2$，求$f(x,y)$。
+如果$uv$中不含有目标函数$z$则使用一般的链式求导法，如果$uv$中含有$z$则需要使用隐函数求导公式。
 
-解：由全微分定义，可得$\dfrac{\partial f}{\partial x}=2x$，$\dfrac{\partial f}{\partial y}=\sin y$。
+由于$f$是未知的，所以一般$f(u,v)$对$u$求一阶导记为$f'_1$，$v$求一阶导记为$f'_2$，对$uv$各求导记为$f''_{12}$，$vu$各求导记为$f''_{21}$，对$u$求二阶导记为$f''_{11}$，$v$求二阶导记为$f''_{22}$。
 
-各自积分得到$f(x,y)=x^2-\cos y+C$，代入$f(1,0)=1-1+C=2$，所以$C=2$，即$f(x,y)=x^2-\cos y+2$。
+\textbf{例题：}已知$f\left(\dfrac{y}{x},\dfrac{z}{x}\right)=0$确定函数$z=z(x,y)$，$f(u,v)$可微，求$x\dfrac{\partial z}{\partial x}+y\dfrac{\partial z}{\partial y}$。
+
+解：如果$uv$中不含有$z$则直接使用链式法则，但是此时$v=\dfrac{z}{x}$就不能直接使用链式法则了。
+
+$\dfrac{\partial z}{\partial x}=-\dfrac{F_x'}{F_z'}=-\dfrac{-\dfrac{y}{x^2}f_1'-\dfrac{z}{x^2}f_2'}{\dfrac{1}{x}f_2'}=\dfrac{\dfrac{y}{x}f_1'+\dfrac{z}{x}f_2'}{f_2'}$，$\dfrac{\partial z}{\partial y}=-\dfrac{F_y'}{F_z'}=-\dfrac{\dfrac{1}{x}f_1'}{\dfrac{1}{x}f_2'}=-\dfrac{f_1'}{f_2'}$。
+
+$\therefore x\dfrac{\partial z}{\partial x}+y\dfrac{\partial z}{\partial y}=\dfrac{yf_1'+zf_2'-yf_1'}{f_2'}=z$。
+
+\section{多元函数极限}
+
+多元函数极限是一元函数极限的拓展，除了洛必达法则和单调有界准则外其他方法可以直接使用。
+
+\subsection{多元函数连续性}
+
+若函数$f(x,y)$在$(x_0,y_0)$存在，则函数在该点连续，则$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=f(x_0,y_0)$，即直接将该点函数值当作极限值，直接代入。
+
+\textbf{例题：}计算$\lim\limits_{(x,y)\to(0,1)}\dfrac{1-xy}{x^2+y^2}$。
+
+由于$(x,y)\to(0,1)$时$x^2+y^2=1$，所以该点有意义，直接代入得1。
+
+\subsection{转换一元函数极限}
+
+即换元法，要求式子十分特殊，$xy$是以同一种表达式出现，则可以作为因子，能够转换为一元函数极限。
+
+\textbf{例题：}计算$\lim\limits_{(x,y)\to(0,1)}\dfrac{\arcsin xy}{e^{xy}-1}$。
+
+解：令$u=xy$，所以$(x,y)\to(0,1)$时$u\to0$，$=\lim\limits_{u\to0}\dfrac{\arcsin u}{e^u-1}=\lim\limits_{u\to0}\dfrac{u}{u}=1$。
+
+\subsection{不等式放缩}
+
+使用不等式，如$x^2+y^2\geqslant2xy$、$\tan x\geqslant x\geqslant\sin x$。
+
+为了方便计算一般式子都要带绝对值保证大于等于0。
+
+\textbf{例题：}$\lim\limits_{\substack{x\to+\infty\\y\to+\infty}}\left(\dfrac{xy}{x^2+y^2}\right)$。
+
+解：由于$xy$都是趋于正无穷，所以不用加绝对值，$0\leqslant\left(\dfrac{xy}{x^2+y^2}\right)^x\leqslant\left(\dfrac{xy}{2xy}\right)^x=\left(\dfrac{1}{2}\right)^x\to0$。
+
+所以极限值为0。
+
+\subsection{极坐标替换}
+
+要求极限过程$(x,y)\to(0,0)$，将二元函数极限转换为一元函数极限。
+
+使用极坐标替换时一定要先判断极限是否存在，否则会是错误的。（或者$\rho$计算后被消掉，就证明极限会随着$\theta$值变化而变化，则极限不存在）
+
+如果满足极限过程沿着任意路径趋向都是逼近0，比较分子分母幂次，如果是分子的幂次小于等于分母的幂次，则这个极限往往是不存在的。
+
+虽然极坐标替换比较好用，但是最好不要用。
+
+为什么极坐标替换可能是错的？
+
+因为多元函数极限是要求变量是沿着任意路径逼近某点极限值都存在，而使用极坐标代换实际上是固定死趋近路线为直线，所以不满足极限存在定义。但是这种任意路径是模糊的，所以存在一定的限制能使用该方法。
+
+如$\lim\limits_{(x,y)\to(0,0)}\dfrac{x^3+y^3}{x^2+y}$，按照极坐标替换方式可以算出极限值为0，但是如果取$y=-x^2+x^3$时极限值为1。
+
+所以这个限制条件就是$\theta$能在$[0,2\pi)$中取到所有值。
+
+如上面错误的案例中，得到$\lim\limits_{\rho\to0}\dfrac{r^2(\cos^3\theta+\sin^3\theta)}{r\cos\theta+\sin\theta}$。这里的$\theta$是变动值，从而极限是无法求出的，所以不满足$\theta$可以取任意值的条件。
+
+% \textbf{例题：}计算$\lim\limits_{(x,y)\to(0,0)}\dfrac{xy}{x^2+y^2}$。
+
+% 解：由于极限都逼近0，所以比较分子分母幂次，都是2，所以这个极限很可能不存在。
+
+% 找两条不同的路径，让$xy$在这个固定约束下逼近0，$y=x$，$y=2x$：
+
+% $\lim\limits_{\substack{(x,y)\to(0,0)\\y=x}}\dfrac{xy}{x^2+y^2}=\dfrac{1}{2}$，$\lim\limits_{\substack{(x,y)\to(0,0)\\y=2x}}\dfrac{xy}{x^2+y^2}=\dfrac{2}{5}$。所以极限不存在。
+
+\textbf{例题：}计算$\lim\limits_{(x,y)\to(0,0)}\dfrac{xy^2}{x^2+y^2}$。
+
+解：分子的幂次大于分母的幂次，则极限可能存在。
+
+令$x=\rho\cos\theta$，$y=\rho\sin\theta$，则$\lim\limits_{(x,y)\to(0,0)}\dfrac{xy^2}{x^2+y^2}=\lim\limits_{\rho\to0}\dfrac{\rho^3\cos\theta\sin^2\theta}{\rho^2}=\lim\limits_{\rho\to0}\rho\cos\theta\sin^2\theta=0$。
+
+% \subsection{洛必达法则}
+
+% \textbf{例题：}计算$\lim\limits_{(x,y)\to(0,1)}\dfrac{}{}$。
+
+% 在使用洛必达法则时与一元函数不同的是结束后必须判断式子是否还是$\dfrac{0}{0}$型或$\dfrac{\infty}{\infty}$型，否则洛必达失效。
 
 \section{多元函数极值最值}
 
@@ -267,6 +383,14 @@ $\dfrac{\partial^2z}{\partial x\partial y}=\dfrac{(x-1)\dfrac{\partial z}{\parti
 $\dfrac{\partial^2z}{\partial y^2}=\dfrac{-(z-2)-(1-y)\dfrac{\partial z}{\partial y}}{(z-2)^2}$，同理得$C=-\dfrac{1}{4}$。
 
 $\Delta<0$且$A>0$，所以得到极大值6。
+
+\subsubsection{极限形式}
+
+在求解选择题时常可利用满足全部题设条件的特例来确定正确的选项，是利用极限的充分必要条件来给出函数的一般表达式，然后进行分析极值情况。
+
+\textbf{例题：}已知$f(x,y)$在$(0,0)$某领域内连续，且$\lim\limits_{(x,y)\to(0,0)}\dfrac{f(x,y)+4x^2-y^2}{x^4+x^2y^2+y^4}=1$，判断$(0,0)$是否未为函数极值点。
+
+解：即取$f(x,y)=-4x^2+y^2+x^4+x^2y^2+y^4$，求$f_x'(0,0)=f_y'(0,0)=0$，$f_{xx}''(0,0)=-8$，$f_{xy}''(0,0)=0$，$f_{yy}''(0,0)=2$，从而$(0,0)$是驻点，且$A=-8$、$B=0$、$C=2$，$\Delta=-16<0$，所以不是极值点。
 
 \subsection{有条件极值}
 
