@@ -110,6 +110,8 @@ $\therefore I=\int_{\frac{\pi}{4}}^{\frac{\pi}{2}}\textrm{d}\theta\int_0^Re^{-r^
 
 \subsubsection{交换积分次序}
 
+主要用于直角坐标系。
+
 当按照当前的积分次序无法算出时需要更换积分次序。主要是看$f(x,y)$是对$x$先积分更简单还是对$y$先积分更简单。
 
 \textbf{例题：}求$\int_0^1\textrm{d}y\int_{\arcsin y}^{\pi-\arcsin y}\cos^2x\,\textrm{d}x$。
@@ -124,6 +126,8 @@ $\int_0^\pi\cos^2x\,\textrm{d}x\int_0^{\sin x}\textrm{d}y=\int_0^\pi\cos^2x\sin 
 
 \subsubsection{积分性质}
 
+直角坐标系和极坐标系都可以使用。
+
 若积分区域$\sigma$关于$x=k_1$或$y=k_2$对称，则当$f(x,y)$含有$x-k_1$或$y-k_2$因式时重积分值为0。
 
 \textbf{例题：}设$D:x^2+y^2\leqslant2x+2y$，求$\iint\limits_Dxy\,\textrm{d}x\textrm{d}y$。
@@ -133,6 +137,10 @@ $\int_0^\pi\cos^2x\,\textrm{d}x\int_0^{\sin x}\textrm{d}y=\int_0^\pi\cos^2x\sin 
 利用平移，由于$D:(x-1)^2+(y-1)^2=2$，令$x=1+r\cos\theta$，$y=1+r\sin\theta$，则利用极坐标，$r\in[0,\sqrt{2}]$，$\theta\in[0,2\pi]$，$=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}((1+r\cos\theta)(1+r\sin\theta)r)\textrm{d}r=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}(1+r\sin\theta+r\cos\theta+r^2\sin\theta\cos\theta)r\,\textrm{d}r$，又将$\sin\theta$和$\cos\theta$对$\theta$在$[0,2\pi]$进行积分全部为0，所以直接把后面的全消掉，变为$\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}r\,\textrm{d}r=2\pi$。
 
 \subsubsection{切分区域}
+
+主要用于直角坐标系转为极坐标系。
+
+将不规则的区域划分为圆域。
 
 \textbf{例题：}设$D=\{(x,y)|0\leqslant x\leqslant1,0\leqslant y\leqslant1\}$，求$\displaystyle{\iint\limits_D\dfrac{\textrm{d}x\textrm{d}y}{\sqrt{x^2+y^2}}}$。
 
@@ -145,6 +153,16 @@ $\int_0^\pi\cos^2x\,\textrm{d}x\int_0^{\sin x}\textrm{d}y=\int_0^\pi\cos^2x\sin 
 所以$=2\int_0^{\frac{\pi}{4}}\textrm{d}\theta\int_0^{\frac{1}{\cos\theta}}\textrm{d}r=2\int_0^{\frac{\pi}{4}}\dfrac{\textrm{d}\theta}{\cos\theta}=2\ln(\sec\theta+\tan\theta)|_0^{\frac{\pi}{4}}=2\ln(1+\sqrt{2})$。
 
 即对二重积分求导，需要将二重积分化为一重积分。
+
+\subsubsection{坐标轴移动}
+
+主要用于直角坐标系转为极坐标系。
+
+面对$D$为一个圆的部分区域，而圆心不在原点，则可以坐标轴移动让圆心到原点上，从而方便积分，本质就是换元。
+
+\textbf{例题：}设积分区域$D=\{(x,y)\vert x^2+y^2\leqslant2x+2y\}$，求$\iint_D(x^2+xy+y^2)\textrm{d}\sigma$。
+
+解：$D$为$(x-1)^2+(y-1)^2\leqslant\sqrt{2}$，即圆心在$(1,1)$的圆，极坐标系无法表示，所以必须平移坐标轴。
 
 \subsection{二重积分等式}
 
