@@ -164,7 +164,23 @@ $\int_0^\pi\cos^2x\,\textrm{d}x\int_0^{\sin x}\textrm{d}y=\int_0^\pi\cos^2x\sin 
 
 解：$D$为$(x-1)^2+(y-1)^2\leqslant\sqrt{2}$，即圆心在$(1,1)$的圆，极坐标系无法表示，所以必须平移坐标轴。
 
+令$x-1=u$，$y-1=v$，$x=u+1$，$y=v+1$，此时$D'=\{(u,v)|u^2+v^2\leqslant2\}$。
+
+$\iint\limits_D(x^2+xy+y^2)\textrm{d}\sigma=\iint\limits_{D'}[(u+1)^2+(u+1)(v+1)+(v+1)^2]\textrm{d}u\textrm{d}v=\iint\limits_{D'}[u^2+uv+v^2+3(u+v)+3]\textrm{d}u\textrm{d}v=\iint\limits_{D'}(u^2+v^2)\textrm{d}u\textrm{d}v+\iint\limits_{D'}[uv+3(u+v)]\textrm{d}u\textrm{d}v+3\iint_{D'}\textrm{d}u\textrm{d}v$。
+
+由于$uv+3(u+v)$是关于$u$或$v$的奇函数，且$D'$关于$uv$轴都对称，所以积分值为0。且根据二重积分的几何意义$\iint\limits_{D'}\textrm{d}u\textrm{d}v=S_{D'}=2\pi$。
+
+所以$\iint_D(x^2+xy+y^2)\textrm{d}\sigma=\iint\limits_{D'}(u^2+v^2)\textrm{d}u\textrm{d}v+6\pi$。
+
+转换为极坐标系，$u=r\cos\theta$，$v=r\sin\theta$，则$D'=\{(r,\theta)|0\leqslant\theta\leqslant2\pi,0\leqslant r\leqslant\sqrt{2}\}$。
+
+$\iint\limits_{D'}(u^2+v^2)\textrm{d}u\textrm{d}v=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}r^3\,\textrm{d}r=2\pi\int_0^{\sqrt{2}}r^3\,\textrm{d}r=\dfrac{\pi}{2}(\sqrt{2})^4=2\pi$。
+
+所以原式$=2\pi+6\pi=8\pi$。
+
 \subsection{二重积分等式}
+
+\subsubsection{函数}
 
 \textbf{例题：}设$f(x,y)$为连续函数，且$f(x,y)=\dfrac{1}{\pi}\sqrt{x^2+y^2}\iint\limits_{x^2+y^2\leqslant1}f(x,y)\,\textrm{d}\sigma+y^2$，求$f(x,y)$。
 
@@ -178,7 +194,41 @@ $A=\dfrac{A}{\pi}\int_0^{2\pi}\textrm{d}\theta\int_0^1r^2\,\textrm{d}r+\int_0^{2
 
 则代入原式$f(x,y)=\dfrac{3}{4}\sqrt{x^2+y^2}+y^2$。
 
-\subsection{二重积分求导}
+\subsubsection{极限}
+
+\textbf{例题：}设$g(x)$有连续的导数，且$g(0)=0$，$g'(0)=a\neq0$，$f(x,y)$在$(0,0)$的某邻域内连续，求$\lim\limits_{r\to0^+}\dfrac{\iint\limits_{x^2+y^2\leqslant r^2}f(x,y)\,\textrm{d}x\textrm{d}y}{g(r^2)}$。
+
+解：已知对于这个积分式子中$f(x)$和$g(x)$都是未定式，不可能求出具体的值，所以不能再用二重积分直接计算。
+
+面对这种未定式我们希望把这个式子变成我们已知的式子，也应该与$r$相关。此时我们可以想到二重积分中值定理。
+
+根据二重积分中值定理$\iint\limits_{x^2+y^2\leqslant r^2}f(x,y)\,\textrm{d}x\textrm{d}y=\pi r^2f(\xi,\eta)$，其中$(\xi,\eta)$为圆域$x^2+y^2\leqslant r^2$上的点，所以$\lim\limits_{r\to0^+}f(\xi,\eta)=f(0,0)$。
+
+$=\lim\limits_{r\to0^+}\dfrac{\pi r^2f(\xi,\eta)}{g(r^2)}=\lim\limits_{r\to0^+}\dfrac{\pi f(0,0)2r}{2rg'(r^2)}=\lim\limits_{r\to0^+}\dfrac{\pi f(0,0)}{g'(r^2)}=\dfrac{\pi f(0,0)}{g'(0)}=\dfrac{\pi f(0,0)}{a}$。
+
+\subsubsection{求导}
+
+\subsection{二重积分不等式}
+
+即对二重积分进行对比。
+
+\subsubsection{同积分域}
+
+同一积分域上二重积分大小的比较，只要比较在该区间被积函数值的大小。
+
+\subsubsection{同积分函数}
+
+同一积分函数上二重积分大小的比较，要比较函数域的大小，也要注意在函数域上被积函数的符号。
+
+\textbf{例题：}设积分区域$D_1=\{(x,y)|x^2+y^2\leqslant1\}$、$D_2=\{(x,y)|x^2+y^2\leqslant2\}$、$D_3=\left\{(x,y)|\dfrac{1}{2}x^2+y^2\leqslant1\right\}$、$D_4=\left\{(x,y)|x^2+\dfrac{1}{2}y^2\leqslant1\right\}$。\\记$I_i=\iint\limits_{D_i}\left[1-\left(x^2+\dfrac{1}{2}y^2\right)\right]\textrm{d}\sigma$（$i=1,2,3,4$），求$\max\{I_1,I_2,I_3,I_4\}$。
+
+解：已知$D_1$、$D_2$分别为半径1和$\sqrt{2}$的圆，而$D_3$、$D_4$分别为横着和竖着的椭圆。可以画出图像。
+
+被积函数$f(x,y)=1-\left(x^2+\dfrac{1}{2}y^2\right)$为连续函数，只有在$D_4$上才能保证完全为正，以外的地方为负值。
+
+所以$D_1\subset D_4$，所以$I_1<D_4$。对于$D_2$更大，$D_4\subset D_2$，但是多余的左右部分是负值，积分值会在$D_4$的基础上减去这部分的值，同理$D_3$和$D_4$一个是横的椭圆一个是竖的椭圆，其积分值只有中间交叉的部分，还要减去两边多余的部分。
+
+所以$I_4$最大。
 
 \subsection{一重积分化二重积分}
 
