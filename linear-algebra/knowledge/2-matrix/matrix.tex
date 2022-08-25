@@ -759,11 +759,23 @@ $r(A^*)=\left\{\begin{array}{l}
     0, r(A)<n-1
 \end{array}\right.$。
 
-$AB=O$，$r(A)+r(B)\leqslant A$的列数。
+$AB=O$，$r(A)+r(B)\leqslant$阶数，即变量数或列数。
 
 % 证明：$\because B=(\beta_1,\cdots,\beta_s)$，$\therefore(A\beta_1,\cdots,A\beta_s)=0$，$\therefore A\beta_i=0$，$i=1,2,\cdots,s$。
 
 % 从而每个$\beta_i$都是$Ax=0$的解。
+
+\subsection{子式}
+
+在矩阵中，任取$k$行和$k$列 ，位于这些行和列的交点上的 个元素原来的次序所组成的$k$阶方阵的行列式，叫做$A$的一个$k$阶子式。
+
+当$r(A)=r$时：
+
+\begin{itemize}
+    \item $A$中一定有$r$阶子式不为0，但并不要求所有的$r$阶子式都不为0。即至少存在一个不为0的$r$阶子式让原式秩保持$r$。
+    \item $A$中一定有$r-1$阶子式不为0，但并不要求所有的$r-1$阶子式都不为0。
+    \item 而$r+1$阶子式则必须全为0。
+\end{itemize}
 
 \section{等价矩阵}
 
