@@ -188,7 +188,7 @@
 \begin{itemize}
     \item 逆事件概率公式：对于任一事件$A$，有$P(\overline{A})=1-P(A)$。
     \item 加法公式：对于任意两个事件$AB$，有$P(A\cup B)=P(A)+P(B)-P(AB)$；对于三个事件$ABC$，$P(A\cup B\cup C)=P(A)+P(B)+P(C)-P(AB)-P(AC)-P(BC)+P(ABC)$；对于四个事件$ABCD$，$P(A\cup B\cup C\cup D)=P(A)+P(B)+P(C)+P(D)-P(AB)-P(AC)-P(AD)-P(BC)-P(BD)-P(CD)+P(ABC)+P(ABD)+P(ACD)+P(BCD)-P(ABCD)$；若$A_1,A_2,\cdots,A_n$两两互不相容，则$P(A_1\cup A_2\cup\cdots\cup A_n)=P(A_1)+P(A_2)+\cdots+P(A_n)$。
-    \item 减法公式：$P(A-B)=P(A)-P(AB)=P(A\overline{B})$。
+    \item 减法公式：$P(A-B)=P(A)-P(AB)=P(A\omega)-P(AB)=P(A\overline{B})$。
     \item 条件概率公式：对于任意两个事件$AB$，若$P(A)>0$，我们称在已知事件$A$发生的条件下，事件$B$发生的概率为\textbf{条件概率}，记为$P(B|A)=\dfrac{P(AB)}{P(A)}$。$P(\overline{B}|A)=1-P(B|A)$，$P(B-C|A)=P(B|A)-P(BC|A)$。
     \item 乘法公式：若$P(A)>0$，则$P(AB)=P(A)P(B|A)$。一般而言，对于$n>2$，$P(A_1A_2\cdots A_{n-1})>0$，则$P(A_1A_2\cdots A_{n-1})=P(A_1)P(A_2|A_1)P(A_3|A_1A_2)$\\$\cdots P(A_n|A_1A_2\cdots A_{n-1})$。（$A_i$的顺序不定）
     \item 全概率公式：若$\bigcup\limits_{i=1}^nA_i=\Omega$，$A_iA_j=\varnothing$（$i\neq j$，$i,j=1,2,\cdots,n$），$P(A_i)>0$，则对任一事件$B$，有$B=\bigcup\limits_{i=1}^nA_iB$，$P(B)=\sum\limits_{i=1}^nP(A_i)P(B|A_i)$。$P(B)=P(B\Omega)=P(B(\bigcup\limits_{i=1}^nA_i))=P(\bigcup\limits_{i=1}^nBA_i)=\sum\limits_{i=1}^nP(BA_i)=\sum\limits_{i=1}^nP(A_i)P(B|A_i)$。
