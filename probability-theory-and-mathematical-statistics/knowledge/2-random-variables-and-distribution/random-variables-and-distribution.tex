@@ -263,7 +263,7 @@ $P\{X=x_i\}=P\{X\leqslant x_i\}-P\{X<x_i\}=F(x_i)-F(x_i-0)$，即某点的概率
 
 指数分布中$\lambda$代表失效率，往往用来代表一个事物毁坏的过程，如灯泡毁坏。
 
-\textcolor{aqua}{\textbf{定理：}}无记忆性：若$X$服从指数分布，则$P\{X>s+t|X>s\}=P\{X>t\}$。
+无记忆性\textcolor{aqua}{\textbf{定理：}}若$X\sim E(\lambda)$，则$P\{X>s+t|X>s\}=P\{X>t\}=e^{-\lambda t}$。
 
 即在指数分布下事情发生的概率与前面所经过的时间无关，如果$T$是某一元件的寿命，已知元件使用了$t$小时，它总共使用至少$s+t$小时的条件概率，与从开始使用时算起它使用至少$s$小时的概率相等。
 
@@ -503,11 +503,15 @@ $p_{\cdot j}=P\{Y=y_i\}=\sum\limits_{i=1}^\infty P\{X=x_i,Y=y_j\}=\sum\limits_{i
 
 \textcolor{violet}{\textbf{定义：}}设$(X,Y)\sim f(x,y)$，则$X$的边缘分布函数为$P\{X\leqslant x\}=F_X(x)=F(-\infty,x)=\int_{-\infty}^x\left[\int_{-\infty}^{+\infty}f(u,v)\,\textrm{d}v\right]\textrm{d}u$，所以$X$为连续型随机变量，其概率密度$f_X(x)=\int_{-\infty}^{+\infty}f(x,y)\,\textrm{d}y$，称$f_X(x)$为$(X,Y)$关于$X$的\textbf{边缘概率密度}。同理$Y$也为连续型随机变量，关于$Y$的边缘分布函数为$P\{Y\leqslant y\}=F_Y(y)=\int_{-\infty}^y[\int_{-\infty}^{+\infty}f(x,y)\,\textrm{d}x]\textrm{d}y$，其概率密度为$f_Y(y)=\int_{-\infty}^{+\infty}f(x,y)\,\textrm{d}x$。
 
+联合概率密度决定边缘概率密度，所以相同联合概率密度的拥有同样边缘概率密度。
+
 \subsection{条件概率密度}
 
 \textcolor{violet}{\textbf{定义：}}设$(X,Y)\sim f(x,y)$，边缘概率密度$f_X(x)>0$，则称$f_{Y|X}(y|x)=\dfrac{f(x,y)}{f_X(x)}$为$Y$在$X=x$条件下的\textbf{条件概率密度}。同理$X$在$Y=y$条件下的条件概率密度为$f_{X|Y}(x|y)=\dfrac{f(x,y)}{f_Y(y)}$。
 
 若$f_X(x)>0$，$f_Y(y)>0$，则有概率密度乘法公式$f(x,y)=f_X(x)f_{Y|X}(y|x)=f_Y(y)f_{X|Y}(x|y)$。
+
+如果$XY$独立，则$f(x,y)=f(x)f(y)$，此时条件概率密度就等于边缘概率密度。
 
 \textcolor{violet}{\textbf{定义：}}$Y$在$X=x$条件下的\textbf{条件分布函数}为$F_{Y|X}(y|x)=\int_{-\infty}^yf_{Y|X}(y|x)\,\textrm{d}y=\displaystyle{\int_{-\infty}^y\dfrac{f(x,y)}{f_X(x)}\textrm{d}y}$，同理$X$在$Y=y$条件下的条件分布函数为$F_{X|Y}(x|y)=$\\$\int_{-\infty}^xf_{X|Y}(x|y)\,\textrm{d}x=\displaystyle{\int_{-\infty}^x\dfrac{f(x,y)}{f_Y(y)}}\textrm{d}x$。
 
@@ -531,7 +535,7 @@ $p_{\cdot j}=P\{Y=y_i\}=\sum\limits_{i=1}^\infty P\{X=x_i,Y=y_j\}=\sum\limits_{i
 \begin{itemize}
     \item $X\sim N(\mu_1,\sigma_1^2)$，$Y\sim N(\mu_2,\sigma_2^2)$，$\rho$为$X$与$Y$的相关系数，即$\rho=\dfrac{Cov(X,Y)}{\sqrt{DX}\sqrt{DY}}=\dfrac{Cov(X,Y)}{\sigma_1\sigma_2}$。
     \item $X,Y$的条件分布都是正态分布。
-    \item $aX+bY$（$a\neq0$或$b\neq0$）服从正态分布。
+    \item $aX\pm bY$（$a\neq0$或$b\neq0$）服从正态分布$N(a\mu_1\pm b\mu_2,a^2\sigma_1^2+b^2\sigma_2^2)$。
     \item $XY$相互独立的充要条件是$XY$不相关，即$\rho=0$。
 \end{itemize}
 

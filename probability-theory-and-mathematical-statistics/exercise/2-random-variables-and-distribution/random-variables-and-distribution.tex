@@ -41,6 +41,74 @@
 
 分布函数变量区域左闭右开，概率密度则不要求。
 
+\section{分布概念}
+
+\subsection{分布函数存在性}
+
+分布函数的充要条件是：
+
+\begin{enumerate}
+    \item $F(x)$单调不减。
+    \item $\lim\limits_{x\to-\infty}F(x)=0$。
+    \item $\lim\limits_{x\to+\infty}F(x)=1$。
+    \item $F(x)$右连续。
+\end{enumerate}
+
+这也是下面的计算需要考虑的性质。
+
+\textbf{例题：}设随机变量$X$的分布函数$F(x)$，判断$F(ax)$、$F(x^2+1)$、$F(x^3-1)$、$F(\vert X\vert)$是否可以做出分布函数。
+
+解：逐个分析$F(g(x))$中的$g(x)$走向。
+
+$\lim\limits_{x\to+\infty}F(ax)=a\lim\limits_{x\to+\infty}F(x)=a$，不满足。
+
+由于$x^2+1$在$x\to-\infty$的趋向为$+\infty$而不是$-\infty$，$\lim\limits_{x\to-\infty}F(x^2+1)=\lim\limits_{x\to+\infty}F(x^2+1)=\lim\limits_{x\to-\infty}F(x)=1\neq0$，不满足。
+
+$F(x^3-1)$满足分布函数的四个条件，$g(x)=x^3-1$在两边趋向与原函数一致。
+
+$F(\vert x\vert)$的$g(x)=\vert x\vert$在$x\to-\infty$的趋向为$+\infty$而不是$-\infty$，不满足$\lim\limits_{x\to-\infty}F(x)=0$，不满足。
+
+\subsection{分布函数计算}
+
+这里所说的分布函数都是不定式，需要利用分布函数性质来换算。
+
+\textbf{例题：}随机变量$X$的概率密度函数$f(x)$满足$f(1+x)=f(1-x)$，且$\int_1^2f(x)\,\textrm{d}x=0.3$，则求分布函数$F(0)$的值。
+
+解：已知$f(1+x)=f(1-x)$，所以$f(x)$关于$x=1$对称。所以$\int_1^{+\infty}f(x)\,\textrm{d}x=\int_1^{-\infty}f(x)\,\textrm{d}x=\dfrac{1}{2}$。
+
+所以$\int_1^2f(x)\,\textrm{d}x=\int_0^1f(x)\,\textrm{d}x=0.3$。
+
+$F(0)=\int_{-\infty}^0f(x)\,\textrm{d}x=1-\int_0^{+\infty}f(x)\,\textrm{d}x=1-\int_1^{+\infty}f(x)\,\textrm{d}x-\int_0^1f(x)\,\textrm{d}x=0.2$。
+
+\subsection{概率密度存在性}
+
+分布函数的充要条件是：
+
+\begin{enumerate}
+    \item $f(x)\geqslant0$。
+    \item $\int_{-\infty}^{+\infty}f(x)\,\textrm{d}x=1$。
+\end{enumerate}
+
+\textbf{例题：}随机变量$X$的概率密度函数$f(x)$，判断$f(2x)$、$f(2-x)$是否可以作出概率密度函数。
+
+解：$\int_{-\infty}^{+\infty}f(2x)\,\textrm{d}x=\dfrac{1}{2}\int_{-\infty}^{+\infty}f(2x)\,\textrm{d}(2x)=\dfrac{1}{2}\neq1$，不满足。
+
+$\int_{-\infty}^{+\infty}f(2-x)\,\textrm{d}x=-\int_{-\infty}^{+\infty}f(2-x)\,\textrm{d}(2-x)$，令$2-x=t$，则$x\to-\infty$时$t\to+\infty$，$x\to+\infty$时$t\to-\infty$，$=-\int_{+\infty}^{-\infty}f(t)\,\textrm{d}t=\int_{-\infty}^{+\infty}f(t)\,\textrm{d}t=1$。
+
+\subsection{概率密度计算}
+
+\textbf{例题：}随机变量$X$的分布函数和概率密度函数为$F(x)$，$f(x)$，求$-X$的分布函数和概率密度。
+
+解：已知$F(x)=P\{X\leqslant x\}$，则$F'(-x)=\{-X\leqslant x\}$，即$F'(-x)=P\{X\geqslant-x\}=1-P\{X\leqslant-x\}=1-F(-x)$。
+
+对$F'(-x)$进行求导：$[1-F(-x)]'=f(-x)$。
+
+\textbf{例题：}随机变量$X$的概率密度为$f(x)$，求随机变量$2X+3$的概率密度函数。
+
+解：设$Y=2X+3$，所以$Y$的分布函数$F_Y(y)$为$F_Y(x)=P\{Y\leqslant x\}=P\{2X+3\leqslant x\}=P\left\{X\leqslant\dfrac{x-3}{2}\right\}=\int_{-\infty}^{\frac{t-3}{2}}f(x)\,\textrm{d}x$。
+
+所以其概率密度为$f_Y(x)=(\int_{-\infty}^{\frac{x-3}{2}}f(x)\,\textrm{d}x)'=\dfrac{1}{2}f\left(\dfrac{x-3}{2}\right)$。
+
 \section{一维随机变量}
 
 \subsection{一维随机变量分布}
@@ -226,9 +294,21 @@ $\because$面积为$\alpha$的下标为$\alpha$，$\therefore$面积为$\dfrac{1
 
 \subsection{二维连续型随机变量}
 
+有两种主要方法，一个是分布函数法，一个是卷积公式法。如果给出联合概率密度使用分布函数法，如果给出边缘概率密度使用卷积公式法。
+
 \subsubsection{联合概率}
 
-\paragraph{概率函数} \leavevmode \medskip
+\paragraph{联合概率密度} \leavevmode \medskip
+
+利用联合概率函数来计算，有两种方式，一种是以概率形式，一种是以积分形式。
+
+\textbf{例题：}已知二维随机变量$(X_1,X_2)$的概率密度函数$f_1(x_1,x_2)$，求$Y_1=2X_1$，$Y_2=\dfrac{1}{3}X_2$的联合概率密度$f_2(y_1,y_2)$。
+
+解：概率形式：设$F_2(y_1,y_2)=P\{Y_1\leqslant y_1,Y_2\leqslant y_2\}=P\{2X_1\leqslant y_1,\dfrac{1}{3}X_2\leqslant y_2\}=P\{X_1\leqslant\dfrac{y_1}{2},X_2\leqslant3y_2\}=F_1(\dfrac{y_1}{2},3y_2)$。所以$f_2(y_1,y_2)=\dfrac{3}{2}f_1(\dfrac{y_1}{2},3y_2)$。
+
+积分形式：已知$\int_{-\infty}^{+\infty}\textrm{d}x_1\int_{-\infty}^{+\infty}f(x_1,x_2)\,\textrm{d}x_2=1$，将$x_1=\dfrac{y_1}{2}$，$x_2=3y_2$代入$\int_{-\infty}^{+\infty}\textrm{d}(\dfrac{y_1}{2})\int_{-\infty}^{+\infty}f(\dfrac{y_1}{2},3y_2)\,\textrm{d}(3y_2)=1$，$\dfrac{3}{2}\int_{-\infty}^{+\infty}\textrm{d}y_1\int_{-\infty}^{+\infty}f(\dfrac{y_1}{2},3y_2)\,\textrm{d}y_2=1$，所以$f_2(y_1,y_2)=\dfrac{3}{2}f_1(\dfrac{y_1}{2},3y_2)$。
+
+\paragraph{联合概率函数} \leavevmode \medskip
 
 已知联合概率密度，可以求概率函数，通过二重积分的方式，图像面积即是概率。
 

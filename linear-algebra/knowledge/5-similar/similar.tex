@@ -59,6 +59,9 @@
 \begin{itemize}
     \item $\sum\limits_{i=1}^n\lambda_i=\sum\limits_{i=1}^n=tr(A)$。主对角线元素和即矩阵的迹。
     \item $\prod\limits_{i=1}^n\lambda_i=\vert A\vert$。
+    \item $f(A)\xi=f(\lambda)\xi$。
+    \item $A^{-1}\xi=\dfrac{1}{\lambda}\xi$。
+    \item $A^*\alpha=\dfrac{\vert A\vert}{\lambda}\xi$。
 \end{itemize}
 
 \subsubsection{特征向量性质}
@@ -67,6 +70,7 @@
     \item $k$重特征值$\lambda$至多只有$k$个线性无关的特征向量。一共有$k$个特征向量。
     \item 若$\xi_1$和$\xi_2$是$A$的属于不同特征值$\lambda_1$和$\lambda_2$的特征向量，则$\xi_1$和$\xi_2$线性无关。
     \item 若$\xi_1$和$\xi_2$是$A$的属于同特征值$\lambda$的特征向量，则$k_1\xi_1+k_2\xi_2$（$k_1k_2$不同时为0）仍是$A$的属于特征值$\lambda$的特征向量。
+    \item 若$A$可逆，则$A$、$A^{-1}$、$A^*$的特征向量相同。
 \end{itemize}
 
 证明性质二：利用定义法，首先$A\xi_1=\lambda_1\xi_1$，$A\xi_2=\lambda_2\xi_2$。

@@ -391,20 +391,6 @@ $\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)=F'(\xi)(b-a)=f(\xi)(b-a)$（$a<\xi<b$）。
     \item 若函数$f(x)$是连续的偶函数，则$\int_{-a}^af(x)\,\textrm{d}x=2\int_0^af(x)\,\textrm{d}x$。
     \item 若函数$f(x)$是连续的奇函数，则$\int_{-a}^af(x)\,\textrm{d}x=0$。
     \item 区间再现公式：若函数$f(x)$为连续函数，则$\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a+b-x)\,\textrm{d}x$。
-    \item 华里士公式（根据区间再现公式可知$\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x=\int_0^\frac{\pi}{2}\cos^nx\,\textrm{d}x$）：
-    $$\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x=\int_0^\frac{\pi}{2}\cos^nx\,\textrm{d}x=\left\{\begin{array}{ll}
-        \dfrac{n-1}{n}\cdot\dfrac{n-3}{n-2}\cdot\cdots\cdot\dfrac{2}{3}\cdot1, & n\text{为非}1\text{奇数} \\ \medskip
-        \dfrac{n-1}{n}\cdot\dfrac{n-3}{n-2}\cdot\cdots\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}, & n\text{为正偶数}
-    \end{array}\right.$$
-    \item $\int_0^\pi\sin^nx\,\textrm{d}x=2\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x$。
-    \item $\int_0^\pi\cos^nx\,\textrm{d}x=\left\{\begin{array}{lcl}
-        0, & & n\text{为正奇数} \\
-        2\int_0^\frac{\pi}{2}\cos^nx\,\textrm{d}x, & & n\text{为正偶数}
-    \end{array}\right.$。
-    \item $\int_0^{2\pi}\sin^nx\,\textrm{d}x=\int_0^{2\pi}\cos^nx\,\textrm{d}x=\left\{\begin{array}{lcl}
-        0, & & n\text{为正奇数} \\
-        4\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x, & & n\text{为正偶数}
-    \end{array}\right.$。
 \end{enumerate}
 
 证明定理第一条的第一个式子：根据积分区间可拆性：
@@ -441,6 +427,25 @@ $\therefore\int_0^{nT}xf(x)\,\textrm{d}x=\dfrac{1}{2}\int_0^{nT}nTf(t)\,\textrm{
 
 根据第一问的公式：$\int_0^{n\pi}x\vert\sin x\vert\,\textrm{d}x=\dfrac{n^2\pi}{2}\int_0^\pi\vert\sin x\vert\,\textrm{d}x=\dfrac{n^2\pi}{2}[-\cos x]_0^\pi=n^2\pi$。
 
+\paragraph{华里士公式} \leavevmode \medskip
+
+\begin{enumerate}
+    \item 华里士公式（根据区间再现公式可知$\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x=\int_0^\frac{\pi}{2}\cos^nx\,\textrm{d}x$）：
+    $$\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x=\int_0^\frac{\pi}{2}\cos^nx\,\textrm{d}x=\left\{\begin{array}{ll}
+        \dfrac{n-1}{n}\cdot\dfrac{n-3}{n-2}\cdot\cdots\cdot\dfrac{2}{3}\cdot1, & n\text{为非}1\text{奇数} \\ \medskip
+        \dfrac{n-1}{n}\cdot\dfrac{n-3}{n-2}\cdot\cdots\cdot\dfrac{1}{2}\cdot\dfrac{\pi}{2}, & n\text{为正偶数}
+    \end{array}\right.$$
+    \item $\int_0^\pi\sin^nx\,\textrm{d}x=2\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x$。
+    \item $\int_0^\pi\cos^nx\,\textrm{d}x=\left\{\begin{array}{lcl}
+        0, & & n\text{为正奇数} \\
+        2\int_0^\frac{\pi}{2}\cos^nx\,\textrm{d}x, & & n\text{为正偶数}
+    \end{array}\right.$。
+    \item $\int_0^{2\pi}\sin^nx\,\textrm{d}x=\int_0^{2\pi}\cos^nx\,\textrm{d}x=\left\{\begin{array}{lcl}
+        0, & & n\text{为正奇数} \\
+        4\int_0^\frac{\pi}{2}\sin^nx\,\textrm{d}x, & & n\text{为正偶数}
+    \end{array}\right.$。
+\end{enumerate}
+
 \textbf{例题：}求$\int_0^\pi x\sin^9x\,\textrm{d}x$。
 
 解：需要先把$x$消掉才能使用华里士公式，使用区间再现公式，令$x=\pi-t$：
@@ -448,6 +453,19 @@ $\therefore\int_0^{nT}xf(x)\,\textrm{d}x=\dfrac{1}{2}\int_0^{nT}nTf(t)\,\textrm{
 $=\int_0^\pi(\pi-x)\sin^9(\pi-x)\,\textrm{d}x=\int_0^\pi\pi\sin^9x\,\textrm{d}x-\int_0^\pi x\sin^9x\,\textrm{d}x$，积分再现。
 
 $\therefore\int_0^\pi x\sin^9x\,\textrm{d}x=\dfrac{\pi}{2}\int_0^\pi\sin^9x\,\textrm{d}x=\pi\dfrac{8}{9}\dfrac{6}{7}\dfrac{4}{5}\dfrac{2}{3}=\dfrac{128}{315}\pi$。
+
+\paragraph{伽马公式} \leavevmode \medskip
+
+将阶乘化为积分：
+
+\begin{enumerate}
+    \item $\int_0^{+\infty}x^ne^{-x}\,\textrm{d}x=n!=\Gamma(n+1)$。（$n\in N^*$）
+    \item $\int_{-\infty}^{+\infty}e^{-x^2}x^{2n}\,\textrm{d}x=\Gamma\left(\dfrac{2n+1}{2}\right)$。
+    \item $\Gamma(x+1)=x\Gamma(x)$。
+    \item $\Gamma(p)\Gamma(1-p)=\dfrac{\pi}{\sin p\pi}$。
+    \item $n\to\infty$时，$\Gamma(n+1)=\sqrt{2\pi n}\left(\dfrac{n}{e}\right)^n$。
+    \item $\Gamma\left(\dfrac{1}{2}\right)=\sqrt{\pi}$。
+\end{enumerate}
 
 \subsection{牛顿-莱布尼茨公式}
 

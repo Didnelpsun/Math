@@ -55,7 +55,7 @@ $=\sum\limits_{i=1}^3\dfrac{\vert A\vert}{\lambda_i}=\sum\limits_{i=1}^3\dfrac{\
 
 \subsection{特征值}
 
-\subsubsection{已知对应特征向量}
+\subsubsection{对应特征向量}
 
 通过相关式子将逆矩阵转换为原矩阵。同一个向量的逆矩阵的特征值是原矩阵的特征值的倒数。
 
@@ -95,11 +95,27 @@ $=\sum\limits_{i=1}^3\dfrac{\vert A\vert}{\lambda_i}=\sum\limits_{i=1}^3\dfrac{\
 
 所以矩阵$A$对应的特征值为$-5$。
 
+\subsubsection{矩阵关系式}
+
+\textbf{例题：}已知$A$为3阶矩阵，$A^2+A-2E=0$，$\vert A\vert=-2$，求其特征值。
+
+解：需要求$A$特征值，但是$A$未知，特征向量也未知，如何求？
+
+首先要求特征值，就要首先设出特征方程：$A\xi=\lambda\xi$，$\xi\neq0$。
+
+又$A^2+A-2E=0$，所以代入方程：$(A^2+A-2E)\xi=(\lambda^2+\lambda-2)\xi=0$。
+
+$\because\xi\neq0$，$\lambda^2+\lambda-2=0$，解得$\lambda=-2$或$\lambda=1$。
+
+但是不知道这个特征值各是几重，只知道存在这两种特征值。
+
+又$\vert A\vert=\lambda_1\lambda_2\lambda_3=-2$，所以$\lambda_1=-2$，$\lambda_2=\lambda_3=1$。
+
 \subsection{特征向量}
 
-\subsubsection{已知其他特征向量}
+\subsubsection{实对称矩阵}
 
-使用实对称矩阵性质，即实对称矩阵的不同特征值的特征向量相互正交（$B^TA=0$）。
+使用实对称矩阵性质，给出其他特征向量和特征值，即实对称矩阵的不同特征值的特征向量相互正交（$B^TA=0$）。
 
 \textbf{例题：}已知$A$为三阶实对称矩阵，特征值为$1,3，-2$，其中$\alpha_1=(1,2,-2)^T$，$\alpha_2=(4,-1,a)^T$分别属于特征值$\lambda=1$，$\lambda=3$的特征向量。求$A$属于特征值$\lambda=-2$的特征向量。
 

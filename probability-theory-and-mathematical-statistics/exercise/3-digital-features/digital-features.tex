@@ -40,6 +40,8 @@
 
 \subsubsection{离散型随机变量}
 
+\paragraph{分布律变换} \leavevmode \medskip
+
 可以根据随机变量分布律的形式拟合出已知的离散型随机变量分布，从而得到已知的期望。
 
 \textbf{例题：}设随机变量$X$的分布律为$P\{X=k\}=\dfrac{1}{2^kk!(\sqrt{e}-1)}$，$k=1,2,\cdots$，求$EX$。
@@ -50,17 +52,55 @@ $P\{X=k\}=\dfrac{1}{2^kk!(\sqrt{e}-1)}=\dfrac{\sqrt{e}}{\sqrt{e}-1}\dfrac{\left(
 
 $\therefore EX=\dfrac{\sqrt{e}}{2\sqrt{e}-2}$。
 
+\paragraph{定义} \leavevmode \medskip
+
+对于已知$E(X)$和$X$的分布，要求$E(f(x))$的值，此时很难拟合到已知分布律，所以就需要按照离散随机变量的期望定义来计算。注意虽然$f(x)$对于$x$是变化了，但是对应的概率是不变的。
+
+\textbf{例题：}已知$X\sim P(\lambda)$，求$E(X)E\left(\dfrac{1}{1+X}\right)$。
+
+解：已知$X\sim P(\lambda)$，则$E(X)=\lambda$。而$E\left(\dfrac{1}{1+X}\right)$无法通过拟合求出，所以就要用到期望的定义。
+
+$E(X)E\left(\dfrac{1}{1+X}\right)=\lambda\cdot\sum\limits_{k=0}^\infty\dfrac{1}{1+k}\dfrac{\lambda^k}{k!}e^{-\lambda}=\lambda\cdot\sum\limits_{k=0}^\infty\dfrac{\lambda^k}{(k+1)!}e^{-\lambda}=\sum\limits_{k=0}^\infty\dfrac{\lambda^{k+1}}{(k+1)!}e^{-\lambda}\\=\sum\limits_{i=1}^\infty\dfrac{\lambda^i}{i!}e^{-\lambda}=\sum\limits_{i=0}^\infty\dfrac{\lambda^i}{i!}e^{-\lambda}-\dfrac{\lambda^0}{0!}e^{-\lambda}=1-e^{-\lambda}$。（$\sum\limits_{i=0}^\infty\dfrac{\lambda^i}{i!}e^{-\lambda}$为概率和等于1）
+
 \subsubsection{连续型随机变量}
+
+基本上都是以$\int_{-\infty}^{+\infty}f(x)x\,\textrm{d}x$的变式进行计算。
+
+\paragraph{概率密度} \leavevmode \medskip
+
+给出$X$概率密度。
 
 \textbf{例题：}连续型随机变量$X$的概率密度为$f(x)=\dfrac{1}{\pi(1+x^2)}$（$-\infty<x<+\infty$），求$EX$。
 
 解：$EX=\int_{-\infty}^{+\infty}xf(x)\,\textrm{d}x=\int_{-\infty}^{+\infty}x\dfrac{1}{\pi(1+x^2)}\textrm{d}x=\dfrac{1}{2\pi}\int_{-\infty}^{+\infty}\dfrac{\textrm{d}(1+x^2)}{1+x^2}=\dfrac{1}{2pi}\ln(^1+x^2)|_{-\infty}^{+\infty}$。发散，所以不存在。
 
-\subsubsection{连续型随机变量函数}
+\paragraph{概率密度函数} \leavevmode \medskip
+
+给出$X$概率密度与$X$的相关函数。
 
 \textbf{例题：}连续型随机变量$X$的概率密度为$f(x)=\dfrac{1}{\pi(1+x^2)}$（$-\infty<x<+\infty$），求$E(\min\{\vert X\vert,1\})$。
 
 解：$E(\min\{\vert X\vert,1\})=\displaystyle{\int_{-\infty}^{+\infty}}\min\{\vert x\vert,1\}\dfrac{1}{\pi(1+x^2)}\textrm{d}x=\dfrac{2}{\pi}\int_0^{+\infty}\min\{x,1\}$\\$\dfrac{1}{1+x^2}\textrm{d}x=\dfrac{2}{\pi}\displaystyle{\int_0^1}x\dfrac{1}{1+x^2}\textrm{d}x+\dfrac{2}{\pi}\int_1^{+\infty}1\cdot\dfrac{1}{1+x^2}\textrm{d}x=\dfrac{1}{\pi}\ln(1+x^2)|_0^1+\dfrac{2}{\pi}\arctan x|_1^{+\infty}$\\$=\dfrac{1}{\pi}\ln2+\dfrac{1}{2}$。
+
+\paragraph{分布函数} \leavevmode \medskip
+
+给出$X$分布与$X$的相关函数。
+
+\textbf{例题：}随机变量$X\sim N(0,1)$，求$E[(X-2)^2e^{2X}]$。
+
+解：$E[(X-2)^2e^{2X}]=\int_{-\infty}^{+\infty}(x-2)^2e^{2x}\dfrac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}\,\textrm{d}x\\=e^2\int_{-\infty}^{+\infty}(x-2)^2\dfrac{1}{\sqrt{2\pi}}e^{-\frac{(x-2)^2}{2}}\,\textrm{d}x=e^2\int_{-\infty}^{+\infty}t^2\dfrac{1}{\sqrt{2\pi}}e^{-\frac{t^2}{2}}\,\textrm{d}t=e^2E(t^2)=e^2[DX+(EX)^2]=e^2(1+0^2)=e^2$。
+
+\subsubsection{抽象概率密度}
+
+主要是判断概率密度函数和期望之间的关系。期望的积分形式中的上下限与期望值无关，即如果改变期望的积分上下限那么其期望值是不确定的，只有概率密度变化才能算出具体的值。
+
+\textbf{例题：}设随机变量$X$的概率密度函数为$f(x)$，$E(X)=a$，判断$\int_{-\infty}^{+\infty}xf(x+a)\,\textrm{d}x=0$，$\int_{-\infty}^axf(x)\,\textrm{d}x=\dfrac{1}{2}$。
+
+解：由于$E(X)=a$，则$\int_{-\infty}^{+\infty}xf(x)\,\textrm{d}x=a$。
+
+对于$\int_{-\infty}^{+\infty}xf(x+a)\,\textrm{d}x=0$，令$x+a=t$，$x=t-a$，所以代入$\int_{-\infty}^{+\infty}(t-a)f(t)\,\textrm{d}(t-a)=\int_{-\infty}^{+\infty}tf(t)\,\textrm{d}t-a\int_{-\infty}^{+\infty}f(t)\,\textrm{d}t=a-a=0$，所以成立。
+
+对于$\int_{-\infty}^axf(x)\,\textrm{d}x=\dfrac{1}{2}$，其上下限变化，相当于积分值面积的底长是不确定的，$a$表示的是平均面积，这根底长的一半无关，所以不成立。
 
 \subsection{方差}
 
@@ -95,6 +135,14 @@ $P\{\vert X-EX\vert\leqslant\epsilon\}\leqslant\dfrac{DX}{\epsilon^2}$或$P\{\ve
 \subsection{协方差}
 
 $Cov(X,Y)=E(XY)-E(X)E(Y)$。
+
+\subsubsection{性质}
+
+\textbf{例题：}已知$XY$的相关系数$\rho_{XY}\neq0$，设$Z=aX+b$，$ab$为常数，则求出$\rho_{XY}=\rho_{YZ}$成立的充要条件。
+
+解：由于$Cov(Y,Z)=Cov(Y,aX+b)=aCov(Y,X)=aCov(X,Y)$，$DZ=D(aX+b)=a^2Dx$。
+
+$\rho_{YZ}=\dfrac{Cov(Y,Z)}{\sqrt{DY}\sqrt{DZ}}=\dfrac{aCov(X,Y)}{\sqrt{DY}\sqrt{a^2DX}}=\dfrac{a}{\vert a\vert}\rho_{XY}$，所以相等的条件是$\dfrac{a}{\vert a\vert}=1$，即$a>0$。
 
 \textbf{例题：}设随机变量$X_1,X_2,\cdots,X_n$独立同分布，且方差$\sigma^2>0$，$Y_1=\sum\limits_{i=2}^nX_i$和$Y_2=\sum\limits_{j=1}^{n-1}X_j$，求$Y_1$和$Y_n$的协方差$Cov(Y_1,Y_n)$。
 
