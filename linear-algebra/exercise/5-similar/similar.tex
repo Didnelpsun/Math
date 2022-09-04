@@ -171,6 +171,34 @@ $\left\{\begin{array}{l}
 
 即$\xi=(1,1,1)^T$。
 
+\subsection{矩阵}
+
+即根据$A=P\Lambda P^{-1}$的特征向量矩阵和特征值矩阵来反求矩阵。
+
+\subsection{行列式值}
+
+一般会给出特征值，求$A$的行列式值。
+
+\subsubsection{特征方程}
+
+题目要求$\vert f(A)-E\vert$的形式，即求$f(A)$的特征值。
+
+\textbf{例题：}设$A$为三阶矩阵，已知$-3E+A$不可逆，$\vert2E+A\vert=0$，$(E-A)x=0$有非零解，求$\vert A^*-E\vert$。
+
+解：前三个条件都是为了指明$\vert-3E+A\vert=\vert3E-A\vert=0$，$\vert-2E-A\vert=0$，$\vert E-A\vert=0$，即得到$A$的三个特征值$\lambda_1=3$、$\lambda_2=-2$、$\lambda_3=1$。
+
+求$\vert A^*-E\vert$即求$A^*$的特征值，然后再乘起来，即得到行列式的值。
+
+又$A^{-1}=\dfrac{A^*}{\vert A\vert}$，所以$A^*=\dfrac{\vert A\vert}{A}$。
+
+$\vert A\vert$等于特征值的乘积$-6$，对应的特征值即为$\mu_1=\dfrac{-6}{3}=-2$，$\mu_2=\dfrac{-6}{-2}=3$，$\mu_3=\dfrac{-6}{1}=-6$。
+
+对应$A^*-E$的特征值为$-3$，$2$，$-6$，所以最后的行列式值为$42$。
+
+\subsubsection{矩阵函数}
+
+题目要求$\vert f(A)\vert$的形式，即求$f(A)$的特征值，然后求其乘积就是矩阵方程的行列式值。
+
 \section{相似理论}
 
 $P^{-1}AP=\Lambda$，$P$为特征向量组，$\Lambda$为特征值矩阵。

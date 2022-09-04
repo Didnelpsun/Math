@@ -34,8 +34,43 @@
 \newpage
 \pagestyle{plain}
 \setcounter{page}{1}
+\section{二次型}
+
+即最基本的将二次型式子变为矩阵形式。
+
+\subsection{配方法}
+
+\subsection{矩阵乘法}
+
+由于二次型是$X^TAX$的形式，所以最后的左右两边都存在所有的$x_i$，所以可以依次把$x_i$缺的项进行补齐$x_n$与其他所有$x_i$乘积的和的形式。
+
+\textbf{例题：}将二次型$f(x_1,x_2,x_3)=2x_1^2+2x_2^2+2x_3^2-2x_1x_2-2x_2x_3+2x_1x_3$化为矩阵。
+
+解：$f(x_1,x_2,x_3)=2x_1^2+2x_2^2+2x_3^2-2x_1x_2-2x_2x_3+2x_1x_3=2x_1^2-2x_1x_2+2x_1x_3+2x_2^2-2x_2x_3+2x_3^2=2x_1^2-x_1x_2+x_1x_3+2x_2^2-x_1x_2-x_2x_3+2x_3^2+x_1x_3-x_2x_3=x_1(2x_1-x_2+x_3)+x_2(-x_1+2x_2-x_3)+x_3(x_1-x_2+2x_3)$
+
+$=\left[x_1,x_2,x_3\right]\left[\begin{array}{c}
+    2x_1-x_2+x_3 \\
+    -x_1+2x_2-x_3 \\\
+    x_1-x_2+2x_3
+\end{array}\right]=[x_1,x_2,x_3]\left[\begin{array}{ccc}
+    2 & -1 & 1\\
+    -1 & 2 & -1\\
+    1 & -1 & 2
+\end{array}\right]\left[\begin{array}{c}
+    x_1 \\
+    x_2 \\
+    x_3
+\end{array}\right]$。
+
+即$A=\left[\begin{array}{ccc}
+    2 & -1 & 1\\
+    -1 & 2 & -1\\
+    1 & -1 & 2
+\end{array}\right]$。
 
 \section{标准形}
+
+即将二次型式子变为平方形式，再变量更换，变成矩阵形式。
 
 \subsection{配方法}
 
@@ -46,6 +81,8 @@
 \end{enumerate}
 
 \subsubsection{平方项}
+
+即依次对存在$x_i$的式子进行整合配方。
 
 \textbf{例题：}将$f(x_1,x_2,x_3)=x_1^2+2x_1x_2+2x_1x_3-x_2^2-2x_2x_3-x_3^2$化为标准形并求出作的可逆线性变换。
 
@@ -222,4 +259,17 @@ $\therefore\Lambda=\left(\begin{array}{ccc}
 \end{array}\right)(y_1,y_2,y_3)^T=y_1^2+y_2^2+10y_3^2$
 
 \section{正定二次型}
+
+\subsection{具体型}
+
+\begin{enumerate}
+    \item 顺序主子式全部大于0。
+    \item 特征值全部大于0。
+    \item 配方化为全平方和的标准型，正惯性指数$p=n$（未知数个数）。
+    \item 矩阵乘法配方为完全平方和，内积$D^TD$不等于0。
+    \item 。
+\end{enumerate}
+
+\subsection{抽象型}
+
 \end{document}
