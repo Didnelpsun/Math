@@ -258,6 +258,93 @@ $\therefore\Lambda=\left(\begin{array}{ccc}
      & & 10
 \end{array}\right)(y_1,y_2,y_3)^T=y_1^2+y_2^2+10y_3^2$
 
+\section{合同}
+
+\subsection{合同判断}
+
+合同只有两种判断方式：
+
+\begin{enumerate}
+    \item 秩相同，正（负）惯性系数相同。
+    \item 正负惯性系数都相同。
+\end{enumerate}
+
+\textbf{例题：}设$A=\left[\begin{array}{ccc}
+    1 & 2 & 0 \\
+    2 & 1 & 0 \\
+    0 & 0 & 1
+\end{array}\right]$，与$A$合同的是()。
+
+$A.\left[\begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & 1
+\end{array}\right]$\;$B.\left[\begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & -1
+\end{array}\right]$\;$C.\left[\begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & -1 & 0 \\
+    0 & 0 & -1
+\end{array}\right]$\;$D.\left[\begin{array}{ccc}
+    -1 & 0 & 0 \\
+    0 & -1 & 0 \\
+    0 & 0 & -1
+\end{array}\right]$ \medskip
+
+解：从四个选项，由于是常量矩阵，所以由对角线元素的正负号可以得出这四个的惯性系数分别为$(3,0)$、$(2,1)$、$(1,2)$、$0,3$（前面为正惯性系数，后面为负惯性系数）。
+
+且每个选项的秩都是3。
+
+\subsubsection{配方法}
+
+即将二次型配方为标准型，然后求该矩阵的秩和惯性系数。
+
+解：经过配方$f=(x_1+2x_2)^2-3x_2^2+x_3^2$，由于有三个平方项，所以矩阵秩为3，正惯性系数为2，与$B$相同。
+
+\subsubsection{特征值法}
+
+即根据特征方程进行正交变换得到正负惯性系数。
+
+解：求$A$的特征值，得到$\lambda_1=1$、$\lambda_2=3$、$\lambda_3=-1$，所以正交变换后标准形为$y_1^2+3y_2^2-y_3^2$，惯性系数与$B$相同。
+
+\subsection{可逆矩阵}
+
+已知$A\simeq\Lambda$，则$C^TAC=\Lambda$。即$f=x^TAx=y^T\Lambda y$，得到$x=Cy$。
+
+\textbf{例题：}已知$A=\left[\begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & -4 & 0 \\
+    0 & 0 & \dfrac{1}{9}
+\end{array}\right]$合同于$\Lambda=\left[\begin{array}{ccc}
+    1 & 0 & 0 \\
+    0 & 1 & 0 \\
+    0 & 0 & -1
+\end{array}\right]$，求$C^TAC=\Lambda$中的$C$。
+
+解：已知$A$，则可得二次型$f=x^TAx=[x_1,x_2,x_3]A[x_1,x_2,x_3]^T=x_1^2-4x_2^2+\dfrac{1}{9}x_3^2$，规范化让这个二次型与$\Lambda$转换的二次型相等，由于正负惯性系数相同，平方必然是正数，所以符号对齐，令$x_1^2=y_1^2$、$4x_2^2=y_3^2$、$\dfrac{1}{9}x_3^2=y_2^2$。
+
+解得$x_1=y_1$，$x_2=\dfrac{1}{2}y_3$，$x_3=3y_2$，即$\left[\begin{array}{c}
+    x_1 \\
+    x_2 \\
+    x_3
+\end{array}\right]=\left[\begin{array}{ccc}
+    1 \\
+    & & \dfrac{1}{2} \\
+    & 3
+\end{array}\right]\left[\begin{array}{c}
+    y_1 \\
+    y_2 \\
+    y_3
+\end{array}\right]$。
+
+所以$x=Cy$，解得$C=\left[\begin{array}{ccc}
+    1 \\
+    & & \dfrac{1}{2} \\
+    & 3
+\end{array}\right]$，此时$f=x^TAx=y^TC^TACy=y^T\Lambda y$。
+
 \section{正定二次型}
 
 \subsection{具体型}
@@ -267,7 +354,6 @@ $\therefore\Lambda=\left(\begin{array}{ccc}
     \item 特征值全部大于0。
     \item 配方化为全平方和的标准型，正惯性指数$p=n$（未知数个数）。
     \item 矩阵乘法配方为完全平方和，内积$D^TD$不等于0。
-    \item 。
 \end{enumerate}
 
 \subsection{抽象型}
