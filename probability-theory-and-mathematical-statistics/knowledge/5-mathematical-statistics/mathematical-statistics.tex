@@ -221,13 +221,21 @@ $\therefore P\{F>F_\alpha(n_2,n_1)\}=\alpha$，$P\{F\leqslant F_\alpha(n_2,n_1)\
 
 \subsection{正态总体下结论}
 
-设$X_1,X_2,\cdots,X_n$是来自正态总体$N(\mu,\sigma^2)$的一个样本，$\overline{X}$，$S^2$分别是样本的均值和方差，则：
+设$X_1,X_2,\cdots,X_n$是来自正态总体$N(\mu,\sigma^2)$的一个样本，$\overline{X}=\sum\limits_{i=1}^nX_i$，$S^2=\dfrac{1}{n-1}\sum\limits_{i=1}^n(X_i-\overline{X})^2$分别是样本的均值和方差，则：
 
 \begin{enumerate}
     \item $\overline{X}\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，即$\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}=\dfrac{\sqrt{n}(\overline{X}-\mu)}{\sigma}\sim N(0,1)$。
-    \item $\dfrac{1}{\sigma^2}\sum\limits_{i=1}^n(X_i-\mu)^2\sim\chi^2(n)$。$\dfrac{(n-1)S^2}{\sigma^2}\sim\chi^2(n-1)$。
+    \item $\dfrac{1}{\sigma^2}\sum\limits_{i=1}^n(X_i-\mu)^2\sim\chi^2(n)$。
     \item $\dfrac{(n-1)S^2}{\sigma^2}=\sum\limits_{i=1}^n\left(\dfrac{X_i-\overline{X}}{\sigma}\right)^2\sim\chi^2(n-1)$（$\mu$未知时，在2中用$\overline{X}$代替$\mu$）。
     \item $\overline{X}$与$S^2$相互独立，$\dfrac{\sqrt{n}(\overline{X}-\mu)}{S}\sim t(n-1)$（$\sigma$未知时在1中用$S$代替$\sigma$）。进一步有$\dfrac{n(\overline{X}-\mu)^2}{S^2}\sim F(1,n-1)$。
+\end{enumerate}
+
+设$X_1,X_2,\cdots,X_m$是来自正态总体$N(\mu_1,\sigma_1^2)$的一个样本，设$Y_1,Y_2,\cdots,Y_n$是来自正态总体$N(\mu_2,\sigma_2^2)$的一个样本，$X_i$和$Y_i$相互独立，$\overline{X}=\dfrac{1}{m}\sum\limits_{i=1}^mX_i$、$\overline{Y}=\dfrac{1}{n}\sum\limits_{i=1}^nY_i$、$S_1^2=\dfrac{1}{m-1}\sum\limits_{i=1}^m(X_i-\overline{X})^2$、$S_2^2=\dfrac{1}{n-1}\sum\limits_{i=1}^n(Y_i-\overline{Y})^2$分别是样本$X_i$、$Y_i$的均值和方差，$S_w=\dfrac{1}{m+n-2}[(m-1)S_1^2+(n-1)S_2^2]=\dfrac{1}{m+n-2}[\sum\limits_{i=1}^m(X_i-\overline{X})^2+\sum\limits_{i=1}^n(Y_i-\overline{Y})^2]$，则：
+
+\begin{enumerate}
+    \item $\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{\sqrt{\dfrac{\sigma_1^2}{m}+\dfrac{\sigma_2^2}{n}}}\sim N(0,1)$。（根据期望和方差性质）
+    \item $\dfrac{S_1^2/\sigma_1^2}{S_2^2/\sigma_2^2}=\dfrac{S_1^2}{S_2^2}\cdot\dfrac{\sigma_2^2}{\sigma_1^2}\sim F(m-1,n-1)$。
+    \item 当$\sigma_1^2=\sigma_2^2$时，$\dfrac{(\overline{X}-\overline{Y})-(\mu_1-\mu_2)}{S_w\sqrt{\dfrac{1}{m}+\dfrac{1}{n}}}\sim t(m+n-2)$。
 \end{enumerate}
 
 \section{参数点估计}
