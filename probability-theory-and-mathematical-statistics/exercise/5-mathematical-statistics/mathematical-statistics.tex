@@ -122,6 +122,12 @@ $\therefore P\{X^2>C^2\}=0.8$。
 
 基本方法就是$EX=\dfrac{1}{n}\sum\limits_{i=1}^nX_i$。
 
+如果只有一个参数就使用一阶矩，如果有两个参数就使用二阶矩，一般不会超过两个未知数。
+
+即$EX=\dfrac{1}{n}\sum\limits_{i=1}^nX_i=\overline{X}=\hat{\mu}$，$EX^2=\dfrac{1}{n}\sum\limits_{i=1}^nX_i^2=\hat{\sigma}^2+\hat{\mu}^2$。
+
+$\hat{\sigma}^2=EX^2-(EX)^2=\dfrac{1}{n}\sum\limits_{i=1}^nX_i^2-\overline{X}^2=\dfrac{1}{n}\sum\limits_{i=1}^n(X_i-\overline{X})^2$。
+
 \subsubsection{一阶矩}
 
 \subsubsection{二阶矩}
@@ -138,7 +144,39 @@ $\therefore P\{X^2>C^2\}=0.8$。
 
 \subsection{最大似然估计}
 
-步骤：写出概率函数或密度函数；写出似然函数（代入观测值$x_i$并连乘）；两边取对数；求导数并令为0。
+步骤：写出概率函数或密度函数；写出似然函数（代入观测值$x_i$并连乘）；两边取对数；求导数并令为0求出表达式。
+
+\subsubsection{离散型}
+
+\textbf{例题：}设总体$X$的概率分布为：\medskip
+
+\begin{tabular}{c|cccc}
+    \hline
+    $X$ & 0 & 1 & 2 & 3 \\ \hline
+    $P$ & $\theta^2$ & $2\theta(1-\theta)$ & $\theta^2$ & $1-2\theta$ \\ \hline
+\end{tabular} \medskip
+
+其中$\theta\int\left(0,\dfrac{1}{2}\right)$为未知参数，从总体$X$中抽取容量为8的一组样本，其样本值为3，1，3，0，3，1，2，3。求$\theta$的最大似然估计值。
+
+解：
+
+根据样本值，可以得出：\medskip
+
+\begin{tabular}{c|cccc}
+    \hline
+    $X$ & 0 & 1 & 2 & 3 \\ \hline
+    次数 & 1 & 2 & 1 & 4 \\ \hline
+\end{tabular} \medskip
+
+将所有的概率相乘：$L(\theta)l=(1-2\theta)^4[2\theta(1-\theta)]^2\cdot\theta^2\cdot\theta^2=4\theta^6(1-\theta)^2(1-2\theta)^4$。
+
+对其求对数：$\ln L(\theta)=\ln4+6\ln\theta+2\ln(1-\theta)+4\ln(1-2\theta)$。
+
+对其求导：$\dfrac{\textrm{d}\ln L(\theta)}{\textrm{d}\theta}=\dfrac{6}{\theta}-\dfrac{2}{1-\theta}-\dfrac{8}{1-2\theta}=0$。解得$\theta=\dfrac{7\pm\sqrt{13}}{12}$。
+
+$0<\theta<\dfrac{1}{2}$，舍去正值，得到$\hat{\theta}=\dfrac{7-\sqrt{13}}{12}$。
+
+\subsubsection{连续型}
 
 \textbf{例题：}设随机变量$X$在区间$[0,\theta]$上服从均匀分布，$X_1,X_2,\cdots,X_n$是来自$X$的简单随机样本，求$\theta$的最大似然估计量$\hat{\theta}$
 
@@ -165,6 +203,18 @@ $\ln L(\lambda)=-n\ln2-n\ln\lambda-\dfrac{1}{\lambda}\sum\limits_{i=1}^n\vert x_
 令$\dfrac{\textrm{d}\ln L(\lambda)}{\textrm{d}\lambda}=0$，则$\dfrac{n}{\lambda}=\dfrac{1}{\lambda^2}\sum\limits_{i=1}^n\vert x_i\vert$，解得$\lambda=\dfrac{1}{n}\sum\limits_{i=1}^n\vert x_i\vert$。
 
 即$\hat{\lambda}=\dfrac{1}{n}\sum\limits_{i=1}^n\vert X_i\vert$。
+
+\section{估计量评价标准}
+
+\subsection{无偏性}
+
+$E\hat{\theta}=\theta$。
+
+\subsection{有效性}
+
+$D\hat{\theta_1}<D\hat{\theta_2}$。
+
+\subsection{一致性}
 
 \section{置信区间}
 

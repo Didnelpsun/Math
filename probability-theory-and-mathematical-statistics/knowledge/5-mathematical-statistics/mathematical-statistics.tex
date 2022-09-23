@@ -302,24 +302,6 @@ $\therefore P\{F>F_\alpha(n_2,n_1)\}=\alpha$，$P\{F\leqslant F_\alpha(n_2,n_1)\
 
 即将概率密度或概率分布连乘，然后取对数，再求导令其为0解出$\hat{\theta}$。
 
-\textbf{例题：}设总体$X$的概率分布为：\medskip
-
-\begin{tabular}{c|cccc}
-    \hline
-    $X$ & 0 & 1 & 2 & 3 \\ \hline
-    $P$ & $\theta^2$ & $2\theta(1-\theta)$ & $\theta^2$ & $1-2\theta$ \\ \hline
-\end{tabular} \medskip
-
-其中$\theta\int\left(0,\dfrac{1}{2}\right)$为未知参数，从总体$X$中抽取容量为8的一组样本，其样本值为3，1，3，0，3，1，2，3。求$\theta$的矩估计值和最大似然估计值。
-
-解：首先将所有的概率相乘：$L(\theta)l=(1-2\theta)^4[2\theta(1-\theta)]^2\cdot\theta^2\cdot\theta^2=4\theta^6(1-\theta)^2(1-2\theta)^4$。
-
-对其求对数：$\ln L(\theta)=\ln4+6\ln\theta+2\ln(1-\theta)+4\ln(1-2\theta)$。
-
-对其求导：$\dfrac{\textrm{d}\ln L(\theta)}{\textrm{d}\theta}=\dfrac{6}{\theta}-\dfrac{2}{1-\theta}-\dfrac{8}{1-2\theta}=0$。解得$\theta=\dfrac{7\pm\sqrt{13}}{12}$。
-
-$0<\theta<\dfrac{1}{2}$，舍去正值，得到$\hat{\theta}=\dfrac{7-\sqrt{13}}{12}$。
-
 \textbf{例题：}来自总体的$X$的概率密度为$f(x)=\left\{\begin{array}{ll}
     (1+\theta)x^\theta, & 0<x<1 \\
     0, & \text{其他}
@@ -395,44 +377,68 @@ $EX_i^2=EX_{i+1}^2=(EX_{i+1})^2+DX_{i+1}=\mu^2+\sigma^2$，$2EX_iE_{i+1}=2(EX_i)
 
 \textcolor{violet}{\textbf{定义：}}已知从总体$X$中取出一部分样本$X_n$，则这些样本的平均值$\overline{X}$不一定等于$X$的期望即应该的平均值$\mu$，但是其之间的差距应该不大，即差距较小的概率较大，从而表示为$P(\vert\overline{X}-\mu\vert<\Delta)=1-\alpha$，$\alpha$为\textbf{显著性水平}，其一般是一个较小的正数。而$1-\alpha$称为\textbf{置信度}或\textbf{置信水平}。
 
-\textcolor{violet}{\textbf{定义：}}$I=I(T,\theta)$，$T$为已知常量，$\theta$为未知参数，其分布$F$已知且与$\theta$无关，则$I$为\textbf{枢轴变量}。给定$1-\alpha$，确定$F$上的上$\dfrac{\alpha}{2}$分位数$Z-{\frac{\alpha}{2}}$，上$1-\dfrac{\alpha}{2}$分位数$Z_{1-\frac{\alpha}{2}}$，则$P\{Z_{1-\frac{\alpha}{2}}\leqslant I(T,\theta)\leqslant Z_{\frac{\alpha}{2}}=1-\alpha$。
+求置信区间的枢轴变量法：
 
-即$(\underline{\theta},\overline{\theta})$是参数$\theta$的置信度为$1-\alpha$的区间估计，则区间$(\underline{\theta},\overline{\theta})$包含参数$\theta$的概率为$1-\alpha$。
+\begin{enumerate}
+    \item 找到与待估计参数$\theta$有关的统计量$T$。（$T$一般是$\theta$的点估计）
+    \item 找到一个函数$I=I(T,\theta)$，$T$为已知常量，$\theta$为未知参数，其分布$F$已知（正态、$\chi^2$、$t$、$F$）且与$\theta$无关，则$I$为\textbf{枢轴变量}。
+    \item 给定$1-\alpha$，确定$F$上的上$\dfrac{\alpha}{2}$分位数$Z-{\frac{\alpha}{2}}$，上$1-\dfrac{\alpha}{2}$分位数$Z_{1-\frac{\alpha}{2}}$，则$P\{Z_{1-\frac{\alpha}{2}}\leqslant I(T,\theta)\leqslant Z_{\frac{\alpha}{2}}=1-\alpha$。
+    \item 求出$(\underline{\theta},\overline{\theta})$是参数$\theta$的置信度为$1-\alpha$的区间估计，则区间$(\underline{\theta},\overline{\theta})$包含参数$\theta$的概率为$1-\alpha$。
+\end{enumerate}
 
 \subsubsection{正态总体均值的置信空间}
 
 \paragraph{\texorpdfstring{估计$\mu$而$\sigma$已知}{}} \leavevmode \medskip
 
-假设$X\sim N(\mu,\sigma^2)$（若不服从正态分布就用中心极限定理来解决）。则$\overline{X}\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，$P\left(\left\vert\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\right\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$。记$\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}=Z$，则$Z\sim N(0,1)$。
+假设$X\sim N(\mu,\sigma^2)$（若不服从正态分布就用中心极限定理来解决）。
 
-其中置信区间为$(\mu-\Delta,\mu+\Delta)$。
+即$\overline{X}\sim N\left(\mu,\dfrac{\sigma^2}{n}\right)$，规范化后记枢轴变量$\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}=U$，则$U\sim N(0,1)$。
 
-$\therefore P\left(\vert Z\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$，从而中间面积为$1-\alpha$，得到两端面积$\dfrac{\alpha}{2}$。
+又中间面积为$1-\alpha$，得到两端面积$\dfrac{\alpha}{2}$。
 
-得到上$\alpha$分位数$Z_\frac{\alpha}{2}$，$\therefore\dfrac{\Delta}{\sigma/\sqrt{n}}=Z_\frac{\alpha}{2}$，解得$\Delta=Z_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}}$。
+得到上$\alpha$分位数$U_\frac{\alpha}{2}$，所以$P\left(\left\vert\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\right\vert\leqslant U_\frac{\alpha}{2}\right)=1-\alpha$。
 
-代入：解得$\mu\in(\overline{X}-\Delta,\overline{X}+\Delta)=(\overline{X}-Z_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}},\overline{X}+Z_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}})$。
+左边解得$P\left(\overline{X}-\dfrac{\sigma}{\sqrt{n}}U_\frac{\alpha}{2}\leqslant\mu\leqslant\overline{X}+\dfrac{\sigma}{\sqrt{n}}U_\frac{\alpha}{2}\right)=1-\alpha$。
+
+解得$\mu\in[\overline{X}-U_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}},\overline{X}+U_\frac{\alpha}{2}\dfrac{\sigma}{\sqrt{n}}]$。
 
 这个$\mu$所处的区间就是\textbf{置信区间}，区间上限就是\textbf{置信上限}，区间下限就是\textbf{置信下限}。
 
 \paragraph{\texorpdfstring{估计$\mu$而$\sigma$未知}{}} \leavevmode \medskip
 
-当$\sigma$未知的时候就无法求出置信区间了，所以根据正态总体下的结论，用样本方差$S$代替方差$\sigma$，且$\dfrac{\sqrt{n}(\overline{X}-\mu)}{S}\sim t(n-1)$。
+当$\sigma$未知的时候就无法根据$\sigma$求出置信区间了，所以根据正态总体下的结论，用样本方差$S$代替方差$\sigma$，且$\dfrac{(\overline{X}-\mu)}{S/\sqrt{n}}\sim t(n-1)$。
 
-所以$P\left(\left\vert\dfrac{\overline{X}-\mu}{S/\sqrt{n}}\right\vert<\dfrac{\Delta}{S/\sqrt{n}}\right)=1-\alpha$，令$\dfrac{\overline{X}-\mu}{S/\sqrt{n}}=t$，所以$t\sim t(n-1)$。
+令枢轴变量$\dfrac{\overline{X}-\mu}{S/\sqrt{n}}=t$，所以$t\sim t(n-1)$。同样$t$分布图形的中间面积$1-\alpha$，则两边面积为$\dfrac{\alpha}{2}$。
 
-可得上$\alpha$分位点$t_\frac{\alpha}{2}(n-1)$，所以$\dfrac{\Delta}{S/\sqrt{n}}=t_\frac{\alpha}{2}(n-1)$，解得$\Delta=t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}}$。
+可得上$\alpha$分位点$t_\frac{\alpha}{2}(n-1)$，所以$P\left(\left\vert\dfrac{\overline{X}-\mu}{\sigma/\sqrt{n}}\right\vert\leqslant t_\frac{\alpha}{2}(n-1)\right)=1-\alpha$，
 
-代入：解得$\mu\in(\overline{X}-\Delta,\overline{X}+\Delta)=\mu\in(\overline{X}-t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}},\overline{X}+t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}})$。
+左边解得$P\left(\overline{X}-\dfrac{S}{\sqrt{n}}t_\frac{\alpha}{2}(n-1)\leqslant\mu\leqslant\overline{X}+\dfrac{S}{\sqrt{n}}t_\frac{\alpha}{2}(n-1)\right)=1-\alpha$。
 
-综上：求置信空间的关键是求$\Delta$：\medskip
+解得$\mu\in[\overline{X}-t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}},\overline{X}+t_\frac{\alpha}{2}(n-1)\dfrac{S}{\sqrt{n}}]$。
+
+\paragraph{\texorpdfstring{估计$\sigma^2$而$\mu$已知}{}} \leavevmode \medskip
+
+由于需要利用$\mu$来估计$\sigma^2$，所以令枢轴变量$\chi=\dfrac{1}{\sigma^2}\sum\limits_{i=1}^n(X_i-\mu)^2\sim\chi^2(n)$。
+
+所以$P\left(\chi^2_{1-\frac{\alpha}{2}}(n)\leqslant\dfrac{1}{\sigma^2}\sum\limits_{i=1}^n(X_i-\mu)^2\leqslant\chi^2_\frac{\alpha}{2}(n)\right)=1-\alpha$，由于$\chi^2$分布的图形是不对称的，所以上下限都需要单独查出。
+
+解得$\sigma^2\in\left[\dfrac{\sum\limits_{i=1}^n(X_i-\mu)^2}{\chi^2_\frac{\alpha}{2}(n)},\dfrac{\sum\limits_{i=1}^n(X_i-\mu)^2}{\chi^2_{1-\frac{\alpha}{2}}(n)}\right]$。
+
+\paragraph{\texorpdfstring{估计$\sigma^2$而$\mu$未知}{}} \leavevmode \medskip
+
+由于$\mu$未知，所以不可用了，使用$\overline{X}$替换$\mu$。令枢轴变量$\chi=\dfrac{(n-1)S^2}{\sigma^2}=\dfrac{1}{\sigma^2}\sum\limits_{i=1}^n(X_i-\overline{X})^2\sim\chi^2(n-1)$。
+
+同理解得$\left[\dfrac{(n-1)S^2}{\chi^2_{\frac{\alpha}{2}}(n-1)},\dfrac{(n-1)S^2}{\chi^2_{1-\frac{\alpha}{2}}(n-1)}\right]$。\medskip
+
+从而得到基本置信空间公式：
 
 \begin{tabular}{|c|c|c|}
     \hline
     参数 & 条件 & 置信区间 \\ \hline
-    \multirow{2}{*}{$\mu$} & $\sigma$已知 & $\left(\overline{X}-\dfrac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}},\overline{X}+\dfrac{\sigma}{\sqrt{n}}\mu_{\frac{\alpha}{2}}\right)$ \\ \cline{2-3}
-    & $\sigma$未知 & $\left(\overline{X}-\dfrac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1),\overline{X}+\dfrac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1)\right)$ \\ \hline
-    $\sigma$ & $\mu$未知 &  $\left(\dfrac{(n-1)S^2}{\chi^2_{\frac{\alpha}{2}}(n-1)},\dfrac{(n-1)S^2}{\chi^2_{1-\frac{\alpha}{2}}(n-1)}\right)$ \\ \hline
+    \multirow{2}{*}{$\mu$} & $\sigma$已知 & $\left[\overline{X}-\dfrac{\sigma}{\sqrt{n}}U_{\frac{\alpha}{2}},\overline{X}+\dfrac{\sigma}{\sqrt{n}}U_{\frac{\alpha}{2}}\right]$ \\ \cline{2-3}
+    & $\sigma$未知 & $\left[\overline{X}-\dfrac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1),\overline{X}+\dfrac{S}{\sqrt{n}}t_{\frac{\alpha}{2}}(n-1)\right]$ \\ \hline
+    \multirow{2}{*}{$\sigma$} & $\mu$已知 & $\sigma^2\in\left[\dfrac{\sum\limits_{i=1}^n(X_i-\mu)^2}{\chi^2_\frac{\alpha}{2}(n)},\dfrac{\sum\limits_{i=1}^n(X_i-\mu)^2}{\chi^2_{1-\frac{\alpha}{2}}(n)}\right]$ \\ \cline{2-3}
+    & $\mu$未知 & $\left[\dfrac{(n-1)S^2}{\chi^2_{\frac{\alpha}{2}}(n-1)},\dfrac{(n-1)S^2}{\chi^2_{1-\frac{\alpha}{2}}(n-1)}\right]$ \\ \hline
 \end{tabular}
 
 \subsection{假设检验}
@@ -455,7 +461,16 @@ $\therefore P\left(\vert Z\vert<\dfrac{\Delta}{\sigma/\sqrt{n}}\right)=1-\alpha$
     \multicolumn{2}{|c|}{双边检验} & $\theta=\theta_0$ & $\theta\neq\theta_0$ \\ \hline
     \multirow{2}{*}{单边检验} & 右边 & $\theta\leqslant\theta_0$ & $\theta>\theta_0$ \\ \cline{2-4}
     & 左边 & $\theta\geqslant\theta_0$ & $\theta<\theta_0$ \\ \hline
-\end{tabular}
+\end{tabular} \medskip
+
+假设检验步骤：
+
+\begin{enumerate}
+    \item 根据问题要求提出原假设$H_0$和备择假设$H_1$。
+    \item 根据假设和条件确定检验统计量，在$H_0$成立的条件下确定其分布。
+    \item 给定显著性水平$\alpha$，在$H_0$成立的条件下根据$P\{H_0\text{为真，拒绝}H_0\}\leqslant\alpha$确定拒绝域和临界点。
+    \item 由样本值计算出检验统计量值，若该值落入拒绝域，则拒绝$H_0$，否则接受$H_0$。
+\end{enumerate}
 
 \subsubsection{正态总体下的六大检验与拒绝域}
 
