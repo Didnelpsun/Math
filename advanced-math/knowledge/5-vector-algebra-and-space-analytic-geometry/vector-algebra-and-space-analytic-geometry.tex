@@ -78,6 +78,13 @@
     \item $a//b\Leftrightarrow\theta=0$或$\pi\Leftrightarrow\dfrac{a_x}{b_x}=\dfrac{a_y}{b_y}=\dfrac{a_z}{b_z}$。
 \end{itemize}
 
+向量积的计算也可以如此理解，将两个向量上下摞在一起，然后右边再复制一份：
+
+$\left[\begin{array}{cccccc}
+    a_x & a_y & a_z & a_x & a_y & a_z \\
+    b_x & b_y & b_z & b_x & b_y & b_z
+\end{array}\right]$，向量积的第一个值就是2、3列的行列式值，第二个值就是3、4列的行列式值，第三个值就是4、5列行列式值，第1和第6列不用。
+
 \subsubsection{混合积}
 
 \begin{itemize}
@@ -139,10 +146,6 @@
 
 \subsection{位置关系}
 
-\subsubsection{点到平面距离}
-
-点$P_0(x_0,y_0,z_0)$到平面$Ax+By+Cz+D=0$的距离为$d=$\\$\dfrac{\vert Ax_0+By_0+Cz_0+D\vert}{\sqrt{A^2+B^2+C^2}}$。
-
 \subsubsection{直线关系}
 
 设$\vec{\tau}_1=(l_1,m_1,n_1)$，$\vec{\tau}_2=(l_2,m_2,n_2)$分别为直线$L_1$，$L_2$的方向向量。
@@ -170,7 +173,31 @@
     \item $L//\pi\Leftrightarrow\vec{\tau}\bot\vec{n}\Leftrightarrow Al+Bm+Cn=0$。
 \end{itemize}
 
+\subsubsection{距离}
+
+距离公式：
+
+\begin{itemize}
+    \item 二维点到直线距离：点$P_0(x_0,y_0,z_0)$到直线$Ax+By+C=0$的距离为$d=\dfrac{\vert Ax_0+By_0+Cz_0\vert}{\sqrt{A^2+B^2}}$。
+    \item 三维点到平面距离：点$P_0(x_0,y_0,z_0)$到平面$Ax+By+Cz+D=0$的距离为$d=\dfrac{\vert Ax_0+By_0+Cz_0+D\vert}{\sqrt{A^2+B^2+C^2}}$。
+    \item 二维平行直线到直线距离：直线$Ax+By+C_1=0$到直线$Ax+By+C_2=0$的距离为$d=\dfrac{\vert C_2-C_1\vert}{\sqrt{A^2+B^2}}$。
+    \item 二维非平行直线到直线夹角：直线$A_1x+B_2y+C_1=0$到直线$A_2x+B_2y+C_2=0$的夹角为$\cos\theta=\dfrac{\vert A_1A_2+B_1B_2\vert}{\sqrt{A_1^2+B_1^2}\cdot\sqrt{A_2^2+B_2^2}}$（$\theta\in\left[0,\dfrac{\pi}{2}\right]$）。
+    \item 三维平行平面到平面距离：平面$Ax+By+Cz+D_1=0$到平面$Ax+By+Cz+D_2=0$的距离为$d=\dfrac{\vert D_2-D_1\vert}{\sqrt{A^2+B^2+C^2}}$。（在另一个面上任取一点计算该点到平面距离）
+\end{itemize}
+
+三维点到直线距离：（已知直线$L$一般式方程和点$M_1$）
+
+\begin{enumerate}
+    \item 根据$L$一般式方程依次求一阶导得出两个面的法向量$\vec{\xi_1}$、$\vec{\xi_2}$。
+    \item 使用向量积得出$L$方向向量$\vec{S}=\vec{\xi_1}\times\vec{\xi_2}$。
+    \item 在$L$上任意找到一点$M_0$，计算向量$\overrightarrow{M_0M_1}$，计算向量积$\overrightarrow{M_0M_1}\times\vec{S}$，取其模$\vert\overrightarrow{M_0M_1}\times\vec{S}\vert$，这个模即为三点所成三角形面积的两倍$2S_{\triangle M_0M_1S}$。
+    \item 求出方向向量$\vec{S}$的模，所以$\vec{M_1}$到$\vec{S}$的距离$d$可以化为两倍三角形面积$2S_{\triangle M_0M_1S}=d\cdot\vert\vec{S}\vert$。
+    \item 所以$\vert\overrightarrow{M_0M_1}\times\vec{S}\vert=d\cdot\vert\vec{S}\vert$，解得$d=\dfrac{\vert\overrightarrow{M_0M_1}\times\vec{S}\vert}{\vert\vec{S}\vert}$。
+\end{enumerate}
+
 \subsection{空间曲线}
+
+空间曲线某点的切线向量等于该点代入各自导数。
 
 \subsubsection{表达式}
 
@@ -230,6 +257,8 @@
 
 绕某轴转，其就不变，把另外一个字母写成另外两个字母的平方和的开方。
 
+如$f(x,y)=0$对$x$旋转，则改为$f(x,\pm\sqrt{y^2+z^2})$。
+
 是曲线$\varGamma$绕一条定直线旋转一周所形成的曲面。
 
 给定一条直线$L:\dfrac{x-x_0}{l}=\dfrac{y-y_0}{m}=\dfrac{z-z_0}{n}$，其方向向量为$\vec{\tau}(l,m,n)$，上有一点$P_0(x_0,y_0,z_0)$。
@@ -288,9 +317,9 @@
 
 $\dfrac{\partial z}{\partial x}=e^{2y}$，$\dfrac{\partial z}{\partial y}=2xe^{2y}$，代入$P(1,0)$，得到$\{1,2\}$。
 
-然后求方向余弦，对于$\overrightarrow{PQ}={1,-1}$方向余弦就是除它的模$\left\{\dfrac{1}{\sqrt{2}},-\dfrac{1}{\sqrt{2}}\right\}$。
+然后求方向余弦，对于$\overrightarrow{PQ}=(1,-1)$方向余弦就是除它的模$\left\{\dfrac{1}{\sqrt{2}},-\dfrac{1}{\sqrt{2}}\right\}$。
 
-方向导数就是相乘：$\dfrac{1}{\sqrt{2}}-\dfrac{2}{\sqrt{2}}=-\dfrac{\sqrt{2}}{2}$。
+方向导数就是点乘：$\dfrac{1}{\sqrt{2}}-\dfrac{2}{\sqrt{2}}=-\dfrac{\sqrt{2}}{2}$。
 
 \subsection{梯度}
 

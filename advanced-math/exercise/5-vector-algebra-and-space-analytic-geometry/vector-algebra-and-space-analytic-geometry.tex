@@ -1,0 +1,78 @@
+\documentclass[UTF8, 12pt]{ctexart}
+% UTF8编码，ctexart现实中文
+\usepackage{color}
+% 使用颜色
+\definecolor{orange}{RGB}{255,127,0} 
+\definecolor{violet}{RGB}{192,0,255} 
+\definecolor{aqua}{RGB}{0,255,255} 
+\usepackage{geometry}
+\setcounter{tocdepth}{4}
+\setcounter{secnumdepth}{4}
+% 设置四级目录与标题
+\geometry{papersize={21cm,29.7cm}}
+% 默认大小为A4
+\geometry{left=3.18cm,right=3.18cm,top=2.54cm,bottom=2.54cm}
+% 默认页边距为1英尺与1.25英尺
+\usepackage{indentfirst}
+\setlength{\parindent}{2.45em}
+% 首行缩进2个中文字符
+\usepackage{setspace}
+\renewcommand{\baselinestretch}{1.5}
+% 1.5倍行距
+\usepackage{amssymb}
+% 因为所以
+\usepackage{amsmath}
+% 数学公式
+\usepackage[colorlinks,linkcolor=black,urlcolor=blue]{hyperref}
+% 超链接
+\author{Didnelpsun}
+\title{向量代数与空间解析几何}
+\date{}
+\begin{document}
+\maketitle
+\pagestyle{empty}
+\thispagestyle{empty}
+\tableofcontents
+\thispagestyle{empty}
+\newpage
+\pagestyle{plain}
+\setcounter{page}{1}
+\section{向量代数}
+
+\section{空间解析几何}
+
+\subsection{平面方程}
+
+\subsection{直线方程}
+
+\subsection{位置关系}
+
+\subsection{空间曲线}
+
+\subsection{空间曲面}
+
+\section{场论初步}
+
+\subsection{方向导数}
+
+\subsection{梯度}
+
+\subsection{散度与旋度}
+
+直接代入公式。
+
+\textbf{例题：}计算向量场$u(x,y,z)=xy^2i+ye^xj+x\ln(1+z^2)k$在点$P(1,1,0)$的散度和旋度。
+
+解：所以$u(x,y,z)=(P,Q,R)$，$P=xy^2$，$Q=ye^x$，$R=x\ln(1+z^2)$。
+
+$\dfrac{\partial P}{\partial x}=y^2$，$\dfrac{\partial Q}{\partial y}=e^x$，$\dfrac{\partial R}{\partial z}=\dfrac{2zx}{1+z^2}$。
+
+代入$P(1,1,0)$，得到散度$\textrm{div}\,\vec{u}=1+e$。
+
+旋度$\overrightarrow{\textrm{rot}}\,\vec{u}=\left\vert\begin{array}{ccc}
+    \vec{i} & \vec{j} & \vec{k} \\
+    \dfrac{\partial}{\partial x} & \dfrac{\partial}{\partial y} & \dfrac{\partial}{\partial z} \\
+    xy^2 & ye^x & x\ln(1+z^2)
+\end{array}\right\vert=\dfrac{\partial x\ln(1+z^2)}{\partial y}\vec{i}+\dfrac{\partial xy^2}{\partial z}\vec{j}+\dfrac{\partial ye^x}{\partial x}\vec{k}-\dfrac{\partial xy^2}{\partial y}\vec{k}-\dfrac{\partial ye^x}{\partial z}\vec{i}-\dfrac{\partial x\ln(1+z^2)}{\partial x}\vec{j}=0+0+ye^x\vec{k}-2xy\vec{k}-0-\ln(1+z^2)\vec{j}=-\ln(1+z^2)\vec{j}+(ye^x-2xy)\vec{k}=(0,0,e-2)$。
+
+\end{document}

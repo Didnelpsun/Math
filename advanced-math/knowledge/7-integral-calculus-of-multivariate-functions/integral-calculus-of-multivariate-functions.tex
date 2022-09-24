@@ -56,7 +56,7 @@
 \begin{itemize}
     \item 求区域面积：$\iint\limits_D1\cdot\textrm{d}\sigma=\iint\limits_D\textrm{d}\sigma=A$，其中$A$为$D$的面积。
     \item 可积函数必有界：当$f(x,y)$在有界闭区间$D$上可积时，$f(x,y)$在$D$上必有界。
-    \item 积分线性性质：$k_1,k_2$为常数，则$\iint\limits_D[k_1f(x,y)\pm k_2g(x,y)]\,\textrm{d}\sigma=\iint\limits_{D_1}f(x,y)\,\textrm{d}\sigma$\\$\pm k_2\iint\limits_{D_2}f(x,y)\,\textrm{d}\sigma$。
+    \item 积分线性性质：$k_1,k_2$为常数，则$\iint\limits_D[k_1f(x,y)\pm k_2g(x,y)]\,\textrm{d}\sigma=$\\$k_1\iint\limits_Df(x,y)\,\textrm{d}\sigma\pm k_2\iint\limits_Df(x,y)\,\textrm{d}\sigma$。
     \item 积分可加性：当$f(x,y)$在有界闭区间$D$上可积时，且$D_1\cup D_2=D$，$D_1\cap U_2=\varnothing$，则$\iint\limits_Df(x,y)\,\textrm{d}\sigma=\iint\limits_{D_1}f(x,y)\,\textrm{d}\sigma+\iint\limits_{D_2}f(x,y)\,\textrm{d}\sigma$。
     \item 积分保号性：当$f(x,y),g(x,y))$在有界闭区间$D$上可积时，若在$D$上有$f(x,y)\leqslant g(x,y)$，则$\iint\limits_Df(x,y)\,\textrm{d}\sigma\leqslant\iint\limits_Dg(x,y)\,\textrm{d}\sigma$，特别$\left\vert\iint\limits_Df(x,y)\,\textrm{d}\sigma\right\vert\leqslant\iint\limits_D\vert f(x,y)\vert\,\textrm{d}\sigma$。
     \item 二重积分估值定理：设$M,m$，分别为$f(x,y)$在有界闭区域$D$上的最大值和最小值，$A$为$D$的面积，则有$mA\leqslant\iint\limits_Df(x,y)\,\textrm{d}\sigma\leqslant MA$。
@@ -301,7 +301,7 @@ $=\int_0^\frac{\pi}{2}\textrm{d}\theta\int_0^{+\infty}e^{-r^2}r\,\textrm{d}r=\di
 
 \subparagraph{先一后二法} \leavevmode \medskip
 
-先$z$后$xy$，也称为投影穿线法。先做定积分后做二重积分。
+先$z$后$xy$，也称为投影穿线法。先做定积分后做二重积分。相当于对底面构造垂直于底面的线，将这个面上所有的线的体积积分起来就得到这个总体积，所以先一后二法要求底面是固定的微元。
 
 适用场合：$\Omega$有下曲面$z=z_1(x,y)$、上曲面$z=z_2(x,y)$，无侧面或侧面为柱面。
 
@@ -319,7 +319,7 @@ $=\displaystyle{\iint\limits_{D_{xy}}\textrm{d}\sigma\left(-\dfrac{1}{2}\dfrac{1
 
 \subparagraph{先二后一法} \leavevmode \medskip
 
-先$xy$后$z$，也称为定限截面法。先做二重积分后做定积分。
+先$xy$后$z$，也称为定限截面法。先做二重积分后做定积分。相当于对体积进行平行于地面的切割为圆柱体，将所有在这个高上的圆柱体积分起来就得到这个总面积，所以先二后一要求高是固定的微元。
 
 适用场合：$\Omega$是旋转体，上面和下面都是平面，中间为曲面，旋转曲面方程为$\Sigma:z=z(x,y)$。
 
@@ -364,7 +364,7 @@ $I=\int_0^8\textrm{d}z\iint\limits_D(x^2+y^2)\,\textrm{d}\sigma=\int_0^8\textrm{
 
 被积函数含有$x^2+y^2+z^2$或$x^2+y^2$，积分区域为球或球的部分，锥或锥的部分。
 
-\subparagraph{计算方法} \leavevmode \medskip
+\subparagraph{原理} \leavevmode \medskip
 
 利用三族面对$\Omega$进行切割：
 
@@ -378,7 +378,11 @@ $I=\int_0^8\textrm{d}z\iint\limits_D(x^2+y^2)\,\textrm{d}\sigma=\int_0^8\textrm{
 
 对$xyz$，由$\phi$推出的一个直角三角形的斜边为$r$，半顶角为$\phi$，所以$z$轴的直角边为$z=r\cos\phi$，又$x^2+y^2+z^2=r^2$，所以$x^2+y^2=r^2-z^2=r^2\sin^2\phi$，又$xOy$夹角为$\theta$，所以$x=r\sin\phi\cos\theta$，$y=r\sin\phi\sin\theta$。
 
+\subparagraph{计算方法} \leavevmode \medskip
+
 $\iiint\limits_\Omega f(x,y,z)\,\textrm{d}x\textrm{d}y\textrm{d}z=\iiint\limits_\Omega f(r\sin\phi\cos\theta,r\sin\phi\sin\theta,r\cos\phi)r^2\sin\phi\,\textrm{d}\theta\textrm{d}\phi\textrm{d}r$
+
+令$x=r\cos\theta\sin\phi$、$y=r\sin\theta\sin\phi$、$z=r\cos\phi$，判断$xOy$面的与正方向夹角$\phi$，$xOz$面的与正方向夹角$\theta$。
 
 \textbf{例题：}计算三重积分$\iiint\limits_\Omega(x^2+y^2)\,\textrm{d}v$，其中$\Omega$是半球面$x^2+y^2+z^2=a^2$（$y\geqslant0$）与$xOz$面所围成的区域。
 
@@ -416,15 +420,41 @@ $\therefore I=\dfrac{1}{3}\iiint\limits_\Omega(x^2+y^2+z^2)\,\textrm{d}x\textrm{
 
 \section{第一型曲线积分}
 
-是由定积分推广而来。
+是由定积分推广而来。即对弧长曲线积分。
 
 \subsection{概念}
 
+用于计算密度不均匀的不规则形状细线质量。
+
+\subsubsection{弧长}
+
+$L$是在$xOy$上的曲线段，$f(x,y)$在$L$上有界，将$L$分割为多个线段$\Delta S_1,\Delta S_2,\cdots,\Delta S_n$，假如取该线段某点$\forall(\xi_i,\eta_i)\in\Delta S_i$，则该线段的质量可以近似为$\Delta m_i\approx\rho(\xi_i,\eta_i)\Delta S_i$，所以整体线的质量$m\approx\sum\limits_{i=1}^n\rho(\xi_i,\eta_i)\Delta S_i$。$\lambda=\max\{\Delta S_1,\cdots,\Delta S_n\}$，若极限$m=\lim\limits_{\delta\to0}\sum\limits_{i=1}^n\rho(\xi_i,\eta_i)\Delta S_i$存在，称该极限为$f(x,y)$在$L$上对弧长的曲线积分$\int_Lf(x,y)\,\textrm{d}S$。
+
 \subsubsection{定义}
+
+\begin{itemize}
+    \item $L:y=g(x)$（$a\leqslant x\leqslant b$），$\int_Lf(x,y)\,\textrm{d}S=\int_a^bf[x,g(x)]\sqrt{1+g'^2(x)}\textrm{d}x$。
+    \item $L:\left\{\begin{array}{c}
+        x=\phi(t) \\
+        y=\psi(t)
+    \end{array}\right.$（$\alpha\leqslant t\leqslant\beta$），$\int_Lf(x,y)\,\textrm{d}S=\int_\alpha^\beta f[\phi(t),\psi(t)]\\\sqrt{\phi'^2(t)+\psi'^2(t)}\textrm{d}t$。 
+\end{itemize}
 
 \subsubsection{性质}
 
+\begin{itemize}
+    \item $\int_L1\,\textrm{d}S=l$。
+    \item $\int_Lf(x,y)\,\textrm{d}S=\int_{L_1}f(x,y)\,\textrm{d}S+\int_{L_2}f(x,y)\,\textrm{d}S$。
+    \item $\int_L(k_1f(x,y))\textrm{d}S\pm\int_L(k_2f(x,y))\textrm{d}S=k_1\int_Lf(x,y)\,\textrm{d}S\pm k_2\int_Lf(x,y)\textrm{d}S$。
+\end{itemize}
+
 \subsubsection{对称性}
+
+\begin{itemize}
+    \item $L$关于$y$轴对称，右边部分为$L_1$，若$f(-x,y)=-f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}S=0$，若$f(-x,y)=f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}S=2\int_{L_1}f(x,y)\,\textrm{d}S$。
+    \item $L$关于$x$轴对称，上边部分为$L_1$，若$f(x,-y)=-f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}S=0$，若$f(x,-y)=f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}S=2\int_{L_1}f(x,y)\,\textrm{d}S$。
+    \item $L$关于$y=x$对称，则$\int_Lf(x,y)\,\textrm{d}S=\int_Lf(x,y)\,\textrm{d}S$。
+\end{itemize}
 
 \subsection{计算}
 
@@ -434,7 +464,7 @@ $\therefore I=\dfrac{1}{3}\iiint\limits_\Omega(x^2+y^2+z^2)\,\textrm{d}x\textrm{
 
 \paragraph{平面} \leavevmode \medskip
 
-\textbf{例题：}计算$\oint\limits_\Gamma\vert y\vert\,\textrm{d}s$，其中$Gamma$为球面$x^2+y^2+z^2=2$与平面$x=y$的交线。
+\textbf{例题：}计算$\oint\limits_\Gamma\vert y\vert\,\textrm{d}s$，其中$\Gamma$为球面$x^2+y^2+z^2=2$与平面$x=y$的交线。
 
 解：根据普通对称性，对于$\vert y\vert$而言，其他象限的函数值都与第一象限区域的函数相等。令第一象限区域为$\Gamma_1$：
 
@@ -562,7 +592,7 @@ $\therefore8\iint\limits_{\Sigma_1}y\,\textrm{d}S=\dfrac{8}{3}\iint\limits_{\Sig
 
 \section{第二型曲线积分}
 
-第二型与第一型的差别就是第二型具有物理意义是有向的，而第一型具有几何意义是无向的。
+第二型与第一型的差别就是第二型具有物理意义是有向的，而第一型具有几何意义是无向的。即对坐标曲线积分。
 
 \subsection{概念}
 
@@ -574,9 +604,26 @@ $\therefore8\iint\limits_{\Sigma_1}y\,\textrm{d}S=\dfrac{8}{3}\iint\limits_{\Sig
 
 \subsubsection{变力沿曲线做功}
 
+对于双理想状态，对一个物体沿直线且均匀力道，则其功为$\vec{F}\cdot\overrightarrow{AB}$（$\vec{F}$为力向量，$\overrightarrow{AB}$为物体移动向量）。
+
+而对于双不理想状态，对一个物体沿曲线且变动力道做功，则无法得出结论。
+
+令曲线为$L$，对$L$进行切分为微元$\forall\overrightarrow{\textrm{d}S}\in L$，则$\overrightarrow{\textrm{d}S}=\{\textrm{d}x,\textrm{d}y\}$。设变力$\vec{F}(x,y)=\{P(x,y),Q(x,y)\}$，则功的微元为$\textrm{d}\omega=\vec{F}\cdot\overrightarrow{\textrm{d}S}=P(x,y)\textrm{d}x+Q(x,y)\textrm{d}y$，所以对整体功进行积分$\omega=\int_L\textrm{d}\omega=\int_LP(x,y)\textrm{d}x+Q(x,y)\textrm{d}y$。
+
+令曲线为$L$，对$L$进行切分为微元$\forall\overrightarrow{\textrm{d}S}\in L$，则$\overrightarrow{\textrm{d}S}=\{\textrm{d}x,\textrm{d}y,\textrm{d}z\}$。设变力$\vec{F}(x,y,z)=\{P(x,y,z),Q(x,y,z),R(x,y,z)\}$，则功的微元为$\textrm{d}\omega=\vec{F}\cdot\overrightarrow{\textrm{d}S}=P(x,y,z)\textrm{d}x+Q(x,y,z)\textrm{d}y+R(x,y,z)\textrm{d}z$，所以对整体功进行积分$\omega=\int_L\textrm{d}\omega=\int_LP(x,y,z)\textrm{d}x+Q(x,y,z)\textrm{d}y+R(x,y,z)\textrm{d}z$。
+
 \subsubsection{定义}
 
+对于二维，对坐标的曲线积分为$\int_LP(x,y)\textrm{d}x+Q(x,y)\textrm{d}y$，其中$\int_LP(x,y)\,\textrm{d}x$为$P(x,y)$在有向曲线段$L$上对坐标$x$求积分，$\int_LQ(x,y)\,\textrm{d}y$为$Q(x,y)$在有向曲线段$L$上对坐标$y$求积分。
+
+对于三维，对坐标的曲线积分为$\int_LP(x,y,z)\textrm{d}x+Q(x,y,z)\textrm{d}y+R(x,y,z)\textrm{d}z$，同理如二维的定义。
+
 \subsubsection{性质}
+
+\begin{itemize}
+    \item $\int_{L^-}P(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=-\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y$。
+    \item $\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\int_L(P(x,y)\cos\alpha+Q(x,y)\cos\beta)\textrm{d}S$。（利用方向余弦将第二类曲线积分化成第一类曲线积分）
+\end{itemize}
 
 \subsection{计算}
 
