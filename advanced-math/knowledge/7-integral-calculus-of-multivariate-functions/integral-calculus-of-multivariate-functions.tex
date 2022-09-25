@@ -426,34 +426,28 @@ $\therefore I=\dfrac{1}{3}\iiint\limits_\Omega(x^2+y^2+z^2)\,\textrm{d}x\textrm{
 
 用于计算密度不均匀的不规则形状细线质量。
 
-\subsubsection{弧长}
+\subsubsection{几何性质}
 
-$L$是在$xOy$上的曲线段，$f(x,y)$在$L$上有界，将$L$分割为多个线段$\Delta S_1,\Delta S_2,\cdots,\Delta S_n$，假如取该线段某点$\forall(\xi_i,\eta_i)\in\Delta S_i$，则该线段的质量可以近似为$\Delta m_i\approx\rho(\xi_i,\eta_i)\Delta S_i$，所以整体线的质量$m\approx\sum\limits_{i=1}^n\rho(\xi_i,\eta_i)\Delta S_i$。$\lambda=\max\{\Delta S_1,\cdots,\Delta S_n\}$，若极限$m=\lim\limits_{\delta\to0}\sum\limits_{i=1}^n\rho(\xi_i,\eta_i)\Delta S_i$存在，称该极限为$f(x,y)$在$L$上对弧长的曲线积分$\int_Lf(x,y)\,\textrm{d}S$。
+$L$是在$xOy$上的曲线段，$f(x,y)$在$L$上有界，将$L$分割为多个线段$\Delta S_1,\Delta S_2,\cdots,\Delta S_n$，假如取该线段某点$\forall(\xi_i,\eta_i)\in\Delta S_i$，则该线段的质量可以近似为$\Delta m_i\approx\rho(\xi_i,\eta_i)\Delta S_i$，所以整体线的质量$m\approx\sum\limits_{i=1}^n\rho(\xi_i,\eta_i)\Delta S_i$。$\lambda=\max\{\Delta S_1,\cdots,\Delta S_n\}$，若极限$m=\lim\limits_{\delta\to0}\sum\limits_{i=1}^n\rho(\xi_i,\eta_i)\Delta S_i$存在，称该极限为$f(x,y)$在$L$上对弧长的曲线积分$\int_Lf(x,y)\,\textrm{d}s$。
 
 \subsubsection{定义}
 
-\begin{itemize}
-    \item $L:y=g(x)$（$a\leqslant x\leqslant b$），$\int_Lf(x,y)\,\textrm{d}S=\int_a^bf[x,g(x)]\sqrt{1+g'^2(x)}\textrm{d}x$。
-    \item $L:\left\{\begin{array}{c}
-        x=\phi(t) \\
-        y=\psi(t)
-    \end{array}\right.$（$\alpha\leqslant t\leqslant\beta$），$\int_Lf(x,y)\,\textrm{d}S=\int_\alpha^\beta f[\phi(t),\psi(t)]\\\sqrt{\phi'^2(t)+\psi'^2(t)}\textrm{d}t$。 
-\end{itemize}
+第一类曲线积分为$\int_Lf(x,y)\,\textrm{d}s$。
 
 \subsubsection{性质}
 
 \begin{itemize}
-    \item $\int_L1\,\textrm{d}S=l$。
-    \item $\int_Lf(x,y)\,\textrm{d}S=\int_{L_1}f(x,y)\,\textrm{d}S+\int_{L_2}f(x,y)\,\textrm{d}S$。
-    \item $\int_L(k_1f(x,y))\textrm{d}S\pm\int_L(k_2f(x,y))\textrm{d}S=k_1\int_Lf(x,y)\,\textrm{d}S\pm k_2\int_Lf(x,y)\textrm{d}S$。
+    \item $\int_L1\,\textrm{d}s=l$。
+    \item $\int_Lf(x,y)\,\textrm{d}s=\int_{L_1}f(x,y)\,\textrm{d}s+\int_{L_2}f(x,y)\,\textrm{d}s$。
+    \item $\int_L(k_1f(x,y))\textrm{d}s\pm\int_L(k_2f(x,y))\textrm{d}s=k_1\int_Lf(x,y)\,\textrm{d}s\pm k_2\int_Lf(x,y)\textrm{d}s$。
 \end{itemize}
 
 \subsubsection{对称性}
 
 \begin{itemize}
-    \item $L$关于$y$轴对称，右边部分为$L_1$，若$f(-x,y)=-f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}S=0$，若$f(-x,y)=f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}S=2\int_{L_1}f(x,y)\,\textrm{d}S$。
-    \item $L$关于$x$轴对称，上边部分为$L_1$，若$f(x,-y)=-f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}S=0$，若$f(x,-y)=f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}S=2\int_{L_1}f(x,y)\,\textrm{d}S$。
-    \item $L$关于$y=x$对称，则$\int_Lf(x,y)\,\textrm{d}S=\int_Lf(x,y)\,\textrm{d}S$。
+    \item $L$关于$y$轴对称，右边部分为$L_1$，若$f(-x,y)=-f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}s=0$，若$f(-x,y)=f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}s=2\int_{L_1}f(x,y)\,\textrm{d}s$。
+    \item $L$关于$x$轴对称，上边部分为$L_1$，若$f(x,-y)=-f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}s=0$，若$f(x,-y)=f(x,y)$，则$\int_Lf(x,y)\,\textrm{d}s=2\int_{L_1}f(x,y)\,\textrm{d}s$。
+    \item $L$关于$y=x$对称，则$\int_Lf(x,y)\,\textrm{d}s=\int_Lf(x,y)\,\textrm{d}s$。
 \end{itemize}
 
 \subsection{计算}
@@ -461,6 +455,14 @@ $L$是在$xOy$上的曲线段，$f(x,y)$在$L$上有界，将$L$分割为多个�
 \subsubsection{基础方法}
 
 即化为定积分。一投（投影）二代（代入关系方程）三计算（$\textrm{d}s$转换为$\textrm{d}x$等）。
+
+\begin{itemize}
+    \item $L:y=g(x)$（$a\leqslant x\leqslant b$），$\int_Lf(x,y)\,\textrm{d}s=\int_a^bf[x,g(x)]\sqrt{1+g'^2(x)}\textrm{d}x$。
+    \item $L:\left\{\begin{array}{c}
+        x=\phi(t) \\
+        y=\psi(t)
+    \end{array}\right.$（$\alpha\leqslant t\leqslant\beta$），$\int_Lf(x,y)\,\textrm{d}s=\int_\alpha^\beta f[\phi(t),\psi(t)]\\\sqrt{\phi'^2(t)+\psi'^2(t)}\textrm{d}t$。 
+\end{itemize}
 
 \paragraph{平面} \leavevmode \medskip
 
@@ -490,39 +492,69 @@ $=4\int_0^\frac{\pi}{2}\cos t\sqrt{2}\,\textrm{d}t=4\sqrt{2}$。
 
 \section{第一型曲面积分}
 
-$\textrm{d}S$为面微分。
+$\textrm{d}s$为面微分。即对面积曲面积分。
 
 \subsection{概念}
 
+\subsubsection{几何性质}
+
+若一块厚度不计的物体$\Sigma$在空间中，对$\Sigma$取面积微元$\forall\textrm{d}s\in\Sigma$，此时面积微元的面密度认定为均匀，其质量$\textrm{d}m=\rho(x,y,z)\textrm{d}s$。所以总质量$m=\iint_\Sigma\textrm{d}m=\iint_\Sigma\rho(x,y,z)\,\textrm{d}s$。
+
 \subsubsection{定义}
+
+$\iint_\Sigma f(x,y,z)\,\textrm{d}s$为$f(x,y,z)$在曲面$\Sigma$上的面积的曲面积分。
 
 \subsubsection{性质}
 
-\subsubsection{对称性}
+\begin{itemize}
+    \item $\iint_\Sigma1\,\textrm{d}s=\sigma$。
+    \item $\Sigma$关于$xOy$对称，上部为$\Sigma_1$，如果$f(x,y,-z)=-f(x,y,z)$，则$\iint_\Sigma=0$，如果$f(x,y,-z)=f(x,y,z)$，则$\iint_\Sigma=2\iint_{\Sigma_1}$。
+\end{itemize}
 
 \subsection{计算}
 
+\subsubsection{二重积分法}
+
 还是一投二代三计算。
 
-\subsubsection{基础方法}
+\begin{enumerate}
+    \item 对$\Sigma$作图。
+    \item 查看图形的奇偶性和对称性，如果对称则消去对应$x$、$y$、$z$的奇数次项。如果图形关于$xOy$对称，则出现$z$的奇数次项就去掉；同理关于$yOz$存在$x$的奇数次项就去掉，$xOz$存在$y$的奇数次项就去掉。
+    \item 查看是否可以将题目中的常数项式子对$I$化简。
+    \item 投影，如将$\Sigma$投影到$xOy$平面，$z=\psi(x,y)$，$(x,y)\in D_{xy}$。
+    \item 求$\dfrac{\partial z}{\partial x}$、$\dfrac{\partial z}{\partial y}$，$\textrm{d}s=\sqrt{1+\left(\dfrac{\partial z}{\partial x}\right)^2+\left(\dfrac{\partial z}{\partial y}\right)^2}\textrm{d}\sigma$。
+    \item 代入$\displaystyle{\iint\limits_\Sigma f(x,y,z)\,\textrm{d}s=\iint\limits_{D_{xy}}f[x,y,\psi(x,y)]\sqrt{1+\left(\dfrac{\partial z}{\partial x}\right)^2+\left(\dfrac{\partial z}{\partial y}\right)^2}\textrm{d}\sigma}$。
+\end{enumerate}
 
-即化为二重积分。
+\textbf{例题：}$I=\oiint_\Sigma(xy^2+z)\textrm{d}s$。$\Sigma:z=x^2+y^2,z\leqslant1$。
 
-\textbf{例题：}设曲面$\Sigma:\vert x\vert+\vert y\vert+\vert z\vert=1$，求$\oiint\limits_\Sigma(x+\vert y\vert)\,\textrm{d}S$。
+解：已知$\Sigma$是一个开口向$z$轴正方向的抛物面。不关于$z$轴对称，关于$x$轴和$y$轴对称。$I$中存在$x$的奇数次项$xy^2$则去掉，由于不存在$y$的奇数次项则跳过。
 
-解：曲面$\Sigma$是一个正八面体。又普通对称性得$\oiint\limits_\Sigma x\,\textrm{d}S=0$。
+$\therefore I=\iint_\Sigma z\,\textrm{d}s$。所以$\Sigma$对$xOy$投影最好，为一个单位圆。
 
-令第一卦限为$\Sigma_1$，所以根据普通对称性$\oiint\limits_\Sigma\vert y\vert\,\textrm{d}S=8\iint\limits_{\Sigma_1}y\,\textrm{d}S$
+所以投影为单位圆$D_{xy}:x^2+y^2\leqslant1$。
 
-因为$x+y+z=1$和$\textrm{d}S=\sqrt{1+z_x'^2+z_y'^2}\,\textrm{d}x\textrm{d}y$交换$xy$保持不变。
+$\dfrac{\partial z}{\partial x}=2x$，$\dfrac{\partial z}{\partial y}=2y$，$\textrm{d}s=\sqrt{1+4x^2+4y^2}\textrm{d}\sigma$。
 
-根据轮换对称性$\iint\limits_{\Sigma_1}y\,\textrm{d}S=\iint\limits_{\Sigma_1}x\,\textrm{d}S$。
+$I=\iint_{D_{xy}}(x^2+y^2)\sqrt{1+4(x^2+y^2)}\,\textrm{d}\sigma=\int_0^2\pi\textrm{d}\theta\int_0^1r^3\sqrt{1+4r^2}\,\textrm{d}r=\\\pi\int_0^1r^2\sqrt{1+4r^2}\,\textrm{d}(r^2)$。
 
-且对于$x+y+z=1$和用$xz$替换$y$（把微元曲面投到不同的坐标轴平面）：$\textrm{d}S=\sqrt{1+y_x'^2+y_z'^2}\,\textrm{d}x\textrm{d}z$交换$xz$保持不变。
+令$r^2=t$，$I=\pi\int_0^1t\sqrt{1+4t}\,\textrm{d}t$。令$\sqrt{1+4t}=u$，$=\pi\int_1^{\sqrt{5}}\dfrac{u^2-1}{4}u\dfrac{u}{2}\,\textrm{d}u=\dfrac{\pi}{8}\int_1^{\sqrt{5}}(u^4-u^2)\textrm{d}u=\dfrac{\pi}{8}(\dfrac{u^5}{5}-\dfrac{u^3}{3})\bigg\vert_1^{\sqrt{5}}=\dfrac{10}{3}\sqrt{5}+\dfrac{2}{15}$。
 
-根据轮换对称性$\iint\limits_{\Sigma_1}y\,\textrm{d}S=\iint\limits_{\Sigma_1}x\,\textrm{d}S=\iint\limits_{\Sigma_1}z\,\textrm{d}S$。
+\textbf{例题：}设曲面$\Sigma:\vert x\vert+\vert y\vert+\vert z\vert=1$，求$\oiint_\Sigma(x+\vert y\vert)\,\textrm{d}s$。
 
-$\therefore8\iint\limits_{\Sigma_1}y\,\textrm{d}S=\dfrac{8}{3}\iint\limits_{\Sigma_1}(x+y+z)\,\textrm{d}S=\dfrac{8}{3}\iint\limits_{\Sigma_1}\textrm{d}S=\dfrac{8}{3}S_{\Sigma_1}=\dfrac{8}{3}\dfrac{\sqrt{3}}{2}=\dfrac{4}{3}\sqrt{3}$。
+解：曲面$\Sigma$是一个正八面体。又普通对称性得$\oiint\limits_\Sigma x\,\textrm{d}s=0$。
+
+令第一卦限为$\Sigma_1$，所以根据普通对称性$\oiint\limits_\Sigma\vert y\vert\,\textrm{d}s=8\iint\limits_{\Sigma_1}y\,\textrm{d}s$
+
+因为$x+y+z=1$和$\textrm{d}s=\sqrt{1+z_x'^2+z_y'^2}\,\textrm{d}x\textrm{d}y$交换$xy$保持不变。
+
+根据轮换对称性$\iint\limits_{\Sigma_1}y\,\textrm{d}s=\iint\limits_{\Sigma_1}x\,\textrm{d}s$。
+
+且对于$x+y+z=1$和用$xz$替换$y$（把微元曲面投到不同的坐标轴平面）：$\textrm{d}s=\sqrt{1+y_x'^2+y_z'^2}\,\textrm{d}x\textrm{d}z$交换$xz$保持不变。
+
+根据轮换对称性$\iint\limits_{\Sigma_1}y\,\textrm{d}s=\iint\limits_{\Sigma_1}x\,\textrm{d}s=\iint\limits_{\Sigma_1}z\,\textrm{d}s$。
+
+$\therefore8\iint\limits_{\Sigma_1}y\,\textrm{d}s=\dfrac{8}{3}\iint\limits_{\Sigma_1}(x+y+z)\,\textrm{d}s=\dfrac{8}{3}\iint\limits_{\Sigma_1}\textrm{d}s=\dfrac{8}{3}S_{\Sigma_1}=\dfrac{8}{3}\dfrac{\sqrt{3}}{2}=\dfrac{4}{3}\sqrt{3}$。
 
 \subsubsection{技术方法}
 
@@ -602,15 +634,15 @@ $\therefore8\iint\limits_{\Sigma_1}y\,\textrm{d}S=\dfrac{8}{3}\iint\limits_{\Sig
 
 数量场就是对应数量没有方向。向量场就是有数量也有方向。
 
-\subsubsection{变力沿曲线做功}
+\subsubsection{几何性质}
 
 对于双理想状态，对一个物体沿直线且均匀力道，则其功为$\vec{F}\cdot\overrightarrow{AB}$（$\vec{F}$为力向量，$\overrightarrow{AB}$为物体移动向量）。
 
 而对于双不理想状态，对一个物体沿曲线且变动力道做功，则无法得出结论。
 
-令曲线为$L$，对$L$进行切分为微元$\forall\overrightarrow{\textrm{d}S}\in L$，则$\overrightarrow{\textrm{d}S}=\{\textrm{d}x,\textrm{d}y\}$。设变力$\vec{F}(x,y)=\{P(x,y),Q(x,y)\}$，则功的微元为$\textrm{d}\omega=\vec{F}\cdot\overrightarrow{\textrm{d}S}=P(x,y)\textrm{d}x+Q(x,y)\textrm{d}y$，所以对整体功进行积分$\omega=\int_L\textrm{d}\omega=\int_LP(x,y)\textrm{d}x+Q(x,y)\textrm{d}y$。
+令曲线为$L$，对$L$进行切分为微元$\forall\overrightarrow{\textrm{d}s}\in L$，则$\overrightarrow{\textrm{d}s}=\{\textrm{d}x,\textrm{d}y\}$。设变力$\vec{F}(x,y)=\{P(x,y),Q(x,y)\}$，则功的微元为$\textrm{d}\omega=\vec{F}\cdot\overrightarrow{\textrm{d}s}=P(x,y)\textrm{d}x+Q(x,y)\textrm{d}y$，所以对整体功进行积分$\omega=\int_L\textrm{d}\omega=\int_LP(x,y)\textrm{d}x+Q(x,y)\textrm{d}y$。
 
-令曲线为$L$，对$L$进行切分为微元$\forall\overrightarrow{\textrm{d}S}\in L$，则$\overrightarrow{\textrm{d}S}=\{\textrm{d}x,\textrm{d}y,\textrm{d}z\}$。设变力$\vec{F}(x,y,z)=\{P(x,y,z),Q(x,y,z),R(x,y,z)\}$，则功的微元为$\textrm{d}\omega=\vec{F}\cdot\overrightarrow{\textrm{d}S}=P(x,y,z)\textrm{d}x+Q(x,y,z)\textrm{d}y+R(x,y,z)\textrm{d}z$，所以对整体功进行积分$\omega=\int_L\textrm{d}\omega=\int_LP(x,y,z)\textrm{d}x+Q(x,y,z)\textrm{d}y+R(x,y,z)\textrm{d}z$。
+令曲线为$L$，对$L$进行切分为微元$\forall\overrightarrow{\textrm{d}s}\in L$，则$\overrightarrow{\textrm{d}s}=\{\textrm{d}x,\textrm{d}y,\textrm{d}z\}$。设变力$\vec{F}(x,y,z)=\{P(x,y,z),Q(x,y,z),R(x,y,z)\}$，则功的微元为$\textrm{d}\omega=\vec{F}\cdot\overrightarrow{\textrm{d}s}=P(x,y,z)\textrm{d}x+Q(x,y,z)\textrm{d}y+R(x,y,z)\textrm{d}z$，所以对整体功进行积分$\omega=\int_L\textrm{d}\omega=\int_LP(x,y,z)\textrm{d}x+Q(x,y,z)\textrm{d}y+R(x,y,z)\textrm{d}z$。
 
 \subsubsection{定义}
 
@@ -622,55 +654,157 @@ $\therefore8\iint\limits_{\Sigma_1}y\,\textrm{d}S=\dfrac{8}{3}\iint\limits_{\Sig
 
 \begin{itemize}
     \item $\int_{L^-}P(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=-\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y$。
-    \item $\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\int_L(P(x,y)\cos\alpha+Q(x,y)\cos\beta)\textrm{d}S$。（利用方向余弦将第二类曲线积分化成第一类曲线积分）
+    \item $\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\int_L(P(x,y)\cos\alpha+Q(x,y)\cos\beta)\textrm{d}s$。（利用方向余弦将第二类曲线积分化成第一类曲线积分）
 \end{itemize}
 
 \subsection{计算}
 
-\subsubsection{基础方法}
+对于不封闭曲线使用定积分法，对于封闭曲线或封闭曲线部分使用二重积分法。
 
-即化为定积分。
+\subsubsection{定积分法}
 
-\subsubsection{格林公式}
+由于第二类曲线积分积分值可正可负，所以只需要关心其起点$x=a$，其终点$x=b$。
 
-是考试的重点，基本上都会考到。非常重要。
+\begin{itemize}
+    \item $L:y=g(x)$（$x$起于$x=a$终于$x=b$），$\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\int_a^bP[x,g(x)]\,\textrm{d}x+Q[x,g(x)]g'(x)\,\textrm{d}x$。
+    \item $L:\left\{\begin{array}{c}
+        x=\phi(t) \\
+        y=\psi(t)
+    \end{array}\right.$（$t$起于$\alpha$终于$\beta$），$\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\\\int_\alpha^\beta P[\phi(t),\psi(t)]\phi'(t)\,\textrm{d}t+Q[\phi(t),\psi(t)]\psi'(t)\textrm{d}t$。 
+\end{itemize}
 
-\textbf{例题：}计算曲线积分$\oint\limits_L\dfrac{x\textrm{d}y-y\textrm{d}x}{4^x2+y^2}$，其中$L$是以点$(1,0)$为圆心，$R\geqslant1$为半径的圆，取逆时针方向。
+\subsubsection{二重积分法}
 
-解：由于是逆时针在$L$上，所以是正向：$=\displaystyle{\oint\limits_{L^+}\left(\dfrac{-y}{4x^2+y^2}\textrm{d}x+\dfrac{x}{4x^2+y^2}\textrm{d}y\right)}$。
+是考试的重点，基本上都会考到，非常重要。
 
-又对于$L$所围成的圆面$D$，因为$4x^2+y^2\neq0$，所以$(0,0)$应该被挖去。
+\paragraph{背景} \leavevmode \medskip
 
-因为逆时针的方向下挖去这个点做的运动顺时针是负方向的，所以令其为$C^-$。
+复平面上的一个区域$G$，如果在其中任做一条简单闭曲线，而闭曲线的内部总属于$G$，就称$G$为单连通区域。一个区域如果不是单连通区域，就称为多连通区域。即形象地说一块完整的凸图形即单连通，中间存在洞的或凹图形为多连通。
 
-又因为格林公式$\oint\limits_{L^++C^-}P\,\textrm{d}x+Q\,\textrm{d}y=\displaystyle{\iint\limits_D\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\textrm{d}\sigma}=$\\$\displaystyle{\iint\limits_D\left(\dfrac{4x^2+y^2-3x^2}{(4x^2+y^2)^2}-\dfrac{-(4x^2+y^2)+2y^2}{(4x^2+y^2)^2}\right)\textrm{d}\sigma}=0$。旋度为0。
+对于单连通区域，边界的正方向为逆时针方向，对于多连通区域，外边界的正方向是逆时针，内边界的正方向是顺时针。
 
-$=\oint\limits_{L^++C^-}-\oint\limits_{C^-}=0-\oint\limits_{C^-}=\oint\limits_{C^+}$。取$C:4x^2+y^2=\delta^2$，$\delta$为一个足够小的常数。（分母取$\delta^2$）
+在定积分中，使用牛顿-莱布尼茨公式，将$\int_a^bf(x)\,\textrm{d}x=F(b)-F(a)$，即将代表$[a,b]$范围积分域的积分值变为代表两点边界差值的函数值。在二重积分中，积分区域为一个连通域，其面积的积分就是二重积分，其周长的积分就是曲线积分，那么是否有这么一种方法，将域的关系转换为边界的关系，即是否存在一种方法将二重积分和曲线积分联系起来。
 
-$=\displaystyle{\oint\limits_{C^+}\left(\dfrac{-y}{4x^2+y^2}\textrm{d}x+\dfrac{x}{4x^2+y^2}\textrm{d}y\right)}=\displaystyle{\oint\limits_{C^+}\left(\dfrac{-y}{\delta^2}\textrm{d}x+\dfrac{x}{\delta^2}\textrm{d}y\right)}$
+所以这个方法就是将曲线积分转换为二重积分，这个工具就是格林公式。
 
-$=\dfrac{1}{\delta^2}\oint\limits_{C^+}-y\,\textrm{d}x+x\,\textrm{d}y$，利用格林公式，$C^+$所成区域为$D'$：$\dfrac{1}{\delta^2}\oint\limits_{D'}(1-(-1))\,\textrm{d}\sigma=\dfrac{2}{\delta^2}D'=\dfrac{2}{\delta^2}\pi\dfrac{\delta}{2}\delta=\pi$。
+\paragraph{格林公式} \leavevmode \medskip
 
+条件：
+
+\begin{itemize}
+    \item $D$为连通区域，$L$为$D$的正向边界。（如果$D$不是个完整的区域则添加线段，如果$L$为反向边界则添加负号）
+    \item $P(x,y)$、$Q(x,y)$在$D$上连续可偏导。
+\end{itemize}
+
+$\displaystyle{\oint\limits_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\iint\limits_D\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\textrm{d}\sigma}$。
+
+\subsubsection{路径无关积分}
+
+对于第二类曲线积分$\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y$，其积分值可能与路径$L$相关，也可能与路径$L$无关。
+
+若$D$为单连通区域，$P(x,y)$、$Q(x,y)$在$D$上连续可偏导，以下命题等价：
+
+\begin{enumerate}
+    \item $\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y$与路径无关。
+    \item $\forall C\in D$（$C$为闭区域），$\oint_CP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=0$。
+    \item 柯西黎曼条件：$\dfrac{\partial Q}{\partial x}\equiv\dfrac{\partial P}{\partial y}$。（最合适）
+    \item $\exists u(x,y)$，使得$\textrm{d}u=P(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y$。即$\dfrac{\partial u}{\partial x}=P(x,y)$，$\dfrac{\partial u}{\partial y}=Q(x,y)$。
+\end{enumerate}
+
+则根据这些条件简化计算，若满足柯西黎曼条件：
+
+\begin{enumerate}
+    \item 求曲线积分：$\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\int_{(x_0,y_0)}^{(x_1,y_1)}P(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\int_{x_0}^{x_1}P(x,y_0)\,\textrm{d}x+\int_{y_0}^{y_1}Q(x_1,y)\,\textrm{d}y$（先水平后垂直）。
+    \item 能找到$u$，求曲线积分：有$\textrm{d}u=P(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y$，则$\int_LP(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\int_{(x_0,y_0)}^{(x_1,y_1)}\textrm{d}u=u(x_1,y_1)-u(x_0,y_0)$。
+    \item 求全微分对应$u$表达式：则$u(x,y)=\int_{(x_0,y_0)}^{(x,y)}P(x,y)\,\textrm{d}x+Q(x,y)\,\textrm{d}y=\int_{x_0}^xP(x,y_0)\,\textrm{d}x+\int_{y_0}^yQ(x_1,y)\,\textrm{d}y$（先水平后垂直）。
+\end{enumerate}
+
+\textbf{例题：}已知$\psi(x)$可导，$\psi(0)=2$，$\int_Lxy^2\,\textrm{d}x+\psi(x)y\,\textrm{d}y$与路径无关，求$\psi(x)$，并计算$I=\int_{(1,2)}^{(2,3)}xy^2\,\textrm{d}x+\psi(x)y\,\textrm{d}y$。
+
+解：已知$P=xy^2$，$y=\psi(x)y$。由于曲线积分与路径无关，所以$\dfrac{\partial Q}{\partial x}\equiv\dfrac{\partial P}{\partial y}$，所以$\psi'(x)y\equiv2xy$，$\psi'(x)=2x$，$\psi(x)=x^2+C$，又$\psi(0)=2$，$C=2$，$\psi(x)=x^2+2$。
+
+所以$I=\int_{(1,2)}^{(2,3)}xy^2\,\textrm{d}x+(x^2+2)y\,\textrm{d}y$。
+
+方法一：$I=\int_1^2x\cdot2^2\,\textrm{d}x+\int_2^3(2^2+2)y\,\textrm{d}y=2x^2\vert_1^2+3y^2\vert_2^3=6+15=21$。
+
+方法二：$I=\int_{(1,2)}^{(2,3)}(xy^2\,\textrm{d}x+x^2y\,\textrm{d}y)+2y\,\textrm{d}y=\int_{(1,2)}^{(2,3)}\textrm{d}(\dfrac{1}{2}x^2y^2+y^2)=(\dfrac{1}{2}x^2y^2+y^2)|_{(1,2)}^{(2,3)}=27-6=21$。
 
 \section{第二型曲面积分}
+
+与第二型曲线积分一样，是有方向的。即对坐标曲面积分。
 
 \subsection{概念}
 
 \subsubsection{向量场的通量}
 
+令一个不可压缩的向量场$\vec{v}=\{P,Q,R\}$，向量场中有一个面$\Sigma$，有不规则方向的流体流入或流出这个面，现在要求单位时间内流入指定侧的流量。
+
+取一块有侧的面$\forall\overrightarrow{\textrm{d}s}\in\Sigma$，从$x$轴正方向部分将$\overrightarrow{\textrm{d}s}$向$yOz$面的投影记为$\textrm{d}y\textrm{d}z$。
+
+当$\cos\alpha\geqslant0$即方向余弦非负的情况下，$\textrm{d}y\textrm{d}z=\textrm{d}s_{yOz}$即就等于投影面积；当$\cos\alpha<0$即方向余弦为负的情况下，$\textrm{d}y\textrm{d}z=-\textrm{d}s_{yOz}$即就等于负投影面积。实际上$\textrm{d}y\textrm{d}z=\textrm{d}s\cdot\cos\alpha$。同理其他两个方向也是如此。
+
+所以对$\overrightarrow{\textrm{d}s}$进行三轴投影，得到$\overrightarrow{\textrm{d}s}=\{\textrm{d}y\textrm{d}z,\textrm{d}z\textrm{d}x,\textrm{d}x\textrm{d}y\}$
+
+所以$\overrightarrow{\textrm{d}s}$单位时间内流入指定侧的流量$\textrm{d}\phi=\vec{v}\cdot\overrightarrow{\textrm{d}s}=P(x,y,z)\textrm{d}y\textrm{d}z+Q(x,y,z)\textrm{d}z\textrm{d}x+R(x,y,z)\textrm{d}x\textrm{d}y$。
+
+从而总流量为$\iint_\Sigma\textrm{d}\phi=\iint_\Sigma P(x,y,z)\textrm{d}y\textrm{d}z+Q(x,y,z)\textrm{d}z\textrm{d}x+R(x,y,z)\textrm{d}x\textrm{d}y$。
+
 \subsubsection{定义}
+
+$\iint_\Sigma P(x,y,z)\textrm{d}y\textrm{d}z+Q(x,y,z)\textrm{d}z\textrm{d}x+R(x,y,z)\textrm{d}x\textrm{d}y$为在$\Sigma$上的曲面积分。其中$\iint_\Sigma P(x,y,z)\textrm{d}y\textrm{d}z$为$P(x,y,z)$在有侧曲面$\Sigma$上对坐标$y$、$z$的曲面积分。
 
 \subsubsection{性质}
 
+\begin{itemize}
+    \item $\iint_{\Sigma^-}=-\iint_\Sigma$。
+    \item $\iint_\Sigma P(x,y,z)\textrm{d}y\textrm{d}z+Q(x,y,z)\textrm{d}z\textrm{d}x+R(x,y,z)\textrm{d}x\textrm{d}y=\iint_\Sigma P(x,y,z)\cos\alpha+Q(x,y,z)\cos\beta+R(x,y,z)\cos\gamma$。（曲面积分转为曲线积分）
+    \item 若积分曲面对称：被积函数关于相应变量为奇函数，积分为半区间的2倍；若为偶函数，则积分等于0。（与一般奇偶性正好相反）
+\end{itemize}
+
+对于奇偶性的解释：因为是第二型的曲面积分，会分前后左右上下，分别代表正负，所以被积函数为偶函数时如果是相反方向，就正好被减去了（两个积的结果相同，方向相反，可以考虑磁通量一边进，一边出），奇函数两边想减因为方向不同，所以--为正相加，即为两倍。第一型曲面积分物理意义来源于对给定密度函数的空间曲面，计算该曲面的质量。第二型曲面积分物理意义来源对于给定的空间曲面和流体的流速，计算单位时间流经曲面的总流量。
+
 \subsection{计算}
 
-\subsubsection{基础方法}
+\subsubsection{二重积分法}
 
-即化为二重积分。
+曲面积分的二重积分法较复杂。将积分化为不同面的投影。为什么会带一个正负号？因为前面的$\textrm{d}x\textrm{d}y\textrm{d}z$表示投影，其值可正可负，而后面的$\textrm{d}x\textrm{d}y\textrm{d}z$表示面积，必然为正。
 
-\subsubsection{高斯公式}
+\begin{itemize}
+    \item $\oiint_\Sigma P(x,y,z)\,\textrm{d}y\textrm{d}z$：用$yz$表示$x$：$\Sigma:x=\phi(y,z)$，$(y,z)\in D_{yz}$，\\$\iint_\Sigma P(x,y,z)\,\textrm{d}y\textrm{d}z=\pm\iint_{D_{yz}}P[\phi(y,z),y,z]\textrm{d}y\textrm{d}z$。前正后负。
+    \item $\oiint_\Sigma Q(x,y,z)\,\textrm{d}z\textrm{d}x$：用$xz$表示$y$：$\Sigma:y=\phi(z,x)$，$(z,x)\in D_{zx}$，\\$\iint_\Sigma Q(x,y,z)\,\textrm{d}z\textrm{d}x=\pm\iint_{D_{zx}}Q[x,\phi(z,x),z]\textrm{d}z\textrm{d}x$。右正左负。
+    \item $\oiint_\Sigma R(x,y,z)\,\textrm{d}x\textrm{d}y$：用$xy$表示$z$：$\Sigma:z=\phi(x,y)$，$(x,y)\in D_{xy}$，\\$\iint_\Sigma R(x,y,z)\,\textrm{d}x\textrm{d}y=\pm\iint_{D_{xy}}R[x,y,\phi(x,y)]\textrm{d}x\textrm{d}y$。上正下负。
+\end{itemize}
+
+\subsubsection{三重积分法}
 
 是考试的重点，基本上都会考到。非常重要。
+
+\paragraph{背景} \leavevmode \medskip
+
+牛顿莱布尼兹公式将定积分转换为函数值差，格林公式将曲线积分转换为二重积分，高斯公式就是将曲面积分转换为三重积分。
+
+\paragraph{高斯公式} \leavevmode \medskip
+
+条件：
+
+\begin{itemize}
+    \item $\Omega$为几何体，$\Sigma$为$\Omega$的外表面。（如果不封闭则补全，如果是内表面就添加负号）
+    \item $P(x,y,z)$、$Q(x,y,z)$、$R(x,y,z)$在$\Omega$上连续可偏导。
+\end{itemize}
+
+$\displaystyle{\oiint_\Sigma P\,\textrm{d}y\textrm{d}z+Q\,\textrm{d}z\textrm{d}x+R\,\textrm{d}x\textrm{d}y=\iiint\limits_\Omega\left(\dfrac{\partial P}{\partial x}+\dfrac{\partial Q}{\partial y}+\dfrac{\partial R}{\partial z}\right)\textrm{d}v}$。
+
+\textbf{例题：}$I=\iint_\Sigma yz\,\textrm{d}z\textrm{d}x+2\,\textrm{d}x\textrm{d}y$，其中$\Sigma$为$x^2+y^2+z^2=4$的$xOy$面的上半部分。
+
+解：由$I$可得$P=0$，$Q=yz$，$R=2$，$\dfrac{\partial P}{\partial x}=0$，$\dfrac{\partial Q}{\partial y}=z$，$\dfrac{\partial R}{\partial z}=0$。
+
+由于$\Sigma$只有球面的上半部分，所以需要补充底面$\Sigma_0:y=0$（$x^2+y^2\leqslant4$下侧），此时才是一个半球体的完整封闭表面积，$\Sigma_0$的法向量为$z$轴的反方向。所以$I=\oiint_{\Sigma+\Sigma_0}-\iint_{\Sigma_0}$。
+
+又根据高斯公式$\oiint_{\Sigma+\Sigma_0}=\iiint_\Omega z\,\textrm{d}v=\int_0^{2\pi}\textrm{d}\theta\int_0^{\frac{\pi}{2}}\textrm{d}\psi\int_0^2r\cos\psi\cdot r^2\sin\psi\,\textrm{d}r=2\pi\int_0^{\frac{\pi}{2}}\sin\psi\,\textrm{d}(\sin\psi)\int_0^2r^3\,\textrm{d}r=2\pi\times\dfrac{1}{2}\sin^2\psi\vert_0^{\frac{\pi}{2}}\times\dfrac{r^4}{4}\vert_0^2=4\pi$。
+
+而底面$\iint_{\Sigma_0}yz\,\textrm{d}z\textrm{d}x+2\,\textrm{d}x\textrm{d}y=\iint_{\Sigma_0}2\,\textrm{d}x\textrm{d}y=-2\iint_{D_{xy}}\textrm{d}x\textrm{d}y=-8\pi$。
+
+$I=4\pi+8\pi=12\pi$。
 
 \section{空间第二型曲线积分计算}
 

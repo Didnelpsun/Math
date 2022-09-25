@@ -268,4 +268,50 @@ $=\displaystyle{\int_0^\frac{\pi}{2}\textrm{d}\theta\int_0^{+\infty}e^{-r^2}r\,\
 
 $\therefore I=\dfrac{\sqrt{\pi}}{2}$。
 
+\section{弧长曲线积分}
+
+\section{坐标曲线积分}
+
+\subsection{定积分法}
+
+\subsection{二重积分法}
+
+\subsubsection{补全区域}
+
+即$L$不能构成一个完整的域，就需要按照路径对区域进行补全，然后减去这个曲线积分值。
+
+\subsubsection{不可导点}
+
+即$D$中存在不可导的点，需要以不可导点为圆心做圆对$D$进行切割。
+
+\textbf{例题：}$I=\displaystyle{\oint\limits_L\dfrac{x\textrm{d}y-y\textrm{d}}{x^2+y^2}}$，$L$为不过原点的闭曲线。
+
+解：$P=-\dfrac{y}{x^2+y^2}$，$Q=\dfrac{x}{x^2+y^2}$。$\dfrac{\partial Q}{\partial x}=\dfrac{y^2-x^2}{(x^2+y^2)^2}$，$\dfrac{\partial P}{\partial y}=\dfrac{y^2-x^2}{(x^2+y^2)^2}$，从而$\dfrac{\partial Q}{\partial x}\equiv\dfrac{\partial P}{\partial y}$。但是此时$(x,y)\neq(0,0)$，所以格林公式无法使用。
+
+若$(0,0)\notin D$，则可以使用格林公式，$I=\iint\limits_D0\,\textrm{d}\sigma=0$。
+
+若$(0,0)\in D$，不可以使用格林公式，所以重新对$D$进行划分，令$L_0:x^2+y^2=r^2$，其中$r>0$且$L_0$不超过$D$，$L_0$为逆时针。中间的环为$D_1$，最里侧的圆为$D_2$。
+
+所以对中间的环$D_1$使用格林公式：$\oint_{L+L_0^-}=\iint_{D_1}\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\textrm{d}\sigma=0$。
+
+$\therefore\oint\limits_L+\oint\limits_{L_0^-}=\oint\limits_L-\oint\limits_{L_0}=0$，$\oint_L=\oint_{L_0}$。
+
+$I=\displaystyle{\oint\limits_{L_0}\dfrac{x\textrm{d}y-y\textrm{d}x}{x^2+y^2}=\dfrac{1}{r^2}\oint\limits_{L_0}x\,\textrm{d}y-y\,\textrm{d}x=\dfrac{2}{r^2}\iint\limits_{D_2}\textrm{d}\sigma=2\pi}$。
+
+\textbf{例题：}计算曲线积分$\oint\limits_L\dfrac{x\textrm{d}y-y\textrm{d}x}{4^x2+y^2}$，其中$L$是以点$(1,0)$为圆心，$R\geqslant1$为半径的圆，取逆时针方向。
+
+解：由于是逆时针在$L$上，所以是正向：$=\displaystyle{\oint\limits_{L^+}\left(\dfrac{-y}{4x^2+y^2}\textrm{d}x+\dfrac{x}{4x^2+y^2}\textrm{d}y\right)}$。
+
+又对于$L$所围成的圆面$D$，因为$4x^2+y^2\neq0$，所以$(0,0)$应该被挖去。
+
+因为逆时针的方向下挖去这个点做的运动顺时针是负方向的，所以令其为$C^-$。
+
+又因为格林公式$\oint\limits_{L^++C^-}P\,\textrm{d}x+Q\,\textrm{d}y=\displaystyle{\iint\limits_D\left(\dfrac{\partial Q}{\partial x}-\dfrac{\partial P}{\partial y}\right)\textrm{d}\sigma}=$\\$\displaystyle{\iint\limits_D\left(\dfrac{4x^2+y^2-3x^2}{(4x^2+y^2)^2}-\dfrac{-(4x^2+y^2)+2y^2}{(4x^2+y^2)^2}\right)\textrm{d}\sigma}=0$。旋度为0。
+
+$=\oint\limits_{L^++C^-}-\oint\limits_{C^-}=0-\oint\limits_{C^-}=\oint\limits_{C^+}$。取$C:4x^2+y^2=\delta^2$，$\delta$为一个足够小的常数。（分母取$\delta^2$）
+
+$=\displaystyle{\oint\limits_{C^+}\left(\dfrac{-y}{4x^2+y^2}\textrm{d}x+\dfrac{x}{4x^2+y^2}\textrm{d}y\right)}=\displaystyle{\oint\limits_{C^+}\left(\dfrac{-y}{\delta^2}\textrm{d}x+\dfrac{x}{\delta^2}\textrm{d}y\right)}$
+
+$=\dfrac{1}{\delta^2}\oint\limits_{C^+}-y\,\textrm{d}x+x\,\textrm{d}y$，利用格林公式，$C^+$所成区域为$D'$：$\dfrac{1}{\delta^2}\oint\limits_{D'}(1-(-1))\,\textrm{d}\sigma=\dfrac{2}{\delta^2}D'=\dfrac{2}{\delta^2}\pi\dfrac{\delta}{2}\delta=\pi$。
+
 \end{document}
