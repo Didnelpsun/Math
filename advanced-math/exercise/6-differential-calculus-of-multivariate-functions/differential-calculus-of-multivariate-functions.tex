@@ -170,6 +170,92 @@ $\therefore z=\dfrac{1}{2}x^2y+\dfrac{1}{2}xy^2+x+y^2$。
 
 \subsection{微分}
 
+\subsubsection{多元函数极限}
+
+多元函数极限是一元函数极限的拓展，除了洛必达法则和单调有界准则外其他方法可以直接使用。
+
+用于判断该函数在某点是否可微。
+
+\paragraph{可微性} \leavevmode \medskip
+
+\textbf{例题：}判断$f(x,y)=\sqrt{\vert xy\vert}$在$(0,0)$是否可微。
+
+解：判断可微性首先要判断偏导存在性。
+
+$f_x'(0,0)=\lim\limits_{\Delta x\to0}\dfrac{f(0+\Delta x,0)-f(0,0)}{\Delta x}=\lim\limits_{\Delta x\to0}\dfrac{\sqrt{\vert\Delta x\cdot 0}-0}{\Delta x}=0=A$，同理$f_y'(0,0)=\lim\limits_{\Delta y\to0}\dfrac{f(0,0+\Delta y)-f(0,0)}{\Delta y}=0=B$。所以偏导数存在。
+
+所以全微分为$\Delta z=f(0+\Delta x,0+\Delta y)-f(0,0)=\sqrt{\vert\Delta x\cdot\Delta y\vert}$。
+
+判断可微$\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{\Delta z-A\Delta x-B\Delta y}{\sqrt{(\Delta x)^2+(\Delta y)^2}}=\lim\limits_{\substack{\Delta x\to0\\\Delta y\to0}}\dfrac{\sqrt{\vert\Delta x\cdot\Delta y\vert}}{\sqrt{(\Delta x)^2+(\Delta y)^2}}$，分子分母同幂次，所以极限不存在，所以该点不可微。
+
+\paragraph{多元函数连续性} \leavevmode \medskip
+
+若函数$f(x,y)$在$(x_0,y_0)$存在，则函数在该点连续，$\lim\limits_{\substack{x\to x_0\\ y\to y_0}}f(x,y)=f(x_0,y_0)$，即直接将该点函数值当作极限值，直接代入。
+
+\textbf{例题：}计算$\lim\limits_{(x,y)\to(0,1)}\dfrac{1-xy}{x^2+y^2}$。
+
+由于$(x,y)\to(0,1)$时$x^2+y^2=1$，所以该点有意义，直接代入得1。
+
+\paragraph{转换一元函数极限} \leavevmode \medskip
+
+即换元法，要求式子十分特殊，$xy$是以同一种表达式出现，则可以作为因子，能够转换为一元函数极限。
+
+\textbf{例题：}计算$\lim\limits_{(x,y)\to(0,1)}\dfrac{\arcsin xy}{e^{xy}-1}$。
+
+解：令$u=xy$，所以$(x,y)\to(0,1)$时$u\to0$，$=\lim\limits_{u\to0}\dfrac{\arcsin u}{e^u-1}=\lim\limits_{u\to0}\dfrac{u}{u}=1$。
+
+\paragraph{不等式放缩} \leavevmode \medskip
+
+使用不等式，如$x^2+y^2\geqslant2xy$、$\tan x\geqslant x\geqslant\sin x$。
+
+为了方便计算一般式子都要带绝对值保证大于等于0。
+
+\textbf{例题：}$\lim\limits_{\substack{x\to+\infty\\y\to+\infty}}\left(\dfrac{xy}{x^2+y^2}\right)$。
+
+解：由于$xy$都是趋于正无穷，所以不用加绝对值，$0\leqslant\left(\dfrac{xy}{x^2+y^2}\right)^x\leqslant\left(\dfrac{xy}{2xy}\right)^x=\left(\dfrac{1}{2}\right)^x\to0$。
+
+所以极限值为0。
+
+\paragraph{极坐标替换} \leavevmode \medskip
+
+要求极限过程$(x,y)\to(0,0)$，将二元函数极限转换为一元函数极限。
+
+使用极坐标替换时一定要先判断极限是否存在，否则会是错误的。（或者$\rho$计算后被消掉，就证明极限会随着$\theta$值变化而变化，则极限不存在）
+
+如果满足极限过程沿着任意路径趋向都是逼近0，比较分子分母幂次，如果是分子的幂次小于等于分母的幂次，则这个极限往往是不存在的。
+
+虽然极坐标替换比较好用，但是最好不要用。
+
+为什么极坐标替换可能是错的？
+
+因为多元函数极限是要求变量是沿着任意路径逼近某点极限值都存在，而使用极坐标代换实际上是固定死趋近路线为直线，所以不满足极限存在定义。但是这种任意路径是模糊的，所以存在一定的限制能使用该方法。
+
+如$\lim\limits_{(x,y)\to(0,0)}\dfrac{x^3+y^3}{x^2+y}$，按照极坐标替换方式可以算出极限值为0，但是如果取$y=-x^2+x^3$时极限值为1。
+
+所以这个限制条件就是$\theta$能在$[0,2\pi)$中取到所有值。
+
+如上面错误的案例中，得到$\lim\limits_{\rho\to0}\dfrac{r^2(\cos^3\theta+\sin^3\theta)}{r\cos\theta+\sin\theta}$。这里的$\theta$是变动值，从而极限是无法求出的，所以不满足$\theta$可以取任意值的条件。
+
+% \textbf{例题：}计算$\lim\limits_{(x,y)\to(0,0)}\dfrac{xy}{x^2+y^2}$。
+
+% 解：由于极限都逼近0，所以比较分子分母幂次，都是2，所以这个极限很可能不存在。
+
+% 找两条不同的路径，让$xy$在这个固定约束下逼近0，$y=x$，$y=2x$：
+
+% $\lim\limits_{\substack{(x,y)\to(0,0)\\y=x}}\dfrac{xy}{x^2+y^2}=\dfrac{1}{2}$，$\lim\limits_{\substack{(x,y)\to(0,0)\\y=2x}}\dfrac{xy}{x^2+y^2}=\dfrac{2}{5}$。所以极限不存在。
+
+\textbf{例题：}计算$\lim\limits_{(x,y)\to(0,0)}\dfrac{xy^2}{x^2+y^2}$。
+
+解：分子的幂次大于分母的幂次，则极限可能存在。
+
+令$x=\rho\cos\theta$，$y=\rho\sin\theta$，则$\lim\limits_{(x,y)\to(0,0)}\dfrac{xy^2}{x^2+y^2}=\lim\limits_{\rho\to0}\dfrac{\rho^3\cos\theta\sin^2\theta}{\rho^2}=\lim\limits_{\rho\to0}\rho\cos\theta\sin^2\theta=0$。
+
+% \subsection{洛必达法则}
+
+% \textbf{例题：}计算$\lim\limits_{(x,y)\to(0,1)}\dfrac{}{}$。
+
+% 在使用洛必达法则时与一元函数不同的是结束后必须判断式子是否还是$\dfrac{0}{0}$型或$\dfrac{\infty}{\infty}$型，否则洛必达失效。
+
 \subsubsection{微分值}
 
 \paragraph{偏导法} \leavevmode \medskip
@@ -281,78 +367,6 @@ $\therefore\lim\limits_{(x,y)\to(0,0)}f(x,y)-f(0,0)=bx+cy+o(\rho)$。
 $\dfrac{\partial z}{\partial x}=-\dfrac{F_x'}{F_z'}=-\dfrac{-\dfrac{y}{x^2}f_1'-\dfrac{z}{x^2}f_2'}{\dfrac{1}{x}f_2'}=\dfrac{\dfrac{y}{x}f_1'+\dfrac{z}{x}f_2'}{f_2'}$，$\dfrac{\partial z}{\partial y}=-\dfrac{F_y'}{F_z'}=-\dfrac{\dfrac{1}{x}f_1'}{\dfrac{1}{x}f_2'}=-\dfrac{f_1'}{f_2'}$。
 
 $\therefore x\dfrac{\partial z}{\partial x}+y\dfrac{\partial z}{\partial y}=\dfrac{yf_1'+zf_2'-yf_1'}{f_2'}=z$。
-
-\section{多元函数极限}
-
-多元函数极限是一元函数极限的拓展，除了洛必达法则和单调有界准则外其他方法可以直接使用。
-
-\subsection{多元函数连续性}
-
-若函数$f(x,y)$在$(x_0,y_0)$存在，则函数在该点连续，则$\lim\limits_{(x,y)\to(x_0,y_0)}f(x,y)=f(x_0,y_0)$，即直接将该点函数值当作极限值，直接代入。
-
-\textbf{例题：}计算$\lim\limits_{(x,y)\to(0,1)}\dfrac{1-xy}{x^2+y^2}$。
-
-由于$(x,y)\to(0,1)$时$x^2+y^2=1$，所以该点有意义，直接代入得1。
-
-\subsection{转换一元函数极限}
-
-即换元法，要求式子十分特殊，$xy$是以同一种表达式出现，则可以作为因子，能够转换为一元函数极限。
-
-\textbf{例题：}计算$\lim\limits_{(x,y)\to(0,1)}\dfrac{\arcsin xy}{e^{xy}-1}$。
-
-解：令$u=xy$，所以$(x,y)\to(0,1)$时$u\to0$，$=\lim\limits_{u\to0}\dfrac{\arcsin u}{e^u-1}=\lim\limits_{u\to0}\dfrac{u}{u}=1$。
-
-\subsection{不等式放缩}
-
-使用不等式，如$x^2+y^2\geqslant2xy$、$\tan x\geqslant x\geqslant\sin x$。
-
-为了方便计算一般式子都要带绝对值保证大于等于0。
-
-\textbf{例题：}$\lim\limits_{\substack{x\to+\infty\\y\to+\infty}}\left(\dfrac{xy}{x^2+y^2}\right)$。
-
-解：由于$xy$都是趋于正无穷，所以不用加绝对值，$0\leqslant\left(\dfrac{xy}{x^2+y^2}\right)^x\leqslant\left(\dfrac{xy}{2xy}\right)^x=\left(\dfrac{1}{2}\right)^x\to0$。
-
-所以极限值为0。
-
-\subsection{极坐标替换}
-
-要求极限过程$(x,y)\to(0,0)$，将二元函数极限转换为一元函数极限。
-
-使用极坐标替换时一定要先判断极限是否存在，否则会是错误的。（或者$\rho$计算后被消掉，就证明极限会随着$\theta$值变化而变化，则极限不存在）
-
-如果满足极限过程沿着任意路径趋向都是逼近0，比较分子分母幂次，如果是分子的幂次小于等于分母的幂次，则这个极限往往是不存在的。
-
-虽然极坐标替换比较好用，但是最好不要用。
-
-为什么极坐标替换可能是错的？
-
-因为多元函数极限是要求变量是沿着任意路径逼近某点极限值都存在，而使用极坐标代换实际上是固定死趋近路线为直线，所以不满足极限存在定义。但是这种任意路径是模糊的，所以存在一定的限制能使用该方法。
-
-如$\lim\limits_{(x,y)\to(0,0)}\dfrac{x^3+y^3}{x^2+y}$，按照极坐标替换方式可以算出极限值为0，但是如果取$y=-x^2+x^3$时极限值为1。
-
-所以这个限制条件就是$\theta$能在$[0,2\pi)$中取到所有值。
-
-如上面错误的案例中，得到$\lim\limits_{\rho\to0}\dfrac{r^2(\cos^3\theta+\sin^3\theta)}{r\cos\theta+\sin\theta}$。这里的$\theta$是变动值，从而极限是无法求出的，所以不满足$\theta$可以取任意值的条件。
-
-% \textbf{例题：}计算$\lim\limits_{(x,y)\to(0,0)}\dfrac{xy}{x^2+y^2}$。
-
-% 解：由于极限都逼近0，所以比较分子分母幂次，都是2，所以这个极限很可能不存在。
-
-% 找两条不同的路径，让$xy$在这个固定约束下逼近0，$y=x$，$y=2x$：
-
-% $\lim\limits_{\substack{(x,y)\to(0,0)\\y=x}}\dfrac{xy}{x^2+y^2}=\dfrac{1}{2}$，$\lim\limits_{\substack{(x,y)\to(0,0)\\y=2x}}\dfrac{xy}{x^2+y^2}=\dfrac{2}{5}$。所以极限不存在。
-
-\textbf{例题：}计算$\lim\limits_{(x,y)\to(0,0)}\dfrac{xy^2}{x^2+y^2}$。
-
-解：分子的幂次大于分母的幂次，则极限可能存在。
-
-令$x=\rho\cos\theta$，$y=\rho\sin\theta$，则$\lim\limits_{(x,y)\to(0,0)}\dfrac{xy^2}{x^2+y^2}=\lim\limits_{\rho\to0}\dfrac{\rho^3\cos\theta\sin^2\theta}{\rho^2}=\lim\limits_{\rho\to0}\rho\cos\theta\sin^2\theta=0$。
-
-% \subsection{洛必达法则}
-
-% \textbf{例题：}计算$\lim\limits_{(x,y)\to(0,1)}\dfrac{}{}$。
-
-% 在使用洛必达法则时与一元函数不同的是结束后必须判断式子是否还是$\dfrac{0}{0}$型或$\dfrac{\infty}{\infty}$型，否则洛必达失效。
 
 \section{多元函数极值最值}
 
