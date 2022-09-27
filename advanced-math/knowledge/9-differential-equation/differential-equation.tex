@@ -198,6 +198,8 @@ $=\dfrac{(A_1\lambda+B_1)v+A_1C_2+B_1C_1}{\lambda v+C_2}$。此时未知数只�
 
 根据公式$y=e^{-\ln\vert x\vert}(\int e^{\ln\vert x\vert}Q(x)\,\textrm{d}x+C)=\dfrac{1}{\vert x\vert}(\int\vert x\vert Q(x)\,\textrm{d}x+C)=\dfrac{1}{\pm x}$\\$(\int(\pm x)Q(x)\,\textrm{d}x+C)=\dfrac{1}{x}(\int xQ(x)\,\textrm{d}x\pm C)=\dfrac{1}{x}(\int xQ(x)\,\textrm{d}x+D)$。
 
+同理$\ln y=\ln f(x)$，则$y=Cf(x)$。
+
 \subsection{伯努利方程}
 
 形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)y^n$就是伯努利方程。若$y=1$则是可分离变量方程，若$y=0$则是一阶线性方程。
@@ -254,7 +256,7 @@ $\dfrac{\textrm{d}p}{p}=\dfrac{2x}{1+x^2}\textrm{d}x$，$\ln p=\ln(1+x^2)+C'$，
 
 第一部分是一阶微分方程，分为可分离变量微分方程、齐次微分方程、一阶齐次线性微分方程、一阶非齐次线性微分方程。
 
-第二部分是可降阶的高阶微分方程，分为三种。
+第二部分是可降阶的高阶微分方程，是残缺项的高阶微分方程，分为三种。
 
 第三部分就是本节的高阶线性微分方程，$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=0$就是$n$阶齐次线性微分方程，$y^{(n)}+a_1(x)y^{(n-1)}+\cdots+a_{n-1}(x)y'+a_n(x)y=f(x)$就是$n$阶非齐次线性微分方程
 
@@ -322,7 +324,9 @@ $f(x)-f(x)=0$，所以得证。
 
 \subsection{二阶常系数非齐次线性微分方程的特解}
 
-设$P_n(x)$，$P_m(x)$分别为$x$的$n$次$m$次多项式。
+二阶常系数非齐次线性微分方程的通解就是对应齐次方程的通解加上非齐次方程的特解
+
+设$P_n(x)$，$P_m(x)$分别为$x$的$n$次、$m$次多项式。
 
 \begin{enumerate}
     \item 当自由项$f(x)=P_n(x)e^{\alpha x}$时，特解设为$y^*=e^{\alpha x}Q_n(x)x^k$，其中$e^{\alpha x}$照抄，$Q_n(x)$为$x$的$n$次多项式，且$k=\left\{\begin{array}{ll}
@@ -335,6 +339,10 @@ $f(x)-f(x)=0$，所以得证。
         1， & \alpha\pm\beta i\text{是特征根} \\
     \end{array}\right.$。
 \end{enumerate}
+
+最后求导代回原式得到系数值。
+
+对于第二种需要举例说明一下，如果$f(x)=e^{7x}[(x^2+3x)\cos4x+(x+6)\sin4x]$，其特解设法：首先$e^{7x}$直接写过来；然后判断多项式系数，第一个多项式最高次数为2，第二个多项式最高次数为1，所以$l$为较高那个即2，所以设为$e^{7x}[(A_1x^2+B_1x+C)\cos4x+(A_2x^2+B_2x+C)\sin4x]$（当然一般不会这么高，基本上都是一次的$A\cos\beta x+B\sin\beta x$的形式）；最后判断其特征根，$7\pm4i$是否为特征根，如果$\Delta>0$特征根$\lambda$是实数就肯定不是，不需要算直接$k=0$。
 
 \section{欧拉方程}
 

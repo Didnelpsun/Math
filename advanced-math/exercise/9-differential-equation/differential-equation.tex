@@ -90,6 +90,10 @@ $\therefore\ln(u+\sqrt{1+u^2})=-\ln x+\ln C$，$u+\sqrt{1+u^2}=\dfrac{C}{x}$。
 
 形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)$。
 
+\subsubsection{换元法}
+
+如果存在$f(y)$，$y$无法提出，则使用换元法。典型的就是$e^y$。
+
 \textbf{例题：}求微分方程$y'+1=e^{-y}\sin x$的通解。
 
 解：已知对$e^{-y}\sin x$无法处理，所以必然需要对其转换，$e^yy'+e^y=\sin x$。
@@ -114,7 +118,7 @@ $e^y=u=e^{-\int\textrm{d}x}(\int e^{\int\textrm{d}x}\sin x\,\textrm{d}x+C)=e^{-x
 
 $-\dfrac{\textrm{d}z}{\textrm{d}y}-\dfrac{1}{y}z=\dfrac{\ln y}{y}$，$\dfrac{\textrm{d}z}{\textrm{d}y}+\dfrac{1}{y}z=-\dfrac{\ln y}{y}$，利用公式：
 
-$z=e^{-\int\frac{1}{y}\textrm{d}y}\left(\displaystyle{\int e^{\int\frac{1}{y}\textrm{d}y}\cdot\left(\dfrac{\ln y}{y}\right)+C}\right)=\dfrac{1}{y}(-\int\ln y\,\textrm{d}y+C)=\dfrac{1}{y}(-y(\ln y-1)+C)=-\ln y+1+\dfrac{C}{y}$。
+$z=e^{-\int\frac{1}{y}\textrm{d}y}\left(\displaystyle{\int e^{\int\frac{1}{y}\textrm{d}y}\cdot\left(-\dfrac{\ln y}{y}\right)+C}\right)=\dfrac{1}{y}(-\int\ln y\,\textrm{d}y+C)=\dfrac{1}{y}(-y(\ln y-1)+C)=-\ln y+1+\dfrac{C}{y}$。
 
 $\therefore x=\dfrac{y}{-y\ln y+y+C}$。
 
