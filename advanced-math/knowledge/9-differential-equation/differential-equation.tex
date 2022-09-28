@@ -348,11 +348,15 @@ $f(x)-f(x)=0$，所以得证。
 
 \subsection{概念}
 
-\textcolor{violet}{\textbf{定义：}}形如$x^2\dfrac{\textrm{d}^2y}{\textrm{d}x^2}+px\dfrac{\textrm{d}y}{\textrm{d}x}+qy=f(x)$的方程称为\textbf{欧拉方程}，其中$pq$为常数，$f(x)$为已知函数。
+\textcolor{violet}{\textbf{定义：}}形如$x^2y''+pxy'+qy=f(x)$的方程称为\textbf{欧拉方程}，其中$pq$为常数，$f(x)$为已知函数。
+
+注意与一般的二阶常系数非齐次线性微分方程$y''+py'+qy=f(x)$对比，其二阶导和一阶导前面多了$x$的多项式。
+
+% $x^2\dfrac{\textrm{d}^2y}{\textrm{d}x^2}+px\dfrac{\textrm{d}y}{\textrm{d}x}+qy=f(x)$
 
 \subsection{解法}
 
-使用换元法。
+使用换元法$x=e^t$将欧拉方程换为二阶常系数非齐次线性方程。
 
 当$x>0$时，令$x=e^t$，则$t=\ln x$，$\dfrac{\textrm{d}t}{\textrm{d}x}=\dfrac{1}{x}$，$\dfrac{\textrm{d}y}{\textrm{d}x}=\dfrac{\textrm{d}y}{\textrm{d}t}\dfrac{\textrm{d}t}{\textrm{d}x}=\dfrac{1}{x}\dfrac{\textrm{d}y}{\textrm{d}t}$，$\dfrac{\textrm{d}^2y}{\textrm{d}x^2}=\dfrac{\textrm{d}}{\textrm{d}x}\left(\dfrac{1}{x}\dfrac{\textrm{d}y}{\textrm{d}t}\right)=-\dfrac{1}{x^2}\dfrac{\textrm{d}y}{\textrm{d}t}+\dfrac{1}{x}\dfrac{\textrm{d}}{\textrm{d}x}\left(\dfrac{\textrm{d}y}{\textrm{d}t}\right)=-\dfrac{1}{x^2}\dfrac{\textrm{d}y}{\textrm{d}t}+\dfrac{1}{x^2}\dfrac{\textrm{d}^2y}{\textrm{d}t^2}$，方程化为$\dfrac{\textrm{d}^2y}{\textrm{d}t^2}+(p-1)\dfrac{\textrm{d}y}{\textrm{d}t}+qy=f(e^t)$，解出结果，组后用$t=\ln x$回代。
 

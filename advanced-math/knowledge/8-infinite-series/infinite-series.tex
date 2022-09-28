@@ -369,13 +369,13 @@ $\sum\limits_{n=1}^\infty a_n(x+1)^n$要转换为$\sum\limits_{n=1}^\infty na_n(
 
 \subsubsection{重要展开式}
 
-$x$的取值指其幂指数的收敛域。第七个幂函数问题较复杂，收敛区间与$\alpha$取值有关。
+$x$的取值指其幂指数的收敛域和$x$定义域的交集。第七个幂函数问题较复杂，收敛区间与$\alpha$取值有关。
 
 \begin{enumerate}
     \item $e^x=\sum\limits_{n=0}^\infty\dfrac{x^n}{n!}=1+x+\dfrac{x^2}{2!}+\dfrac{x^n}{n!}+\cdots$，$-\infty<x<+\infty$。
     \item $\dfrac{1}{1+x}=\sum\limits_{n=0}^\infty(-1)^nx^n=1-x+x^2-x^3+\cdots+(-1)^nx^n+\cdots$，$-1<x<1$。
     \item $\dfrac{1}{1-x}=\sum\limits_{n=0}^\infty x^n=1+x+x^2+\cdots+x^n+\cdots$，$-1<x<1$。
-    \item $\ln(1+x)=\sum\limits_{n=0}^\infty(-1)^{n-1}\dfrac{x^n}{n}=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}+\cdots+(-1)^{n-1}\dfrac{x^n}{n}+\cdots$，$-1<x\leqslant1$。
+    \item $\ln(1+x)=\sum\limits_{n=1}^\infty(-1)^{n-1}\dfrac{x^n}{n}=x-\dfrac{x^2}{2}+\dfrac{x^3}{3}+\cdots+(-1)^{n-1}\dfrac{x^n}{n}+\cdots$，$-1<x\leqslant1$。
     \item $\sin x=\sum\limits_{n=0}^\infty(-1)^n\dfrac{x^{2x+1}}{(2n+1)!}=x-\dfrac{x^3}{3!}+\dfrac{x^5}{5!}+(-1)^n\dfrac{x^{2n+1}}{(2n+1)!}+\cdots$，$-\infty<x<+\infty$。
     \item $\cos x=\sum\limits_{n=0}^\infty(-1)^n\dfrac{x^{2n}}{(2n)!}=1-\dfrac{x^2}{2!}+\dfrac{x^4}{4!}+(-1)^n\dfrac{x^{2n}}{(2n)!}+\cdots$，$-\infty<x<+\infty$。
     \item $(1+x)^\alpha=1+\alpha x+\dfrac{\alpha(\alpha-1)}{2!}x^2+\cdots+\dfrac{a(a-1)\cdots(a-n+1)}{n!}x^n+\cdots$，$\left\{\begin{array}{l}
@@ -396,14 +396,6 @@ $x$的取值指其幂指数的收敛域。第七个幂函数问题较复杂，�
 \paragraph{间接法} \leavevmode \medskip
 
 利用已知的七个幂级数展开式，通过变量代换、四则运算、逐项求导、逐项积分和待定系数等得到。
-
-\textbf{例题：}求函数$f(x)=\arctan x$在$x=0$处的幂级数展开。
-
-解：$f'(x)=(\arctan x)'=\dfrac{1}{1+x^2}=\dfrac{1}{1-(-x^2)}=\sum\limits_{n=0}^\infty(-1)^nx^{2n}$，$\vert-x^2\vert<1$。
-
-已经求得求导后的函数的幂级数展开，所以求原函数的幂级数展开只需要积分，利用先导后积公式：$f(x)=f(0)+\int_0^xf'(t)\,\textrm{d}t=\int_0^x\sum\limits_{n=0}^\infty(-1)^nt^{2n}\,\textrm{d}t=\sum\limits_{n=0}^\infty(-1)^n\dfrac{t^{2n+1}}{2n+1}\bigg|_0^x=\sum\limits_{n=0}^\infty(-1)^n\dfrac{x^{2n+1}}{2n+1}$。
-
-求导的级数要求$\vert x\vert<1$，代入$x=\pm1$到最后结果得到两个交错级数，所以收敛域其实为$[-1,1]$（可以不写）。
 
 \subsection{幂级数求和函数}
 

@@ -75,7 +75,8 @@
         a_x & a_y & a_z \\
         b_x & b_y & b_z
     \end{array}\right\vert$，其中$\vert a\times b\vert=\vert a\vert\vert b\vert\sin\theta$，用右手规则确定方向（转向角不超过$\pi$），其中$\theta$为$\vec{a},\vec{b}$夹角。
-    \item $a//b\Leftrightarrow\theta=0$或$\pi\Leftrightarrow\dfrac{a_x}{b_x}=\dfrac{a_y}{b_y}=\dfrac{a_z}{b_z}$。
+    \item $\vec{a}//\vec{b}\Leftrightarrow\theta=0\Leftrightarrow\vec{a}\times\vec{b}=0$或$\pi\Leftrightarrow\dfrac{a_x}{b_x}=\dfrac{a_y}{b_y}=\dfrac{a_z}{b_z}$。
+    \item $\vec{a}\times\vec{a}=0$。
 \end{itemize}
 
 向量积的计算也可以如此理解，将两个向量上下摞在一起，然后右边再复制一份：
@@ -93,6 +94,8 @@ $\left[\begin{array}{cccccc}
         b_x & b_y & b_z \\
         c_x & c_y & c_z \\
     \end{array}\right\vert$。
+    \item 交换两行不改变值：$a\cdot(b\times c)=b\cdot(c\times a)=c\cdot(a\times b)$。
+    \item 交换一行改变符号：$a\cdot(b\times c)=-a\cdot(c\times b)=-b\cdot(a\times c)=-c\cdot(b\times a)$。
     \item $\left\vert\begin{array}{ccc}
         a_x & a_y & a_z \\
         b_x & b_y & b_z \\

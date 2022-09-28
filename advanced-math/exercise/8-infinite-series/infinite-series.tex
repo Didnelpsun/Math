@@ -159,29 +159,65 @@ $\dfrac{1}{x+1}=\dfrac{1}{(x-1)+2}=\dfrac{1}{2}\dfrac{1}{1+\frac{x-1}{2}}=\dfrac
 
 所以其幂级数就是其加和，收敛区间为$(-2,4)\cap(-1,3)=(-1,3)$。
 
+\subsubsection{先导后积}
+
+\textbf{例题：}求函数$f(x)=\arctan x$在$x=0$处的幂级数展开。
+
+解：$f'(x)=(\arctan x)'=\dfrac{1}{1+x^2}=\dfrac{1}{1-(-x^2)}=\sum\limits_{n=0}^\infty(-1)^nx^{2n}$，$\vert-x^2\vert<1$。
+
+已经求得求导后的函数的幂级数展开，所以求原函数的幂级数展开只需要积分，利用先导后积公式：$f(x)=f(0)+\int_0^xf'(t)\,\textrm{d}t=\int_0^x\sum\limits_{n=0}^\infty(-1)^nt^{2n}\,\textrm{d}t=\sum\limits_{n=0}^\infty(-1)^n\dfrac{t^{2n+1}}{2n+1}\bigg|_0^x=\sum\limits_{n=0}^\infty(-1)^n\dfrac{x^{2n+1}}{2n+1}$。
+
+求导的级数要求$\vert x\vert<1$，代入$x=\pm1$到最后结果得到两个交错级数，所以收敛域其实为$[-1,1]$（可以不写）。
+
 \subsection{级数求和}
 
 即对展开式进行逆运算，根据幂级数展开式反推原幂级数。
 
 可以利用展开式求和函数，但是很多展开式的通项都不是公式中的，就需要对通项进行变形。
 
+在求和之前要先计算收敛半径和收敛域。
+
+无论是哪个方法都要求求导和积分后系数$n+a$与幂次$n$相等，所以求导或积分的目的就是为了让他们相同，从而能被看成一个整体。
+
 \subsubsection{先导后积}
 
-$n$在分母上，先导后积。使用变限积分：$\int_{x_0}^xS'(t)\,\textrm{d}t=S(x)-S(x_0)$，即$S(x)=S(x_0)+\int_{x_0}^xS'(t)\,\textrm{d}t$。一般选择$x_0$为展开点。
+$\sum\dfrac{x^{f(n)}}{P(n)}$：$n$在分母上，先导后积。使用变限积分：$\int_{x_0}^xS'(t)\,\textrm{d}t=S(x)-S(x_0)$，即$S(x)=S(x_0)+\int_{x_0}^xS'(t)\,\textrm{d}t$。一般选择$x_0$为展开点。
 
-\textbf{例题：}求级数$\sum\limits_{n=1}^\infty\dfrac{x^n}{n}$的和函数。
+主要公式：$\sum\limits_{n=1}^\infty\dfrac{(-1)^{n-1}}{n}x^n=\ln(1+x)$（$(-1,1]$）；$\sum\limits_{n=1}^\infty\dfrac{x^n}{n}=-\ln(1-x)$（$[-1,1)$）。
 
-解：已知$\sum\limits_{n=0}^\infty x^n=\dfrac{1}{1-x}$，而这里求和是$\dfrac{x^n}{n}$，所以需要对其进行转换。
+目的是让$P(n)=f(n)$。
 
-对$\dfrac{x^n}{n}$求导就得到了$x^{n-1}$消去了分母的$n$，所以使用先导后积的方法。
+% \textbf{例题：}求级数$\sum\limits_{n=1}^\infty\dfrac{x^n}{n}$的和函数。
 
-记$S(x)=\sum\limits_{n=1}^\infty\dfrac{x^n}{n}$，则$x^n=(x-0)^n$，取$x_0=0$。
+% 解：已知$\sum\limits_{n=0}^\infty x^n=\dfrac{1}{1-x}$，而这里求和是$\dfrac{x^n}{n}$，所以需要对其进行转换。
 
-$\therefore S(x)=S(0)+\displaystyle{\int_0^x\left(\sum\limits_{n=1}^\infty\dfrac{t^n}{n}\right)_t'\,\textrm{d}t}=0+\int_0^x(\sum\limits_{n=1}^\infty t^{n-1})\,\textrm{d}t=\displaystyle{\int_0^x\dfrac{1}{1-t}\textrm{d}t}=-\ln(1-x)$。收敛域为$[-1,1)$。
+% 对$\dfrac{x^n}{n}$求导就得到了$x^{n-1}$消去了分母的$n$，所以使用先导后积的方法。
+
+% 记$S(x)=\sum\limits_{n=1}^\infty\dfrac{x^n}{n}$，则$x^n=(x-0)^n$，取$x_0=0$。
+
+% $\therefore S(x)=S(0)+\displaystyle{\int_0^x\left(\sum\limits_{n=1}^\infty\dfrac{t^n}{n}\right)_t'\,\textrm{d}t}=0+\int_0^x(\sum\limits_{n=1}^\infty t^{n-1})\,\textrm{d}t=\displaystyle{\int_0^x\dfrac{1}{1-t}\textrm{d}t}=-\ln(1-x)$。收敛域为$[-1,1)$。
+
+\textbf{例题：}求级数$\sum\limits_{n=0}^\infty\dfrac{(-1)^n}{2n+1}x^{2n}$的和函数。
+
+解：首先$\lim\limits_{n\to\infty}\left\vert\dfrac{a_{n+1}}{a_n}\right\vert=1$，$R=1$。
+
+当$x=\pm1$时，$x^2n=1$，所以原式$=\sum\limits_{n=0}^\infty\dfrac{(-1)^n}{2n+1}$，为交错级数，由莱布尼茨判别法可知极限为0且单调递减，从而该级数收敛。从而收敛域为$[-1,1]$。
+
+令$S(x)=\sum\limits_{n=0}^\infty\dfrac{(-1)^n}{2n+1}x^{2n}$。易得$x=0$时$S(x)=1$。
+
+当$x\neq0$时，$S(x)=\dfrac{1}{x}\sum\limits_{n=0}^\infty\dfrac{(-1)^n}{2n+1}x^{2n+1}=\dfrac{1}{x}\sum\limits_{n=0}^\infty\int_0^x(-1)^nx^{2n}\,\textrm{d}x\\=\dfrac{1}{x}\int_0^x[\sum\limits_{n=0}^\infty(-1)^nx^{2n}]\textrm{d}x$。
+
+所以$(-1)^nx^{2n}$为一个几何级数，所以$q=\dfrac{(-1)^{n+1}x^{2n+2}}{(-1)^nx^{2n}}=-x^2$。
+
+从而$=\displaystyle{\dfrac{1}{x}\int_0^x\dfrac{1}{1+x^2}\textrm{d}x=\dfrac{\arctan x}{x}}$。
 
 \subsubsection{先积后导}
 
-$n$在分子上，先积后导。$(\int S(x)\,\textrm{d}x)'=S(x)$。
+$\sum P(n)x^{f(n)}$：$n$在分子上，先积后导。$(\int S(x)\,\textrm{d}x)'=S(x)$。
+
+主要公式：$\sum\limits_{n=0}^\infty(-1)^nx^n=\dfrac{1}{1+x}$（$(-1,1)$）；$\sum\limits_{n=0}^\infty x^n=\dfrac{1}{1-x}$（$(-1,1)$）。
+
+目的是让$P(n)=f^{(n)}(n)\cdots f'(n)$。
 
 \textbf{例题：}求级数$\sum\limits_{n=1}^\infty nx^n$的和函数。
 
