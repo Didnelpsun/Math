@@ -176,10 +176,6 @@ $f(x)=\left\{\begin{array}{lcl}
 \end{array}
 \right.$。
 
-\subsubsection{复合函数导数}
-
-如果题目中让直接求复合函数在某点的导数，那么可以直接变形式子求，如果要先判断是否在该点存在导数，则最好使用定义来求。\medskip
-
 \textbf{例题：}设函数$f(x)=\left\{\begin{array}{ll}
     \ln\sqrt{x}, & x\geqslant1\\
     2x-1, &x<1
@@ -215,6 +211,38 @@ $f(f(x))=\left\{\begin{array}{ll}
 当$x\to e^{2-}$，$\lim\limits_{x\to e^{2-}}\dfrac{2\ln x-1-0}{x-e^2}=\lim\limits_{x\to e^{2-}}\dfrac{1}{x}=\dfrac{1}{e^2}$。
 
 $\therefore x=e^2$处导数不存在。
+
+\subsubsection{复合函数导数}
+
+一种方法是链式求导法，另一种如果函数表达式存在指数对数函数需要对其化简再使用链式求导。
+
+\paragraph{指数函数} \leavevmode \medskip
+
+即形如$y=f(x)^{g(x)}$：
+
+\begin{enumerate}
+    \item 取对数$\ln y =g(x)\ln(f(x))$。
+    \item 两边对$x$求导$\dfrac{y'}{y}=g'(x)\ln(f(x))+g(x)\dfrac{f'(x)}{f(x)}$。
+    \item $y'=[g'(x)\ln(f(x))+g(x)\dfrac{f'(x)}{f(x)}]y=[g'(x)\ln(f(x))+g(x)\dfrac{f'(x)}{f(x)}]f(x)^{g(x)}$。
+\end{enumerate}
+
+\paragraph{对数函数} \leavevmode \medskip
+
+即形如$y=\log_{e}f(x)$：
+
+\begin{enumerate}
+    \item 取指数$e^y=f(x)$。
+    \item 两边对$x$求导$e^yy'=f'(x)$。
+    \item $y=\dfrac{f'(x)}{e^y}=\dfrac{f'(x)}{f(x)}$。
+\end{enumerate}
+
+\subsubsection{绝对值导数}
+
+当遇到绝对值函数$\vert f(x)\vert$时，一般都需要进行分段讨论。实际上也可以不用分段，利用平方和根号形式就能解决绝对值问题：$\vert f(x)\vert=\sqrt{f^2(x)}$。
+
+并注意$\ln\vert x\vert=\dfrac{1}{x}$，不用加绝对值，这是根据上面的方法推理而来。
+
+\textbf{例题：}
 
 \subsection{导数与极限}
 
