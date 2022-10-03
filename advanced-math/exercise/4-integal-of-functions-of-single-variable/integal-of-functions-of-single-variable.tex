@@ -979,7 +979,13 @@ $D.\int_0^{1-\cos x}\sqrt{\sin^3t}\,\textrm{d}t$
 
 反常积分的瑕点可能在积分区间内，此时需要根据瑕点分隔积分区间。
 
-\subsection{求值}
+反常积分的计算就是判敛，如果存在就计算其值。
+
+\subsection{直接计算}
+
+即可以根据不定积分求出原函数，再对原函数求极限。
+
+\subsubsection{求值}
 
 \textbf{例题：}求$\displaystyle{\int_0^{+\infty}\dfrac{\textrm{d}x}{(1+x)(1+x^2)}}$。\medskip
 
@@ -997,7 +1003,7 @@ $\therefore=\displaystyle{\int_0^\frac{\pi}{2}\dfrac{1}{1+\tan u}\textrm{d}u=\in
 
 $=\displaystyle{\int_0^{+\infty}x\textrm{d}\left(\dfrac{1}{1+e^{-x}}\right)}=\left[\dfrac{x}{1+e^{-x}}\right]_0^{+\infty}-\int_0^{+\infty}\dfrac{\textrm{d}x}{1+e^{-x}}=\lim\limits_{x\to+\infty}\dfrac{x}{1+e^{-x}}-\int_0^{+\infty}\dfrac{\textrm{d}e^x}{1+e^x}=\lim\limits_{x\to+\infty}\left[\dfrac{x}{1+e^{-x}}-\ln(1+e^x)\right]+\ln2=\lim\limits_{x\to+\infty}\dfrac{1}{1+e^{-x}}[x-\ln(1+e^x)(1+e^{-x})]+\ln2=\lim\limits_{x\to+\infty}[x-\ln(1+e^x)(1+e^{-x})]+\ln2=\lim\limits_{x\to+\infty}[\ln e^x-\ln(1+e^x)(1+e^{-x})]+\ln2=\lim\limits_{x\to+\infty}\left[\ln e^x-(1+e^x)\dfrac{\ln(1+e^x)}{e^x}\right]+\ln2=\lim\limits_{x\to+\infty}\\\left[\ln\dfrac{e^x}{1+e^x}-\dfrac{\ln(1+e^x)}{e^x}\right]+\ln2=\ln1-0+\ln2=\ln2$。
 
-\subsection{求参数}
+\subsubsection{求参数}
 
 题目会给出一个含参的式子，并给出对应的极限值，要求对应的参数值。首先必须知道对应的式子什么时候才会收敛。
 
@@ -1015,7 +1021,7 @@ $=\displaystyle{\int_0^{+\infty}x\textrm{d}\left(\dfrac{1}{1+e^{-x}}\right)}=\le
 
 $=\displaystyle{\int_1^{+\infty}\dfrac{b-a}{2x+a}+\dfrac{1}{x}-\dfrac{2}{2x+a}\textrm{d}x=\int_1^{+\infty}\dfrac{b-a-2}{2x+a}+\dfrac{1}{x}\textrm{d}x}$。此时前后两个式子都是发散的，所以不能求出收敛的参数。
 
-\subsection{递推公式}
+\subsubsection{递推公式}
 
 \textbf{例题：}利用递推公式计算反常积分$I_n=\int_0^{+\infty}x^ne^{-x}\,\textrm{d}x$（$n\in N$）。
 
@@ -1027,27 +1033,51 @@ $I_n=-\int_0^{+\infty}x^n\,\textrm{d}(e^{-x})=[-x^ne^{-x}]_0^{+\infty}+\int_0^{+
 
 $\therefore I_n=n!$。
 
-\subsection{判敛}
+\subsection{比较判敛}
 
-\subsubsection{结论}
+可以直接通过计算反常积分判断收敛或发散。但是只有少数反常积分能直接计算出来。比较判敛就是不计算反常积分的原函数，而是通过与其他已知敛散性的积分进行对比来判断积分的敛散性。
 
-无穷区间的反常积分$\int_1^{+\infty}\dfrac{\textrm{d}x}{x^p}$在$p>1$时收敛，在$p\leqslant1$时发散。
+\subsubsection{无穷区间}
 
-无界函数的反常积分$\int_0^1\dfrac{\textrm{d}x}{x^p}$（$p>1$，奇点$x=0$）在$0<p<1$时收敛，在$p\geqslant1$时发散。
+\subsubsection{无界函数}
 
-面对判敛的式子就需要将反常积分转换为$\dfrac{1}{x}$的形式，通常使用等价无穷小。
+\subsection{极限审敛法}
 
-\textbf{例题：}已知$\alpha,\beta>0$，判断反常积分$\displaystyle{\int_1^{+\infty}\dfrac{\left(\arctan\dfrac{1}{x}\right)^a}{\left[\ln\left(1+\dfrac{1}{x}\right)\right]^{2\beta}}\textrm{d}x}$的敛散性。
+不用计算积分值，直接通过幂函数的极限来代替积分。
 
-解：积分存在唯一奇点$+\infty$，当$x\to+\infty$时，$\arctan\dfrac{1}{x}\sim\dfrac{1}{x}$，$\ln\left(1+\dfrac{1}{x}\right)\sim\dfrac{1}{x}$。
+\subsubsection{无穷区间}
 
-$\dfrac{\left(\arctan\dfrac{1}{x}\right)^a}{\left[\ln\left(1+\dfrac{1}{x}\right)\right]^{2\beta}}=\dfrac{1}{x^{\alpha-2\beta}}$。
+对于无限反常积分$\int_a^{+\infty}f(x)\,\textrm{d}x$，$f(x)$在$[a,+\infty)$上连续非负，对于常数$\rho$：
 
-当$\alpha-2\beta>1$时收敛，$\alpha-2\beta\leqslant1$时发散。
+\begin{itemize}
+    \item 若存在$\rho>1$，使得$\lim\limits_{x\to+\infty}x^\rho f(x)=c<+\infty$，则积分收敛。
+    \item 若只存在$\rho=1$，使得$\lim\limits_{x\to+\infty}xf(x)=c>0$或为$-\infty$，则积分发散。
+\end{itemize}
 
-\subsubsection{计算}
+\subsubsection*{无界函数}
 
-可以直接通过计算反常积分判断收敛或发散。
+对于瑕积分$\int_a^bf(x)\,\textrm{d}x$，其中$a$为瑕点，$f(x)$在$[a,b]$上连续非负，对于常数$\rho$：
+
+\begin{itemize}
+    \item 若存在$0<\rho<1$，使得$\lim\limits_{x\to a^+}(x-a)^\rho f(x)=c$存在，则积分收敛。
+    \item 若只存在$\rho=1$，使得$\lim\limits_{x\to a^+}(x-a)f(x)=c>0$或为$+\infty$，则积分发散。
+\end{itemize}
+
+% \subsubsection{结论}
+
+% 无穷区间的反常积分$\int_1^{+\infty}\dfrac{\textrm{d}x}{x^p}$在$p>1$时收敛，在$p\leqslant1$时发散。
+
+% 无界函数的反常积分$\int_0^1\dfrac{\textrm{d}x}{x^p}$（$p>1$，奇点$x=0$）在$0<p<1$时收敛，在$p\geqslant1$时发散。
+
+% 面对判敛的式子就需要将反常积分转换为$\dfrac{1}{x}$的形式，通常使用等价无穷小。
+
+% \textbf{例题：}已知$\alpha,\beta>0$，判断反常积分$\displaystyle{\int_1^{+\infty}\dfrac{\left(\arctan\dfrac{1}{x}\right)^a}{\left[\ln\left(1+\dfrac{1}{x}\right)\right]^{2\beta}}\textrm{d}x}$的敛散性。
+
+% 解：积分存在唯一奇点$+\infty$，当$x\to+\infty$时，$\arctan\dfrac{1}{x}\sim\dfrac{1}{x}$，$\ln\left(1+\dfrac{1}{x}\right)\sim\dfrac{1}{x}$。
+
+% $\dfrac{\left(\arctan\dfrac{1}{x}\right)^a}{\left[\ln\left(1+\dfrac{1}{x}\right)\right]^{2\beta}}=\dfrac{1}{x^{\alpha-2\beta}}$。
+
+% 当$\alpha-2\beta>1$时收敛，$\alpha-2\beta\leqslant1$时发散。
 
 \section{一元函数积分应用}
 
