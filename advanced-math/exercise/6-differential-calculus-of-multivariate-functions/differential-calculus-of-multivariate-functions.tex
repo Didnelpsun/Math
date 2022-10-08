@@ -302,6 +302,8 @@ $f_x'(0,0)=\lim\limits_{\Delta x\to0}\dfrac{f(0+\Delta x,0)-f(0,0)}{\Delta x}=\l
 
 \paragraph{偏导法} \leavevmode \medskip
 
+当原偏导很难求积分，就再次偏导。
+
 若函数连续，则利用偏导不变性$\dfrac{\partial f}{\partial x\partial y}=\dfrac{\partial f}{\partial y\partial x}$。
 
 可以求出参数。
@@ -431,12 +433,9 @@ $\Delta<0$且$A>0$，所以得到极大值6。
 \subsubsection{闭区域内}
 
 \begin{enumerate}
-    \item 对原式$f(x,y)$分别对$x,y$求导并令为0得到可疑点$(xi_i,yi_i)$。
-    \item 求出$f(x,y)$在$D$内所有可疑点的函数值$Pi_i$。
-    \item 找出所有区域$D$的边界函数$L_i$。
-    \item 根据区域边界函数$L_i$转换$y$并带入原式$f(x,\varphi(x))$求导令为0得到边界上的极值点$(xb_i,yb_i)$。
-    \item 求出边界上的极值点$Pb_i$。
-    \item 比较区域内极值点$Pi_i$和边界上极值点$Pb_i$，得到总的极值点。
+    \item 对原式$f(x,y)$分别对$x,y$求偏导并令为0得到区域内可疑点。
+    \item 使用拉格朗日乘数法对$f(x,y)$求出边界上可疑点。
+    \item 将所有可疑点代入原函数，计算出所有的值并进行比较。
 \end{enumerate}
 
 \section{多元函数微分应用}
