@@ -38,9 +38,11 @@
 \setcounter{page}{1}
 \section{二重积分}
 
-\subsection{交换积分次序}
+\subsection{积分转换}
 
-\subsubsection{直角坐标系}
+\subsubsection{交换积分次序}
+
+\paragraph{直角坐标系} \leavevmode \medskip
 
 \textbf{例题：}交换积分次序$\int_0^1\textrm{d}x\int_0^{x^2}f(x,y)\,\textrm{d}y+\int_1^3\textrm{d}x\int_0^{\frac{1}{2}(3-x)}f(x,y)\,\textrm{d}y$。
 
@@ -48,7 +50,7 @@
 
 所以转换为$\int_0^1\textrm{d}y\int_{\sqrt{y}}^{3-2y}f(x,y)\,\textrm{d}x$。
 
-\subsubsection{极坐标系}
+\paragraph{极坐标系} \leavevmode \medskip
 
 \textbf{例题：}对$\int_{-\frac{\pi}{4}}^{\frac{\pi}{2}}\textrm{d}\theta\int_0^{2\cos\theta}f(r\cos\theta,r\sin\theta)r\,\textrm{d}r$交换积分次序。
 
@@ -92,7 +94,7 @@ $\sigma_2$的$\theta$界限都是是$r=2\cos\theta$这个圆，此时$r>0$恒成
 
 $\int_0^{\sqrt{2}}r\,\textrm{d}r\int_{-\frac{\pi}{4}}^{\arccos\frac{r}{2}}f(r\cos\theta,r\sin\theta)\textrm{d}\theta+\int_{\sqrt{2}}^2r\,\textrm{d}r\int_{-\arccos\frac{r}{2}}^{\arccos\frac{r}{2}}f(r\cos\theta,r\sin\theta)\textrm{d}\theta$。
 
-\subsection{极直互化}
+\subsubsection{极直互化}
 
 \textbf{例题：}将$I=\int_0^{\frac{\sqrt{2}}{2}R}e^{-y^2}\textrm{d}y\int_0^ye^{-x^2}\,\textrm{d}x+\int_{\frac{\sqrt{2}}{2}R}^Re^{-y^2}\,\textrm{d}y\int_0^{\sqrt{R^2-y^2}}e^{-x^2}\,\textrm{d}x$转换为极坐标系并计算结果。
 
@@ -128,13 +130,21 @@ $\int_0^\pi\cos^2x\,\textrm{d}x\int_0^{\sin x}\textrm{d}y=\int_0^\pi\cos^2x\sin 
 
 直角坐标系和极坐标系都可以使用。
 
-若积分区域$\sigma$关于$x=k_1$或$y=k_2$对称，则当$f(x,y)$含有$x-k_1$或$y-k_2$因式时重积分值为0。
+\paragraph{直角坐标系} \leavevmode \medskip
 
-\textbf{例题：}设$D:x^2+y^2\leqslant2x+2y$，求$\iint\limits_Dxy\,\textrm{d}x\textrm{d}y$。
+主要是一般对称性（积分区域关于$x$轴对称若$y$奇则为0，关于$y$轴对称若$x$奇则为0）和轮换对称性（积分区域关于$y=x$对称则$xy$可以互换）。
 
-解：本题目使用直角坐标系和极坐标系都不好做。所以需要利用积分性质，对$D$进行平移等操作。
+\paragraph{极坐标系} \leavevmode \medskip
 
-利用平移，由于$D:(x-1)^2+(y-1)^2=2$，令$x=1+r\cos\theta$，$y=1+r\sin\theta$，则利用极坐标，$r\in[0,\sqrt{2}]$，$\theta\in[0,2\pi]$，$=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}((1+r\cos\theta)(1+r\sin\theta)r)\textrm{d}r=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}(1+r\sin\theta+r\cos\theta+r^2\sin\theta\cos\theta)r\,\textrm{d}r$，又将$\sin\theta$和$\cos\theta$对$\theta$在$[0,2\pi]$进行积分全部为0，所以直接把后面的全消掉，变为$\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}r\,\textrm{d}r=2\pi$。
+主要就是指一般对称性（画图可知）。
+
+\textbf{例题：}求曲线$r^2=2ax^2\cos2\theta$（$a>0$）所围图形面积。
+
+解：即求$\iint\limits_D\textrm{d}x\textrm{d}y$。重点就是求$D$，已知$r$的表达式，要求$\theta$的取值范围。
+
+又$r^2>0$，$x^2>0$，$a>0$，所以$\cos2\theta\geqslant0$，$-\dfrac{\pi}{4}\leqslant\theta\leqslant\dfrac{\pi}{4}$，$\dfrac{3\pi}{4}\leqslant\theta\leqslant\dfrac{5\pi}{4}$。
+
+由对称性，所以$=4\int_0^{\frac{\pi}{4}}\textrm{d}\theta\int_0^{a\sqrt{2\cos2\theta}}r\,\textrm{d}r=4a^2\int_0^{\frac{\pi}{4}}\cos2\theta\,\textrm{d}\theta=2a^2$。
 
 \subsubsection{切分区域}
 
@@ -177,6 +187,68 @@ $\iint\limits_D(x^2+xy+y^2)\textrm{d}\sigma=\iint\limits_{D'}[(u+1)^2+(u+1)(v+1)
 $\iint\limits_{D'}(u^2+v^2)\textrm{d}u\textrm{d}v=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}r^3\,\textrm{d}r=2\pi\int_0^{\sqrt{2}}r^3\,\textrm{d}r=\dfrac{\pi}{2}(\sqrt{2})^4=2\pi$。
 
 所以原式$=2\pi+6\pi=8\pi$。
+
+若积分区域$\sigma$关于$x=k_1$或$y=k_2$对称，则当$f(x,y)$含有$x-k_1$或$y-k_2$因式时重积分值为0。
+
+\textbf{例题：}设$D:x^2+y^2\leqslant2x+2y$，求$\iint\limits_Dxy\,\textrm{d}x\textrm{d}y$。
+
+解：本题目使用直角坐标系和极坐标系都不好做。所以需要利用积分性质，对$D$进行平移等操作。
+
+利用平移，由于$D:(x-1)^2+(y-1)^2=2$，令$x=1+r\cos\theta$，$y=1+r\sin\theta$，则利用极坐标，$r\in[0,\sqrt{2}]$，$\theta\in[0,2\pi]$，$=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}((1+r\cos\theta)(1+r\sin\theta)r)\textrm{d}r=\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}(1+r\sin\theta+r\cos\theta+r^2\sin\theta\cos\theta)r\,\textrm{d}r$，又将$\sin\theta$和$\cos\theta$对$\theta$在$[0,2\pi]$进行积分全部为0，所以直接把后面的全消掉，变为$\int_0^{2\pi}\textrm{d}\theta\int_0^{\sqrt{2}}r\,\textrm{d}r=2\pi$。
+
+\subsubsection{极限化为二重积分}
+
+类似极限转换为定积分，有$\lim\limits_{n\to\infty}\dfrac{1}{n^2}\sum\limits_{i=1}^n\sum\limits_{j=1}f\left(\dfrac{i}{n},\dfrac{j}{n}\right)=\int_0^1\textrm{d}x\int_0^1f(x,y)\,\textrm{d}y$：
+
+\begin{enumerate}
+    \item 先提出$\dfrac{1}{n^2}$。
+    \item 凑出$\dfrac{i}{n}$和$\dfrac{j}{n}$。
+    \item 写出$\int_0^1\textrm{d}x$、$\int_0^1f(x,y)\,\textrm{d}y$，其中$\dfrac{1}{n^2}$没有了，将所有$\dfrac{i}{n}$换为$x$，$\dfrac{j}{n}$换为$y$。
+\end{enumerate}
+
+\textbf{例题：}求$I=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\sum\limits_{j=1}^n\dfrac{1}{\left(1+\dfrac{i}{n}\right)(n^2+j^2)}$。
+
+解：首先提出$\dfrac{1}{n^2}$，正好在分母右边等式中$=\lim\limits_{n\to\infty}\sum\limits_{i=1}^n\sum\limits_{j=1}^n\dfrac{1}{\left(1+\dfrac{i}{n}\right)(1+\dfrac{j^2}{n^2})}\dfrac{1}{n^2}$。
+
+已完全化为$\dfrac{i}{n}$和$\dfrac{j}{n}$，所以$=\displaystyle{\int_0^1\dfrac{1}{1+x}\textrm{d}x\int_0^1\dfrac{1}{1+y^2}\textrm{d}y}$。
+
+$=\ln(1+x)\vert_0^1\arctan y\vert_0^1=\dfrac{\pi}{4}\ln2$。
+
+\subsubsection{二重积分极限}
+
+即对存在二重积分的式子求极限。当对二重积分求极限时基本上都需要使用洛必达法则对积分求导。
+
+令中间的定积分为$g(x)$，并记住$(\int_{f(x)}^{g(x)}h(t)\,\textrm{d}t)'=(g'(x)-f'(x))h(x)$。上下限最好换为$x$和$0$。
+
+\textbf{例题：}求$\lim\limits_{t\to0^+}\dfrac{1}{t^6}\int_0^t\textrm{d}x\int_x^t\sin(xy)^2\textrm{d}y$。
+
+解：这个式子求极限必然使用洛必达法则，而$\int_0^t\textrm{d}x\int_x^t\sin(xy)^2\textrm{d}y$里面那层定积分的上下限不规整，所以更换积分次序变成$\int_0^t\textrm{d}y\int_0^x\sin(xy)^2\textrm{d}x$。
+
+对其求导$\int_0^t[\int_0^x\sin(xy)^2\textrm{d}x]\textrm{d}y$，由于该层积分变量为$y$，令$\int_0^x\sin(xy)^2\textrm{d}x=g(y)$，所以$=\int_0^tg(y)\,\textrm{d}y$，对其求导得$g(t)$，里面的$y$全部用$t$替换$=\int_0^x\sin(xt)^2\textrm{d}x$。
+
+$=\lim\limits_{t\to0^+}\dfrac{\int_0^t\textrm{d}x\int_x^t\sin(xy)^2\textrm{d}y}{t^6}=\lim\limits_{t\to0^+}\dfrac{\int_0^t\sin(xt)^2\textrm{d}x}{6t^5}=\lim\limits_{t\to0^+}\dfrac{\int_0^t\sin(xt)^2\textrm{d}(xt)}{6t^6}$。
+
+由于$x$和$t$都是变量，所以令$xt=u$，$x=\dfrac{u}{t}$，$u\in(0,t^2)$，$=\lim\limits_{t\to0^+}\dfrac{\int_0^{t^2}\sin u^2\textrm{d}u}{6t^6}=\lim\limits_{t\to0^+}\dfrac{2t\sin t^4}{36t^5}=\lim\limits_{t\to0^+}\dfrac{t^5}{18t^5}=\dfrac{1}{18}$。
+
+\subsubsection{广义极坐标系}
+
+广义极坐标系是对极坐标系的延伸，极坐标系是广义坐标系的特例。极坐标系是基于直线和圆周进行积分，而广义极坐标系可以对圆锥曲线进行积分。
+
+当对面积为非圆形进行积分时可以使用广义极坐标系。
+
+\textbf{例题：}设$D:\dfrac{x^2}{a}+\dfrac{y^2}{b}\leqslant1$，求$\iint\limits_Dy^2\,\textrm{d}x\textrm{d}y$。
+
+解：令$x=ar\cos\theta$，$y=br\sin\theta$，所以$D'$为$0\leqslant r\leqslant 1$，$0\leqslant\theta\leqslant2\pi$。
+
+变换雅可比行列式$J=\dfrac{\partial(x,y)}{\partial(r,\theta)}=\left\vert\begin{array}{cc}
+    \dfrac{\partial x}{\partial r} & \dfrac{\partial x}{\partial\theta} \\
+    \dfrac{\partial y}{\partial r} & \dfrac{\partial y}{\partial\theta}
+\end{array}\right\vert=\left\vert\begin{array}{cc}
+    a\cos\theta & -ar\sin\theta \\
+    b\sin\theta & br\cos\theta
+\end{array}\right\vert=abr$。
+
+所以$I=\iint\limits_{D'}(br\sin\theta)^2\vert J\vert\,\textrm{d}r\textrm{d}\theta=\int_0^{2\pi}\textrm{d}\theta\int_0^1b^2r^2\sin^2\theta\cdot abr\,\textrm{d}r=\dfrac{\pi ab^3}{4}$。
 
 \subsection{二重积分等式}
 
@@ -267,6 +339,22 @@ $=\displaystyle{\iint\limits_{\substack{0\leqslant x\leqslant+\infty\\0\leqslant
 $=\displaystyle{\int_0^\frac{\pi}{2}\textrm{d}\theta\int_0^{+\infty}e^{-r^2}r\,\textrm{d}r=\dfrac{\pi}{2}\left(-\dfrac{1}{2}\right)\int_0^{+\infty}e^{-r^2}\,\textrm{d}(-r^2)=-\dfrac{\pi}{4}e^{-r^2}\bigg\vert_0^{+\infty}}=\dfrac{\pi}{4}$。
 
 $\therefore I=\dfrac{\sqrt{\pi}}{2}$。
+
+\subsection{二重积分应用}
+
+\subsubsection{体积}
+
+\subsubsection{形心公式}
+
+直角坐标系和极坐标系的形心公式都是一样的，使用极坐标系可以转换。
+
+\textbf{例题：}求曲线$ay=x^2$与$x+y=2a$所围平面区域$D$的形心坐标。
+
+解：根据表达式可知有两个交点$(-2a,4a)$、$(a,a)$，形心公式：
+
+$\overline{x}=\dfrac{\iint\limits_Dx\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_{-2a}^ax\,\textrm{d}x\int_{\frac{x^2}{a}}^{-x+2a}\textrm{d}y}{\int_{-2a}^a\,\textrm{d}x\int_{\frac{x^2}{a}}^{-x+2a}\textrm{d}y}=\dfrac{\int_{-2a}^a(-\dfrac{x^3}{a}-x^2+2ax)\textrm{d}x}{\int_{-2a}^a(-\dfrac{x^2}{a}-x+2a)\textrm{d}x}=-\dfrac{1}{2}a$
+
+$\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_{-2a}^a\,\textrm{d}x\int_{\frac{x^2}{a}}^{-x+2a}y\textrm{d}y}{\int_{-2a}^a\,\textrm{d}x\int_{\frac{x^2}{a}}^{-x+2a}\textrm{d}y}=\dfrac{\dfrac{1}{2}\int_{-2a}^a(-\dfrac{x^4}{4}+x^2-4ax+4a^2)}{\int_{-2a}^a(-\dfrac{x^2}{a}-x+2a)\textrm{d}x}=\dfrac{8}{5}a$
 
 \section{弧长曲线积分}
 

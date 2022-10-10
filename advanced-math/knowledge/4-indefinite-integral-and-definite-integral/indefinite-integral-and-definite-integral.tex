@@ -759,7 +759,7 @@ $S_n=\sum\limits_{i=1}^n\Vert\overline{M_{i-1}M_{i}}\Vert$，$S=\lim\limits_{\de
 
 如果是极坐标方程，则$S=\int_\alpha^\beta\sqrt{\rho^2+\rho'^2}\,\textrm{d}\theta$。
 
-\subsubsection{形心坐标公式}
+\subsubsection{形心公式}
 
 \paragraph{曲线} \leavevmode \medskip
 
@@ -781,15 +781,19 @@ $\overline{x}=\dfrac{\int_\alpha^\beta x\rho(x)\,\textrm{d}x}{\int_\alpha^\beta\
 
 设曲边梯形平面区域$D=\{(x,y)|0\leqslant y\leqslant f(x),a\leqslant x\leqslant b\}$，$f(x)$在$[a,b]$上连续，则平面$D$的形心坐标计算公式为：\medskip
 
-$\overline{x}=\dfrac{\iint\limits_Dx\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_0^{f(x)}x\textrm{d}y}{\int_a^b\textrm{d}x\int_0^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bxf(x)\,\textrm{d}x}{\int_a^bf(x)\,\textrm{d}x}$。
+% $\overline{x}=\dfrac{\iint\limits_Dx\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_0^{f(x)}x\textrm{d}y}{\int_a^b\textrm{d}x\int_0^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bxf(x)\,\textrm{d}x}{\int_a^bf(x)\,\textrm{d}x}$。
 
-$\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_0^{f(x)}y\textrm{d}y}{\int_a^b\textrm{d}x\int_0^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bf^2(x)\,\textrm{d}x}{2\int_a^bf(x)\,\textrm{d}x}$。
+% $\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_0^{f(x)}y\textrm{d}y}{\int_a^b\textrm{d}x\int_0^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bf^2(x)\,\textrm{d}x}{2\int_a^bf(x)\,\textrm{d}x}$。
+
+$\overline{x}=\dfrac{\iint\limits_Dx\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^bxf(x)\,\textrm{d}x}{\int_a^bf(x)\,\textrm{d}x}$，$\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^bf^2(x)\,\textrm{d}x}{2\int_a^bf(x)\,\textrm{d}x}$。
 
 设曲边梯形平面区域$D=\{(x,y)|g(x)\leqslant y\leqslant f(x),a\leqslant x\leqslant b\}$，$f(x)$、$g(x)$在$[a,b]$上连续，则平面$D$的形心坐标计算公式为：\medskip
 
-$\overline{x}=\dfrac{\iint\limits_Dx\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_{g(x)}^{f(x)}x\textrm{d}y}{\int_a^b\textrm{d}x\int_{g(x)}^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bx[f(x)-g(x)]\,\textrm{d}x}{\int_a^b[f(x)-g(x)]\,\textrm{d}x}$。
+% $\overline{x}=\dfrac{\iint\limits_Dx\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_{g(x)}^{f(x)}x\textrm{d}y}{\int_a^b\textrm{d}x\int_{g(x)}^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^bx[f(x)-g(x)]\,\textrm{d}x}{\int_a^b[f(x)-g(x)]\,\textrm{d}x}$。
 
-$\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_{g(x)}^{f(x)}y\textrm{d}y}{\int_a^b\textrm{d}x\int_{g(x)}^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^b[f^2(x)-g^2(x)]\,\textrm{d}x}{2\int_a^b[f(x)-g(x)]\,\textrm{d}x}$。
+% $\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b\textrm{d}x\int_{g(x)}^{f(x)}y\textrm{d}y}{\int_a^b\textrm{d}x\int_{g(x)}^{f(x)}\,\textrm{d}y}=\dfrac{\int_a^b[f^2(x)-g^2(x)]\,\textrm{d}x}{2\int_a^b[f(x)-g(x)]\,\textrm{d}x}$。
+
+$\overline{x}=\dfrac{\iint\limits_Dx\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^bx[f(x)-g(x)]\,\textrm{d}x}{\int_a^b[f(x)-g(x)]\,\textrm{d}x}$，$\overline{y}=\dfrac{\iint\limits_Dy\,\textrm{d}\sigma}{\iint\limits_D\textrm{d}\sigma}=\dfrac{\int_a^b[f^2(x)-g^2(x)]\,\textrm{d}x}{2\int_a^b[f(x)-g(x)]\,\textrm{d}x}$。
 
 \subsection{物理应用}
 

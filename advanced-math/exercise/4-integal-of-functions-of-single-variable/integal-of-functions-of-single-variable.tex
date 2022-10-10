@@ -686,14 +686,53 @@ $=-\dfrac{4x+3}{2(x^2+x+1)}-\dfrac{6}{\sqrt{3}}\arctan\dfrac{2x+1}{\sqrt{3}}+C$�
 
 定积分计算以牛莱公式为基础。
 
-\subsection{极限}
+\subsection{换元积分}
+
+换元积分法基本上跟不定积分一样。
+
+\textbf{例题：}求$\displaystyle{\int_0^2\dfrac{x\,\textrm{d}x}{(x^2-2x+2)^2}}$。\medskip
+
+解：从题目来看都需要使用换元积分法，因为分母比较复杂。一种思路直接令$x^2-2x+2=u$，但是这样$\textrm{d}x$就解不出来。所以尝试将分母配方：$x^2-2x+2=(x-1)^2+1$，看到$x^2+1$的形式就想到了$\tan^2u+1=\sec^2u$，所以令$x-1=\tan u$，即$x=\tan u+1$，$\textrm{d}x=\sec^2u\,\textrm{d}u$，$(x^2-2x+2)^2=\sec^4u$。当$x=0$，$u=-\dfrac{\pi}{4}$，当$x=2$，$u=\dfrac{\pi}{4}$。解得$=\displaystyle{\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\dfrac{(1+\tan u)\textrm{d}u}{\sec^2u}}$
+
+$=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\tan u\,\textrm{d}u=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\sin u\cos u\,\textrm{d}u=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u=2\int_0^\frac{\pi}{4}\cos^2u\,\textrm{d}u=2\int_0^\frac{\pi}{4}(1+\cos2u)\,\textrm{d}u=\dfrac{\pi}{4}+\dfrac{1}{2}$。
+
+\subsection{分部积分}
+
+可以使用普通的分部积分方式，也可以使用分部积分推广公式。
+
+\textbf{例题：}求$\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x$。
+
+解：令$e^{2x}=u$，$\cos x=v$，$\therefore$根据积分推广公式：\medskip
+
+\begin{tabular}{|c|c|c|}
+    \hline
+    $e^{2x}$ & $2e^{2x}$ & $4e^{2x}$ \\ \hline
+    $\cos x$ & $\sin x$ & $-\cos x$ \\
+    \hline
+\end{tabular} \medskip
+
+$\therefore\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=[e^{2x}\sin x+2e^{2x}\cos x]_0^\frac{\pi}{2}-4\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x$。
+
+$\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=\dfrac{1}{5}[e^{2x}(\sin x+2\cos x)]_0^\frac{\pi}{2}=\dfrac{1}{5}(e^\pi-2)$。
+
+\subsection{几何意义}
+
+定积分与不定积分不同的就是定积分具有几何意义，可以在计算时简化操作。
+
+\textbf{例题：}计算$\int_0^1\sqrt{2x-x^2}\,\textrm{d}x$。
+
+解：首先看到这个题目可能会使用换元积分法，但是尝试$t=\sqrt{2x-x^2}$，则$x$无法用$t$表示。
+
+对$\sqrt{2x-x^2}$进行变形，$=\sqrt{1-(x-1)^2}$，令$x-1=t$，则$=\int_0^1\sqrt{1-t^2}\,\textrm{d}t$，根据定积分的几何意义，这是一个单位圆的四分之一，所以结果等于$\dfrac{1}{4}\pi$。
+
+\subsection{极限化为定积分}
 
 若极限中有$n$这种变量，也可以通过定积分的定义来做，$\lim\limits_{n\to\infty}\sum\limits_{i=1}^nf\left(\dfrac{i}{n}\right)\dfrac{1}{n}=\int_1^0f(x)\,\textrm{d}x$。
 
 \begin{enumerate}
     \item 先提出$\dfrac{1}{n}$。
     \item 凑出$\dfrac{i}{n}$。
-    \item 写出$\int_0^1f(x)\,\textrm{d}x$，其中$\dfrac{1}{n}$没有了，将所有$\dfrac{i}{n}$换为在$x$。
+    \item 写出$\int_0^1f(x)\,\textrm{d}x$，其中$\dfrac{1}{n}$没有了，将所有$\dfrac{i}{n}$换为$x$。
 \end{enumerate}
 
 \textbf{例题：}求$\lim\limits_{n\to\infty}\left(\dfrac{1}{n+1}+\dfrac{1}{n+2}\cdots+\dfrac{1}{n+n}\right)$。
@@ -737,45 +776,6 @@ $\therefore\displaystyle{\int_0^\frac{\pi}{2}\dfrac{\sin x}{\cos x+\sin x}\textr
 根据区间再现公式，令$x=\pi-t$，则$=-\displaystyle{\int_\pi^0\dfrac{(\pi-t)\sin(\pi-t)}{1+\cos^2(\pi-t)}\textrm{d}t}=$\\$\displaystyle{\int_0^\pi\dfrac{(\pi-t)\sin t}{1+\cos^2t}\textrm{d}t}=\pi\displaystyle{\int_0^\pi\dfrac{\sin t}{1+\cos^2t}\textrm{t}-I}$。
 
 $\therefore=\dfrac{1}{2}\pi\displaystyle{\int_0^\pi\dfrac{\sin t}{1+\cos^2t}\textrm{d}t}=-\dfrac{1}{2}\pi\int_0^\pi\dfrac{\textrm{d}\cos t}{1+\cos^2t}=-\dfrac{1}{2}\pi\arctan\cos t\bigg|_0^\pi=\dfrac{1}{4}\pi^2$。
-
-\subsection{换元积分}
-
-换元积分法基本上跟不定积分一样。
-
-\textbf{例题：}求$\displaystyle{\int_0^2\dfrac{x\,\textrm{d}x}{(x^2-2x+2)^2}}$。\medskip
-
-解：从题目来看都需要使用换元积分法，因为分母比较复杂。一种思路直接令$x^2-2x+2=u$，但是这样$\textrm{d}x$就解不出来。所以尝试将分母配方：$x^2-2x+2=(x-1)^2+1$，看到$x^2+1$的形式就想到了$\tan^2u+1=\sec^2u$，所以令$x-1=\tan u$，即$x=\tan u+1$，$\textrm{d}x=\sec^2u\,\textrm{d}u$，$(x^2-2x+2)^2=\sec^4u$。当$x=0$，$u=-\dfrac{\pi}{4}$，当$x=2$，$u=\dfrac{\pi}{4}$。解得$=\displaystyle{\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\dfrac{(1+\tan u)\textrm{d}u}{\sec^2u}}$
-
-$=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\tan u\,\textrm{d}u=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u+\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\sin u\cos u\,\textrm{d}u=\int_{-\frac{\pi}{4}}^\frac{\pi}{4}\cos^2u\,\textrm{d}u=2\int_0^\frac{\pi}{4}\cos^2u\,\textrm{d}u=2\int_0^\frac{\pi}{4}(1+\cos2u)\,\textrm{d}u=\dfrac{\pi}{4}+\dfrac{1}{2}$。
-
-\subsection{分部积分}
-
-可以使用普通的分部积分方式，也可以使用分部积分推广公式。
-
-\textbf{例题：}求$\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x$。
-
-解：令$e^{2x}=u$，$\cos x=v$，$\therefore$根据积分推广公式：\medskip
-
-\begin{tabular}{|c|c|c|}
-    \hline
-    $e^{2x}$ & $2e^{2x}$ & $4e^{2x}$ \\ \hline
-    $\cos x$ & $\sin x$ & $-\cos x$ \\
-    \hline
-\end{tabular} \medskip
-
-$\therefore\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=[e^{2x}\sin x+2e^{2x}\cos x]_0^\frac{\pi}{2}-4\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x$。
-
-$\int_0^\frac{\pi}{2}e^{2x}\cos x\,\textrm{d}x=\dfrac{1}{5}[e^{2x}(\sin x+2\cos x)]_0^\frac{\pi}{2}=\dfrac{1}{5}(e^\pi-2)$。
-
-\subsection{几何意义}
-
-定积分与不定积分不同的就是定积分具有几何意义，可以在计算时简化操作。
-
-\textbf{例题：}计算$\int_0^1\sqrt{2x-x^2}\,\textrm{d}x$。
-
-解：首先看到这个题目可能会使用换元积分法，但是尝试$t=\sqrt{2x-x^2}$，则$x$无法用$t$表示。
-
-对$\sqrt{2x-x^2}$进行变形，$=\sqrt{1-(x-1)^2}$，令$x-1=t$，则$=\int_0^1\sqrt{1-t^2}\,\textrm{d}t$，根据定积分的几何意义，这是一个单位圆的四分之一，所以结果等于$\dfrac{1}{4}\pi$。
 
 \subsection{定限积分等式}
 

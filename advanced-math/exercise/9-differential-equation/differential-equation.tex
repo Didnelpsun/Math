@@ -42,6 +42,8 @@
 
 \subsection{可分离变量微分方程}
 
+\subsubsection{交叉积分法}
+
 \textbf{例题：}求$y\sin\dfrac{x}{2}\,\textrm{d}x-\cos\dfrac{x}{2}\,\textrm{d}y=0$的通解。
 
 解：$\dfrac{\textrm{d}y}{\textrm{d}x}=y\tan\dfrac{x}{2}$，$\dfrac{\textrm{d}y}{y}=\tan\dfrac{x}{2}\,\textrm{d}x$，$\displaystyle{\int\dfrac{\textrm{d}y}{y}=2\int\tan\dfrac{x}{2}\,\textrm{d}\dfrac{x}{2}}$。
@@ -54,7 +56,9 @@ $y=\dfrac{\pm C_1}{\left(\cos\dfrac{x}{2}\right)^2}$，令$C=\pm C_1$，得$y=\d
 
 此时解为全部解，为通解加上$y=0$的奇解。
 
-\subsection{多项式换元}
+\subsubsection{多项式换元法}
+
+$x$和$y$是以和差作为一个整体形式。
 
 \textbf{例题：}求微分方程$\textrm{d}y=\sin(x+y+100)\,\textrm{d}x$的通解。
 
@@ -68,7 +72,13 @@ $\int\sec^2u-\tan u\sec u\,\textrm{d}u=x$，即$\tan u-\sec u=x+C$。代回$u=x+
 
 所有解：$\tan(x+y+100)-\sec(x+y+100)=x+C$，$x+y+100=2k\pi-\dfrac{\pi}{2}$。
 
-\subsection{自然齐次方程}
+\subsection{一阶线性方程}
+
+形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)$。
+
+可以直接求也可以使用公式求。
+
+\subsubsection{交叉积分法}
 
 \textbf{例题：}设$L$是一条平面曲线，其上任意一点$P(x,y)$（$x>0$）到坐标原点的距离恒等于该点处的切线在$y$轴上的截距，且$L$经过点$\left(\dfrac{1}{2},0\right)$，求$L$的方程。
 
@@ -86,9 +96,9 @@ $\therefore\ln(u+\sqrt{1+u^2})=-\ln x+\ln C$，$u+\sqrt{1+u^2}=\dfrac{C}{x}$。
 
 代入$\dfrac{y}{x}+\sqrt{1+\dfrac{y^2}{x^2}}=\dfrac{C}{x}$，$y+\sqrt{x^2+y^2}=C$。
 
-\subsection{一阶线性方程}
+\subsubsection{公式法}
 
-形如$\dfrac{\textrm{d}y}{\textrm{d}x}+P(x)y=Q(x)$。
+即使用非齐次和非齐次的一阶线性微分方程公式。
 
 \subsubsection{换元法}
 
@@ -101,6 +111,28 @@ $\therefore\ln(u+\sqrt{1+u^2})=-\ln x+\ln C$，$u+\sqrt{1+u^2}=\dfrac{C}{x}$。
 $\therefore(e^y)'+e^y=\sin x$，令$e^y=u$，$u'+u=\sin x$，$P(x)=1$，$Q(x)=\sin x$。
 
 $e^y=u=e^{-\int\textrm{d}x}(\int e^{\int\textrm{d}x}\sin x\,\textrm{d}x+C)=e^{-x}(\int e^x\sin x\,\textrm{d}x+C)$，积分再现表格解出$\int e^x\sin x\,\textrm{d}x$：$=e^{-x}\left(\dfrac{1}{2}e^x(\sin x-\cos x)+C\right)$。
+
+\textbf{例题：}求$y'=\dfrac{y^2-x}{2y(x+1)}$的通解。
+
+解：这个式子首先分子分母等长，$xy$都合在一起，所以很难去分离出基本的微分方程。基本的微分方程式子为$y'+P(x)y=Q(x)$，对比可以看出里面$y^2$是不能化简的，所以很容易想到把这个当作一个整体。
+
+$2y'y=\dfrac{y^2-x}{x+1}$，此时出现了$y^2$和$y^2$的导数，令$y^2=u$，$u'=\dfrac{u-x}{x+1}$。
+
+即$u'-\dfrac{y}{x+1}=\dfrac{1}{x+1}-1$，此时就化为了一般非齐次方程。
+
+根据公式算出$y=C(x+1)-(x+1)\ln\vert x+1\vert-1$。
+
+\subsubsection{交换微分变量}
+
+当出现$y'=\dfrac{f(x)}{g(x)}$，$g(x)$多项式的次数远高于$f(x)$，此时就没办法分离变量了，可以用$\dfrac{\textrm{d}x}{\textrm{d}y}$颠倒求导顺序。
+
+\textbf{例题：}求$y'=\dfrac{y}{x+(y+1)^2}$的通解。（$y$不为常函数）
+
+解：由于$y'$对应的式子分母较复杂，而分子较简单，所以上下颠倒：
+
+$\dfrac{\textrm{d}x}{\textrm{d}y}=\dfrac{x+(y+1)^2}{y}=\dfrac{x}{y}+y+\dfrac{1}{y}+2$。$x'-\dfrac{1}{y}x=y+\dfrac{1}{y}+2$。
+
+根据公式：$x=e^{\int\frac{1}{y}\,\textrm{d}y}\left[\displaystyle{\int\left(y+\dfrac{1}{y}+2\right)}e^{\int-\frac{1}{y}\,\textrm{d}y}\,\textrm{d}y+C\right]=y^2+2\ln\vert y\vert y-1+Cy$。
 
 \subsection{伯努利方程}
 
@@ -138,11 +170,15 @@ $y'=C(1+x^2)$，$\therefore y=C_2\left(x+\dfrac{x^3}{3}+x\right)+C$。
 
 \section{高阶线性微分方程}
 
-\subsection{常系数齐次线性微分方程}
+% \subsection{常系数齐次线性微分方程}
 
-\subsection{常系数非齐次线性微分方程}
+% \subsection{常系数非齐次线性微分方程}
+
+\subsection{基本解法}
 
 先将常系数非齐次线性微分方程变为常系数齐次线性微分方程求解，然后加上非齐次方程的一个特解，就是非齐次方程的一个通解。
+
+特解只能拆为和的形式而不能拆为乘商的形式，如$Q(x)=\sin^2x$，则应该拆为$\dfrac{1-\cos2x}{2}$。
 
 \textbf{例题：}求$y''-4y'+4y=3xe^{2x}$的通解。
 
