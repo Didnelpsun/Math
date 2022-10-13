@@ -60,7 +60,7 @@
 
 代入$Ax=b$：$A(3\alpha_1-2\alpha_2)=3A\alpha_1-2A\alpha_2=3b-2b=b$，所以成立。
 
-\subsection{线性表出}
+% \subsection{线性表出}
 
 \section{反求参数}
 
@@ -90,6 +90,36 @@ $\vert A\vert=\left\vert\begin{array}{ccc}
 \end{array}\right\vert=(a+5)(a+6)=0$。
 
 解得$a=-5$或$a=-6$。
+
+\section{抽象线性方程}
+
+\textbf{例题：}设$A$为三阶方阵，$A=(a_{ij})_{3\times3}$，且$a_{ij}=A_{ij}$（$i,j=1,2,3$），其中$A_{ij}$为$a_{ij}$的代数余子式，$a_{33}\neq0$，$b=(a_{13},a_{23},a_{33})^T$，求非齐次线性方程组$Ax=b$的解。
+
+解：由于是抽象线性方程，所以必须要充分利用方程和矩阵的性质。题目中给出的主要是代数余子式，由行列式的一行或一列的元素乘上对应的代数余子式可得行列式值的性质：
+
+$b$为第三列元素，乘上对应的代数余子式得行列式值：$b(A_{13},A_{23},A_{33})=a_{13}A_{13}+a_{23}A_{23}=a_{13}^2+a_{23}^2+a_{33}^2\geqslant0$。
+
+又$a_{33}\neq0$，$\therefore b(A_{13},A_{23},A_{33})=\vert A\vert>0$，$r(A)=3$，$Ax=b$解唯一$x=A^{-1}b$。
+
+根据逆矩阵公式$x=A^{-1}b=\dfrac{A^*b}{\vert A\vert}$，且代数余子式乘上非对应元素值都为0。
+
+$=\dfrac{1}{\vert A\vert}\left[\begin{array}{ccc}
+    A_{11} & A_{21} & A_{31} \\
+    A_{12} & A_{22} & A_{32} \\
+    A_{13} & A_{23} & A_{33} 
+\end{array}\right]\left[\begin{array}{c}
+    a_{13} \\
+    a_{23} \\
+    a_{33}
+\end{array}\right]=\dfrac{1}{\vert A\vert}\left[\begin{array}{c}
+    0 \\
+    0 \\
+    \vert A\vert
+\end{array}\right]=\left[\begin{array}{c}
+    0 \\
+    0 \\
+    1
+\end{array}\right]$。
 
 \section{公共解}
 

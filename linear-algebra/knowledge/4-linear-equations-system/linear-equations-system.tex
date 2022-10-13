@@ -505,11 +505,17 @@ $ABD$选项增广矩阵的秩都为3，所以不能表示，而只有$C$的为2�
 
 \section{公共解}
 
+\subsection{待定系数法}
+
 \begin{enumerate}
     \item 求两个方程组解的交集部分。可以联立两个方程求解。
     \item 求出$A_{m\times n}x=0$的通解$k_1\xi_1+k_2\xi_2+\cdots+k_s\xi_s$，这些$k$本来是独立的，然后代入$B_{m\times n}x=0$，求出$k_i(i=1,2,\cdots,s)$之间的关系，再代回$A_{m\times n}x=0$的通解中就得到公共解。
     \item 给出$A_{m\times n}x=0$的通解与$B_{m\times n}x=0$的通解联立：$k_1\xi_1+k_2\xi_2+\cdots+k_s\xi_s=l_1\eta_1+l_2\eta_2+\cdots+l_s\eta_s=0$，能解出$k_i$和$l_i$。
 \end{enumerate}
+
+这种方法可以求出公共解，不过比较麻烦。
+
+如果已经给出原方程的基础解系而没有给出矩阵，则这个方法解出公共解较好。
 
 \textbf{例题：}已知线性方程组$A=\left\{\begin{array}{l}
     x_1+x_2=0 \\
@@ -539,11 +545,28 @@ $l_1\eta_1+l_2\eta_2=l_1(0,1,1,0)^T+l_2(-1,-1,0,1)^T=(-l_2,l_1-l_2,l_1,l_2)^T$�
 
 公共解为$(-k_2,k_2,2k_2,k_2)^T=k_2(-1,1,2,1)^T$。
 
+\subsection{矩阵法}
+
+要求$A$和$B$的非零公共解，即求联立矩阵$\left(\begin{array}{c}
+    A \\
+    B
+\end{array}\right)x=0$的非零解。对这个矩阵求出基础解系。
+
+如果直接给出矩阵，则这种方法可以不用求出基础解系就能得到公共解。
+
 \section{同解方程组}
+
+\subsection{性质}
 
 若$A_{m\times n}x=0$和$B_{s\times n}x=0$有完全相同的解，就是同解方程组。
 
 $\therefore r(A)=r(B)=r([A,B]^T)$。
+
+$A$与$A^TA$同解。
+
+\subsection{代入法}
+
+先求一个方程组的通解，然后把这个通解代入到第二个方程组中，不用管$k$的取值（因为$k$为任意数，所以直接令其为0）直接求出对应参数。
 
 \textbf{例题：}线性方程组$A=\left\{\begin{array}{l}
     x_1+3x_3+5x_4=0 \\
