@@ -315,7 +315,13 @@ $E-A=\left(\begin{array}{ccc}
 
 \subsection{相似矩阵}
 
+\subsubsection{具体型}
+
+$\vert \lambda E-A\vert=0$或$(\lambda E-A)x=0$。
+
 \subsubsection{抽象型}
+
+定义$A\alpha=\lambda\alpha$。
 
 \textbf{例题：}设$A$是三阶矩阵，$\alpha_1,\alpha_2,\alpha_3$是三维线性无关的列向量，且$A\alpha_1=\alpha_2+\alpha_3$，$A\alpha_2=\alpha_1+\alpha_3$，$A\alpha_3=\alpha_1+\alpha_2$，求$A$相似的矩阵。
 
@@ -337,7 +343,11 @@ $A(\alpha_1,\alpha_2,\alpha_3)=(\alpha_2+\alpha_3,\alpha_1+\alpha_3,\alpha_1+\al
 
 $\therefore AP=PB$，$P^{-1}AP=B$，$A\sim B$。
 
-\subsubsection{正交相似}
+\subsection{特殊矩阵}
+
+\subsubsection{实对称矩阵}
+
+根据实对称矩阵不同特征值的特征向量必然相互正交的性质求解。
 
 一般会给出特征值（全部）和对应的特征向量（部分）。
 
@@ -367,6 +377,69 @@ $\alpha_3^T\alpha_1=x_1-x_3=0$，$\alpha_3^T\alpha_2=x_2+x_3=0$，求$\lambda_3$
 
 最后对整个$Q$进行单位化：$\gamma_1=\dfrac{1}{\sqrt{2}}(1,0,-1)^T$，$\gamma_2=\dfrac{1}{\sqrt{6}}(1,2,1)^T$，$\gamma_3=\dfrac{1}{\sqrt{3}}(1,-1,1)^T$。
 
+\subsubsection{爪型矩阵}
+
+即类似于爪形行列式，且列数较大，不可能直接计算，所以就需要把常数项提出来。
+
+\textbf{例题：}设$n$（$n\geqslant2$）阶矩阵$A=\left[\begin{array}{ccccc}
+    a & 1 & 1 & \cdots & 1 \\
+    1 & a & 1 & \cdots & 1 \\
+    1 & 1 & a & \cdots & 1 \\
+    \vdots & \vdots & \vdots &  & \vdots \\
+    1 & 1 & 1 & \cdots & a
+\end{array}\right]$。求可逆矩阵$P$与对角矩阵$\Lambda$，使得$P^{-1}AP=\Lambda$，并求$r(A^*)$。
+
+解：矩阵$A$是个爪形，直接使用$\vert\lambda E-A\vert=0$计算特征值非常复杂，所以对其化简：
+
+$A=\left[\begin{array}{cccc}
+    a-1 \\
+    & a-1 \\
+    & & \cdots \\
+    & & & a-1
+\end{array}\right]+\left[\begin{array}{cccc}
+    1 & 1 & \cdots & 1 \\
+    1 & 1 & \cdots & 1 \\
+    \vdots & \vdots & & \vdots \\
+    1 & 1 & \cdots & 1 \\
+\end{array}\right]=(a-1)E+B$。
+
+$\vert\lambda E-B\vert=\left\vert\begin{array}{cccc}
+    \lambda-1 & -1 & \cdots & -1 \\
+    -1 & \lambda-1 & \cdots & -1 \\
+    \vdots & \vdots & & \vdots \\
+    -1 & -1 & \cdots & \lambda-1
+\end{array}\right\vert=\left\vert\begin{array}{cccc}
+    \lambda-n & \lambda-n & \cdots & \lambda-n \\
+    -1 & \lambda-1 & \cdots & -1 \\
+    \vdots & \vdots & & \vdots \\
+    -1 & -1 & \cdots & \lambda-1
+\end{array}\right\vert=\left\vert\begin{array}{cccc}
+    \lambda-n & 0 & \cdots & 0 \\
+    -1 & \lambda & \cdots & 0 \\
+    \vdots & \vdots & & \vdots \\
+    -1 & 0 & \cdots & \lambda
+\end{array}\right\vert=0$，所以$\lambda_1=n$，$\lambda_2=\cdots=\lambda_n=0$。
+
+从而$A$的特征值为$n+a-1$、$a-1$、$\cdots$、$a-1$。
+
+所以根据特征值$(nE-B)x=0$，$x_1=(1,1,\cdots,1)^T$，$(0E-B)x=0$，$x_2=(1,-1,0,\cdots,0)^T$、$x_3=(1,0,-1,\cdots,0)^T$、$\cdots$、$x_n=(1,0,0,\cdots,-1)^T$。
+
+根据特征值和特征向量的性质，$x_i$也是$A$的特征向量。
+
+令$P=(x_1,x_2,\cdots,x_n)$，则$P^{-1}AP=diag(n+(a-1),a-1,\cdots,a-1)$。
+
+因为$A\sim\Lambda$，所以$\vert A\vert=\vert\Lambda\vert=(n+a-1)(a-1)^n-1$，所以：
+
+$r(A)=\left\{\begin{array}{ll}
+    n, & a\neq1-n,a\neq1 \\
+    n-1, & a=1-n \\
+    1, & a=1
+\end{array}\right.$，所以$r(A^*)=\left\{\begin{array}{ll}
+    n, & a\neq1-n,a\neq1 \\
+    1, & a=1-n \\
+    0, & a=1
+\end{array}\right.$。
+
 \subsection{矩阵关系式}
 
 若有可逆矩阵$P$，使得$P^{-1}AP=\Lambda$，则：
@@ -387,7 +460,7 @@ $P$即是$A$特征向量的拼合。
 
 解：首先$A\sim\Lambda$，所以$A$能相似对角化。
 
-$\vert\lambda E-A\lambda=\left|\begin{array}{ccc}
+$\vert\lambda E-A\vert=\left|\begin{array}{ccc}
     \lambda-2 & -x & -1 \\
     0 & \lambda-3 & 0 \\
     -3 & 6 & \lambda
