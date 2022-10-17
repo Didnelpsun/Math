@@ -671,6 +671,18 @@ $\int_0^Tf(x)\,\textrm{d}x=\int_a^{a+T}f(x)\,\textrm{d}x=\int_{-\frac{\pi}{2}}^{
 
 % \subsection{* 反常积分的判敛}
 
+\section{积分中值定理}
+
+\subsection{定理}
+
+\textcolor{aqua}{\textbf{定理：}}若$f(x)$在$[a,b]$上连续，则存在$\xi\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$。
+
+\subsection{证明}
+
+已知$f(x)$在$[a,b]$上连续，根据有界与最值定理，$m\leqslant f(x)\leqslant M$，$m(b-a)\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant M(b-a)$，所以$m\leqslant\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}\leqslant M$。
+
+由介值定理可知$\xi\in[a,b]$，使得$f(\xi)=\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x$。
+
 \section{定积分应用}
 
 对比不定积分的直接数学计算，定积分的实际应用要广许多，往往可以用来解决几何、物理等问题。

@@ -321,6 +321,44 @@ $=e^{2\lim\limits_{x\to 0}\frac{f(x)-f(0)}{x-0}}=e^{2f'(0)}=e^6$。
     \item $\{f(ax+b)\}^{(n)}=a^nf^{(n)}(ax+b)$。
 \end{enumerate}
 
+\subsubsection{公式法}
+
+适合两个因式相乘$(uv)^{(n)}=\sum\limits_{k=0}^nC_n^ku^{(k)}v^{(n-k)}$。
+
+\textbf{例题：}求$f(x)=x^2\ln(1+x)$在$x=0$处的$n$阶导数（$n>2$）。
+
+令$u=x^2$，$v=\ln(1+x)$。$u'=2x$，$u''=2$，$u^{(k)}=0$（$k>2$），又在$x=0$。
+
+所以$f^{(n)}(0)=C_n^2u^{(2)}(0)v^{(n-2)}(0)=2C_n^2v^{(n-2)}(0)$。
+
+$v'=(x+1)^{-1}$，$v''=(-1)(x+1)^{-2}$，$v^{(n-2)}=\dfrac{(-1)^{n-1}(n-3)!}{(x+1)^{n-2}}$。
+
+$v^{(n-2)}(0)=(-1)^{n-1}(n-3)!$，$f^{(n)}(0)=\dfrac{n(n-1)}{2!}2(-1)^{n-1}(n-3)!=\dfrac{(-1)^{n+1}n!}{n-2}$。
+
+\subsubsection{归纳法}
+
+\textbf{例题：}已知$f(x)=\dfrac{x}{x^2-5x+6}$， 求$f^{(n)}(x)$。
+
+解：首先式子为多项式形式，所以先因式分解。
+
+$f(x)=\dfrac{x}{(x-2)(x-3)}=\dfrac{3}{x-3}-\dfrac{2}{x-2}$。
+
+所以根据高阶导数性质$f^{(n)}(x)=\left(\dfrac{3}{x-3}\right)^{(n)}-\left(\dfrac{2}{x-2}\right)^{(n)}$。
+
+令$\psi(x)=\dfrac{1}{x-1}=(x-3)^{-1}$，$\psi'(x)=(-1)(x-3)^{-2}$，$\psi''(x)=(-1)(-2)(x-3)^{-3}$，归纳得出$\psi^{(n)}(x)=(-1)^nn!(x-3)^{-(n+1)}$。
+
+然后直接将3换成2，得出$f^{(n)}(x)=\dfrac{3(-1)^nn!}{(x-3)^{n+1}}-\dfrac{2(-1)^nn!}{(x-2)^{n+1}}$。
+
+\textbf{例题：}已知$f(x)=e^x\sin x$， 求$f^{(n)}(x)$。
+
+解：令$f'(x)=e^x\sin x+e^x\cos x=e^x(\sin x+\cos x)=\sqrt{2}e^x\sin\left(x+\dfrac{\pi}{4}\right)$。
+
+所以这里就使用三角公式，从而$f^{(n)}(x)=(\sqrt{2})^ne^x\sin\left(x+n\cdot\dfrac{\pi}{4}\right)$。
+
+\subsubsection{莱布尼茨公式}
+
+莱布尼茨公式是基于某个点的，所以题型是求$f(x)$在点$x_0$处的导数，该点的导数就是该函数的泰勒级数的系数。如果题目是直接求$f^{(n)}x$则用不了莱布尼茨公式。
+
 \subsubsection{高阶导数存在性}
 
 \subsubsection{携带未知数的多项式求高阶导}

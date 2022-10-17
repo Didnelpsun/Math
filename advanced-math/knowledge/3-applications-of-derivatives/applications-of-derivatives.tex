@@ -80,7 +80,7 @@
 
 \section{微分中值定理}
 
-三个定理都是建立局部与整体的关系，利用导数控制函数，反之不能使用函数控制导数。
+四个定理都是建立局部与整体的关系，利用导数控制函数，反之不能使用函数控制导数。
 
 $\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化：任意端点值}}\text{拉格朗日中值定理}\xrightleftharpoons[\text{特例：}F(x)=x]{\text{泛化：参数方程}}\text{柯西中值定理}$
 
@@ -145,7 +145,7 @@ $\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化�
 
 有限增量公式\textcolor{violet}{\textbf{定义：}}$\Delta y=f(x_0+\Delta x)-f(x_0)=f'[x_0+\theta\Delta x]\Delta x(0<\theta<1)$。
 
-有限增量公式中的$\Delta x$不一定很小，这个是一个增量的准确公式。
+有限增量公式中的$\Delta x$不一定很小，这个是一个增量的准确公式。即将增量$\Delta y$用$\Delta x$和该线段上某点的导数来表示。
 
 推论：$f(x)$在$I$上连续且可导，则$I$上$f(x)=C\Leftrightarrow f'(x)\equiv 0$
 
@@ -166,17 +166,13 @@ $\text{罗尔定理}\xrightleftharpoons[\text{特例：}f(a)=f(b)]{\text{泛化�
 
 则$\exists\,\xi\in(a,b)$，使得$\dfrac{f(b)-f(a)}{F(b)-F(a)}=\dfrac{f'(\xi)}{F'(\xi)}$。
 
-\section{积分中值定理}
+\subsection{泰勒中值定理}
 
-\subsection{定理}
+即携带拉格朗日余项的泰勒公式。
 
-\textcolor{aqua}{\textbf{定理：}}若$f(x)$在$[a,b]$上连续，则存在$\xi\in[a,b]$，使得$\int_a^bf(x)\,\textrm{d}x=f(\xi)(b-a)$。
+设$f(x)$在区间$I$上$(n+1)$阶可导，$x_0\in I$，那么对$\forall x\in I$，$\exists\xi$使得$f(x)=f(x_0)+f'(x_0)(x-x_0)+\cdots+\dfrac{f^{(n)}(x_0)}{n!}(x-x_0)^n+R_n(x)$。
 
-\subsection{证明}
-
-已知$f(x)$在$[a,b]$上连续，根据有界与最值定理，$m\leqslant f(x)\leqslant M$，$m(b-a)\leqslant\int_a^bf(x)\,\textrm{d}x\leqslant M(b-a)$，所以$m\leqslant\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}\leqslant M$。
-
-由介值定理可知$\xi\in[a,b]$，使得$f(\xi)=\dfrac{1}{b-a}\int_a^bf(x)\,\textrm{d}x$。
+$R_n(x)=\dfrac{f^{(n+1)(\xi)}}{(n+1)!}(x-x_0)^{n+1}$，$\xi\in I$。
 
 \section{洛必达法则}
 
@@ -420,7 +416,7 @@ $\forall x\in U(x_0,\delta)$恒有$f(x)\leqslant f(x_0)$，则$f(x)$在$x_0$取�
 
 \textcolor{aqua}{\textbf{定理：}}（极值第一充分条件）
 
-设$f(x)$在$\mathring{U}(x_0,\delta)$内可导，且$f'(x_0)=0$或在$x_0$连续。
+若$f(x)$在$\mathring{U}(x_0,\delta)$内可导，且$f'(x_0)=0$或在$x_0$连续。
 
 \begin{enumerate}
     \item 若$x<x_0$时，$f'(x)\geqslant 0$，$x>x_0$时$f'(x)\leqslant 0$，则$x_0$取得极大值。
@@ -435,6 +431,15 @@ $\forall x\in U(x_0,\delta)$恒有$f(x)\leqslant f(x_0)$，则$f(x)$在$x_0$取�
 \begin{enumerate}
     \item 当$f''(x_0)<0$，则$f(x)$在$x_0$取极大值。
     \item 当$f''(x_0)>0$，则$f(x)$在$x_0$取极小值。
+\end{enumerate}
+
+\textcolor{aqua}{\textbf{定理：}}（极值第三充分条件）
+
+若$f(x)$在$x_0$处$n(n\geqslant2)$阶可导，且$f'(x_0)=f''(x_0)=\cdots=f^{(n-1)}(x_0)=0$，$f^{(n)}(x_0)\neq0$，则：
+
+\begin{enumerate}
+    \item 当$n$为偶数时$f(x)$在$x_0$取得极值。当$f^{(n)}(x_0)<0$，则$f(x)$在$x_0$取极大值，当$f^{(n)}(x_0)>0$，则$f(x)$在$x_0$取极小值。
+    \item 当$n$为奇数时$f(x)$在$x_0$处无极值。
 \end{enumerate}
 
 \subsection{函数最值}
@@ -473,6 +478,8 @@ $\forall x\in U(x_0,\delta)$恒有$f(x)\leqslant f(x_0)$，则$f(x)$在$x_0$取�
     \item 若$\lim\limits_{x\to x_0}f(x)=\infty$，那么$x=x_0$就是垂直渐近线。
     \item 若$\lim\limits_{x\to\infty}\dfrac{f(x)}{x}=a,b=\lim\limits_{x\to\infty}(f(x)-ax)$，那么$y=ax+b$就是斜渐近线。
 \end{itemize}
+
+考的比较多的是斜渐进性，计算较复杂，如果能写成$y=f(x)=ax+b+o(x)$，$o(x)$为$x\to\infty$的高阶无穷小，则能快速得到斜渐进线。
 
 \section{弧微分与曲率}
 
@@ -606,6 +613,8 @@ $\forall x\in U(x_0,\delta)$恒有$f(x)\leqslant f(x_0)$，则$f(x)$在$x_0$取�
 $\therefore\dfrac{\textrm{d}\alpha}{\textrm{d}x}=\dfrac{y''}{1+y'^2}\Rightarrow\textrm{d}\alpha=\dfrac{y''}{1+y\,'^2}\textrm{d}x$。
 
 $\therefore \textcolor{aqua}{\textbf{定理：}}k=\left\lvert\dfrac{\textrm{d}\alpha}{\textrm{d}s}\right\rvert=\dfrac{\vert y''\vert}{(1+y'^2)^{\frac{3}{2}}}$。
+
+对于参数方程，$k=\dfrac{\vert y''x'-y'x''}{\left(x'^2+y'^2\right)^{\frac{3}{2}}}$。
 
 \subsection{曲率半径}
 

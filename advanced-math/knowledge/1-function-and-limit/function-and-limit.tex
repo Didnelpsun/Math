@@ -910,7 +910,9 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 \section{无穷大与无穷小}
 
-\subsection{无穷定义}
+\subsection{无穷}
+
+\subsubsection{无穷定义}
 
 无穷小\textcolor{violet}{\textbf{定义：}}当$x\to x_0(\infty)$时，函数$f(x)$极限为0，就称$f(x)$为当$x\to x_0(\infty)$时的无穷小，记为：$\lim\limits_{x\to x_0(\infty)}f(x)=0$。
 
@@ -930,7 +932,7 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 \textcolor{aqua}{\textbf{定理：}}若同一极限过程中，$f(x)$为无穷大，则$\dfrac{1}{f(x)}$为无穷小，反之若$f(x)$为无穷小且不为0，则$\dfrac{1}{f(x)}$为无穷大。
 
-\subsection{无穷小的比较}
+\subsubsection{无穷小的比较}
 
 设在自变量同一变化过程中，$\lim\alpha(x)=0$，$\lim\beta(x)=0$，且$\beta(x)\neq 0$，则：
 
@@ -954,7 +956,7 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 利用二项式展开：$=\lim\limits_{t\to 0}\dfrac{t}{nt+\dfrac{n(n-1)}{2}t^2+\cdots}=\dfrac{1}{n}$。
 
-\subsection{无穷小运算}
+\subsubsection{无穷小运算}
 
 设$m$，$n$为正整数：
 
@@ -982,6 +984,8 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
 
 是一个用函数在某点的信息描述其附近取值的公式。如果函数满足一定的条件，泰勒公式可以用函数在某一点的各阶导数值做系数构建一个多项式来近似表达这个函数，即用多项式拟合不规则曲线。
 
+\subsubsection{麦克劳林公式}
+
 \begin{enumerate}
     \item $e^x=\sum\limits_{i=0}^n\dfrac{1}{i!}x^i$，$=1+\dfrac{1}{1!}x+\dfrac{1}{2!}x^2+\dfrac{1}{3!}x^3+o(x^3)$。
     \item $\ln(1+x)=\sum\limits_{i=1}^n(-1)^{i+1}\dfrac{1}{i}x^i$，$=x-\dfrac{1}{2}x^2+\dfrac{1}{3}x^3+o(x^3)$。
@@ -992,33 +996,38 @@ $=e^{\lim\limits_{x\to\infty}\frac{\left(\frac{1}{1+\frac{1}{x}}\right)\cdot\lef
     \item $(1+x)^a=1+\sum\limits_{i=1}^n\dfrac{\prod_{j=1}^i(a-j+1)}{i!}x^i$，$=1+\dfrac{a}{1!}x+\dfrac{a(a-1)}{2!}x^2\\+\dfrac{a(a-1)(a-2)}{3!}x^3+o(x^3)$。
 \end{enumerate}
 
-\subsection{常用等价无穷小}
+\subsubsection{常用等价无穷小}
 
 \textcolor{aqua}{\textbf{定理：}}若$\alpha\sim\alpha_1$，$\beta\sim\beta_1$，则$\lim\dfrac{\alpha}{\beta}=\lim\dfrac{\alpha_1}{\beta}=\lim\dfrac{\alpha}{\beta_1}=\lim\dfrac{\alpha_1}{\beta_1}$。
 
 所以可以使用等价无穷小替换对应式子，这些等价无穷小都是使用泰勒展开得到的。等价无穷小只是泰勒公式在某个固定阶数上（通常为一阶）的特例。
 
-泰勒一般用于替换整体，等价无穷小一般用于替换部分式子。
-
-\textcolor{red}{警告：}一般只有所替换的式子为乘除的整个因子才能替换，加减一般都不能替换，如$x-\sin x\sim\dfrac{1}{6}x^3$。
-
 通过麦克劳林公式可以得到当$x\to 0$时的相应等价无穷小：
 
 \begin{enumerate}
-    \item $\sin x\sim x$。
-    \item $\tan x\sim x$。
-    \item $\arcsin x\sim x$。
-    \item $\arctan x\sim x$。
-    \item $\ln(1+x)\sim x$。
-    \item $e^x-1\sim x$。
+    \item $x\sim\sin x\sim\tan x\sim\arcsin x\sim\arctan x\sim\ln(1+x)\sim\ln(x+\sqrt{1+x^2})\sim e^x-1$。
     \item $a^x-1\sim x\ln a$。
-    \item $1-\cos x\sim\dfrac{1}{2}x^2$。
     \item $(1+x)^a-1\sim ax$。
+    \item $\log_a(1+x)\sim\dfrac{x}{\ln a}$。
+    \item $1-\cos x\sim\dfrac{1}{2}x^2$。
+    \item $x-\ln(1+x)\sim\dfrac{1}{2}x^2$。
+    \item $x-\sin x\sim\dfrac{1}{6}x^3$。
+    \item $\arcsin x-x\sim\dfrac{1}{6}x^3$。
+    \item $\tan x-x\sim\dfrac{1}{3}x^3$。
+    \item $x-\arctan x\sim\dfrac{1}{3}x^3$。
+    \item $\tan x-\sin x\sim\dfrac{1}{2}x^3$
 \end{enumerate}
 
-还有$e^{\sin x}-e^x\sim\sin x-x\sim-\dfrac{1}{6}x^3$。
+\subsubsection{等价无穷小适用性}
 
-其中$a\cdot x\ln x$当$x\to 0$的极限必然为0。
+如果是乘除关系可以随便换，但是加减关系需要一定条件：
+
+\begin{itemize}
+    \item 若$\alpha\sim\alpha_1$，$\beta\sim\beta_1$，且$\lim\dfrac{\alpha_1}{\beta 1}=A\neq1$，则$\alpha-\beta\sim\alpha_1-\beta_1$。
+    \item 若$\alpha\sim\alpha_1$，$\beta\sim\beta_1$，且$\lim\dfrac{\alpha_1}{\beta 1}=A\neq-1$，则$\alpha+\beta\sim\alpha_1+\beta_1$。
+\end{itemize}
+
+即这两个和不能为0。
 
 \section{函数连续性与间断点}
 
