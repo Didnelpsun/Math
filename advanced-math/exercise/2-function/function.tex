@@ -172,21 +172,144 @@ $\therefore a=1,b=e$。
 
 中值定理一般用于判断不等式。
 
+一般分为连续函数闭区间上的性质（零点定理、介值定理）和微分中值定理（罗尔定理、拉格朗日中值定理、柯西中值定理、泰勒中值定理）。
+
+\subsection{介值定理}
+
+适用于$\exists\xi\in[a,b]$，或函数和$f(a)+f(b)$的形式。
+
+\begin{enumerate}
+    \item 利用最值定理$m\leqslant f(x)\leqslant M$。
+    \item 利用介值定理。
+\end{enumerate}
+
+\textbf{例题：}$f(x)$、$g(x)$在$[a,b]$上连续，且$g(x)>0$，证明第二积分中值定理：存在一点$\xi\in[a,b]$，使得$\int_a^bf(x)g(x)\,\textrm{d}=f(\xi)\int_a^bg(x)\,\textrm{d}x$。
+
+解：首先看式子形式，是积分形式，没有导数，所以不会是四大微分中值定理。
+
+首先将未知数提到一边：$f(\xi)=\dfrac{\int_a^bf(x)g(x)\,\textrm{d}x}{\int_a^bg(x)\,\textrm{d}x}$，这是一个数。
+
+又$f(x)$、$g(x)$在$[a,b]$上连续，由最值定理$m\leqslant f(x)\leqslant M$。
+
+由于已知$g(x)>0$，所以就要对$f(x)$进行处理，这样移动$g(x)$时不等式不会变号，如果要移动$f(x)$则要讨论$f(x)$的正负性。
+
+由保号性，对其积分$\int_a^bg(x)\,\textrm{d}x>0$，从而$m\cdot g(x)\leqslant f(x)g(x)\leqslant M\cdot g(x)$。
+
+再对其积分：$m\int_a^bg(x)\,\textrm{d}x\leqslant\int_a^bf(x)g(x)\,\textrm{d}x\leqslant M\int_a^bg(x)\,\textrm{d}x$。
+
+从而$m\leqslant f(\xi)=\dfrac{\int_a^bf(x)g(x)\,\textrm{d}x}{\int_a^bg(x)\,\textrm{d}x}\leqslant M$。
+
+\subsection{零点定理}
+
+适用于$\exists\xi\in[a,b]$，且$f(a)$、$f(b)$已知。
+
+\begin{enumerate}
+    \item 令$\xi=x$，移项得$f(x)=0$。
+    \item 令辅助函数$F(x)=f(x)$，验证是否满足零点定理，若满足则得证。
+    \item 若不满足，令$F'(x)=f(x)$，对$f(x)$积分取$C=0$，$F(x)=\int f(x)\,\textrm{d}x$，此时需要使用罗尔定理，若满足则得证。
+    \item （基本上不会考到）若不满足，令$F''(x)=f(x)$，两次积分得到$F(x)$，将$F(x)$使用泰勒展开为一阶，使用拉格朗日余项。
+\end{enumerate}
+
+\subsubsection{直接零点定理}
+
+\textbf{例题：}已知函数$f(x)$在$[0,1]$上连续，且$f(0)=0$，$f(1)=1$，证明$\exists\xi\in(0,1)$使得$f(\xi)=1-\xi$。
+
+解：构造辅助函数$F(x)=f(x)+x-1$。
+
+$F(0)=f(0)+0-1=-1<0$，$F(1)=f(1)+1-1=1>0$。
+
+根据零点定理$\exists\xi\in(0,1)$使得$F(\xi)=0$。
+
+即$\exists\xi\in(0,1)$使得$f(\xi)=1-\xi$。
+
+\subsubsection{罗尔定理}
+
+\textbf{例题：}设$f(x)$、$g(x)$在$[a,b]$上连续，证明$\exists\xi\in(a,b)$，使得$g(\xi)\int_a^\xi f(x)\,\textrm{d}x=f(\xi)\int_\xi^bg(x)\,\textrm{d}x$。
+
+解：由于不含导数，所以不使用微分中值定理。
+
+首先令$\xi=x$，移项$g(x)\int_a^xf(t)\,\textrm{d}t-f(x)\int_x^bg(t)\,\textrm{d}t=0$。
+
+令$F(x)=g(x)\int_a^xf(t)\,\textrm{d}t-f(x)\int_x^bg(t)\,\textrm{d}t$，验证是否满足零点定理。
+
+$F(a)=-f(a)\int_a^bg(t)\,\textrm{d}t$，$F(b)=g(b)\int_a^bf(t)\,\textrm{d}t$。零点定理无法判断。
+
+改令$F'(x)=g(x)\int_a^xf(t)\,\textrm{d}t+f(x)\int_b^xg(t)\,\textrm{d}t$。
+
+所以能看出$F(x)=\int_a^xf(t)\,\textrm{d}t\int_b^xg(t)\,\textrm{d}t$
+
+$F(a)=0$，$F(b)=0$，满足罗尔定理，所以存在$\xi$使得$F'(\xi)=0$，得证。
+
 \subsection{罗尔定理}
 
 重点是找到两点$f(a)=f(b)$。
 
-\subsubsection{判断不等式}
+\subsubsection{寻找原函数}
 
-\paragraph{寻找原函数} \leavevmode \medskip
+% 即证明什么就构造他的原函数为函数式子。
+
+\begin{itemize}
+    \item 简单型：直接可以看出。
+    \item 公式型：$f'(\xi)+g(\xi)f(\xi)=0$，则令$G(x)=\int g(x)\,\textrm{d}x$，$F(x)=e^{G(x)}f(x)$。
+\end{itemize}
 
 通过乘积求导公式$(uv)'=u'v+uv'$的逆运算来构造辅助函数。
 
 如$f(x)f'(x)$，作$F(x)=f^2(x)$，$[f'(x)]^2+f(x)f''(x)$，作$F(x)=f(x)f'(x)$，$f'(x)+f(x)\varphi'(x)$，作$F(x)=f(x)e^{\varphi(x)}$。
 
-即证明什么就构造他的原函数为函数式子。
+\textbf{例题：}设$f(x)$在$[a,b]$上连续，在$(a,b)$内可导，$f(a)=b$，$f(b)=a$，$ab$同号，证明$\exists\xi\in(a,b)$使得$f'(\xi)=\dfrac{-f(\xi)}{\xi}$。
 
-\paragraph{介值定理} \leavevmode \medskip
+解：对$f'(x)+\dfrac{1}{x}f(x)=0$，即$g(x)=\dfrac{1}{x}$，$G(x)=\int\dfrac{1}{x}\textrm{d}x=\ln x$，辅助函数为$F(x)=e^{\ln x}f(x)=xf(x)$。
+
+又$f(a)=b$，$f(b)=a$，$F(a)=af(a)=ab$，$F(b)=bf(b)=ab$，所以$F(a)=F(b)$。根据罗尔定理$\exists\xi\in(a,b)$使得$F'(\xi)=0$，即$f(\xi)+\xi f'(\xi)=0$。
+
+又$ab$同号，所以$ab\neq0$，$\xi\neq0$，从而$f'(x)=\dfrac{-f(\xi)}{\xi}$。
+
+\textbf{例题：}设函数$f(x)$、$g(x)$在$[a,b]$上二阶可导，且$g''(x)\neq0$，$f(a)=f(b)=g(a)=g(b)=0$，证明：
+
+(1)在$(a,b)$内$g(x)\neq0$。
+
+(2)在$(a,b)$内至少有一点$\xi$，使得$\dfrac{f(\xi)}{g(\xi)}=\dfrac{f''(\xi)}{g''(x)}$。
+
+解：
+
+(1)为了简单使用反证法。
+
+假设$\exists c\in(a,b)$，使得$g(c)=0$。对两边区间使用罗尔定理：
+
+$\exists\xi_1\in(a,c)$使得$g'(\xi_1)=0$，$\exists\xi_2\in(a,c)$使得$g'(\xi_2)=0$。
+
+再次使用罗尔定理$\exists\xi\in(\xi_1,\xi_2)\in(a,b)$使得$g''(\xi)=0$，与题设矛盾，则假设不成立。
+
+(2)对式子交叉相乘，令$\xi=x$，即证明$f(x)g''(x)-f''(x)g(x)=0$成立。
+
+由于公式只针对$f(x)$和$f'(x)$没有二阶导，所以将式子加上一阶导的式子并减去，来补全一阶导。
+
+即$f(x)g''(x)+f'(x)g'(x)-f'(x)g'(x)-f''(x)g(x)=0$。将其拆为两个部分$R_1-R_2$。
+
+对于$R_1=f(x)g''(x)+f'(x)g'(x)=0$即得$f'(x)+\dfrac{g''(x)}{g'(x)}f(x)=0$。
+
+$G_1'(x)=\ln(g'(x))$所以$R_1$原函数为$g'(x)f(x)$。
+
+对于$R2=f'(x)g'(x)-f''(x)g(x)=0$即得$f''(x)+\dfrac{g'(x)}{g(x)}f'(x)=0$。
+
+令辅助函数为$F(x)=g'(x)f(x)-g(x)f'(x)$。
+
+$F(a)=g'(a)f(a)-g(a)f'(a)=0$，$F(b)=g'(b)f(b)-g(b)f'(b)=0$，所以根据罗尔定理$\exists\xi\in(a,b)$，使得$F'(\xi)=0$。
+
+即根据上面过程反推回去得证。
+
+\subsubsection{导数关系式}
+
+\paragraph{导数值为常量} \leavevmode \medskip
+
+即$f^{(n)}(\xi)=0$：
+
+\begin{enumerate}
+    \item $f^{(n-1)}(x)$在$x=\xi$处满足费马定理。
+    \item $f^{(n-1)}$在包含$x=\xi$于其内的闭区间上满足罗尔定理（最常使用）。
+    \item 利用泰勒公式展开（基本不会考）。
+\end{enumerate}
 
 \textbf{例题：}设$f(x)$在$[0,3]$上连续，$(0,3)$上可导，且$f(0)+f(1)+f(2)=3$，$f(3)=1$，证明存在$\xi\in(0,3)$，使得$f'(\xi)=0$。
 
@@ -202,7 +325,35 @@ $\therefore a=1,b=e$。
 
 由介值定理，可得一定存在某点$c\in[0,2]$，使得$f(c)=\dfrac{f(0)+f(1)+f(2)}{3}=1$。
 
-所以$f(c)=f(3)=1$，根据罗尔定理，得证。
+所以$f(c)=f(3)=1$，根据罗尔定理，$\xi\in(c,3)$上，得证。
+
+\textbf{例题：}$f(x)$在$[0,2]$上连续，在$(0,2)$内二阶可导，$f(0)=f(1)$，$f(2)=2\int_1^{\frac{3}{2}}f(x)\,\textrm{d}x$，证明$\exists\xi\in(0,2)$使得$f''(\xi)=0$。
+
+解：遇到积分式子首先利用积分中值定理$f(2)=2\int_1^{\frac{3}{2}}f(x)\,\textrm{d}x=2f(\xi')(\dfrac{3}{2}-1)=f(\xi')$（$1<\xi'<\dfrac{3}{2}$）。
+
+所以根据罗尔定理$\exists\xi_1\in(\xi',2)$使得$f'(\xi_1)=0$。
+
+又$f(0)=f(1)$，$\therefore\exists\xi_2\in(0,1)$，罗尔定理$f'(x_2)=0$。
+
+$\therefore f'(\xi_1)=f'(\xi_2)$，罗尔定理$\exists\xi\in(\xi_1,\xi_2)$使得$f''(\xi)=0$。
+
+\paragraph{导数方程} \leavevmode \medskip
+
+类似微分方程，代数式由$a$、$b$、$f(a)$、$f(b)$、$f(\xi)$、$f'(\xi)$、$\cdots$、$f^{(n)}(\xi)$构成。
+
+若$\xi$是$ab$可分离的式子：
+
+\begin{itemize}
+    \item 拉格朗日中值定理：分离出$f(b)-f(a)$或$\dfrac{f(b)-f(a)}{b-a}$。
+    \item 柯西中值定理：分离出$\dfrac{f(b)-f(a)}{F(b)-F(a)}$。
+\end{itemize}
+
+若$\xi$是$ab$不可分离的式子：
+
+\begin{enumerate}
+    \item 构造辅助函数。
+    \item 利用罗尔定理。
+\end{enumerate}
 
 \subsubsection{零点情况}
 
@@ -234,7 +385,11 @@ $\therefore a=1,b=e$。
 
 \subsection{拉格朗日中值定理}
 
-证明不等式最重要的还是找到$f(x)$，即出现差值$f(a)-f(b)$，那么$f(x)$就是我们的目标函数，有时候不等式不存在$f(a)-f(b)$这种式子，就需要我们转换。
+证明不等式最重要的还是找到$f(x)$，即出现差值$f(a)-f(b)$，那么$f(x)$就是我们的目标函数，有时候不等式不存在$f(a)-f(b)$这种式子，就需要我们转换，常用的就是$f(b)=0$。
+
+注意$a$和$b$可以是常量也可以是变量，$\xi$依赖$a$和$b$，所以$f'(\xi)$不为常数不能随便提出来。
+
+如$f(x)-f(a)=f'(\xi)(x-a)\Rightarrow f(x)=f(a)+f'(\xi)(x-a)\nRightarrow\int_a^bf(x)\,\textrm{d}x=\int_a^bf(a)\,\textrm{d}x+f'(\xi)\int_a^b(x-a)\,\textrm{d}x$。
 
 \subsubsection{式子转换}
 
@@ -310,6 +465,20 @@ $f(a)\geqslant f(a+b)-f(b)$，所以$f(a+b)\leqslant f(a)+f(b)$。
 
 从而$e^x-e=e^\xi(x-1)$，$\xi\in(1,x)$，所以$e^x-e>e(x-1)$，即$e^x>ex$，得证。
 
+\subsubsection{目标为常数}
+
+使用拉格朗日中值定理的推论：$f(x)$在$I$上连续且可导，则$I$上$f(x)=C\Leftrightarrow f'(x)\equiv 0$。
+
+\textbf{例题：}证明$\arctan e^x+\arctan e^{-x}=\dfrac{\pi}{2}$。
+
+解：令$F(x)=\arctan e^x+\arctan e^{-x}-\dfrac{\pi}{2}$。
+
+$F'(x)=\dfrac{e^x}{1+e^{2x}}+\dfrac{-e^{-x}}{1+e^{-2x}}=0$。
+
+根据拉格朗日中值定理，$F(x)\equiv C$。
+
+又$F(0)=\arctan 1+\arctan 1-\dfrac{\pi}{2}=0$，$C=0$，得证。
+
 \subsection{柯西中值定理}
 
 需要找到两个函数，使得$\dfrac{f(b)-f(a)}{F(b)-F(a)}=\dfrac{f'(\xi)}{F'(\xi)}$。
@@ -321,6 +490,66 @@ $f(a)\geqslant f(a+b)-f(b)$，所以$f(a+b)\leqslant f(a)+f(b)$。
 $f(b)-f(a)=\xi f'(\xi)\ln\dfrac{b}{a}=\dfrac{f(b)-f(a)}{\ln b-\ln a}=\dfrac{f'(\xi)}{\dfrac{1}{\xi}}\dfrac{f(b)-f(a)}{F(b)-F(a)}=\dfrac{f'(\xi)}{F'(\xi)}$。
 
 根据柯西中值定理得证。
+
+\subsection{泰勒中值定理}
+
+\begin{enumerate}
+    \item $n$阶可导则只展开到$n-1$阶，第$n$阶留给余项。
+    \item 只要给出二阶或二阶以上可导，可以先泰勒展开看看。
+\end{enumerate}
+
+证明$\exists\xi\in(a,b)$使得$F(\xi,f^{(n)}(\xi))\geqslant0$（$n\geqslant2$）使用带拉格朗日余项的泰勒公式。
+
+\begin{enumerate}
+    \item 把$f(x)$在给定信息最多的点上泰勒展开。
+    \item 若两点信息一样多，则优先在有导数信息的一点展开。
+    \item 若两点都是导数信息或函数信息，则对两点分别展开。
+\end{enumerate}
+
+\textbf{例题：}$f(x)$在$[a,b]$上二阶可导，$f'(a)=f'(b)=0$，证明$\exists\xi\in(a,b)$，使得$\vert f''(\xi)\vert\geqslant4\dfrac{\vert f(b)-f(a)\vert}{(b-a)^2}$。
+
+解：由于$ab$两点信息一样多，所以对两点进行泰勒一阶展开：
+
+$f(x)=f(a)+\dfrac{f''(\xi_1)}{2!}(x-a)^2$，$f(x)=f(b)+\dfrac{f''(\xi_2)}{2!}(x-b)^2$。
+
+因为最后要证明的式子里面$ab$都要有，所以代入$x=\dfrac{a+b}{2}$：
+
+$f\left(\dfrac{a+b}{2}\right)=f(a)+\dfrac{f''(\xi_1')}{8}(b-a)^2$，$f\left(\dfrac{a+b}{2}\right)=f(b)+\dfrac{f''(\xi_2')}{8}(b-a)^2$（$\xi_1$和$\xi_2$是关于$ab$的变量，此时都发生变化了）
+
+两式相减得$f(b)-f(a)=\dfrac{(b-a)^2}{8}[f''(\xi_1')-f''(\xi_2)]$，取绝对值$\vert f(b)-f(a)\vert=\dfrac{(b-a)^2}{8}\vert f''(\xi_1')-f''(\xi_2)\vert\leqslant\dfrac{(b-a)}{8}\vert f''(\xi_1')\vert+\vert f''(\xi_2')\vert$。
+
+取$\xi=\max\{\xi_1',\xi_2'\}$，$\dfrac{(b-a)}{4}\vert f''(\xi')\vert\geqslant\vert f(b)-f(a)\vert$，得证。
+
+\subsection{双中值问题}
+
+即有两个值$\xi$和$\eta$，分离$\xi$和$\eta$，两边都使用一次中值定理：
+
+\begin{itemize}
+    \item 不要求$\xi\neq\eta$，对$a,b$使用两次中值定理，要么两次拉格朗日中值定理，要么一次拉格朗日中值定理一次柯西中值定理。
+    \item 要求$\xi\neq\eta$，找点$c$，在$(a,c)$、$c,b$区间上分别使用两次拉格朗日中值定理或一次拉格朗日中值定理一次柯西中值定理。对于$c$的取值，要么是第一问给出，要么逆推假设$c$已知根据要证的结论推出$c$。（基本上不会考到）
+\end{itemize}
+
+重点关注中值项，其余不用管。
+
+\subsubsection{两次拉格朗日}
+
+\textbf{例题：}$f(x)$在$[a,b]$上连续，$(a,b)$内可导，且$f(a)=f(b)=1$，证明存在$\xi,\eta\in(a,b)$使得$e^{\eta-\xi}[f(\eta)+f'(\eta)]=1$。
+
+解：首先将$\xi$和$\eta$分开：$e^\eta[f(\eta)+f'(\eta)]=e^\xi$。根据拉格朗日中值定理$f'(\xi)=\dfrac{f(b)-f(a)}{b-a}$：
+
+对于右边$e^\xi=t'(\xi)$，$t(x)=\int e^x\,\textrm{d}x=e^x$，$\therefore e^\xi=\dfrac{e^b-e^a}{b-a}$。
+
+对于左边$e^\eta[f(\eta)+f'(\eta)]=[e^xf(x)]'_{x=\eta}$，$\therefore e^\eta[f(\eta)+f'(\eta)]=\dfrac{e^bf(b)-e^af(a)}{b-a}\\=\dfrac{e^b-e^a}{b-a}=e^\xi$，所以等式成立，得证。
+
+\subsubsection{一次拉格朗日一次柯西}
+
+\textbf{例题：}$f(x)$在$[a,b]$上连续，$(a,b)$内可导，且$f'(x)\neq0$，证明存在$\xi,\eta\in(a,b)$使得$\dfrac{f'(\xi)}{f'(\eta)}=\dfrac{e^b-e^a}{b-a}e^{-\eta}$。
+
+解：首先将$\xi$和$\eta$分开：$f'(\xi)=\dfrac{e^b-e^a}{b-a}\dfrac{e^{-\eta}}{f'(\eta)}$。
+
+对$f'(\xi)$使用拉格朗日，$=\dfrac{f(b)-f(a)}{b-a}$。对$\dfrac{e^{-\eta}}{f'(\eta)}$使用柯西，$=\dfrac{f(b)-f(a)}{e^b-e^a}$。
+
+左右相等，得证。
 
 \section{导数应用}
 

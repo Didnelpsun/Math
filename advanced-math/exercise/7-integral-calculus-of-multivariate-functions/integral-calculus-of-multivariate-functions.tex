@@ -236,6 +236,13 @@ $=\lim\limits_{t\to0^+}\dfrac{\int_0^t\textrm{d}x\int_x^t\sin(xy)^2\textrm{d}y}{
 
 当对面积为非圆形进行积分时可以使用广义极坐标系。
 
+$\iint\limits_{D_1}f(x,y)\,\textrm{d}x\textrm{d}y$，$x=g(u,v)$，$y=h(u,v)$，换元为$\iint\limits_{D_2}f(g(u,v),h(u,v))\vert J\vert\,\textrm{d}u\textrm{d}v$，$J$为雅可比行列式，可以看作代表$(x,y)$坐标系的面积微元和$(u,v)$坐标系的面积微元的比率：
+
+$J=\left[\begin{array}{cc}
+    \dfrac{\partial x}{\partial u} & \dfrac{\partial x}{\partial v} \\
+    \dfrac{\partial y}{\partial u} & \dfrac{\partial y}{\partial v}
+\end{array}\right]$。
+
 \textbf{例题：}设$D:\dfrac{x^2}{a}+\dfrac{y^2}{b}\leqslant1$，求$\iint\limits_Dy^2\,\textrm{d}x\textrm{d}y$。
 
 解：令$x=ar\cos\theta$，$y=br\sin\theta$，所以$D'$为$0\leqslant r\leqslant 1$，$0\leqslant\theta\leqslant2\pi$。

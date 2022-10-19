@@ -975,15 +975,26 @@ $D.\int_0^{1-\cos x}\sqrt{\sin^3t}\,\textrm{d}t$
 
 \section{反常积分}
 
-反常积分就是取极限，基本计算方法一样。
+\begin{itemize}
+    \item 反常积分就是取极限，基本计算方法一样。反常积分的计算就是判敛，如果存在就计算其值。
+    \item 瑕积分的瑕点可能在积分区间内，此时需要根据瑕点分隔积分区间。
+    \item 反常积分只有收敛才能使用奇偶性。
+\end{itemize}
 
-反常积分的瑕点可能在积分区间内，此时需要根据瑕点分隔积分区间。
+处理方法：
 
-反常积分的计算就是判敛，如果存在就计算其值。
+\begin{enumerate}
+    \item 判断$f(x)$有几个可能反常的点。包括$\infty$和无穷间断点。每次研究一个点。
+    \item 由于使用等价无穷小替换，或乘以非零常数都不影响敛散性，所以使用这两种方法对$f(x)$化简。
+\end{enumerate}
 
-\subsection{直接计算}
+\subsection{定义法}
 
 即可以根据不定积分求出原函数，再对原函数求极限。
+
+这种方法是定量的方法，所以比较麻烦，而下面的审敛法是定性的方法，所以更简单。
+
+如果判断敛散性则优先审敛法。如果是直接求值则用定义法。
 
 \subsubsection{求值}
 
@@ -1043,27 +1054,103 @@ $\therefore I_n=n!$。
 
 \subsection{极限审敛法}
 
-不用计算积分值，直接通过幂函数的极限来代替积分。
+不用计算积分值，直接通过函数的极限来代替积分。
 
-\subsubsection{等级无穷小}
-
-\subsubsection{无穷区间}
-
-对于无限反常积分$\int_a^{+\infty}f(x)\,\textrm{d}x$，$f(x)$在$[a,+\infty)$上连续非负，对于常数$\rho$：
+\subsubsection{判断方法}
 
 \begin{itemize}
-    \item 若存在$\rho>1$，使得$\lim\limits_{x\to+\infty}x^\rho f(x)=c<+\infty$，则积分收敛。
-    \item 若只存在$\rho=1$，使得$\lim\limits_{x\to+\infty}xf(x)=c>0$或为$-\infty$，则积分发散。
+    \item 等价无穷小：对于无穷小，高阶吸收低阶。
+    \item 对于每个瑕点或无限区间都要对区域进行划分。
+    \item 对于无限反常积分$\int_a^{+\infty}f(x)\,\textrm{d}x$，$f(x)$在$[a,+\infty)$上连续非负，对于常数$\rho$：若存在$\rho>1$，使得$\lim\limits_{x\to+\infty}x^\rho f(x)=c<+\infty$，则积分收敛。若只存在$\rho=1$，使得$\lim\limits_{x\to+\infty}xf(x)=c>0$或为$-\infty$，则积分发散。
+    \item 对于瑕积分$\int_a^bf(x)\,\textrm{d}x$，其中$a$为瑕点，$f(x)$在$[a,b]$上连续非负，对于常数$\rho$：若存在$0<\rho<1$，使得$\lim\limits_{x\to a^+}(x-a)^\rho f(x)=c$存在，则积分收敛。若只存在$\rho=1$，使得$\lim\limits_{x\to a^+}(x-a)f(x)=c>0$或为$+\infty$，则积分发散。
 \end{itemize}
 
-\subsubsection{无界函数}
+\subsubsection{幂函数}
 
-对于瑕积分$\int_a^bf(x)\,\textrm{d}x$，其中$a$为瑕点，$f(x)$在$[a,b]$上连续非负，对于常数$\rho$：
+对判断方法进行特殊化：
 
-\begin{itemize}
-    \item 若存在$0<\rho<1$，使得$\lim\limits_{x\to a^+}(x-a)^\rho f(x)=c$存在，则积分收敛。
-    \item 若只存在$\rho=1$，使得$\lim\limits_{x\to a^+}(x-a)f(x)=c>0$或为$+\infty$，则积分发散。
-\end{itemize}
+\begin{enumerate}
+    \item 无限反常积分$\displaystyle{\int_a^{+\infty}\dfrac{1}{x^\rho}\textrm{d}x}$当$\rho>1$时收敛，当$\rho\leqslant1$时发散。
+    \item 对于瑕积分$\displaystyle{\int_a^b\dfrac{1}{(x-a)^\rho}\textrm{d}x}$当$\rho<1$时收敛，当$\rho\geqslant1$时发散。
+\end{enumerate}
+
+\textbf{例题：}判断$\displaystyle{\int_0^{+\infty}\dfrac{1}{\sqrt{x+x^3}}}$的敛散性。
+
+解：对于$x^{-\frac{1}{2}}$和$x^{-\frac{3}{2}}$，当$x\to+\infty$时，两者都趋向于0，而$x^{-\frac{3}{2}}$更快，所以更高阶，当$x\to0$时，两者都趋向于$+\infty$，而$x^{-\frac{3}{2}}$更快，所以$x^{-\frac{1}{2}}$更高阶（无穷小的比较是看哪个更快接近0或更慢远离0，具体的方法是取趋向于0的极限然后看值来判断）。
+
+$\therefore x\to+\infty$时，$\dfrac{1}{\sqrt{x+x^3}}\sim\dfrac{1}{\sqrt{x^3}}$，$\therefore x\to0$时，$\dfrac{1}{\sqrt{x+x^3}}\sim\dfrac{1}{\sqrt{x}}$。
+
+为了方便研究，将积分拆为两个区域：$\int_0^1f(x)\,\textrm{d}x+\int_1^{+\infty}f(x)\,\textrm{d}x$。
+
+$\displaystyle{\int_1^{+\infty}\dfrac{1}{x^{\frac{3}{2}}}\,\textrm{d}x}$收敛，故原积分收敛，$\displaystyle{\int_0^1\dfrac{1}{x^{\frac{1}{2}}}\,\textrm{d}x}$收敛，故原积分收敛。
+
+故原积分收敛。
+
+\textbf{例题：}判断$\displaystyle{\int_1^{+\infty}\dfrac{1}{x\sqrt{x^2-1}}\textrm{d}x}$的敛散性。
+
+解：首先判断区域和瑕点，有$x\to+\infty$和$x\to1^+$，所以拆分两个区域$\int_1^2f(x)\,\textrm{d}x$、$\int_2^{+\infty}f(x)\,\textrm{d}x$。
+
+对于$x\to+\infty$，无穷区域所以$-1$不影响敛散性，直接去掉，$\dfrac{1}{x\sqrt{x^2-1}}\sim\dfrac{1}{x^2}$，该部分区域收敛。
+
+对于$x\to1^+$，根据瑕点将非0部分分离出来，首先因式分解，$\dfrac{1}{x\sqrt{x^2-1}}=\dfrac{1}{x\sqrt{(x+1)(x-1)}}=\dfrac{1}{\sqrt{2}\sqrt{(x-1)}}\textrm{d}x$。
+
+常量不影响敛散性，所以$\sim\dfrac{1}{(x-1)^{\frac{1}{2}}}$，所以该区域收敛。
+
+故原积分收敛。
+
+\subsubsection{指数函数}
+
+指数函数增长的速度远大于幂函数。所以判断很简单。
+
+\textbf{例题：}判断$\displaystyle{\int_{-\infty}^{+\infty}\dfrac{1}{x^2}e^{\frac{1}{x}}\textrm{d}x}$的敛散性。
+
+解：根据式子和积分上下限，所以需要关注$x\to+\infty$、$x\to-\infty$、$x\to0$。
+
+$x\to+\infty$时，$\sim\dfrac{1}{x^2}$，收敛。
+
+$x\to-\infty$时，$\sim\dfrac{1}{x^2}$，收敛。
+
+$x\to0^+$时，对于$\dfrac{1}{x^2}\sim+\infty$，$e^{\frac{1}{x}}\sim+\infty$，发散。
+
+故原积分发散。
+
+\subsubsection{对数函数}
+
+对数函数增长较慢，比较较困难。若要判断$f(x)$的敛散性，当$x\to+\infty$或$x\to0^+$时，则$f(x)\ln^ax$更容易发散，因为$\ln^ax$增速比$x$慢，$\dfrac{f(x)}{\ln^ax}$更容易收敛，因为$\dfrac{1}{\ln^ax}$增速反而更快了。
+
+若趋向于无穷小：
+
+\begin{enumerate}
+    \item 当$x\to1$时，$\ln x\sim x-1$。
+    \item 当$x\to0^+$时，$\ln(1+x)\sim x$。
+\end{enumerate}
+
+若趋向于无穷大：
+
+\begin{enumerate}
+    \item $\displaystyle{\int_a^{+\infty}\dfrac{1}{\ln^\rho x}\textrm{d}x}$（$a>1$）无论$\rho$取多少都发散。因为当$x\to+\infty$时对数函数永远小于幂级数，所以必然发散。
+    \item $\displaystyle{\int_0^a\dfrac{1}{\ln^\rho x}\textrm{d}x}$（$a<1$）无论$\rho$取多少都必然收敛。因为当$x\to0^+$时对数函数的倒数永远大于幂级数，所以必然收敛。
+    \item $\displaystyle{\int_a^{+\infty}\dfrac{\ln^{\rho'}x}{x^\rho}\textrm{d}x\sim\int_a^{+\infty}\dfrac{1}{x^\rho}\textrm{d}x}$（$a>0$）。
+    \item $\displaystyle{\int_a^{+\infty}\dfrac{1}{x^\rho\ln^{\rho'}x}\textrm{d}x}$，当$\rho\neq1$时$\sim\displaystyle{\int_0^{+\infty}\dfrac{1}{x^\rho}\textrm{d}x}$，当$\rho=1$时，$\rho'>1$收敛，$\rho'\leqslant1$发散。（$a>0$且当$x\to1$时$\sim\dfrac{1}{\ln^{\rho'}x}$）
+\end{enumerate}
+
+\textbf{例题：}判断$\displaystyle{\int_0^{+\infty}\dfrac{\ln(1+x)}{x^{\frac{3}{2}}}\textrm{d}x}$的敛散性。
+
+解：当$x\to+\infty$时，$\sim\dfrac{\ln x}{x^{\frac{3}{2}}}\sim\dfrac{1}{x^{\frac{3}{2}}}$，收敛。
+
+当$x\to0^+$时，$\sim\dfrac{x}{x^{\frac{3}{2}}}\sim\dfrac{1}{x^{\frac{1}{2}}}$，收敛。
+
+积分收敛。
+
+\textbf{例题：}判断$\displaystyle{\int_0^{+\infty}\dfrac{\sqrt{\ln x}}{x\sqrt{x}-1}\textrm{d}x}$的敛散性。
+
+解：当$x\to+\infty$时，$\sim\dfrac{\ln^\frac{1}{2}x}{x^\frac{3}{2}}\sim\dfrac{1}{x^{\frac{3}{2}}}$，收敛。
+
+当$x\to0^+$时，$\sim-\ln^\frac{1}{2}x$，收敛。
+
+当$x\to1$时，$\sim\dfrac{(x-1)^{\frac{1}{2}}}{(1+x-1)^\frac{3}{2}-1}\sim\dfrac{2(x-1)^{\frac{1}{2}}}{3(x-1)}\sim\dfrac{1}{(x-1)^{\frac{1}{2}}}$，收敛。
+
+积分收敛。
 
 % \subsubsection{结论}
 
