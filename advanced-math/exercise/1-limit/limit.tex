@@ -669,6 +669,8 @@ $\therefore\lim\limits_{n\to\infty}a_n=\dfrac{2}{3}$
 
 单调性可以通过求导来得到，有界性可以结合式子和单调性来得到，或者使用裂项相消法和放缩法来得到一个类似夹逼定理的上下界。
 
+如何判断是否使用单调有界准则？根据递推关系式，如果对两边求极限能得出极限值那么必然是单调有界准则，否则就使用递推表达式转换为等比数列或等差数列。
+
 \paragraph{通项公式} \leavevmode \medskip
 
 \textbf{例题：}$x_0=0$，$x_n=\dfrac{1+2x_{n-1}}{1+x_{n-1}}(n\in N*)$，求$\lim\limits_{n\to\infty}x_n$。\medskip
@@ -700,6 +702,8 @@ $\therefore\lim\limits_{n\to\infty}x_n=\dfrac{1+\sqrt{5}}{2}$。
 \paragraph{复杂递推公式} \leavevmode \medskip
 
 许多题目只给出样子，连通项公式都不会给出，只会给出一个复杂递推公式，其中包括开根号，倒数，甚至只是举例。这种题目就必须使用单调有界准则来完成，甚至还需要其他的技巧。\medskip
+
+难点就是确认上下界，根式用乘除，和式用加减。
 
 \textbf{例题：}求出数列$\sqrt{2}$，$\sqrt{2+\sqrt{2}}$，$\sqrt{2+\sqrt{2+\sqrt{2}}}$$\cdots$的极限。
 
@@ -736,6 +740,30 @@ $x_{n+1}-x_n=\sqrt{2+x_n}-x_n=\dfrac{2+x_n-x_n^2}{\sqrt{2+x_n}+x_n}=\dfrac{-(x_n
 对于关系式两边取极限$a_{n+1}=\dfrac{1}{2}\left(a_n+\dfrac{2}{a_n}\right)$，则$A=\dfrac{1}{2}\left(A+\dfrac{2}{A}\right)$。
 
 解得$A=\sqrt{2}$，即$\lim\limits_{n\to\infty}a_n=\sqrt{2}$。
+
+\textbf{例题：}设$x_1=\sqrt{a}$（$a>0$），$x_{n+1}=\sqrt{a+x_n}$，求极限。
+
+解：$x_1=\sqrt{a}$，$x_2=\sqrt{a+\sqrt{a}}$，$a_n=\sqrt{a+\cdots\sqrt{a+\sqrt{a}}}$所以可得单调递增。
+
+$x_{n+1}=\sqrt{a+x_n}$，$x_{n+1}^2=a+x_n$，$x_{n+1}=\dfrac{a}{x_{n+1}}+\dfrac{x_n}{x_{n+1}}$。
+
+由单调性$x_{n+1}\geqslant x_n\geqslant x_1=\sqrt{a}$，$x_{n+1}\leqslant\dfrac{a}{x_{n+1}}+1\leqslant\sqrt{a}+1$，即有上界。
+
+单调有界准则，$a_n$单调增且有上界，令极限为$A$，$A=\sqrt{a+A}$，解得$A=\dfrac{1\pm\sqrt{1+4a}}{2}$，负根舍去。
+
+\textbf{例题：}$x_1=a\geqslant0$，$y_1=b\geqslant0$，$a\leqslant b$，$x_{n+1}=\sqrt{x_ny_n}$，$y_{n+1}=\dfrac{x_n+y_n}{2}$（$n=1,2,\cdots$），证明$\lim\limits_{n\to\infty}x_n=\lim\limits_{n\to\infty}y_n$。
+
+解：$x_1=a$，$x_2=\sqrt{a\cdot a}\geqslant\sqrt{a^2}=a$，$\therefore x_n$单调递增。
+
+$y_1=b$，$y_2=\dfrac{a+b}{2}\leqslant\dfrac{2b}{2}=b$，$\therefore y_n$单调递减。
+
+$x_{n+1}^2=x_ny_n$，$x_{n+1}=\dfrac{x_n}{x_{n+1}}y_n\leqslant y_n=b$，$\therefore x_n$有上界。
+
+$y_{n+1}=\dfrac{x_n+y_n}{2}$，$x_n+y_n=2y_{n+1}$，$y_n=x_n-2y_{n+1}$，又$y_n$单调递减，所以$y_{n+1}\leqslant y_n$，$\therefore y_n\geqslant x_n-2y_n$，$3y_n\geqslant x_n$，$\therefore y_n$有下界。
+
+所以根据单调有界准则，都有极限，令$\lim\limits_{n\to\infty}x_n=A$，$\lim\limits_{n\to\infty}y_n=B$。
+
+代入第二个式子，$B=\dfrac{A+B}{2}$，解得$A=B$。
 
 \subsection{数列和}
 
