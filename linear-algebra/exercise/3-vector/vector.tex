@@ -125,10 +125,6 @@ $\because A^{k-1}\alpha\neq0$，$\therefore\lambda_2=0$，消去$\lambda_2$：$\
 
 当谈到多个向量是否线性相关时可以将向量组组成矩阵，判断其秩。满秩就是线性无关，降秩就是线性相关。
 
-\section{线性表出}
-
-\subsection{矩阵秩}
-
 当谈到一个向量是否能被其他向量线性表出时，要将这些向量全部组成一起，判断能否被其他向量表出的向量放在最右边，然后判断增广矩阵的秩。
 
 \begin{enumerate}
@@ -152,6 +148,8 @@ $=[\alpha_1,\alpha_2,\alpha_3|\beta]=\left[\begin{array}{cccc}
 \end{array}\right]$。
 
 $\therefore a=3$。
+
+\section{线性表出}
 
 \subsection{极大线性无关组}
 
@@ -178,6 +176,28 @@ $\therefore a=3$。
 解：已知题目，则$(\beta_1,\beta_2,\beta_3)$线性相关。
 
 对其行变换，解得$a=5$。
+
+\subsection{向量线性表示}
+
+即要求$\beta$关于$\alpha_i$的线性表出表达式。
+
+基本方法是设$\beta=a\alpha_1+b\alpha_2+\cdots$，然后每行代入求出，不过也可以使用矩阵变换法。
+
+可以同时求多个$\beta$的表示方式，设$\alpha_i$为长度为$h$的列向量，一共有$n$个，组成$A=(\alpha_1,\alpha_2,\cdots,\alpha_n)$，设$\beta_i$为长度为$h$的列向量，一共有$n$个，组成$B=(\beta_1,\beta_2,\cdots,\beta_n)$。
+
+$[A|B]$通过线性变换得到$[E|C]$，则$B=CA$。
+
+\textbf{例题：}用$\alpha_1=(1,1,1)^T$、$\alpha_2=(1,2,4)^T$、$\alpha_3=(1,3,9)^T$表示$\beta=(1,1,3)^T$。
+
+解：组成矩阵$\left[\begin{array}{cccc}
+    1 & 1 & 1 & 1 \\
+    1 & 2 & 3 & 1 \\
+    1 & 4 & 9 & 3
+\end{array}\right]=\left[\begin{array}{cccc}
+    1 & 0 & 0 & 2 \\
+    0 & 1 & 0 & -2 \\
+    0 & 0 & 1 & 1
+\end{array}\right]$，所以$\beta=2\alpha_1-2\alpha_2+\alpha_3$。
 
 \section{等价向量组}
 
