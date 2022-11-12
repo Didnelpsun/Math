@@ -93,6 +93,16 @@ $\vert A\vert=\left\vert\begin{array}{ccc}
 
 \section{抽象线性方程}
 
+求$Ax=B$的解：
+
+\begin{enumerate}
+    \item 求$A$的秩。
+    \item 求$Ax=0$的基础解系。
+    \item 求$Ax=\beta$的一个特解。
+\end{enumerate}
+
+\subsection{余子式}
+
 \textbf{例题：}设$A$为三阶方阵，$A=(a_{ij})_{3\times3}$，且$a_{ij}=A_{ij}$（$i,j=1,2,3$），其中$A_{ij}$为$a_{ij}$的代数余子式，$a_{33}\neq0$，$b=(a_{13},a_{23},a_{33})^T$，求非齐次线性方程组$Ax=b$的解。
 
 解：由于是抽象线性方程，所以必须要充分利用方程和矩阵的性质。题目中给出的主要是代数余子式，由行列式的一行或一列的元素乘上对应的代数余子式可得行列式值的性质：
@@ -121,6 +131,46 @@ $=\dfrac{1}{\vert A\vert}\left[\begin{array}{ccc}
     1
 \end{array}\right]$。
 
+\subsection{解的方程}
+
+\textbf{例题：}已知四阶方阵$A=(\alpha_1,\alpha_2,\alpha_3,\alpha_4)$，$\alpha_1,\alpha_2,\alpha_3,\alpha_4$为四维列向量，且$\alpha_2,\alpha_3,\alpha_4$线性无关，若$\alpha_1=2\alpha_2-\alpha_3$，$\beta=\alpha_1+\alpha_2+\alpha_3+\alpha_4$，求$Ax=\beta$的通解。
+
+解：由于$\alpha_2,\alpha_3,\alpha_4$线性无关，$r(A)\geqslant3$，由$\alpha_1=2\alpha_2-\alpha_3$，$r(A)\leqslant3$，所以$r(A)=3$。$s=n-r=4-3=1$，所以解向量为一个。
+
+且$\alpha_1=2\alpha_2-\alpha_3$，整理得$\alpha_1-2\alpha_2+\alpha_3+0\alpha_4=0$，即$[\alpha_1,\alpha_2,\alpha_3,\alpha_4][1,-2,1,0]^T\\=0$，即$[1,-2,1,0]^T$为$Ax=0$的一个通解。
+
+$\beta=\alpha_1+\alpha_2+\alpha_3+\alpha_4$，即$\beta=[\alpha_1,\alpha_2,\alpha_3,\alpha_4][1,1,1,1]^T$，即$[1,1,1,1]^T$为$Ax=\beta$的一个特解。
+
+所以基础解系为$k[1,-2,1,0]^T+[1,1,1,1]$。
+
+\textbf{例题：}已知$4\times3$矩阵$A=(\alpha_1,\alpha_2,\alpha_3)$，非齐次线性方程组$Ax=\beta$的通解为$(1,2,-1)^T+k(1,-2,3)^T$，$k$为任意常数，令$B=(\alpha_1,\alpha_2,\alpha_3,\beta+\alpha_3)$，求方程组$By=\alpha_1-\alpha_2$的通解。
+
+解：首先求对应$A$和$B$的秩。由于$A$的通解的自由变量为一个，即$r(A)=3-1=2$。
+
+由于$Ax=\beta$的通解为$(1,2,-1)^T+k(1,-2,3)^T$，所以根据解的结构，前面为$Ax=0$的通解，后面为$Ax=\beta$的一个特解。
+
+即$\alpha_1+2\alpha_2-\alpha_3=\beta$，$\alpha_1-2\alpha_2+3\alpha_3=0$。
+
+然后求$B=(\alpha_1,\alpha_2,\alpha_3,\alpha_1+2\alpha_2)$，通过线性变换可得$B=(\alpha_1,\alpha_2,\alpha_3,0)$，即$r(B)=r(A)=2$。$s=n-r=2$，即$By=\alpha_1-\alpha_2$有两个自由变量。
+
+由于$A$的一个通解为$(1,-2,3)^T$，即$\alpha_1-2\alpha_2+3\alpha_3=0$，$B$的前三行跟$A$一样，所以令最后一行为0，即得到一个通解$(1,-2,3,0)^T$。
+
+然后根据$B=(\alpha_1,\alpha_2,\alpha_3,\alpha_1+2\alpha_2)$，令最后一行不为0，即计算得到另一个通解$(-1,-2,0,1)^T$。
+
+由于$\alpha_1-\alpha_2$很简单就能看出特解为$(1,-1,0,0)^T$。
+
+所以最后通解为$k_1(1,-2,3,0)^T+k_2(-1,-2,0,1)^T+(1,-1,0,0)^T$（$k_1k_2$为任意常数）。
+
 \section{公共解}
+
+\subsection{联立系数矩阵}
+
+如果给出系数矩阵，则即联立两个系数矩阵即得到公共解。
+
+\subsection{基础解系参数计算}
+
+如果只给出了基础解系，则令他们相等，并求出参数。
+
+\section{同解}
 
 \end{document}
