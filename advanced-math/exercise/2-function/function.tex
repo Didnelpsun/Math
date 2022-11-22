@@ -632,13 +632,36 @@ $(1,-10)$为拐点，代入：$y''\vert_{x=1}=6a+2b=0$，$y\vert_{x=1}=a+b+c+d=-
 
 \subsection{零点}
 
-\subsubsection{零点定理}
+\subsubsection{基本性质}
 
-若$f(x)$在$[a,b]$上连续，且$f(a)f(b)<0$，则$f(x)=0$在$(a,b)$内至少有一个根。其中$ab$是具体数也可以是无穷大。如果是无穷大时需要求$f(x)$到正负无穷的极限值。
+\begin{itemize}
+    \item 若$f(x)$为$x$的$n$阶多项式，则$f(x)=0$至多有$n$个根。
+    \item 若$f(x)$存在因式$(x-a)^n$，则$f(a)=f'(a)=\cdots=f^{(n-1)}(a)=0$。
+\end{itemize}
+
+\subsubsection{存在性}
+
+\paragraph{零点定理} \leavevmode \medskip
+
+\begin{itemize}
+    \item 若$f(x)$在$[a,b]$上连续，且$f(a)f(b)<0$，则$f(x)=0$在$(a,b)$内至少有一个根。
+    \item 若$f(x)$在$(a,b)$上连续，且$\lim\limits_{x\to a^+}f(x)=\alpha$，$\lim\limits_{x\to b^-}f(x)=\beta$，$\alpha\cdot\beta<0$，则$f(x)=0$在$(a,b)$内至少有一个根。
+    \item 若$f(x)$在$(a,b)$上连续，且$\lim\limits_{x\to a^+}f(x)=+\infty/-\infty$，$\lim\limits_{x\to b^-}f(x)=-\infty/+\infty$，则$f(x)=0$在$(a,b)$内至少有一个根。
+\end{itemize}
 
 用于证明存在某一个零点。
 
-\subsubsection{单调性}
+\paragraph{罗尔定理} \leavevmode \medskip
+
+如果没办法找到$f(x)=0$，就找到一个$F(x)$，使得$F'(x)=f(x)=0$。即找到$f(x)$的原函数。
+
+其中$F(x)$满足罗尔定理三个条件：连续、可导、两端点相等。
+
+\subsubsection{个数}
+
+往往需要多个方法一起确定具体个数。
+
+\paragraph{单调性} \leavevmode \medskip
 
 若$f(x)$在$(a,b)$内单调（$f'(x)$存在且不恒等于0），则$f(x)=0$在$(a,b)$内至多有一个根。
 
@@ -646,11 +669,33 @@ $(1,-10)$为拐点，代入：$y''\vert_{x=1}=6a+2b=0$，$y\vert_{x=1}=a+b+c+d=-
 
 当用于证明有且仅有一个实根时需要将零点定理和单调性一同使用。
 
-\textbf{例题：}
+\paragraph{罗尔定理} \leavevmode \medskip
 
-\subsubsection{罗尔原话}
+罗尔定理也可以用于求根的个数，算出来的是至少有多少个根。
 
-若$f^{(n)}(x)=0$至多有$k$个根，则$f(x)=0$至多有$k+n$个根。是罗尔定理的推论。
+\textbf{例题：}$f(x)=\ln\vert(x-1)(x-2)\cdots(x-n)\vert$，则求$f'(x)=0$根的个数。
+
+解：$\because f'(x)=\dfrac{[(x-1)(x-2)\cdots(x-n)]'}{(x-1)(x-2)\cdots(x-n)}=0$。
+
+令$g(x)=(x-1)(x-2)\cdots(x-n)$，所以求$f'(x)=0$即求$g'(x)=0$。
+
+又$g(x)=0$时$x=1,2\cdots,n$，所以依次对$(1,2)$、$(2,3)$、$\cdots$、$(n-1,n)$使用罗尔定理，其满足$g(x)$连续，可导且两端函数值$g(x)=0$，所以每个区间内必然存在一点$\xi$使得$g'(\xi)=0$，即满足$f'(x)=0$的根。
+
+而一共有$n-1$个区间，所以至少有$n-1$个根。
+
+而$g(x)$为$n$次多项式，$g'(x)$为$n-1$次多项式，所以至多有$n-1$个根。
+
+所以$f'(x)=0$只有$n-1$个根。
+
+\paragraph{罗尔原话} \leavevmode \medskip
+
+罗尔原话算出来的是至多有多少个根。
+
+\begin{itemize}
+    \item 罗尔原话是罗尔定理的推论。其区间为$I$。
+    \item 若$f^{(n)}(x)=0$至多有$k$个根，则$f(x)=0$至多有$k+n$个根。
+    \item 若$f^{(n)}(x)\neq0$，则$f(x)=0$至多有$n$个根。（令$k=0$）
+\end{itemize}
 
 即若$f(x)=0$至少有两个根，则$f'(x)$至少有一个根。一般证明$f(x)$至多有$k$个实根，就要求$f(x)$的$k$次导。
 
@@ -666,9 +711,9 @@ $(1,-10)$为拐点，代入：$y''\vert_{x=1}=6a+2b=0$，$y\vert_{x=1}=a+b+c+d=-
 
 $f(4)=-1$，$f(5)=6$，所以$(4,5)$内存在一个实根，从而一共与三个根。
 
-\subsubsection{实系数奇次方程}
+\paragraph{实系数奇次方程} \leavevmode \medskip
 
-实系数奇次方程至少有一个实根。即$x^{2n+1}+a_1x^{2n}+\cdots+a_{2n}x+a_{2n+1}=0$至少与一个实根。
+实系数奇次方程至少有一个实根。即$x^{2n+1}+a_1x^{2n}+\cdots+a_{2n}x+a_{2n+1}=0$至少有一个实根。
 
 这个判断法则往往要和罗尔原话一起使用确定是否有且仅有常数个实根。
 
@@ -686,7 +731,7 @@ $\therefore f'(x)$无实根，所以$t=x^2$解不出来，所以$f'(x)\neq0$。
 
 $f'(x)=0$至多0个根。所以根据罗尔原话$f(x)=0$至多一个根，又由上面至少一个根，所以只有一个根，选择$B$。
 
-\subsubsection{函数含参导数不含参}
+\paragraph{函数含参导数不含参} \leavevmode \medskip
 
 参数是一个加在式子上的常数，函数求导后参数就被消掉了，所以可以在计算过程中不考虑参数，等到了最后的结果再讨论参数。
 
@@ -700,7 +745,7 @@ $x\in(0,e)$，$f'(x)>0$，$f(x)\nearrow$，$x\in(e,+\infty)$，$f'(x)<0$，$f(x)
 
 又$f(e)=k>0$，$\lim\limits_{x\to0^+}f(x)=\lim\limits_{x\to0^+}(\ln x-\dfrac{x}{e}+k)=-\infty$，所以左边有一个根，$\lim\limits_{x\to+\infty}f(x)=\lim\limits_{x\to+\infty}(\ln x-\dfrac{x}{e}+k)=-\infty$，所以一共有两个根。
 
-\subsubsection{函数导数含参}
+\paragraph{函数导数含参} \leavevmode \medskip
 
 参数与自变量进行运算，从而求导后参数仍在式子中，计算时需要携带参数来思考。
 
